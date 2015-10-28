@@ -6,25 +6,152 @@
     <title>JSX</title>
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.rawgit.com/google/code-prettify/master/src/prettify.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/androidstudio.min.css" rel="stylesheet">
 
     <style>
+        body {
+            padding: 10px 25px;
+            border-radius: 0 !important;
+        }
+        pre, textarea {
+        	border: 1px solid silver;
+        	font-family: Consolas,monospace !important;
+        	font-size: 14px;
+        }
+        /*.row {
+        	margin-right: -15px;
+        	margin-left: -15px;
+        }
+        .row:before, .row:after {
+        	display: table;
+        	content: " ";
+        }
+        .row:after {
+        	clear: both;
+        }*/
+        .container {
+        	width: 90vw !important;
+        }
+        .editor > * {
+        	font-family: Inconsolata,Consolas,monospace !important;
+        	border: 1px solid silver;
+        	width: 50%;
+        	height: 768px !important;
+        }
+        .editor #jsx {
+        	margin-right: 3px;
+        	font-size: 13px;
+        }
+        .editor #js {
+        	padding: 15px 20px;
+        	width: 49.5%;
+        	font-size: 13px;
+        }
+        .error-text {
+        	font-family: Garamond;
+        	color: #A94442;
+        	font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
 
   <div class="page-header">
-    <h1>JSX Instant Transformation/h1>
+    <h1>JSX Instant Transformation</h1>
   </div>
   
   <div class="container">
-    <div>Content goes here</div>
+	<div id="ide">
+	</div>
+
+	<footer>
+		<hr />
+		<div class="text-right">Thanks to <a href="https://egghead.io">egghead.io</a> for teaching <a href="https://egghead.io/lessons/build-a-jsx-live-compiler?series=react-fundamentals">React Fundamentals</a>.</div>
+	</footer>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/javascript.min.js"></script> -->
   <script src="https://fb.me/react-0.12.2.js"></script>
   <script src="https://fb.me/JSXTransformer-0.12.2.js"></script>
   
-  <script type="text/jsx"></script>
+  <script type="text/jsx">
+  	var Compiler = React.createClass({
+  		getInitialState: function () {
+  			return {
+  				input: "",
+  				output: "",
+  				errors: ""
+  			};
+  		},
+  		componentDidMount: function () {
+  			hljs.configure({
+  				languages: [ "js" ]
+  			});
+  		},
+  		update: function  (event) {
+  			var code = event.target.value;
+  			var output = "";
+  			var error = "";
+
+  			try {
+  				output = JSXTransformer.transform(code).code;
+  				error = "";
+  			} catch (ex) {
+  				error = ex.message;
+  				//console.error("Compilation Error: " + error);
+  			}
+
+  			var state = {
+  				output: output,
+  				errors: error
+  			}
+
+  			var that = this;
+
+  			this.setState(state, function () {
+  				var errorPanel 	= that.refs.error_panel.getDOMNode();
+	  			var error 		= that.state.errors;
+	  			var noErrors 		= error == undefined || error == null || error.length == 0;
+	  			
+	  			errorPanel.style.visibility =  noErrors ? "hidden" : "visible";
+
+	  			if (noErrors) {
+	  				var outputPanel = that.refs.output_panel.getDOMNode();
+	  				hljs.highlightBlock(document.getElementById("js"));
+	  			}
+  			});
+  		},
+  		render: function () {
+  			var epStyle = {
+  				visibility: "hidden"
+  			};
+
+  			return (
+  				<div>
+  					<div className="row">
+  						<p className="alert1 alert-danger1 error-text"
+  							style={epStyle}
+  							ref="error_panel">&nbsp;{this.state.errors}</p>
+  					</div>
+  					<div className="row editor">
+  						<textarea id="jsx"
+  								name="jsx"
+  								defaultValue={this.state.input}
+  								className="col-sm-6 input-lg"
+  								onChange={this.update} />
+
+  						<pre id="js" className="col-sm-5 input-lg" ref="output_panel">{this.state.output}</pre>
+  					</div>
+  				</div>
+  			);
+  		}
+  	});
+
+  	React.render(<Compiler />, document.getElementById("ide"));
+  </script>
 </body>
 
 </html>
