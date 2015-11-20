@@ -1,5 +1,17 @@
 .page-header {
-   padding: 0 5% 0;
+   padding: 0 0 2% 5%;
+}
+
+.page-header > h1.title {
+	color: #e74c3c;
+	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+   margin-bottom: 20px;
+}
+
+.page-header > .tagline {
+   color: #333;
+   text-shadow: none;
+   font-family: fantasy;
 }
 
 pre, code, pre code {

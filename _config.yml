@@ -11,7 +11,8 @@ defaults:
     values:
       title: vivekragunathan.github.io
 
-description: Yay! Live on GitHub pages ....
+#description: Yay! Live on GitHub pages ....
+description: Another effective [debugging] technique is to explain your code to someone else. This will often cause you to explain the bug to yourself. Sometimes it takes no more than a few sentences, followed by an embarrassed "Never mind. I see what’s wrong. Sorry to bother you." This works remarkably well; you can even use non-programmers as listeners. – From "The Practice of Programming" by Brian W Kernighan &amp; Rob Pike.
 author:
   name: Vivek Ragunathan
   email: email@vivekragunathan.com
