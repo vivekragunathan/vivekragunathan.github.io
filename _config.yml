@@ -32,7 +32,7 @@ BASE_PATH:
 
 include:       ['_pages','_images']
 markdown:      redcarpet
-highlighter:   pygments
+#highlighter:   pygments
 redcarpet:
   extensions:  ['footnotes', 'smart', 'tables', 'with_toc_data']
 gems:          [jekyll-paginate]
