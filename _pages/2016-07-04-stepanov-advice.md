@@ -1,3 +1,12 @@
+---
+layout: page
+# TODO: Temporarily avoid display pages in the header
+#title:  "Some Page 001"
+date:   2016-07-04 23:33:00 -0800
+categories: pages
+parent_menu: Articles
+---
+
 # Advice to Young Programmers
 
 _This is the summary of speech given by **Alex Stepenov**, Principal Scientist, Adobe Systems, at Adobe India on 30 Nov 2004._
