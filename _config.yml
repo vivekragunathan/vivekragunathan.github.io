@@ -31,7 +31,8 @@ tags_path: tags.html
 BASE_PATH:
 
 include:       ['_pages','_images']
-markdown:      redcarpet
+#markdown:      redcarpet
+markdown:      kramdown
 #highlighter:   pygments
 redcarpet:
   extensions:  ['footnotes', 'smart', 'tables', 'with_toc_data']
