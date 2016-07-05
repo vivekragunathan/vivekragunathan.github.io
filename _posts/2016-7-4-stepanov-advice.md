@@ -1,6 +1,6 @@
 ---
 layout:        post
-title:         "Advice to Young Programmers by Alex Stepenov"
+#title:         "Advice to Young Programmers by Alex Stepenov"
 date:          2016-07-04 23:33:00 -0800
 categories:    posts
 description:   Summary of speech given by **Alex Stepenov** (Principal Scientist, Adobe Systems), at Adobe India on 30 Nov 2004
