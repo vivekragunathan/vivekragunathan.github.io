@@ -1,10 +1,11 @@
 ---
-layout: page
-# TODO: Temporarily avoid display pages in the header
-#title:  "Some Page 001"
-date:   2016-07-04 23:33:00 -0800
-categories: pages
-parent_menu: Articles
+layout:        post
+title:         "Advice to Young Programmers by Alex Stepenov"
+date:          2016-07-04 23:33:00 -0800
+categories:    posts
+description:   Summary of speech given by **Alex Stepenov**, Principal Scientist, Adobe Systems, at Adobe India on 30 Nov 2004
+fullview:      false
+comments:      true
 ---
 
 # Advice to Young Programmers
@@ -23,20 +24,20 @@ _This is the summary of speech given by **Alex Stepenov**, Principal Scientist, 
 
 - Here are few books which I would strongly recommend that every CS professional should read and understand.
 
-	- **Structure and Interpretation of Computer Programs** by Albenson and Sussman 
-	
+	- **Structure and Interpretation of Computer Programs** by Albenson and Sussman
+
 	  I personally donot like the material present in this book and I do have some objections about it but this is the best book I have ever seen which explains all the concepts in programming in a clear and excellent way. This book is available online at http://mitpress.mit.edu/sicp/
 
 	- **Introduction to Computer Architecture**: by Hennessy and Patterson.
-	
+
 	  How many of you have shipped the programs by writing them in assembly? A very good understanding of basics of how a computer operates is what every CS professional must have. H&P Wrote two books on CA. I am talking about their first book, the introductory text for understanding basic aspects of how a computer works. Even if you feel that you know whatever is written in that book, donot stop reading. It’s good to revise basics again and again.
 
 	- **Fundamentals of Programming** by Donald Knuth.
-	
+
 	  The core of CS is algorithms and Data structures. Every CS professional must have the 3 volumes of Knuth’s Book on programming. It really doesnot matter if you take 30 years of your life to understand what Knuth has written, what is more important is that you read atleast some part of that book everyday without fail.
 
-	- **Introduction to Algorithms** by Cormen, Leiserson and Rivest 
-	  
+	- **Introduction to Algorithms** by Cormen, Leiserson and Rivest
+
 	  This book should be read daily to keep your concepts fresh. This is the best book for fundamental concepts in algorithms.
 
 ## Learn Professional Ethics
