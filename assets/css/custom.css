@@ -53,3 +53,21 @@ article p {
 article .article_body, article.home > div.body/*, article.home > div.body p*/ {
    line-height: 1.8em;
 }
+
+.page-header > h1 {
+	font-family: fantasy;
+}
+
+h2 {
+	font-family: Georgia, sans-serif;
+	margin-bottom: 30px;
+}
+
+article .post-date {
+	color: blue;
+	float: right;
+}
+
+article .article_body {
+	float: left;
+}
