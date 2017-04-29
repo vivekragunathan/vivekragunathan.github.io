@@ -1,81 +1,63 @@
----
-layout: page
-tagline:
----
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-{% for post in paginator.posts %}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Home</title>
+	<link rel="stylesheet" href="assets/index.css">
+</head>
 
-<article class="home">
+<body class="chameleon-bg">
+	<div class="main-content">
+		<div class="profile-pic hvr-glow">
+			<!-- <img src="assets/profile.jpg" /> -->
+		</div>
 
-  <span class="post-date">
-    {% assign d = post.date | date: "%d" | plus:'0' %}
-    {{ post.date | date: "%B" }}
-    {% case d %}
-    {% when 1 or 21 or 31 %}{{ d }}st,
-    {% when 2 or 22 %}{{ d }}nd,
-    {% when 3 or 23 %}{{ d }}rd,
-    {% else %}{{ d }}th,
-    {% endcase %}
-    {{ post.date | date: "%Y" }}
-  </span>
+		<div class="profile-social-networks">
+			<div>
+				<a href="https://vivekragunathan.wordpress.com" title="https://vivekragunathan.wordpress.com">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</div>
+			<div>
+				<a href="https://github.com/vivekragunathan" title="https://github.com/vivekragunathan">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</div>
+			<div>
+				<a href="https://twitter.com/vivekragunathan" title="https://twitter.com/vivekragunathan">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</div>
+			<div>
+				<a href="https://linkedin.com/in/vivekragunathan" title="https://linkedin.com/in/vivekragunathan">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</div>
+			<div>
+				<a href="/resume" title="Resume">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
 
-  <h2 class="title">
-    <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-  </h2>
+	<script src="https://use.fontawesome.com/6ef5023776.js"></script>
+</body>
 
-  <div class="body">
-    {% if post.fullview %}
-    {{ post.content }}
-    {% else %}
-    {% if post.shortinfo %}
-    {{ post.shortinfo }}
-    {% elsif post.description %}
-    {{ post.description }}
-    {% else %}
-    {{ post.excerpt }}
-    {% endif %}
-    {% endif %}
-  </div>
-
-  {% if forloop.last != true %}
-  <div class="separator">
-     <hr />
-  </div>
-  {% endif %}
-
-</article>
-{% endfor %}
-
-<hr/>
-
-<ul class="pager">
-
-  {% if paginator.previous_page %}
-  <li class="previous">
-    {% if paginator.previous_page == 1 %}
-    <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
-    {% else %}
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
-    {% endif %}
-  </li>
-  {% else %}
-  <li class="previous disabled">
-    <a>&larr; Newer</a>
-  </li>
-  {% endif %}
-
-  <li>
-    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  </li>
-
-  {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
-  </li>
-  {% else %}
-  <li class="next disabled">
-    <a>Older &rarr;</a>
-  </li>
-  {% endif %}
-
-</ul>
+</html>
