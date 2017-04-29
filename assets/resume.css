@@ -1,0 +1,66 @@
+* {
+	font-family: Garamond, Lora, serif;
+	font-size: 17px;
+}
+
+.container {
+	max-width: 960px;
+}
+
+i.fa {
+	font-family: FontAwesome;
+}
+
+h1, h2 {
+	font-family: Limelight, Georgia, sans-serif !important;
+	text-align: center;
+}
+
+h4 {
+	/*background-color: #EEE;*/
+	/*padding: 5px 3px;*/
+	font-family: Georgia, sans-serif !important;
+	font-weight: bold;
+}
+
+hr {
+	border-top: 1px solid silver/* !important*/
+	;
+}
+
+a {
+	color: rgba(220, 20, 60, 1) !important;
+	text-decoration: none !important;
+	border-bottom: none !important;
+}
+
+a:hover {
+	background-color: rgba(220, 20, 60, 0.8);
+	color: snow !important;
+	border-radius: 3px;
+}
+
+ul>li {
+	margin-bottom: 5px;
+}
+
+.catalyst {
+	margin: 50px 5% 0 5%;
+	padding: 5px 25px;
+	font-family: monospace;
+	font-size: 65%;
+	border: 1px solid #DDD;
+}
+
+.contact-info {
+	font-size: 85%;
+	text-align: center;
+}
+
+.shrink {
+	font-size: 85%;
+}
+
+.align-right {
+	text-align: right;
+}
