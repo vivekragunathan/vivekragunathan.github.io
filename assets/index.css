@@ -1,0 +1,116 @@
+.hvr-underline-from-center {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+.hvr-underline-from-center:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 50%;
+	right: 50%;
+	bottom: 0;
+	background: #2098D1;
+	height: 4px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+	left: 0;
+	right: 0;
+}
+
+.profile-pic {
+	background-image: url("profile.jpg");
+	background-size: 100%;
+	width: 128px;
+	height: 128px;
+	cursor: pointer;
+	border-radius: 50%;
+	border: 1px solid gray;
+	padding: 5px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.main-content {
+	margin: 0 auto;
+	width: 70%;
+	height: 80vh;
+	/*border: 1px solid silver;*/
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+}
+
+.main-content>div {
+	margin-bottom: 15px;
+}
+
+.profile-social-networks {
+	display: flex;
+	justify-content: center;
+}
+
+.profile-social-networks>div {
+	margin: auto 15px;
+}
+
+.profile-social-networks a {
+	color: silver;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.profile-social-networks a:hover {
+	color: #5BC0DE;
+}
+
+.chameleon-bg {
+	/*animation: bgcolor-slider 10s linear infinite;*/
+	/*animation: bgcolor-slider 10s steps(20, end) 2s infinite;*/
+}
+
+@keyframes bgcolor-slider {
+	0%,
+	100% {
+		background-image: radial-gradient(silver, snow);
+	}
+	/*10% { background-image: radial-gradient(#648880, #293f50); }*/
+	20% {
+		background-image: radial-gradient(#2b5876, #4e4376);
+		animation-timing-function: ease-in;
+	}
+	/*30% { background-image: radial-gradient(#bdc3c7, #2c3e50); }*/
+	40% {
+		background-image: radial-gradient(#44A08D, #093637);
+	}
+	/*50% { background-image: radial-gradient(#6190E8, #A7BFE8); }*/
+	60% {
+		background-image: radial-gradient(#DD5E89, #F7BB97);
+		animation-timing-function: ease-in;
+	}
+	/*70% { background-image: radial-gradient(#603813, #b29f94); }*/
+	80% {
+		background-image: radial-gradient(#348F50, #56B4D3);
+	}
+	90% {
+		background-image: radial-gradient(#bdc3c7, #2c3e50);
+		animation-timing-function: ease-in;
+	}
+	/*90% { background-image: radial-gradient(#003973, #E5E5BE); }*/
+}
