@@ -1,2 +1,2 @@
-@[vivekragunathan.github.io](https://vivekragunathan.github.io)
 
+@<a href="https://vivekragunathan.github.io" target="__blank" style="font-family: monospace;">vivekragunathan.github.io</a>
