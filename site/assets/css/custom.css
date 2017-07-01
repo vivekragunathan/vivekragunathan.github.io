@@ -1,0 +1,72 @@
+.page-header {
+   padding: 0 0 2% 5%;
+}
+
+.page-header > h1.title {
+	color: #e74c3c;
+	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+   margin-bottom: 20px;
+}
+
+.page-header > h1.title a {
+   color: #F2756A;
+}
+
+.page-header > h1.title a:hover {
+   text-decoration: none;
+   text-shadow: none;
+}
+
+.page-header > .tagline {
+   color: #333;
+   text-shadow: none;
+   font-family: fantasy;
+}
+
+pre, code, pre code {
+   /*font-family: Menlo, Monaco, monospace;*/
+}
+
+div.highlight {
+   margin-bottom: 25px;
+}
+
+article > h2.title {
+   font-family: Georgia, sans-serif;
+   margin-bottom: 25px;
+}
+
+.separator {
+   margin-top: 75px;
+   margin-bottom: 75px;
+}
+
+/*article.home:not(:first-child) {
+   margin-top: 100px;
+   margin-bottom: 100px;
+}*/
+
+article p {
+   margin-bottom: 35px;
+}
+
+article .article_body, article.home > div.body/*, article.home > div.body p*/ {
+   line-height: 1.8em;
+}
+
+.page-header > h1 {
+	font-family: fantasy;
+}
+
+h2 {
+	font-family: Georgia, sans-serif;
+	margin-bottom: 30px;
+}
+
+article .post-date {
+	float: right;
+}
+
+article .article_body {
+	float: left;
+}

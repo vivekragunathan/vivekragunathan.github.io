@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="char-set" content="utf-8">
+    <title>JS Object Creation</title>
+
+    <style>
+    	body {
+    		padding: 10px 25px;
+    		font-size: 15px;
+    	}
+    	input[type=text], button {
+    		border: 1px solid silver;
+    	}
+    	.console {
+    		font-family: Inconsolata, Menlo, monospace;
+    		font-size: 13px;
+    	}
+    	.btn {
+    		padding: 7px 25px;
+    		font-size: 110%;
+    	}
+    	.btn-primary {
+    		background-color: #1055C1;
+    		color: snow;
+    	}
+    	.input-lg {
+    		padding: 7px 5px;
+    		font-size: 110%;
+    	}
+    </style>
+</head>
+
+<body>
+    <h1>JS Object Creation</h1>
+    <hr />
+    <div>
+    <input id="person" class="input-lg" type="text" value="Tom,56,CA" placeholder="Enter name,age,state ... " />
+    <button id="click-btn" class="btn btn-primary" type=button onclick="onClick()">Click</button>
+    </div>
+    <hr />
+    <pre id="console" class="console" />
+    <script>
+    var person = function(name, age, homeState) {
+        return {
+            name: name,
+            age: age,
+            homeState: homeState,
+            sayName: personMethods.sayName
+        };
+    }
+
+    var personMethods = {
+        sayName: function() {
+            alert(this.name);
+        }
+    }
+
+    function onClick(data) {
+        var value = document.getElementById("person").value;
+        var props = value.split(",");
+        var person = this.person(props[0], props[1], props[2]);
+        document.getElementById("console").innerHTML = JSON.stringify(person, null, 2);
+        person.sayName();
+    }
+    </script>
+</body>
+
+</html>

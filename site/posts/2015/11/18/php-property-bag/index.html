@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PHP Property Bag</title>
+	
+		<meta name="description" content="The ubiquitous and the universal data structure in PHP is the array. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code1 specifically when there is a need to interact with code that is not open for change; legacy or not.">
+	
+
+	<meta name="author" content="Vivek Ragunathan">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+	<link href="/assets/css/custom.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/vivekragunathan">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/vivekragunathan">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:email@vivekragunathan.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/">
+				<img src="http://www.gravatar.com/avatar/747cacf97e1f178ab5b16f1d853ef230?s=35" class="img-circle" />
+				
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/categories.html">Categories</a></li>
+				<li><a href="/tags.html">Tags</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 sidebar hidden-xs">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="http://www.gravatar.com/avatar/747cacf97e1f178ab5b16f1d853ef230?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/"></a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Yay! Live on GitHub pages ....
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/vivekragunathan">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/vivekragunathan">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:email@vivekragunathan.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://linkedin.com/in/vivekragunathan">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>PHP Property Bag </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   November 
+	   18th,
+	   
+	   2015
+	 </span>
+	  <div class="article_body">
+	  <head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.1/gist-embed.min.js"></script>
+</head>
+
+<p>The ubiquitous and the universal data structure in PHP is the array. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code1 specifically when there is a need to interact with code that is not open for change; legacy or not.</p>
+
+<p>JavaScript would allow you to access an object property either obj.propName or obj[“propName”]. That does come in handy for sure. Besides, accessing the property by [] tags is the only way if the property name contains characters like hyphen: obj[“prop-Name”]. At the user code level, it is fair to see an object as a bag of key-value pairs.</p>
+
+<p>Along the same lines, it is not wrong to expect the same in PHP between an object and an array; although there is a fundamental difference2. The expectation arises when there is a lot of code that generates array (as output), and a lot of code that expects object (as input), or vice versa. Either code would primarily be interested in the getting or setting the properties/keys than the intrinsic. For that matter, the reasoning behind why an array or object was chosen by the author of either code is outside the scope of this post.</p>
+
+<p>When the intent of the user code is to get/set the property or key, the syntax is just an inconvenience that gets in the way. Here is how one would access a property, or key precisely, of an array:</p>
+
+<p><code class="highlighter-rouge">$arr["key"]</code> or <code class="highlighter-rouge">$arr[$key]</code></p>
+
+<p>Here is how one would access a property of an object:</p>
+
+<p><code class="highlighter-rouge">$obj-&gt;key</code> or <code class="highlighter-rouge">$obj-&gt;$key</code></p>
+
+<p>To cope with the impedance mismatch between the code that generates an array and the code that expects an object (or vice versa), one is cast into another:</p>
+
+<p><code class="highlighter-rouge">$obj = (object) $arr;</code> or <code class="highlighter-rouge">$arr = (array) $obj;</code></p>
+
+<p>Of course, such casting has documented limitations. The restrictions would still apply to any solution trying to address the impedance mismatch problem.</p>
+
+<p>In PHP, arrays are a bit funny to deal with. If one has programmed in other managed environments, it is evident that arrays are reference types. In PHP, arrays are value types; or sort of2. In other words, when you assign an array $a to $b, then $a is copied to $b. It makes perfect sense if one wants to make a copy of the array. If the array needs to be passed over several functions for read only or update purposes, it does not make sense to make copies over and over. We can reference the array:</p>
+
+<p><code class="highlighter-rouge">$b =&amp; $a;</code></p>
+
+<p>An object in PHP – an instance of a class or <code class="highlighter-rouge">stdClass</code>, on the other hand, is a reference type (Thank God :)). Here the point is to avoid unnecessary copies of arrays and objects (created when casting from an array) that are created for merely accessing the properties.</p>
+
+<p>That’s where <code class="highlighter-rouge">PropertyBag</code> comes to the rescue. <code class="highlighter-rouge">PropertyBag</code> is an extremely useful class that can wrap over an object or an array (without creating a copy) or even create one from scratch, and make it possible to access the properties, or keys, either as an array or as an object, depending on the user code. Wherever one would return an array (or an object), an instance of <code class="highlighter-rouge">PropertyBag</code> could be returned without the need to change the code that consumes this return value. The caveat here is the consumer code does not make explicit type checks or something of the sort. You can grab your copy of <code class="highlighter-rouge">PropertyBag</code> from github:php-savers or read the excerpt of the class here below.</p>
+
+<p><code class="highlighter-rouge">PropertyBag</code> primarily helps to work with array or objects seamlessly, using either the array or the object syntax to access the properties. It also helps avoid creating copies of array when it is passed across functions2.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?</span>
+    <span class="k">abstract</span> <span class="k">class</span> <span class="nc">PropertyBag</span> <span class="k">implements</span> <span class="nx">ArrayAccess</span> <span class="p">{</span>
+        <span class="k">protected</span> <span class="nv">$_store</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">protected</span> <span class="nv">$_readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="k">protected</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$source</span><span class="p">,</span> <span class="nv">$readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">fromArray</span><span class="p">(</span><span class="k">array</span> <span class="o">&amp;</span><span class="nv">$source</span><span class="p">,</span> <span class="nv">$readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">fromObject</span><span class="p">(</span><span class="nv">$source</span><span class="p">,</span> <span class="nv">$readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">isReadOnly</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">class</span> <span class="nc">ArrayBasedPropertyBag</span> <span class="k">extends</span> <span class="nx">PropertyBag</span> <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="k">array</span> <span class="o">&amp;</span><span class="nv">$source</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nv">$readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+
+        <span class="c1">#region ArrayAccess Interface Implementation
+</span>        <span class="o">...</span>
+        <span class="c1">#endregion
+</span>    <span class="p">}</span>
+
+    <span class="k">class</span> <span class="nc">ObjectBasedPropertyBag</span> <span class="k">extends</span> <span class="nx">PropertyBag</span> <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$source</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nv">$readOnly</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+
+        <span class="c1">#region ArrayAccess Interface Implementation
+</span>        <span class="o">...</span>
+        <span class="c1">#endregion
+</span>    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Appendix</strong></p>
+
+<ol>
+  <li>
+    <p>The code that I am working on is massive and consists of code several years old, a few years in the past and newly written. One can see the characteristics of the code change among the code from different periods. The newly written code, I believe is written with a great level of consciousness and awareness, interacts with old code (give and take) passing in or taking arrays or objects. In no case, the old code could be changed to adapt what the new code is expecting or returning. Besides, the new code attempts its best to avoid copies of entities by leaning on object types whenever there is a chance instead of plain arrays. So there was an inherent need to build/work with something, an intelligent entity, that would bridge the gap among the code from different periods. The friction here was primarily the syntax difference in accessing the data rather than the intrinsic or nature of the data structure. Hence <code class="highlighter-rouge">PropertyBag</code>.</p>
+  </li>
+  <li>
+    <p>Arrays in PHP are inherently value types but they disguise as reference types until a write is attempted. That means, array variables when passed across functions tend to avoid copies but the moment it is tampered (or written to), a copy of the array is made; copy-on-write. In most cases, a copy is not what is required. Instead the original array is intended to be updated. In cases where a copy is intended, making it explicit via clone mechanism is a good practice. <code class="highlighter-rouge">PropertyBag</code> will avoid copies of the array, and will also be able to hand out a copy when required through the toArray method.</p>
+  </li>
+</ol>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#posts-ref">
+					posts <span>(4)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=PHP Property Bag&via=vivekragunathan"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="http://www.gravatar.com/avatar/747cacf97e1f178ab5b16f1d853ef230" class="img-rounded author-image" />
+        <h4 class="section-title author-name">Vivek Ragunathan</h4>
+        <p class="author-bio">Yay! Live on GitHub pages ....</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/posts/2015/10/10/curious-case-of-anonymous-delegates/" title="Curious Case of Anonymous Delegates">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/jekyll/update/2015/11/19/welcome-to-jekyll/" title="Welcome to Jekyll!">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Vivek Ragunathan with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
+
+
