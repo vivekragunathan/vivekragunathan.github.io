@@ -1,0 +1,41 @@
+exclude: ["README.md"] # files to exclude
+disqus:
+google_analytics:
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: vivekragunathan.github.io
+
+description: Another effective [debugging] technique is to explain your code to someone else. This will often cause you to explain the bug to yourself. Sometimes it takes no more than a few sentences, followed by an embarrassed "Never mind. I see what’s wrong. Sorry to bother you." This works remarkably well; you can even use non-programmers as listeners. – From "The Practice of Programming" by Brian W Kernighan &amp; Rob Pike.
+author:
+  name: Vivek Ragunathan
+  email: email@vivekragunathan.com
+  github: vivekragunathan
+  twitter: vivekragunathan
+  pinterest:
+  linkedin: vivekragunathan
+  bio: https://vivekragunathan.wordpress.com
+  #email_md5: 747cacf97e1f178ab5b16f1d853ef230
+  #726351295ec82e145928582f595aa3aa
+
+#rss_path: feed.xml
+#categories_path: categories.html
+#tags_path: tags.html
+
+BASE_PATH:
+
+#include:       ['_pages','_images']
+markdown:      kramdown
+#highlighter:   pygments
+redcarpet:
+  extensions:  ['footnotes', 'smart', 'tables', 'with_toc_data']
+gems:          [jekyll-paginate]
+permalink:     pretty
+paginate:      5     # pagination based on number of posts
+paginate_path: "page:num"
+
+sass:
+  compressed: true
