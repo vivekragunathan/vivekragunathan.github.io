@@ -1,3 +1,6 @@
+.DS_Store
+bak/
+
 _site
 .sass-cache
 .jekyll-metadata
