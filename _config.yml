@@ -39,3 +39,5 @@ paginate_path: "page:num"
 
 sass:
   compressed: true
+
+theme: jekyll-theme-cayman
