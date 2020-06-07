@@ -1,71 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+---
+layout: default
+---
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Home</title>
-	<link rel="stylesheet" href="assets/index.css">
-</head>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-<body class="chameleon-bg">
-	<div class="main-content">
-		<div class="profile-pic hvr-glow">
-			<!-- <img src="assets/profile.jpg" /> -->
-		</div>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-		<div class="profile-social-networks">
-			<div>
-				<a href="https://vivekragunathan.wordpress.com" title="https://vivekragunathan.wordpress.com">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-			<div>
-				<a href="https://github.com/vivekragunathan" title="https://github.com/vivekragunathan">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-			<div>
-				<a href="https://twitter.com/vivekragunathan" title="https://twitter.com/vivekragunathan">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-			<div>
-				<a href="https://linkedin.com/in/vivekragunathan" title="https://linkedin.com/in/vivekragunathan">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-			<div>
-				<a href="https://lightspreserved.wordpress.com" title="Lights Preserved">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-			<div>
-				<a href="https://vivekragunathan.wordpress.com/profile/" title="Resume">
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle fa-stack-2x"></i>
-					  <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			</div>
-		</div>
-	</div>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
-	<script src="https://use.fontawesome.com/6ef5023776.js"></script>
-</body>
-
-</html>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
