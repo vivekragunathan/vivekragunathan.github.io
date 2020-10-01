@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/categories/</link>
+    <description>Recent content in Categories on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Dec 2016 09:18:37 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programming</title>
+      <link>https://okforanything.github.io/categories/programming/</link>
+      <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uncategorized</title>
+      <link>https://okforanything.github.io/categories/uncategorized/</link>
+      <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/uncategorized/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.NET</title>
+      <link>https://okforanything.github.io/categories/.net/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algos and Puzzles</title>
+      <link>https://okforanything.github.io/categories/algos-and-puzzles/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/algos-and-puzzles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>https://okforanything.github.io/categories/c#/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Design</title>
+      <link>https://okforanything.github.io/categories/software-design/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/software-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Architecture</title>
+      <link>https://okforanything.github.io/categories/software-architecture/</link>
+      <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/software-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://okforanything.github.io/categories/java/</link>
+      <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computers and Internet</title>
+      <link>https://okforanything.github.io/categories/computers-and-internet/</link>
+      <pubDate>Sun, 29 May 2016 07:49:39 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/computers-and-internet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LINQ</title>
+      <link>https://okforanything.github.io/categories/linq/</link>
+      <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/linq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://okforanything.github.io/categories/c&#43;&#43;/</link>
+      <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unmanaged</title>
+      <link>https://okforanything.github.io/categories/unmanaged/</link>
+      <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/unmanaged/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CLR</title>
+      <link>https://okforanything.github.io/categories/clr/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/clr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CodeProject</title>
+      <link>https://okforanything.github.io/categories/codeproject/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/codeproject/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WinForms</title>
+      <link>https://okforanything.github.io/categories/winforms/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/winforms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://okforanything.github.io/categories/php/</link>
+      <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://okforanything.github.io/categories/javascript/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://okforanything.github.io/categories/android/</link>
+      <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jqGrid</title>
+      <link>https://okforanything.github.io/categories/jqgrid/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/jqgrid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://okforanything.github.io/categories/jquery/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mobile</title>
+      <link>https://okforanything.github.io/categories/mobile/</link>
+      <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows Phone</title>
+      <link>https://okforanything.github.io/categories/windows-phone/</link>
+      <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/windows-phone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COM</title>
+      <link>https://okforanything.github.io/categories/com/</link>
+      <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/com/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;/CLI</title>
+      <link>https://okforanything.github.io/categories/c&#43;&#43;/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/categories/c&#43;&#43;/cli/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

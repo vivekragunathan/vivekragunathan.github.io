@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>finally on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/finally/</link>
+    <description>Recent content in finally on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Jul 2009 21:07:00 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/finally/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>finally and Return Values !!!</title>
+      <link>https://okforanything.github.io/2009/07/02/finally-and-return-values/</link>
+      <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2009/07/02/finally-and-return-values/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

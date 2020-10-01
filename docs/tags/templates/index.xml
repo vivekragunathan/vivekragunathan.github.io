@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Templates on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/templates/</link>
+    <description>Recent content in Templates on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Apr 2010 07:39:00 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/templates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quiz – (Journey through templates, SFINAE and specialization) !!!</title>
+      <link>https://okforanything.github.io/2010/04/10/sfinae/</link>
+      <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2010/04/10/sfinae/</guid>
+      <description>Part 1: Non-member Functions Part 2 – Member Functions </description>
+    </item>
+    
+  </channel>
+</rss>

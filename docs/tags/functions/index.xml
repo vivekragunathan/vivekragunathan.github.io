@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>functions on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/functions/</link>
+    <description>Recent content in functions on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overloading vs Variable Arguments !!!</title>
+      <link>https://okforanything.github.io/2014/05/29/overloading-and-varargs/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2014/05/29/overloading-and-varargs/</guid>
+      <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

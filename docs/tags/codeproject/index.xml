@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>codeproject on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/codeproject/</link>
+    <description>Recent content in codeproject on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/codeproject/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
+      <link>https://okforanything.github.io/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
+      <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
+    </item>
+    
+    <item>
+      <title>Missing MI !!!</title>
+      <link>https://okforanything.github.io/2010/03/05/missing-mi/</link>
+      <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2010/03/05/missing-mi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>finally and Return Values !!!</title>
+      <link>https://okforanything.github.io/2009/07/02/finally-and-return-values/</link>
+      <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2009/07/02/finally-and-return-values/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

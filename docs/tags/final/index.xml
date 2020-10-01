@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>final on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/final/</link>
+    <description>Recent content in final on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Oct 2015 08:13:30 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/final/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>final, const and beyond</title>
+      <link>https://okforanything.github.io/2015/10/13/final-const-beyond/</link>
+      <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2015/10/13/final-const-beyond/</guid>
+      <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
+&lt;p&gt;[code lang=java]&lt;/p&gt;
+&lt;p&gt;public String someGibberishMethod() {&lt;/p&gt;
+&lt;p&gt;int length = someMethodReturningLength();&lt;/p&gt;
+&lt;p&gt;int sum = 0;&lt;/p&gt;
+&lt;p&gt;for (int index = 0; index &amp;lt; length; ++index) {&lt;/p&gt;
+&lt;p&gt;// some code that updates the sum variable&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;SomeClass someClass = new SomeClass(sum);&lt;/p&gt;
+&lt;p&gt;int sumValueInsideSomeClass = someClass.getSumValue();&lt;/p&gt;
+&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
+&lt;p&gt;String someText = someClass.doSomeOperation(/*some parameters*/);&lt;/p&gt;
+&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
+&lt;p&gt;return someText;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;[/code]&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

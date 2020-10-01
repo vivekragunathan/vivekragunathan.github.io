@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clean code on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/clean-code/</link>
+    <description>Recent content in clean code on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Nov 2016 06:04:46 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/clean-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Importance of Semantics</title>
+      <link>https://okforanything.github.io/2016/11/07/semantics/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2016/11/07/semantics/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;1&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;
+&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;
+&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)
+&lt;ul&gt;
+&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;
+&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;
+&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Clean Code</title>
+      <link>https://okforanything.github.io/2014/05/23/clean-code/</link>
+      <pubDate>Fri, 23 May 2014 01:31:21 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2014/05/23/clean-code/</guid>
+      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;https://vivekragunathan.wordpress.com/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

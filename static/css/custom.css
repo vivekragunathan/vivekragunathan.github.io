@@ -1,0 +1,37 @@
+article.post h1.post-title {
+  font-size: 1.8rem !important;
+}
+
+.post-date {
+	font-size: 14px;
+}
+
+.read-more-link a:hover {
+	background-color: #132644;
+	color: snow;
+}
+
+.social-icons a {
+	margin-right: 15px;
+}
+
+.content.container .posts .post {
+	border: 1px solid silver;
+	padding: 45px 25px;
+	box-shadow: 0 20px 50px rgba(0,0,0,0.2); /*rgba(240, 46, 170, 0.7);*/
+}
+
+.content.container .posts .post:hover {
+	box-shadow:  10px 10px 15px 5px;
+}
+
+.post pre code {
+	width: 60vw;
+	font-family: Menlo, monospace;
+	font-size: 15px;
+}
+
+ul.sidebar-nav li {
+	display: inline;
+	margin-right: 10px;
+}

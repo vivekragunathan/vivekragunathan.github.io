@@ -1,0 +1,85 @@
+title = "A Developer's Experience"
+theme = "soho"
+publishDir = "docs/"
+
+baseURL = "https://okforanything.github.io"
+languageCode = "en"
+enableInlineShortcodes = true
+
+summarylength = 10
+enableEmoji = true
+
+[params]
+  author = "Devex"
+  description = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
+  about = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
+	profilePicture = "images/profile.png" # (or) gravatar = "soho@example.com"
+	copyright = "Theme by [Soho](www.google.com)"
+
+  github = "example"
+  facebook = "example"
+  twitter = "example"
+  misskey = "user profile url"
+  mastodon = "user profile url"
+  email = "example@domain.com"
+  utterances = "example/example.github.io"
+  avatar = "/images/profile.png"
+  url = "https://example.com"
+  keywords = "blog, google analytics"
+
+	license = "CC BY-SA 4.0"
+	licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+
+	## Set custom theme color.
+	# themeColor = "#fc2803"
+
+	## Set custom CSS and/or JS to override site defaults.
+	customCss = ["css/custom.css"]
+	# customJs = ["js/blog.js"]
+
+	  ## Set as many as you want.
+	  [[params.socialIcons]]
+	  icon = "fa-linkedin"
+	  title = "Linkedin"
+	  url = "#"
+
+	  [[params.socialIcons]]
+	  icon = "fa-github"
+	  title = "GitHub"
+	  url = "#"
+
+	  [[params.socialIcons]]
+	  icon = "fa-twitter"
+	  title = "Twitter"
+	  url = "#"
+
+[menu]
+
+  [[menu.main]]
+  name = "Posts"
+  weight = 100
+  identifier = "posts"
+  url = "/post/"
+
+  [[menu.main]]
+  name = "About"
+  identifier = "about"
+  weight = 300
+  url = "/about/"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[markup]
+  [markup.highlight]
+  codeFences = true
+  guessSyntax = false
+  hl_Lines = ""
+  lineNoStart = 1
+  lineNos = false
+  lineNumbersInTable = true
+  noClasses = false # if false, you need to provide you own custom CSS
+  style = "zenburn"
+  tabWidth = 2

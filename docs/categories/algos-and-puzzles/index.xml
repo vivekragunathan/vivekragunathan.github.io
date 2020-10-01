@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algos and Puzzles on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/categories/algos-and-puzzles/</link>
+    <description>Recent content in Algos and Puzzles on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/categories/algos-and-puzzles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Reduction</title>
+      <link>https://okforanything.github.io/2016/12/10/problem-reduction/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2016/12/10/problem-reduction/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
+&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Selective Combinations</title>
+      <link>https://okforanything.github.io/2016/05/16/resource-combinations/</link>
+      <pubDate>Mon, 16 May 2016 07:00:08 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2016/05/16/resource-combinations/</guid>
+      <description>&lt;p&gt;Consider this scenario:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So that would be as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;abc def ghi
+
+abc def
+
+abc ghi
+
+abc
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linked List Quiz – Part II !!!</title>
+      <link>https://okforanything.github.io/2012/11/01/linked-list-quiz-part-ii/</link>
+      <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/11/01/linked-list-quiz-part-ii/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linked List Quiz – Part I !!!</title>
+      <link>https://okforanything.github.io/2012/06/18/linked-list-quiz-part-i/</link>
+      <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/06/18/linked-list-quiz-part-i/</guid>
+      <description>&lt;p&gt;A short while back, &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; quizzed me on linked list based problems; singly linked list.&lt;/p&gt;
+&lt;p&gt;I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A &lt;code&gt;std::list&lt;/code&gt; might more pertinent in the context of the general purpose implementation of a list.&lt;/p&gt;
+&lt;p&gt;Here are some of the problems that &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; asked me to solve:-&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reverse the list recursively&lt;/li&gt;
+&lt;li&gt;Reverse the list iteratively&lt;/li&gt;
+&lt;li&gt;Find if the list is cyclic&lt;/li&gt;
+&lt;li&gt;Find the node that causes the cycle (and break the cycle)&lt;/li&gt;
+&lt;li&gt;Reverse every K nodes in the list&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Unique Id Generation !!!</title>
+      <link>https://okforanything.github.io/2012/03/09/uidgen/</link>
+      <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/03/09/uidgen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quiz: Beauty of Numbers !!!</title>
+      <link>https://okforanything.github.io/2011/07/02/quiz-beauty-of-numbers/</link>
+      <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2011/07/02/quiz-beauty-of-numbers/</guid>
+      <description>Sriram quizzed:
+ Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
+    </item>
+    
+  </channel>
+</rss>

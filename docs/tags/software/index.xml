@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software on A Developer&#39;s Experience</title>
+    <link>https://okforanything.github.io/tags/software/</link>
+    <description>Recent content in software on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Apr 2012 18:35:56 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sms FireWall Update !!!</title>
+      <link>https://okforanything.github.io/2012/04/24/smsfwupdate/</link>
+      <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/04/24/smsfwupdate/</guid>
+      <description>&amp;lt;div style=&amp;quot;font-family:Tahoma;font-size:11pt;&amp;quot;&amp;gt; Hope they are useful to others too. And let me know if you need any other features to be in the application.</description>
+    </item>
+    
+    <item>
+      <title>Unique Id Generation !!!</title>
+      <link>https://okforanything.github.io/2012/03/09/uidgen/</link>
+      <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/03/09/uidgen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sms FireWall !!!</title>
+      <link>https://okforanything.github.io/2012/03/09/smsfirewall/</link>
+      <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
+      
+      <guid>https://okforanything.github.io/2012/03/09/smsfirewall/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
