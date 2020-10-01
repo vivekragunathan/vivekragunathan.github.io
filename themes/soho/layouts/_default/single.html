@@ -1,6 +1,13 @@
 {{ define "main" -}}
 <div class="post">
+  <div class="image featured">
+  	{{ if isset .Params "featured_image" }}
+  		<img src="{{ index .Params "featured_image" }}">
+  	{{ end }}
+	</div>
+
   <h1>{{ .Title }}</h1>
+
 
   {{ if ne .Type "page" -}}
   <div class="post-date">

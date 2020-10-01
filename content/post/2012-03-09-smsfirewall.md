@@ -31,19 +31,19 @@ tags:
   <figure class='gallery-item'> 
   
   <div class='gallery-icon portrait'>
-    <a href='http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_qvault.png'><img width="150" height="150" src="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_qvault-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_qvault-150x150.png 150w, http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_qvault-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+    <a href='images//2012/03/sf_qvault.png'><img width="150" height="150" src="images//2012/03/sf_qvault-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="images//2012/03/sf_qvault-150x150.png 150w, images//2012/03/sf_qvault-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
   </div></figure><figure class='gallery-item'> 
   
   <div class='gallery-icon portrait'>
-    <a href='http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_settings.png'><img width="150" height="150" src="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_settings-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_settings-150x150.png 150w, http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_settings-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+    <a href='images//2012/03/sf_settings.png'><img width="150" height="150" src="images//2012/03/sf_settings-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="images//2012/03/sf_settings-150x150.png 150w, images//2012/03/sf_settings-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
   </div></figure><figure class='gallery-item'> 
   
   <div class='gallery-icon portrait'>
-    <a href='http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_messages.png'><img width="150" height="150" src="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_messages-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_messages-150x150.png 150w, http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_messages-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+    <a href='images//2012/03/sf_messages.png'><img width="150" height="150" src="images//2012/03/sf_messages-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="images//2012/03/sf_messages-150x150.png 150w, images//2012/03/sf_messages-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
   </div></figure><figure class='gallery-item'> 
   
   <div class='gallery-icon portrait'>
-    <a href='http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_allowed_original.png'><img width="150" height="150" src="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_allowed_original-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_allowed_original-150x150.png 150w, http://localhost:9010/wordpress/wp-content/uploads/2012/03/sf_allowed_original-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+    <a href='images//2012/03/sf_allowed_original.png'><img width="150" height="150" src="images//2012/03/sf_allowed_original-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" srcset="images//2012/03/sf_allowed_original-150x150.png 150w, images//2012/03/sf_allowed_original-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
   </div></figure>
 </div>
 

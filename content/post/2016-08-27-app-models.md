@@ -4,7 +4,7 @@ author: vivekragunathan
 layout: post
 date: 2016-08-27T15:50:31+00:00
 url: /2016/08/27/app-models/
-image: /images/posts/app-models-cover.jpg
+featured_image: /images/2016/08/app-models.jpg
 categories:
   - Software Architecture
   - Software Design
@@ -16,7 +16,7 @@ tags:
   - patterns
 
 ---
-A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &#8211; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.
+A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application -- the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.
 
 <!--more-->
 

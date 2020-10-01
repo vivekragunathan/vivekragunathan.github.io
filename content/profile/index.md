@@ -147,7 +147,7 @@ Bachelor of Engineering (Electrical & Electronics) – 1997 &#8211; 2001,
  [1]: http://vivekragunathan.wordpress.com
  [2]: http://rhetoricmusings.wordpress.com
  [3]: http://lightspreserved.wordpress.com
- [4]: http://localhost:9010/wordpress/wp-content/uploads/2016/01/link16x16.png
+ [4]: images//2016/01/link16x16.png
  [5]: http://www.leanpub.com/cppcliprimer
  [6]: http://www.codeproject.com/Articles/42163/Please-Don-t-Fail-Me-Decorator-Cries-Out-to-Templ
  [7]: http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C

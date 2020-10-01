@@ -4,7 +4,7 @@ author: vivekragunathan
 layout: post
 date: 2016-12-11T09:18:37+00:00
 url: /2016/12/11/cppcli-apress/
-image: /images/posts/cppcli_apress_cover.png
+featured_image: /images/2016/12/cppcli_apress.png
 categories:
   - Programming
   - Uncategorized

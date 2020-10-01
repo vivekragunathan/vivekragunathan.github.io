@@ -38,7 +38,7 @@ Such an attempt &#8211; programming in C# on Androis, is really a wondrous thing
 
 Try it out (the trial one or the full version if you are rich), at least for fun!
 
- [1]: http://www.xamarin.com/
- [2]: http://android.xamarin.com/Installation/Visual_Studio
- [3]: http://localhost:9010/wordpress/wp-content/uploads/2011/08/mono4android.gif?w=1320
- [4]: http://localhost:9010/wordpress/wp-content/uploads/2011/08/activity.gif?w=1294
+[^1]: http://www.xamarin.com/
+[^2]: http://android.xamarin.com/Installation/Visual_Studio
+[^3]: images//2011/08/mono4android.gif?w=1320
+[^4]: images//2011/08/activity.gif?w=1294

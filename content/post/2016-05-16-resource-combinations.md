@@ -7,7 +7,6 @@ url: /2016/05/16/resource-combinations/
 categories:
   - Algos and Puzzles
   - Uncategorized
-
 ---
 Consider this scenario:
 
@@ -59,11 +58,8 @@ A slightly better way is to have a predefined ordered set of strings that repres
   
 private static final String[] resourceSelectionPatterns = { 
 	"{p1}\_{p2}\_{loc}",
-
 	"{p1}_{p2}",
-
 	"{p1}_{loc}",
-
 	"{p1}"
 };
 

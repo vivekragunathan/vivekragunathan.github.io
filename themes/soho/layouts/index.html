@@ -5,6 +5,13 @@
 
     {{ range $paginator.Pages }}
       <article class="post">
+
+        {{ if isset .Params "featured_image" }}
+        <div class="image featured">
+            <img src="{{ index .Params "featured_image" }}">
+        </div>
+        {{ end }}
+
         <h1 class="post-title">
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h1>

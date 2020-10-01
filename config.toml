@@ -62,6 +62,18 @@ enableEmoji = true
   url = "/post/"
 
   [[menu.main]]
+  name = "Pages"
+  weight = 200
+  identifier = "pages"
+  url = "/pages"
+
+  [[menu.main]]
+  name = "Qs"
+  weight = 300
+  identifier = "quotes"
+  url = "/quotations"
+
+  [[menu.main]]
   name = "About"
   identifier = "about"
   weight = 300
@@ -73,6 +85,9 @@ enableEmoji = true
   tag = "tags"
 
 [markup]
+  [markup.goldmark.renderer]
+  unsafe= true
+
   [markup.highlight]
   codeFences = true
   guessSyntax = false
@@ -83,3 +98,8 @@ enableEmoji = true
   noClasses = false # if false, you need to provide you own custom CSS
   style = "zenburn"
   tabWidth = 2
+
+  [markup.tableOfContents]
+  endLevel = 3
+  ordered = false
+  startLevel = 2

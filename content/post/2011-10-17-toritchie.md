@@ -14,7 +14,7 @@ categories:
 <table cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td>
-      <a href="http://localhost:9010/wordpress/wp-content/uploads/2011/10/dennisritchie.jpg"><img class="aligncenter" src="http://localhost:9010/wordpress/wp-content/uploads/2011/10/dennisritchie.jpg?w=231" alt="" width="247" height="320" border="0" /></a>
+      <a href="images//2011/10/dennisritchie.jpg"><img class="aligncenter" src="images//2011/10/dennisritchie.jpg?w=231" alt="" width="247" height="320" border="0" /></a>
     </td>
   </tr>
   
