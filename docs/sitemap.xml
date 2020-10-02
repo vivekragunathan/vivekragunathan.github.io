@@ -53,6 +53,26 @@
   </url>
   
   <url>
+    <loc>/2019/02/19/purge-node-npm/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/02/18/ramble-error-handling/</loc>
+    <lastmod>2018-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/02/18/js-in-cs-immutability/</loc>
+    <lastmod>2018-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2017/12/106/facets-of-mmutability/</loc>
+    <lastmod>2017-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/pages/lo-and-behold/</loc>
     <lastmod>2017-03-16T00:00:00+00:00</lastmod>
   </url>

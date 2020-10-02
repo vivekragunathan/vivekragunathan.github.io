@@ -78,6 +78,44 @@
     </item>
     
     <item>
+      <title>Non-FP to FP Conversion Caveat</title>
+      <link>/2019/02/19/purge-node-npm/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/19/purge-node-npm/</guid>
+      <description>&lt;p&gt;If you haven&amp;rsquo;t found a use for this script that uninstalls the second largest junk in the world next to Mac/iOS updates, you are either lazy or scared of breaking things.  I am neither, so I polished this &lt;a href=&#34;https://gist.github.com/VivekRagunathan/15c8b3b408c8015683a8d5fcf97cbf2f&#34;&gt;script&lt;/a&gt; from the different versions you will find on the internet. Oh, I am talking about node/npm.&lt;/p&gt;
+&lt;p&gt;Happy cleaning!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Rambling on Error Handling</title>
+      <link>/2018/02/18/ramble-error-handling/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/18/ramble-error-handling/</guid>
+      <description>&lt;p&gt;In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say &lt;strong&gt;An error occurred&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JS Programming in C# - Immutability</title>
+      <link>/2018/02/18/js-in-cs-immutability/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/18/js-in-cs-immutability/</guid>
+      <description>Enough! JavaScript had us in its grip for long with its foot guns.</description>
+    </item>
+    
+    <item>
+      <title>Facets of Immutability</title>
+      <link>/2017/12/106/facets-of-mmutability/</link>
+      <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/106/facets-of-mmutability/</guid>
+      <description>&lt;p&gt;Immutability, the cornerstone of functional programming, has many facets.&lt;/p&gt;
+&lt;p&gt;Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&amp;rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
       <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
