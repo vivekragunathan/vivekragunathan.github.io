@@ -15,7 +15,7 @@
 <meta itemprop="description" content="In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in trolling1 rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.">
 <meta itemprop="datePublished" content="2016-04-01T22:50:19+00:00" />
 <meta itemprop="dateModified" content="2016-04-01T22:50:19+00:00" />
-<meta itemprop="wordCount" content="1677">
+<meta itemprop="wordCount" content="1868">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="JINQ" />
 <meta property="og:description" content="In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in trolling1 rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2016/04/02/jinq/" />
+<meta property="og:url" content="/2016/04/02/jinq/" />
 <meta property="article:published_time" content="2016-04-01T22:50:19+00:00" />
 <meta property="article:modified_time" content="2016-04-01T22:50:19+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,14 +132,21 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+  		<img src="/images/2016/04/bjarne_cppcon2014.jpg">
+  	
+	</div>
+
   <h1>JINQ</h1>
 
+
   <div class="post-date">
-    <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 8 min read
+    <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 9 min read
   </div>
 
-  <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
-<p>It doesn’t matter if you are modifying the code or just educating yourself. But having blocks of code that do not account for their size, clarity, or lack thereof, and intent<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted --> is just unwanted fat in the system. With business applications, especially pillared and sustained with legacy code, it has become a defining characteristic of large sized applications – large bulky and ugly code. Just like <a href="http://c2.com/cgi/wiki?JonBentley">Jon Bentley</a> once said.</p>
+  <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><sup id="fnref-1399-1"><a href="#fn-1399-1">1</a></sup> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
+<p>It doesn’t matter if you are modifying the code or just educating yourself. But having blocks of code that do not account for their size, clarity, or lack thereof, and intent<sup id="fnref-1399-2"><a href="#fn-1399-2">2</a></sup> is just unwanted fat in the system. With business applications, especially pillared and sustained with legacy code, it has become a defining characteristic of large sized applications – large bulky and ugly code. Just like <a href="http://c2.com/cgi/wiki?JonBentley">Jon Bentley</a> once said.</p>
 <p>Most programmers have seen them, and most good programmers realize they’ve written at least one. They are huge, messy, ugly programs that should have been short, clean, beautiful programs.</p>
 <p>Even with application frameworks and libraries doing most of the work nowadays, we invent new ways to build and maintain the application size. Sometimes, I wonder if the application size is a matter of pride.</p>
 <p><em>Donald Knuth</em> summarized application development: All application writing is sorting and searching. Likewise, it is typical of any application, irrespective of its size, to process data, say primarily as collections – array, list, map or anything that you can iterate over, in various ways. The term <code>process</code> here denotes how a collection is treated in a specific context with various mechanisms to generate a result, be it a collection or not.</p>
@@ -170,7 +181,7 @@
 </code></pre></div><p>or explicitly queried for the resultant list.</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">files</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div><p>Until the point of evaluation, query is just an object that you can pass around without worrying about its weight. So it is very much unlike conventional loop oriented code.</p>
-<p>Similar to SQL, LINQ has all querying clauses from filtering (<code>where</code>) to joins and group by. It is important to understand that such querying is available in C# as a language construct, not a library of classes and types<!-- raw HTML omitted --><!-- raw HTML omitted -->3<!-- raw HTML omitted --><!-- raw HTML omitted -->, and is equally efficient as a hand-written iteration. There is a lot <a href="https://msdn.microsoft.com/en-us/library/bb397926.aspx">more</a> to LINQ than meets the eye.</p>
+<p>Similar to SQL, LINQ has all querying clauses from filtering (<code>where</code>) to joins and group by. It is important to understand that such querying is available in C# as a language construct, not a library of classes and types<sup id="fnref-1399-3"><a href="#fn-1399-3">3</a></sup>, and is equally efficient as a hand-written iteration. There is a lot <a href="https://msdn.microsoft.com/en-us/library/bb397926.aspx">more</a> to LINQ than meets the eye.</p>
 <p>If only you are programming in C# … Java continues to live with for loops and if-else blocks. Say hello to <a href="https://github.com/VivekRagunathan/JINQ">JINQ</a>!</p>
 <blockquote>
 <p>JINQ (<strong>J</strong>ava <strong>IN</strong>tegrated <strong>Q</strong>uery) is an ultra minimalistic library inspired from and mimicking the .NET LINQ. While LINQ is a language level construct, JINQ is composed of types – classes and methods, but to the same effect.</p>
@@ -220,7 +231,7 @@
 <p>In Java 8, these discrete declarations won’t be necessary to reduce clutter in the query code because lambdas come to the rescue.</p>
 <p>[code lang=java]</p>
 <p>// JINQ with Java 8</p>
-<p>final Iterable<!-- raw HTML omitted --> query = new Enumerable&lt;&gt;(fileList)</p>
+<p>final Iterable<String> query = new Enumerable&lt;&gt;(fileList)</p>
 <p>.where(f -&gt; f.getName().endsWith(&quot;.txt&quot;))</p>
 <p>.orderBy((left, right) -&gt; Long.compare(left.length(), right.length()))</p>
 <p>.select(File::getName());</p>
@@ -232,7 +243,14 @@
 <p>What is possible though but not yet supported in JINQ is the seamless integration of other collection-based or collection-like entities such as XML elements, SQL data objects etc. While a naive provision (<code>IClauseProvider</code>) is available, the full extent and implementation of such an extension were not beyond what was needed for me at the time. Perhaps, it is food for thought for a later day!</p>
 <p>JINQ is not complete per se to be at par with LINQ. But it is definitely functional. Sammy and I are working on adding join, chaining mutiple source collections ( chaining froms to achieve SelectMany) and a few more things. Even without the above forthcoming features, JINQ is equally powerful and can enormously reduce the code bloat making your code expressive with respect to querying objects. Try it with some of your big fat classes and methods and see for yourself.</p>
 <p>Head over to <a href="https://github.com/VivekRagunathan/JINQ">github</a>, download, use and share your comments on JINQ.</p>
-<!-- raw HTML omitted -->
+<li id="fn-1399-1">
+  It is not meant to point fingers at the gentleman in the red shirt but it is not uncommon in project teams where one takes an initiative while the other or the rest question the initiator with all the whys and ifs. &#160;<a href="#fnref-1399-1">&#8617;</a>
+</li>
+<li id="fn-1399-2">
+  size: Is there a reason for the size of this class or method- several hundreds or sometimes thousand of lines of code? Includes but not limited to duplicity, lack of reuse and abstractions. clarity: Why is this class or method doing something that is not indicative of its name? Lack of semantic clarity. Getter modifying state. intent: Even with a succinct and clear piece of code that just tells the reader how a particular collection is iterated and processed is no way indicative of the intent. Stroustrup’s example. Application level semantics. &#160;<a href="#fnref-1399-2">&#8617;</a>
+</li>
+<li id="fn-1399-3">
+  Beneath the language surface, LINQ is operated by classes and types wherein each clause is represented by a type of its own. However, that is not relevant in the context of use but more when it is extended for supporting new kinds of collections, say SQL objects, or override the feature provided default.&#160;<a href="#fnref-1399-3">&#8617;</a> </fn></footnotes>
 </div>
 
 
@@ -240,7 +258,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -260,6 +278,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

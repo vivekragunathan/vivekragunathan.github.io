@@ -20,7 +20,7 @@ return a tuple
 ">
 <meta itemprop="datePublished" content="2015-08-24T01:10:27+00:00" />
 <meta itemprop="dateModified" content="2015-08-24T01:10:27+00:00" />
-<meta itemprop="wordCount" content="2289">
+<meta itemprop="wordCount" content="2358">
 
 
 
@@ -45,7 +45,7 @@ return an instance of a class that holds the values
 return a tuple
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2015/08/24/tuples-anons/" />
+<meta property="og:url" content="/2015/08/24/tuples-anons/" />
 <meta property="article:published_time" content="2015-08-24T01:10:27+00:00" />
 <meta property="article:modified_time" content="2015-08-24T01:10:27+00:00" />
 
@@ -117,7 +117,11 @@ return a tuple
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -143,10 +147,15 @@ return a tuple
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>An Unfair World of Tuples, Anons., var and auto</h1>
 
+
   <div class="post-date">
-    <time datetime="2015-08-24T01:10:27Z">Aug 24, 2015</time> &middot; 11 min read
+    <time datetime="2015-08-24T01:10:27Z">Aug 24, 2015</time> &middot; 12 min read
   </div>
 
   <p>It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.</p>
@@ -156,7 +165,7 @@ return a tuple
 <li>return a tuple</li>
 </ol>
 <p>Well, both the options are nothing unusual; not extraordinary either. If the method always returns closely/directly related values (say employee details), a class would be the default choice. Otherwise, if the method returns discrete or loosely related values, a tuple would be appropriate. In the latter case, one could still define a class with a really clumsy name (if naming is not something of importance to the person or team). But how many would you create?</p>
-<p>I was looking at something better – an anonymous type <!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted -->. Why? Because I did not want a class, and my values being discrete, I did not want to access the return values as <code>Item0</code>, <code>Item1</code> etc. (on the calling side). Looks erghhh! I wanted the client code to be type safe and explicit when accessing the return values … without declaring a clumsy-named class. Anonymous types are a great way to do that. It is exactly how LINQ query makes elegant use of anonymous types to return strongly typed projections of the queried data. All good except <strong>it is not possible to return an anonymous type from a method</strong>. Duh!</p>
+<p>I was looking at something better – an anonymous type <sup id="fnref-697-1"><a href="#fn-697-1">1</a></sup>. Why? Because I did not want a class, and my values being discrete, I did not want to access the return values as <code>Item0</code>, <code>Item1</code> etc. (on the calling side). Looks erghhh! I wanted the client code to be type safe and explicit when accessing the return values … without declaring a clumsy-named class. Anonymous types are a great way to do that. It is exactly how LINQ query makes elegant use of anonymous types to return strongly typed projections of the queried data. All good except <strong>it is not possible to return an anonymous type from a method</strong>. Duh!</p>
 <p>For instance, we would not be able to define something like this:-</p>
 <p>[code lang=csharp]</p>
 <p>public var GiveMeAnonType(String symbol, double amount) {</p>
@@ -188,7 +197,7 @@ return a tuple
 <p>{</p>
 <p>return (T) obj;</p>
 <p>}</p>
-<p>[/code]<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>[/code]</li> </ul></p>
 <p>Also, note that if it weren’t an anonymous type, we wouldn’t need the second parameter (<code>T type</code>) in the <code>Cast</code> method. If you don’t wish to push further, the above trick solves the purpose (to a certain extent). Except the code is not really fluid, and they say, <strong>Don’t help the compiler</strong>. In this case, the compiler looks like a broken robot, and we are soldering a disconnect so that it dances to our tune. Let me tell you why it is not fluid. First, if the compiler folks were to change the strategy of reusing the compiler generated type for the anonymous type declaration, we are broke. Second, if <code>GiveMeAnonType</code> were to change the parameters of the anonymous type, agreed that we would get compilation errors in the <code>CallingMethod</code> but that’s when our soldering wears out.</p>
 <p><strong><code>dynamic</code></strong>: Well, that seems to be a smart option:-</p>
 <p>[code lang=csharp]</p>
@@ -224,7 +233,7 @@ return a tuple
 <p>Let us assume if C# were to allow returning anonymous types with the <code>var</code> keyword (or another keyword), imagine how fluid the code would be. The compiler would be aware of the (anonymous) type and the type information would flow without friction and noise. Yes, there will be rules and restrictions around such a feature. Yes, there are people who wouldn’t understand the purpose of the feature and start using anonymous types all over. Some will fall in love with the feature that their code will no more have named types as <code>class</code>es or <code>struct</code>s. But that is not good enough reason to experience this feature in reality. It might as well prove to be a better alternative to <code>Tuple</code>s.</p>
 <p>Unlike C++, where <code>tuple</code> is defined using variadic templates (👏 👏 👏), most other languages including C# explicitly declare distinct class overloads distinguished by the number of generic parameters. 👎</p>
 <p><strong>Meanwhile Elsewhere</strong></p>
-<p>Usually, C++ has something in stock for such odd problems<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="https://vivekragunathan.wordpress.com/2011/03/27/crazybraces/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
+<p>Usually, C++ has something in stock for such odd problems<sup id="fnref-697-2"><a href="#fn-697-2">2</a></sup>. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="https://vivekragunathan.wordpress.com/2011/03/27/crazybraces/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
 <p>So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though … as <a href="https://msdn.microsoft.com/en-us/library/Dd293608.aspx">lambdas</a>.</p>
 <p>[code lang=cpp]</p>
 <p>auto count = count_if(numbers.begin(), numbers.end(), [](int x) {</p>
@@ -248,7 +257,7 @@ return a tuple
 <p>[/code]</p>
 <p>I know you feel a leech on your back.</p>
 <p>That’s where it all ends in C++, just when we proved that we can return anonymous types. Yes, you pointed out that we are not actually returning an anonymous type constructed right at the return site. But hey, we at least got something.</p>
-<p><code>auto</code> is more or less <code>var</code> with a syntactic difference that it can be used as return type place holder for functions. However, the <code>decltype</code> addendum is mandatory <!-- raw HTML omitted --><!-- raw HTML omitted -->3<!-- raw HTML omitted --><!-- raw HTML omitted -->.</p>
+<p><code>auto</code> is more or less <code>var</code> with a syntactic difference that it can be used as return type place holder for functions. However, the <code>decltype</code> addendum is mandatory <sup id="fnref-697-3"><a href="#fn-697-3">3</a></sup>.</p>
 <p><strong><code>try ... finally</code></strong></p>
 <p>It is not uncommon these days that part or whole of an application is based on data passing between the server and the client(s), and the data is dynamic that it wouldn’t be worthwhile defining or at least hand code the data model classes. Creating classes/types on the fly and passing them around is not new in JavaScript. It is time for languages like C# to invent a way to create, pass around and work with such types – anonymous yet compile-time type-safe.</p>
 <p>So here is a challenge, obviously to the, C# team if they can crack this thing out – anonymous types on the fly. Yes, there are challenges, corner cases and all that. Remember a few years back, there was no <a href="https://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0%28v=vs.110%29.aspx">yield</a>, no <a href="https://msdn.microsoft.com/en-us/library/hh191443.aspx"><code>async</code>–<code>await</code></a> etc. We have them now. I believe we should be able to invent something around anonymous types.</p>
@@ -256,7 +265,14 @@ return a tuple
 <p>Ignorance is bliss and is itself a state of bliss. Java programmers wouldn’t mind or care about any or all of what we discussed. They have got the <code>for</code> loop for all problems. 😆</p>
 <p>I was trying all this with Java, and finally ended up using <a href="http://www.javatuples.org">tuples</a>.</p>
 <hr>
-<!-- raw HTML omitted -->
+<li id="fn-697-1">
+  The term <strong>anonymous types</strong> refers to the feature in C# while <strong>anonymous class</strong> refers to another feature in Java. They are similar and distinct in their own ways. However, in this post, the terms could have been used interchangeably in the context of C#.&#160;<a href="#fnref-697-1">&#8617;</a>
+</li>
+<li id="fn-697-2">
+  See Also<a href="https://vivekragunathan.wordpress.com/2010/10/03/thinking-currying/">Think Currying</a>, <a href="https://vivekragunathan.wordpress.com/2008/04/09/extension-methods-a-polished-c-feature/">Extension Methods – A Polished C++ Feature</a>&#160;<a href="#fnref-697-2">&#8617;</a>
+</li>
+<li id="fn-697-3">
+  The intricate details of <code>auto</code> and <code>decltype</code> are beyond the scope of this post.&#160;<a href="#fnref-697-3">&#8617;</a> </fn></footnotes>
 </li>
 </ul>
 </div>
@@ -266,7 +282,7 @@ return a tuple
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -286,6 +302,7 @@ return a tuple
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

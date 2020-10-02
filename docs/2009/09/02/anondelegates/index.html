@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Curious Case Of Anonymous Delegates !!!">
-<meta itemprop="description" content="Senthilhas left us thrilled in his new post, and also inspired me to write about the topic.">
+<meta itemprop="description" content="Senthil has left us thrilled in his new post, and also inspired me to write about the topic.">
 <meta itemprop="datePublished" content="2009-09-02T18:29:00+00:00" />
 <meta itemprop="dateModified" content="2009-09-02T18:29:00+00:00" />
-<meta itemprop="wordCount" content="543">
+<meta itemprop="wordCount" content="610">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Curious Case Of Anonymous Delegates !!!"/>
-<meta name="twitter:description" content="Senthilhas left us thrilled in his new post, and also inspired me to write about the topic."/>
+<meta name="twitter:description" content="Senthil has left us thrilled in his new post, and also inspired me to write about the topic."/>
 
 
 <meta property="og:title" content="Curious Case Of Anonymous Delegates !!!" />
-<meta property="og:description" content="Senthilhas left us thrilled in his new post, and also inspired me to write about the topic." />
+<meta property="og:description" content="Senthil has left us thrilled in his new post, and also inspired me to write about the topic." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2009/09/02/anondelegates/" />
+<meta property="og:url" content="/2009/09/02/anondelegates/" />
 <meta property="article:published_time" content="2009-09-02T18:29:00+00:00" />
 <meta property="article:modified_time" content="2009-09-02T18:29:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,16 +132,30 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Curious Case Of Anonymous Delegates !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2009-09-02T18:29:00Z">Sep 2, 2009</time> &middot; 3 min read
   </div>
 
-  <p><!-- raw HTML omitted -->Senthil<!-- raw HTML omitted --> has left us thrilled in his <!-- raw HTML omitted -->new post<!-- raw HTML omitted -->, and also inspired me to write about the <!-- raw HTML omitted -->topic<!-- raw HTML omitted -->. Although, anonymous delegates have become a mundane stuff amongst programmers, there is still these subtle stuff left unexplored. Alright, let us try to answer Senthil’s question before he unravels the mystery in his next post.</p>
+  <p><a href="http://msmvps.com/blogs/senthil/default.aspx" target="_blank">Senthil</a> has left us thrilled in his <a href="http://msmvps.com/blogs/senthil/archive/2009/09/01/anonymous-methods-as-event-handlers-part-1.aspx" target="_blank">new post</a>, and also inspired me to write about the <a href="http://msdn.microsoft.com/en-us/library/0yw3tz5k(VS.80).aspx" target="_blank">topic</a>. Although, anonymous delegates have become a mundane stuff amongst programmers, there is still these subtle stuff left unexplored. Alright, let us try to answer Senthil’s question before he unravels the mystery in his next post.</p>
 <p>A delegate is identified by its target. The target is the method to be executed on a delegate invocation and its associated instance or type. If the target is an instance method, the delegate preserves the target method pointer and the object instance. If the target is a static method, the delegate preserves the target method pointer and the type to which it belongs. So when a code like the one below to register a method to an event (or multicast delegate) is executed, a delegate object (EventHandler here) with the target information embedded is created and added to the invocation list of the event (or multicast delegate, KeyPressed here).</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre style="font-family:Consolas;font-size:12pt;background-color:#eeeeee;">class SomeForm
+{
+   private Control control = new Control();
+
+   public void OnFormLoad(object sender, EventArgs args)
+   {
+      control.KeyPressed += new EventHandler(OnKeyPressed);
+   }
+
+   // Rest of the code omitted to be succinct
+};</pre>
 <p>Likewise, when unregistering the method handler, a new (EventHandler) delegate object is created with the same target information as above. As said earlier, a delegate is identified by its target. In other words, the Equals override on the delegate uses the target information for comparing two delegate objects. Hence in the following code that unregisters the method handler, the invocation list is searched for a delegate instance with the specified target information (Method: OnKeyPressed, Instance: SomeForm instance).</p>
 <p>In the case of anonymous delegates, the compiler transforms the inline method code into a</p>
 <ul>
@@ -146,11 +164,28 @@
 <li>class with a method that represents the inline method code, if the inline method code uses local variables no matter whether it uses the class members or not.</li>
 </ul>
 <p>Those might not be the extensive set of rules but sure are enough for our discussion. Given the following questionable code,</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre style="font-family:Consolas;font-size:12pt;background-color:#eeeeee;">public EventHandler IfEnabledThenDo(EventHandler actualAction)
+{
+   return (sender, args) =&gt; {
+      if (args.Control.Enabled)
+      {
+         actualAction(sender, args);
+      }
+   };
+}
+
+public void Initialize()
+{
+   control.KeyPressed += IfEnabledThenDo(control_KeyPressed);
+}
+
+public void Destroy()
+{
+   control.KeyPressed -= IfEnabledThenDo(control_KeyPressed);
+}</pre>
 <p>we realize, without doubt, that the anonymous delegate (returned by IfEnabledThenDo) would be transported into a compiler generated anonymous class. Later when IfEnabledThenDo is called for registering\unregistering the method handler, an instance of anonymous class is created and the (EventHandler) delegate is returned. And here lies the subtlety. Although the delegate from IfEnabledThenDo targets the method inside the anonymous class, the instance preserved as a part of the target information are different during registration and un-registration. In other words, the target method of the delegate returned by IfEnabledThenDo belong to different instances of the anonymous class. Hence the pretty code to unregister the (key pressed) method handler would not be actually unregistering since there would be a delegate previously registered in the invocation list of the (KeyPressed) event with the target instance same as the one used in the unregistration line of code. Very subtle!</p>
 <p>Usually the hand written code tends to keep the registration and unregistration of the method handlers in the same class and so belong to the respective instances. Not so when you like watching the compiler magic.</p>
-<p>Let us wait and see what <!-- raw HTML omitted -->Senthil<!-- raw HTML omitted --> says.</p>
+<p>Let us wait and see what <a href="http://msmvps.com/blogs/senthil/default.aspx" target="_blank">Senthil</a> says.</p>
 
 </div>
 
@@ -159,7 +194,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -179,6 +214,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

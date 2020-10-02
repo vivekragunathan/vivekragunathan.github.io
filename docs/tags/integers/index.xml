@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>integers on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/tags/integers/</link>
+    <link>/tags/integers/</link>
     <description>Recent content in integers on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 13 Mar 2015 06:40:37 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/integers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Mar 2015 06:40:37 +0000</lastBuildDate><atom:link href="/tags/integers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quiz: Choosing an array of integers !!!</title>
-      <link>https://okforanything.github.io/2015/03/13/jaoints/</link>
+      <link>/2015/03/13/jaoints/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>https://okforanything.github.io/2015/03/13/jaoints/</guid>
+      <guid>/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
 &lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
 &lt;p&gt;[code lang=java]&lt;/p&gt;

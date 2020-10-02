@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .">
 <meta itemprop="datePublished" content="2006-04-29T02:34:00+00:00" />
 <meta itemprop="dateModified" content="2006-04-29T02:34:00+00:00" />
-<meta itemprop="wordCount" content="174">
+<meta itemprop="wordCount" content="246">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Implementing COM OutOfProc Servers in C# .NET !!!" />
 <meta property="og:description" content="Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/04/29/implementing-com-outofproc-servers-in-c-net/" />
+<meta property="og:url" content="/2006/04/29/implementing-com-outofproc-servers-in-c-net/" />
 <meta property="article:published_time" content="2006-04-29T02:34:00+00:00" />
 <meta property="article:modified_time" content="2006-04-29T02:34:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,18 +132,23 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Implementing COM OutOfProc Servers in C# .NET !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2006-04-29T02:34:00Z">Apr 29, 2006</time> &middot; 1 min read
+    <time datetime="2006-04-29T02:34:00Z">Apr 29, 2006</time> &middot; 2 min read
   </div>
 
   <p>Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .NET assembly. This is worth knowing.</p>
 <p>Step 1:<br>
 Implement IClassFactory in a class in .NET. Use the following definition for IClassFactory.</p>
-<!-- raw HTML omitted -->
+<pre style="color:#006600;font-family:'Courier New';font-size:100%;">namespace COM<br />{<br />   static class Guids<br />   {<br />      public const string IClassFactory = "00000001-0000-0000-C000-000000000046";<br />      public const string IUnknown = "00000000-0000-0000-C000-000000000046";<br />   }<br />   <br />   /// <br />   /// IClassFactory declaration<br />   /// <br />   [ComImport(), InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid(COM.Guids.IClassFactory)]<br />   internal interface IClassFactory<br />   {<br />      [PreserveSig]<br />      int CreateInstance(IntPtr pUnkOuter, ref Guid riid, out IntPtr ppvObject);<br />      [PreserveSig]<br />      int LockServer(bool fLock);<br />   }<br />}<br /></pre>
 <p>Step 2:</p>
-<!-- raw HTML omitted -->
+<pre><span style="color:#006600;font-family:'Courier New';font-size:100%;">[DllImport("ole32.dll")]<br />private static extern int CoRegisterClassObject(ref Guid rclsid,<br />[MarshalAs(UnmanagedType.Interface)]IClassFactory pUnkn,<br />int dwClsContext,<br />int flags,<br />out int lpdwRegister);<br /><br />[DllImport("ole32.dll")]<br />private static extern int CoRevokeClassObject(int dwRegister);<br /></span></pre>
 <p>Step 3:<br>
 Use these functions to register your own IClassFactory</p>
 <p>Step 4:<br>
@@ -155,7 +164,7 @@ The COM client receives a pointer to this object, and can use it as a regular CO
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -175,6 +184,7 @@ The COM client receives a pointer to this object, and can use it as a regular CO
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

@@ -15,7 +15,7 @@
 <meta itemprop="description" content="It is always fun to program in C# (besides C&#43;&#43;). If so, how would I feel if I was able to program in C# on Android?">
 <meta itemprop="datePublished" content="2011-08-21T13:07:44+00:00" />
 <meta itemprop="dateModified" content="2011-08-21T13:07:44+00:00" />
-<meta itemprop="wordCount" content="404">
+<meta itemprop="wordCount" content="412">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Android meets .NET !!!" />
 <meta property="og:description" content="It is always fun to program in C# (besides C&#43;&#43;). If so, how would I feel if I was able to program in C# on Android?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2011/08/21/android-meets-net/" />
+<meta property="og:url" content="/2011/08/21/android-meets-net/" />
 <meta property="article:published_time" content="2011-08-21T13:07:44+00:00" />
 <meta property="article:modified_time" content="2011-08-21T13:07:44+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,18 +132,23 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Android meets .NET !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2011-08-21T13:07:44Z">Aug 21, 2011</time> &middot; 2 min read
   </div>
 
-  <p>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android? You may be wondering what in the world I am talking about. Android development environment is all Java and open source stuff. How could this Microsoft thing fit onto it? Well, it seems that some clever <a href="http://www.xamarin.com/">guys</a> had huddled up and ported Mono for Android, developed .NET libraries for the Android SDK, and also supplemented it with a <em>Mono for Android</em> project template in Visual Studio. Thus we relish writing C# code for Android.</p>
-<p>After a bunch of <a href="http://android.xamarin.com/Installation/Visual_Studio">installations</a>, fire up your Visual Studio (2010) and you should be seeing a new project template <em>Mono for Android</em> under C#.</p>
-<p><img src="images//2011/08/mono4android.gif?w=1320" alt="Mono for Android"></p>
+  <p>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android? You may be wondering what in the world I am talking about. Android development environment is all Java and open source stuff. How could this Microsoft thing fit onto it? Well, it seems that some clever [guys][1] had huddled up and ported Mono for Android, developed .NET libraries for the Android SDK, and also supplemented it with a <em>Mono for Android</em> project template in Visual Studio. Thus we relish writing C# code for Android.</p>
+<p>After a bunch of [installations][2], fire up your Visual Studio (2010) and you should be seeing a new project template <em>Mono for Android</em> under C#.</p>
+<p>![Mono for Android][3]</p>
 <p>Create a new <em>Mono for Android</em> project, which by default comes with an activity – C# code.</p>
-<p><img src="images//2011/08/activity.gif?w=1294" alt="Mono for Android Project Code"></p>
-<p><!-- raw HTML omitted -->Modified the orginal code to try starting a new activity from the default one… <!-- raw HTML omitted --></p>
+<p>![Mono for Android Project Code][4]</p>
+<p><small>Modified the orginal code to try starting a new activity from the default one… </small></p>
 <p>The project layout for most of the part is similar to the native Android project. The layout resources files are named <code>*.axml</code>, and the <code>strings.xml</code> is really clean with named string constants with the ugly behind the scenes of ids and stuff in the <code>Resource.designer.cs</code>. The way to code is straight forward and needs no special explanation. A good to see thing for me was .NET coding style.</p>
 <p>A similar set of addins and plugins have been developed for MonoDevelop too; although I did not try that.</p>
 <p>Such an attempt – programming in C# on Androis, is really a wondrous thing. However, there are sad curves in the story:-</p>
@@ -157,7 +166,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -177,6 +186,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

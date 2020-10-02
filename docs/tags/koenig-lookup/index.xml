@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>koenig lookup on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/tags/koenig-lookup/</link>
+    <link>/tags/koenig-lookup/</link>
     <description>Recent content in koenig lookup on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Apr 2008 06:31:39 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/koenig-lookup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Apr 2008 06:31:39 +0000</lastBuildDate><atom:link href="/tags/koenig-lookup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature !!!</title>
-      <link>https://okforanything.github.io/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>https://okforanything.github.io/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description></description>
+      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
+      <description>Extension Methods is an excellent feature in C# 3.</description>
     </item>
     
   </channel>

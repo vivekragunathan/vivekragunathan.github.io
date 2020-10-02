@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Learning Type Access Modifiers Basics !!!">
-<meta itemprop="description" content="&lt;pre&gt;namespace DataStructuresAndAlgo&lt;br /&gt;{&lt;br /&gt; private interface IParamCountBasedAlgo&lt;br /&gt; {&lt;br /&gt; void Validate();&lt;br /&gt; void Execute();&lt;br /&gt; }&lt;br /&gt;}&lt;br /&gt;&lt;/pre&gt; &lt;p&gt; &lt;/span&gt;And the compiler spat an error &amp;#8220;&lt;span style=&quot;font-family:Courier New,Courier,Monospace;&quot;&gt;Namespace elements cannot be explicitly declared as private, protected, or protected internal&lt;/span&gt;&amp;#8220;.">
+<meta itemprop="description" content="When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:- namespace DataStructuresAndAlgo">
 <meta itemprop="datePublished" content="2006-12-20T18:01:00+00:00" />
 <meta itemprop="dateModified" content="2006-12-20T18:01:00+00:00" />
-<meta itemprop="wordCount" content="130">
+<meta itemprop="wordCount" content="216">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Learning Type Access Modifiers Basics !!!"/>
-<meta name="twitter:description" content="&lt;pre&gt;namespace DataStructuresAndAlgo&lt;br /&gt;{&lt;br /&gt; private interface IParamCountBasedAlgo&lt;br /&gt; {&lt;br /&gt; void Validate();&lt;br /&gt; void Execute();&lt;br /&gt; }&lt;br /&gt;}&lt;br /&gt;&lt;/pre&gt; &lt;p&gt; &lt;/span&gt;And the compiler spat an error &amp;#8220;&lt;span style=&quot;font-family:Courier New,Courier,Monospace;&quot;&gt;Namespace elements cannot be explicitly declared as private, protected, or protected internal&lt;/span&gt;&amp;#8220;."/>
+<meta name="twitter:description" content="When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:- namespace DataStructuresAndAlgo"/>
 
 
 <meta property="og:title" content="Learning Type Access Modifiers Basics !!!" />
-<meta property="og:description" content="&lt;pre&gt;namespace DataStructuresAndAlgo&lt;br /&gt;{&lt;br /&gt; private interface IParamCountBasedAlgo&lt;br /&gt; {&lt;br /&gt; void Validate();&lt;br /&gt; void Execute();&lt;br /&gt; }&lt;br /&gt;}&lt;br /&gt;&lt;/pre&gt; &lt;p&gt; &lt;/span&gt;And the compiler spat an error &amp;#8220;&lt;span style=&quot;font-family:Courier New,Courier,Monospace;&quot;&gt;Namespace elements cannot be explicitly declared as private, protected, or protected internal&lt;/span&gt;&amp;#8220;." />
+<meta property="og:description" content="When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:- namespace DataStructuresAndAlgo" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/12/20/learning-type-access-modifiers-basics/" />
+<meta property="og:url" content="/2006/12/20/learning-type-access-modifiers-basics/" />
 <meta property="article:published_time" content="2006-12-20T18:01:00+00:00" />
 <meta property="article:modified_time" content="2006-12-20T18:01:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,16 +132,27 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Learning Type Access Modifiers Basics !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2006-12-20T18:01:00Z">Dec 20, 2006</time> &middot; 1 min read
+    <time datetime="2006-12-20T18:01:00Z">Dec 20, 2006</time> &middot; 2 min read
   </div>
 
-  <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+  <div id="msgcns!753E720D857C98F6!244">
+  <p>
+    <span style="font-size:100%;">When I started developing my module, I had an interface <span style="color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;">IParamCountBasedAlgo</span> declared as a nested type in a class <span style="color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;">AlgorithmOneExecutor</span>, declared as follows:-</span><span style="font-size:85%;"><br /></span>
+  </p>
+  <pre><span style="font-size:85%;"><span style="color:rgb(0,0,255);"></span></span><span style="font-size:100%;"><span style="color:rgb(0,0,255);"><span style="font-family:Courier New,Courier,Monospace;">namespace DataStructuresAndAlgo</span><br /><span style="font-family:Courier New,Courier,Monospace;">{</span><br /><span style="font-family:Courier New,Courier,Monospace;">   partial class AlgorithmOneExecutor</span><br /><span style="font-family:Courier New,Courier,Monospace;">   {</span><br /><span style="font-family:Courier New,Courier,Monospace;">      private interface IParamCountBasedAlgo</span><br /><span style="font-family:Courier New,Courier,Monospace;">      {</span><br /><span style="font-family:Courier New,Courier,Monospace;">         void Validate();</span><br /><span style="font-family:Courier New,Courier,Monospace;">         void Execute();</span><br /><span style="font-family:Courier New,Courier,Monospace;">      }</span><br /><span style="font-family:Courier New,Courier,Monospace;">   }</span><br /><span style="font-family:Courier New,Courier,Monospace;">}</span></span></span><span style="font-size:85%;"><span style="color:rgb(0,0,255);"></span></span></pre>
+  <p>
+    <span style="font-size:100%;">There were other concrete nested types inside <span style="color:rgb(51,153,102);font-family:Courier New;">AlgorithmOneExecutor </span>that implemented <span style="color:rgb(51,153,102);font-family:Courier New;">IParamCountBasedAlgo</span>. But later, other types nested in other than <span style="color:rgb(51,153,102);font-family:Courier New;">AlgorithmOneExecutor </span>emerged that required to implement <span style="color:rgb(51,153,102);font-family:Courier New;">IParamCountBasedAlgo</span>. So I moved <span style="color:rgb(51,153,102);font-family:Courier New;">IParamCountBasedAlgo </span>from a nested type to a direct type under the namespace <span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;">DataStructuresAndAlgo</span>, as declared below:-</span>
+  </p>
+  <p>
+    <span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"></p> 
 <pre><code>&lt;pre&gt;namespace DataStructuresAndAlgo&lt;br /&gt;{&lt;br /&gt; private interface IParamCountBasedAlgo&lt;br /&gt; {&lt;br /&gt;   void Validate();&lt;br /&gt;   void Execute();&lt;br /&gt; }&lt;br /&gt;}&lt;br /&gt;&lt;/pre&gt;
 
 &lt;p&gt;
@@ -155,7 +170,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -175,6 +190,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

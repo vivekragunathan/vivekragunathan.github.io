@@ -1,5 +1,5 @@
 article.post h1.post-title {
-  font-size: 1.8rem !important;
+  font-size: 1.7rem;
 }
 
 .post-date {
@@ -25,13 +25,14 @@ article.post h1.post-title {
 	box-shadow:  10px 10px 15px 5px;
 }
 
-.post pre code {
-	width: 60vw;
+div.post pre code {
+	width: 50vw;
 	font-family: Menlo, monospace;
 	font-size: 15px;
 }
 
 ul.sidebar-nav li {
 	display: inline;
+	font-size: 14px;
 	margin-right: 10px;
 }

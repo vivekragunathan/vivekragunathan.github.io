@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Application Models">
-<meta itemprop="description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.">
+<meta itemprop="description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.">
 <meta itemprop="datePublished" content="2016-08-27T15:50:31+00:00" />
 <meta itemprop="dateModified" content="2016-08-27T15:50:31+00:00" />
-<meta itemprop="wordCount" content="1413">
+<meta itemprop="wordCount" content="1414">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Application Models"/>
-<meta name="twitter:description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows."/>
+<meta name="twitter:description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows."/>
 
 
 <meta property="og:title" content="Application Models" />
-<meta property="og:description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows." />
+<meta property="og:description" content="A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2016/08/27/app-models/" />
+<meta property="og:url" content="/2016/08/27/app-models/" />
 <meta property="article:published_time" content="2016-08-27T15:50:31+00:00" />
 <meta property="article:modified_time" content="2016-08-27T15:50:31+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,13 +132,20 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+  		<img src="/images/2016/08/app-models.jpg">
+  	
+	</div>
+
   <h1>Application Models</h1>
+
 
   <div class="post-date">
     <time datetime="2016-08-27T15:50:31Z">Aug 27, 2016</time> &middot; 7 min read
   </div>
 
-  <p>A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.</p>
+  <p>A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.</p>
 <p>At high level, say architectural, there are two ways to model a large scale application with such flows:</p>
 <p>Pattern #1: One way, a common way, is to model the way we see it. In other words, the user clicks a button on the user interface, the associated request is serviced by some business logic on the web/application server by making database and third-party calls, and a response is delivered back to the user interface. The thought process here is to consider every flow as an independent vertical path. That is why it is customary in this line of thought to package all the logic that ties to its origin from the presentation layer as a single and independent module; often times named after the flow. It is not necessary that the business logic or the entire logic of servicing the request is built into a single class or method. But it is independent of the logic in other flows that are directly or indirectly related. In other words, this pattern establishes an environment where individual flows are sandboxed from the other flows.</p>
 <p>Pattern #2: Another way to model application flows is to first examine and identify the key players in action and how they are related to one another; in each of the flows and the application in general. In this line of thought, it is always the player in action through which a flow is explained and implemented. The key players are types/objects that encapsulate yet centralize business logic associated with that player. In other words, we identify and create a network of players that involve in a flow wholly or in part, actively or passively. It is relatively a complex way to model compared to pattern #1 above.</p>
@@ -152,7 +163,7 @@
 <p>Even to this day, humans have not completely understood long term effects. We might cruise for the next few days but we will face a time when what we have done so far will become a burden. <em>Transaction Script</em> oriented models are a perfect example. So what about <em>Domain Model</em>? Ignoring the complexity, would it solve all the problems and we can cruise forever? Such a line of thought is irrational and not healthy. As software engineers, we shouldn’t expect a miracle to set the application in its right path of progress.</p>
 <p>The way the above patterns play in the real world, I happen to relate <em>Transaction Script</em> with Agile and <em>Domain Model</em> with Waterfall. Software engineers have been convinced that Agile and Waterfall are orthogonal and Agile yields faster and superior results than Waterfall. When teams are constantly demanded of results in the name of feedback for their product, Agile fits the need in the name of <em>Transaction Script</em>. Mind you, it is not Agile that is at fault. Agile has been institutionalized to discipline software engineers to think small and think only of the near-time end results rather than investing time and thought in building it the right way. Of course, what is <em>right</em> is always put to debate.</p>
 <hr>
-<p><!-- raw HTML omitted -->Image borrowed from <!-- raw HTML omitted -->here<!-- raw HTML omitted --> using Google Search<!-- raw HTML omitted --></p>
+<p><small>Image borrowed from <a href="http://www.binding-problem.com/binding-problem.jpg">here</a> using Google Search</small></p>
 </div>
 
 
@@ -160,7 +171,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -180,6 +191,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

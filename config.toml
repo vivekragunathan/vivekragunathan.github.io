@@ -2,7 +2,7 @@ title = "A Developer's Experience"
 theme = "soho"
 publishDir = "docs/"
 
-baseURL = "https://okforanything.github.io"
+baseURL = ""
 languageCode = "en"
 enableInlineShortcodes = true
 
@@ -14,7 +14,7 @@ enableEmoji = true
   description = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
   about = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
 	profilePicture = "images/profile.png" # (or) gravatar = "soho@example.com"
-	copyright = "Theme by [Soho](www.google.com)"
+	copyright = ""
 
   github = "example"
   facebook = "example"

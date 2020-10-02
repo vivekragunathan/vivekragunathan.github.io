@@ -15,7 +15,7 @@
 <meta itemprop="description" content="It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its exisiting element.">
 <meta itemprop="datePublished" content="2006-03-27T00:19:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-27T00:19:00+00:00" />
-<meta itemprop="wordCount" content="117">
+<meta itemprop="wordCount" content="122">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Unsafe Operations with STL !!!" />
 <meta property="og:description" content="It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its exisiting element." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/03/27/unsafe-operations-with-stl/" />
+<meta property="og:url" content="/2006/03/27/unsafe-operations-with-stl/" />
 <meta property="article:published_time" content="2006-03-27T00:19:00+00:00" />
 <meta property="article:modified_time" content="2006-03-27T00:19:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,7 +132,12 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Unsafe Operations with STL !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2006-03-27T00:19:00Z">Mar 27, 2006</time> &middot; 1 min read
@@ -136,12 +145,12 @@
 
   <p>It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its exisiting element. What could happen is, when you do an operation, say push_back on a vector, it determines if there is enough space available to add a new element. If there is not sufficient space available, it allocates new space for whole of the data structure and deletes the old buffer. At this point, any reference to one of its elements created prior to push_back would have gotten corrupted.</p>
 <p>For example, the following usage of code is dangerous when used within a single scope.</p>
-<p><!-- raw HTML omitted -->SomeClass &amp;sc = m_Vector.back();<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->m_Vector.push_back(someotherobject);<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->.<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->.<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->.<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->sc.SomeMethodCall(); // Code might crash here. <!-- raw HTML omitted --></p>
+<p><span style="font-family:courier new;">SomeClass &amp;sc = m_Vector.back();</span><br>
+<span style="font-family:courier new;">m_Vector.push_back(someotherobject);</span><br>
+<span style="font-family:courier new;">.</span><br>
+<span style="font-family:courier new;">.</span><br>
+<span style="font-family:courier new;">.</span><br>
+<span style="font-family:courier new;">sc.SomeMethodCall(); // Code might crash here. </span></p>
 
 </div>
 
@@ -150,7 +159,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -170,6 +179,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

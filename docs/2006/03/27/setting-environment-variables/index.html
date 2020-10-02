@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine.">
 <meta itemprop="datePublished" content="2006-03-27T00:11:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-27T00:11:00+00:00" />
-<meta itemprop="wordCount" content="332">
+<meta itemprop="wordCount" content="353">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Setting Environment Variables !!!" />
 <meta property="og:description" content="Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/03/27/setting-environment-variables/" />
+<meta property="og:url" content="/2006/03/27/setting-environment-variables/" />
 <meta property="article:published_time" content="2006-03-27T00:11:00+00:00" />
 <meta property="article:modified_time" content="2006-03-27T00:11:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,7 +132,12 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Setting Environment Variables !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2006-03-27T00:11:00Z">Mar 27, 2006</time> &middot; 2 min read
@@ -142,13 +151,14 @@
 <p>But the changes you made will be reflected after a log off or restart. After some research, I found the Win32 SDK API SetEnvironmentVariable. But unfortunately, it just the changes the variable value in the PEB of that process alone, it does not effect the global environment values. Pathetic.</p>
 <p>There is definitely a solution for this simple and primary problem. All we have to do is to update the registry as we discussed before, and also notify that the global enviroment variable list has been modified. Ok, how do we do that ?</p>
 <p>Simple, one line of code.</p>
-<p><!-- raw HTML omitted -->// Broadcast the WM_SETTINGCHANGE message for Enviroment<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0,<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->(LPARAM) “Environment”,<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->SMTO_ABORTIFHUNG,<!-- raw HTML omitted --><br>
-<!-- raw HTML omitted -->5000, &amp;dwReturnValue);<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-
+<p><span style="font-family:courier new;">// Broadcast the WM_SETTINGCHANGE message for Enviroment</span></p>
+<p><span style="font-family:courier new;">SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0,</span><br>
+<span style="font-family:courier new;">(LPARAM) “Environment”,</span><br>
+<span style="font-family:courier new;">SMTO_ABORTIFHUNG,</span><br>
+<span style="font-family:courier new;">5000, &amp;dwReturnValue);</p></p>
+<p>
+  </span>Of course, this is C++ code. Not a big deal to do that in C# or whatever.
+</p>
 </div>
 
 
@@ -156,7 +166,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -176,6 +186,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>const on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/tags/const/</link>
+    <link>/tags/const/</link>
     <description>Recent content in const on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2015 08:13:30 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/const/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2015 08:13:30 +0000</lastBuildDate><atom:link href="/tags/const/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>final, const and beyond</title>
-      <link>https://okforanything.github.io/2015/10/13/final-const-beyond/</link>
+      <link>/2015/10/13/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>https://okforanything.github.io/2015/10/13/final-const-beyond/</guid>
+      <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
 &lt;p&gt;[code lang=java]&lt;/p&gt;
 &lt;p&gt;public String someGibberishMethod() {&lt;/p&gt;

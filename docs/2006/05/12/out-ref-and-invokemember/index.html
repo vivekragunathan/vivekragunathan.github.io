@@ -15,7 +15,7 @@
 <meta itemprop="description" content="When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.">
 <meta itemprop="datePublished" content="2006-05-12T02:26:00+00:00" />
 <meta itemprop="dateModified" content="2006-05-12T02:26:00+00:00" />
-<meta itemprop="wordCount" content="61">
+<meta itemprop="wordCount" content="227">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="out, ref and InvokeMember !!!" />
 <meta property="og:description" content="When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/05/12/out-ref-and-invokemember/" />
+<meta property="og:url" content="/2006/05/12/out-ref-and-invokemember/" />
 <meta property="article:published_time" content="2006-05-12T02:26:00+00:00" />
 <meta property="article:modified_time" content="2006-05-12T02:26:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,24 +132,34 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>out, ref and InvokeMember !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2006-05-12T02:26:00Z">May 12, 2006</time> &middot; 1 min read
+    <time datetime="2006-05-12T02:26:00Z">May 12, 2006</time> &middot; 2 min read
   </div>
 
   <p>When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.InvokeMember. How will pass out or ref parameters for the method invoked using Type.InvokeMember ? If you are going to invoke a method with the prototype</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<PRE><FONT face="Courier New" color="#006600" size="3">int DoSomething(string someString, int someInt);</FONT></PRE>then you would use InvokeMember like this:-
+<PRE><FONT face="Courier New" color="#006600" size="3">object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        new object[] {&#8220;Largest Integer&#8221;, 1});</FONT></PRE>or use some variables in the new object[] {&#8230;}. But what do you with the args if DoSomething takes out or ref parameters ?
+<PRE><FONT face="Courier New" color="#006600" size="3">int DoSomething(out string someString, ref int someInt);</FONT></PRE>Something like this will not work 
+<PRE><FONT face="Courier New" color="#006600" size="3">string someText = string.Empty;<br />int someInt = 0;<br />object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        new object[] {someText, someInt});<br /></FONT></PRE>
 <p>It is tricky.</p>
-<!-- raw HTML omitted -->
+<PRE><FONT face="Courier New" color="#006600" size="3">object[] args = new object[] { someText, someInt };<br />object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        args);</FONT></PRE>
 <p>or even suprisingly this works:-</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<PRE><FONT face="Courier New" color="#006600" size="3">object[] args = new object[2];<br />// or object[] args = new object[] { null, null };</p>
 
+
+<p>
+  object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br /> BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br /> null,<br /> this,<br /> args);</FONT></PRE>
+  <P>
+    Access the values by indexing args. So declaring the argument object[] as a local variable solves the problem, but I do not understand why this behaviour. May be somebody can explain !!! 
+  </P>
+</p>
 </div>
 
 
@@ -153,7 +167,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -173,6 +187,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

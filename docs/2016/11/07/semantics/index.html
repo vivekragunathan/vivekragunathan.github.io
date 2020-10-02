@@ -28,7 +28,7 @@ the study of the relationship between the structure of a theory and its subject 
 Semantics is ever more important in programming.">
 <meta itemprop="datePublished" content="2016-11-07T06:04:46+00:00" />
 <meta itemprop="dateModified" content="2016-11-07T06:04:46+00:00" />
-<meta itemprop="wordCount" content="1030">
+<meta itemprop="wordCount" content="1065">
 
 
 
@@ -69,7 +69,7 @@ the study of the relationship between the structure of a theory and its subject 
 
 Semantics is ever more important in programming." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2016/11/07/semantics/" />
+<meta property="og:url" content="/2016/11/07/semantics/" />
 <meta property="article:published_time" content="2016-11-07T06:04:46+00:00" />
 <meta property="article:modified_time" content="2016-11-07T06:04:46+00:00" />
 
@@ -141,7 +141,11 @@ Semantics is ever more important in programming." />
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -167,13 +171,18 @@ Semantics is ever more important in programming." />
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Importance of Semantics</h1>
+
 
   <div class="post-date">
     <time datetime="2016-11-07T06:04:46Z">Nov 7, 2016</time> &middot; 5 min read
   </div>
 
-  <p><strong>semantics</strong><!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> | /sɪˈmæntɪks/ | noun (functioning as sing)</p>
+  <p><strong>semantics</strong><sup id="fnref-2002-1"><a href="#fn-2002-1">1</a></sup> | /sɪˈmæntɪks/ | noun (functioning as sing)</p>
 <ol>
 <li>the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings</li>
 <li>the study of the relationships between signs and symbols and what they represent</li>
@@ -189,7 +198,7 @@ Semantics is ever more important in programming." />
 <p>Semantics is ever more important in programming.</p>
 <p>Take JDK <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html"><code>Stack</code></a> for example. If you were providing a <code>Stack</code> class, you should make sure to expose only those methods that do not break the stack semantics – <em>add and remove elements only from the top of the stack</em>. The underlying data structure could be an array or linked list (depending on your need). Your <code>Stack</code> should not expose methods to add or remove elements from other indices although you should expose the facility of iterating the elements. Exposing methods that mutate the order of elements freely at indices other than top is a breach of semantics. You could still use such a data structure and you could make it work to your wish but don’t call it <code>Stack</code>.</p>
 <blockquote>
-<p>Java/JDK is notorious for such poor semantics. Not just Stack but many others – <code>Thread</code>, obtaining an immutable <code>List</code>, ambiguous method names<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted --> etc.</p>
+<p>Java/JDK is notorious for such poor semantics. Not just Stack but many others – <code>Thread</code>, obtaining an immutable <code>List</code>, ambiguous method names<sup id="fnref-2002-2"><a href="#fn-2002-2">2</a></sup> etc.</p>
 </blockquote>
 <p>Let us think about obtaining that immutable list. Here is how you get an immutable list out of an existing immutable list:-</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// list could have been created elsewhere or in place new ArrayList();
@@ -223,7 +232,7 @@ Semantics is ever more important in programming." />
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><p>I am sure you see the problem with above implementation – inconsistent return value although it is <code>List</code> in all cases. Think from the caller’s perspective. There is no way that the caller can deduce (from the method signature) to refrain from modifying the <code>List</code> returned (or rather prevent the caller in the first place).</p>
-<p>You can go to great lengths in making such a contract work with a try-catch, size()<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted --> checks and what not. By doing so, you are just working around the problem rather than standardizing the semantics of the API; if you are the author or have access to effect a change in the API.</p>
+<p>You can go to great lengths in making such a contract work with a try-catch, size()<sup id="fnref2:2002-2"><a href="#fn-2002-2">2</a></sup> checks and what not. By doing so, you are just working around the problem rather than standardizing the semantics of the API; if you are the author or have access to effect a change in the API.</p>
 <p>In majority of cases, the calling code iterates/consumes and does not make modifications to the resultant list. However, the fact that the calling code can make modifications should not influence the API design with a false idea that it is convenient for the caller. That said, if the API is designed with the information beforehand that the client code will make modifications or such is the regular scenario, then the semantics change; API should be returning a mutable list. But the API should be consistent in its behavior. In other words, <em>the API should be semantically meaningful</em>. Think of an Equals implementation. Likewise, you should also consider the effect of allowing or skipping <code>null</code>s in your resultant list.</p>
 <blockquote>
 <p>Your API that returns a <code>Collection</code> should not be returning a <code>List</code> sometimes and <code>Set</code> at other times.**</p>
@@ -231,7 +240,11 @@ Semantics is ever more important in programming." />
 <p>As a publisher of the API, you should first <em>decide</em> the appropriate semantics. No forethought of semantics or alternatively a poor/broken one is ignorantly or knowingly planting bugs in code. I am sure you would have come across APIs such as <code>getMeTheList</code> or worse used the JDK <code>Stack</code> in ways that ignore the stack semantics.</p>
 <p>There are several other factors that determine the integrity of the semantics of an API – name, consistency, thread safety to name a few. Did I say <strong>name</strong>? Don’t make the mistake of thinking <em>What’s in a name?</em> Suppose you name your API <code>float getProductWeight()</code>, which weight does it return – absolute weight of the product, with addons, with packaging? For instance, think of a cycle. If <code>getProductWeight</code> will return different values depending on some context that is not even controlled by the caller, it will not only wrek havoc in your code(-base) or the caller code(-base) but it will be hiding in plain sight, and you will be busy fixing parts of the application except <code>getProductWeight</code>.</p>
 <p>Among problems that affect the sanctity and the integrity of large scale application code bases, API semantics or the absence thereof is one of the biggest contributors.</p>
-<!-- raw HTML omitted -->
+<li id="fn-2002-1">
+  Definition of <a href="semantics">semantics</a> was borrowed from [Dictionary.com](www.dictionary.com]&#160;<a href="#fnref-2002-1">&#8617;</a>
+</li>
+<li id="fn-2002-2">
+  <em>size()</em> sounds the method is going to return the number of bytes consumed by the <em>Collection</em>. One of the more appropriate names is <em>Count</em>.&#160;<a href="#fnref-2002-2">&#8617;</a> <a href="2002-2">&#8617;</a> </fn></footnotes>
 </div>
 
 
@@ -239,7 +252,7 @@ Semantics is ever more important in programming." />
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -259,6 +272,7 @@ Semantics is ever more important in programming." />
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

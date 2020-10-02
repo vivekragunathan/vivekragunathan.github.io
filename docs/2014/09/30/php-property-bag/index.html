@@ -15,7 +15,7 @@
 <meta itemprop="description" content="The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code1 specifically when there is a need to interact with code that is not open for change; legacy or not.">
 <meta itemprop="datePublished" content="2014-09-29T22:36:35+00:00" />
 <meta itemprop="dateModified" content="2014-09-29T22:36:35+00:00" />
-<meta itemprop="wordCount" content="667">
+<meta itemprop="wordCount" content="945">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="PHP Savers – PropertyBag" />
 <meta property="og:description" content="The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code1 specifically when there is a need to interact with code that is not open for change; legacy or not." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2014/09/30/php-property-bag/" />
+<meta property="og:url" content="/2014/09/30/php-property-bag/" />
 <meta property="article:published_time" content="2014-09-29T22:36:35+00:00" />
 <meta property="article:modified_time" content="2014-09-29T22:36:35+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,15 +132,20 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>PHP Savers – PropertyBag</h1>
 
+
   <div class="post-date">
-    <time datetime="2014-09-29T22:36:35Z">Sep 29, 2014</time> &middot; 4 min read
+    <time datetime="2014-09-29T22:36:35Z">Sep 29, 2014</time> &middot; 5 min read
   </div>
 
-  <p>The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code<!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> specifically when there is a need to interact with code that is not open for change; legacy or not.</p>
+  <p>The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code<sup id="fnref-452-1"><a href="#fn-452-1">1</a></sup> specifically when there is a need to interact with code that is not open for change; legacy or not.</p>
 <p>JavaScript would allow you to access an object property either <code>obj.propName</code> or <code>obj[&quot;propName&quot;]</code>. That does come in handy for sure. Besides, accessing the property by <code>[]</code> tags is the only way if the property name contains characters like hyphen: <code>obj[&quot;prop-Name&quot;]</code>. At the user code level, it is fair to see an object as a bag of key-value pairs.</p>
-<p>Along the same lines, it is not wrong to expect the same in PHP between an object and an array; although there is a fundamental difference<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->. The expectation arises when there is a lot of code that generates array (as output), and a lot of code that expects object (as input), or vice versa. Either code would primarily be interested in the getting or setting the properties/keys than the intrinsic. For that matter, the reasoning behind why an array or object was chosen by the author of either code is outside the scope of this post.</p>
+<p>Along the same lines, it is not wrong to expect the same in PHP between an object and an array; although there is a fundamental difference<sup id="fnref-452-2"><a href="#fn-452-2">2</a></sup>. The expectation arises when there is a lot of code that generates array (as output), and a lot of code that expects object (as input), or vice versa. Either code would primarily be interested in the getting or setting the properties/keys than the intrinsic. For that matter, the reasoning behind why an array or object was chosen by the author of either code is outside the scope of this post.</p>
 <p>When the intent of the user code is to get/set the property or key, the syntax is just an inconvenience that gets in the way. Here is how one would access a property, or key precisely, of an array:</p>
 <p>[code lang=php]</p>
 <p>$arr[&ldquo;key&rdquo;] or $arr[$key]</p>
@@ -154,15 +163,75 @@
 <p>$arr = (array) $obj;</p>
 <p>[/code]</p>
 <p>Of course, such casting has documented limitations. The restrictions would still apply to any solution trying to address the impedance mismatch problem.</p>
-<p>In PHP, arrays are a bit funny to deal with. If one has programmed in other managed environments, it is evident that arrays are reference types. In PHP, arrays are value types; or sort of<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->. In other words, when you assign an array <code>$a</code> to <code>$b</code>, then <code>$a</code> is copied to <code>$b</code>. It makes perfect sense if one wants to make a copy of the array. If the array needs to be passed over several functions for read only or update purposes, it does not make sense to make copies over and over. We can reference the array:</p>
+<p>In PHP, arrays are a bit funny to deal with. If one has programmed in other managed environments, it is evident that arrays are reference types. In PHP, arrays are value types; or sort of<sup id="fnref2:452-2"><a href="#fn-452-2">2</a></sup>. In other words, when you assign an array <code>$a</code> to <code>$b</code>, then <code>$a</code> is copied to <code>$b</code>. It makes perfect sense if one wants to make a copy of the array. If the array needs to be passed over several functions for read only or update purposes, it does not make sense to make copies over and over. We can reference the array:</p>
 <p>[code lang=php]</p>
 <p>$b =&amp; $a;</p>
 <p>[/code]</p>
 <p>An object in PHP – an instance of a [class][2] or stdClass, on the other hand, is a reference type (Thank God 🙏). Here the point is to avoid unnecessary copies of arrays and objects (created when casting from an array) that are created for merely accessing the properties.</p>
 <p>That’s where <code>PropertyBag</code> comes to the rescue. <code>PropertyBag</code> is an extremely useful class that can wrap over an object or an array (without creating a copy) or even create one from scratch, and make it possible to access the properties, or keys, either as an array or as an object, depending on the user code. Wherever one would return an array (or an object), an instance of PropertyBag could be returned without the need to change the code that consumes this return value. <em>The caveat here is the consumer code does not make explicit type checks or something of the sort</em>. You can grab your copy of <code>PropertyBag</code> from [github:php-savers][3] or read the excerpt of the class here below.</p>
-<p><code>PropertyBag</code> primarily helps to work with array or objects seamlessly, using either the array or the object syntax to access the properties. It also helps avoid creating copies of array when it is passed across functions<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->.</p>
+<p><code>PropertyBag</code> primarily helps to work with array or objects seamlessly, using either the array or the object syntax to access the properties. It also helps avoid creating copies of array when it is passed across functions<sup id="fnref3:452-2"><a href="#fn-452-2">2</a></sup>.</p>
 <p>[code lang=php]</p>
-<!-- raw HTML omitted -->
+<?
+
+abstract class PropertyBag implements ArrayAccess {
+      
+protected $_store = null;
+      
+protected $_readOnly = false;
+
+protected function __construct(&$source, $readOnly = false);
+
+public static function fromArray(array &$source, $readOnly = false);
+      
+public static function fromObject($source, $readOnly = false);
+
+public function isReadOnly();
+      
+public function __get($name);
+      
+public function __set($name, $value);
+  
+}
+
+class ArrayBasedPropertyBag extends PropertyBag {
+      
+public function __construct(array &$source = null, $readOnly = false);
+
+#region ArrayAccess Interface Implementation
+      
+&#8230;
+      
+#endregion
+  
+}
+
+class ObjectBasedPropertyBag extends PropertyBag {
+      
+public function __construct(&$source = null, $readOnly = false);
+
+#region ArrayAccess Interface Implementation
+      
+&#8230;
+      
+#endregion
+  
+}
+  
+[/code]
+
+* * *
+
+**Appendix**
+
+<li id="fn-452-1">
+  The code that I am working on is massive and consists of code several years old, a few years in the past and newly written. One can see the characteristics of the code change among the code from different periods. The newly written code, I believe is written with a great level of consciousness and awareness, interacts with old code (give and take) passing in or taking arrays or objects. In no case, the old code could be changed to adapt what the new code is expecting or returning. Besides, the new code attempts its best to avoid copies of entities by leaning on object types whenever there is a chance instead of plain arrays. So there was an inherent need to build/work with something, an intelligent entity, that would bridge the gap among the code from different periods. The friction here was primarily the syntax difference in accessing the data rather than the intrinsic or nature of the data structure. Hence PropertyBag.&#160;<a href="#fnref-452-1">&#8617;</a>
+</li>
+<li id="fn-452-2">
+  Arrays in PHP are inherently value types but they disguise as reference types until a write is attempted. That means, array variables when passed across functions tend to avoid copies but the moment it is tampered (or written to), a copy of the array is made; copy-on-write. In most cases, a copy is not what is required. Instead the original array is intended to be updated. In cases where a copy is intended, making it explicit via clone mechanism is a good practice. PropertyBag will avoid copies of the array, and will also be able to hand out a copy when required through the toArray method.&#160;<a href="#fnref-452-2">&#8617;</a> <a href="452-2">&#8617;</a> <a href="452-2">&#8617;</a> </fn></footnotes>
+
+ [1]: http://www.php.net/manual/en/language.types.array.php
+ [2]: http://php.net/manual/en/language.oop5.basic.php
+ [3]: https://github.com/VivekRagunathan/php-savers/blob/master/PropertyBag.php
 </div>
 
 
@@ -170,7 +239,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -190,6 +259,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

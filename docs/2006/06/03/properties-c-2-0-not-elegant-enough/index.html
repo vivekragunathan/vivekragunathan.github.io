@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers.">
 <meta itemprop="datePublished" content="2006-06-03T06:59:00+00:00" />
 <meta itemprop="dateModified" content="2006-06-03T06:59:00+00:00" />
-<meta itemprop="wordCount" content="449">
+<meta itemprop="wordCount" content="587">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Properties C# 2.0 – Not Elegant Enough !!!" />
 <meta property="og:description" content="Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/06/03/properties-c-2-0-not-elegant-enough/" />
+<meta property="og:url" content="/2006/06/03/properties-c-2-0-not-elegant-enough/" />
 <meta property="article:published_time" content="2006-06-03T06:59:00+00:00" />
 <meta property="article:modified_time" content="2006-06-03T06:59:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,18 +132,29 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Properties C# 2.0 – Not Elegant Enough !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2006-06-03T06:59:00Z">Jun 3, 2006</time> &middot; 3 min read
   </div>
 
-  <p><!-- raw HTML omitted -->Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers. And i take my comment in <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->my previous post<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> that C# does not provide the facility of having different visibility levels for the get and set accessors. While that is partly correct, it is no more in C# 2.0.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+  <p><span style="font-family:Georgia;font-size:100%;">Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers. And i take my comment in </span><span style="font-family:Georgia;font-size:100%;"><a href="http://developerexperience.blogspot.com/2006/04/properties-in-cclithe-c-look-alike.html">my previous post</a></span><span style="font-size:100%;"><span style="font-family:Georgia;"> that C# does not provide the facility of having different visibility levels for the get and set accessors. While that is partly correct, it is no more in C# 2.0.</p></p>
+<p>
+  And obviously it isn&#8217;t in the easy and elegant way. Take a look at this code snippet:-</span><br /></span>
+</p>
+<pre><span style="font-family:Courier New;font-size:100%;">public bool LogToStdError<br />{<br />get<br />{<br />   return _log2StdError;<br />}<br />protected set<br />{<br />   _log2StdError = value;<br />}<br />}<br /></span></pre>
+<p>
+  <span style="font-size:100%;"><span style="font-family:Georgia;">I do not have to explain the code except there are some restrictions while having different visibility levels for the get/set accessors of a property.</p> 
+  <p>
+    1. You can provide an explicit visibility either for get or set. Hence the following code will throw an error:-
+  </p>
+  <p>
+    </span><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;">public bool LogToStdError</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;">{</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> protected get</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> {</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> return _log2StdError;</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> }</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> protected set</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> {</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> _log2StdError = value;</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"> }</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;">}</span><br /></span><span style="font-size:100%;"><br /><span style="font-family:Georgia;">2. The visibility thus explicitly specified must be a subset [restrictive than] of the property declaration.<br />For example, if the property declaration is protected, then the get/set accessor cannot be like say public. So the following code throws an error:-</span></p> 
 <pre><code>&lt;p&gt;
   &lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt;protected bool LogToStdError&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt;{&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; get&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; {&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; return _log2StdError;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; }&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; public set&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; {&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; _log2StdError = value;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt; }&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;&quot;&gt;}&lt;/span&gt;
 &lt;/p&gt;
@@ -176,7 +191,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -196,6 +211,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

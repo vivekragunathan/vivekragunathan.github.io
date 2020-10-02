@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Invoking methods with Out and Ref (Part 2) !!!">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="Straight to code&#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!">
 <meta itemprop="datePublished" content="2010-10-28T17:22:39+00:00" />
 <meta itemprop="dateModified" content="2010-10-28T17:22:39+00:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="417">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Invoking methods with Out and Ref (Part 2) !!!"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Straight to code&#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!"/>
 
 
 <meta property="og:title" content="Invoking methods with Out and Ref (Part 2) !!!" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Straight to code&#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2010/10/28/outref2/" />
+<meta property="og:url" content="/2010/10/28/outref2/" />
 <meta property="article:published_time" content="2010-10-28T17:22:39+00:00" />
 <meta property="article:modified_time" content="2010-10-28T17:22:39+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,34 +132,116 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Invoking methods with Out and Ref (Part 2) !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2010-10-28T17:22:39Z">Oct 28, 2010</time> &middot; 0 min read
+    <time datetime="2010-10-28T17:22:39Z">Oct 28, 2010</time> &middot; 2 min read
   </div>
 
-  <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+  <p style="font-family:Tahoma;font-size:11pt;">
+  Straight to code&#8230;..
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
+    string arg2,
+    ref DayOfWeek arg3)
+{
+    // Wildest implementation!
+}</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  The above method had to be executed on its dispatcher thread. So let unravel a bit of the wildest implementation above.
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
+    string arg2,
+    ref DayOfWeek arg3)
+{
+    if (Disptacher.CheckAccess())
+    {
+        var funcDelegate = (Func&lt;string, string, DayOfWeek, int&gt;)SomeMthod;
 
+        return Dispatcher.Invoke(funcDelegate,
+            arg1,
+            arg2,
+            ref arg3);
+    }
+
+    // Wilder implementation!!
+}</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  Before you say anything, yes, the compiler spat the following errors:-
+</p>
+<pre style="color:red;font-family:Tahoma;font-size:11pt;">Error 1  No overload for 'SomeMethod' matches delegate 'System.Func&lt;string,string,DayOfWeek,int&gt;
+
+Error 2 The best overloaded method match for 'System.Windows.Threading.Dispatcher.Invoke(System.Delegate, params object[])' has some invalid arguments
+
+Error 3  Argument '4': cannot convert from 'ref System.DayOfWeek' to 'object'</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  I had some experience with Error 3 earlier, and I had <a href="http://developerexperience.blogspot.com/2006/05/out-ref-and-invokemember.html" target="_blank">written</a> about it. That came in handy to resolve Error 3. So code is getting better&#8230;
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
+    string arg2,
+    ref DayOfWeek arg3)
+{
+    if (Disptacher.CheckAccess())
+    {
+        var funcDelegate = (Func&lt;string, string, DayOfWeek, int&gt;)SomeMethod;
+
+        var args = new object[] {
+            arg1,
+            arg2,
+            arg3
+        };
+
+        return Dispatcher.Invoke(funcDelegate, args);
+    }
+
+    // Wilder implementation!!
+}</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  Then I was left with one Error 1. I felt I needed a hammer to bang my head to get rid of the error. And it was all nothing but stupidity, or I should have been sleepy. I have been using Func so much that I had got the feeling that it is a keyword (for lack of a better word). To realize that Func delegate had no overload of the type/sort (I was using) took an hour or so.
+</p>
+<p style="font-family:Tahoma;font-size:11pt;">
+  We can declare a delegate with same name Func as follows:-
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">public delegate TResult Func&lt;T1, T2, T3, TResult&gt;(T1 arg1,
+    T2 arg2,
+    ref T3 arg3);</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  But I declared with a different name to avoid confusion and clear up my misconception. Now the wildness of the implementation was almost unraveled except the method was not working as expected. Let us see the code cleared of all compiler errors:-
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
+    string arg2,
+    string arg3,
+    ref DayOfWeek arg4)
+{
+    if (Disptacher.CheckAccess())
+    {
+        var funcDelegate = (Func&lt;string, string, DayOfWeek, int&gt;)SomeMthod;
+
+        var args = new object[] {
+            arg1,
+            arg2,
+            arg3
+        };
+
+        return Dispatcher.Invoke(funcDelegate, args);
+    }
+
+    // No more implementation
+    arg4 = DayOfWeek.Friday;
+
+    return 1234;
+}</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  What is that expected behavior that is not experienced? And what is the reason? I will write about in a short while cuz my beer stole the preference.
+</p>
+<p style="font-family:Tahoma;font-size:11pt;">
+  Hint: Why does not the client code (Code calling SomeMethod) get the correct value in DayOfWeek argument? In our case, DayOfWeek.Friday.
+</p>
 </div>
 
 
@@ -163,7 +249,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -183,6 +269,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

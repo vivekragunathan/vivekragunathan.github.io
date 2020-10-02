@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="OrderedThreadPool – Task Execution In Queued Order !!!">
-<meta itemprop="description" content="Enough talking…….eat code.">
+<meta itemprop="description" content="I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.">
 <meta itemprop="datePublished" content="2009-03-18T03:35:00+00:00" />
 <meta itemprop="dateModified" content="2009-03-18T03:35:00+00:00" />
-<meta itemprop="wordCount" content="3">
+<meta itemprop="wordCount" content="334">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OrderedThreadPool – Task Execution In Queued Order !!!"/>
-<meta name="twitter:description" content="Enough talking…….eat code."/>
+<meta name="twitter:description" content="I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc."/>
 
 
 <meta property="og:title" content="OrderedThreadPool – Task Execution In Queued Order !!!" />
-<meta property="og:description" content="Enough talking…….eat code." />
+<meta property="og:description" content="I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2009/03/18/orderedthreadpool-task-execution-in-queued-order/" />
+<meta property="og:url" content="/2009/03/18/orderedthreadpool-task-execution-in-queued-order/" />
 <meta property="article:published_time" content="2009-03-18T03:35:00+00:00" />
 <meta property="article:modified_time" content="2009-03-18T03:35:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,19 +132,92 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>OrderedThreadPool – Task Execution In Queued Order !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2009-03-18T03:35:00Z">Mar 18, 2009</time> &middot; 1 min read
+    <time datetime="2009-03-18T03:35:00Z">Mar 18, 2009</time> &middot; 2 min read
   </div>
 
-  <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+  <p style="font-family:Tahoma;">
+  I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.
+</p>
+<p style="font-family:Tahoma;">
+  In some situations, it is required that the tasks queued to the thread pool are dispatched (and executed) in the order they were queued. For instance, in my (and most?) applications, a series of events are fired to notify the clients with what is happening inside the (server) application. Although the events may be fired from any thread (asynchronous), I would want them or rather the client would be expecting that the events are received in a certain order, which aligns with the sequence of steps carried out inside the server application for the requested service. So sequential execution of the queued tasks is not something one must not wish for.
+</p>
 <p>Enough talking…….eat code.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre style="font-family:Consolas;font-size:13pt;">using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
+namespace System.Threading
+{
+   struct ThreadPoolTaskInfo
+   {
+      public readonly WaitCallback CallbackDelegate;
+      public readonly object State;
+
+      public ThreadPoolTaskInfo(WaitCallback wc, object state)
+      {
+         Debug.Assert(wc != null);
+         CallbackDelegate = wc;
+         State = state;
+      }
+   }
+
+   class OrderedThreadPool
+   {
+      private Queue workItemQ = new Queue();
+
+      public void QueueUserWorkItem(WaitCallback wcbDelegate, object state)
+      {
+         lock (workItemQ)
+         {
+            workItemQ.Enqueue(new ThreadPoolTaskInfo(wcbDelegate, state));
+
+            if (workItemQ.Count == 1)
+            {
+               ThreadPool.QueueUserWorkItem(LoopWork);
+            }
+         }
+      }
+
+      private void LoopWork(object notUsed)
+      {
+         WaitCallback wcb = null;
+         object state = null;
+
+         lock (workItemQ)
+         {
+            if (workItemQ.Count == 0)
+            {
+               return;
+            }
+
+            ThreadPoolTaskInfo tptInfo = workItemQ.Dequeue();
+            state = tptInfo.State;
+            wcb = tptInfo.CallbackDelegate;
+            Debug.Assert(wcb != null);
+         }
+
+         try
+         {
+            wcb(state);
+         }
+         finally
+         {
+            ThreadPool.QueueUserWorkItem(LoopWork, notUsed);
+         }
+      }
+   }
+}</pre>
+<p style="font-family:Tahoma;">
+  The above class wraps the System.Threading.ThreadPool and offers the facility of execution of tasks in the order they are queued. Hope that is useful!
+</p>
 </div>
 
 
@@ -148,7 +225,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -168,6 +245,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

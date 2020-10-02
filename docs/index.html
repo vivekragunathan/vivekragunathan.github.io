@@ -23,8 +23,8 @@
 <meta property="og:title" content="A Developer&#39;s Experience" />
 <meta property="og:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://okforanything.github.io/" />
-<meta property="og:updated_time" content="2016-12-11T09:18:37+00:00" />
+<meta property="og:url" content="/" />
+<meta property="og:updated_time" content="2020-04-17T00:00:00+00:00" />
 
 
 
@@ -61,7 +61,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://okforanything.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
   </head>
 <body>
   <aside class="sidebar">
@@ -95,7 +95,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -122,8 +126,37 @@
   <main class="content container">
   <div class="posts">
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/12/11/cppcli-apress/">C&#43;&#43;/CLI Primer – An Apress Book</a>
+          <a href="/2020/04/17/resource-combinations/">Know Thy Option</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2020-04-17T00:00:00Z">Apr 17, 2020</time> &middot; 4 min read
+        </div>
+
+        <div>
+          <p>Avoid <code>.get</code> at all costs. Forget there is even a <code>.get</code> function on <code>Option</code>. There is always a way out - better one, than using <code>.get</code>. Same applies to <code>.head</code></p>
+<p>If you are going to have access the value in an <code>Option</code> in a test class, prefer extending your test class from <code>OptionValues</code>. Then you can use <code>.value</code> on an <code>Option</code>. Doing so establishes the presence of value as verification with meaningful error if value is not defined.</p>
+
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2020/04/17/resource-combinations/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+        <div class="image featured">
+            <img src="/images/2016/12/cppcli_apress.png">
+        </div>
+        
+
+        <h1 class="post-title">
+          <a href="/2016/12/11/cppcli-apress/">C&#43;&#43;/CLI Primer – An Apress Book</a>
         </h1>
 
         <div class="post-date">
@@ -135,12 +168,15 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/12/11/cppcli-apress/">Read More</a>
+          <a href="/2016/12/11/cppcli-apress/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/12/10/problem-reduction/">Problem Reduction</a>
+          <a href="/2016/12/10/problem-reduction/">Problem Reduction</a>
         </h1>
 
         <div class="post-date">
@@ -153,12 +189,15 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/12/10/problem-reduction/">Read More</a>
+          <a href="/2016/12/10/problem-reduction/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/11/07/semantics/">Importance of Semantics</a>
+          <a href="/2016/11/07/semantics/">Importance of Semantics</a>
         </h1>
 
         <div class="post-date">
@@ -166,7 +205,7 @@
         </div>
 
         <div>
-          <p><strong>semantics</strong><!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> | /sɪˈmæntɪks/ | noun (functioning as sing)</p>
+          <p><strong>semantics</strong><sup id="fnref-2002-1"><a href="#fn-2002-1">1</a></sup> | /sɪˈmæntɪks/ | noun (functioning as sing)</p>
 <ol>
 <li>the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings</li>
 <li>the study of the relationships between signs and symbols and what they represent</li>
@@ -183,12 +222,19 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/11/07/semantics/">Read More</a>
+          <a href="/2016/11/07/semantics/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+        <div class="image featured">
+            <img src="/images/2016/08/app-models.jpg">
+        </div>
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/08/27/app-models/">Application Models</a>
+          <a href="/2016/08/27/app-models/">Application Models</a>
         </h1>
 
         <div class="post-date">
@@ -196,16 +242,19 @@
         </div>
 
         <div>
-          <p>A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.</p>
+          <p>A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.</p>
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/08/27/app-models/">Read More</a>
+          <a href="/2016/08/27/app-models/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/08/03/iterators-vs-generators/">Iterators vs. Generators</a>
+          <a href="/2016/08/03/iterators-vs-generators/">Iterators vs. Generators</a>
         </h1>
 
         <div class="post-date">
@@ -217,12 +266,15 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/08/03/iterators-vs-generators/">Read More</a>
+          <a href="/2016/08/03/iterators-vs-generators/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/07/15/mundane-vs-jinq-way/">Mundane vs JINQ Way</a>
+          <a href="/2016/07/15/mundane-vs-jinq-way/">Mundane vs JINQ Way</a>
         </h1>
 
         <div class="post-date">
@@ -234,12 +286,15 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/07/15/mundane-vs-jinq-way/">Read More</a>
+          <a href="/2016/07/15/mundane-vs-jinq-way/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/05/29/text-editors/">Text Editors</a>
+          <a href="/2016/05/29/text-editors/">Text Editors</a>
         </h1>
 
         <div class="post-date">
@@ -251,12 +306,15 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/05/29/text-editors/">Read More</a>
+          <a href="/2016/05/29/text-editors/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/05/16/resource-combinations/">Selective Combinations</a>
+          <a href="/2016/05/16/resource-combinations/">Selective Combinations</a>
         </h1>
 
         <div class="post-date">
@@ -280,41 +338,31 @@ abc
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/05/16/resource-combinations/">Read More</a>
+          <a href="/2016/05/16/resource-combinations/">Read More</a>
         </div>
       </article>
       <article class="post">
+
+        
+        <div class="image featured">
+            <img src="/images/2016/04/bjarne_cppcon2014.jpg">
+        </div>
+        
+
         <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/04/02/jinq/">JINQ</a>
+          <a href="/2016/04/02/jinq/">JINQ</a>
         </h1>
 
         <div class="post-date">
-          <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 8 min read
+          <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 9 min read
         </div>
 
         <div>
-          <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
+          <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><sup id="fnref-1399-1"><a href="#fn-1399-1">1</a></sup> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
         </div>
 
         <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/04/02/jinq/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-        <h1 class="post-title">
-          <a href="https://okforanything.github.io/2016/02/16/partial-classes-java/">Partial Classes – Java ???</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2016-02-16T04:27:37Z">Feb 16, 2016</time> &middot; 4 min read
-        </div>
-
-        <div>
-          <p>I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="https://okforanything.github.io/2016/02/16/partial-classes-java/">Read More</a>
+          <a href="/2016/04/02/jinq/">Read More</a>
         </div>
       </article>
   </div>
@@ -355,7 +403,7 @@ abc
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -375,6 +423,7 @@ abc
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/series/</link>
+    <link>/series/</link>
     <description>Recent content in Series on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://okforanything.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

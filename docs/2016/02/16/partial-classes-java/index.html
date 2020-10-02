@@ -15,7 +15,7 @@
 <meta itemprop="description" content="I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.">
 <meta itemprop="datePublished" content="2016-02-16T04:27:37+00:00" />
 <meta itemprop="dateModified" content="2016-02-16T04:27:37+00:00" />
-<meta itemprop="wordCount" content="659">
+<meta itemprop="wordCount" content="663">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Partial Classes – Java ???" />
 <meta property="og:description" content="I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2016/02/16/partial-classes-java/" />
+<meta property="og:url" content="/2016/02/16/partial-classes-java/" />
 <meta property="article:published_time" content="2016-02-16T04:27:37+00:00" />
 <meta property="article:modified_time" content="2016-02-16T04:27:37+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,14 +132,19 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Partial Classes – Java ???</h1>
+
 
   <div class="post-date">
     <time datetime="2016-02-16T04:27:37Z">Feb 16, 2016</time> &middot; 4 min read
   </div>
 
   <p>I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.</p>
-<p>The <code>partial</code><!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --> keyword is wonderful tidbit feature in C#; split a class source code across multiple files.</p>
+<p>The <code>partial</code><sup id="fnref-1385-1"><a href="#fn-1385-1">1</a></sup> keyword is wonderful tidbit feature in C#; split a class source code across multiple files.</p>
 <ol>
 <li>A direct use case of a partial class is to enable code generators physically separate the code but hold (compile) the related discrete parts logically together (same class name). For instance, WinForms and WPF use the feature to separate the generated code into a different file. So does <a href="https://msdn.microsoft.com/en-us/data/ee712907">Entity Framework</a> or any other framework that supports code generation. Needless to say, it is a boon for code generators.</li>
 <li>Another use case of the feature is when the class has grown to an extent that the programmers (or the team) start feeling proud of its size. When a class has too many lines of code that obstructs the reader from knowing what the class does; even when the reader is the author himself. In such cases, you can split the class using the partial keyword into logical groups of fields and methods based on what the class does. You can analogize it to sub-namespace or sub-modules, not sub-class 🙂. That way it is easier to focus on the theme of the respective sub-module, say when debugging.</li>
@@ -152,8 +161,12 @@
 <span class="o">}</span>
 </code></pre></div><p>Again, the whole thing is a workaround. My workaround is convention based but pretty clean, I think. Besides, it addresses use case #1 directly. #2 may be seen as a variant of #1, and the workaround applied judiciously. The right thing to do regarding #2 is be aware of the class’s size ahead of time and never be there.</p>
 <p>You are thinking “<em>That’s it? You are worried just about a name</em>“. Hey you know what they say, “<em>There are only two hard things in Computer Science: cache invalidation and naming things</em>“. Names do matter!</p>
-<p>Hard to accept but we can settle with not having the partial feature in Java; being an old language and all. How about Scala? It is the hot chick around the block. It does so using <a href="http://docs.scala-lang.org/tutorials/tour/mixin-class-composition.html">mixins</a> (like the PHP traits<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->). Scala might not be requiring it all because it provides extremely succint syntax and constructs that you end up with relatively much less footprint; unless you want to write Java in Scala.</p>
-<!-- raw HTML omitted -->
+<p>Hard to accept but we can settle with not having the partial feature in Java; being an old language and all. How about Scala? It is the hot chick around the block. It does so using <a href="http://docs.scala-lang.org/tutorials/tour/mixin-class-composition.html">mixins</a> (like the PHP traits<sup id="fnref-1385-2"><a href="#fn-1385-2">2</a></sup>). Scala might not be requiring it all because it provides extremely succint syntax and constructs that you end up with relatively much less footprint; unless you want to write Java in Scala.</p>
+<li id="fn-1385-1">
+  <code>partial</code>: <a href="https://msdn.microsoft.com/en-us/library/wa80x488.aspx">https://msdn.microsoft.com/en-us/library/wa80x488.aspx</a>&#160;<a href="#fnref-1385-1">&#8617;</a>
+</li>
+<li id="fn-1385-2">
+  <a href="http://php.net/manual/en/language.oop5.traits.php">http://php.net/manual/en/language.oop5.traits.php</a>&#160;<a href="#fnref-1385-2">&#8617;</a> </fn></footnotes>
 </div>
 
 
@@ -161,7 +174,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -181,6 +194,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

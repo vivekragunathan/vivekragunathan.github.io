@@ -15,7 +15,7 @@
 <meta itemprop="description" content="I was involved in this module for the past few weeks and successfully completed it in a very innovative way.">
 <meta itemprop="datePublished" content="2006-05-11T22:40:00+00:00" />
 <meta itemprop="dateModified" content="2006-05-11T22:40:00+00:00" />
-<meta itemprop="wordCount" content="1161">
+<meta itemprop="wordCount" content="1347">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content=".NET Reflection Extravanganza !!!" />
 <meta property="og:description" content="I was involved in this module for the past few weeks and successfully completed it in a very innovative way." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/05/11/net-reflection-extravanganza/" />
+<meta property="og:url" content="/2006/05/11/net-reflection-extravanganza/" />
 <meta property="article:published_time" content="2006-05-11T22:40:00+00:00" />
 <meta property="article:modified_time" content="2006-05-11T22:40:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,10 +132,15 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>.NET Reflection Extravanganza !!!</h1>
 
+
   <div class="post-date">
-    <time datetime="2006-05-11T22:40:00Z">May 11, 2006</time> &middot; 6 min read
+    <time datetime="2006-05-11T22:40:00Z">May 11, 2006</time> &middot; 7 min read
   </div>
 
   <p>I was involved in this module for the past few weeks and successfully completed it in a very innovative way. Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them in the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also if more events are added in the future, it is possible to support the Bridge.</p>
@@ -140,7 +149,7 @@
 <ol>
 <li>I was able to get the event information about the events fired by Server through reflection. I used the following sort of code for generating the dynamic method or the supposedly the dynamic event handler:-</li>
 </ol>
-<!-- raw HTML omitted -->
+<pre><font face="Courier New" size="3" color="#006600"><br />using System;<br />using System.Threading;<br />using System.Reflection;<br />using System.Reflection.Emit;<br /><br />class TaskDynamicEventHandler<br />{<br />    public static void CreateDynamicEventHandler(ref TypeBuilder myTypeBld,<br />                         string methodName,<br />                         Type[] eventMethodParameters,<br />                         Type eventreturnType)<br />    {<br />        MethodBuilder myMthdBld = myTypeBld.DefineMethod(methodName,<br />                          MethodAttributes.Public | MethodAttributes.Static,<br />                          eventreturnType,<br />                          eventMethodParameters);<br /><br />        ILGenerator ILout = myMthdBld.GetILGenerator();<br /><br />        int numParams = eventMethodParameters.Length;<br /><br />        for (byte x = 0; x &lt; numParams; x++)<br />        {<br />            // Load the parameter onto the evaulation stack<br />            ILout.Emit(OpCodes.Ldarg_S, x);<br />        }<br /><br />        // Use the above sort of logic to access the event parameter<br />        // values and then package into a hashtable, and then call<br />        // a static method HandleEvent in TaskDynamicEventHandler,<br />        // which takes the hashtable as a parameter. All the code is <br />        // generated in IL using ILGenerator.<br /><br />        ILout.Emit(OpCodes.Ret);<br />    }<br /><br />    public static void Main()<br />    {<br />        AppDomain myDomain = Thread.GetDomain();<br />        AssemblyName asmName = new AssemblyName("DynamicAssembly1");<br />        AssemblyBuilder myAsmBuilder = myDomain.DefineDynamicAssembly(asmName,<br />                       AssemblyBuilderAccess.RunAndSave);<br /><br />        ModuleBuilder myModule = myAsmBuilder.DefineDynamicModule("DynamicModule1",<br />                                      "MyDynamicAsm.dll");<br /><br />        TypeBuilder myTypeBld = myModule.DefineType("MyDynamicType",<br />                                       TypeAttributes.Public);<br /><br />        string dynamicMethodName = "DynamicEventHandler";<br />        CreateDynamicEventHandler(myTypeBld,<br />                         dynamicMethodName,<br />                         eventMethodParameters,<br />                         eventreturnType);        <br /><br />        Type myType = myTypeBld.CreateType();<br />        <br /><br />        myAsmBuilder.Save("MyDynamicAsm.dll");<br />    }<br />}<br /></font></pre>
 <p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
 <p>Though a level of efficieny may have been achieved, it was not elegant enough to be satisfied. The dynamic event handlers [DEH] are all methods of a specific type belonging to a different assembly that is generated at run-time, and these DEH do not belong to the same assembly as the TaskDynamicEventHandler class. The responsibility of the DEHs was to read its parameter name and values at runtime, package them into a hashtable and call a method HandleEvent of TaskDynamicEventHandler, and it is in HandleEvent that the actual job of logging is done. Well, the actual job is not only logging but other things that require access to the memebers of TaskDynamicEventHandler. So the non-elegance here was that HandleEvent was exposed as public static method so that the DEH in the dynamic assembly could call, which lead to the ugliness where HandleEvent was exposed to the outside world from the assembly to which TaskDynamicEventHandler belongs to. So HandleEvent cannot be non-public. But it was required for other reasons to be an instance method.</p>
 <ol start="2">
@@ -151,7 +160,7 @@
 <p>Here comes .NET 2.0 for the rescue to a certain extent, and helps us acheive the aim – Efficiency and Elegance. There is a class by name DynamicMethod to dynamically create methods. The beauty of the DynamicMethod is that it is possible to add the dynamic method as member of the current class TaskDynamicEventHandler.</p>
 </li>
 </ol>
-<!-- raw HTML omitted -->
+<pre><font face="Courier New" size="3" color="#006600"><br />// returnType - event method's return type<br />// parameterTypes - event method's parameter types list<br />ArrayList parameterTypes = new ArrayList(parameterTypes);<br />parameterTypes.Insert(0, this.GetType());<br /><br />DynamicMethod dynamicEventHandler = new DynamicMethod(methodName,<br />            returnType,<br />            (Type[])parameterTypes.ToArray(typeof(Type)),<br />            typeof(TaskDynamicEventHandler));<br /></font></pre>
 <p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to TaskDynamicEventHandler using DynamicMethod class is a static method and hence cannot access instance methods of TaskDynamicEventHandler, although it can access non-public methods.</p>
 <ol start="3">
 <li>
@@ -173,7 +182,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -193,6 +202,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

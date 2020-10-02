@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SFINAE on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/tags/sfinae/</link>
+    <link>/tags/sfinae/</link>
     <description>Recent content in SFINAE on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Apr 2010 07:39:00 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/sfinae/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2010 07:39:00 +0000</lastBuildDate><atom:link href="/tags/sfinae/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quiz – (Journey through templates, SFINAE and specialization) !!!</title>
-      <link>https://okforanything.github.io/2010/04/10/sfinae/</link>
+      <link>/2010/04/10/sfinae/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
-      <guid>https://okforanything.github.io/2010/04/10/sfinae/</guid>
-      <description>Part 1: Non-member Functions Part 2 – Member Functions </description>
+      <guid>/2010/04/10/sfinae/</guid>
+      <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &#34;</description>
     </item>
     
   </channel>

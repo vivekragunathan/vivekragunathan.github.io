@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tools on A Developer&#39;s Experience</title>
-    <link>https://okforanything.github.io/tags/tools/</link>
+    <link>/tags/tools/</link>
     <description>Recent content in tools on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Jul 2014 11:30:28 +0000</lastBuildDate><atom:link href="https://okforanything.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Jul 2014 11:30:28 +0000</lastBuildDate><atom:link href="/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cool Regex Testers !!!</title>
-      <link>https://okforanything.github.io/2014/07/23/cool-regex-testers/</link>
+      <link>/2014/07/23/cool-regex-testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>https://okforanything.github.io/2014/07/23/cool-regex-testers/</guid>
-      <description>[code language=”javascript”]function formatDate(yyyymmdd) {
-var matches = yyyymmdd.match(/^(ISO DATE REGEX PATTERN)$/);</description>
+      <guid>/2014/07/23/cool-regex-testers/</guid>
+      <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
     </item>
     
   </channel>

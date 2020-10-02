@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer.">
 <meta itemprop="datePublished" content="2006-03-27T20:28:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-27T20:28:00+00:00" />
-<meta itemprop="wordCount" content="287">
+<meta itemprop="wordCount" content="290">
 
 
 
@@ -30,7 +30,7 @@
 <meta property="og:title" content="Do not delete [] a scalar pointer !!!" />
 <meta property="og:description" content="Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2006/03/27/do-not-delete-a-scalar-pointer/" />
+<meta property="og:url" content="/2006/03/27/do-not-delete-a-scalar-pointer/" />
 <meta property="article:published_time" content="2006-03-27T20:28:00+00:00" />
 <meta property="article:modified_time" content="2006-03-27T20:28:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,20 +132,25 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Do not delete [] a scalar pointer !!!</h1>
+
 
   <div class="post-date">
     <time datetime="2006-03-27T20:28:00Z">Mar 27, 2006</time> &middot; 2 min read
   </div>
 
   <p>Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer. We all know that it is perfectly illegal to do that. For example, if we allocate something like this:-</p>
-<p><!-- raw HTML omitted -->OurClass *p = new OurClass();<!-- raw HTML omitted --></p>
+<p><span style="font-family:courier new;">OurClass *p = new OurClass();</span></p>
 <p>and try to delete like this:-         <br>
-<!-- raw HTML omitted -->delete []p;<!-- raw HTML omitted --></p>
+<span style="font-family:courier new;">delete []p;</span></p>
 <p>then we are going to end up in trouble. Ofcourse we know that we will end up in trouble. But I have really not given a thought HOW ?</p>
-<p>When we allocate an array of items eg. <!-- raw HTML omitted -->OurClass pa[] = new[5] pa()<!-- raw HTML omitted -->, the compiler actually allocates the necessary amount of memory, calls the ctors for each allocated class and also prefixes the block of memory of the ‘n’ items allocated with the number of items allocated.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --> NumItems | OurClassObject1 | OurClassObject2 | …… | OurClassObjectn<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<p>But pa always points to the first item in the allocation, thereby the item count prefix remains hidden. When we call <!-- raw HTML omitted -->delete[] pa<!-- raw HTML omitted -->, the compiler uses the item count prefix to delete the allocated objects and call the dtors.</p>
+<p>When we allocate an array of items eg. <span style="font-family:courier new;">OurClass pa[] = new[5] pa()</span>, the compiler actually allocates the necessary amount of memory, calls the ctors for each allocated class and also prefixes the block of memory of the ‘n’ items allocated with the number of items allocated.</p>
+<p><span style="font-size:85%;"><span style="font-family:courier new;"> NumItems | OurClassObject1 | OurClassObject2 | …… | OurClassObjectn</span></span></p>
+<p>But pa always points to the first item in the allocation, thereby the item count prefix remains hidden. When we call <span style="font-family:courier new;">delete[] pa</span>, the compiler uses the item count prefix to delete the allocated objects and call the dtors.</p>
 <p>Now i think i don’t need explain any further as what happens when i use delete []p, and what junk value will the compiler take from the memory location just before the memory location p believing it to be the item count.</p>
 <p>I learnt this interesting information from  <a href="http://blogs.msdn.com/oldnewthing/archive/2004/02/03/66660.aspx">OldNewThing Blog</a>. Adam Nathan has explained it well with the compiler generated assembly and a bit of excellent code for the dtor.</p>
 <p>And what if we do a scalar delete on a vector pointer, there is less harm, you do not unallocate the memory completely, you leave behind remnants of your allocated memory which you cannot reclaim.</p>
@@ -154,7 +163,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -174,6 +183,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

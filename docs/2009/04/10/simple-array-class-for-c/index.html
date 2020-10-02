@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Simple Array Class For C&#43;&#43;">
-<meta itemprop="description" content="Disclaimer: It is not aimed to replace the STL containers.">
+<meta itemprop="description" content="This is a simple array like class for C&#43;&#43;, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.">
 <meta itemprop="datePublished" content="2009-04-10T16:48:00+00:00" />
 <meta itemprop="dateModified" content="2009-04-10T16:48:00+00:00" />
-<meta itemprop="wordCount" content="10">
+<meta itemprop="wordCount" content="295">
 
 
 
@@ -24,13 +24,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Simple Array Class For C&#43;&#43;"/>
-<meta name="twitter:description" content="Disclaimer: It is not aimed to replace the STL containers."/>
+<meta name="twitter:description" content="This is a simple array like class for C&#43;&#43;, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer."/>
 
 
 <meta property="og:title" content="Simple Array Class For C&#43;&#43;" />
-<meta property="og:description" content="Disclaimer: It is not aimed to replace the STL containers." />
+<meta property="og:description" content="This is a simple array like class for C&#43;&#43;, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okforanything.github.io/2009/04/10/simple-array-class-for-c/" />
+<meta property="og:url" content="/2009/04/10/simple-array-class-for-c/" />
 <meta property="article:published_time" content="2009-04-10T16:48:00+00:00" />
 <meta property="article:modified_time" content="2009-04-10T16:48:00+00:00" />
 
@@ -102,7 +102,11 @@
         <li>
           <a href="/post/">Posts</a>
         </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
           <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
         </li>
       </ul>
     </nav>
@@ -128,16 +132,136 @@
 
   <main class="content container">
   <div class="post">
+  <div class="image featured">
+  	
+	</div>
+
   <h1>Simple Array Class For C&#43;&#43;</h1>
 
+
   <div class="post-date">
-    <time datetime="2009-04-10T16:48:00Z">Apr 10, 2009</time> &middot; 1 min read
+    <time datetime="2009-04-10T16:48:00Z">Apr 10, 2009</time> &middot; 2 min read
   </div>
 
-  <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+  <p style="font-family:Tahoma;font-size:11pt;">
+  This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.
+</p>
+<pre class="brush: c-sharp;" style="font-family:Consolas;font-size:13pt;">#pragma once
+
+template class Array
+{
+private: T* _tPtr;
+private: size_t _length;
+private: bool _isOwner;
+
+public: Array(size_t length, bool isOwner = true)
+           : _isOwner(isOwner)
+        {
+           _length = length;
+           _tPtr = new T[length]; 
+        }
+
+public: Array(T* tPtr, size_t numItems, bool isOwner = true)
+           : _isOwner(isOwner)
+        {
+           if (NULL == tPtr)
+           {
+              throw std::exception("Specified T* pointer is NULL.");
+           }
+
+           this-&gt;_length = numItems;
+           this-&gt;_tPtr = tPtr;
+        }
+
+public: template
+        Array(const TSTLContainerType& stlContainer, bool isOwner) : _isOwner(isOwner)
+        {
+           _length = stlContainer.size();
+           _tPtr = new T[_length];
+
+           int index = 0;
+           for (TSTLContainerType::const_iterator iter = stlContainer.begin();
+              iter != stlContainer.end();
+              ++iter, ++index)
+           {
+              _tPtr[index] = *iter;
+           }
+        }
+
+public: ~Array()
+        {
+           if (IsOwner())
+           {
+              delete _tPtr;
+           }
+        }
+
+public: T& operator[](size_t index) const
+        {
+           return GetItem(index);
+        }
+
+public: T& operator[](int index) const
+        {
+           return GetItem(static_cast(index));
+        }
+
+        // Gets a copy of the value at the specified index
+public: T GetValue(size_t index)
+        {
+           return GetItem(index);
+        }
+
+public: operator T* const() const
+        {
+           return _tPtr;
+        }
+
+public: T* const Get() const
+        {
+           return _tPtr;
+        }
+
+public: operator const T* const()
+        {
+           return _tPtr;
+        }
+
+public: int Length() const
+        {
+           return static_cast(this-&gt;_length);
+        }
+
+public: int Size() const
+        {
+           return _length * typeof(T);
+        }
+
+public: bool IsOwner() const
+        {
+           return this-&gt;_isOwner;
+        }
+
+public: void CopyTo(T* tPtr, size_t copySize)
+        {
+           memcpy(tPtr, this-&gt;_tPtr, copySize);
+        }
+
+        // Gets a reference to the item (T) at the specified index
+private: T& GetItem(size_t index) const
+         {
+            const size_t length = static_cast(Length());
+            if  (index &gt; length)
+            {
+               throw std::exception("Index out of bounds");
+            }
+
+            return _tPtr[index];
+         }
+};</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  This class is also available at <a href="http://sites.google.com/site/kenbase/cpp/cpparray" target="_blank">KenBase</a>.
+</p>
 <p>Disclaimer: It is not aimed to replace the STL containers.</p>
 
 </div>
@@ -147,7 +271,7 @@
 
   <footer>
   <div>
-    &copy; Theme by <a href="www.google.com">Soho</a> 2020
+    &copy;  2020
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
@@ -167,6 +291,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 
