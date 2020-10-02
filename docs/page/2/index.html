@@ -58,7 +58,7 @@
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
@@ -125,6 +125,82 @@
 
   <main class="content container">
   <div class="posts">
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2016/05/29/text-editors/">Text Editors</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-05-29T07:49:39Z">May 29, 2016</time> &middot; 3 min read
+        </div>
+
+        <div>
+          <p>I am not a *nix commands expert .. but a <a href="http://www.johndcook.com/blog/2014/10/18/experts-vs-professionals/">professional</a>? So why not relish educating my brother a couple of nifty commands, especially – <code>find</code> and <code>grep</code>, which he was looking into at the time. You can find a few more <a href="https://vivekragunathan.wordpress.com/more-resources/cmd-line-sucks/">here</a> if you are interested.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/05/29/text-editors/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2016/05/16/resource-combinations/">Selective Combinations</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-05-16T07:00:08Z">May 16, 2016</time> &middot; 4 min read
+        </div>
+
+        <div>
+          <p>Consider this scenario:</p>
+<blockquote>
+<p>You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is <code>abc</code>, <code>def</code> and <code>ghi</code>. I have to generate ordered combinations of the above list restricted to the ones starting with <code>abc</code>.</p>
+</blockquote>
+<p>So that would be as follows:</p>
+<pre><code>abc def ghi
+
+abc def
+
+abc ghi
+
+abc
+</code></pre>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/05/16/resource-combinations/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+        <div class="image featured">
+            <img src="/images/2016/04/bjarne_cppcon2014.jpg">
+        </div>
+        
+
+        <h1 class="post-title">
+          <a href="/2016/04/02/jinq/">JINQ</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 9 min read
+        </div>
+
+        <div>
+          <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><sup id="fnref-1399-1"><a href="#fn-1399-1">1</a></sup> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/04/02/jinq/">Read More</a>
+        </div>
+      </article>
       <article class="post">
 
         
@@ -218,7 +294,7 @@
         </div>
 
         <div>
-          <p>It was about a decade ago when <a href="https://msdn.microsoft.com/en-us/library/ezd0y49a.aspx">Visual Studio .NET 2002</a> was launched. Having worked with <a href="https://msdn.microsoft.com/en-us/library/ms950418.aspx">Visual Studio 6</a> until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt <em>times were changing</em>. Beyond the cool and modern interface, Visual Studio <strong>.NET</strong> 2002 had a lot more to offer compared to Visual Studio 6 — .NET. It was an exciting time for me back then.</p>
+          <p>It was about a decade ago when <a href="https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z">Visual Studio .NET 2002</a> was launched. Having worked with <a href="https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8">Visual Studio 6</a> until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt <em>times were changing</em>. Beyond the cool and modern interface, Visual Studio <strong>.NET</strong> 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.</p>
         </div>
 
         <div class="read-more-link">
@@ -239,21 +315,23 @@
 
         <div>
           <p>What are your thoughts on the following piece of code?</p>
-<p>[code lang=java]</p>
-<p>public String someGibberishMethod() {</p>
-<p>int length = someMethodReturningLength();</p>
-<p>int sum = 0;</p>
-<p>for (int index = 0; index &lt; length; ++index) {</p>
-<p>// some code that updates the sum variable</p>
-<p>}</p>
-<p>SomeClass someClass = new SomeClass(sum);</p>
-<p>int sumValueInsideSomeClass = someClass.getSumValue();</p>
-<p>// use someText, maybe log or something</p>
-<p>String someText = someClass.doSomeOperation(/*some parameters*/);</p>
-<p>// use someText, maybe log or something</p>
-<p>return someText;</p>
-<p>}</p>
-<p>[/code]</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
+	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+	   <span class="c1">// some code that updates the sum variable
+</span><span class="c1"></span>	<span class="o">}</span>
+
+	<span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+	<span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
+	<span class="c1">// use someText, maybe log or something
+</span><span class="c1"></span>
+	<span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
+	<span class="c1">// use someText, maybe log or something
+</span><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -278,71 +356,6 @@
 
         <div class="read-more-link">
           <a href="/2015/10/04/unconquerable/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/09/14/jar-tips-loading-dependencies/">JAR Tips: Loading dependencies</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-09-13T19:42:16Z">Sep 13, 2015</time> &middot; 3 min read
-        </div>
-
-        <div>
-          <p>If you are writing a typical console based application in Windows, you would end up with an executable (exe). You might also have one or more dependent libraries (DLL). The question is where do we place these DLLs so that they are picked up at runtime by the application; loaded and consumed. Actually it is no brainer, just put them along side the console application executable. Or you could place the DLLs in the <em>System32</em> directory. Or you could add the directory to the <em>PATH</em>. Well, my point was actually to say that the DLLs can be simply placed alongside the executable and it would be picked up.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/09/14/jar-tips-loading-dependencies/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/08/24/tuples-anons/">An Unfair World of Tuples, Anons., var and auto</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-08-24T01:10:27Z">Aug 24, 2015</time> &middot; 12 min read
-        </div>
-
-        <div>
-          <p>It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.</p>
-<p>There are at least a couple of options to return multiple values from a method:-</p>
-<ol>
-<li>return an instance of a class that holds the values</li>
-<li>return a tuple</li>
-</ol>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/08/24/tuples-anons/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/07/08/a-funny-moment-of-ioc/">A funny moment of IoC</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-07-08T06:16:56Z">Jul 8, 2015</time> &middot; 3 min read
-        </div>
-
-        <div>
-          <p><a href="https://en.wikipedia.org/wiki/Inversion_of_control">IoC</a> – Inversion of control, is a design that enables fluid flow of control by decoupling tight dependencies between the portion of a code that exhibits behavior and another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a <code>TextEditor</code> could refer an <code>ISpellChecker</code> instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/07/08/a-funny-moment-of-ioc/">Read More</a>
         </div>
       </article>
   </div>
@@ -401,7 +414,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

@@ -12,10 +12,12 @@
   
 
 <meta itemprop="name" content=".NET Reflection Extravanganza !!!">
-<meta itemprop="description" content="I was involved in this module for the past few weeks and successfully completed it in a very innovative way.">
+<meta itemprop="description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future.">
 <meta itemprop="datePublished" content="2006-05-11T22:40:00+00:00" />
 <meta itemprop="dateModified" content="2006-05-11T22:40:00+00:00" />
-<meta itemprop="wordCount" content="1347">
+<meta itemprop="wordCount" content="1341">
 
 
 
@@ -24,11 +26,15 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=".NET Reflection Extravanganza !!!"/>
-<meta name="twitter:description" content="I was involved in this module for the past few weeks and successfully completed it in a very innovative way."/>
+<meta name="twitter:description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future."/>
 
 
 <meta property="og:title" content=".NET Reflection Extravanganza !!!" />
-<meta property="og:description" content="I was involved in this module for the past few weeks and successfully completed it in a very innovative way." />
+<meta property="og:description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2006/05/11/net-reflection-extravanganza/" />
 <meta property="article:published_time" content="2006-05-11T22:40:00+00:00" />
@@ -66,7 +72,7 @@
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   </head>
@@ -143,38 +149,107 @@
     <time datetime="2006-05-11T22:40:00Z">May 11, 2006</time> &middot; 7 min read
   </div>
 
-  <p>I was involved in this module for the past few weeks and successfully completed it in a very innovative way. Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them in the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also if more events are added in the future, it is possible to support the Bridge.</p>
-<p>So I came up with a different approach with the incredible Reflection in .NET. All of the events fired by the Server, its prototype and other relevant information can be got through reflection, and for each of the event methods, an event sink [event handler] can be generated at runtime. This means I have to create a method at runtime matching the prototype of the event. The dynamic method thus generated runtime has to appended with some method body so as to do the Action, and then has to be registered as the event sink for the corresponding event. So when the event is fired by the Server, the dynamically created event handler is called without any intervention. This is the theme of my solution. This keeps the Bridge unaffected for any event related changes in the Server.</p>
-<p>But achieving this solution and make it work, it was a great and exciting adventure.</p>
-<ol>
-<li>I was able to get the event information about the events fired by Server through reflection. I used the following sort of code for generating the dynamic method or the supposedly the dynamic event handler:-</li>
-</ol>
-<pre><font face="Courier New" size="3" color="#006600"><br />using System;<br />using System.Threading;<br />using System.Reflection;<br />using System.Reflection.Emit;<br /><br />class TaskDynamicEventHandler<br />{<br />    public static void CreateDynamicEventHandler(ref TypeBuilder myTypeBld,<br />                         string methodName,<br />                         Type[] eventMethodParameters,<br />                         Type eventreturnType)<br />    {<br />        MethodBuilder myMthdBld = myTypeBld.DefineMethod(methodName,<br />                          MethodAttributes.Public | MethodAttributes.Static,<br />                          eventreturnType,<br />                          eventMethodParameters);<br /><br />        ILGenerator ILout = myMthdBld.GetILGenerator();<br /><br />        int numParams = eventMethodParameters.Length;<br /><br />        for (byte x = 0; x &lt; numParams; x++)<br />        {<br />            // Load the parameter onto the evaulation stack<br />            ILout.Emit(OpCodes.Ldarg_S, x);<br />        }<br /><br />        // Use the above sort of logic to access the event parameter<br />        // values and then package into a hashtable, and then call<br />        // a static method HandleEvent in TaskDynamicEventHandler,<br />        // which takes the hashtable as a parameter. All the code is <br />        // generated in IL using ILGenerator.<br /><br />        ILout.Emit(OpCodes.Ret);<br />    }<br /><br />    public static void Main()<br />    {<br />        AppDomain myDomain = Thread.GetDomain();<br />        AssemblyName asmName = new AssemblyName("DynamicAssembly1");<br />        AssemblyBuilder myAsmBuilder = myDomain.DefineDynamicAssembly(asmName,<br />                       AssemblyBuilderAccess.RunAndSave);<br /><br />        ModuleBuilder myModule = myAsmBuilder.DefineDynamicModule("DynamicModule1",<br />                                      "MyDynamicAsm.dll");<br /><br />        TypeBuilder myTypeBld = myModule.DefineType("MyDynamicType",<br />                                       TypeAttributes.Public);<br /><br />        string dynamicMethodName = "DynamicEventHandler";<br />        CreateDynamicEventHandler(myTypeBld,<br />                         dynamicMethodName,<br />                         eventMethodParameters,<br />                         eventreturnType);        <br /><br />        Type myType = myTypeBld.CreateType();<br />        <br /><br />        myAsmBuilder.Save("MyDynamicAsm.dll");<br />    }<br />}<br /></font></pre>
-<p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
-<p>Though a level of efficieny may have been achieved, it was not elegant enough to be satisfied. The dynamic event handlers [DEH] are all methods of a specific type belonging to a different assembly that is generated at run-time, and these DEH do not belong to the same assembly as the TaskDynamicEventHandler class. The responsibility of the DEHs was to read its parameter name and values at runtime, package them into a hashtable and call a method HandleEvent of TaskDynamicEventHandler, and it is in HandleEvent that the actual job of logging is done. Well, the actual job is not only logging but other things that require access to the memebers of TaskDynamicEventHandler. So the non-elegance here was that HandleEvent was exposed as public static method so that the DEH in the dynamic assembly could call, which lead to the ugliness where HandleEvent was exposed to the outside world from the assembly to which TaskDynamicEventHandler belongs to. So HandleEvent cannot be non-public. But it was required for other reasons to be an instance method.</p>
-<ol start="2">
-<li>
-<p>Here is the most interesting part. The aim was then make the DEH call an instance method of the TaskDynamicEventHandler ie HandleEvent. How do you make a static method call an instance method ? Well, if I have an object reference of the TaskDynamicEventHandler class in the DEH execution, and IF i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. That was the pain and it was pretty tricky and interesting that everybody to whomever I explained could not correctly grasp that the ‘this’ used during the compiled code will not be the same in the runtime IL code of the DEH, and neither can I load an object reference without me creating it or getting it as a parameter. That is all the .NET type security. You will not be given any chance to do reinterpret_cast kind of stuff at all. But you can pass the TaskDynamicEventHandler object reference [this] to the DEH but that beats the goal where the prototype of the DEH will not match the prototpye of its corresponding event and so cannot act as a sink.</p>
-</li>
-<li>
-<p>Here comes .NET 2.0 for the rescue to a certain extent, and helps us acheive the aim – Efficiency and Elegance. There is a class by name DynamicMethod to dynamically create methods. The beauty of the DynamicMethod is that it is possible to add the dynamic method as member of the current class TaskDynamicEventHandler.</p>
-</li>
-</ol>
-<pre><font face="Courier New" size="3" color="#006600"><br />// returnType - event method's return type<br />// parameterTypes - event method's parameter types list<br />ArrayList parameterTypes = new ArrayList(parameterTypes);<br />parameterTypes.Insert(0, this.GetType());<br /><br />DynamicMethod dynamicEventHandler = new DynamicMethod(methodName,<br />            returnType,<br />            (Type[])parameterTypes.ToArray(typeof(Type)),<br />            typeof(TaskDynamicEventHandler));<br /></font></pre>
-<p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to TaskDynamicEventHandler using DynamicMethod class is a static method and hence cannot access instance methods of TaskDynamicEventHandler, although it can access non-public methods.</p>
-<ol start="3">
-<li>
-<p>Here is the most interesting part. The aim of this iteration is to make the DEH call an instance method of the TaskDynamicEventHandler ie HandleEvent. How do you make a static method call an instance method ? Well, if I have an object reference of the TaskDynamicEventHandler class during the DEH execution, and if i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. Things are going to get interesting now. The difference between an instance and static method is that an instance method has the object reference, to which it belongs, as the first parameter while a static method does not. Though syntactically, the object reference is not added, the compiler adds it. So while creating the dynamic method [DEH] for an event, the TaskDynamicEventHandler object reference [this] is added as the first parameter to the event parameter list. This makes the DEH seem to be an instance method. So during runtime, when an event is fired, its corresponding DEH executes, the Lgarg_0 in the IL code represents the object reference it belongs to, and it is the same as that for HandleEvent.</p>
-</li>
-<li>
-<p>But even now the HandleEvent is public and is vulnerable for improper usage. I made it a virtual method. That is fun, and now it is entirely the user’s responsibility to avoid improper usage, and it is upto the user to override HandleEvent to do whatever he wants.</p>
-</li>
-<li>
-<p>Few minor things- Added Trace.WriteLine in the IL code using ILGenerator for debugging; Added try-catch exception blocks for catching exceptions, but unfortunately does not seem to work.</p>
-</li>
-</ol>
-<p>All of these approaches until the final efficient and elegant solution took several iterations of revisit and review. I will not able to explain about the difficulties and tough IL debugging experience that I went through trying to make the HandleEvent an instance virtual method, although I will be able to share the joy and knowledge now. It was a great experience !!!</p>
+  <p>Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.</p>
+<p>Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires <strong>hundreds</strong> of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.</p>
+<p>The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.</p>
+<p>So, I came up with a different approach with the incredible Reflection in .NET. All of the events fired by the Server, its prototype and other relevant information can be got through reflection. For each of the event methods, an event sink [event handler] can be generated at runtime. This means I have to create a method at runtime matching the prototype of the event. The dynamic method thus generated runtime has to appended with some method body performing the desired <code>Action</code>, and then has to be registered as the event sink for the corresponding event. So, when the event is fired by the Server, the dynamically created event handler is called without any intervention. This is the theme of my solution. This keeps the Bridge unaffected for any event related changes in the Server.</p>
+<p>Implementing this solution was a great and exciting adventure, although a tiring one too.</p>
+<p>I was able to get the event information about the events fired by Server through reflection. I used the following sort of code for generating the dynamic method or the supposedly the dynamic event handler:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Threading</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Reflection</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Reflection.Emit</span><span class="p">;</span>
 
+<span class="k">class</span> <span class="nc">TaskDynamicEventHandler</span>
+<span class="p">{</span>
+	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+		<span class="k">ref</span> <span class="n">TypeBuilder</span> <span class="n">myTypeBld</span><span class="p">,</span>
+		<span class="kt">string</span> <span class="n">methodName</span><span class="p">,</span>
+		<span class="n">Type</span><span class="p">[]</span> <span class="n">eventMethodParameters</span><span class="p">,</span>
+		<span class="n">Type</span> <span class="n">eventreturnType</span>
+	<span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">MethodBuilder</span> <span class="n">myMthdBld</span> <span class="p">=</span>
+			<span class="n">myTypeBld</span><span class="p">.</span><span class="n">DefineMethod</span><span class="p">(</span>
+				<span class="n">methodName</span><span class="p">,</span>
+				<span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Static</span><span class="p">,</span>
+				<span class="n">eventreturnType</span><span class="p">,</span>
+				<span class="n">eventMethodParameters</span>
+			<span class="p">);</span>
+
+		<span class="n">ILGenerator</span> <span class="n">ILout</span> <span class="p">=</span> <span class="n">myMthdBld</span><span class="p">.</span><span class="n">GetILGenerator</span><span class="p">();</span>
+		<span class="kt">int</span> <span class="n">numParams</span> <span class="p">=</span> <span class="n">eventMethodParameters</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+
+		<span class="k">for</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">x</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">numParams</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span>
+		<span class="p">{</span>
+			<span class="c1">// Load the parameter onto the evaulation stack
+</span><span class="c1"></span>			<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_S</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="c1">// Use the above sort of logic to access the event parameter
+</span><span class="c1"></span>		<span class="c1">// values and then package into a hashtable, and then call
+</span><span class="c1"></span>		<span class="c1">// a static method HandleEvent in TaskDynamicEventHandler,
+</span><span class="c1"></span>		<span class="c1">// which takes the hashtable as a parameter. All the code is
+</span><span class="c1"></span>		<span class="c1">// generated in IL using ILGenerator.
+</span><span class="c1"></span>		<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="n">AppDomain</span> <span class="n">myDomain</span> <span class="p">=</span> <span class="n">Thread</span><span class="p">.</span><span class="n">GetDomain</span><span class="p">();</span>
+		<span class="n">AssemblyName</span> <span class="n">asmName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AssemblyName</span><span class="p">(</span><span class="s">&#34;DynamicAssembly1&#34;</span><span class="p">);</span>
+
+		<span class="n">AssemblyBuilder</span> <span class="n">myAsmBuilder</span> <span class="p">=</span>
+			<span class="n">myDomain</span><span class="p">.</span><span class="n">DefineDynamicAssembly</span><span class="p">(</span>
+					<span class="n">asmName</span><span class="p">,</span>
+					<span class="n">AssemblyBuilderAccess</span><span class="p">.</span><span class="n">RunAndSave</span>
+			<span class="p">);</span>
+
+		<span class="n">ModuleBuilder</span> <span class="n">myModule</span> <span class="p">=</span> <span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">DefineDynamicModule</span><span class="p">(</span><span class="s">&#34;DynamicModule1&#34;</span><span class="p">,</span> <span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+		<span class="n">TypeBuilder</span> <span class="n">myTypeBld</span> <span class="p">=</span> <span class="n">myModule</span><span class="p">.</span><span class="n">DefineType</span><span class="p">(</span><span class="s">&#34;MyDynamicType&#34;</span><span class="p">,</span> <span class="n">TypeAttributes</span><span class="p">.</span><span class="n">Public</span><span class="p">);</span>
+		<span class="kt">string</span> <span class="n">dynamicMethodName</span> <span class="p">=</span> <span class="s">&#34;DynamicEventHandler&#34;</span><span class="p">;</span>
+
+		<span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+			<span class="n">myTypeBld</span><span class="p">,</span>
+			<span class="n">dynamicMethodName</span><span class="p">,</span>
+			<span class="n">eventMethodParameters</span><span class="p">,</span>
+			<span class="n">eventreturnType</span>
+		<span class="p">);</span>
+
+		<span class="n">Type</span> <span class="n">myType</span> <span class="p">=</span> <span class="n">myTypeBld</span><span class="p">.</span><span class="n">CreateType</span><span class="p">();</span>
+		<span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
+<p>Though a level of efficiency may have been achieved, it was not elegant enough to be satisfied. The dynamic event handlers [DEH] are all methods of a specific type belonging to a different assembly that is generated at run-time, and these DEH do not belong to the same assembly as the <code>TaskDynamicEventHandler</code> class. The responsibility of the DEHs was to read its parameter name and values at runtime, package them into a hash table, and call a method <code>HandleEvent</code> of <code>TaskDynamicEventHandler</code>, and it is in <code>HandleEvent</code> that the actual job of logging is done. Well, the actual job is not only logging but other things that require access to the members of <code>TaskDynamicEventHandler</code>. So the non-elegance here was that <code>HandleEvent</code> was exposed as <code>public</code> <code>static</code> method so that the DEH in the dynamic assembly could call, which lead to the ugliness where <code>HandleEvent</code> was exposed to the outside world from the assembly to which <code>TaskDynamicEventHandler</code> belongs to. So <code>HandleEvent</code> cannot be non-public. But it was required for other reasons to be an instance method.</p>
+<ul>
+<li>Here is the most interesting part. The aim was then make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class in the DEH execution, and IF i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. That was the pain and it was pretty tricky and interesting that everybody to whomever I explained could not correctly grasp that the ‘this’ used during the compiled code will not be the same in the runtime IL code of the DEH, and neither can I load an object reference without me creating it or getting it as a parameter. That is all the .NET type security. You will not be given any chance to do <code>reinterpret\_cast</code> kind of stuff at all. But you can pass the <code>TaskDynamicEventHandler</code> object reference [<code>this</code>] to the DEH but that beats the goal where the prototype of the DEH will not match the prototype of its corresponding event and so cannot act as a sink.</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// returnType - event method&#39;s return type
+</span><span class="c1">// parameterTypes - event method&#39;s parameter types list
+</span><span class="c1"></span><span class="n">ArrayList</span> <span class="n">parameterTypes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">parameterTypes</span><span class="p">);</span>
+<span class="n">parameterTypes</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+
+<span class="n">DynamicMethod</span> <span class="n">dynamicEventHandler</span> <span class="p">=</span>
+  <span class="k">new</span> <span class="n">DynamicMethod</span><span class="p">(</span>
+    <span class="n">methodName</span><span class="p">,</span>
+    <span class="n">returnType</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">Type</span><span class="p">[])</span> <span class="n">parameterTypes</span><span class="p">.</span><span class="n">ToArray</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Type</span><span class="p">)),</span>
+    <span class="k">typeof</span><span class="p">(</span><span class="n">TaskDynamicEventHandler</span><span class="p">)</span>
+  <span class="p">);</span>
+</code></pre></div><p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to <code>TaskDynamicEventHandler</code> using DynamicMethod class is a static method and hence cannot access instance methods of <code>TaskDynamicEventHandler</code>, although it can access non-public methods.</p>
+<ul>
+<li>
+<p>Here is the most interesting part. The aim of this iteration is to make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class during the DEH execution, and if i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. Things are going to get interesting now. The difference between an instance and static method is that an instance method has the object reference, to which it belongs, as the first parameter while a static method does not. Though syntactically, the object reference is not added, the compiler adds it. So while creating the dynamic method [DEH] for an event, the <code>TaskDynamicEventHandler</code> object reference [this] is added as the first parameter to the event parameter list. This makes the DEH seem to be an instance method. So during runtime, when an event is fired, its corresponding DEH executes, the <code>Lgarg\_0</code> in the IL code represents the object reference it belongs to, and it is the same as that for <code>HandleEvent</code>.</p>
+</li>
+<li>
+<p>But even now the <code>HandleEvent</code> is public and is vulnerable for improper usage. I made it a virtual method. That is fun, and now it is entirely the user’s responsibility to avoid improper usage, and it is up to the user to override <code>HandleEvent</code> to do whatever he wants.</p>
+</li>
+<li>
+<p>Few minor things- Added <code>Trace</code>.<code>WriteLine</code> in the IL code using ILGenerator for debugging; Added try-catch exception blocks for catching exceptions, but unfortunately does not seem to work.</p>
+</li>
+</ul>
+<p>All of these approaches until the final efficient and elegant solution took several iterations of revisit and review. I will not able to explain about the difficulties and tough IL debugging experience that I went through trying to make the <code>HandleEvent</code> an instance virtual method, although I will be able to share the joy and knowledge now. It was a great experience !!!</p>
 </div>
 
 
@@ -200,7 +275,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

@@ -6,13 +6,24 @@
     <description>Recent content in Programming on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Dec 2016 09:18:37 +0000</lastBuildDate><atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyrilex – Online Regex Tester</title>
+      <link>/2016/02/20/cyrilex/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/02/20/cyrilex/</guid>
+      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;https://vivekragunathan.wordpress.com/2014/07/23/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;
+&lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;
+&lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
-      <link>/2016/12/11/cppcli-apress/</link>
+      <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       
-      <guid>/2016/12/11/cppcli-apress/</guid>
+      <guid>/2016/12/11/cpp-cli-apress/</guid>
       <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
     </item>
     
@@ -80,7 +91,7 @@
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
       <guid>/2015/12/03/net-oss/</guid>
-      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ezd0y49a.aspx&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ms950418.aspx&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
+      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -90,21 +101,23 @@
       
       <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;p&gt;[code lang=java]&lt;/p&gt;
-&lt;p&gt;public String someGibberishMethod() {&lt;/p&gt;
-&lt;p&gt;int length = someMethodReturningLength();&lt;/p&gt;
-&lt;p&gt;int sum = 0;&lt;/p&gt;
-&lt;p&gt;for (int index = 0; index &amp;lt; length; ++index) {&lt;/p&gt;
-&lt;p&gt;// some code that updates the sum variable&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;SomeClass someClass = new SomeClass(sum);&lt;/p&gt;
-&lt;p&gt;int sumValueInsideSomeClass = someClass.getSumValue();&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;String someText = someClass.doSomeOperation(/*some parameters*/);&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;return someText;&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;[/code]&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	   &lt;span class=&#34;c1&#34;&gt;// some code that updates the sum variable
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sumValueInsideSomeClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSumValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;doSomeOperation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/*some parameters*/&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>

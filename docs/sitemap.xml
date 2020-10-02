@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>/2020/04/17/resource-combinations/</loc>
+    <loc>/2020/04/17/know-thy-option/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,6 +33,26 @@
   </url>
   
   <url>
+    <loc>/2020/04/02/saner-mocking/</loc>
+    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2016/02/20/cyrilex/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/programming/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/02/19/fp-conversion-caveat/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/pages/lo-and-behold/</loc>
     <lastmod>2017-03-16T00:00:00+00:00</lastmod>
   </url>
@@ -43,12 +63,7 @@
   </url>
   
   <url>
-    <loc>/2016/12/11/cppcli-apress/</loc>
-    <lastmod>2016-12-11T09:18:37+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/programming/</loc>
+    <loc>/2016/12/11/cpp-cli-apress/</loc>
     <lastmod>2016-12-11T09:18:37+00:00</lastmod>
   </url>
   
@@ -349,11 +364,6 @@
   
   <url>
     <loc>/2015/08/24/tuples-anons/</loc>
-    <lastmod>2015-08-24T01:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/anonymous-type/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
@@ -1145,10 +1155,6 @@
   <url>
     <loc>/2005/04/19/joining-the-game/</loc>
     <lastmod>2005-04-19T17:25:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2020-04-02-mocking-tips/</loc>
   </url>
   
   <url>

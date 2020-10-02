@@ -8,8 +8,6 @@ categories:
   - Uncategorized
 
 ---
-I have a separate blog – [Lights Preserved][1] where I get to claim myself a photographer, and where I publish some of my artistic snapshots. 😀
+I have a separate blog – [Lights Preserved](https://lightspreserved.wordpress.com) where I get to claim myself a photographer, and where I publish some of my artistic snapshots. 😀
 
-Nothing entertains me on a Sunday beating the nap and pecking around my old store. Published a few good snaps that brought back good memories. Take a [look][1]!
-
- [1]: https://lightspreserved.wordpress.com/
+Nothing entertains me on a Sunday beating the nap and pecking around my old store. Published a few good snaps that brought back good memories. Take a [look](https://lightspreserved.wordpress.com)!

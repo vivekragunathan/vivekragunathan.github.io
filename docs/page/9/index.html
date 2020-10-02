@@ -58,7 +58,7 @@
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
@@ -130,6 +130,67 @@
         
 
         <h1 class="post-title">
+          <a href="/2006/06/03/properties-c-2-0-not-elegant-enough/">Properties C# 2.0 – Not Elegant Enough !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-06-03T06:59:00Z">Jun 3, 2006</time> &middot; 3 min read
+        </div>
+
+        <div>
+          Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/06/03/properties-c-2-0-not-elegant-enough/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/06/02/singularity-safety-speed/">Singularity – Safety &amp; Speed !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-06-02T19:54:00Z">Jun 2, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          I read about this interesting thing somewhere in MSDN.
+There are two types of programming or programming languages.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/06/02/singularity-safety-speed/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/05/12/out-ref-and-invokemember/">out, ref and InvokeMember !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-05-12T02:26:00Z">May 12, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/05/12/out-ref-and-invokemember/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
           <a href="/2006/05/11/net-reflection-extravanganza/">.NET Reflection Extravanganza !!!</a>
         </h1>
 
@@ -138,7 +199,9 @@
         </div>
 
         <div>
-          I was involved in this module for the past few weeks and successfully completed it in a very innovative way.
+          <p>Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.</p>
+<p>Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires <strong>hundreds</strong> of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.</p>
+<p>The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.</p>
         </div>
 
         <div class="read-more-link">
@@ -265,66 +328,6 @@
           <a href="/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/">Read More</a>
         </div>
       </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2006/04/11/an-encounter-with-hashtables/">An encounter with Hashtables !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2006-04-11T04:26:00Z">Apr 11, 2006</time> &middot; 2 min read
-        </div>
-
-        <div>
-          I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value.
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2006/04/11/an-encounter-with-hashtables/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2006/04/11/a-note-on-finalize/">A Note On Finalize !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2006-04-11T04:12:00Z">Apr 11, 2006</time> &middot; 2 min read
-        </div>
-
-        <div>
-          This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2006/04/11/a-note-on-finalize/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2006/04/11/explicit-interface-implementation/">Explicit Interface Implementation !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2006-04-11T04:06:00Z">Apr 11, 2006</time> &middot; 2 min read
-        </div>
-
-        <div>
-          I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2006/04/11/explicit-interface-implementation/">Read More</a>
-        </div>
-      </article>
   </div>
 
   
@@ -390,7 +393,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

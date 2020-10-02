@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.75.1" />
 
-  <title>CoMarshal…. working in NT, Not working in XP !!! &middot; A Developer&#39;s Experience</title>
+  <title>CoMarshal ... Working in NT, Not in XP !!! &middot; A Developer&#39;s Experience</title>
 
   <meta name="description" content="" />
 
   
 
-<meta itemprop="name" content="CoMarshal…. working in NT, Not working in XP !!!">
+<meta itemprop="name" content="CoMarshal ... Working in NT, Not in XP !!!">
 <meta itemprop="description" content="Problem:
 I have created a multi-threaded application which works without any problems on a NT-4.">
 <meta itemprop="datePublished" content="2006-03-26T00:48:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-26T00:48:00+00:00" />
-<meta itemprop="wordCount" content="444">
+<meta itemprop="wordCount" content="455">
 
 
 
@@ -24,12 +24,12 @@ I have created a multi-threaded application which works without any problems on 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CoMarshal…. working in NT, Not working in XP !!!"/>
+<meta name="twitter:title" content="CoMarshal ... Working in NT, Not in XP !!!"/>
 <meta name="twitter:description" content="Problem:
 I have created a multi-threaded application which works without any problems on a NT-4."/>
 
 
-<meta property="og:title" content="CoMarshal…. working in NT, Not working in XP !!!" />
+<meta property="og:title" content="CoMarshal ... Working in NT, Not in XP !!!" />
 <meta property="og:description" content="Problem:
 I have created a multi-threaded application which works without any problems on a NT-4." />
 <meta property="og:type" content="article" />
@@ -69,7 +69,7 @@ I have created a multi-threaded application which works without any problems on 
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   </head>
@@ -139,7 +139,7 @@ I have created a multi-threaded application which works without any problems on 
   	
 	</div>
 
-  <h1>CoMarshal…. working in NT, Not working in XP !!!</h1>
+  <h1>CoMarshal ... Working in NT, Not in XP !!!</h1>
 
 
   <div class="post-date">
@@ -147,7 +147,7 @@ I have created a multi-threaded application which works without any problems on 
   </div>
 
   <p><strong>Problem:</strong></p>
-<p>I have created a multi-threaded application which works without any problems on a NT-4.0 Workstation/Server. When I try to run the same application in Windows XP, I get an error in a call to <code>CoMarshalInterThreadInterfaceInStream</code> which returns ``-2147418113`.</p>
+<p>I have created a multi-threaded application which works without any problems on a NT-4.0 Workstation/Server. When I try to run the same application in Windows XP, I get an error in a call to <code>CoMarshalInterThreadInterfaceInStream</code> which returns <code>-2147418113</code>.</p>
 <p>I have provided a snippet of the code below where the call fails in Windows XP.</p>
 <p>Environment: Windows-XP,SP-2,Visual Studio 6.0,SP-4,ATL-3.0</p>
 <p>Should I be doing anything different in Windows XP?</p>
@@ -179,10 +179,7 @@ I have created a multi-threaded application which works without any problems on 
 
             <span class="k">if</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span>
             <span class="p">{</span>
-               <span class="n">hr</span> <span class="o">=</span> <span class="n">pMarshalEvent</span><span class="o">-&gt;</span><span class="n">NewCurrentCassette</span><span class="p">(</span>
-                  <span class="n">m_pCurrentCassette</span><span class="p">,</span>
-                  <span class="n">m_setBy</span>
-               <span class="p">);</span>
+               <span class="n">hr</span> <span class="o">=</span> <span class="n">pMarshalEvent</span><span class="o">-&gt;</span><span class="n">NewCurrentCassette</span><span class="p">(</span><span class="n">m_pCurrentCassette</span><span class="p">,</span> <span class="n">m_setBy</span><span class="p">);</span>
             <span class="p">}</span>
          <span class="p">}</span>
 
@@ -190,7 +187,7 @@ I have created a multi-threaded application which works without any problems on 
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>Thread 2:</strong></p>
-<p>I remember facing this problem long time back.The reason it happened was beacuse of the Free-Threaded marshaller code in <code>FinalConstruct</code> and <code>FinalRelease</code> even though I don&rsquo;t remember the logic behind it. In my case commenting the Free-Threaded marshaller code did the trick.</p>
+<p>I remember facing this problem long time back.The reason it happened was because of the Free-Threaded marshaller code in <code>FinalConstruct</code> and <code>FinalRelease</code> even though I don&rsquo;t remember the logic behind it. In my case commenting the Free-Threaded marshaller code did the trick.</p>
 <ul>
 <li>The commented code in <code>FinalConstruct</code> was:</li>
 </ul>
@@ -205,11 +202,11 @@ I have created a multi-threaded application which works without any problems on 
 <li>In the header, <code>DECLARE_GET_CONTROLLING_UNKNOWN()</code> and <code>COM_INTERFACE_ENTRY_AGGREGATE(IID_IMarshal, m_pUnkMarshaler.p)</code> and <code>CComPtr m_pUnkMarshaler;</code> was commented.</li>
 <li>Remove marshaling code i.e., <code>CoInterface</code> and related marshaling code. The interface pointer can be accessed in the secondary thread directly, no need of marshaling.</li>
 </ul>
-<p>I remember faintly that Free-Threaded marshaller is basically to optimize marshalling. So in my case removing it did not have any side-effects as we were not worried about Free-Threaded marshaller.Again the above fix might work but the best thing to do will be to anaylze the apartment link (STA,MTA etc.) between say the client and the component and then come to a conclusion.</p>
+<p>I remember faintly that Free-Threaded marshaller is basically to optimize marshaling. So in my case removing it did not have any side-effects as we were not worried about Free-Threaded marshaller.Again the above fix might work but the best thing to do will be to analyze the apartment link (STA,MTA etc.) between say the client and the component and then come to a conclusion.</p>
 <p><strong>Thread 3</strong></p>
-<p>You need not marshal/unmarshal to call a method on the interface pointer since the sink class itself deriving from the IConnectionPointImpl takes care of unmarshalling. You can see the code in your connection point implementation class.</p>
+<p>You need not marshal/unmarshal to call a method on the interface pointer since the sink class itself deriving from the IConnectionPointImpl takes care of unmarshaling. You can see the code in your connection point implementation class.</p>
 <p><strong>Thread 4</strong></p>
-<p>I don<code>t think </code>IConnectionPointImpl<code>class as such has anything to do with marshaling, it is the</code>m_pUnkMarshaler<code>member object.It is the call to</code>CoCreateFreeThreadedMarshaler<code>in</code>FinalConstruct<code>that initializes the</code>m_pUnkMarshaler<code>object. I suggest reading the documentation about</code>CoCreateFreeThreadedMarshaler<code>in order to come to a conclusion whether to use it or not. By default ATL provides the code calling</code>CoCreateFreeThreadedMarshaler` API to do efficient marshaling across <em>thread of the same process(Refer doc)</em>, but depending on our need we may or may not use it.In my case we did not need it so we commented it out.It depends on the need,but generally i think it is safe to comment it out if we are going to access interface pointers in secondary threads. Hope this helps.</p>
+<p>I don&rsquo;t think <code>IConnectionPointImpl</code> class as such has anything to do with marshaling, it is the <code>m_pUnkMarshaler</code> member object.It is the call to <code>CoCreateFreeThreadedMarshaler</code> in <code>FinalConstruct</code> that initializes the <code>m_pUnkMarshaler</code> object. I suggest reading the documentation about <code>CoCreateFreeThreadedMarshaler</code> in order to come to a conclusion whether to use it or not. By default ATL provides the code calling <code>CoCreateFreeThreadedMarshaler</code> API to do efficient marshaling across <em>thread of the same process(Refer doc)</em>, but depending on our need we may or may not use it.In my case we did not need it so we commented it out.It depends on the need, but generally i think it is safe to comment it out if we are going to access interface pointers in secondary threads. Hope this helps.</p>
 
 </div>
 
@@ -236,7 +233,7 @@ I have created a multi-threaded application which works without any problems on 
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

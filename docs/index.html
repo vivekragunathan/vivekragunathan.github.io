@@ -58,7 +58,7 @@
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
@@ -130,7 +130,7 @@
         
 
         <h1 class="post-title">
-          <a href="/2020/04/17/resource-combinations/">Know Thy Option</a>
+          <a href="/2020/04/17/know-thy-option/">Know Thy Option</a>
         </h1>
 
         <div class="post-date">
@@ -144,7 +144,99 @@
         </div>
 
         <div class="read-more-link">
-          <a href="/2020/04/17/resource-combinations/">Read More</a>
+          <a href="/2020/04/17/know-thy-option/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2020/04/02/saner-mocking/">Pattern for Saner Mocking</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2020-04-02T00:00:00Z">Apr 2, 2020</time> &middot; 5 min read
+        </div>
+
+        <div>
+          <p>It is common to see mocks being setup this way in unit tests.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+	<span class="o">...</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+	<span class="o">...</span>
+	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+
+	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+
+	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+<span class="o">}</span>
+
+<span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
+	<span class="o">...</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+	<span class="o">...</span>
+	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
+	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+
+	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+
+	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+<span class="o">}</span>
+
+<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
+</code></pre></div>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2020/04/02/saner-mocking/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2016/02/20/cyrilex/">Cyrilex – Online Regex Tester</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2019-02-20T00:00:00Z">Feb 20, 2019</time> &middot; 4 min read
+        </div>
+
+        <div>
+          <p>A while ago, I <a href="https://vivekragunathan.wordpress.com/2014/07/23/cool-regex-testers/">wrote</a> the online regex tools. <a href="https://extendsclass.com/contact">Cyril</a> (@CyrilBois) came across that post and <a href="https://twitter.com/CyrilBois/status/1098214724465033217">mentioned</a> about <a href="https://extendsclass.com/regex-tester.html"><strong>his</strong></a> regex tester tool.</p>
+<p>I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&rsquo;s regex tool - <strong><code>Cyrilex</code></strong>. Don&rsquo;t like it, don&rsquo;t worry about it.</p>
+<p>Instead of adding <code>Cyrilex</code> to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/02/20/cyrilex/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2019/02/19/fp-conversion-caveat/">Non-FP to FP Conversion Caveat</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2019-02-19T00:00:00Z">Feb 19, 2019</time> &middot; 3 min read
+        </div>
+
+        <div>
+          Sometimes you learn the best from others; by watching. This post is based on such an instance.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2019/02/19/fp-conversion-caveat/">Read More</a>
         </div>
       </article>
       <article class="post">
@@ -156,7 +248,7 @@
         
 
         <h1 class="post-title">
-          <a href="/2016/12/11/cppcli-apress/">C&#43;&#43;/CLI Primer – An Apress Book</a>
+          <a href="/2016/12/11/cpp-cli-apress/">C&#43;&#43;/CLI Primer – An Apress Book</a>
         </h1>
 
         <div class="post-date">
@@ -168,7 +260,7 @@
         </div>
 
         <div class="read-more-link">
-          <a href="/2016/12/11/cppcli-apress/">Read More</a>
+          <a href="/2016/12/11/cpp-cli-apress/">Read More</a>
         </div>
       </article>
       <article class="post">
@@ -289,82 +381,6 @@
           <a href="/2016/07/15/mundane-vs-jinq-way/">Read More</a>
         </div>
       </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2016/05/29/text-editors/">Text Editors</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2016-05-29T07:49:39Z">May 29, 2016</time> &middot; 3 min read
-        </div>
-
-        <div>
-          <p>I am not a *nix commands expert .. but a <a href="http://www.johndcook.com/blog/2014/10/18/experts-vs-professionals/">professional</a>? So why not relish educating my brother a couple of nifty commands, especially – <code>find</code> and <code>grep</code>, which he was looking into at the time. You can find a few more <a href="https://vivekragunathan.wordpress.com/more-resources/cmd-line-sucks/">here</a> if you are interested.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2016/05/29/text-editors/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2016/05/16/resource-combinations/">Selective Combinations</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2016-05-16T07:00:08Z">May 16, 2016</time> &middot; 4 min read
-        </div>
-
-        <div>
-          <p>Consider this scenario:</p>
-<blockquote>
-<p>You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is <code>abc</code>, <code>def</code> and <code>ghi</code>. I have to generate ordered combinations of the above list restricted to the ones starting with <code>abc</code>.</p>
-</blockquote>
-<p>So that would be as follows:</p>
-<pre><code>abc def ghi
-
-abc def
-
-abc ghi
-
-abc
-</code></pre>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2016/05/16/resource-combinations/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-        <div class="image featured">
-            <img src="/images/2016/04/bjarne_cppcon2014.jpg">
-        </div>
-        
-
-        <h1 class="post-title">
-          <a href="/2016/04/02/jinq/">JINQ</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2016-04-01T22:50:19Z">Apr 1, 2016</time> &middot; 9 min read
-        </div>
-
-        <div>
-          <p>In his <a href="https://youtu.be/nesCaocNjtQ?t=1359">talk</a> at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in <a href="https://youtu.be/nesCaocNjtQ?t=4653">trolling</a><sup id="fnref-1399-1"><a href="#fn-1399-1">1</a></sup> rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2016/04/02/jinq/">Read More</a>
-        </div>
-      </article>
   </div>
 
   
@@ -421,7 +437,7 @@ abc
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

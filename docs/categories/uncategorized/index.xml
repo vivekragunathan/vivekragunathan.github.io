@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 11 Dec 2016 09:18:37 +0000</lastBuildDate><atom:link href="/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
-      <link>/2016/12/11/cppcli-apress/</link>
+      <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       
-      <guid>/2016/12/11/cppcli-apress/</guid>
+      <guid>/2016/12/11/cpp-cli-apress/</guid>
       <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
     </item>
     
@@ -156,7 +156,7 @@ abc
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
       <guid>/2015/12/03/net-oss/</guid>
-      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ezd0y49a.aspx&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ms950418.aspx&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
+      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -166,21 +166,23 @@ abc
       
       <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;p&gt;[code lang=java]&lt;/p&gt;
-&lt;p&gt;public String someGibberishMethod() {&lt;/p&gt;
-&lt;p&gt;int length = someMethodReturningLength();&lt;/p&gt;
-&lt;p&gt;int sum = 0;&lt;/p&gt;
-&lt;p&gt;for (int index = 0; index &amp;lt; length; ++index) {&lt;/p&gt;
-&lt;p&gt;// some code that updates the sum variable&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;SomeClass someClass = new SomeClass(sum);&lt;/p&gt;
-&lt;p&gt;int sumValueInsideSomeClass = someClass.getSumValue();&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;String someText = someClass.doSomeOperation(/*some parameters*/);&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;return someText;&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;[/code]&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	   &lt;span class=&#34;c1&#34;&gt;// some code that updates the sum variable
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sumValueInsideSomeClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSumValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;doSomeOperation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/*some parameters*/&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -221,7 +223,7 @@ abc
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
       <guid>/2015/07/08/a-funny-moment-of-ioc/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; – Inversion of control, is a design that enables fluid flow of control by decoupling tight dependencies between the portion of a code that exhibits behavior and another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; - Inversion of control, is a design that enables fluid flow of control by decoupling  tight dependencies between the portion of a code that exhibits behavior and  another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -818,15 +820,6 @@ There are two types of programming or programming languages.</description>
     </item>
     
     <item>
-      <title>.NET Reflection Extravanganza !!!</title>
-      <link>/2006/05/11/net-reflection-extravanganza/</link>
-      <pubDate>Thu, 11 May 2006 22:40:00 +0000</pubDate>
-      
-      <guid>/2006/05/11/net-reflection-extravanganza/</guid>
-      <description>I was involved in this module for the past few weeks and successfully completed it in a very innovative way.</description>
-    </item>
-    
-    <item>
       <title>Where is my C&#43;&#43; ?</title>
       <link>/2006/05/04/where-is-my-c/</link>
       <pubDate>Thu, 04 May 2006 06:11:00 +0000</pubDate>
@@ -987,16 +980,6 @@ Many times I have seen GUI applications accompanied by console windows that show
       
       <guid>/2006/03/27/setting-environment-variables/</guid>
       <description>Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine.</description>
-    </item>
-    
-    <item>
-      <title>CoMarshal…. working in NT, Not working in XP !!!</title>
-      <link>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</link>
-      <pubDate>Sun, 26 Mar 2006 00:48:00 +0000</pubDate>
-      
-      <guid>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</guid>
-      <description>Problem:
-I have created a multi-threaded application which works without any problems on a NT-4.</description>
     </item>
     
     <item>

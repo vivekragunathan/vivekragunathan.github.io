@@ -3,9 +3,7 @@ title: The unconquerable
 author: vivekragunathan
 layout: post
 date: 2015-10-03T19:28:22+00:00
-url: /2015/10/04/unconquerable/
-sharing_disabled:
-  - 1
+url: /2015/10/04/unconquerable
 categories:
   - Uncategorized
 

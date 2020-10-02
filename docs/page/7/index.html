@@ -58,7 +58,7 @@
         sizes="144x144"
         href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
 
   
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
@@ -125,6 +125,67 @@
 
   <main class="content container">
   <div class="posts">
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2009/12/30/sizeof-vs-marshal-sizeof/">sizeof vs Marshal.SizeOf !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2009-12-29T22:25:00Z">Dec 29, 2009</time> &middot; 5 min read
+        </div>
+
+        <div>
+          There are two facilities in C# to determine the size of a type &#8211; sizeof operator andMarshal.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2009/12/30/sizeof-vs-marshal-sizeof/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2009/09/02/anondelegates/">Curious Case Of Anonymous Delegates !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2009-09-02T18:29:00Z">Sep 2, 2009</time> &middot; 3 min read
+        </div>
+
+        <div>
+          Senthil has left us thrilled in his new post, and also inspired me to write about the topic.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2009/09/02/anondelegates/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2009/07/02/finally-and-return-values/">finally and Return Values !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2009-07-01T21:07:00Z">Jul 1, 2009</time> &middot; 2 min read
+        </div>
+
+        <div>
+          Let us read some code:-
+int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } }  What is the return value of SomeMethod?
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2009/07/02/finally-and-return-values/">Read More</a>
+        </div>
+      </article>
       <article class="post">
 
         
@@ -266,68 +327,6 @@
           <a href="/2008/11/22/casting-restrictions/">Read More</a>
         </div>
       </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2008/09/26/understanding-references/">Understanding (ref)erences !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2008-09-26T17:03:00Z">Sep 26, 2008</time> &middot; 2 min read
-        </div>
-
-        <div>
-          Let us take a look at the following piece of code:-  public void Operate(IList iList2)
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2008/09/26/understanding-references/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2008/04/09/extension-methods-a-polished-c-feature/">Extension Methods – A Polished C&#43;&#43; Feature !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2008-04-09T06:31:39Z">Apr 9, 2008</time> &middot; 4 min read
-        </div>
-
-        <div>
-          Extension Methods is an excellent feature in C# 3.
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2008/04/09/extension-methods-a-polished-c-feature/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2007/02/22/the-surprising-finalize-call/">The Surprising Finalize Call !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2007-02-21T20:27:00Z">Feb 21, 2007</time> &middot; 2 min read
-        </div>
-
-        <div>
-          Guess the output of the following program:-
-`
-class SomeClass : IDisposable
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2007/02/22/the-surprising-finalize-call/">Read More</a>
-        </div>
-      </article>
   </div>
 
   
@@ -396,7 +395,7 @@ class SomeClass : IDisposable
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>

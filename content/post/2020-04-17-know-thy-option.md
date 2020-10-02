@@ -3,7 +3,7 @@ title: Know Thy Option
 author: vivekragunathan
 layout: post
 date: 2020-04-17
-url: /2020/04/17/resource-combinations/
+url: /2020/04/17/know-thy-option
 categories:
   - Scala
   - Functional-Programming

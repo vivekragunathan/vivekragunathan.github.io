@@ -9,13 +9,72 @@
     <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Know Thy Option</title>
-      <link>/2020/04/17/resource-combinations/</link>
+      <link>/2020/04/17/know-thy-option/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/04/17/resource-combinations/</guid>
+      <guid>/2020/04/17/know-thy-option/</guid>
       <description>&lt;p&gt;Avoid &lt;code&gt;.get&lt;/code&gt; at all costs. Forget there is even a &lt;code&gt;.get&lt;/code&gt; function on &lt;code&gt;Option&lt;/code&gt;. There is always a way out - better one, than using &lt;code&gt;.get&lt;/code&gt;. Same applies to &lt;code&gt;.head&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If you are going to have access the value in an &lt;code&gt;Option&lt;/code&gt; in a test class, prefer extending your test class from &lt;code&gt;OptionValues&lt;/code&gt;. Then you can use &lt;code&gt;.value&lt;/code&gt; on an &lt;code&gt;Option&lt;/code&gt;. Doing so establishes the presence of value as verification with meaningful error if value is not defined.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Pattern for Saner Mocking</title>
+      <link>/2020/04/02/saner-mocking/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/02/saner-mocking/</guid>
+      <description>&lt;p&gt;It is common to see mocks being setup this way in unit tests.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 2&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;give&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;take&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;one&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;more&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mocks&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;compared&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cases&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cyrilex – Online Regex Tester</title>
+      <link>/2016/02/20/cyrilex/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/02/20/cyrilex/</guid>
+      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;https://vivekragunathan.wordpress.com/2014/07/23/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;
+&lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;
+&lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Non-FP to FP Conversion Caveat</title>
+      <link>/2019/02/19/fp-conversion-caveat/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/19/fp-conversion-caveat/</guid>
+      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
     </item>
     
     <item>
@@ -29,10 +88,10 @@
     
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
-      <link>/2016/12/11/cppcli-apress/</link>
+      <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       
-      <guid>/2016/12/11/cppcli-apress/</guid>
+      <guid>/2016/12/11/cpp-cli-apress/</guid>
       <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
     </item>
     
@@ -195,7 +254,7 @@ abc
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
       <guid>/2015/12/03/net-oss/</guid>
-      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ezd0y49a.aspx&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ms950418.aspx&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
+      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -215,21 +274,23 @@ abc
       
       <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;p&gt;[code lang=java]&lt;/p&gt;
-&lt;p&gt;public String someGibberishMethod() {&lt;/p&gt;
-&lt;p&gt;int length = someMethodReturningLength();&lt;/p&gt;
-&lt;p&gt;int sum = 0;&lt;/p&gt;
-&lt;p&gt;for (int index = 0; index &amp;lt; length; ++index) {&lt;/p&gt;
-&lt;p&gt;// some code that updates the sum variable&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;SomeClass someClass = new SomeClass(sum);&lt;/p&gt;
-&lt;p&gt;int sumValueInsideSomeClass = someClass.getSumValue();&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;String someText = someClass.doSomeOperation(/*some parameters*/);&lt;/p&gt;
-&lt;p&gt;// use someText, maybe log or something&lt;/p&gt;
-&lt;p&gt;return someText;&lt;/p&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;[/code]&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	   &lt;span class=&#34;c1&#34;&gt;// some code that updates the sum variable
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sumValueInsideSomeClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSumValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;doSomeOperation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/*some parameters*/&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -279,7 +340,7 @@ abc
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
       <guid>/2015/07/08/a-funny-moment-of-ioc/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; – Inversion of control, is a design that enables fluid flow of control by decoupling tight dependencies between the portion of a code that exhibits behavior and another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; - Inversion of control, is a design that enables fluid flow of control by decoupling  tight dependencies between the portion of a code that exhibits behavior and  another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -977,7 +1038,9 @@ There are two types of programming or programming languages.</description>
       <pubDate>Thu, 11 May 2006 22:40:00 +0000</pubDate>
       
       <guid>/2006/05/11/net-reflection-extravanganza/</guid>
-      <description>I was involved in this module for the past few weeks and successfully completed it in a very innovative way.</description>
+      <description>&lt;p&gt;Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.&lt;/p&gt;
+&lt;p&gt;Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires &lt;strong&gt;hundreds&lt;/strong&gt; of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.&lt;/p&gt;
+&lt;p&gt;The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1144,7 +1207,7 @@ Many times I have seen GUI applications accompanied by console windows that show
     </item>
     
     <item>
-      <title>CoMarshal…. working in NT, Not working in XP !!!</title>
+      <title>CoMarshal ... Working in NT, Not in XP !!!</title>
       <link>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</link>
       <pubDate>Sun, 26 Mar 2006 00:48:00 +0000</pubDate>
       
@@ -1169,45 +1232,6 @@ I have created a multi-threaded application which works without any problems on 
       
       <guid>/2005/04/19/joining-the-game/</guid>
       <description>Everything has a beginning.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/post/2020-04-02-mocking-tips/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020-04-02-mocking-tips/</guid>
-      <description>&lt;p&gt;It is common to see mocks being setup this way in unit tests.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-
-	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 2&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;give&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;take&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;one&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;more&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mocks&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;compared&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-
-	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
-&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-
-&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cases&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

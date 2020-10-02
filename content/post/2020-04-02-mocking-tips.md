@@ -1,3 +1,14 @@
+---
+title: Pattern for Saner Mocking
+author: vivekragunathan
+layout: post
+date: 2020-04-02
+url: /2020/04/02/saner-mocking
+categories:
+  - Scala
+  - Functional-Programming
+---
+
 It is common to see mocks being setup this way in unit tests.
 
 ```scala

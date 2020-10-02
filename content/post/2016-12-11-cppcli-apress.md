@@ -3,7 +3,7 @@ title: C++/CLI Primer – An Apress Book
 author: vivekragunathan
 layout: post
 date: 2016-12-11T09:18:37+00:00
-url: /2016/12/11/cppcli-apress/
+url: /2016/12/11/cpp-cli-apress/
 featured_image: /images/2016/12/cppcli_apress.png
 categories:
   - Programming
