@@ -59,25 +59,25 @@ There are several ways to get C# support immutable variables.
 
 	... in parlance with F#'s `mutable`.
 
-	Of all the ways to declare variables, mutable and immutable, I like the F#'s most; better than `var` and `val`. F# starts with immutable variables as its default and wants you to explicit state that you like to make a variable mutable, just like Scala. But the beauty of F# is having to decorate the default `let` with `mutable` making it stand out visually.
+	Of all the ways to declare variables, mutable and immutable, I like the F#'s most; better than Scala's `var` and `val`. Like Scala, while F# supports mutable variables, you are required to specify it explicitly using the `mutable` keyword. But the beauty of F# is having to decorate the default `let` with `mutable` making it stand out visually.
 
-	```fsharp
-	// F# code
-	let imCount          = GetNoOfItems();
-	let mutable mutCount = GetNoOfItems();
-	```
+  ```fsharp
+  // F# code
+  let imCount          = GetNoOfItems();
+  let mutable mutCount = GetNoOfItems();
+  ```
 
-	Borrowing the idea, we could come up with an `immutable` keyword.
+  Borrowing the idea, we could come up with an `immutable` keyword.
 
-	```csharp
-	// C# code
-	int mutCount          = GetNoOfItems();
-	immutable int imCount = GetNoOfItems();
-	```
+  ```csharp
+  // C# code
+  int mutCount          = GetNoOfItems();
+  immutable int imCount = GetNoOfItems();
+  ```
 
-	Does the job. Besides being mouthful, what do we with `readonly`? Two different keywords for essentially the same thing. This will be a catalyst for introducing yet another for immutable method parameters. Come on, this isn't PHP 😂.
+  Does the job. Besides being mouthful, what do we with `readonly`? Two different keywords for essentially the same thing. This will be a catalyst for introducing yet another for immutable method parameters. Come on, this isn't PHP 😂.
 
-    If thrown for a vote, I am sure this option would lose.
+  If thrown for a vote, I am sure this option would lose.
 
 **Reuse Existing Keywords/Quantifiers**
 
@@ -87,23 +87,23 @@ There are several ways to get C# support immutable variables.
 
 - **`let`**
 
-	Mixed feelings. `let` was schooled for LINQ queries. Although the (intermediary) variables declared through `let` are immutable[^1], it is not particularly obvious in an imperative language like C#. A `let` in C# does not suggest the same thing as in F#.
+  Mixed feelings. `let` was schooled for LINQ queries. Although the (intermediary) variables declared through `let` are immutable[^1], it is not particularly obvious in an imperative language like C#. A `let` in C# does not suggest the same thing as in F#.
 
-	Suppose we go with `let`, do we make it an independent keyword or a modifier on existing variable declarations?
+  Suppose we go with `let`, do we make it an independent keyword or a modifier on existing variable declarations?
 
-	```csharp
-    // C# code
-	let immutableCount = GetNoOfItems();
-	```
+  ```csharp
+  // C# code
+  let immutableCount = GetNoOfItems();
+  ```
 
-	or
+  or
 
-	```csharp
-    // C# code
-	let int imCount	= GetNoOfItems();
-	```
+  ```csharp
+  // C# code
+  let int imCount	= GetNoOfItems();
+  ```
 
-	I prefer the latter because the former is on the same boat as `val` and implicit typing thing we discussed earlier. The latter seems to fit the bill. Just that `let` has got this unintended feel of a lame copy from F# and poorly applied. Do we really want that blame?
+  I prefer the latter because the former is on the same boat as `val` and implicit typing thing we discussed earlier. The latter seems to fit the bill. Just that `let` has got this unintended feel of a lame copy from F# and poorly applied. Do we really want that blame?
 
 - **`readonly`**
 

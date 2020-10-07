@@ -47,7 +47,7 @@ scenario("Test Case 2") {
 
 See something wrong? _Why would do someone write a test with all such services gobbled together in a test?_ Well, that is not the problem and definitely not the topic of this post. The example is arbitrary just to establish the complexity involved in writing such test cases; especially mock-ridden.
 
-My problem is with the way the mocks are being setup. In a typical business application, there are tens of cases to test for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock `reset`s scattered or sneaked in places leaving you wonder why.
+My problem is with the way the mocks are being setup. In a typical business application, there are tens of test cases for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock `reset`s scattered or sneaked in places leaving you wonder why.
 
 Instead of helpers, we need a mechanism where setting up the mocks inline within the test is not a problem for us. It should completely strip down the cognitive overload involved in comprehending the setting up of mocks. The other problem we like to get rid of is explicitly `reset` mocks.
 
@@ -71,7 +71,10 @@ final case class AddressResolutionMockBuilder(/*any args if required*/) extends 
   	this
   }
 
-  def resolve(address: String, result: Either[Throwable, Address]): AddressResolutionMockBuilder = {
+  def resolve(
+    address: String,
+    result: Either[Throwable, Address]
+  ): AddressResolutionMockBuilder = {
   	when(addressServiceMock.resolve(address)).thenReturn(result)
   	this
 	}

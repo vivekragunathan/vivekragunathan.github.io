@@ -26,9 +26,11 @@ Take for instance, the word distance problem: _Find the shortest distance betwee
 /// Iterate the set of words, mark the position/index
 /// of word1 and word2, track the minimum difference
 /// in positions
-public static int FindShortestDistance<T>(this T[] array,
-                                          T item1,
-                                          T item2) where T : IEquatable<T>
+public static int FindShortestDistance<T>(
+  this T[] array,
+  T item1,
+  T item2
+) where T : IEquatable<T>
 {
   // Imagine all the sanity checks!
   /*if (IsNullOrEmpty(array) || IsBlank(item1) || IsBlank(item2))

@@ -1,3 +1,14 @@
+@media (min-width: 48em) {
+   .content {
+      max-width: 47rem;
+   }
+}
+
+.lead {
+   font-family: inherit;
+   font-style: italic;
+}
+
 article.post h1.post-title {
   font-size: 1.7rem;
 }
@@ -26,9 +37,11 @@ article.post h1.post-title {
 }
 
 div.post pre code {
-	width: 50vw;
-	font-family: Menlo, monospace;
-	font-size: 15px;
+	font-family: 'Nanum Gothic Coding', monospace;
+	font-size: 16px;
+   line-height: 1.8em !important;
+   tab-size: 2;
+   /* display: inline-block; */
 }
 
 ul.sidebar-nav li {
