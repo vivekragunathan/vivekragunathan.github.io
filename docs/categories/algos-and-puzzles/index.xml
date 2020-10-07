@@ -44,7 +44,7 @@ abc
       <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
       
       <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
-      <description>In the last part, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list.</description>
+      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
     </item>
     
     <item>
@@ -53,24 +53,15 @@ abc
       <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
       
       <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
-      <description>&lt;p&gt;A short while back, &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; quizzed me on linked list based problems; singly linked list.&lt;/p&gt;
-&lt;p&gt;I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A &lt;code&gt;std::list&lt;/code&gt; might more pertinent in the context of the general purpose implementation of a list.&lt;/p&gt;
-&lt;p&gt;Here are some of the problems that &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; asked me to solve:-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Reverse the list recursively&lt;/li&gt;
-&lt;li&gt;Reverse the list iteratively&lt;/li&gt;
-&lt;li&gt;Find if the list is cyclic&lt;/li&gt;
-&lt;li&gt;Find the node that causes the cycle (and break the cycle)&lt;/li&gt;
-&lt;li&gt;Reverse every K nodes in the list&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
     </item>
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uidgen/</link>
+      <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/2012/03/09/uidgen/</guid>
+      <guid>/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     

@@ -12,19 +12,10 @@
   
 
 <meta itemprop="name" content="Linked List Quiz – Part I !!!">
-<meta itemprop="description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list.
-I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A std::list might more pertinent in the context of the general purpose implementation of a list.
-Here are some of the problems that Sammy asked me to solve:-
-
-Reverse the list recursively
-Reverse the list iteratively
-Find if the list is cyclic
-Find the node that causes the cycle (and break the cycle)
-Reverse every K nodes in the list
-">
+<meta itemprop="description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list.">
 <meta itemprop="datePublished" content="2012-06-17T18:30:44+00:00" />
 <meta itemprop="dateModified" content="2012-06-17T18:30:44+00:00" />
-<meta itemprop="wordCount" content="900">
+<meta itemprop="wordCount" content="1042">
 
 
 
@@ -33,29 +24,11 @@ Reverse every K nodes in the list
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linked List Quiz – Part I !!!"/>
-<meta name="twitter:description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list.
-I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A std::list might more pertinent in the context of the general purpose implementation of a list.
-Here are some of the problems that Sammy asked me to solve:-
-
-Reverse the list recursively
-Reverse the list iteratively
-Find if the list is cyclic
-Find the node that causes the cycle (and break the cycle)
-Reverse every K nodes in the list
-"/>
+<meta name="twitter:description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list."/>
 
 
 <meta property="og:title" content="Linked List Quiz – Part I !!!" />
-<meta property="og:description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list.
-I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A std::list might more pertinent in the context of the general purpose implementation of a list.
-Here are some of the problems that Sammy asked me to solve:-
-
-Reverse the list recursively
-Reverse the list iteratively
-Find if the list is cyclic
-Find the node that causes the cycle (and break the cycle)
-Reverse every K nodes in the list
-" />
+<meta property="og:description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2012/06/18/linked-list-quiz-part-i/" />
 <meta property="article:published_time" content="2012-06-17T18:30:44+00:00" />
@@ -170,9 +143,9 @@ Reverse every K nodes in the list
     <time datetime="2012-06-17T18:30:44Z">Jun 17, 2012</time> &middot; 5 min read
   </div>
 
-  <p>A short while back, <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a> quizzed me on linked list based problems; singly linked list.</p>
-<p>I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A <code>std::list</code> might more pertinent in the context of the general purpose implementation of a list.</p>
-<p>Here are some of the problems that <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a> asked me to solve:-</p>
+  <p>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</p>
+<p>I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A std::list might more pertinent in the context of the general purpose implementation of a list.</p>
+<p>Here are some of the problems that Sammy asked me to solve:-</p>
 <ul>
 <li>Reverse the list recursively</li>
 <li>Reverse the list iteratively</li>
@@ -181,199 +154,256 @@ Reverse every K nodes in the list
 <li>Reverse every K nodes in the list</li>
 </ul>
 <p>I will be solving reversing the list (both iteratively and recursively) and finding if the list is cyclic problems in this episode.</p>
-<p>[code lang=cpp]</p>
-<p>#pragma once</p>
-<p>#include</p>
-<p>#include</p>
-<p>using namespace std;</p>
-<p>template</p>
-<p>class LinkedList</p>
-<p>{</p>
-<p>public: class Node</p>
-<p>{</p>
-<p>private: T item;</p>
-<p>private: Node* next;</p>
-<p>public: Node(const T&amp; item)</p>
-<p>{</p>
-<p>this-&gt;item = item;</p>
-<p>this-&gt;next = nullptr;</p>
-<p>}</p>
-<p>public: Node(const T&amp; item, Node* next)</p>
-<p>{</p>
-<p>this-&gt;item = item;</p>
-<p>this-&gt;next = next;</p>
-<p>}</p>
-<p>public: T&amp; Item()</p>
-<p>{</p>
-<p>return this-&gt;item;</p>
-<p>}</p>
-<p>public: const T&amp; Item() const</p>
-<p>{</p>
-<p>return this-&gt;item;</p>
-<p>}</p>
-<p>public: LinkedList::Node*&amp; Next()</p>
-<p>{</p>
-<p>return this-&gt;next;</p>
-<p>}</p>
-<p>};</p>
-<p>private: LinkedList::Node* root;</p>
-<p>private: LinkedList::Node* end;</p>
-<p>public: LinkedList()</p>
-<p>{</p>
-<p>root = end = nullptr;</p>
-<p>}</p>
-<p>public: ~LinkedList()</p>
-<p>{</p>
-<p>// If a cycle exists, break it; else the delete loop</p>
-<p>// below will never end, and lead to undefined behavior/crash.</p>
-<p>if (IsCyclic())</p>
-<p>{</p>
-<p>auto cyclicNode = FindCyclicNode();</p>
-<p>cyclicNode-&gt;Next() = nullptr;</p>
-<p>}</p>
-<p>// Delete all nodes</p>
-<p>auto current = root;</p>
-<p>while (current != nullptr)</p>
-<p>{</p>
-<p>auto temp = current-&gt;Next();</p>
-<p>delete current;</p>
-<p>current = temp;</p>
-<p>}</p>
-<p>}</p>
-<p>public: Node* operator[](int index) const</p>
-<p>{</p>
-<p>return GetNthNode(index);</p>
-<p>}</p>
-<p>public: LinkedList::Node* GetNthNode(int index) const // index is zero-based.</p>
-<p>{</p>
-<p>auto node = root;</p>
-<p>while (index &gt;= 0 &amp;&amp; node != nullptr)</p>
-<p>{</p>
-<p>node = node-&gt;Next();</p>
-<p>–index;</p>
-<p>}</p>
-<p>return node;</p>
-<p>}</p>
-<p>public: Node* Append(T item)</p>
-<p>{</p>
-<p>Node* node = new Node(item);</p>
-<p>if (root == nullptr)</p>
-<p>{</p>
-<p>root = end = node;</p>
-<p>}</p>
-<p>else</p>
-<p>{</p>
-<p>end-&gt;Next() = node;</p>
-<p>end = node;</p>
-<p>}</p>
-<p>return node;</p>
-<p>}</p>
-<p>public: LinkedList::Node* Root() const</p>
-<p>{</p>
-<p>return this-&gt;root;</p>
-<p>}</p>
-<p>public: void Print(std::ostream&amp; ostr = std::cout,</p>
-<p>const std::string&amp; separator = &quot; -&gt; &ldquo;,</p>
-<p>const std::string&amp; terminator = &ldquo;\r\n&rdquo;)</p>
-<p>{</p>
-<p>Node* currentNode = root;</p>
-<p>while (currentNode != nullptr)</p>
-<p>{</p>
-<p>const bool lastNode = currentNode-&gt;Next() == nullptr;</p>
-<p>const std::string linkText = (lastNode ? &quot;&rdquo; : separator);</p>
-<p>ostr &lt;Item() &lt;Next();</p>
-<p>}</p>
-<p>ostr &lt;Next();</p>
-<p>current-&gt;Next() = nullptr;</p>
-<p>end = current;</p>
-<p>}</p>
-<p>Node* nextNext = next-&gt;Next();</p>
-<p>next-&gt;Next() = current;</p>
-<p>if (nextNext == nullptr)</p>
-<p>{</p>
-<p>// Reached end of list!</p>
-<p>return next;</p>
-<p>}</p>
-<p>return UnitReverse(next, nextNext);</p>
-<p>}</p>
-<p>[/code]</p>
-<p>Iterative version of reversal. Cute, eh!</p>
-<p>[code lang=cpp]</p>
-<p>void LinkedList::ReverseIteratively()</p>
-<p>{</p>
-<p>Node* current = this-&gt;root;</p>
-<p>Node* prev = nullptr;</p>
-<p>Node* next = nullptr;</p>
-<p>while (current != nullptr)</p>
-<p>{</p>
-<p>next = current-&gt;Next();</p>
-<p>current-&gt;Next() = prev;</p>
-<p>if (next == nullptr)</p>
-<p>{</p>
-<p>break;</p>
-<p>}</p>
-<p>prev = current;</p>
-<p>current = next;</p>
-<p>}</p>
-<p>this-&gt;end = this-&gt;root;</p>
-<p>this-&gt;root = current;</p>
-<p>}</p>
-<p>[/code]</p>
-<p>A cycle in a list is where the next pointer of the current node points to one of the previous nodes in the list; like the one below.</p>
-<p>[code lang=text]</p>
-<p>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt;</p>
-<p>^————|</p>
-<p>[/code]</p>
-<p>Above, the list doesn’t end at 5, instead cycles back to 3. And as everybody knows, a traversal of the nodes in the list would never end. If one was using a traditional list implementation, it would not have allowed creating cycle(s) deliberately. However, the data from which the list is created may bear cycles or back references, in which case the data is assumed to corrupt. For instance, an employee reporting to manager, and the manager reporting back to the employee. But our list implementation above, for the purposes of illustration of the problem at hand, allows creating cycles. And we will see a solution later to resolve them too.</p>
-<p>Finding if there is a cycle in the list was tough for me. I sort of need a hammer and some hints from <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a>. But implementing it was fun, as always!</p>
-<p>[code lang=cpp]</p>
-<p>bool IsCyclic() const</p>
-<p>{</p>
-<p>auto jmpBy1Ptr = root;</p>
-<p>auto jmpBy2Ptr = root;</p>
-<p>while (jmpBy1Ptr != nullptr</p>
-<p>&amp;&amp; jmpBy2Ptr != nullptr</p>
-<p>&amp;&amp; jmpBy2Ptr-&gt;Next() != nullptr)</p>
-<p>{</p>
-<p>jmpBy1Ptr = jmpBy1Ptr-&gt;Next();</p>
-<p>jmpBy2Ptr = jmpBy2Ptr-&gt;Next()-&gt;Next();</p>
-<p>if (jmpBy1Ptr == jmpBy2Ptr)</p>
-<p>{</p>
-<p>cout &laquo; &ldquo;Stop node is &quot; &lt;Item() &laquo; std::endl;</p>
-<p>return true;</p>
-<p>}</p>
-<p>}</p>
-<p>return false;</p>
-<p>}</p>
-<p>[/code]</p>
-<p>Here is some code to test the above methods:-</p>
-<p>[code lang=cpp]</p>
-<p>void main()</p>
-<p>{</p>
-<p>LinkedList ll;</p>
-<p>LinkedList::Node* lastNode = nullptr;</p>
-<p>for (int i = 1; i &lt;= 10; ++i)</p>
-<p>{</p>
-<p>lastNode = ll.Append(i);</p>
-<p>}</p>
-<p>cout &laquo; &ldquo;Initial Sequence….&rdquo; &laquo; std::endl;</p>
-<p>ll.Print();</p>
-<p>cout &laquo; &ldquo;Reverse (iteratively)…&rdquo; &laquo; std::endl;</p>
-<p>ll.ReverseIteratively();</p>
-<p>ll.Print();</p>
-<p>cout &laquo; &ldquo;Reverse (recursively)…..Back to original sequence!&rdquo; &laquo; std::endl;</p>
-<p>ll.ReverseRecursively();</p>
-<p>ll.Print();</p>
-<p>// This should return false, as the list has no cycles yet.</p>
-<p>cout &laquo; &ldquo;IsCyclic: &quot; &laquo; ll.IsCyclic() &lt;Next()-&gt;Next()-&gt;Next();</p>
-<p>// Point the last node to the 4th node (a previous node in the list).</p>
-<p>// This creates a cycle or loop.</p>
-<p>lastNode-&gt;Next() = node;</p>
-<p>// This should return true now!</p>
-<p>cout &laquo; &ldquo;IsCyclic: &quot; &laquo; ll.IsCyclic() &laquo; std::endl;</p>
-<p>}</p>
-<p>[/code]</p>
-<p>We’ll see the rest of the problems in the next episode. Let me know your comments on the solution, implementation, and bugs if any!</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
+</span><span class="cp"></span>
+<span class="cp">#include</span>
+<span class="cpf">#include</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">LinkedList</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span> <span class="k">class</span> <span class="nc">Node</span>
+        <span class="p">{</span>
+        <span class="k">private</span><span class="o">:</span> <span class="n">T</span> <span class="n">item</span><span class="p">;</span>
+        <span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">)</span>
+                <span class="p">{</span>
+                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+                <span class="p">}</span>
+
+        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
+                <span class="p">{</span>
+                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+                <span class="p">}</span>
+
+        <span class="k">public</span><span class="o">:</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span>
+                <span class="p">{</span>
+                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
+                <span class="p">}</span>
+
+        <span class="k">public</span><span class="o">:</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span> <span class="k">const</span>
+                <span class="p">{</span>
+                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
+                <span class="p">}</span>
+
+        <span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*&amp;</span> <span class="n">Next</span><span class="p">()</span>
+                <span class="p">{</span>
+                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">};</span>
+
+<span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">;</span>
+<span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">end</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="p">()</span>
+        <span class="p">{</span>
+           <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">LinkedList</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// If a cycle exists, break it; else the delete loop
+</span><span class="c1"></span>            <span class="c1">// below will never end, and lead to undefined behavior/crash.
+</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">IsCyclic</span><span class="p">())</span>
+            <span class="p">{</span>
+               <span class="k">auto</span> <span class="n">cyclicNode</span> <span class="o">=</span> <span class="n">FindCyclicNode</span><span class="p">();</span>
+               <span class="n">cyclicNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Delete all nodes
+</span><span class="c1"></span>            <span class="k">auto</span> <span class="n">current</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+            <span class="p">{</span>
+               <span class="k">auto</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+               <span class="k">delete</span> <span class="n">current</span><span class="p">;</span>
+               <span class="n">current</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nf">GetNthNode</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">GetNthNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="c1">// index is zero-based.
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+            <span class="p">{</span>
+               <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+               <span class="o">--</span><span class="n">index</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">Append</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span>
+        <span class="p">{</span>
+           <span class="n">Node</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+           <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+           <span class="p">{</span>
+              <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+           <span class="p">}</span>
+           <span class="k">else</span>
+           <span class="p">{</span>
+              <span class="n">end</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+              <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+           <span class="p">}</span>
+
+           <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">Root</span><span class="p">()</span> <span class="k">const</span>
+        <span class="p">{</span>
+           <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">ostr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">separator</span> <span class="o">=</span> <span class="s">&#34; -&gt; &#34;</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">terminator</span> <span class="o">=</span> <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">)</span>
+        <span class="p">{</span>
+           <span class="n">Node</span><span class="o">*</span> <span class="n">currentNode</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+
+           <span class="k">while</span> <span class="p">(</span><span class="n">currentNode</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+           <span class="p">{</span>
+              <span class="k">const</span> <span class="kt">bool</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span>
+              <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">linkText</span> <span class="o">=</span> <span class="p">(</span><span class="n">lastNode</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">separator</span><span class="p">);</span>
+              <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">linkText</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+              <span class="n">currentNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+           <span class="p">}</span>
+
+           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">terminator</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+        <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseIteratively</span><span class="p">();</span>
+<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseRecusively</span><span class="p">();</span>
+<span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">IsCyclic</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>The above list class allows creating cycles in the list (see <code>Node::Next()</code> method). The Node::Next method returns a reference to the next item pointer in the list, which allows pointing it to a previous Node in the list. The linked list class will be improved based on the problem being solved.</p>
+<p>Since reversing the list recursively came to me naturally, I&rsquo;ll go with it first. It was natural since the unit work of reversal involving current and next pointers is repeated until there are no more nodes in the list.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseRecursively</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">root</span> <span class="o">=</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">current</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="c1">// First time call.
+</span><span class="c1"></span>      <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+      <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+      <span class="n">end</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="n">Node</span><span class="o">*</span> <span class="n">nextNext</span> <span class="o">=</span> <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+   <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="n">nextNext</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="c1">// Reached end of list!
+</span><span class="c1"></span>      <span class="k">return</span> <span class="n">next</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="nf">UnitReverse</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">nextNext</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>Iterative version of reversal. Cute, eh!</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseIteratively</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+   <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+   <span class="n">Node</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+   <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+     <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
+
+     <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+     <span class="p">{</span>
+        <span class="k">break</span><span class="p">;</span>
+     <span class="p">}</span>
+
+     <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">this</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+   <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>   
+<span class="p">}</span>
+</code></pre></div><p>A cycle in a list is where the next pointer of the current node points to one of the previous nodes in the list; like the one below.</p>
+<pre><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt;
+          ^------------|
+</code></pre><p>Above, the list doesn&rsquo;t end at 5, instead cycles back to 3. And as everybody knows, a traversal of the nodes in the list would never end. If one was using a traditional list implementation, it would not have allowed creating cycle(s) deliberately. However, the data from which the list is created may bear cycles or back references, in which case the data is assumed to corrupt. For instance, an employee reporting to manager, and the manager reporting back to the employee. But our list implementation above, for the purposes of illustration of the problem at hand, allows creating cycles. And we will see a solution later to resolve them too.</p>
+<p>Finding if there is a cycle in the list was tough for me. I sort of need a hammer and some hints from Sammy.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="nf">IsCyclic</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>   
+   <span class="k">auto</span> <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+   <span class="k">auto</span> <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+
+   <span class="k">while</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
+      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
+      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+      <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">==</span> <span class="n">jmpBy2Ptr</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Stop node is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Here is some code to test the above methods:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">LinkedList</span> <span class="n">ll</span><span class="p">;</span>
+   <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">lastNode</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Initial Sequence....&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (iteratively)...&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseIteratively</span><span class="p">();</span>
+   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (recursively).....Back to original sequence!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseRecursively</span><span class="p">();</span>
+   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+
+   <span class="c1">// This should return false, as the list has no cycles yet.
+</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// Get the 4th node from root (element 4)
+</span><span class="c1"></span>   <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Root</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+
+   <span class="c1">// Point the last node to the 4th node (a previous node in the list).
+</span><span class="c1"></span>   <span class="c1">// This creates a cycle or loop.
+</span><span class="c1"></span>   <span class="n">lastNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+
+   <span class="c1">// This should return true now!
+</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>We&rsquo;ll see the rest of the problems in the next episode. Let me know your comments on the solution, implementation, and bugs if any!</p>
+
 </div>
 
 

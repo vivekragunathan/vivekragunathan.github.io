@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Alright, it is a long wait. And I am going to keep it short.">
 <meta itemprop="datePublished" content="2010-12-21T13:24:39+00:00" />
 <meta itemprop="dateModified" content="2010-12-21T13:24:39+00:00" />
-<meta itemprop="wordCount" content="186">
+<meta itemprop="wordCount" content="189">
 
 
 
@@ -143,46 +143,39 @@
     <time datetime="2010-12-21T13:24:39Z">Dec 21, 2010</time> &middot; 1 min read
   </div>
 
-  <p style="font-family:Tahoma;font-size:11pt;">
-  Alright, it is a long wait. And I am going to keep it short.
-</p>
-<p style="font-family:Tahoma;font-size:11pt;">
-  Recap of the problem: Why did the ref variable in <a href="http://developerexperience.blogspot.com/2010/10/invoking-methods-with-out-and-ref-part.html" target="_blank">SomeMethod</a> not get the expected result (<span style="font-family:Consolas;font-size:11pt;">DayOfWeek.Friday</span>) when called from a different thread?
-</p>
-<p style="font-family:Tahoma;font-size:11pt;">
-  Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. DayOfWeek is an enum &#8211; a value type. When the method is called from a different thread, we put the argument (arg3) in an object array, and that&#8217;s where the value gets boxed. So we happen to assign the resultant value to the boxed value.
-</p>
-<p style="font-family:Tahoma;font-size:11pt;">
-  So how do resolve the issue? Simple&#8230;&#8230;.assign the value back from the object array to the ref variable.
-</p>
-<pre class="brush: cpp; gutter: false; Code" style="font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
-    string arg2,
-    ref DayOfWeek arg3)
-{
-    if (Dispatcher.CheckAccess())
-    {
-        var funcDelegate = (Func&lt;string, string, DayOfWeek, int&gt;)SomeMethod;
+  <p>Alright, it is a long wait. And I am going to keep it short.</p>
+<p>Recap of the problem: Why did the <code>ref</code> variable in SomeMethod not get the expected result (<code>DayOfWeek</code>.<code>Friday</code>) when called from a different thread?</p>
+<p>Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. <code>DayOfWeek</code> is an <code>enum</code> – a value type. When the method is called from a different thread, we put the argument (<code>arg3</code>) in an object array, and that’s where the value gets boxed. So we happen to assign the resultant value to the boxed value.</p>
+<p>So how do resolve the issue? Simple. Assign the value back from the object array to the <code>ref</code> variable.</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">SomeMethod</span><span class="p">(</span>
+	<span class="kt">string</span> <span class="n">arg1</span><span class="p">,</span>
+	<span class="kt">string</span> <span class="n">arg2</span><span class="p">,</span>
+	<span class="k">ref</span> <span class="n">DayOfWeek</span> <span class="n">arg3</span>
+<span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Dispatcher</span><span class="p">.</span><span class="n">CheckAccess</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">funcDelegate</span> <span class="p">=</span> <span class="p">(</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="n">DayOfWeek</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;)</span><span class="n">SomeMethod</span><span class="p">;</span>
 
-        var args = new object[] {
-            arg1,
-            arg2,
-            arg3
-        };
+        <span class="kt">var</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span>
+            <span class="n">arg1</span><span class="p">,</span>
+            <span class="n">arg2</span><span class="p">,</span>
+            <span class="n">arg3</span>
+        <span class="p">};</span>
 
-        int retVal = Dispatcher.Invoke(funcDelegate, args);
-        arg3 = args[2];
+        <span class="kt">int</span> <span class="n">retVal</span> <span class="p">=</span> <span class="n">Dispatcher</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">funcDelegate</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+        <span class="n">arg3</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
 
-        return retVal;
-    }
+        <span class="k">return</span> <span class="n">retVal</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // No more implementation
-    arg3 = DayOfWeek.Friday;
+    <span class="c1">// No more implementation
+</span><span class="c1"></span>    <span class="n">arg3</span> <span class="p">=</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Friday</span><span class="p">;</span>
 
-    return 1234;
-}</pre>
-<p style="font-family:Tahoma;font-size:11pt;">
-  It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.
-</p>
+    <span class="k">return</span> <span class="m">1234</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.</p>
+
 </div>
 
 

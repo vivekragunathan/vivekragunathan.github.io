@@ -76,10 +76,10 @@
     
     <item>
       <title>Quiz – Where am I ?</title>
-      <link>/2011/02/19/whereami/</link>
+      <link>/2011/02/19/where-am-i/</link>
       <pubDate>Sat, 19 Feb 2011 12:05:38 +0000</pubDate>
       
-      <guid>/2011/02/19/whereami/</guid>
+      <guid>/2011/02/19/where-am-i/</guid>
       <description>The question is, in C++, how do detect if an object is allocated on the stack or heap.</description>
     </item>
     

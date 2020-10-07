@@ -13,6 +13,11 @@ article.post h1.post-title {
   font-size: 1.7rem;
 }
 
+ li {
+   line-height: 1.7em;
+   margin-bottom: 10px;
+}
+
 .post-date {
 	font-size: 14px;
 }

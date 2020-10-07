@@ -120,10 +120,10 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
     
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</link>
+      <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</guid>
+      <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
     

@@ -108,24 +108,26 @@
       <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
       
       <guid>/2012/09/09/caller_info_in_cs/</guid>
-      <description>Not the same way but we could say better. Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
+      <description>Not the same way but we could say better.
+Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
     </item>
     
     <item>
       <title>OrderedThreadPool – Bug Fix !!!</title>
-      <link>/2012/04/14/otpbugfix/</link>
+      <link>/2012/04/14/otp-bug-fix/</link>
       <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
       
-      <guid>/2012/04/14/otpbugfix/</guid>
-      <description>Hugh pointed out a bug in the OrderedThreadPool.    I think there is a small window for error in the OrderedThreadPool class.</description>
+      <guid>/2012/04/14/otp-bug-fix/</guid>
+      <description>Hugh pointed out a bug in the OrderedThreadPool.
+I think there is a small window for error in the OrderedThreadPool class.</description>
     </item>
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uidgen/</link>
+      <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/2012/03/09/uidgen/</guid>
+      <guid>/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     
@@ -213,10 +215,10 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
     
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</link>
+      <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</guid>
+      <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
     

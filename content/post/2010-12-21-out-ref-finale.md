@@ -10,29 +10,24 @@ categories:
   - Uncategorized
 
 ---
-<p style="font-family:Tahoma;font-size:11pt;">
-  Alright, it is a long wait. And I am going to keep it short.
-</p>
+Alright, it is a long wait. And I am going to keep it short.
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  Recap of the problem: Why did the ref variable in <a href="http://developerexperience.blogspot.com/2010/10/invoking-methods-with-out-and-ref-part.html" target="_blank">SomeMethod</a> not get the expected result (<span style="font-family:Consolas;font-size:11pt;">DayOfWeek.Friday</span>) when called from a different thread?
-</p>
+Recap of the problem: Why did the `ref` variable in SomeMethod not get the expected result (`DayOfWeek`.`Friday`) when called from a different thread?
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. DayOfWeek is an enum &#8211; a value type. When the method is called from a different thread, we put the argument (arg3) in an object array, and that&#8217;s where the value gets boxed. So we happen to assign the resultant value to the boxed value.
-</p>
+Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. `DayOfWeek` is an `enum` – a value type. When the method is called from a different thread, we put the argument (`arg3`) in an object array, and that’s where the value gets boxed. So we happen to assign the resultant value to the boxed value.
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  So how do resolve the issue? Simple&#8230;&#8230;.assign the value back from the object array to the ref variable.
-</p>
+So how do resolve the issue? Simple. Assign the value back from the object array to the `ref` variable.
 
-<pre class="brush: cpp; gutter: false; Code" style="font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
-    string arg2,
-    ref DayOfWeek arg3)
+```csharp
+int SomeMethod(
+	string arg1,
+	string arg2,
+	ref DayOfWeek arg3
+)
 {
     if (Dispatcher.CheckAccess())
     {
-        var funcDelegate = (Func&lt;string, string, DayOfWeek, int&gt;)SomeMethod;
+        var funcDelegate = (Func<string, string, DayOfWeek, int>)SomeMethod;
 
         var args = new object[] {
             arg1,
@@ -50,8 +45,7 @@ categories:
     arg3 = DayOfWeek.Friday;
 
     return 1234;
-}</pre>
+}
+```
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.
-</p>
+It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.

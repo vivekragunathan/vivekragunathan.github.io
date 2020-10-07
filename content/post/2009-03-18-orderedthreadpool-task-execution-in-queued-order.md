@@ -3,7 +3,7 @@ title: OrderedThreadPool – Task Execution In Queued Order !!!
 author: vivekragunathan
 layout: post
 date: 2009-03-18T03:35:00+00:00
-url: /2009/03/18/orderedthreadpool-task-execution-in-queued-order/
+url: /2009/03/18/ordered-thread-pool/
 blogger_blog:
   - developerexperience.blogspot.com
 blogger_author:
@@ -20,17 +20,15 @@ tags:
   - threadpool
 
 ---
-<p style="font-family:Tahoma;">
-  I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.
-</p>
 
-<p style="font-family:Tahoma;">
-  In some situations, it is required that the tasks queued to the thread pool are dispatched (and executed) in the order they were queued. For instance, in my (and most?) applications, a series of events are fired to notify the clients with what is happening inside the (server) application. Although the events may be fired from any thread (asynchronous), I would want them or rather the client would be expecting that the events are received in a certain order, which aligns with the sequence of steps carried out inside the server application for the requested service. So sequential execution of the queued tasks is not something one must not wish for.
-</p>
+I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.
+
+In some situations, it is required that the tasks queued to the thread pool are dispatched (and executed) in the order they were queued. For instance, in my (and most?) applications, a series of events are fired to notify the clients with what is happening inside the (server) application. Although the events may be fired from any thread (asynchronous), I would want them or rather the client would be expecting that the events are received in a certain order, which aligns with the sequence of steps carried out inside the server application for the requested service. So sequential execution of the queued tasks is not something one must not wish for.
 
 Enough talking&#8230;&#8230;.eat code.
 
-<pre style="font-family:Consolas;font-size:13pt;">using System;
+```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -94,8 +92,8 @@ namespace System.Threading
          }
       }
    }
-}</pre>
+}
+```
 
-<p style="font-family:Tahoma;">
-  The above class wraps the System.Threading.ThreadPool and offers the facility of execution of tasks in the order they are queued. Hope that is useful!
-</p>
+
+The above class wraps the System.Threading.ThreadPool and offers the facility of execution of tasks in the order they are queued. Hope that is useful!

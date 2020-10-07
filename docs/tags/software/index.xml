@@ -18,10 +18,10 @@
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uidgen/</link>
+      <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/2012/03/09/uidgen/</guid>
+      <guid>/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     

@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Linked List Quiz – Part II !!!">
-<meta itemprop="description" content="In the last part, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list.">
+<meta itemprop="description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.">
 <meta itemprop="datePublished" content="2012-10-31T18:30:21+00:00" />
 <meta itemprop="dateModified" content="2012-10-31T18:30:21+00:00" />
-<meta itemprop="wordCount" content="591">
+<meta itemprop="wordCount" content="592">
 
 
 
@@ -24,11 +24,11 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linked List Quiz – Part II !!!"/>
-<meta name="twitter:description" content="In the last part, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list."/>
+<meta name="twitter:description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list."/>
 
 
 <meta property="og:title" content="Linked List Quiz – Part II !!!" />
-<meta property="og:description" content="In the last part, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list." />
+<meta property="og:description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2012/11/01/linked-list-quiz-part-ii/" />
 <meta property="article:published_time" content="2012-10-31T18:30:21+00:00" />
@@ -143,156 +143,138 @@
     <time datetime="2012-10-31T18:30:21Z">Oct 31, 2012</time> &middot; 3 min read
   </div>
 
-  <p style="font-family:Tahoma;font-size:11pt;">
-  In the last <a title="Linked List Quiz - Part I" href="http://developerexperience.blogspot.in/2012/06/linked-list-quiz-part-i.html" target="_blank">part</a>, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list.
-</p>
-<ul style="font-family:Tahoma;font-size:11pt;">
-  <li>
-    Reverse the list recursively
-  </li>
-  <li>
-    Reverse the list iteratively
-  </li>
-  <li>
-    Find if a list is cyclic
-  </li>
+  <p>In the previous <a href="/2012/06/18/linked-list-quiz-part-i">post</a>, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</p>
+<ul>
+<li>Reverse the list recursively</li>
+<li>Reverse the list iteratively</li>
+<li>Find if a list is cyclic</li>
 </ul>
-<p style="font-family:Tahoma;font-size:11pt;">
-  In this part, I will be solving the remaining two puzzles that I listed in the last part.
-</p>
-<p style="font-family:Tahoma;font-size:11pt;font-weight:bold;">
-  Finding the cyclic node in a cyclic linked list
-</p>
-<ol style="font-family:Tahoma;font-size:11pt;">
-  <li>
-    According to my solution, the node which is actually supposed to be the end of the linked list is the cyclic node. Let us call Cn. Taking node Cn as the cyclic one has an advantage wherein you can break the cycle; assign <span style="font-family:Consolas;">Cn->next = nullptr;</span>
-  </li>
-  <li>
-    But some people take the node after Cn as the cyclic node. The node after Cn is the node somewhere back in the list. This way it is not possible to break the cycle as we would traversed past Cn.
-  </li>
+<p>In this part, I will be solving the remaining two puzzles that I listed in the last part.</p>
+<p><strong>Finding the cyclic node in a cyclic linked list</strong></p>
+<ol>
+<li>According to my solution, the node which is actually supposed to be the end of the linked list is the cyclic node. Let us call <code>Cn</code>. Taking node <code>Cn</code> as the cyclic one has an advantage wherein you can break the cycle; assign <code>Cn-&gt;next = nullptr;</code></li>
+<li>But some people take the node after Cn as the cyclic node. The node after Cn is the node somewhere back in the list. This way it is not possible to break the cycle as we would traversed past Cn.</li>
 </ol>
-<pre style="font-family:Consolas;font-size:11pt;">LinkedList::Node* LinkedList::FindCyclicNode() const
-{
-   int iterCount = 0;
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">FindCyclicNode</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">iterCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-   auto jmpBy1Ptr = root;
-   auto jmpBy2Ptr = root;
+   <span class="k">auto</span> <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+   <span class="k">auto</span> <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
 
-   while (jmpBy1Ptr != nullptr && jmpBy2Ptr != nullptr && jmpBy2Ptr-&gt;Next() != nullptr)
-   {
-      jmpBy1Ptr = jmpBy1Ptr-&gt;Next();
-      jmpBy2Ptr = jmpBy2Ptr-&gt;Next()-&gt;Next();
+   <span class="k">while</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+      <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
 
-      if (jmpBy1Ptr == jmpBy2Ptr)
-      {
-         const int noOfNodesInLoop = CountNoOfNodesInLoop(jmpBy1Ptr);
+      <span class="k">if</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">==</span> <span class="n">jmpBy2Ptr</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">const</span> <span class="kt">int</span> <span class="n">noOfNodesInLoop</span> <span class="o">=</span> <span class="n">CountNoOfNodesInLoop</span><span class="p">(</span><span class="n">jmpBy1Ptr</span><span class="p">);</span>
 
-         cout &lt;&lt; "No of nodes in loop: " &lt;&lt; noOfNodesInLoop &lt;&lt; std::endl;
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;No of nodes in loop: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">noOfNodesInLoop</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-         auto p1= root;
-         auto p2 = GetNthNode(noOfNodesInLoop - 1); // zero based index
+         <span class="k">auto</span> <span class="n">p1</span><span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+         <span class="k">auto</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">GetNthNode</span><span class="p">(</span><span class="n">noOfNodesInLoop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// zero based index
+</span><span class="c1"></span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Node at index &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">noOfNodesInLoop</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-         cout &lt;&lt; "Node at index " &lt;&lt; noOfNodesInLoop &lt;&lt; ": " &lt;&lt; p2-&gt;Item() &lt;&lt; std::endl;          // Pointers meet at eye of the loop (this node is as per point #2 above)          while (p1 != p2)          {             p1 = p1-&gt;Next();
-            p2 = p2-&gt;Next();
-         }
+         <span class="c1">// Pointers meet at eye of the loop (this node is as per point #2 above)
+</span><span class="c1"></span>
+         <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="n">p2</span><span class="p">)</span>
+         <span class="p">{</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+         <span class="p">}</span>
 
-         // This piece of code takes you to the loop starting node (this node is as per #1 above)
-         p2 = p2-&gt;Next();
-         while(p2-&gt;Next() != p1)
-         {
-            p2 = p2-&gt;Next();
-         }
+         <span class="c1">// This piece of code takes you to the loop starting node (this node is as per #1 above)
+</span><span class="c1"></span>         <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
 
-         return p2;
-      }
+         <span class="k">while</span><span class="p">(</span><span class="n">p2</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="n">p1</span><span class="p">)</span>
+         <span class="p">{</span>
+            <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+         <span class="p">}</span>
 
-      ++iterCount;
-   }
+         <span class="k">return</span> <span class="n">p2</span><span class="p">;</span>
+      <span class="p">}</span>
 
-   return nullptr;
-}
+      <span class="o">++</span><span class="n">iterCount</span><span class="p">;</span>
+   <span class="p">}</span>
 
-int LinkedList::CountNoOfNodesInLoop(Node* stopNode) const
-{
-   int count = 1;
-   auto p1 = stopNode;
-   auto p2 = stopNode;
+   <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
 
-   while (p1-&gt;Next() != p2)
-   {
-      p1 = p1-&gt;Next();
-      ++count;
-   }
+<span class="kt">int</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">CountNoOfNodesInLoop</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">stopNode</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">auto</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">stopNode</span><span class="p">;</span>
+   <span class="k">auto</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">stopNode</span><span class="p">;</span>
 
-   return count;
-}</pre>
-<p style="font-family:Tahoma;font-size:11pt;">
-  The code above is the result of several iterations of discussions with Azhagu. It wasn&#8217;t written that way the first time. The first version was much complex and naive. I think it looks better now. What do you say?
-</p>
-<p style="font-family:Tahoma;font-size:11pt;font-weight:bold;">
-  Reversing every K nodes in the list
-</p>
-<p style="font-family:Tahoma;font-size:11pt;">
-  This is an interesting puzzle. You should not reverse the whole list instead only every K nodes, where N >= K > 1 and N is the number of nodes in the list. For instance, if you reverse 2 nodes (K = 2) in the following list
-</p>
-<pre style="font-family:Consolas;font-size:11pt;">1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6</pre>
-<p style="font-family:Tahoma;font-size:11pt;">
-  the resulting list would be
-</p>
-<pre style="font-family:Consolas;font-size:11pt;">2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 6 -&gt; 5</pre>
-<pre style="font-family:Consolas;font-size:11pt;">void LinkedList::Reverse(int k)
-{
-   prevHead = nullptr;
+   <span class="k">while</span> <span class="p">(</span><span class="n">p1</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="n">p2</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+      <span class="o">++</span><span class="n">count</span><span class="p">;</span>
+   <span class="p">}</span>
 
-   auto head = root;
-   root = _Reverse(head, k);
-   head = head-&gt;Next();
+   <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>The code above is the result of several iterations of discussions with Azhagu. It wasn&rsquo;t written that way the first time. The first version was much complex and naive. I think it looks better now. What do you say?</p>
+<p><strong>Reversing every K nodes in the list</strong></p>
+<p>This is an interesting puzzle. You should not reverse the whole list instead only every K nodes, where <code>N &gt;= K &gt; 1</code> and N is the number of nodes in the list. For instance, if you reverse 2 nodes (<code>K = 2</code>) in the following list:</p>
+<pre><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6
+</code></pre><p>the resulting list would be</p>
+<pre><code>2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 6 -&gt; 5
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Reverse</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">prevHead</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 
-   while (head != nullptr)
-   {
-      _Reverse(head, k);
-      head = head-&gt;Next();
-   }
+   <span class="k">auto</span> <span class="n">head</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+   <span class="n">root</span> <span class="o">=</span> <span class="n">_Reverse</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+   <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
 
-   prevHead = nullptr;
-}
+   <span class="k">while</span> <span class="p">(</span><span class="n">head</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">_Reverse</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+   <span class="p">}</span>
 
-LinkedList::Node* LinkedList::_Reverse(Node* head, int k)
-{
-   int iter = k;
+   <span class="n">prevHead</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
 
-   Node* current = head;
-   Node* prev = nullptr;
-   Node* next = nullptr;
+<span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">_Reverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
 
-   while (current != nullptr && iter &gt;= 1)
-   {
-      next = current-&gt;Next();
-      current-&gt;Next() = prev;
+   <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+   <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+   <span class="n">Node</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 
-      if (next == nullptr)
-      {
-         break;
-      }
+   <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">iter</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+      <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
 
-      prev = current;
-      current = next;
-      --iter;
-   }
+      <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
 
-   if (prevHead != nullptr)
-   {
-      prevHead-&gt;Next() = next != nullptr ? prev : current;
-   }
+      <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+      <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+      <span class="o">--</span><span class="n">iter</span><span class="p">;</span>
+   <span class="p">}</span>
 
-   prevHead = head;
-   head-&gt;Next() = next;
+   <span class="k">if</span> <span class="p">(</span><span class="n">prevHead</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">prevHead</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">next</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">?</span> <span class="nl">prev</span> <span class="p">:</span> <span class="n">current</span><span class="p">;</span>
+   <span class="p">}</span>
 
-   return prev;
-}</pre>
-<p style="font-family:Tahoma;font-size:11pt;">
-  I hope the code covers all the corner cases of the puzzle. Give it a try and let me know if it all works for you.
-</p>
+   <span class="n">prevHead</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+   <span class="n">head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+
+   <span class="k">return</span> <span class="n">prev</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>I hope the code covers all the corner cases of the puzzle. Give it a try and let me know if it all works for you.</p>
+
 </div>
 
 

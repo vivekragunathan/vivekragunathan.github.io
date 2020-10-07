@@ -9,15 +9,13 @@ categories:
   - Uncategorized
 
 ---
-<p style="font-family:Tahoma;font-size:11pt;">
-  I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.
-</p>
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  In android, there is this <span style="font-family:Consolas;font-size:11pt;">OnClickListener</span> interface, which is used as a callback interface for a button click. So, it is used something like this:-
-</p>
+I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.
 
-<pre style="font-family:Consolas;font-size:11pt;">// Create an anonymous implementation of OnClickListener
+In android, there is this <span style="font-family:Consolas;font-size:11pt;">OnClickListener</span> interface, which is used as a callback interface for a button click. So, it is used something like this:-
+
+```csharp
+// Create an anonymous implementation of OnClickListener
 private OnClickListener mCorkyListener = new OnClickListener() {
     public void onClick(View v) {
         // do something when the button is clicked
@@ -28,50 +26,40 @@ protected void onCreate(Bundle bundle) {
     ...
 
     Button button = (Button)findViewById(R.id.someButton);
-    button.setOnClickListener(<span style="color:red;">new OnClickListener() {
+    button.setOnClickListener(new OnClickListener() {
         @Override
         public void onClick(View v) {
-        // Click handler action code...
+          // Click handler action code...
         }
-    }</span>);
+    });
     ...
 }
-</pre>
+```
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  <span style="font-family:Consolas;font-size:11pt;">OnClickListener</span>, which is an interface with a single method <span style="font-family:Consolas;font-size:11pt;">onClick</span>, represents <span style="font-style:italic;font-weight:bold;">a type for the button click event</span>. The highlighted portion of the code that registers an event handler for the button click action is called an Anonymous Class definition. That is some really some clever syntax; although it seems a wrong tool for our purpose here. Actually the click event requires only a method to call when the button is clicked. Nothing more. So why do we need an interface here?
-</p>
+`OnClickListener`, which is an interface with a single method `onClick`, represents _a type for the button click event_. The highlighted portion of the code that registers an event handler for the button click action is called an Anonymous Class definition. That is some really some clever syntax; although it seems a wrong tool for our purpose here. Actually the click event requires only a method to call when the button is clicked. Nothing more. So why do we need an interface here?
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  I know of a better way in C#. Back there, it is called a <span style="font-family:Consolas;color:blue;">delegate</span>. In simple words, a delegate is an object-oriented pointer to a function, and it could point to any public\private instance\static function of any class. So a delegate is a good fit for our situation here. If the highlighted portion of the code (event registration) were to be written in C#:-
-</p>
+I know of a better way in C#. Back there, it is called a `delegate`. In simple words, a delegate is an object-oriented pointer to a function, and it could point to any public \ private instance \ static function of any class. So a delegate is a good fit for our situation here. If the highlighted portion of the code (event registration) were to be written in C#:-
 
-<pre style="font-family:Consolas;font-size:11pt;">button.setOnClickListener(delegate(View v) {
+```csharp
+button.setOnClickListener(delegate(View v) {
     // Click handler action code....
 });
-</pre>
+```
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  I have gone one step further and used an anonymous delegate, which is even more succinct. Sometimes, less syntactic noise is a good feeling for a programmer. I am not doing a language war here. I am just trying to vote for delegates in Java. I am not sure if they are already there in one of the latest versions.
-</p>
+I have gone one step further and used an anonymous delegate, which is even more succinct. Sometimes, less syntactic noise is a good feeling for a programmer. I am not doing a language war here. I am just trying to vote for delegates in Java. I am not sure if they are already there in one of the latest versions.
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  But there is a C# fanatic inside of me, which compels me to show the world how better and good-looking (see pascal casing) C# code actually is.
-</p>
+But there is a C# fanatic inside of me, which compels me to show the world how better and good-looking (see pascal casing) C# code actually is.
 
-<pre style="font-family:Consolas;font-size:11pt;color:blue;">protected void OnCreate(Bundle bundle)
+```csharp
+protected void OnCreate(Bundle bundle)
 {
     var button = FindViewById&lt;Button&gt;(R.Id.SomeButton);
      button.Click += delegate(View v) {
         // Click handler code.
     };
 }
-</pre>
+```
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  Beauty lies in the eyes of the beholder!
-</p>
+Beauty lies in the eyes of the beholder!
 
-<p style="font-family:Tahoma;font-size:11pt;">
-  Nevertheless, anonymous class is definitely a wonderful and powerful syntax, but does not look good in the example above.
-</p>
+Nevertheless, anonymous class is definitely a wonderful and powerful syntax, but does not look good in the example above.

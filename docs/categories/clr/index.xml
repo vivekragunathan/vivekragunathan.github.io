@@ -44,13 +44,11 @@
     
     <item>
       <title>To Hold or Not to Hold – A story on Thread references !!!</title>
-      <link>/2011/03/30/threadreference/</link>
+      <link>/2011/03/30/thread-reference/</link>
       <pubDate>Wed, 30 Mar 2011 17:05:36 +0000</pubDate>
       
-      <guid>/2011/03/30/threadreference/</guid>
-      <description>[code lang=csharp]
-void SomeMethod(int x, double y) {
-// some code</description>
+      <guid>/2011/03/30/thread-reference/</guid>
+      <description>void SomeMethod(int x, double y) { // some code  .</description>
     </item>
     
     <item>
@@ -64,10 +62,10 @@ void SomeMethod(int x, double y) {
     
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</link>
+      <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</guid>
+      <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
     

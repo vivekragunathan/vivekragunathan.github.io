@@ -566,7 +566,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Fri, 23 May 2014 01:31:21 +0000</pubDate>
       
       <guid>/2014/05/23/clean-code/</guid>
-      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;https://vivekragunathan.wordpress.com/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -575,20 +575,11 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
       <guid>/2013/11/28/the-windows-phone-epic/</guid>
-      <description>&lt;div style=&#34;font-family:Segoe UI Light, Segoe UI, Tahoma, sans-serif;font-size:11pt;&#34;&gt;
-  &lt;p&gt;
-    Dear Reader, Do not be overwhelmed at the length of the article. I have tried my best to keep the length of the article not directly proportional to the time required to read it.
-  &lt;/p&gt;
-  &lt;p&gt;
-    Oscar Wilde said, &amp;#8220;&lt;em&gt;If you want to tell people the truth, make them laugh, otherwise they’ll kill you&lt;/em&gt;&amp;#8220;. There are times when truth tends to be subjective, such as this article. However, I have definitely added the fun component to keep up earlier promise. Consider the time you spent reading this article as a break from your work or routine. I am sure you will enjoy it; doesn&amp;#8217;t matter if you are using a Windows Phone &lt;sup&gt;1&lt;/sup&gt;. Perhaps you will read it again.
-  &lt;/p&gt;
-  &lt;p&gt;
-    I am programmer &lt;sup&gt;2&lt;/sup&gt;, gadget savvy, an avid fan of Microsoft products (especially Visual Studio and associated suite of development tools), and an honest critic of any product I use. I have an Android Phone, an iPhone, and for a few months now, a Windows Phone. And this is my experience with the Windows Phone &amp;#8211; good, bad and grey.
-  &lt;/p&gt;
-  &lt;p&gt;
-    To begin with, the Windows Phone landscape (app and feature set) is dry and unpromising. There are a few good things here and there to console ourselves for the money we spent on the phone, and for the love of Microsoft!
-  &lt;/p&gt;
-  &lt;p&gt;</description>
+      <description>&lt;p&gt;Dear Reader,&lt;/p&gt;
+&lt;p&gt;Do not be overwhelmed at the length of the article. I have tried my best to keep the length of the article not directly proportional to the time required to read it.&lt;/p&gt;
+&lt;p&gt;Oscar Wilde said, &lt;em&gt;If you want to tell people the truth, make them laugh, otherwise they’ll kill you&lt;/em&gt;. There are times when truth tends to be subjective, such as this article. However, I have definitely added the fun component to keep up earlier promise. Consider the time you spent reading this article as a break from your work or routine. I am sure you will enjoy it; doesn’t matter if you are using a Windows Phone 1. Perhaps you will read it again.&lt;/p&gt;
+&lt;p&gt;I am programmer[^2], gadget savvy, an avid fan of Microsoft products (especially Visual Studio and associated suite of development tools), and an honest critic of any product I use. I have an Android Phone, an iPhone, and for a few months now, a Windows Phone. And this is my experience with the Windows Phone – good, bad and grey.&lt;/p&gt;
+&lt;p&gt;To begin with, the Windows Phone landscape (app and feature set) is dry and unpromising. There are a few good things here and there to console ourselves for the money we spent on the phone, and for the love of Microsoft!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -607,7 +598,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
       
       <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
-      <description>In the last part, we saw the academic (not general purpose) version of a Linked List used to solve the puzzles, and solved the following puzzles on linked list.</description>
+      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
     </item>
     
     <item>
@@ -616,7 +607,8 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
       
       <guid>/2012/09/09/caller_info_in_cs/</guid>
-      <description>Not the same way but we could say better. Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
+      <description>Not the same way but we could say better.
+Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
     </item>
     
     <item>
@@ -625,16 +617,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
       
       <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
-      <description>&lt;p&gt;A short while back, &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; quizzed me on linked list based problems; singly linked list.&lt;/p&gt;
-&lt;p&gt;I am recording those problems, solutions and my experience as a two part series. In the first part, I am introducing the linked list class, which I wrote for packaging the implementation of the solutions. This class pertains to the context of the problem(s) and cannot be used as a general purpose linked list. A &lt;code&gt;std::list&lt;/code&gt; might more pertinent in the context of the general purpose implementation of a list.&lt;/p&gt;
-&lt;p&gt;Here are some of the problems that &lt;a href=&#34;https://www.linkedin.com/in/azhaguthasan&#34;&gt;Sammy&lt;/a&gt; asked me to solve:-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Reverse the list recursively&lt;/li&gt;
-&lt;li&gt;Reverse the list iteratively&lt;/li&gt;
-&lt;li&gt;Find if the list is cyclic&lt;/li&gt;
-&lt;li&gt;Find the node that causes the cycle (and break the cycle)&lt;/li&gt;
-&lt;li&gt;Reverse every K nodes in the list&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
     </item>
     
     <item>
@@ -648,19 +631,20 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
     
     <item>
       <title>OrderedThreadPool – Bug Fix !!!</title>
-      <link>/2012/04/14/otpbugfix/</link>
+      <link>/2012/04/14/otp-bug-fix/</link>
       <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
       
-      <guid>/2012/04/14/otpbugfix/</guid>
-      <description>Hugh pointed out a bug in the OrderedThreadPool.    I think there is a small window for error in the OrderedThreadPool class.</description>
+      <guid>/2012/04/14/otp-bug-fix/</guid>
+      <description>Hugh pointed out a bug in the OrderedThreadPool.
+I think there is a small window for error in the OrderedThreadPool class.</description>
     </item>
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uidgen/</link>
+      <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/2012/03/09/uidgen/</guid>
+      <guid>/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     
@@ -721,13 +705,11 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
     
     <item>
       <title>To Hold or Not to Hold – A story on Thread references !!!</title>
-      <link>/2011/03/30/threadreference/</link>
+      <link>/2011/03/30/thread-reference/</link>
       <pubDate>Wed, 30 Mar 2011 17:05:36 +0000</pubDate>
       
-      <guid>/2011/03/30/threadreference/</guid>
-      <description>[code lang=csharp]
-void SomeMethod(int x, double y) {
-// some code</description>
+      <guid>/2011/03/30/thread-reference/</guid>
+      <description>void SomeMethod(int x, double y) { // some code  .</description>
     </item>
     
     <item>
@@ -759,20 +741,20 @@ void SomeMethod(int x, double y) {
     
     <item>
       <title>Quiz – Where am I ?</title>
-      <link>/2011/02/19/whereami/</link>
+      <link>/2011/02/19/where-am-i/</link>
       <pubDate>Sat, 19 Feb 2011 12:05:38 +0000</pubDate>
       
-      <guid>/2011/02/19/whereami/</guid>
+      <guid>/2011/02/19/where-am-i/</guid>
       <description>The question is, in C++, how do detect if an object is allocated on the stack or heap.</description>
     </item>
     
     <item>
       <title>Guess Who ?</title>
-      <link>/2010/12/21/guesswho/</link>
+      <link>/2010/12/21/guess-who/</link>
       <pubDate>Tue, 21 Dec 2010 13:32:57 +0000</pubDate>
       
-      <guid>/2010/12/21/guesswho/</guid>
-      <description>You may not know the guy in black; but you sure should be knowing the guy in green.</description>
+      <guid>/2010/12/21/guess-who/</guid>
+      <description>You may not know the guy in black. You should definitely be knowing the guy in green.</description>
     </item>
     
     <item>
@@ -915,10 +897,10 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
     
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</link>
+      <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/2009/03/18/orderedthreadpool-task-execution-in-queued-order/</guid>
+      <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
     
