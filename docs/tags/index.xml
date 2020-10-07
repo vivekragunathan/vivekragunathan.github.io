@@ -2,737 +2,737 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Developer&#39;s Experience</title>
-    <link>/tags/</link>
+    <link>/blog/tags/</link>
     <description>Recent content in Tags on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>algorithms</title>
-      <link>/tags/algorithms/</link>
+      <link>/blog/tags/algorithms/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/tags/algorithms/</guid>
+      <guid>/blog/tags/algorithms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C#</title>
-      <link>/tags/c#/</link>
+      <link>/blog/tags/c#/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/tags/c#/</guid>
+      <guid>/blog/tags/c#/</guid>
       <description></description>
     </item>
     
     <item>
       <title>min-diff</title>
-      <link>/tags/min-diff/</link>
+      <link>/blog/tags/min-diff/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/tags/min-diff/</guid>
+      <guid>/blog/tags/min-diff/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>/tags/programming/</link>
+      <link>/blog/tags/programming/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/tags/programming/</guid>
+      <guid>/blog/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>word-distance</title>
-      <link>/tags/word-distance/</link>
+      <link>/blog/tags/word-distance/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/tags/word-distance/</guid>
+      <guid>/blog/tags/word-distance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>/tags/api/</link>
+      <link>/blog/tags/api/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/tags/api/</guid>
+      <guid>/blog/tags/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>clean code</title>
-      <link>/tags/clean-code/</link>
+      <link>/blog/tags/clean-code/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/tags/clean-code/</guid>
+      <guid>/blog/tags/clean-code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design</title>
-      <link>/tags/design/</link>
+      <link>/blog/tags/design/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/tags/design/</guid>
+      <guid>/blog/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>semantics</title>
-      <link>/tags/semantics/</link>
+      <link>/blog/tags/semantics/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/tags/semantics/</guid>
+      <guid>/blog/tags/semantics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>architecture</title>
-      <link>/tags/architecture/</link>
+      <link>/blog/tags/architecture/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/tags/architecture/</guid>
+      <guid>/blog/tags/architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>enterprise</title>
-      <link>/tags/enterprise/</link>
+      <link>/blog/tags/enterprise/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/tags/enterprise/</guid>
+      <guid>/blog/tags/enterprise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>patterns</title>
-      <link>/tags/patterns/</link>
+      <link>/blog/tags/patterns/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/tags/patterns/</guid>
+      <guid>/blog/tags/patterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>/tags/java/</link>
+      <link>/blog/tags/java/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/tags/java/</guid>
+      <guid>/blog/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jinq</title>
-      <link>/tags/jinq/</link>
+      <link>/blog/tags/jinq/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/tags/jinq/</guid>
+      <guid>/blog/tags/jinq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LINQ</title>
-      <link>/tags/linq/</link>
+      <link>/blog/tags/linq/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/tags/linq/</guid>
+      <guid>/blog/tags/linq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.NET</title>
-      <link>/tags/.net/</link>
+      <link>/blog/tags/.net/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/tags/.net/</guid>
+      <guid>/blog/tags/.net/</guid>
       <description></description>
     </item>
     
     <item>
       <title>partial</title>
-      <link>/tags/partial/</link>
+      <link>/blog/tags/partial/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/tags/partial/</guid>
+      <guid>/blog/tags/partial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>partial-class</title>
-      <link>/tags/partial-class/</link>
+      <link>/blog/tags/partial-class/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/tags/partial-class/</guid>
+      <guid>/blog/tags/partial-class/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.net-core</title>
-      <link>/tags/.net-core/</link>
+      <link>/blog/tags/.net-core/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/tags/.net-core/</guid>
+      <guid>/blog/tags/.net-core/</guid>
       <description></description>
     </item>
     
     <item>
       <title>corefx</title>
-      <link>/tags/corefx/</link>
+      <link>/blog/tags/corefx/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/tags/corefx/</guid>
+      <guid>/blog/tags/corefx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cross-platform</title>
-      <link>/tags/cross-platform/</link>
+      <link>/blog/tags/cross-platform/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/tags/cross-platform/</guid>
+      <guid>/blog/tags/cross-platform/</guid>
       <description></description>
     </item>
     
     <item>
       <title>oss</title>
-      <link>/tags/oss/</link>
+      <link>/blog/tags/oss/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/tags/oss/</guid>
+      <guid>/blog/tags/oss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rosyln</title>
-      <link>/tags/rosyln/</link>
+      <link>/blog/tags/rosyln/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/tags/rosyln/</guid>
+      <guid>/blog/tags/rosyln/</guid>
       <description></description>
     </item>
     
     <item>
       <title>const</title>
-      <link>/tags/const/</link>
+      <link>/blog/tags/const/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/tags/const/</guid>
+      <guid>/blog/tags/const/</guid>
       <description></description>
     </item>
     
     <item>
       <title>final</title>
-      <link>/tags/final/</link>
+      <link>/blog/tags/final/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/tags/final/</guid>
+      <guid>/blog/tags/final/</guid>
       <description></description>
     </item>
     
     <item>
       <title>immutability</title>
-      <link>/tags/immutability/</link>
+      <link>/blog/tags/immutability/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/tags/immutability/</guid>
+      <guid>/blog/tags/immutability/</guid>
       <description></description>
     </item>
     
     <item>
       <title>anonymous-class</title>
-      <link>/tags/anonymous-class/</link>
+      <link>/blog/tags/anonymous-class/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/tags/anonymous-class/</guid>
+      <guid>/blog/tags/anonymous-class/</guid>
       <description></description>
     </item>
     
     <item>
       <title>anonymous-types</title>
-      <link>/tags/anonymous-types/</link>
+      <link>/blog/tags/anonymous-types/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/tags/anonymous-types/</guid>
+      <guid>/blog/tags/anonymous-types/</guid>
       <description></description>
     </item>
     
     <item>
       <title>auto</title>
-      <link>/tags/auto/</link>
+      <link>/blog/tags/auto/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/tags/auto/</guid>
+      <guid>/blog/tags/auto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tuples</title>
-      <link>/tags/tuples/</link>
+      <link>/blog/tags/tuples/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/tags/tuples/</guid>
+      <guid>/blog/tags/tuples/</guid>
       <description></description>
     </item>
     
     <item>
       <title>var</title>
-      <link>/tags/var/</link>
+      <link>/blog/tags/var/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/tags/var/</guid>
+      <guid>/blog/tags/var/</guid>
       <description></description>
     </item>
     
     <item>
       <title>carpool</title>
-      <link>/tags/carpool/</link>
+      <link>/blog/tags/carpool/</link>
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
-      <guid>/tags/carpool/</guid>
+      <guid>/blog/tags/carpool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>inversion-of-control</title>
-      <link>/tags/inversion-of-control/</link>
+      <link>/blog/tags/inversion-of-control/</link>
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
-      <guid>/tags/inversion-of-control/</guid>
+      <guid>/blog/tags/inversion-of-control/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ioc</title>
-      <link>/tags/ioc/</link>
+      <link>/blog/tags/ioc/</link>
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
-      <guid>/tags/ioc/</guid>
+      <guid>/blog/tags/ioc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fixed</title>
-      <link>/tags/fixed/</link>
+      <link>/blog/tags/fixed/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/tags/fixed/</guid>
+      <guid>/blog/tags/fixed/</guid>
       <description></description>
     </item>
     
     <item>
       <title>immutable</title>
-      <link>/tags/immutable/</link>
+      <link>/blog/tags/immutable/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/tags/immutable/</guid>
+      <guid>/blog/tags/immutable/</guid>
       <description></description>
     </item>
     
     <item>
       <title>strings</title>
-      <link>/tags/strings/</link>
+      <link>/blog/tags/strings/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/tags/strings/</guid>
+      <guid>/blog/tags/strings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>unsafe</title>
-      <link>/tags/unsafe/</link>
+      <link>/blog/tags/unsafe/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/tags/unsafe/</guid>
+      <guid>/blog/tags/unsafe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>array</title>
-      <link>/tags/array/</link>
+      <link>/blog/tags/array/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/tags/array/</guid>
+      <guid>/blog/tags/array/</guid>
       <description></description>
     </item>
     
     <item>
       <title>integers</title>
-      <link>/tags/integers/</link>
+      <link>/blog/tags/integers/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/tags/integers/</guid>
+      <guid>/blog/tags/integers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reference-types</title>
-      <link>/tags/reference-types/</link>
+      <link>/blog/tags/reference-types/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/tags/reference-types/</guid>
+      <guid>/blog/tags/reference-types/</guid>
       <description></description>
     </item>
     
     <item>
       <title>value-types</title>
-      <link>/tags/value-types/</link>
+      <link>/blog/tags/value-types/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/tags/value-types/</guid>
+      <guid>/blog/tags/value-types/</guid>
       <description></description>
     </item>
     
     <item>
       <title>codeproject</title>
-      <link>/tags/codeproject/</link>
+      <link>/blog/tags/codeproject/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/tags/codeproject/</guid>
+      <guid>/blog/tags/codeproject/</guid>
       <description></description>
     </item>
     
     <item>
       <title>extension methods</title>
-      <link>/tags/extension-methods/</link>
+      <link>/blog/tags/extension-methods/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/tags/extension-methods/</guid>
+      <guid>/blog/tags/extension-methods/</guid>
       <description></description>
     </item>
     
     <item>
       <title>unified syntax</title>
-      <link>/tags/unified-syntax/</link>
+      <link>/blog/tags/unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/tags/unified-syntax/</guid>
+      <guid>/blog/tags/unified-syntax/</guid>
       <description></description>
     </item>
     
     <item>
       <title>listview</title>
-      <link>/tags/listview/</link>
+      <link>/blog/tags/listview/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/tags/listview/</guid>
+      <guid>/blog/tags/listview/</guid>
       <description></description>
     </item>
     
     <item>
       <title>treelistview</title>
-      <link>/tags/treelistview/</link>
+      <link>/blog/tags/treelistview/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/tags/treelistview/</guid>
+      <guid>/blog/tags/treelistview/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WinForms</title>
-      <link>/tags/winforms/</link>
+      <link>/blog/tags/winforms/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/tags/winforms/</guid>
+      <guid>/blog/tags/winforms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>object</title>
-      <link>/tags/object/</link>
+      <link>/blog/tags/object/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/tags/object/</guid>
+      <guid>/blog/tags/object/</guid>
       <description></description>
     </item>
     
     <item>
       <title>php</title>
-      <link>/tags/php/</link>
+      <link>/blog/tags/php/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/tags/php/</guid>
+      <guid>/blog/tags/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>php-saver</title>
-      <link>/tags/php-saver/</link>
+      <link>/blog/tags/php-saver/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/tags/php-saver/</guid>
+      <guid>/blog/tags/php-saver/</guid>
       <description></description>
     </item>
     
     <item>
       <title>propertybag</title>
-      <link>/tags/propertybag/</link>
+      <link>/blog/tags/propertybag/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/tags/propertybag/</guid>
+      <guid>/blog/tags/propertybag/</guid>
       <description></description>
     </item>
     
     <item>
       <title>online regex</title>
-      <link>/tags/online-regex/</link>
+      <link>/blog/tags/online-regex/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>/tags/online-regex/</guid>
+      <guid>/blog/tags/online-regex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regex</title>
-      <link>/tags/regex/</link>
+      <link>/blog/tags/regex/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>/tags/regex/</guid>
+      <guid>/blog/tags/regex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>testers</title>
-      <link>/tags/testers/</link>
+      <link>/blog/tags/testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>/tags/testers/</guid>
+      <guid>/blog/tags/testers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tools</title>
-      <link>/tags/tools/</link>
+      <link>/blog/tags/tools/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>/tags/tools/</guid>
+      <guid>/blog/tags/tools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dynamic-languages</title>
-      <link>/tags/dynamic-languages/</link>
+      <link>/blog/tags/dynamic-languages/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/dynamic-languages/</guid>
+      <guid>/blog/tags/dynamic-languages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>functions</title>
-      <link>/tags/functions/</link>
+      <link>/blog/tags/functions/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/functions/</guid>
+      <guid>/blog/tags/functions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>/tags/javascript/</link>
+      <link>/blog/tags/javascript/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/javascript/</guid>
+      <guid>/blog/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>overloading</title>
-      <link>/tags/overloading/</link>
+      <link>/blog/tags/overloading/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/overloading/</guid>
+      <guid>/blog/tags/overloading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>static typing</title>
-      <link>/tags/static-typing/</link>
+      <link>/blog/tags/static-typing/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/static-typing/</guid>
+      <guid>/blog/tags/static-typing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>variable arguments</title>
-      <link>/tags/variable-arguments/</link>
+      <link>/blog/tags/variable-arguments/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/tags/variable-arguments/</guid>
+      <guid>/blog/tags/variable-arguments/</guid>
       <description></description>
     </item>
     
     <item>
       <title>android</title>
-      <link>/tags/android/</link>
+      <link>/blog/tags/android/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/tags/android/</guid>
+      <guid>/blog/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reminders</title>
-      <link>/tags/reminders/</link>
+      <link>/blog/tags/reminders/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/tags/reminders/</guid>
+      <guid>/blog/tags/reminders/</guid>
       <description></description>
     </item>
     
     <item>
       <title>array data</title>
-      <link>/tags/array-data/</link>
+      <link>/blog/tags/array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/tags/array-data/</guid>
+      <guid>/blog/tags/array-data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jqgrid</title>
-      <link>/tags/jqgrid/</link>
+      <link>/blog/tags/jqgrid/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/tags/jqgrid/</guid>
+      <guid>/blog/tags/jqgrid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stackoverflow</title>
-      <link>/tags/stackoverflow/</link>
+      <link>/blog/tags/stackoverflow/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/tags/stackoverflow/</guid>
+      <guid>/blog/tags/stackoverflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows phone</title>
-      <link>/tags/windows-phone/</link>
+      <link>/blog/tags/windows-phone/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/tags/windows-phone/</guid>
+      <guid>/blog/tags/windows-phone/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wp8</title>
-      <link>/tags/wp8/</link>
+      <link>/blog/tags/wp8/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/tags/wp8/</guid>
+      <guid>/blog/tags/wp8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>software</title>
-      <link>/tags/software/</link>
+      <link>/blog/tags/software/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       
-      <guid>/tags/software/</guid>
+      <guid>/blog/tags/software/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mobile</title>
-      <link>/tags/mobile/</link>
+      <link>/blog/tags/mobile/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/tags/mobile/</guid>
+      <guid>/blog/tags/mobile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>binding</title>
-      <link>/tags/binding/</link>
+      <link>/blog/tags/binding/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/tags/binding/</guid>
+      <guid>/blog/tags/binding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>currying</title>
-      <link>/tags/currying/</link>
+      <link>/blog/tags/currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/tags/currying/</guid>
+      <guid>/blog/tags/currying/</guid>
       <description></description>
     </item>
     
     <item>
       <title>functional programming</title>
-      <link>/tags/functional-programming/</link>
+      <link>/blog/tags/functional-programming/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/tags/functional-programming/</guid>
+      <guid>/blog/tags/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SFINAE</title>
-      <link>/tags/sfinae/</link>
+      <link>/blog/tags/sfinae/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
-      <guid>/tags/sfinae/</guid>
+      <guid>/blog/tags/sfinae/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Templates</title>
-      <link>/tags/templates/</link>
+      <link>/blog/tags/templates/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
-      <guid>/tags/templates/</guid>
+      <guid>/blog/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MI</title>
-      <link>/tags/mi/</link>
+      <link>/blog/tags/mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       
-      <guid>/tags/mi/</guid>
+      <guid>/blog/tags/mi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finally</title>
-      <link>/tags/finally/</link>
+      <link>/blog/tags/finally/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       
-      <guid>/tags/finally/</guid>
+      <guid>/blog/tags/finally/</guid>
       <description></description>
     </item>
     
     <item>
       <title>threadpool</title>
-      <link>/tags/threadpool/</link>
+      <link>/blog/tags/threadpool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/tags/threadpool/</guid>
+      <guid>/blog/tags/threadpool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>interface principle</title>
-      <link>/tags/interface-principle/</link>
+      <link>/blog/tags/interface-principle/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/tags/interface-principle/</guid>
+      <guid>/blog/tags/interface-principle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>koenig lookup</title>
-      <link>/tags/koenig-lookup/</link>
+      <link>/blog/tags/koenig-lookup/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/tags/koenig-lookup/</guid>
+      <guid>/blog/tags/koenig-lookup/</guid>
       <description></description>
     </item>
     

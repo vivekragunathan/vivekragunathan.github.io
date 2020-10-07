@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>integers on A Developer&#39;s Experience</title>
-    <link>/tags/integers/</link>
+    <link>/blog/tags/integers/</link>
     <description>Recent content in integers on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 13 Mar 2015 06:40:37 +0000</lastBuildDate><atom:link href="/tags/integers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Mar 2015 06:40:37 +0000</lastBuildDate><atom:link href="/blog/tags/integers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quiz: Choosing an array of integers !!!</title>
-      <link>/2015/03/13/jaoints/</link>
+      <link>/blog/2015/03/13/jaoints/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/2015/03/13/jaoints/</guid>
+      <guid>/blog/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
 &lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;

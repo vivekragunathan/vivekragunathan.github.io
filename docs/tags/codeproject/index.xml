@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>codeproject on A Developer&#39;s Experience</title>
-    <link>/tags/codeproject/</link>
+    <link>/blog/tags/codeproject/</link>
     <description>Recent content in codeproject on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate><atom:link href="/tags/codeproject/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate><atom:link href="/blog/tags/codeproject/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <link>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
+      <guid>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
       <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
     </item>
     
     <item>
       <title>Missing MI !!!</title>
-      <link>/2010/03/05/missing-mi/</link>
+      <link>/blog/2010/03/05/missing-mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       
-      <guid>/2010/03/05/missing-mi/</guid>
+      <guid>/blog/2010/03/05/missing-mi/</guid>
       <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
     </item>
     
     <item>
       <title>finally and Return Values !!!</title>
-      <link>/2009/07/02/finally-and-return-values/</link>
+      <link>/blog/2009/07/02/finally-and-return-values/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       
-      <guid>/2009/07/02/finally-and-return-values/</guid>
+      <guid>/blog/2009/07/02/finally-and-return-values/</guid>
       <description>Let us read some code:-
 int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } }  What is the return value of SomeMethod?</description>
     </item>

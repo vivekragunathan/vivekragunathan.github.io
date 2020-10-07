@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Templates on A Developer&#39;s Experience</title>
-    <link>/tags/templates/</link>
+    <link>/blog/tags/templates/</link>
     <description>Recent content in Templates on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Apr 2010 07:39:00 +0000</lastBuildDate><atom:link href="/tags/templates/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2010 07:39:00 +0000</lastBuildDate><atom:link href="/blog/tags/templates/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quiz – (Journey through templates, SFINAE and specialization) !!!</title>
-      <link>/2010/04/10/sfinae/</link>
+      <link>/blog/2010/04/10/sfinae/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
-      <guid>/2010/04/10/sfinae/</guid>
+      <guid>/blog/2010/04/10/sfinae/</guid>
       <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &#34;</description>
     </item>
     

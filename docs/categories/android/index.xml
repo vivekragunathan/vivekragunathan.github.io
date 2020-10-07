@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on A Developer&#39;s Experience</title>
-    <link>/categories/android/</link>
+    <link>/blog/categories/android/</link>
     <description>Recent content in Android on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 May 2014 01:47:56 +0000</lastBuildDate><atom:link href="/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 May 2014 01:47:56 +0000</lastBuildDate><atom:link href="/blog/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting reminded of the reminder !!!</title>
-      <link>/2014/05/23/android-reminder/</link>
+      <link>/blog/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/2014/05/23/android-reminder/</guid>
+      <guid>/blog/2014/05/23/android-reminder/</guid>
       <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
     </item>
     
     <item>
       <title>Sms FireWall Update !!!</title>
-      <link>/2012/04/24/smsfwupdate/</link>
+      <link>/blog/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       
-      <guid>/2012/04/24/smsfwupdate/</guid>
+      <guid>/blog/2012/04/24/smsfwupdate/</guid>
       <description>I gave SMS FireWall a refresh with a couple of features requested by users:-   An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
     </item>
     
     <item>
       <title>Sms FireWall !!!</title>
-      <link>/2012/03/09/smsfirewall/</link>
+      <link>/blog/2012/03/09/smsfirewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/2012/03/09/smsfirewall/</guid>
+      <guid>/blog/2012/03/09/smsfirewall/</guid>
       <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
     </item>
     
     <item>
       <title>Seinfeld Calendar Update !!!</title>
-      <link>/2011/09/10/seinfeld-calendar-update/</link>
+      <link>/blog/2011/09/10/seinfeld-calendar-update/</link>
       <pubDate>Fri, 09 Sep 2011 19:50:43 +0000</pubDate>
       
-      <guid>/2011/09/10/seinfeld-calendar-update/</guid>
+      <guid>/blog/2011/09/10/seinfeld-calendar-update/</guid>
       <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
     </item>
     
     <item>
       <title>Android meets .NET !!!</title>
-      <link>/2011/08/21/android-meets-net/</link>
+      <link>/blog/2011/08/21/android-meets-net/</link>
       <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
       
-      <guid>/2011/08/21/android-meets-net/</guid>
+      <guid>/blog/2011/08/21/android-meets-net/</guid>
       <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
     </item>
     
     <item>
       <title>Wetting my feet in Android – Seinfeld Calendar</title>
-      <link>/2011/03/15/seinfeld/</link>
+      <link>/blog/2011/03/15/seinfeld/</link>
       <pubDate>Tue, 15 Mar 2011 18:20:04 +0000</pubDate>
       
-      <guid>/2011/03/15/seinfeld/</guid>
+      <guid>/blog/2011/03/15/seinfeld/</guid>
       <description>A couple of my colleagues and I huddled up to learn a bit of Android.</description>
     </item>
     

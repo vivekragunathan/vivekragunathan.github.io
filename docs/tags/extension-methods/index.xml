@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>extension methods on A Developer&#39;s Experience</title>
-    <link>/tags/extension-methods/</link>
+    <link>/blog/tags/extension-methods/</link>
     <description>Recent content in extension methods on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate><atom:link href="/tags/extension-methods/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate><atom:link href="/blog/tags/extension-methods/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <link>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
+      <guid>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
       <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
     </item>
     
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature !!!</title>
-      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <link>/blog/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
+      <guid>/blog/2008/04/09/extension-methods-a-polished-c-feature/</guid>
       <description>Extension Methods is an excellent feature in C# 3.</description>
     </item>
     

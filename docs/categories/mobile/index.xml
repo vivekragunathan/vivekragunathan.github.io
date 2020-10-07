@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mobile on A Developer&#39;s Experience</title>
-    <link>/categories/mobile/</link>
+    <link>/blog/categories/mobile/</link>
     <description>Recent content in Mobile on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Nov 2013 03:48:57 +0000</lastBuildDate><atom:link href="/categories/mobile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Nov 2013 03:48:57 +0000</lastBuildDate><atom:link href="/blog/categories/mobile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Windows Phone Epic !!!</title>
-      <link>/2013/11/28/the-windows-phone-epic/</link>
+      <link>/blog/2013/11/28/the-windows-phone-epic/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/2013/11/28/the-windows-phone-epic/</guid>
+      <guid>/blog/2013/11/28/the-windows-phone-epic/</guid>
       <description>&lt;p&gt;Dear Reader,&lt;/p&gt;
 &lt;p&gt;Do not be overwhelmed at the length of the article. I have tried my best to keep the length of the article not directly proportional to the time required to read it.&lt;/p&gt;
 &lt;p&gt;Oscar Wilde said, &lt;em&gt;If you want to tell people the truth, make them laugh, otherwise they’ll kill you&lt;/em&gt;. There are times when truth tends to be subjective, such as this article. However, I have definitely added the fun component to keep up earlier promise. Consider the time you spent reading this article as a break from your work or routine. I am sure you will enjoy it; doesn’t matter if you are using a Windows Phone 1. Perhaps you will read it again.&lt;/p&gt;
@@ -22,46 +22,46 @@
     
     <item>
       <title>Sms FireWall Update !!!</title>
-      <link>/2012/04/24/smsfwupdate/</link>
+      <link>/blog/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       
-      <guid>/2012/04/24/smsfwupdate/</guid>
+      <guid>/blog/2012/04/24/smsfwupdate/</guid>
       <description>I gave SMS FireWall a refresh with a couple of features requested by users:-   An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
     </item>
     
     <item>
       <title>Sms FireWall !!!</title>
-      <link>/2012/03/09/smsfirewall/</link>
+      <link>/blog/2012/03/09/smsfirewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/2012/03/09/smsfirewall/</guid>
+      <guid>/blog/2012/03/09/smsfirewall/</guid>
       <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
     </item>
     
     <item>
       <title>Seinfeld Calendar Update !!!</title>
-      <link>/2011/09/10/seinfeld-calendar-update/</link>
+      <link>/blog/2011/09/10/seinfeld-calendar-update/</link>
       <pubDate>Fri, 09 Sep 2011 19:50:43 +0000</pubDate>
       
-      <guid>/2011/09/10/seinfeld-calendar-update/</guid>
+      <guid>/blog/2011/09/10/seinfeld-calendar-update/</guid>
       <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
     </item>
     
     <item>
       <title>Android meets .NET !!!</title>
-      <link>/2011/08/21/android-meets-net/</link>
+      <link>/blog/2011/08/21/android-meets-net/</link>
       <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
       
-      <guid>/2011/08/21/android-meets-net/</guid>
+      <guid>/blog/2011/08/21/android-meets-net/</guid>
       <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
     </item>
     
     <item>
       <title>Wetting my feet in Android – Seinfeld Calendar</title>
-      <link>/2011/03/15/seinfeld/</link>
+      <link>/blog/2011/03/15/seinfeld/</link>
       <pubDate>Tue, 15 Mar 2011 18:20:04 +0000</pubDate>
       
-      <guid>/2011/03/15/seinfeld/</guid>
+      <guid>/blog/2011/03/15/seinfeld/</guid>
       <description>A couple of my colleagues and I huddled up to learn a bit of Android.</description>
     </item>
     

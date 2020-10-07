@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>software on A Developer&#39;s Experience</title>
-    <link>/tags/software/</link>
+    <link>/blog/tags/software/</link>
     <description>Recent content in software on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Apr 2012 18:35:56 +0000</lastBuildDate><atom:link href="/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Apr 2012 18:35:56 +0000</lastBuildDate><atom:link href="/blog/tags/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sms FireWall Update !!!</title>
-      <link>/2012/04/24/smsfwupdate/</link>
+      <link>/blog/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       
-      <guid>/2012/04/24/smsfwupdate/</guid>
+      <guid>/blog/2012/04/24/smsfwupdate/</guid>
       <description>I gave SMS FireWall a refresh with a couple of features requested by users:-   An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
     </item>
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uid-gen/</link>
+      <link>/blog/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/2012/03/09/uid-gen/</guid>
+      <guid>/blog/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     
     <item>
       <title>Sms FireWall !!!</title>
-      <link>/2012/03/09/smsfirewall/</link>
+      <link>/blog/2012/03/09/smsfirewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/2012/03/09/smsfirewall/</guid>
+      <guid>/blog/2012/03/09/smsfirewall/</guid>
       <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
     </item>
     
