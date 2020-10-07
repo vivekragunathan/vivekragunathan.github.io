@@ -14,13 +14,12 @@
 <meta itemprop="name" content="Quiz: Choosing an array of integers !!!">
 <meta itemprop="description" content="In the recent interviews, I asked the candidates the following question:
 Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:
-[code lang=java]
 int[] na1 = new int[10];
 Integer[] na2 = new Integer[10];
-[/code]">
+">
 <meta itemprop="datePublished" content="2015-03-13T06:40:37+00:00" />
 <meta itemprop="dateModified" content="2015-03-13T06:40:37+00:00" />
-<meta itemprop="wordCount" content="770">
+<meta itemprop="wordCount" content="767">
 
 
 
@@ -31,19 +30,17 @@ Integer[] na2 = new Integer[10];
 <meta name="twitter:title" content="Quiz: Choosing an array of integers !!!"/>
 <meta name="twitter:description" content="In the recent interviews, I asked the candidates the following question:
 Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:
-[code lang=java]
 int[] na1 = new int[10];
 Integer[] na2 = new Integer[10];
-[/code]"/>
+"/>
 
 
 <meta property="og:title" content="Quiz: Choosing an array of integers !!!" />
 <meta property="og:description" content="In the recent interviews, I asked the candidates the following question:
 Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:
-[code lang=java]
 int[] na1 = new int[10];
 Integer[] na2 = new Integer[10];
-[/code]" />
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2015/03/13/jaoints/" />
 <meta property="article:published_time" content="2015-03-13T06:40:37+00:00" />
@@ -160,18 +157,16 @@ Integer[] na2 = new Integer[10];
 
   <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<p>[code lang=java]</p>
-<p>int[] na1 = new int[10];</p>
-<p>Integer[] na2 = new Integer[10];</p>
-<p>[/code]</p>
-<p>Not to poke the feelings of passionate Java programmers … even the experienced ones seemed to have misplaced the difference. I would blame the language. Well, not the language, it is inanimate. I mean the fault lies with the language designers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+<span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</code></pre></div><p>Not to poke the feelings of passionate Java programmers &hellip; even the experienced ones seemed to have misplaced the difference. I would blame the language. Well, not the language, it is inanimate. I mean the fault lies with the language designers.</p>
 <p>The first one <code>int[]</code> is an array of integers, primitives. In other words, the array is going to store primitive integer values each of which are of the processor-word size. The second one <code>Integer[]</code> is an array of objects each holding an integer inside. Each <code>Integer</code> is not just equal to the size of an int. Since <code>Integer</code> is inherently an <code>Object</code>, there is an extra runtime/type-system associated size overhead.</p>
 <p>Unlike the <code>int[]</code>, the <code>Integer[]</code> plays relatively hard on the GC. Along with the underlying array, each individual <code>Integer</code> object becomes of the graph that the GC has to walk through during clean up.</p>
-<p>So which array should I choose then? There isn’t one good answer. We have to make a choice. We should be able to make one based on what we discussed above. For instance, if the scenario is to operate on a fixed size collection of integers, one in which these integers would not be added to another object that takes integers only as <code>Integer</code>, <code>int[]</code> would be a better choice. On the other hand, if the integers would be eventually be boxed as <code>Integer</code>s, for instance if we would adding them to an <code>ArrayList</code> or something, then <code>Integer[]</code> would be better; because in such a case, we would be shuffling references of the <code>Integer</code> we already have in hand to the other object, <code>ArrayList</code>. Why not use <code>ArrayList</code> directly then? I have taken <code>ArrayList</code> as an example. Like I said earlier, it is the scenario that dictates, whether to work with a fixed size collection of integers or the integers boxed in the process.</p>
-<p>This is one of the things I wish had been done better in Java. There shouldn’t have been an <code>Integer</code> at all or reference type versions of primitives. Programmers who have vowed to program only in Java (Java-only Programmers, JOPs) would find it hard to comprehend the world outside, like C# (.NET) for example.</p>
-<p>In .NET, there are two kinds of types – reference and value. The reference types are basically classes that are allocated on the heap and the program uses a reference (handle or pointer) to access the object. Per reference semantics, the object is shared and passed across via the reference. A variable <code>arr1</code> that refers to an <code>ArrayList</code> when copied to another variable <code>arr2</code> does not make a copy of the <code>ArrayList</code>, instead <code>arr1</code> and <code>arr2</code> both refer the same <code>ArrayList</code>. Unlike reference types, a value type object is allocated on the stack. More importantly, it establishes the value semantics. It means when <code>v1</code> is copied to <code>v2</code>, a copy of the object is made and assigned to v2&amp; Value semantics is relatively more important and fundamental than where it is allocated in understanding value types. In C#, the so-called primitives – int, float, char etc are value types. One could define custom value types by defining a <code>struct</code> (unlike <code>class</code>). Actually even the primitives are themselves <code>struct</code>s thus consuming the same size but augmented with the runtime/type-system facilities like being to call methods on them. I like to think of it as the one of the cornerstones of the CLR.</p>
-<p>Unfortunately, JOPs would not have experienced the pleasure of working with value types because other than the primitives there is no way to define custom value types. JOPs would argue against the need for value types, which is why I think the candidates could not approach the question. Instead, they would argue to create a class with all <code>public</code> members or other tricks to replace the notion of <code>struct</code>s. But they are missing the point – a class in Java does not have <em>value semantics</em>. An instance of a class is part of the GC graph. We are indirectly talking to the GC by allocating reference type objects. It is just the tip of the iceberg of the type system, the GC, one’s thoughtfulness in allocating objects and the way one programs.</p>
-<p>Anyway, the intent of my question was to have an interesting discussion about the candidate’s experience with programming, in Java and beyond. And not just a question per se!</p>
+<p>So which array should I choose then? There isn&rsquo;t one good answer. We have to make a choice. We should be able to make one based on what we discussed above. For instance, if the scenario is to operate on a fixed size collection of integers, one in which these integers would not be added to another object that takes integers only as <code>Integer</code>, <code>int[]</code> would be a better choice. On the other hand, if the integers would be eventually be boxed as <code>Integer</code>s, for instance if we would adding them to an <code>ArrayList</code> or something, then <code>Integer[]</code> would be better; because in such a case, we would be shuffling references of the <code>Integer</code> we already have in hand to the other object, <code>ArrayList</code>. Why not use <code>ArrayList</code> directly then? I have taken <code>ArrayList</code> as an example. Like I said earlier, it is the scenario that dictates, whether to work with a fixed size collection of integers or the integers boxed in the process.</p>
+<p>This is one of the things I wish had been done better in Java. There shouldn&rsquo;t have been an <code>Integer</code> at all or reference type versions of primitives. Programmers who have vowed to program only in Java (Java-only Programmers, JOPs) would find it hard to comprehend the world outside, like C# (.NET) for example.</p>
+<p>In .NET, there are two kinds of types - reference and value. The reference types are basically classes that are allocated on the heap and the program uses a reference (handle or pointer) to access the object. Per reference semantics, the object is shared and passed across via the reference. A variable <code>arr1</code> that refers to an <code>ArrayList</code> when copied to another variable <code>arr2</code> does not make a copy of the <code>ArrayList</code>, instead <code>arr1</code> and <code>arr2</code> both refer the same <code>ArrayList</code>. Unlike reference types, a value type object is allocated on the stack. More importantly, it establishes the value semantics. It means when <code>v1</code> is copied to <code>v2</code>, a copy of the object is made and assigned to v2. Value semantics is relatively more important and fundamental than where it is allocated in understanding value types. In C#, the so-called primitives - int, float, char etc are value types. One could define custom value types by defining a <code>struct</code> (unlike <code>class</code>). Actually even the primitives are themselves <code>struct</code>s thus consuming the same size but augmented with the runtime/type-system facilities like being to call methods on them. I like to think of it as the one of the cornerstones of the CLR.</p>
+<p>Unfortunately, JOPs would not have experienced the pleasure of working with value types because other than the primitives there is no way to define custom value types. JOPs would argue against the need for value types, which is why I think the candidates could not approach the question. Instead, they would argue to create a class with all <code>public</code> members or other tricks to replace the notion of <code>struct</code>s. But they are missing the point - a class in Java does not have <em>value semantics</em>. An instance of a class is part of the GC graph. We are indirectly talking to the GC by allocating reference type objects. It is just the tip of the iceberg of the type system, the GC, one&rsquo;s thoughtfulness in allocating objects and the way one programs.</p>
+<p>Anyway, the intent of my question was to have an interesting discussion about the candidate&rsquo;s experience with programming, in Java and beyond. And not just a question per se!</p>
 </div>
 
 
