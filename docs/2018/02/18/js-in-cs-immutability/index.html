@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Enough! JavaScript had us in its grip for long with its foot guns.">
 <meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-09-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1496">
+<meta itemprop="wordCount" content="1488">
 
 
 
@@ -140,7 +140,7 @@
 
 
   <div class="post-date">
-    <time datetime="2018-09-18T00:00:00Z">Sep 18, 2018</time> &middot; 8 min read
+    <time datetime="2018-09-18T00:00:00Z">Sep 18, 2018</time> &middot; 7 min read
   </div>
 
   <p>Enough! JavaScript had us in its grip for long with its foot guns. The first time I heard the term <em>Hoisting</em>, I had no idea about it and misheard as <em>hosting</em>. You declare variables using <em>var</em> happily, and you have to come to peace with yourself that it is okay to <em>hoist</em> the <code>var</code>s (lift&rsquo;em all to the top-most scope). I can&rsquo;t believe JS convinced the rest of us that it was okay. Then came ES6 and saved us. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"><code>let</code></a> fixed the scoping. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"><code>const</code></a> provided immutability. At least now, you can say JavaScript supports functional programming.</p>
@@ -181,23 +181,17 @@
 <li>
 <p><strong><code>immutable</code></strong></p>
 <p>&hellip; in parlance with F#&rsquo;s <code>mutable</code>.</p>
-<p>Of all the ways to declare variables, mutable and immutable, I like the F#&rsquo;s most; better than <code>var</code> and <code>val</code>. F# starts with immutable variables as its default and wants you to explicit state that you like to make a variable mutable, just like Scala. But the beauty of F# is having to decorate the default <code>let</code> with <code>mutable</code> making it stand out visually.</p>
+<p>Of all the ways to declare variables, mutable and immutable, I like the F#&rsquo;s most; better than Scala&rsquo;s <code>var</code> and <code>val</code>. Like Scala, while F# supports mutable variables, you are required to specify it explicitly using the <code>mutable</code> keyword. But the beauty of F# is having to decorate the default <code>let</code> with <code>mutable</code> making it stand out visually.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fsharp" data-lang="fsharp"><span class="c1">// F# code
 </span><span class="c1"></span><span class="k">let</span> <span class="nv">imCount</span>          <span class="o">=</span> <span class="n">GetNoOfItems</span><span class="bp">()</span><span class="o">;</span>
 <span class="k">let</span> <span class="nv">mutable</span> <span class="n">mutCount</span> <span class="o">=</span> <span class="n">GetNoOfItems</span><span class="bp">()</span><span class="o">;</span>
-</code></pre></div><pre><code>
- Borrowing the idea, we could come up with an `immutable` keyword.
-
- ```csharp
- // C# code
- int mutCount          = GetNoOfItems();
- immutable int imCount = GetNoOfItems();
-</code></pre><pre><code>
- Does the job. Besides being mouthful, what do we with `readonly`? Two different keywords for essentially the same thing. This will be a catalyst for introducing yet another for immutable method parameters. Come on, this isn't PHP 😂.
-
- If thrown for a vote, I am sure this option would lose.
-
-</code></pre></li>
+</code></pre></div><p>Borrowing the idea, we could come up with an <code>immutable</code> keyword.</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">mutCount</span>          <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
+<span class="n">immutable</span> <span class="kt">int</span> <span class="n">imCount</span> <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
+</code></pre></div><p>Does the job. Besides being mouthful, what do we with <code>readonly</code>? Two different keywords for essentially the same thing. This will be a catalyst for introducing yet another for immutable method parameters. Come on, this isn&rsquo;t PHP 😂.</p>
+<p>If thrown for a vote, I am sure this option would lose.</p>
+</li>
 </ul>
 <p><strong>Reuse Existing Keywords/Quantifiers</strong></p>
 <ul>
@@ -211,16 +205,11 @@
 <p>Suppose we go with <code>let</code>, do we make it an independent keyword or a modifier on existing variable declarations?</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
 </span><span class="c1"></span><span class="k">let</span> <span class="n">immutableCount</span> <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
-</code></pre></div><pre><code>
- or
-
- ```csharp
- // C# code
- let int imCount	= GetNoOfItems();
-</code></pre><pre><code>
- I prefer the latter because the former is on the same boat as `val` and implicit typing thing we discussed earlier. The latter seems to fit the bill. Just that `let` has got this unintended feel of a lame copy from F# and poorly applied. Do we really want that blame?
-
-</code></pre></li>
+</code></pre></div><p>or</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+</span><span class="c1"></span><span class="k">let</span> <span class="kt">int</span> <span class="n">imCount</span>	<span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
+</code></pre></div><p>I prefer the latter because the former is on the same boat as <code>val</code> and implicit typing thing we discussed earlier. The latter seems to fit the bill. Just that <code>let</code> has got this unintended feel of a lame copy from F# and poorly applied. Do we really want that blame?</p>
+</li>
 <li>
 <p><strong><code>readonly</code></strong></p>
 <p>If done right, this would be the perfect choice. Before dealing with the <em>perfect</em> side of it &hellip;</p>
@@ -281,10 +270,15 @@
 
   <link
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap">
+
+  <link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/fsharp.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

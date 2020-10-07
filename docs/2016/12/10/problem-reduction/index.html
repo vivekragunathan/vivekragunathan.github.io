@@ -16,7 +16,7 @@
 Take for instance, the word distance problem: Find the shortest distance between two words in a given set of words. Following is an unanimous solution, I suppose:">
 <meta itemprop="datePublished" content="2016-12-10T08:21:43+00:00" />
 <meta itemprop="dateModified" content="2016-12-10T08:21:43+00:00" />
-<meta itemprop="wordCount" content="610">
+<meta itemprop="wordCount" content="612">
 
 
 
@@ -151,9 +151,11 @@ Take for instance, the word distance problem: Find the shortest distance between
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// Iterate the set of words, mark the position/index
 </span><span class="c1">/// of word1 and word2, track the minimum difference
 </span><span class="c1">/// in positions
-</span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="k">this</span> <span class="n">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span>
-                                          <span class="n">T</span> <span class="n">item1</span><span class="p">,</span>
-                                          <span class="n">T</span> <span class="n">item2</span><span class="p">)</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+</span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
+  <span class="k">this</span> <span class="n">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span>
+  <span class="n">T</span> <span class="n">item1</span><span class="p">,</span>
+  <span class="n">T</span> <span class="n">item2</span>
+<span class="p">)</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
 <span class="p">{</span>
   <span class="c1">// Imagine all the sanity checks!
 </span><span class="c1"></span>  <span class="cm">/*if (IsNullOrEmpty(array) || IsBlank(item1) || IsBlank(item2))
@@ -283,10 +285,15 @@ Take for instance, the word distance problem: Find the shortest distance between
 
   <link
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap">
+
+  <link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/fsharp.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 

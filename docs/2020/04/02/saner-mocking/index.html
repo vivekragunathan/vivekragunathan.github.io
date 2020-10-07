@@ -45,7 +45,7 @@ scenario(&#34;Test Case 2&#34;) {
 ">
 <meta itemprop="datePublished" content="2020-04-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="948">
+<meta itemprop="wordCount" content="949">
 
 
 
@@ -264,7 +264,7 @@ scenario(&#34;Test Case 2&#34;) {
 
 <span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
 </code></pre></div><p>See something wrong? <em>Why would do someone write a test with all such services gobbled together in a test?</em> Well, that is not the problem and definitely not the topic of this post. The example is arbitrary just to establish the complexity involved in writing such test cases; especially mock-ridden.</p>
-<p>My problem is with the way the mocks are being setup. In a typical business application, there are tens of cases to test for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock <code>reset</code>s scattered or sneaked in places leaving you wonder why.</p>
+<p>My problem is with the way the mocks are being setup. In a typical business application, there are tens of test cases for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock <code>reset</code>s scattered or sneaked in places leaving you wonder why.</p>
 <p>Instead of helpers, we need a mechanism where setting up the mocks inline within the test is not a problem for us. It should completely strip down the cognitive overload involved in comprehending the setting up of mocks. The other problem we like to get rid of is explicitly <code>reset</code> mocks.</p>
 <p>Let me first share the way I have been practicing for dealing with setting up mocks. And it has worked really well for me.</p>
 <div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.either._</span>
@@ -284,7 +284,10 @@ scenario(&#34;Test Case 2&#34;) {
   	<span class="k">this</span>
   <span class="o">}</span>
 
-  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">Throwable</span>, <span class="kt">Address</span><span class="o">])</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span>
+    <span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+    <span class="n">result</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">Throwable</span>, <span class="kt">Address</span><span class="o">]</span>
+  <span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
   	<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">)</span>
   	<span class="k">this</span>
 	<span class="o">}</span>
@@ -392,10 +395,15 @@ scenario(&#34;Test Case 2&#34;) {
 
   <link
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap">
+
+  <link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/fsharp.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
 
