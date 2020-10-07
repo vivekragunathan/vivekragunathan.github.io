@@ -2,54 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C# on A Developer&#39;s Experience</title>
-    <link>/blog/categories/c#/</link>
+    <link>/categories/c#/</link>
     <description>Recent content in C# on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/blog/categories/c#/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/categories/c#/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Problem Reduction</title>
-      <link>/blog/2016/12/10/problem-reduction/</link>
+      <link>/2016/12/10/problem-reduction/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/blog/2016/12/10/problem-reduction/</guid>
+      <guid>/2016/12/10/problem-reduction/</guid>
       <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
 &lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JINQ</title>
-      <link>/blog/2016/04/02/jinq/</link>
+      <link>/2016/04/02/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/blog/2016/04/02/jinq/</guid>
+      <guid>/2016/04/02/jinq/</guid>
       <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt;&lt;sup id=&#34;fnref-1399-1&#34;&gt;&lt;a href=&#34;#fn-1399-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Partial Classes – Java ???</title>
-      <link>/blog/2016/02/16/partial-classes-java/</link>
+      <link>/2016/02/16/partial-classes-java/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/blog/2016/02/16/partial-classes-java/</guid>
+      <guid>/2016/02/16/partial-classes-java/</guid>
       <description>&lt;p&gt;I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>.NET for the next generation</title>
-      <link>/blog/2015/12/03/net-oss/</link>
+      <link>/2015/12/03/net-oss/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/blog/2015/12/03/net-oss/</guid>
+      <guid>/2015/12/03/net-oss/</guid>
       <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/blog/2015/08/24/tuples-anons/</link>
+      <link>/2015/08/24/tuples-anons/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/blog/2015/08/24/tuples-anons/</guid>
+      <guid>/2015/08/24/tuples-anons/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;
@@ -60,10 +60,10 @@
     
     <item>
       <title>Mutating Strings</title>
-      <link>/blog/2015/07/07/mutating-strings/</link>
+      <link>/2015/07/07/mutating-strings/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/blog/2015/07/07/mutating-strings/</guid>
+      <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
 &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -86,184 +86,184 @@
     
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <link>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
+      <guid>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
       <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
     </item>
     
     <item>
       <title>A Simple Tree List View !!!</title>
-      <link>/blog/2014/10/05/simple-tlv/</link>
+      <link>/2014/10/05/simple-tlv/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/blog/2014/10/05/simple-tlv/</guid>
+      <guid>/2014/10/05/simple-tlv/</guid>
       <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
     </item>
     
     <item>
       <title>Offering __FILE__ and __LINE__ for C# !!!</title>
-      <link>/blog/2012/09/09/caller_info_in_cs/</link>
+      <link>/2012/09/09/caller_info_in_cs/</link>
       <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
       
-      <guid>/blog/2012/09/09/caller_info_in_cs/</guid>
+      <guid>/2012/09/09/caller_info_in_cs/</guid>
       <description>Not the same way but we could say better.
 Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
     </item>
     
     <item>
       <title>OrderedThreadPool – Bug Fix !!!</title>
-      <link>/blog/2012/04/14/otp-bug-fix/</link>
+      <link>/2012/04/14/otp-bug-fix/</link>
       <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
       
-      <guid>/blog/2012/04/14/otp-bug-fix/</guid>
+      <guid>/2012/04/14/otp-bug-fix/</guid>
       <description>Hugh pointed out a bug in the OrderedThreadPool.
 I think there is a small window for error in the OrderedThreadPool class.</description>
     </item>
     
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/blog/2012/03/09/uid-gen/</link>
+      <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       
-      <guid>/blog/2012/03/09/uid-gen/</guid>
+      <guid>/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
     
     <item>
       <title>Android meets .NET !!!</title>
-      <link>/blog/2011/08/21/android-meets-net/</link>
+      <link>/2011/08/21/android-meets-net/</link>
       <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
       
-      <guid>/blog/2011/08/21/android-meets-net/</guid>
+      <guid>/2011/08/21/android-meets-net/</guid>
       <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
     </item>
     
     <item>
       <title>Anonymous Classes vs Delegates !!!</title>
-      <link>/blog/2011/03/08/anonymous-classes-vs-delegates/</link>
+      <link>/2011/03/08/anonymous-classes-vs-delegates/</link>
       <pubDate>Tue, 08 Mar 2011 17:10:16 +0000</pubDate>
       
-      <guid>/blog/2011/03/08/anonymous-classes-vs-delegates/</guid>
+      <guid>/2011/03/08/anonymous-classes-vs-delegates/</guid>
       <description>I am not a java programmer. By that, I do not mean I am against Java.</description>
     </item>
     
     <item>
       <title>Invoking methods with out and ref – Finale !!!</title>
-      <link>/blog/2010/12/21/out-ref-finale/</link>
+      <link>/2010/12/21/out-ref-finale/</link>
       <pubDate>Tue, 21 Dec 2010 13:24:39 +0000</pubDate>
       
-      <guid>/blog/2010/12/21/out-ref-finale/</guid>
+      <guid>/2010/12/21/out-ref-finale/</guid>
       <description>Alright, it is a long wait. And I am going to keep it short.</description>
     </item>
     
     <item>
       <title>Invoking methods with Out and Ref (Part 2) !!!</title>
-      <link>/blog/2010/10/28/outref2/</link>
+      <link>/2010/10/28/outref2/</link>
       <pubDate>Thu, 28 Oct 2010 17:22:39 +0000</pubDate>
       
-      <guid>/blog/2010/10/28/outref2/</guid>
+      <guid>/2010/10/28/outref2/</guid>
       <description>Straight to code&amp;#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!</description>
     </item>
     
     <item>
       <title>Thinking Currying !!!</title>
-      <link>/blog/2010/10/03/thinking-currying/</link>
+      <link>/2010/10/03/thinking-currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/blog/2010/10/03/thinking-currying/</guid>
+      <guid>/2010/10/03/thinking-currying/</guid>
       <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
     </item>
     
     <item>
       <title>Missing MI !!!</title>
-      <link>/blog/2010/03/05/missing-mi/</link>
+      <link>/2010/03/05/missing-mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       
-      <guid>/blog/2010/03/05/missing-mi/</guid>
+      <guid>/2010/03/05/missing-mi/</guid>
       <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
     </item>
     
     <item>
       <title>sizeof vs Marshal.SizeOf !!!</title>
-      <link>/blog/2009/12/30/sizeof-vs-marshal-sizeof/</link>
+      <link>/2009/12/30/sizeof-vs-marshal-sizeof/</link>
       <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
       
-      <guid>/blog/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
+      <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
       <description>There are two facilities in C# to determine the size of a type &amp;#8211; sizeof operator andMarshal.</description>
     </item>
     
     <item>
       <title>Curious Case Of Anonymous Delegates !!!</title>
-      <link>/blog/2009/09/02/anondelegates/</link>
+      <link>/2009/09/02/anondelegates/</link>
       <pubDate>Wed, 02 Sep 2009 18:29:00 +0000</pubDate>
       
-      <guid>/blog/2009/09/02/anondelegates/</guid>
+      <guid>/2009/09/02/anondelegates/</guid>
       <description>Senthil has left us thrilled in his new post, and also inspired me to write about the topic.</description>
     </item>
     
     <item>
       <title>finally and Return Values !!!</title>
-      <link>/blog/2009/07/02/finally-and-return-values/</link>
+      <link>/2009/07/02/finally-and-return-values/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       
-      <guid>/blog/2009/07/02/finally-and-return-values/</guid>
+      <guid>/2009/07/02/finally-and-return-values/</guid>
       <description>Let us read some code:-
 int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } }  What is the return value of SomeMethod?</description>
     </item>
     
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/blog/2009/03/18/ordered-thread-pool/</link>
+      <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/blog/2009/03/18/ordered-thread-pool/</guid>
+      <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
     
     <item>
       <title>Settling Casting Restrictions !!!</title>
-      <link>/blog/2009/02/06/settling-casting-restrictions/</link>
+      <link>/2009/02/06/settling-casting-restrictions/</link>
       <pubDate>Thu, 05 Feb 2009 20:31:00 +0000</pubDate>
       
-      <guid>/blog/2009/02/06/settling-casting-restrictions/</guid>
+      <guid>/2009/02/06/settling-casting-restrictions/</guid>
       <description>Remember the Casting Restrictions we discussed a while back, let us settle that now.</description>
     </item>
     
     <item>
       <title>Casting Restrictions ???</title>
-      <link>/blog/2008/11/22/casting-restrictions/</link>
+      <link>/2008/11/22/casting-restrictions/</link>
       <pubDate>Sat, 22 Nov 2008 11:43:00 +0000</pubDate>
       
-      <guid>/blog/2008/11/22/casting-restrictions/</guid>
+      <guid>/2008/11/22/casting-restrictions/</guid>
       <description>We all know that the runtime can detect the actual type of a System.</description>
     </item>
     
     <item>
       <title>Understanding (ref)erences !!!</title>
-      <link>/blog/2008/09/26/understanding-references/</link>
+      <link>/2008/09/26/understanding-references/</link>
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       
-      <guid>/blog/2008/09/26/understanding-references/</guid>
+      <guid>/2008/09/26/understanding-references/</guid>
       <description>Let us take a look at the following piece of code:-  public void Operate(IList iList2)</description>
     </item>
     
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature !!!</title>
-      <link>/blog/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/blog/2008/04/09/extension-methods-a-polished-c-feature/</guid>
+      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
       <description>Extension Methods is an excellent feature in C# 3.</description>
     </item>
     
     <item>
       <title>The Surprising Finalize Call !!!</title>
-      <link>/blog/2007/02/22/the-surprising-finalize-call/</link>
+      <link>/2007/02/22/the-surprising-finalize-call/</link>
       <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
       
-      <guid>/blog/2007/02/22/the-surprising-finalize-call/</guid>
+      <guid>/2007/02/22/the-surprising-finalize-call/</guid>
       <description>Guess the output of the following program:-
 `
 class SomeClass : IDisposable</description>
@@ -271,19 +271,19 @@ class SomeClass : IDisposable</description>
     
     <item>
       <title>where enum does not work !!!</title>
-      <link>/blog/2006/12/20/where-enum-does-not-work/</link>
+      <link>/2006/12/20/where-enum-does-not-work/</link>
       <pubDate>Wed, 20 Dec 2006 12:25:00 +0000</pubDate>
       
-      <guid>/blog/2006/12/20/where-enum-does-not-work/</guid>
+      <guid>/2006/12/20/where-enum-does-not-work/</guid>
       <description>I was writing a generic method with enum as the Constraint, and the compiler spat a few errors that did not directly convey me that enums cannot used as generic constraints.</description>
     </item>
     
     <item>
       <title>Overloading……A Matter Of Taste !!!</title>
-      <link>/blog/2006/12/20/overloading-a-matter-of-taste/</link>
+      <link>/2006/12/20/overloading-a-matter-of-taste/</link>
       <pubDate>Wed, 20 Dec 2006 12:21:00 +0000</pubDate>
       
-      <guid>/blog/2006/12/20/overloading-a-matter-of-taste/</guid>
+      <guid>/2006/12/20/overloading-a-matter-of-taste/</guid>
       <description>This was a pretty interesting discussion about method overloading in the managed world.</description>
     </item>
     

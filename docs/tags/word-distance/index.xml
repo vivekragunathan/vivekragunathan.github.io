@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>word-distance on A Developer&#39;s Experience</title>
-    <link>/blog/tags/word-distance/</link>
+    <link>/tags/word-distance/</link>
     <description>Recent content in word-distance on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/blog/tags/word-distance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/tags/word-distance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Problem Reduction</title>
-      <link>/blog/2016/12/10/problem-reduction/</link>
+      <link>/2016/12/10/problem-reduction/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/blog/2016/12/10/problem-reduction/</guid>
+      <guid>/2016/12/10/problem-reduction/</guid>
       <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
 &lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
     </item>

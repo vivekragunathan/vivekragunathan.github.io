@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>android on A Developer&#39;s Experience</title>
-    <link>/blog/tags/android/</link>
+    <link>/tags/android/</link>
     <description>Recent content in android on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 May 2014 01:47:56 +0000</lastBuildDate><atom:link href="/blog/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 May 2014 01:47:56 +0000</lastBuildDate><atom:link href="/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting reminded of the reminder !!!</title>
-      <link>/blog/2014/05/23/android-reminder/</link>
+      <link>/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/blog/2014/05/23/android-reminder/</guid>
+      <guid>/2014/05/23/android-reminder/</guid>
       <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
     </item>
     

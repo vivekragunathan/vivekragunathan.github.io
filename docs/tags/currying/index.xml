@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>currying on A Developer&#39;s Experience</title>
-    <link>/blog/tags/currying/</link>
+    <link>/tags/currying/</link>
     <description>Recent content in currying on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 Oct 2010 12:08:00 +0000</lastBuildDate><atom:link href="/blog/tags/currying/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Oct 2010 12:08:00 +0000</lastBuildDate><atom:link href="/tags/currying/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking Currying !!!</title>
-      <link>/blog/2010/10/03/thinking-currying/</link>
+      <link>/2010/10/03/thinking-currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/blog/2010/10/03/thinking-currying/</guid>
+      <guid>/2010/10/03/thinking-currying/</guid>
       <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
     </item>
     

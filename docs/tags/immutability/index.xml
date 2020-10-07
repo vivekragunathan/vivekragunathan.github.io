@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>immutability on A Developer&#39;s Experience</title>
-    <link>/blog/tags/immutability/</link>
+    <link>/tags/immutability/</link>
     <description>Recent content in immutability on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2015 08:13:30 +0000</lastBuildDate><atom:link href="/blog/tags/immutability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2015 08:13:30 +0000</lastBuildDate><atom:link href="/tags/immutability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>final, const and beyond</title>
-      <link>/blog/2015/10/13/final-const-beyond/</link>
+      <link>/2015/10/13/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/blog/2015/10/13/final-const-beyond/</guid>
+      <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;

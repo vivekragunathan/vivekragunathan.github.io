@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on A Developer&#39;s Experience</title>
-    <link>/blog/pages/</link>
+    <link>/pages/</link>
     <description>Recent content in Pages on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="/blog/pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lo and Behold</title>
-      <link>/blog/pages/lo-and-behold/</link>
+      <link>/pages/lo-and-behold/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/pages/lo-and-behold/</guid>
+      <guid>/pages/lo-and-behold/</guid>
       <description>Netflix’s movie recommendations has never impressed me. I have found the recommendations are either unrelated or predictable.</description>
     </item>
     
     <item>
       <title>Application Models</title>
-      <link>/blog/pages/app-models/</link>
+      <link>/pages/app-models/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:00 +0000</pubDate>
       
-      <guid>/blog/pages/app-models/</guid>
+      <guid>/pages/app-models/</guid>
       <description>&lt;p&gt;A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Written in Stone</title>
-      <link>/blog/2015/12/30/bits-bytes-stones/</link>
+      <link>/2015/12/30/bits-bytes-stones/</link>
       <pubDate>Wed, 30 Dec 2015 06:58:42 +0000</pubDate>
       
-      <guid>/blog/2015/12/30/bits-bytes-stones/</guid>
+      <guid>/2015/12/30/bits-bytes-stones/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Academia&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Useful Unix Commands</title>
-      <link>/blog/pages/cmd-line-sucks/</link>
+      <link>/pages/cmd-line-sucks/</link>
       <pubDate>Sat, 07 Feb 2015 08:02:58 +0000</pubDate>
       
-      <guid>/blog/pages/cmd-line-sucks/</guid>
+      <guid>/pages/cmd-line-sucks/</guid>
       <description>Change Permission on Folder/Files Recursively GOOD
 find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type f -exec chmod 644 {} +``` BETTER</description>
     </item>
     
     <item>
       <title>The Court Room Climax</title>
-      <link>/blog/pages/a-team-libraries/</link>
+      <link>/pages/a-team-libraries/</link>
       <pubDate>Sun, 25 Jan 2015 00:19:31 +0000</pubDate>
       
-      <guid>/blog/pages/a-team-libraries/</guid>
+      <guid>/pages/a-team-libraries/</guid>
       <description>Before reading this page, please read the relevant blog post: A-Team Library.</description>
     </item>
     
     <item>
       <title>Just-In-Time (JIT) Compilation</title>
-      <link>/blog/pages/jit/</link>
+      <link>/pages/jit/</link>
       <pubDate>Wed, 01 Oct 2014 04:27:30 +0000</pubDate>
       
-      <guid>/blog/pages/jit/</guid>
+      <guid>/pages/jit/</guid>
       <description>An excerpt from the book Professional .NET v2.0
   The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly.</description>
     </item>
     
     <item>
       <title>Code Treats</title>
-      <link>/blog/pages/code-treats/</link>
+      <link>/pages/code-treats/</link>
       <pubDate>Wed, 01 Oct 2014 03:55:02 +0000</pubDate>
       
-      <guid>/blog/pages/code-treats/</guid>
+      <guid>/pages/code-treats/</guid>
       <description>[contact-form subject=&#39;[Feedback on DevEx]’
 [contact-field label=’Name’ type=’name’ required=’1’/]
 [contact-field label=’Email’ type=’email’ required=’1’/]</description>
@@ -77,48 +77,48 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
     
     <item>
       <title>Tree List View</title>
-      <link>/blog/pages/tree-list-view/</link>
+      <link>/pages/tree-list-view/</link>
       <pubDate>Wed, 01 Oct 2014 03:45:22 +0000</pubDate>
       
-      <guid>/blog/pages/tree-list-view/</guid>
+      <guid>/pages/tree-list-view/</guid>
       <description>Article published on CodeProject
  Introduction Tree List View</description>
     </item>
     
     <item>
       <title>C&#43;&#43;0x Like Algorithms</title>
-      <link>/blog/pages/cpp0x-algos/</link>
+      <link>/pages/cpp0x-algos/</link>
       <pubDate>Wed, 01 Oct 2014 03:32:28 +0000</pubDate>
       
-      <guid>/blog/pages/cpp0x-algos/</guid>
+      <guid>/pages/cpp0x-algos/</guid>
       <description>A few C++0x algorithms and other helper methods implemented for C++98</description>
     </item>
     
     <item>
       <title>Scrollable Image Viewer</title>
-      <link>/blog/pages/scrollable-image-viewer/</link>
+      <link>/pages/scrollable-image-viewer/</link>
       <pubDate>Sat, 09 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>/blog/pages/scrollable-image-viewer/</guid>
+      <guid>/pages/scrollable-image-viewer/</guid>
       <description>The .NET Base Class Library comes with a PictureBox control that is used for displaying images.</description>
     </item>
     
     <item>
       <title>Typesafe Logger</title>
-      <link>/blog/pages/typesafe-logger/</link>
+      <link>/pages/typesafe-logger/</link>
       <pubDate>Fri, 08 Oct 2010 18:34:09 +0000</pubDate>
       
-      <guid>/blog/pages/typesafe-logger/</guid>
+      <guid>/pages/typesafe-logger/</guid>
       <description>Article co-authored with Sanjeev, and published on CodeProject
  PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
     </item>
     
     <item>
       <title>Pattern Conflict</title>
-      <link>/blog/pages/pattern-conflict/</link>
+      <link>/pages/pattern-conflict/</link>
       <pubDate>Fri, 08 Oct 2010 17:56:18 +0000</pubDate>
       
-      <guid>/blog/pages/pattern-conflict/</guid>
+      <guid>/pages/pattern-conflict/</guid>
       <description>Are your classes that implement the Template Method Design Pattern “Decorator aware”?</description>
     </item>
     

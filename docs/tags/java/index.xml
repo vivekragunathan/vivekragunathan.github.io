@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on A Developer&#39;s Experience</title>
-    <link>/blog/tags/java/</link>
+    <link>/tags/java/</link>
     <description>Recent content in Java on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Aug 2016 19:16:00 +0000</lastBuildDate><atom:link href="/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Aug 2016 19:16:00 +0000</lastBuildDate><atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Iterators vs. Generators</title>
-      <link>/blog/2016/08/03/iterators-vs-generators/</link>
+      <link>/2016/08/03/iterators-vs-generators/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/blog/2016/08/03/iterators-vs-generators/</guid>
+      <guid>/2016/08/03/iterators-vs-generators/</guid>
       <description>&lt;p&gt;Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mundane vs JINQ Way</title>
-      <link>/blog/2016/07/15/mundane-vs-jinq-way/</link>
+      <link>/2016/07/15/mundane-vs-jinq-way/</link>
       <pubDate>Fri, 15 Jul 2016 06:27:45 +0000</pubDate>
       
-      <guid>/blog/2016/07/15/mundane-vs-jinq-way/</guid>
+      <guid>/2016/07/15/mundane-vs-jinq-way/</guid>
       <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JINQ</title>
-      <link>/blog/2016/04/02/jinq/</link>
+      <link>/2016/04/02/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/blog/2016/04/02/jinq/</guid>
+      <guid>/2016/04/02/jinq/</guid>
       <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt;&lt;sup id=&#34;fnref-1399-1&#34;&gt;&lt;a href=&#34;#fn-1399-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Partial Classes – Java ???</title>
-      <link>/blog/2016/02/16/partial-classes-java/</link>
+      <link>/2016/02/16/partial-classes-java/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/blog/2016/02/16/partial-classes-java/</guid>
+      <guid>/2016/02/16/partial-classes-java/</guid>
       <description>&lt;p&gt;I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>final, const and beyond</title>
-      <link>/blog/2015/10/13/final-const-beyond/</link>
+      <link>/2015/10/13/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/blog/2015/10/13/final-const-beyond/</guid>
+      <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
@@ -71,10 +71,10 @@
     
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/blog/2015/08/24/tuples-anons/</link>
+      <link>/2015/08/24/tuples-anons/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/blog/2015/08/24/tuples-anons/</guid>
+      <guid>/2015/08/24/tuples-anons/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;
@@ -85,10 +85,10 @@
     
     <item>
       <title>Quiz: Choosing an array of integers !!!</title>
-      <link>/blog/2015/03/13/jaoints/</link>
+      <link>/2015/03/13/jaoints/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/blog/2015/03/13/jaoints/</guid>
+      <guid>/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
 &lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;

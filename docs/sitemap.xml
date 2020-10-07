@@ -3,1186 +3,1186 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/</loc>
+    <loc>/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/functional-programming/</loc>
+    <loc>/categories/functional-programming/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2020/04/17/know-thy-option/</loc>
+    <loc>/2020/04/17/know-thy-option/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/scala/</loc>
+    <loc>/categories/scala/</loc>
     <lastmod>2020-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2020/04/02/saner-mocking/</loc>
+    <loc>/2020/04/02/saner-mocking/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/02/20/cyrilex/</loc>
+    <loc>/2016/02/20/cyrilex/</loc>
     <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/programming/</loc>
+    <loc>/categories/programming/</loc>
     <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2019/02/19/fp-conversion-caveat/</loc>
+    <loc>/2019/02/19/fp-conversion-caveat/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2019/02/19/purge-node-npm/</loc>
+    <loc>/2019/02/19/purge-node-npm/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2018/02/18/ramble-error-handling/</loc>
+    <loc>/2018/02/18/ramble-error-handling/</loc>
     <lastmod>2018-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2018/02/18/js-in-cs-immutability/</loc>
+    <loc>/2018/02/18/js-in-cs-immutability/</loc>
     <lastmod>2018-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2017/12/106/facets-of-mmutability/</loc>
+    <loc>/2017/12/106/facets-of-mmutability/</loc>
     <lastmod>2017-12-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/lo-and-behold/</loc>
+    <loc>/pages/lo-and-behold/</loc>
     <lastmod>2017-03-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/</loc>
+    <loc>/pages/</loc>
     <lastmod>2017-03-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/12/11/cpp-cli-apress/</loc>
+    <loc>/2016/12/11/cpp-cli-apress/</loc>
     <lastmod>2016-12-11T09:18:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/uncategorized/</loc>
+    <loc>/categories/uncategorized/</loc>
     <lastmod>2016-12-11T09:18:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/.net/</loc>
+    <loc>/categories/.net/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/algorithms/</loc>
+    <loc>/tags/algorithms/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/algos-and-puzzles/</loc>
+    <loc>/categories/algos-and-puzzles/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/c#/</loc>
+    <loc>/tags/c#/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/c#/</loc>
+    <loc>/categories/c#/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/min-diff/</loc>
+    <loc>/tags/min-diff/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/12/10/problem-reduction/</loc>
+    <loc>/2016/12/10/problem-reduction/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/programming/</loc>
+    <loc>/tags/programming/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/word-distance/</loc>
+    <loc>/tags/word-distance/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/api/</loc>
+    <loc>/tags/api/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/clean-code/</loc>
+    <loc>/tags/clean-code/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/design/</loc>
+    <loc>/tags/design/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/11/07/semantics/</loc>
+    <loc>/2016/11/07/semantics/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/semantics/</loc>
+    <loc>/tags/semantics/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/software-design/</loc>
+    <loc>/categories/software-design/</loc>
     <lastmod>2016-11-07T06:04:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/08/27/app-models/</loc>
+    <loc>/2016/08/27/app-models/</loc>
     <lastmod>2016-08-27T15:50:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/architecture/</loc>
+    <loc>/tags/architecture/</loc>
     <lastmod>2016-08-27T15:50:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/enterprise/</loc>
+    <loc>/tags/enterprise/</loc>
     <lastmod>2016-08-27T15:50:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/patterns/</loc>
+    <loc>/tags/patterns/</loc>
     <lastmod>2016-08-27T15:50:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/software-architecture/</loc>
+    <loc>/categories/software-architecture/</loc>
     <lastmod>2016-08-27T15:50:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/app-models/</loc>
+    <loc>/pages/app-models/</loc>
     <lastmod>2016-08-27T15:50:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/08/03/iterators-vs-generators/</loc>
+    <loc>/2016/08/03/iterators-vs-generators/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/java/</loc>
+    <loc>/tags/java/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/java/</loc>
+    <loc>/categories/java/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/jinq/</loc>
+    <loc>/tags/jinq/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/linq/</loc>
+    <loc>/tags/linq/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/07/15/mundane-vs-jinq-way/</loc>
+    <loc>/2016/07/15/mundane-vs-jinq-way/</loc>
     <lastmod>2016-07-15T06:27:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/computers-and-internet/</loc>
+    <loc>/categories/computers-and-internet/</loc>
     <lastmod>2016-05-29T07:49:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/05/29/text-editors/</loc>
+    <loc>/2016/05/29/text-editors/</loc>
     <lastmod>2016-05-29T07:49:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/05/16/resource-combinations/</loc>
+    <loc>/2016/05/16/resource-combinations/</loc>
     <lastmod>2016-05-16T07:00:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/.net/</loc>
+    <loc>/tags/.net/</loc>
     <lastmod>2016-04-01T22:50:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/04/02/jinq/</loc>
+    <loc>/2016/04/02/jinq/</loc>
     <lastmod>2016-04-01T22:50:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/linq/</loc>
+    <loc>/categories/linq/</loc>
     <lastmod>2016-04-01T22:50:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/partial/</loc>
+    <loc>/tags/partial/</loc>
     <lastmod>2016-02-16T04:27:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/02/16/partial-classes-java/</loc>
+    <loc>/2016/02/16/partial-classes-java/</loc>
     <lastmod>2016-02-16T04:27:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/partial-class/</loc>
+    <loc>/tags/partial-class/</loc>
     <lastmod>2016-02-16T04:27:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/01/19/sporting-a-new-look/</loc>
+    <loc>/2016/01/19/sporting-a-new-look/</loc>
     <lastmod>2016-01-19T04:23:55+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/c&#43;&#43;/</loc>
+    <loc>/categories/c&#43;&#43;/</loc>
     <lastmod>2016-01-19T03:07:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2016/01/19/publishing-ccli-on-leanpub/</loc>
+    <loc>/2016/01/19/publishing-ccli-on-leanpub/</loc>
     <lastmod>2016-01-19T03:07:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/unmanaged/</loc>
+    <loc>/categories/unmanaged/</loc>
     <lastmod>2016-01-19T03:07:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/12/30/bits-bytes-stones/</loc>
+    <loc>/2015/12/30/bits-bytes-stones/</loc>
     <lastmod>2015-12-30T06:58:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/12/28/lights-preserved/</loc>
+    <loc>/2015/12/28/lights-preserved/</loc>
     <lastmod>2015-12-27T21:45:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/12/03/net-oss/</loc>
+    <loc>/2015/12/03/net-oss/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/.net-core/</loc>
+    <loc>/tags/.net-core/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/clr/</loc>
+    <loc>/categories/clr/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/corefx/</loc>
+    <loc>/tags/corefx/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/cross-platform/</loc>
+    <loc>/tags/cross-platform/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/oss/</loc>
+    <loc>/tags/oss/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/rosyln/</loc>
+    <loc>/tags/rosyln/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/profile/</loc>
+    <loc>/profile/</loc>
     <lastmod>2015-10-17T04:18:06+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/const/</loc>
+    <loc>/tags/const/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/final/</loc>
+    <loc>/tags/final/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/10/13/final-const-beyond/</loc>
+    <loc>/2015/10/13/final-const-beyond/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/immutability/</loc>
+    <loc>/tags/immutability/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/quotations/</loc>
+    <loc>/quotations/</loc>
     <lastmod>2015-10-11T07:01:10+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/10/04/unconquerable/</loc>
+    <loc>/2015/10/04/unconquerable/</loc>
     <lastmod>2015-10-03T19:28:22+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/09/14/jar-tips-loading-dependencies/</loc>
+    <loc>/2015/09/14/jar-tips-loading-dependencies/</loc>
     <lastmod>2015-09-13T19:42:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/08/24/tuples-anons/</loc>
+    <loc>/2015/08/24/tuples-anons/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/anonymous-class/</loc>
+    <loc>/tags/anonymous-class/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/anonymous-types/</loc>
+    <loc>/tags/anonymous-types/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/auto/</loc>
+    <loc>/tags/auto/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/tuples/</loc>
+    <loc>/tags/tuples/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/var/</loc>
+    <loc>/tags/var/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/07/08/a-funny-moment-of-ioc/</loc>
+    <loc>/2015/07/08/a-funny-moment-of-ioc/</loc>
     <lastmod>2015-07-08T06:16:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/carpool/</loc>
+    <loc>/tags/carpool/</loc>
     <lastmod>2015-07-08T06:16:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/inversion-of-control/</loc>
+    <loc>/tags/inversion-of-control/</loc>
     <lastmod>2015-07-08T06:16:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/ioc/</loc>
+    <loc>/tags/ioc/</loc>
     <lastmod>2015-07-08T06:16:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/fixed/</loc>
+    <loc>/tags/fixed/</loc>
     <lastmod>2015-07-07T06:52:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/immutable/</loc>
+    <loc>/tags/immutable/</loc>
     <lastmod>2015-07-07T06:52:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/07/07/mutating-strings/</loc>
+    <loc>/2015/07/07/mutating-strings/</loc>
     <lastmod>2015-07-07T06:52:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/strings/</loc>
+    <loc>/tags/strings/</loc>
     <lastmod>2015-07-07T06:52:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/unsafe/</loc>
+    <loc>/tags/unsafe/</loc>
     <lastmod>2015-07-07T06:52:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/05/02/time-begins/</loc>
+    <loc>/2015/05/02/time-begins/</loc>
     <lastmod>2015-05-02T18:08:59+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/array/</loc>
+    <loc>/tags/array/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/integers/</loc>
+    <loc>/tags/integers/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/03/13/jaoints/</loc>
+    <loc>/2015/03/13/jaoints/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/reference-types/</loc>
+    <loc>/tags/reference-types/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/value-types/</loc>
+    <loc>/tags/value-types/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/cmd-line-sucks/</loc>
+    <loc>/pages/cmd-line-sucks/</loc>
     <lastmod>2015-02-07T08:02:58+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2015/01/26/atl/</loc>
+    <loc>/2015/01/26/atl/</loc>
     <lastmod>2015-01-26T01:11:52+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/a-team-libraries/</loc>
+    <loc>/pages/a-team-libraries/</loc>
     <lastmod>2015-01-25T00:19:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/codeproject/</loc>
+    <loc>/tags/codeproject/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/extension-methods/</loc>
+    <loc>/tags/extension-methods/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</loc>
+    <loc>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/unified-syntax/</loc>
+    <loc>/tags/unified-syntax/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/10/05/simple-tlv/</loc>
+    <loc>/2014/10/05/simple-tlv/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/codeproject/</loc>
+    <loc>/categories/codeproject/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/listview/</loc>
+    <loc>/tags/listview/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/treelistview/</loc>
+    <loc>/tags/treelistview/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/winforms/</loc>
+    <loc>/tags/winforms/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/winforms/</loc>
+    <loc>/categories/winforms/</loc>
     <lastmod>2014-10-04T19:43:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/jit/</loc>
+    <loc>/pages/jit/</loc>
     <lastmod>2014-10-01T04:27:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/code-treats/</loc>
+    <loc>/pages/code-treats/</loc>
     <lastmod>2014-10-01T03:55:02+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/tree-list-view/</loc>
+    <loc>/pages/tree-list-view/</loc>
     <lastmod>2014-10-01T03:45:22+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/cpp0x-algos/</loc>
+    <loc>/pages/cpp0x-algos/</loc>
     <lastmod>2014-10-01T03:32:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/object/</loc>
+    <loc>/tags/object/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/php/</loc>
+    <loc>/categories/php/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/php/</loc>
+    <loc>/tags/php/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/09/30/php-property-bag/</loc>
+    <loc>/2014/09/30/php-property-bag/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/php-saver/</loc>
+    <loc>/tags/php-saver/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/propertybag/</loc>
+    <loc>/tags/propertybag/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/07/23/cool-regex-testers/</loc>
+    <loc>/2014/07/23/cool-regex-testers/</loc>
     <lastmod>2014-07-23T11:30:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/online-regex/</loc>
+    <loc>/tags/online-regex/</loc>
     <lastmod>2014-07-23T11:30:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/regex/</loc>
+    <loc>/tags/regex/</loc>
     <lastmod>2014-07-23T11:30:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/testers/</loc>
+    <loc>/tags/testers/</loc>
     <lastmod>2014-07-23T11:30:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/tools/</loc>
+    <loc>/tags/tools/</loc>
     <lastmod>2014-07-23T11:30:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/dynamic-languages/</loc>
+    <loc>/tags/dynamic-languages/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/functions/</loc>
+    <loc>/tags/functions/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/javascript/</loc>
+    <loc>/categories/javascript/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/javascript/</loc>
+    <loc>/tags/javascript/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/overloading/</loc>
+    <loc>/tags/overloading/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/05/29/overloading-and-varargs/</loc>
+    <loc>/2014/05/29/overloading-and-varargs/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/static-typing/</loc>
+    <loc>/tags/static-typing/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/variable-arguments/</loc>
+    <loc>/tags/variable-arguments/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/android/</loc>
+    <loc>/categories/android/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/android/</loc>
+    <loc>/tags/android/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/05/23/android-reminder/</loc>
+    <loc>/2014/05/23/android-reminder/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/reminders/</loc>
+    <loc>/tags/reminders/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/array-data/</loc>
+    <loc>/tags/array-data/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/jqgrid/</loc>
+    <loc>/categories/jqgrid/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/jqgrid/</loc>
+    <loc>/tags/jqgrid/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/05/23/jqgrid-handling-array-data/</loc>
+    <loc>/2014/05/23/jqgrid-handling-array-data/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/jquery/</loc>
+    <loc>/categories/jquery/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/stackoverflow/</loc>
+    <loc>/tags/stackoverflow/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2014/05/23/clean-code/</loc>
+    <loc>/2014/05/23/clean-code/</loc>
     <lastmod>2014-05-23T01:31:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/mobile/</loc>
+    <loc>/categories/mobile/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2013/11/28/the-windows-phone-epic/</loc>
+    <loc>/2013/11/28/the-windows-phone-epic/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/windows-phone/</loc>
+    <loc>/categories/windows-phone/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/windows-phone/</loc>
+    <loc>/tags/windows-phone/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/wp8/</loc>
+    <loc>/tags/wp8/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2013/02/11/dealing-with-bad-code/</loc>
+    <loc>/2013/02/11/dealing-with-bad-code/</loc>
     <lastmod>2013-02-10T18:30:26+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/11/01/linked-list-quiz-part-ii/</loc>
+    <loc>/2012/11/01/linked-list-quiz-part-ii/</loc>
     <lastmod>2012-10-31T18:30:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/09/09/caller_info_in_cs/</loc>
+    <loc>/2012/09/09/caller_info_in_cs/</loc>
     <lastmod>2012-09-08T18:30:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/06/18/linked-list-quiz-part-i/</loc>
+    <loc>/2012/06/18/linked-list-quiz-part-i/</loc>
     <lastmod>2012-06-17T18:30:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/04/24/smsfwupdate/</loc>
+    <loc>/2012/04/24/smsfwupdate/</loc>
     <lastmod>2012-04-23T18:35:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/software/</loc>
+    <loc>/tags/software/</loc>
     <lastmod>2012-04-23T18:35:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/04/14/otp-bug-fix/</loc>
+    <loc>/2012/04/14/otp-bug-fix/</loc>
     <lastmod>2012-04-13T19:50:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/03/09/uid-gen/</loc>
+    <loc>/2012/03/09/uid-gen/</loc>
     <lastmod>2012-03-08T18:41:36+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/mobile/</loc>
+    <loc>/tags/mobile/</loc>
     <lastmod>2012-03-08T18:36:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2012/03/09/smsfirewall/</loc>
+    <loc>/2012/03/09/smsfirewall/</loc>
     <lastmod>2012-03-08T18:36:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/10/17/toritchie/</loc>
+    <loc>/2011/10/17/toritchie/</loc>
     <lastmod>2011-10-17T15:34:09+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/09/10/seinfeld-calendar-update/</loc>
+    <loc>/2011/09/10/seinfeld-calendar-update/</loc>
     <lastmod>2011-09-09T19:50:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/08/21/android-meets-net/</loc>
+    <loc>/2011/08/21/android-meets-net/</loc>
     <lastmod>2011-08-21T13:07:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/07/03/beauty-of-numbers-solution/</loc>
+    <loc>/2011/07/03/beauty-of-numbers-solution/</loc>
     <lastmod>2011-07-01T20:45:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/07/02/quiz-beauty-of-numbers/</loc>
+    <loc>/2011/07/02/quiz-beauty-of-numbers/</loc>
     <lastmod>2011-07-01T19:39:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/03/30/thread-reference/</loc>
+    <loc>/2011/03/30/thread-reference/</loc>
     <lastmod>2011-03-30T17:05:36+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/03/27/crazybraces/</loc>
+    <loc>/2011/03/27/crazybraces/</loc>
     <lastmod>2011-03-26T18:38:23+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/03/15/seinfeld/</loc>
+    <loc>/2011/03/15/seinfeld/</loc>
     <lastmod>2011-03-15T18:20:04+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/03/08/anonymous-classes-vs-delegates/</loc>
+    <loc>/2011/03/08/anonymous-classes-vs-delegates/</loc>
     <lastmod>2011-03-08T17:10:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2011/02/19/where-am-i/</loc>
+    <loc>/2011/02/19/where-am-i/</loc>
     <lastmod>2011-02-19T12:05:38+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/12/21/guess-who/</loc>
+    <loc>/2010/12/21/guess-who/</loc>
     <lastmod>2010-12-21T13:32:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/12/21/out-ref-finale/</loc>
+    <loc>/2010/12/21/out-ref-finale/</loc>
     <lastmod>2010-12-21T13:24:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/10/28/outref2/</loc>
+    <loc>/2010/10/28/outref2/</loc>
     <lastmod>2010-10-28T17:22:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/scrollable-image-viewer/</loc>
+    <loc>/pages/scrollable-image-viewer/</loc>
     <lastmod>2010-10-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/typesafe-logger/</loc>
+    <loc>/pages/typesafe-logger/</loc>
     <lastmod>2010-10-08T18:34:09+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/pages/pattern-conflict/</loc>
+    <loc>/pages/pattern-conflict/</loc>
     <lastmod>2010-10-08T17:56:18+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2010-10-05T15:45:33+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/binding/</loc>
+    <loc>/tags/binding/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/currying/</loc>
+    <loc>/tags/currying/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/functional-programming/</loc>
+    <loc>/tags/functional-programming/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/10/03/thinking-currying/</loc>
+    <loc>/2010/10/03/thinking-currying/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/04/10/sfinae/</loc>
+    <loc>/2010/04/10/sfinae/</loc>
     <lastmod>2010-04-10T07:39:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/sfinae/</loc>
+    <loc>/tags/sfinae/</loc>
     <lastmod>2010-04-10T07:39:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/templates/</loc>
+    <loc>/tags/templates/</loc>
     <lastmod>2010-04-10T07:39:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/mi/</loc>
+    <loc>/tags/mi/</loc>
     <lastmod>2010-03-05T17:10:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2010/03/05/missing-mi/</loc>
+    <loc>/2010/03/05/missing-mi/</loc>
     <lastmod>2010-03-05T17:10:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/12/30/sizeof-vs-marshal-sizeof/</loc>
+    <loc>/2009/12/30/sizeof-vs-marshal-sizeof/</loc>
     <lastmod>2009-12-29T22:25:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/09/02/anondelegates/</loc>
+    <loc>/2009/09/02/anondelegates/</loc>
     <lastmod>2009-09-02T18:29:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/finally/</loc>
+    <loc>/tags/finally/</loc>
     <lastmod>2009-07-01T21:07:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/07/02/finally-and-return-values/</loc>
+    <loc>/2009/07/02/finally-and-return-values/</loc>
     <lastmod>2009-07-01T21:07:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/04/25/type-safe-logger/</loc>
+    <loc>/2009/04/25/type-safe-logger/</loc>
     <lastmod>2009-04-25T15:02:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/04/10/simple-array-class-for-c/</loc>
+    <loc>/2009/04/10/simple-array-class-for-c/</loc>
     <lastmod>2009-04-10T16:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/04/08/ccomptr-misconception/</loc>
+    <loc>/2009/04/08/ccomptr-misconception/</loc>
     <lastmod>2009-04-08T00:15:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/com/</loc>
+    <loc>/categories/com/</loc>
     <lastmod>2009-04-08T00:15:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/03/18/ordered-thread-pool/</loc>
+    <loc>/2009/03/18/ordered-thread-pool/</loc>
     <lastmod>2009-03-18T03:35:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/threadpool/</loc>
+    <loc>/tags/threadpool/</loc>
     <lastmod>2009-03-18T03:35:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/02/06/settling-casting-restrictions/</loc>
+    <loc>/2009/02/06/settling-casting-restrictions/</loc>
     <lastmod>2009-02-05T20:31:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2009/01/25/the-wd-anti-propaganda-campaign/</loc>
+    <loc>/2009/01/25/the-wd-anti-propaganda-campaign/</loc>
     <lastmod>2009-01-25T22:35:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2008/11/22/casting-restrictions/</loc>
+    <loc>/2008/11/22/casting-restrictions/</loc>
     <lastmod>2008-11-22T11:43:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2008/09/26/understanding-references/</loc>
+    <loc>/2008/09/26/understanding-references/</loc>
     <lastmod>2008-09-26T17:03:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2008/04/09/extension-methods-a-polished-c-feature/</loc>
+    <loc>/2008/04/09/extension-methods-a-polished-c-feature/</loc>
     <lastmod>2008-04-09T06:31:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/interface-principle/</loc>
+    <loc>/tags/interface-principle/</loc>
     <lastmod>2008-04-09T06:31:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/tags/koenig-lookup/</loc>
+    <loc>/tags/koenig-lookup/</loc>
     <lastmod>2008-04-09T06:31:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2007/02/22/the-surprising-finalize-call/</loc>
+    <loc>/2007/02/22/the-surprising-finalize-call/</loc>
     <lastmod>2007-02-21T20:27:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/learning-type-access-modifiers-basics/</loc>
+    <loc>/2006/12/20/learning-type-access-modifiers-basics/</loc>
     <lastmod>2006-12-20T18:01:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/first-google-gadgets/</loc>
+    <loc>/2006/12/20/first-google-gadgets/</loc>
     <lastmod>2006-12-20T17:53:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</loc>
+    <loc>/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</loc>
     <lastmod>2006-12-20T17:50:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/the-new-looking-post/</loc>
+    <loc>/2006/12/20/the-new-looking-post/</loc>
     <lastmod>2006-12-20T17:44:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/where-enum-does-not-work/</loc>
+    <loc>/2006/12/20/where-enum-does-not-work/</loc>
     <lastmod>2006-12-20T12:25:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/12/20/overloading-a-matter-of-taste/</loc>
+    <loc>/2006/12/20/overloading-a-matter-of-taste/</loc>
     <lastmod>2006-12-20T12:21:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/07/07/fooled-by-the-activator/</loc>
+    <loc>/2006/07/07/fooled-by-the-activator/</loc>
     <lastmod>2006-07-07T01:56:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/06/03/properties-c-2-0-not-elegant-enough/</loc>
+    <loc>/2006/06/03/properties-c-2-0-not-elegant-enough/</loc>
     <lastmod>2006-06-03T06:59:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/06/02/singularity-safety-speed/</loc>
+    <loc>/2006/06/02/singularity-safety-speed/</loc>
     <lastmod>2006-06-02T19:54:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/05/12/out-ref-and-invokemember/</loc>
+    <loc>/2006/05/12/out-ref-and-invokemember/</loc>
     <lastmod>2006-05-12T02:26:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/05/11/net-reflection-extravanganza/</loc>
+    <loc>/2006/05/11/net-reflection-extravanganza/</loc>
     <lastmod>2006-05-11T22:40:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/05/04/where-is-my-c/</loc>
+    <loc>/2006/05/04/where-is-my-c/</loc>
     <lastmod>2006-05-04T06:11:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/29/infinite-net-languages/</loc>
+    <loc>/2006/04/29/infinite-net-languages/</loc>
     <lastmod>2006-04-29T02:39:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/29/implementing-com-outofproc-servers-in-c-net/</loc>
+    <loc>/2006/04/29/implementing-com-outofproc-servers-in-c-net/</loc>
     <lastmod>2006-04-29T02:34:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/15/non-conventional-window-shapes-i-love-c/</loc>
+    <loc>/2006/04/15/non-conventional-window-shapes-i-love-c/</loc>
     <lastmod>2006-04-15T05:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/15/serialization-and-exceptions/</loc>
+    <loc>/2006/04/15/serialization-and-exceptions/</loc>
     <lastmod>2006-04-15T00:23:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</loc>
+    <loc>/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</loc>
     <lastmod>2006-04-11T04:33:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/an-encounter-with-hashtables/</loc>
+    <loc>/2006/04/11/an-encounter-with-hashtables/</loc>
     <lastmod>2006-04-11T04:26:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/a-note-on-finalize/</loc>
+    <loc>/2006/04/11/a-note-on-finalize/</loc>
     <lastmod>2006-04-11T04:12:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/explicit-interface-implementation/</loc>
+    <loc>/2006/04/11/explicit-interface-implementation/</loc>
     <lastmod>2006-04-11T04:06:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/the-interface-based-programming-argument/</loc>
+    <loc>/2006/04/11/the-interface-based-programming-argument/</loc>
     <lastmod>2006-04-11T04:03:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/properties-in-ccli-the-c-look-alike/</loc>
+    <loc>/2006/04/11/properties-in-ccli-the-c-look-alike/</loc>
     <lastmod>2006-04-11T03:56:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/04/11/managed-debugging-assistant/</loc>
+    <loc>/2006/04/11/managed-debugging-assistant/</loc>
     <lastmod>2006-04-11T03:52:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/do-not-delete-a-scalar-pointer/</loc>
+    <loc>/2006/03/27/do-not-delete-a-scalar-pointer/</loc>
     <lastmod>2006-03-27T20:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/where-do-you-queryinterface/</loc>
+    <loc>/2006/03/27/where-do-you-queryinterface/</loc>
     <lastmod>2006-03-27T00:23:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/use-of-class-factories/</loc>
+    <loc>/2006/03/27/use-of-class-factories/</loc>
     <lastmod>2006-03-27T00:22:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/unsafe-operations-with-stl/</loc>
+    <loc>/2006/03/27/unsafe-operations-with-stl/</loc>
     <lastmod>2006-03-27T00:19:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/consoles-for-mr-gui/</loc>
+    <loc>/2006/03/27/consoles-for-mr-gui/</loc>
     <lastmod>2006-03-27T00:13:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/27/setting-environment-variables/</loc>
+    <loc>/2006/03/27/setting-environment-variables/</loc>
     <lastmod>2006-03-27T00:11:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</loc>
+    <loc>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</loc>
     <lastmod>2006-03-26T00:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2006/03/26/consts-in-net/</loc>
+    <loc>/2006/03/26/consts-in-net/</loc>
     <lastmod>2006-03-26T00:37:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2005/04/19/joining-the-game/</loc>
+    <loc>/2005/04/19/joining-the-game/</loc>
     <lastmod>2005-04-19T17:25:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/categories/c&#43;&#43;/cli/</loc>
+    <loc>/categories/c&#43;&#43;/cli/</loc>
   </url>
   
   <url>
-    <loc>/blog/series/</loc>
+    <loc>/series/</loc>
   </url>
   
 </urlset>

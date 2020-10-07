@@ -2,242 +2,242 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Developer&#39;s Experience</title>
-    <link>/blog/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Functional Programming</title>
-      <link>/blog/categories/functional-programming/</link>
+      <link>/categories/functional-programming/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/categories/functional-programming/</guid>
+      <guid>/categories/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scala</title>
-      <link>/blog/categories/scala/</link>
+      <link>/categories/scala/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/categories/scala/</guid>
+      <guid>/categories/scala/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>/blog/categories/programming/</link>
+      <link>/categories/programming/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/categories/programming/</guid>
+      <guid>/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncategorized</title>
-      <link>/blog/categories/uncategorized/</link>
+      <link>/categories/uncategorized/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       
-      <guid>/blog/categories/uncategorized/</guid>
+      <guid>/categories/uncategorized/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.NET</title>
-      <link>/blog/categories/.net/</link>
+      <link>/categories/.net/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/blog/categories/.net/</guid>
+      <guid>/categories/.net/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Algos and Puzzles</title>
-      <link>/blog/categories/algos-and-puzzles/</link>
+      <link>/categories/algos-and-puzzles/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/blog/categories/algos-and-puzzles/</guid>
+      <guid>/categories/algos-and-puzzles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C#</title>
-      <link>/blog/categories/c#/</link>
+      <link>/categories/c#/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/blog/categories/c#/</guid>
+      <guid>/categories/c#/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software Design</title>
-      <link>/blog/categories/software-design/</link>
+      <link>/categories/software-design/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/blog/categories/software-design/</guid>
+      <guid>/categories/software-design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software Architecture</title>
-      <link>/blog/categories/software-architecture/</link>
+      <link>/categories/software-architecture/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/blog/categories/software-architecture/</guid>
+      <guid>/categories/software-architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>/blog/categories/java/</link>
+      <link>/categories/java/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/blog/categories/java/</guid>
+      <guid>/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Computers and Internet</title>
-      <link>/blog/categories/computers-and-internet/</link>
+      <link>/categories/computers-and-internet/</link>
       <pubDate>Sun, 29 May 2016 07:49:39 +0000</pubDate>
       
-      <guid>/blog/categories/computers-and-internet/</guid>
+      <guid>/categories/computers-and-internet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LINQ</title>
-      <link>/blog/categories/linq/</link>
+      <link>/categories/linq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/blog/categories/linq/</guid>
+      <guid>/categories/linq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>/blog/categories/c&#43;&#43;/</link>
+      <link>/categories/c&#43;&#43;/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       
-      <guid>/blog/categories/c&#43;&#43;/</guid>
+      <guid>/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Unmanaged</title>
-      <link>/blog/categories/unmanaged/</link>
+      <link>/categories/unmanaged/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       
-      <guid>/blog/categories/unmanaged/</guid>
+      <guid>/categories/unmanaged/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CLR</title>
-      <link>/blog/categories/clr/</link>
+      <link>/categories/clr/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/blog/categories/clr/</guid>
+      <guid>/categories/clr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CodeProject</title>
-      <link>/blog/categories/codeproject/</link>
+      <link>/categories/codeproject/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/blog/categories/codeproject/</guid>
+      <guid>/categories/codeproject/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WinForms</title>
-      <link>/blog/categories/winforms/</link>
+      <link>/categories/winforms/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/blog/categories/winforms/</guid>
+      <guid>/categories/winforms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PHP</title>
-      <link>/blog/categories/php/</link>
+      <link>/categories/php/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/blog/categories/php/</guid>
+      <guid>/categories/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JavaScript</title>
-      <link>/blog/categories/javascript/</link>
+      <link>/categories/javascript/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/blog/categories/javascript/</guid>
+      <guid>/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Android</title>
-      <link>/blog/categories/android/</link>
+      <link>/categories/android/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/blog/categories/android/</guid>
+      <guid>/categories/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jqGrid</title>
-      <link>/blog/categories/jqgrid/</link>
+      <link>/categories/jqgrid/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/blog/categories/jqgrid/</guid>
+      <guid>/categories/jqgrid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jQuery</title>
-      <link>/blog/categories/jquery/</link>
+      <link>/categories/jquery/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/blog/categories/jquery/</guid>
+      <guid>/categories/jquery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mobile</title>
-      <link>/blog/categories/mobile/</link>
+      <link>/categories/mobile/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/blog/categories/mobile/</guid>
+      <guid>/categories/mobile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows Phone</title>
-      <link>/blog/categories/windows-phone/</link>
+      <link>/categories/windows-phone/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/blog/categories/windows-phone/</guid>
+      <guid>/categories/windows-phone/</guid>
       <description></description>
     </item>
     
     <item>
       <title>COM</title>
-      <link>/blog/categories/com/</link>
+      <link>/categories/com/</link>
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
       
-      <guid>/blog/categories/com/</guid>
+      <guid>/categories/com/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;/CLI</title>
-      <link>/blog/categories/c&#43;&#43;/cli/</link>
+      <link>/categories/c&#43;&#43;/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/blog/categories/c&#43;&#43;/cli/</guid>
+      <guid>/categories/c&#43;&#43;/cli/</guid>
       <description></description>
     </item>
     

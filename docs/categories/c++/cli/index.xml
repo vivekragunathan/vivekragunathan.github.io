@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43;/CLI on A Developer&#39;s Experience</title>
-    <link>/blog/categories/c&#43;&#43;/cli/</link>
+    <link>/categories/c&#43;&#43;/cli/</link>
     <description>Recent content in C&#43;&#43;/CLI on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/blog/categories/c++/cli/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="/categories/c++/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Publishing C&#43;&#43;/CLI on LeanPub</title>
-      <link>/blog/2016/01/19/publishing-ccli-on-leanpub/</link>
+      <link>/2016/01/19/publishing-ccli-on-leanpub/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       
-      <guid>/blog/2016/01/19/publishing-ccli-on-leanpub/</guid>
+      <guid>/2016/01/19/publishing-ccli-on-leanpub/</guid>
       <description>I came across LeanPub a few months back. I believe it was through hanselman – blog, video or something.</description>
     </item>
     

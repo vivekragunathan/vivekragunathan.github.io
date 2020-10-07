@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>immutable on A Developer&#39;s Experience</title>
-    <link>/blog/tags/immutable/</link>
+    <link>/tags/immutable/</link>
     <description>Recent content in immutable on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jul 2015 06:52:45 +0000</lastBuildDate><atom:link href="/blog/tags/immutable/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jul 2015 06:52:45 +0000</lastBuildDate><atom:link href="/tags/immutable/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mutating Strings</title>
-      <link>/blog/2015/07/07/mutating-strings/</link>
+      <link>/2015/07/07/mutating-strings/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/blog/2015/07/07/mutating-strings/</guid>
+      <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
 &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;

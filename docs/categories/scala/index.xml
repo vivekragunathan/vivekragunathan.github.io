@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scala on A Developer&#39;s Experience</title>
-    <link>/blog/categories/scala/</link>
+    <link>/categories/scala/</link>
     <description>Recent content in Scala on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/scala/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Know Thy Option</title>
-      <link>/blog/2020/04/17/know-thy-option/</link>
+      <link>/2020/04/17/know-thy-option/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/04/17/know-thy-option/</guid>
+      <guid>/2020/04/17/know-thy-option/</guid>
       <description>&lt;p&gt;Avoid &lt;code&gt;.get&lt;/code&gt; at all costs. Forget there is even a &lt;code&gt;.get&lt;/code&gt; function on &lt;code&gt;Option&lt;/code&gt;. There is always a way out - better one, than using &lt;code&gt;.get&lt;/code&gt;. Same applies to &lt;code&gt;.head&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If you are going to have access the value in an &lt;code&gt;Option&lt;/code&gt; in a test class, prefer extending your test class from &lt;code&gt;OptionValues&lt;/code&gt;. Then you can use &lt;code&gt;.value&lt;/code&gt; on an &lt;code&gt;Option&lt;/code&gt;. Doing so establishes the presence of value as verification with meaningful error if value is not defined.&lt;/p&gt;
 </description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>Pattern for Saner Mocking</title>
-      <link>/blog/2020/04/02/saner-mocking/</link>
+      <link>/2020/04/02/saner-mocking/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/04/02/saner-mocking/</guid>
+      <guid>/2020/04/02/saner-mocking/</guid>
       <description>&lt;p&gt;It is common to see mocks being setup this way in unit tests.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;

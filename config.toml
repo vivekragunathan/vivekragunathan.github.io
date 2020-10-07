@@ -2,7 +2,7 @@ title = "A Developer's Experience"
 theme = "soho"
 publishDir = "docs/"
 
-baseURL = "/blog/"
+baseURL = ""
 languageCode = "en"
 enableInlineShortcodes = true
 

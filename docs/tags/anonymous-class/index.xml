@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>anonymous-class on A Developer&#39;s Experience</title>
-    <link>/blog/tags/anonymous-class/</link>
+    <link>/tags/anonymous-class/</link>
     <description>Recent content in anonymous-class on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2015 01:10:27 +0000</lastBuildDate><atom:link href="/blog/tags/anonymous-class/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Aug 2015 01:10:27 +0000</lastBuildDate><atom:link href="/tags/anonymous-class/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/blog/2015/08/24/tuples-anons/</link>
+      <link>/2015/08/24/tuples-anons/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/blog/2015/08/24/tuples-anons/</guid>
+      <guid>/2015/08/24/tuples-anons/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;
