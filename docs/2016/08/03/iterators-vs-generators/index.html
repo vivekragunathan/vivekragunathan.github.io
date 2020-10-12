@@ -15,7 +15,7 @@
 <meta itemprop="description" content="Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.">
 <meta itemprop="datePublished" content="2016-08-02T19:16:00+00:00" />
 <meta itemprop="dateModified" content="2016-08-02T19:16:00+00:00" />
-<meta itemprop="wordCount" content="845">
+<meta itemprop="wordCount" content="836">
 
 
 
@@ -148,50 +148,50 @@
 <p>Iterator is a (design/implementation) pattern for iterating over different kinds of collection sources via an uniform interface. <em>Typically</em> the implementation is driven by a class that implements a method to move the iteration index, a method to retrieve the item at the current index, and a method to reset the iteration index, if required. Conventional iterations using raw pointers or indices not only ooze (iteration) arithematic but can work only with certain types of collections, for instance arrays. An iterator provides a way to abstract the mechanics and can be implemented by any class apart from collections themselves, so as to provide a transparent way to query elements off the source. Classes that implement the iterator pattern are called iterables (or enumerables).</p>
 <p>Iterator is nothing new. C++ has been supporting iterators since its early days; STL algorithms.</p>
 <p>Here is a <strong>trivial</strong> example:</p>
-<p>[code lang=cpp]</p>
-<p>std::list<int> foo = { …. };</p>
-<p>std::set<int> bar;</p>
-<p>std::copy(foo.begin(), foo.end(), std::inserter(bar, bar.begin()));</p>
-<p>[/code]</p>
-<p>Just about any language today exposes standard iterators for all its collections, and also provides standard iterator interface/class/methods for custom implementation.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">8230</span><span class="p">;.</span> <span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">bar</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">foo</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">inserter</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">bar</span><span class="p">.</span><span class="n">begin</span><span class="p">()));</span>
+</code></pre></div><p>Just about any language today exposes standard iterators for all its collections, and also provides standard iterator interface/class/methods for custom implementation.</p>
 <p>Here is a <strong>trivial</strong> example of a custom iterator – unbounded integer counter:</p>
-<p>[code lang=java]</p>
-<p>public class IntCounter implements Iterable<Integer> {</p>
-<p>    private final int start;</p>
-<p>    public IntCounter() { this.start = 0; }</p>
-<p>    public IntCounter(int start) { this.start = start; }</p>
-<p>    public Iterator<int> iterator() {</p>
-<p>        return new IntCountIterator(this.start);</p>
-<p>    }</p>
-<p>    public static class IntCountIterator implements Iterator<int> {</p>
-<p>        private int counter = 0;</p>
-<p>        public IntCountIterator(int start) { this.counter = start; }</p>
-<p>        public boolean moveNext() { return counter != Integer.MAX_VALUE; }</p>
-<p>        public int next() { return counter++; }</p>
-<p>        // Let&rsquo;s ignore reset() for now</p>
-<p>    }</p>
-<p>}</p>
-<p>[/code]</p>
-<p>You get the idea!</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntCounter</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">IntCounter</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">IntCounter</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">IntCountIterator</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">IntCountIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">IntCountIterator</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">counter</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="o">}</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">moveNext</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">counter</span> <span class="o">!=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span> <span class="o">}</span>
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">counter</span><span class="o">++;</span> <span class="o">}</span>
+
+        <span class="c1">// Let&#39;s ignore reset() for now
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>You get the idea!</p>
 <p><strong>Generators</strong></p>
 <p>A generator is a language construct supported by the compiler. The compiler saves you from hand-weaving the boiler plate code of implementing the iterator pattern. You are then left to write the last couple of lines of the code that will save the planet!</p>
-<p>[code lang=csharp]</p>
-<p>public class SomeClass</p>
-<p>{</p>
-<p>    // …</p>
-<p>    // Can also be instance method</p>
-<p>    public static IEnumerable<int> GetNextInt()</p>
-<p>    {</p>
-<p>        for (int counter = 0; counter &lt; int.MaxValue; ++counter)</p>
-<p>        {</p>
-<p>            yield return counter;</p>
-<p>        }</p>
-<p>    }</p>
-<p>}</p>
-<p>[/code]</p>
-<p>The <a href="https://msdn.microsoft.com/en-us/library/9k7k7cf0.aspx"><code>yield</code></a> <code>return</code>, in contrast to a regular <code>return</code>, does not return <code>counter</code> once for all but instead allows re-entering the same method where it left off previously to  return the current value and allows re-entering until the counter limit is reached.</p>
-<p>Similar to the <code>IntCounter</code> <em>class</em>, the <code>GetNextInt</code> <em>method</em> hands off one element at a time when requested and until exhaustion. While <code>IntCounter</code> uses <code>moveNext()</code> and <code>next()</code> methods in tandem as wheels that drive the iteration, <code>GetNextInt</code> abstracts the mechanics via <code>yield</code> <code>return</code>. Also note that the <code>GetNextInt</code> returns <code>IEnumerable</code> (analogous to Java’s <code>Iterable</code>) denoting that it is an iterable; all without the conventional boiler plate.</p>
-<p><code>Iterable</code> (or <code>IEnumerable</code>) is relatively a low-level mechanism to retrieve elements from a source on-demand; consider stream. It does not provide higher level semantics. It reminds us of just iteration. On the other hand, generators (<code>yield</code>) provide a higher level semantics, which is highly useful when you are building other higher level semantics. For instance, LINQ! LINQ’s clauses – <code>where</code>, <code>select</code> etc. heavily use the C# generators (<code>yield</code>) instead of conventional iterables.</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeClass</span>
+<span class="p">{</span>
+    <span class="c1">// &amp;#8230;
+</span><span class="c1"></span>
+    <span class="c1">// Can also be instance method
+</span><span class="c1"></span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">GetNextInt</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">counter</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">counter</span> <span class="p">&lt;</span> <span class="kt">int</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span> <span class="p">++</span><span class="n">counter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">yield</span> <span class="k">return</span> <span class="n">counter</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>The <a href="https://msdn.microsoft.com/en-us/library/9k7k7cf0.aspx"><code>yield</code></a> <code>return</code>, in contrast to a regular <code>return</code>, does not return <code>counter</code> once for all but instead allows re-entering the same method where it left off previously to  return the current value and allows re-entering until the counter limit is reached.</p>
+<p>Similar to the <code>IntCounter</code> <em>class</em>, the <code>GetNextInt</code> <em>method</em> hands off one element at a time when requested and until exhaustion. While <code>IntCounter</code> uses <code>moveNext()</code> and <code>next()</code> methods in tandem as wheels that drive the iteration, <code>GetNextInt</code> abstracts the mechanics via <code>yield</code> <code>return</code>. Also note that the <code>GetNextInt</code> returns <code>IEnumerable</code> (analogous to Java&rsquo;s <code>Iterable</code>) denoting that it is an iterable; all without the conventional boiler plate.</p>
+<p><code>Iterable</code> (or <code>IEnumerable</code>) is relatively a low-level mechanism to retrieve elements from a source on-demand; consider stream. It does not provide higher level semantics. It reminds us of just iteration. On the other hand, generators (<code>yield</code>) provide a higher level semantics, which is highly useful when you are building other higher level semantics. For instance, LINQ! LINQ&rsquo;s clauses - <code>where</code>, <code>select</code> etc. heavily use the C# generators (<code>yield</code>) instead of conventional iterables.</p>
 <p><strong>JINQ</strong></p>
 <p>When implementing JINQ, I was in a short dilemma whether to implement the clauses using conventional iterables or using a generator. <em>Alas, JINQ is, of course, written in and for Java</em>! The language does not support generators. I thought briefly if I would be able to emulate a generator using an <code>yield</code> method, and hopefully use this emulated generator as the backbone for the clauses. But you see, I would just be implementing yet another iterable. It might appear that the emulated generator, despite being a normal iterable, would be able to save me from writing other iterables for the clauses. However, that is not the case because each clause has to <em>generate</em> values conditionally. For instance, the <code>where</code> clause needs a <code>Predicate</code>, <code>select</code> takes an optional <code>Func</code> for transforming values and so on. This emulated generator would have to become a Frankenstein to fit to the needs of each clause. In the end, I came to my senses that it is not possible to emulate a compiler feature; at least not worthwhile to do so. No matter how hard you try, C++ destructors cannot be emulated. So cannot be constructors.</p>
 <blockquote>

@@ -1,5 +1,5 @@
 ---
-title: Non-FP to FP Conversion Caveat
+title: Go away node/npm
 author: vivekragunathan
 layout: post
 date: 2019-02-19

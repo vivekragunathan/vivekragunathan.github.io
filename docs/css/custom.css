@@ -4,6 +4,24 @@
    }
 }
 
+.sidebar2 {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(153,103,186,1) 41.2%, rgba(0,113,227,1) 90% );
+  background-image: linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%);
+  background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);
+
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: #aa4b6b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sidebar {
+  background-color: #323954;
+}
+
 .lead {
    font-family: inherit;
    font-style: italic;
@@ -23,7 +41,8 @@ article.post h1.post-title {
 }
 
 .read-more-link a:hover {
-	background-color: #132644;
+	/* background-color: #132644; */
+	background-color: #323954;
 	color: snow;
 }
 

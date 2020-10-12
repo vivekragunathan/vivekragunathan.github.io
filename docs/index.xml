@@ -69,22 +69,22 @@
     </item>
     
     <item>
-      <title>Non-FP to FP Conversion Caveat</title>
-      <link>/2019/02/19/fp-conversion-caveat/</link>
-      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/02/19/fp-conversion-caveat/</guid>
-      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
-    </item>
-    
-    <item>
-      <title>Non-FP to FP Conversion Caveat</title>
+      <title>Go away node/npm</title>
       <link>/2019/02/19/purge-node-npm/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/02/19/purge-node-npm/</guid>
       <description>&lt;p&gt;If you haven&amp;rsquo;t found a use for this script that uninstalls the second largest junk in the world next to Mac/iOS updates, you are either lazy or scared of breaking things.  I am neither, so I polished this &lt;a href=&#34;https://gist.github.com/VivekRagunathan/15c8b3b408c8015683a8d5fcf97cbf2f&#34;&gt;script&lt;/a&gt; from the different versions you will find on the internet. Oh, I am talking about node/npm.&lt;/p&gt;
 &lt;p&gt;Happy cleaning!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Non-FP to FP Conversion Caveat</title>
+      <link>/2019/02/19/fp-conversion-caveat/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/19/fp-conversion-caveat/</guid>
+      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
     </item>
     
     <item>
