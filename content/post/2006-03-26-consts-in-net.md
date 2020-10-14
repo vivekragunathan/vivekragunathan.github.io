@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-03-26T00:37:00+00:00
 url: /2006/03/26/consts-in-net/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114333375151725120
 categories:
   - Uncategorized
 

@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2009-03-18T03:35:00+00:00
 url: /2009/03/18/ordered-thread-pool/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 8394495887151499024
 categories:
   - .NET
   - 'C#'

@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-29T02:34:00+00:00
 url: /2006/04/29/implementing-com-outofproc-servers-in-c-net/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114627833651687050
 categories:
   - Uncategorized
 

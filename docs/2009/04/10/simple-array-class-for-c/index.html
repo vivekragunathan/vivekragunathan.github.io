@@ -158,7 +158,7 @@ public: Array(size_t length, bool isOwner = true)
            : _isOwner(isOwner)
         {
            _length = length;
-           _tPtr = new T[length]; 
+           _tPtr = new T[length];
         }
 
 public: Array(T* tPtr, size_t numItems, bool isOwner = true)

@@ -143,90 +143,78 @@
     <time datetime="2010-03-05T17:10:00Z">Mar 5, 2010</time> &middot; 3 min read
   </div>
 
-  <p style="font-size:11pt;font-family:Tahoma;">
-  We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.
-</p>
-<p style="font-size:11pt;font-family:Tahoma;">
-  Imagine that I have a component (UI, non-UI, doesn&#8217;t matter). You can make calls into the component, which does some interesting work for you. Imagine that the component takes an interface IComponentCallback to notify its parent. So I would do is have my parent class derive from IComponentCallback interface and pass this to the component. The code would look something like this:-
-</p>
-<pre style="font-size:11pt;font-family:Consolas;">interface IComponentCallback
-{
-   void Callback1();
-   bool Callback2();
-   void Callback3(int old, int new);
-}
+  <p>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.</p>
+<p>Imagine that I have a component (UI, non-UI, doesn’t matter). You can make calls into the component, which does some interesting work for you. Imagine that the component takes an interface <code>IComponentCallback</code> to notify its parent. So I would do is have my parent class derive from <code>IComponentCallback</code> interface and pass this to the component. The code would look something like this:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">interface</span> <span class="n">IComponentCallback</span>
+<span class="p">{</span>
+   <span class="kt">void</span> <span class="nf">Callback1</span><span class="p">();</span>
+   <span class="kt">bool</span> <span class="nf">Callback2</span><span class="p">();</span>
+   <span class="kt">void</span> <span class="nf">Callback3</span><span class="p">(</span><span class="kt">int</span> <span class="n">old</span><span class="p">,</span> <span class="kt">int</span> <span class="k">new</span><span class="p">);</span>
+<span class="p">}</span>
 
-class SomeComponent
-{
-   // The parent on whom callbacks are made
-   private IComponentCallback _parent = null;
+<span class="k">class</span> <span class="nc">SomeComponent</span>
+<span class="p">{</span>
+   <span class="c1">// The parent on whom callbacks are made
+</span><span class="c1"></span>   <span class="k">private</span> <span class="n">IComponentCallback</span> <span class="n">_parent</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
 
-   public SomeCompoent(IComponentCallback cmpCallback)
-   {
-      // Imagine that callbacks would not be made      
-      // if cmpCallback is null
+   <span class="k">public</span> <span class="nf">SomeCompoent</span><span class="p">(</span><span class="n">IComponentCallback</span> <span class="n">cmpCallback</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="c1">// Imagine that callbacks would not be made      
+</span><span class="c1"></span>      <span class="c1">// if cmpCallback is null
+</span><span class="c1"></span>
+      <span class="n">_parent</span> <span class="o">=</span> <span class="n">cmpCallback</span><span class="p">;</span>
+   <span class="p">}</span>
 
-      _parent = cmpCallback;
-   }
+   <span class="c1">// Other methods in which _parent shall be used
+</span><span class="c1"></span>   <span class="c1">// for making the callbacks.
+</span><span class="c1"></span><span class="p">}</span>
 
-   // Other methods in which _parent shall be used
-   // for making the callbacks.
-}
+<span class="k">class</span> <span class="nc">Parent</span> <span class="o">:</span> <span class="n">IComponentCallback</span>
+<span class="p">{</span>
+   <span class="k">private</span> <span class="n">SomeComponent</span> <span class="n">_someComponent</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
 
-class Parent : IComponentCallback
-{
-   private SomeComponent _someComponent = null;
+   <span class="k">public</span> <span class="nf">Parent</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">_someComponent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeComponent</span><span class="p">(</span><span class="k">this</span> <span class="n">as</span> <span class="n">IComponentCallback</span><span class="p">);</span>
+   <span class="p">}</span>
 
-   public Parent()
-   {
-      _someComponent = new SomeComponent(this as IComponentCallback);
-   }
+   <span class="cp">#region IComponentCallback methods implementation
+</span><span class="cp"></span>
+   <span class="kt">void</span> <span class="n">IComponentCallback</span><span class="p">.</span><span class="n">Callback1</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="c1">// Code making use of this callback
+</span><span class="c1"></span>   <span class="p">}</span>
 
-   #region IComponentCallback methods implementation
+   <span class="kt">bool</span> <span class="n">IComponentCallback</span><span class="p">.</span><span class="n">Callback2</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="c1">// Possible code to provide some    
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+   <span class="p">}</span>
 
-   void IComponentCallback.Callback1()
-   {
-      // Code making use of this callback
-   }
+   <span class="kt">void</span> <span class="nf">Callback3</span><span class="p">(</span><span class="kt">int</span> <span class="n">old</span><span class="p">,</span> <span class="kt">int</span> <span class="k">new</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="c1">// Code making use of old\new
+</span><span class="c1"></span>   <span class="p">}</span>
 
-   bool IComponentCallback.Callback2()
-   {
-      // Possible code to provide some    
-      return true;
-   }
+   <span class="cp">#endregion
+</span><span class="cp"></span><span class="p">}</span>
 
-   void Callback3(int old, int new)
-   {
-      // Code making use of old\new
-   }
+<span class="kt">void</span> <span class="nf">Main</span><span class="p">(</span><span class="n">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="c1">// .... code ...
+</span><span class="c1"></span>
+   <span class="c1">// Instantiating a parent which would create
+</span><span class="c1"></span>   <span class="c1">// SomeComponent and establish itself as the
+</span><span class="c1"></span>   <span class="c1">// callback sink.
+</span><span class="c1"></span>   <span class="n">Parent</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parent</span><span class="p">();</span>
 
-   #endregion
-}
+   <span class="c1">// ... Code ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>This is a typical case where the instantiator is the callback sink. And this case is natural and usual. There may be cases where one class instantiates and holds the component while a different class acts as the callback sink. That… is not the topic of our discussion.</p>
+<p>Now imagine our parent is a Form class. I am sure you might have come across this case where a Form hosts a UI or non-UI component and you want the callback sink as methods in your class so that you can update the UI directly. What follows may necessarily be the common case but I encountered it more than a few times. In our application, any parent could host the component. There were certain things common to do when processing the callback and hence we wrote a (base) class implementing <code>IComponentCallback</code> and which represents the component callback sink. Since C# does not support MI, any of our custom forms could not be derived from the callback sink class, since they are already derived from System.Windows.Form class.</p>
+<p>Now it is not wise to argue that one may use delegates or that this implementation is bad or this is a corner case. I have practically encountered this a few times where the component we are talking about is from a third party. In some cases, the component was our own and implemented for callback mechanism, called plugin, whose intent is quite opposite to event notification. Most others might have <em>No MI in C#</em> in mind and would have the sink class as a member of the Form (parent). I don’t see that natural but compulsion.</p>
+<p>Anyways, a case exists, and of course you can live without MI.</p>
 
-void Main(string[] args)
-{
-   // .... code ...
-
-   // Instantiating a parent which would create 
-   // SomeComponent and establish itself as the
-   // callback sink.
-   Parent p = new Parent();
-
-   // ... Code ...
-}
-</pre>
-<p style="font-size:11pt;font-family:Tahoma;">
-  This is a typical case where the instantiator is the callback sink. And this case is natural and usual. There may be cases where one class instantiates and holds the component while a different class acts as the callback sink. That&#8230; is not the topic of our discussion.
-</p>
-<p style="font-size:11pt;font-family:Tahoma;">
-  Now imagine our parent is a Form class. I am sure you might have come across this case where a Form hosts a UI or non-UI component and you want the callback sink as methods in your class so that you can update the UI directly. What follows may necessarily be the common case but I encountered it more than a few times. In our application, any parent could host the component. There were certain things common to do when processing the callback and hence we wrote a (base) class implementing IComponentCallback and which represents the component callback sink. Since C# does not support MI, any of our custom forms could not be derived from the callback sink class, since they are already derived from System.Windows.Form class.
-</p>
-<p style="font-size:11pt;font-family:Tahoma;">
-  Now it is not wise to argue that one may use delegates or that this implementation is bad or this is a corner case. I have practically encountered this a few times where the component we are talking about is from a third party. In some cases, the component was our own and implemented for callback mechanism, called plugin, whose intent is quite opposite to event notification. Most others might have &#8220;No MI in C#&#8221; in mind and would have the sink class as a member of the Form (parent). I don&#8217;t see that natural but compulsion.
-</p>
-<p style="font-size:11pt;font-family:Tahoma;">
-  Anyways, a case exists, and of course you can live without MI.
-</p>
 </div>
 
 

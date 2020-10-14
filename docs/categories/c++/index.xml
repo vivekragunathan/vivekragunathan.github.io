@@ -108,7 +108,7 @@
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
       <guid>/2010/04/10/sfinae/</guid>
-      <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &#34;</description>
+      <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34;-&amp;#34; &amp;lt;&amp;lt; b; return ostr.</description>
     </item>
     
     <item>
@@ -136,7 +136,7 @@
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
       
       <guid>/2009/04/08/ccomptr-misconception/</guid>
-      <description>This is about a killer bug identified by our chief software engineer in our software.</description>
+      <description>This is about a killer bug identified by our chief software engineer in our application.</description>
     </item>
     
     <item>

@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-03-27T20:28:00+00:00
 url: /2006/03/27/do-not-delete-a-scalar-pointer/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114349164039429717
 categories:
   - Uncategorized
 

@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-11T03:56:00+00:00
 url: /2006/04/11/properties-in-ccli-the-c-look-alike/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114472800469039257
 categories:
   - Uncategorized
 
@@ -25,12 +19,12 @@ __property bool get_LogToStdError()
 
 __property void set_LogToStdError(bool value)
 {
- logToStdError = value; 
+ logToStdError = value;
 }
 ```
 
-Doesn't that seem like the cat scorching its skin wanting to look like a tiger ? But we need to understand that the Managed C++ is just an extension provided by Microsoft for C++, and is not standard unlike C++/CLI. And then in C++/CLI, the syntax for property was reformed with the property keyword:-</p> 
-  
+Doesn't that seem like the cat scorching its skin wanting to look like a tiger ? But we need to understand that the Managed C++ is just an extension provided by Microsoft for C++, and is not standard unlike C++/CLI. And then in C++/CLI, the syntax for property was reformed with the property keyword:-</p>
+
 ```cpp
 property bool LogToStdError
 {
@@ -52,7 +46,7 @@ property bool logToStdError;
 2. This one I love very much because I wanted this behaviour in a lot of places in my code, and before. It is possible to specify different accessibility levels for the get and the set property accessors. For example ...
 
   ```cpp
-  property bool LogToStdError 
+  property bool LogToStdError
   {
     public: bool get() { return logToStdError; }
     protected internal: void set(bool value) { logToStdError = value; }

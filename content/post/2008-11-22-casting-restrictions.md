@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2008-11-22T11:43:00+00:00
 url: /2008/11/22/casting-restrictions/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 4083012105248464865
 categories:
   - 'C#'
   - CodeProject

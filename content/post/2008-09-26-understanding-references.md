@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2008-09-26T17:03:00+00:00
 url: /2008/09/26/understanding-references/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 734715056445910615
 categories:
   - .NET
   - 'C#'

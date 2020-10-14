@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-11T04:12:00+00:00
 url: /2006/04/11/a-note-on-finalize/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114472909697435128
 categories:
   - Uncategorized
 

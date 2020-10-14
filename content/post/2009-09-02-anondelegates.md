@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2009-09-02T18:29:00+00:00
 url: /2009/09/02/anondelegates/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 8526191295895501812
 categories:
   - 'C#'
   - CodeProject

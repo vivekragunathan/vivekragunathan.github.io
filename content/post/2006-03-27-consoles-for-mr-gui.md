@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-03-27T00:13:00+00:00
 url: /2006/03/27/consoles-for-mr-gui/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114341846453543521
 categories:
   - Uncategorized
 

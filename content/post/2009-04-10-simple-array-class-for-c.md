@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2009-04-10T16:48:00+00:00
 url: /2009/04/10/simple-array-class-for-c/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 9640816705578842
 categories:
   - C++
   - CodeProject
@@ -32,7 +26,7 @@ public: Array(size_t length, bool isOwner = true)
            : _isOwner(isOwner)
         {
            _length = length;
-           _tPtr = new T[length]; 
+           _tPtr = new T[length];
         }
 
 public: Array(T* tPtr, size_t numItems, bool isOwner = true)

@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2010-10-03T12:08:00+00:00
 url: /2010/10/03/thinking-currying/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 695144496897915506
 categories:
   - .NET
   - 'C#'
@@ -39,7 +33,7 @@ So you would be using the Replace above without explicitly passing the source li
 
 ```csharp
 list.Replace(2, newItem);
-  
+
 // instead of Replace(ilistObj, 2, newItem) if extension method was not invented.
 ```
 
@@ -93,7 +87,7 @@ var i = Incrementor(5);
 ```
 
 when we may not have actually encountered a compelling situations to use this in the past
-  
+
 But isn’t this all cryptic? So why would we want to do all such cryptic things when we have not encountered any such situation….in the past? Actually we have.
 
 When simple principles are tough for us to understand, it is our grandma who helps us. Our grandma here is C++; although grandma called it binding.
@@ -113,7 +107,7 @@ The functor we need is nothing but an `IsDivisible` function with the second arg
 
 > `std::bind1st`[^1] – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the first argument of the binary function to a specified value.
 
-> `std::bind2nd`[^2] – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the second argument of the binary function to a specified value. 
+> `std::bind2nd`[^2] – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the second argument of the binary function to a specified value.
 
 So in our case, we will be using`bind2nd`, as follows:-
 

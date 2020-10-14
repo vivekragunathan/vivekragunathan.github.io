@@ -151,7 +151,7 @@
 
 <span class="n">__property</span> <span class="kt">void</span> <span class="nf">set_LogToStdError</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">)</span>
 <span class="p">{</span>
- <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> 
+ <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p>Doesn&rsquo;t that seem like the cat scorching its skin wanting to look like a tiger ? But we need to understand that the Managed C++ is just an extension provided by Microsoft for C++, and is not standard unlike C++/CLI. And then in C++/CLI, the syntax for property was reformed with the property keyword:-</p></p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">property</span> <span class="kt">bool</span> <span class="n">LogToStdError</span>
@@ -168,7 +168,7 @@
 </code></pre></div><ol start="2">
 <li>This one I love very much because I wanted this behaviour in a lot of places in my code, and before. It is possible to specify different accessibility levels for the get and the set property accessors. For example &hellip;</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">property</span> <span class="kt">bool</span> <span class="n">LogToStdError</span> 
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">property</span> <span class="kt">bool</span> <span class="n">LogToStdError</span>
 <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">logToStdError</span><span class="p">;</span> <span class="p">}</span>
   <span class="k">protected</span> <span class="nl">internal</span><span class="p">:</span> <span class="kt">void</span> <span class="n">set</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span>

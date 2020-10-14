@@ -57,7 +57,7 @@
       <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
       
       <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
-      <description>There are two facilities in C# to determine the size of a type &amp;#8211; sizeof operator andMarshal.</description>
+      <description>There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.</description>
     </item>
     
     <item>
@@ -76,8 +76,7 @@
       
       <guid>/2007/02/22/the-surprising-finalize-call/</guid>
       <description>Guess the output of the following program:-
-`
-class SomeClass : IDisposable</description>
+class SomeClass : IDisposable { public SomeClass() { Trace.</description>
     </item>
     
     <item>

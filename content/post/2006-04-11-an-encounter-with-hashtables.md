@@ -4,19 +4,13 @@ author: vivekragunathan
 layout: post
 date: 2006-04-11T04:26:00+00:00
 url: /2006/04/11/an-encounter-with-hashtables/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114472988098707758
 categories:
   - Uncategorized
 
 ---
 I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value. I used the some of the facilities &#8211; enumerator, the Keys property etc provided by the hash table itself but it did not work out, and I spent too much time on this.
 
-The interesting thing is that for the following code, 
+The interesting thing is that for the following code,
 
 ```csharp
 IDictionaryEnumerator de = ht.GetEnumerator();
@@ -42,7 +36,7 @@ foreach (string key in ht.Keys)
 }
 ```
 
-it compiled successfully but threw a runtime exception 
+it compiled successfully but threw a runtime exception
 
 ```text
 An unhandled exception of type System.InvalidOperationException occurred in mscorlib.dll Additional information: Collection was modified; enumeration operation may not execute].

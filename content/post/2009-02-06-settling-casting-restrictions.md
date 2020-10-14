@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2009-02-05T20:31:00+00:00
 url: /2009/02/06/settling-casting-restrictions/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 3460047567779743817
 categories:
   - 'C#'
   - CodeProject
@@ -40,7 +34,7 @@ categories:
   <p>
     Unboxing is an explicit conversion from the type object to a value type or from an interface type to a value type that implements the interface. An unboxing operation consists of:
   </p>
-  
+
   <ul>
     <li>
       Checking the object instance to make sure it is a boxed value of the given value type

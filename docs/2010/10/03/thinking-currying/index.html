@@ -152,7 +152,7 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>So you would be using the Replace above without explicitly passing the source list to the method; one argument less.</p>
 <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">list</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">newItem</span><span class="p">);</span>
-  
+
 <span class="c1">// instead of Replace(ilistObj, 2, newItem) if extension method was not invented.
 </span></code></pre></div><p>Isn’t that right? Yes, but that is not the currying from the conventional standpoint of functional programming.</p>
 <p>For samples, we will not use the devil (any functional programming language) itself; instead we will use C#, which provides functional programming facilities. Alright, let us curry.</p>

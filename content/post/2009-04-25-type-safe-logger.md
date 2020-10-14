@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2009-04-25T15:02:00+00:00
 url: /2009/04/25/type-safe-logger/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 9076675656332833893
 categories:
   - C++
   - CodeProject

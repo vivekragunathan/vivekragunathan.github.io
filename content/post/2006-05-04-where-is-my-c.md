@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-05-04T06:11:00+00:00
 url: /2006/05/04/where-is-my-c/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114672311718254487
 categories:
   - Uncategorized
 

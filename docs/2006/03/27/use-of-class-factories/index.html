@@ -143,8 +143,8 @@
     <time datetime="2006-03-27T00:22:00Z">Mar 27, 2006</time> &middot; 1 min read
   </div>
 
-  <p>To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object. A class factory may be responsible for creating one or more COM objects. In the case of COM OutOfProc servers, the server registers the class factories for objects that it can create in a system-global table using CoRegisterClassObject. Whenever a client does CoGetClassObject for a CLSID, the COM run-time can look it up in the system global table, and return the factory instance. The case with InProc servers is also similar but through the DLLGetClassObject.</p>
-<p>The point here is that class factories are required [irrespective of how they exist physically in the servers, either as seperate instances or the COM object itself behaving as a factory for the objects of that type], they abstract the creation of the COM object through IClassfactory::CreateInstance.</p>
+  <p>To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object. A class factory may be responsible for creating one or more COM objects. In the case of COM OutOfProc servers, the server registers the class factories for objects that it can create in a system-global table using CoRegisterClassObject. Whenever a client does <code>CoGetClassObject</code> for a <code>CLSID</code>, the COM run-time can look it up in the system global table, and return the factory instance. The case with InProc servers is also similar but through the <code>DLLGetClassObject</code>.</p>
+<p>The point here is that class factories are required [irrespective of how they exist physically in the servers, either as separate instances or the COM object itself behaving as a factory for the objects of that type], they abstract the creation of the COM object through <code>IClassfactory::CreateInstance</code>.</p>
 
 </div>
 

@@ -143,13 +143,10 @@
     <time datetime="2006-07-07T01:56:00Z">Jul 7, 2006</time> &middot; 1 min read
   </div>
 
-  <p><span style="font-family:georgia;font-size:100%;">It was interesting to know that a custom exception, say an exception class derived from <a href="http://msdn2.microsoft.com/en-us/library/system.applicationexception.aspx">System.ApplicationException</a>, thrown while creating an instance of a type using Activator.CreateInstance does not get caught in its appropriate exception handler, instead gets caught in the global exception handler “catch(Exception ex)”, if provided. Any exception raised while creating an instance of the loaded type is wrapped inside a new exception object as InnerException by Activator.CreateInstance.</p></p>
-<p>
-  I was fooled that there was some problem with the image generation for quite some time, and then very lately inspected the members of the exception caught and found my exception object wrapped as InnerException.
-</p>
-<p>
-  Now my global exception catch handler catch(Exception ex) has the logic to check if there is any inner exception in ex and inspect if it is of my custom exception type. I am not sure but why cannot the custom exception be thrown as such by the Activator.CreateInstance without wrapping it inside a new Exception object. Would not that be good besides saving a few lines of code ?<br /></span>
-</p>
+  <p>It was interesting to know that a custom exception, say an exception class derived from <a href="http://msdn2.microsoft.com/en-us/library/system.applicationexception.aspx">System.ApplicationException</a>, thrown while creating an instance of a type using Activator.CreateInstance does not get caught in its appropriate exception handler, instead gets caught in the global exception handler <code>catch(Exception ex)</code>, if provided. Any exception raised while creating an instance of the loaded type is wrapped inside a new exception object as <code>InnerException</code> by <code>Activator</code>.<code>CreateInstance</code>.</p>
+<p>I was fooled that there was some problem with the image generation for quite some time, and then very lately inspected the members of the exception caught and found my exception object wrapped as <code>InnerException</code>.</p>
+<p>Now my global exception catch handler catch(Exception ex) has the logic to check if there is any inner exception in ex and inspect if it is of my custom exception type. I am not sure but why cannot the custom exception be thrown as such by the <code>Activator</code>.<code>CreateInstance</code> without wrapping it inside a new <code>Exception</code> object. Would not that be good besides saving a few lines of code ?</p>
+
 </div>
 
 

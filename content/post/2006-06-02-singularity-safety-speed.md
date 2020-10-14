@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-06-02T19:54:00+00:00
 url: /2006/06/02/singularity-safety-speed/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114927811079442057
 categories:
   - CodeProject
   - Uncategorized

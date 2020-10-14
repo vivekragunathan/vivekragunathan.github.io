@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-15T00:23:00+00:00
 url: /2006/04/15/serialization-and-exceptions/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114506089421646547
 categories:
   - Uncategorized
 

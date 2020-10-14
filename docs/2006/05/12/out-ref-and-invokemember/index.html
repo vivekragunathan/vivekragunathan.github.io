@@ -15,7 +15,7 @@
 <meta itemprop="description" content="When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.">
 <meta itemprop="datePublished" content="2006-05-12T02:26:00+00:00" />
 <meta itemprop="dateModified" content="2006-05-12T02:26:00+00:00" />
-<meta itemprop="wordCount" content="227">
+<meta itemprop="wordCount" content="236">
 
 
 
@@ -144,22 +144,51 @@
   </div>
 
   <p>When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.InvokeMember. How will pass out or ref parameters for the method invoked using Type.InvokeMember ? If you are going to invoke a method with the prototype</p>
-<PRE><FONT face="Courier New" color="#006600" size="3">int DoSomething(string someString, int someInt);</FONT></PRE>then you would use InvokeMember like this:-
-<PRE><FONT face="Courier New" color="#006600" size="3">object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        new object[] {&#8220;Largest Integer&#8221;, 1});</FONT></PRE>or use some variables in the new object[] {&#8230;}. But what do you with the args if DoSomething takes out or ref parameters ?
-<PRE><FONT face="Courier New" color="#006600" size="3">int DoSomething(out string someString, ref int someInt);</FONT></PRE>Something like this will not work 
-<PRE><FONT face="Courier New" color="#006600" size="3">string someText = string.Empty;<br />int someInt = 0;<br />object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        new object[] {someText, someInt});<br /></FONT></PRE>
-<p>It is tricky.</p>
-<PRE><FONT face="Courier New" color="#006600" size="3">object[] args = new object[] { someText, someInt };<br />object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br />        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br />        null,<br />        this,<br />        args);</FONT></PRE>
-<p>or even suprisingly this works:-</p>
-<PRE><FONT face="Courier New" color="#006600" size="3">object[] args = new object[2];<br />// or object[] args = new object[] { null, null };</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
+</code></pre></div><p>then you would use InvokeMember like this:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span><span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+        <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+        <span class="k">null</span><span class="p">,</span>
+        <span class="k">this</span><span class="p">,</span>
+        <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="err">“</span><span class="n">Largest</span> <span class="n">Integer</span><span class="err">”</span><span class="p">,</span> <span class="m">1</span><span class="p">});</span>
+</code></pre></div><p>or use some variables in the new object[] {…}. But what do you with the args if DoSomething takes out or ref parameters ?</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="k">out</span> <span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
+</code></pre></div><p>Something like this will not work</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">someText</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">someInt</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="k">this</span><span class="p">,</span>
+    <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span><span class="p">}</span>
+  <span class="p">);</span>
+</code></pre></div><p>It is tricky.</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span> <span class="p">};</span>
 
+<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+	<span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+		<span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+		<span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="k">this</span><span class="p">,</span>
+    <span class="n">args</span>
+  <span class="p">);</span>
+</code></pre></div><p>or even suprisingly this works:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+<span class="c1">// or object[] args = new object[] { null, null };
+</span><span class="c1"></span>
+<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="k">this</span><span class="p">,</span>
+    <span class="n">args</span>
+  <span class="p">);</span>
+</code></pre></div><p>Access the values by indexing args. So declaring the argument object[] as a local variable solves the problem, but I do not understand why this behavior. May be somebody can explain !!!</p>
 
-<p>
-  object obj = someType.InvokeMember(&#8220;DoSomething&#8221;, <br /> BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,<br /> null,<br /> this,<br /> args);</FONT></PRE>
-  <P>
-    Access the values by indexing args. So declaring the argument object[] as a local variable solves the problem, but I do not understand why this behaviour. May be somebody can explain !!! 
-  </P>
-</p>
 </div>
 
 

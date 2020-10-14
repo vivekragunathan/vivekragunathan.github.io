@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-15T05:48:00+00:00
 url: /2006/04/15/non-conventional-window-shapes-i-love-c/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114508031453016773
 categories:
   - Uncategorized
 

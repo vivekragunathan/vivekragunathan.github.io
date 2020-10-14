@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-04-11T04:06:00+00:00
 url: /2006/04/11/explicit-interface-implementation/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114472842231296148
 categories:
   - Uncategorized
 

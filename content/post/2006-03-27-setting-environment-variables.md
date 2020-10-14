@@ -4,12 +4,6 @@ author: vivekragunathan
 layout: post
 date: 2006-03-27T00:11:00+00:00
 url: /2006/03/27/setting-environment-variables/
-blogger_blog:
-  - developerexperience.blogspot.com
-blogger_author:
-  - Vivek Ragunathan
-blogger_efd3de0af000aedcb3351cb4b4995ef6_permalink:
-  - 114341838251206507
 categories:
   - Uncategorized
 
@@ -35,7 +29,7 @@ Simple, one line of code.
 <span style="font-family:courier new;">SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0,</span>  
     <span style="font-family:courier new;">(LPARAM) &#8220;Environment&#8221;,</span>  
     <span style="font-family:courier new;">SMTO_ABORTIFHUNG,</span>  
-    <span style="font-family:courier new;">5000, &dwReturnValue);</p> 
+    <span style="font-family:courier new;">5000, &dwReturnValue);</p>
 
 <p>
   </span>Of course, this is C++ code. Not a big deal to do that in C# or whatever.
