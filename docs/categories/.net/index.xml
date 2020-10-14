@@ -223,7 +223,7 @@ class SomeClass : IDisposable { public SomeClass() { Trace.</description>
     </item>
     
     <item>
-      <title>Overloading……A Matter Of Taste !!!</title>
+      <title>Overloading - A Matter Of Taste !!!</title>
       <link>/2006/12/20/overloading-a-matter-of-taste/</link>
       <pubDate>Wed, 20 Dec 2006 12:21:00 +0000</pubDate>
       

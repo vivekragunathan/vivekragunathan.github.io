@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.75.1" />
 
-  <title>Overloading……A Matter Of Taste !!! &middot; A Developer&#39;s Experience</title>
+  <title>Overloading - A Matter Of Taste !!! &middot; A Developer&#39;s Experience</title>
 
   <meta name="description" content="" />
 
   
 
-<meta itemprop="name" content="Overloading……A Matter Of Taste !!!">
+<meta itemprop="name" content="Overloading - A Matter Of Taste !!!">
 <meta itemprop="description" content="This was a pretty interesting discussion about method overloading in the managed world.">
 <meta itemprop="datePublished" content="2006-12-20T12:21:00+00:00" />
 <meta itemprop="dateModified" content="2006-12-20T12:21:00+00:00" />
-<meta itemprop="wordCount" content="555">
+<meta itemprop="wordCount" content="434">
 
 
 
@@ -23,11 +23,11 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Overloading……A Matter Of Taste !!!"/>
+<meta name="twitter:title" content="Overloading - A Matter Of Taste !!!"/>
 <meta name="twitter:description" content="This was a pretty interesting discussion about method overloading in the managed world."/>
 
 
-<meta property="og:title" content="Overloading……A Matter Of Taste !!!" />
+<meta property="og:title" content="Overloading - A Matter Of Taste !!!" />
 <meta property="og:description" content="This was a pretty interesting discussion about method overloading in the managed world." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2006/12/20/overloading-a-matter-of-taste/" />
@@ -136,51 +136,88 @@
   	
 	</div>
 
-  <h1>Overloading……A Matter Of Taste !!!</h1>
+  <h1>Overloading - A Matter Of Taste !!!</h1>
 
 
   <div class="post-date">
     <time datetime="2006-12-20T12:21:00Z">Dec 20, 2006</time> &middot; 3 min read
   </div>
 
-  <div id="msgcns!753E720D857C98F6!207">
-  <span style="font-size:85%;"><span style="font-family:georgia;font-size:100%;"><a href="http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244">This</a> was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.</p>
-  <p>
-    As it was pointed out in the discussion, how do we define the behaviour in the case where we derive classes across assemblies developed in another .NET language ?
-  </p>
-  <p>
-    As far traditional C++ goes, the overloaded method resolution starts from the derived but does not have strict type checking eg. for numeric types]. And the point to note is that only the method in the derived class with the exact prototype as the base is considered the overload. Ofcourse, C++ is not as much type safe as C#. This is taken care in C# by the override keyword which allows only the exact prototypes to be involved in overloading. And at times explicit casting is required unlike in C++.
-  </p>
-  <p>
-    But in the case of C#, the first principle observed in overloading is to avoid it. Pretty confusing, huh? Take a look at the example below:-</span><br /><span style="color:rgb(0,0,255);font-family:Courier New,Courier,Monospace;"></p>
-<pre><code>&lt;pre&gt;&lt;br /&gt;namespace Samples.MyConsole&lt;br /&gt;{&lt;br /&gt;   class Parent&lt;br /&gt;   {&lt;br /&gt;       public void Foo()&lt;br /&gt;       {&lt;br /&gt;           Console.WriteLine(&quot;Parent.Foo&quot;);&lt;br /&gt;       }&lt;br /&gt;   }&lt;br /&gt;&lt;br /&gt;   class Child : Parent&lt;br /&gt;   {&lt;br /&gt;       public void Bar()&lt;br /&gt;       {&lt;br /&gt;           Console.WriteLine(&quot;Child.Bar&quot;);&lt;br /&gt;       }&lt;br /&gt;   }&lt;br /&gt;&lt;br /&gt;   class Base&lt;br /&gt;   {&lt;br /&gt;       public virtual void XYZ(Child c)&lt;br /&gt;       {&lt;br /&gt;           c.Foo();&lt;br /&gt;           c.Bar();&lt;br /&gt;       }&lt;br /&gt;   }&lt;br /&gt;&lt;br /&gt;   class Derived : Base&lt;br /&gt;   {&lt;br /&gt;       public virtual void XYZ(Parent p)&lt;br /&gt;       {&lt;br /&gt;           p.Foo();&lt;br /&gt;       }&lt;br /&gt;&lt;br /&gt;       public override void XYZ(Child c)&lt;br /&gt;       {&lt;br /&gt;           base.XYZ(c);&lt;br /&gt;       }&lt;br /&gt;   }&lt;br /&gt;&lt;br /&gt;   class User&lt;br /&gt;   {&lt;br /&gt;       public static void SomeMethod()&lt;br /&gt;       {&lt;br /&gt;           Child c = new Child();&lt;br /&gt;           Parent p = c as Parent;&lt;br /&gt;&lt;br /&gt;           Derived d = new Derived();&lt;br /&gt;           Base b = d as Base;&lt;br /&gt;&lt;br /&gt;           Console.WriteLine(&quot;Playing with Derived&quot;);&lt;br /&gt;           d.XYZ(c);&lt;br /&gt;           d.XYZ(p);&lt;br /&gt;&lt;br /&gt;           Console.WriteLine(&quot;\nPlaying with Base&quot;);&lt;br /&gt;           b.XYZ(c);&lt;br /&gt;           b.XYZ(p as Child);&lt;br /&gt;       }&lt;br /&gt;   }&lt;br /&gt;}&lt;br /&gt;&lt;/pre&gt;
+  <p><a href="http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244">This</a> was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.</p>
+<p>As far traditional C++ goes, the overloaded method resolution starts from the derived but does not have strict type checking eg. for numeric types]. And the point to note is that only the method in the derived class with the exact prototype as the base is considered the overload. Of course, C++ is not as much type safe as C#. This is taken care in C# by the override keyword which allows only the exact prototypes to be involved in overloading. And at times explicit casting is required unlike in C++.</p>
+<p>But in the case of C#, the first principle observed in overloading is to avoid it. Pretty confusing, huh? Take a look at the example below:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">Samples.MyConsole</span>
+<span class="p">{</span>
+   <span class="k">class</span> <span class="nc">Parent</span>
+   <span class="p">{</span>
+       <span class="k">public</span> <span class="k">void</span> <span class="n">Foo</span><span class="p">()</span>
+       <span class="p">{</span>
+           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Parent.Foo&#34;</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
 
-&lt;p&gt;
-  &lt;/span&gt;&lt;br /&gt;Here is the output at the console:-
-&lt;/p&gt;
+   <span class="k">class</span> <span class="nc">Child</span> <span class="p">:</span> <span class="n">Parent</span>
+   <span class="p">{</span>
+       <span class="k">public</span> <span class="k">void</span> <span class="n">Bar</span><span class="p">()</span>
+       <span class="p">{</span>
+           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Child.Bar&#34;</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
 
-&lt;p&gt;
-  &lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Playing with Derived&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Parent.Foo&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Parent.Foo&lt;/span&gt;
-&lt;/p&gt;
+   <span class="k">class</span> <span class="nc">Base</span>
+   <span class="p">{</span>
+       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="n">c</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
+           <span class="n">c</span><span class="p">.</span><span class="n">Bar</span><span class="p">();</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
 
-&lt;p&gt;
-  &lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Playing with Base&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Parent.Foo&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Child.Bar&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Parent.Foo&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:bold;font-family:Courier New,Courier,Monospace;&quot;&gt;Child.Bar&lt;/span&gt;
-&lt;/p&gt;
+   <span class="k">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span>
+   <span class="p">{</span>
+       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Parent</span> <span class="n">p</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="n">p</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
+       <span class="p">}</span>
 
-&lt;p&gt;
-  &lt;span style=&quot;font-size:100%;&quot;&gt;You would have guessed the surprise that you are about to experience. Yes, d.XYZ(c) calls the Derived.XYZ(Parent p), and not the Derived.XYZ(Child c) which is a better match. It does if it had been defined as public new void XYZ(Child c). But same is not the case with C++. It gives us no suprise.&lt;/p&gt;
+       <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="k">base</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
 
-  &lt;p&gt;
-    And as far as C++/CLI is concerned, it behaves as traditional C++.
-  &lt;/p&gt;
+   <span class="k">class</span> <span class="nc">User</span>
+   <span class="p">{</span>
+       <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+       <span class="p">{</span>
+           <span class="n">Child</span> <span class="n">c</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Child</span><span class="p">();</span>
+           <span class="n">Parent</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Parent</span><span class="p">;</span>
 
-  &lt;p&gt;
-    So the intriguing bitter part is that the overloading in the managed world is not a thing at the CLR level nor does it seem to be something concerned with the specification. It seems to be a matter of taste.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+           <span class="n">Derived</span> <span class="n">d</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Derived</span><span class="p">();</span>
+           <span class="n">Base</span> <span class="n">b</span> <span class="p">=</span> <span class="n">d</span> <span class="k">as</span> <span class="n">Base</span><span class="p">;</span>
 
-    &lt;p&gt;
-      &lt;span style=&quot;font-size:100%;&quot;&gt; &lt;/span&gt;
-    &lt;/p&gt;
-</code></pre>
+           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Playing with Derived&#34;</span><span class="p">);</span>
+           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;\nPlaying with Base&#34;</span><span class="p">);</span>
+           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span> <span class="k">as</span> <span class="n">Child</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Here is the output at the console:-</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Playing with Derived
+Parent.Foo
+Parent.Foo
+Playing with Base
+Parent.Foo
+Child.Bar
+Parent.Foo
+Child.Bar
+</code></pre></div><p>You would have guessed the surprise that you are about to experience. Yes, d.XYZ(c) calls the Derived.XYZ(Parent p), and not the Derived.XYZ(Child c) which is a better match. It does if it had been defined as public new void XYZ(Child c). But same is not the case with C++. It gives us no surprise.</p>
+<p>As far as C++/CLI is concerned, it behaves as traditional C++.</p>
+<p>So the intriguing bitter part is that the overloading in the managed world is not a thing at the CLR level nor does it seem to be something concerned with the specification. It seems to be a matter of taste.</p>
 
 </div>
 

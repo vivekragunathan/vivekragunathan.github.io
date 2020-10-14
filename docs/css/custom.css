@@ -4,18 +4,8 @@
    }
 }
 
-.sidebar2 {
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(153,103,186,1) 41.2%, rgba(0,113,227,1) 90% );
-  background-image: linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%);
-  background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);
-
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  background: #aa4b6b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+	background-image: url(/images/page-bg.png)
 }
 
 .sidebar {
@@ -23,8 +13,8 @@
 }
 
 .lead {
-   font-family: inherit;
-   font-style: italic;
+   /* font-family: inherit; */
+   /* font-style: italic; */
 }
 
 article.post h1.post-title {
@@ -41,7 +31,6 @@ article.post h1.post-title {
 }
 
 .read-more-link a:hover {
-	/* background-color: #132644; */
 	background-color: #323954;
 	color: snow;
 }
@@ -54,6 +43,7 @@ article.post h1.post-title {
 	border: 1px solid silver;
 	padding: 45px 25px;
 	box-shadow: 0 20px 50px rgba(0,0,0,0.2); /*rgba(240, 46, 170, 0.7);*/
+  background: snow;
 }
 
 .content.container .posts .post:hover {
@@ -61,15 +51,28 @@ article.post h1.post-title {
 }
 
 div.post pre code {
-	font-family: 'Nanum Gothic Coding', monospace;
-	font-size: 16px;
-   line-height: 1.8em !important;
-   tab-size: 2;
-   /* display: inline-block; */
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 16px;
+  line-height: 1.8em !important;
+  tab-size: 2;
 }
 
 ul.sidebar-nav li {
 	display: inline;
 	font-size: 14px;
 	margin-right: 10px;
+}
+
+.sidebar2 {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(153,103,186,1) 41.2%, rgba(0,113,227,1) 90% );
+  background-image: linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%);
+  background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);
+
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: #aa4b6b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
