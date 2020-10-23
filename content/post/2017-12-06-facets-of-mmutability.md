@@ -4,6 +4,7 @@ author: vivekragunathan
 layout: post
 date: 2017-12-06
 url: /2017/12/106/facets-of-mmutability
+featured_image: /images/2017/12/06/immutable.jpg
 categories:
   - Functional Programming
 ---
