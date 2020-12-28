@@ -6,7 +6,16 @@
     <description>Recent content in Posts on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Either Disjoint or Union Types</title>
+      <link>/post/2020-12-28-union-types/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-12-28-union-types/</guid>
+      <description>Dotty&amp;rsquo;s shiny new Union types complemen disjoint union types.</description>
+    </item>
+    
     <item>
       <title>Know Thy Option</title>
       <link>/2020/04/17/know-thy-option/</link>

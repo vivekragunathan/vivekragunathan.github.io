@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.78.2" />
 
-  <title>Use Of Class Factories !!! &middot; A Developer&#39;s Experience</title>
+  <title>Either Disjoint or Union Types &middot; A Developer&#39;s Experience</title>
 
   <meta name="description" content="" />
 
   
 
-<meta itemprop="name" content="Use Of Class Factories !!!">
-<meta itemprop="description" content="To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object.">
-<meta itemprop="datePublished" content="2006-03-27T00:22:00+00:00" />
-<meta itemprop="dateModified" content="2006-03-27T00:22:00+00:00" />
-<meta itemprop="wordCount" content="143">
+<meta itemprop="name" content="Either Disjoint or Union Types">
+<meta itemprop="description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types.">
+<meta itemprop="datePublished" content="2020-12-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="295">
 
 
 
@@ -23,16 +23,16 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Use Of Class Factories !!!"/>
-<meta name="twitter:description" content="To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object."/>
+<meta name="twitter:title" content="Either Disjoint or Union Types"/>
+<meta name="twitter:description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types."/>
 
 
-<meta property="og:title" content="Use Of Class Factories !!!" />
-<meta property="og:description" content="To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object." />
+<meta property="og:title" content="Either Disjoint or Union Types" />
+<meta property="og:description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2006/03/27/use-of-class-factories/" />
-<meta property="article:published_time" content="2006-03-27T00:22:00+00:00" />
-<meta property="article:modified_time" content="2006-03-27T00:22:00+00:00" />
+<meta property="og:url" content="/post/2020-12-28-union-types/" />
+<meta property="article:published_time" content="2020-12-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-28T00:00:00+00:00" />
 
 
 
@@ -136,15 +136,46 @@
   	
 	</div>
 
-  <h1>Use Of Class Factories !!!</h1>
+  <h1>Either Disjoint or Union Types</h1>
 
 
   <div class="post-date">
-    <time datetime="2006-03-27T00:22:00Z">Mar 27, 2006</time> &middot; 1 min read
+    <time datetime="2020-12-28T00:00:00Z">Dec 28, 2020</time> &middot; 2 min read
   </div>
 
-  <p>To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object. A class factory may be responsible for creating one or more COM objects. In the case of COM OutOfProc servers, the server registers the class factories for objects that it can create in a system-global table using CoRegisterClassObject. Whenever a client does <code>CoGetClassObject</code> for a <code>CLSID</code>, the COM run-time can look it up in the system global table, and return the factory instance. The case with InProc servers is also similar but through the <code>DLLGetClassObject</code>.</p>
-<p>The point here is that class factories are required [irrespective of how they exist physically in the servers, either as separate instances or the COM object itself behaving as a factory for the objects of that type], they abstract the creation of the COM object through <code>IClassfactory::CreateInstance</code>.</p>
+  <p>Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (<code>|</code>) are already being compared with <code>Either</code> and <code>Option</code> (disjoint unions).</p>
+<p>In some ways, <code>Either</code> and <code>Option</code> may be expressed as union types.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Option[String]
+</span><span class="c1"></span><span class="nc">String</span> <span class="o">|</span> <span class="kc">null</span>
+
+<span class="c1">// Either[Int, String]
+</span><span class="c1"></span><span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span>
+</code></pre></div><p>Similar to disjoint union types, you can pattern match over Union types. However, the differences outshine the similarities.</p>
+<p>Disjoint union types like <code>Either</code> and <code>Option</code> &hellip;</p>
+<ul>
+<li>constraint the universe of types to be unique - <code>Left</code> and <code>Right</code>, <code>Some</code> and <code>None</code>. There is only one <code>Left</code> or <code>Some</code>.</li>
+<li>can be parameterized - <code>Either[L, R]</code> , <code>Option[T]</code></li>
+<li>Defined in the standard library. Not language syntax.</li>
+</ul>
+<p>On the other hand, Union Types (<code>|</code>) &hellip;</p>
+<ul>
+<li>
+<p>Not parameterized. Types are specific.</p>
+</li>
+<li>
+<p>The types involved don&rsquo;t have to be necessarily unique.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span>
+</code></pre></div><pre><code>   
+ The above definition is valid although the universe of types is just `String` and `Int`.
+   
+</code></pre></li>
+<li>
+<p>Language syntax</p>
+</li>
+</ul>
+<p>There is one difference that stands out to me, in fact of disjoint union types. <code>Either</code> and <code>Option</code> are monads and so they give the niceties of <code>map</code>, <code>flatMap</code> and all those of a container. Can&rsquo;t do that with Union types.</p>
+<p>However, Union types give you edge over one thing. In fact, the thing I don&rsquo;t like about <code>Either</code> or <code>Option</code>; or JVM in general. Disjoint union types are allocated on the heap; every instance. Union types are compile time construct and do not require extra allocation.</p>
+<p>As you can see, grass is greener on either side. Both disjoint union and Union types have their place and are here to stay. You gotta choose the right one for the job; <code>Either</code> disjoint types <code>|</code> Union Types!</p>
 
 </div>
 
