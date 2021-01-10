@@ -13,7 +13,7 @@
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020-12-28-union-types/</guid>
-      <description>Dotty&amp;rsquo;s shiny new Union types complemen disjoint union types.</description>
+      <description>Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions).</description>
     </item>
     
     <item>

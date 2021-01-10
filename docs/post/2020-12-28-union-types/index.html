@@ -12,10 +12,10 @@
   
 
 <meta itemprop="name" content="Either Disjoint or Union Types">
-<meta itemprop="description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types.">
+<meta itemprop="description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions).">
 <meta itemprop="datePublished" content="2020-12-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="295">
+<meta itemprop="wordCount" content="343">
 
 
 
@@ -24,11 +24,11 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Either Disjoint or Union Types"/>
-<meta name="twitter:description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types."/>
+<meta name="twitter:description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions)."/>
 
 
 <meta property="og:title" content="Either Disjoint or Union Types" />
-<meta property="og:description" content="Dotty&rsquo;s shiny new Union types complemen disjoint union types." />
+<meta property="og:description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/2020-12-28-union-types/" />
 <meta property="article:published_time" content="2020-12-28T00:00:00+00:00" />
@@ -174,6 +174,9 @@
 </li>
 </ul>
 <p>There is one difference that stands out to me, in fact of disjoint union types. <code>Either</code> and <code>Option</code> are monads and so they give the niceties of <code>map</code>, <code>flatMap</code> and all those of a container. Can&rsquo;t do that with Union types.</p>
+<blockquote>
+<p>Update: Per <a href="https://www.reddit.com/user/phazer99/">phazer99</a>&rsquo;s reddit <a href="https://www.reddit.com/r/scala/comments/klvegn/union_types_homework/ghby3nm">comment</a>, union types could be augmented with extension methods to get the <code>map</code> and <code>flatMap</code>. That&rsquo;s interesting although I feel it does not make it truly monadic. For instance, what is the unit value? Will the monad <a href="https://wiki.haskell.org/Monad_laws">laws</a> hold good? Happy to stand corrected.</p>
+</blockquote>
 <p>However, Union types give you edge over one thing. In fact, the thing I don&rsquo;t like about <code>Either</code> or <code>Option</code>; or JVM in general. Disjoint union types are allocated on the heap; every instance. Union types are compile time construct and do not require extra allocation.</p>
 <p>As you can see, grass is greener on either side. Both disjoint union and Union types have their place and are here to stay. You gotta choose the right one for the job; <code>Either</code> disjoint types <code>|</code> Union Types!</p>
 
@@ -184,7 +187,7 @@
 
   <footer>
   <div>
-    &copy;  2020
+    &copy;  2021
 
     &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
 
