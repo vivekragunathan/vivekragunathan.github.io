@@ -18,7 +18,6 @@ summary: |
 
 <!-- more -->
 
-
 ## Did you know ?
 
 - `Option` maybe viewed as a sequence (of zero or one element). This is for convenience when working with `Option`, which is why see a `.head` on an `Option`.
@@ -66,9 +65,9 @@ val simpleStyleGreeting: String =
    maybeGreeting.getOrElse("Hello!")
 
 val yelling: String = 
-	maybeGreeting
-		.map(_.upperCase)
-		.getOrElse("HELLO!")
+  maybeGreeting
+    .map(_.upperCase)
+    .getOrElse("HELLO!")
 
 val greetingAfterTransformations =
   mayBeGreeting
@@ -95,12 +94,12 @@ import cats.syntax.option._
 import cats.instances.functor._
 
 val maybeG: Optional[String] =
-	maybeGreeting.orElse("Hello!".some)
+  maybeGreeting.orElse("Hello!".some)
 ```
 
 ### **Pattern `match`**
 
-One of the facilities that would have 
+One of the facilities that would have
 
 ```scala
 val g: X =
@@ -111,7 +110,6 @@ val g: X =
 ```
 
 where `X` is the type of value returned by the `match` expression.
-
 
 ```scala
 import cats.syntax.option._
@@ -133,8 +131,8 @@ val g: String =
 
 val g: String =
   maybeGreeting.fold("Hello!") { g =>
-	if (g.startsWith("How")) s"$g?"
-	else s"$g!"
+  if (g.startsWith("How")) s"$g?"
+  else s"$g!"
   }
 
 val maybeG: Option[String] =
@@ -146,17 +144,17 @@ val maybeG: Option[String] =
 
 ### **`fold`**
 
-When you want to resolve to a value with explicit paths for the empty and 
+When you want to resolve to a value with explicit paths for the empty and
 
 ```scala
 val g: String =
-	maybeGreeting.fold("Hello!") { g =>
-		if (g.startsWith("How")) s"$g?"
-		else s"$g!"
-	}
+  maybeGreeting.fold("Hello!") { g =>
+    if (g.startsWith("How")) s"$g?"
+    else s"$g!"
+  }
 ```
 
-## So ...
+## Finally
 
 As you can see, there is a myriad of options to avoid `.get` or `.head`, each with a different style and purpose and fitting different situations. You did not ask the question: _why should we avoid `.get` or `.head`?_
 

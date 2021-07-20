@@ -24,13 +24,17 @@ There is definitely a solution for this simple and primary problem. All we have 
 
 Simple, one line of code.
 
-<span style="font-family:courier new;">// Broadcast the WM_SETTINGCHANGE message for Enviroment</span>
+```cpp
+// Broadcast the WM_SETTINGCHANGE message for Enviroment</span>
+SendMessageTimeout(
+  HWND_BROADCAST, 
+  WM_SETTINGCHANGE, 
+  0,
+  (LPARAM) “Environment”,
+  SMTO_ABORTIFHUNG,
+  5000,
+  &dwReturnValue
+);
+```
 
-<span style="font-family:courier new;">SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0,</span>  
-    <span style="font-family:courier new;">(LPARAM) &#8220;Environment&#8221;,</span>  
-    <span style="font-family:courier new;">SMTO_ABORTIFHUNG,</span>  
-    <span style="font-family:courier new;">5000, &dwReturnValue);</p>
-
-<p>
-  </span>Of course, this is C++ code. Not a big deal to do that in C# or whatever.
-</p>
+Of course, this is C++ code. Not a big deal to do that in C# or whatever.
