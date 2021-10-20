@@ -4,7 +4,8 @@ author:
 layout: post
 date: 2021-10-20
 categories:
-  - IDE / Plugins
+  - IDE
+  - Plugins
 summary: |
   If IntelliJ is the perfect main course, its plugins are the seasoning to spice it up. There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.
 ---
