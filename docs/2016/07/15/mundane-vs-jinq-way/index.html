@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Mundane vs JINQ Way &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Mundane vs JINQ Way">
-<meta itemprop="description" content="New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ1 wasn&rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &hellip; ridiculed. However, JINQ still promises expressive succinct code.">
-<meta itemprop="datePublished" content="2016-07-15T06:27:45+00:00" />
+<meta itemprop="description" content="New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ1 wasn&rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &hellip; ridiculed. However, JINQ still promises expressive succinct code."><meta itemprop="datePublished" content="2016-07-15T06:27:45+00:00" />
 <meta itemprop="dateModified" content="2016-07-15T06:27:45+00:00" />
-<meta itemprop="wordCount" content="326">
-
-
-
+<meta itemprop="wordCount" content="323">
 <meta itemprop="keywords" content="design,Java,jinq,LINQ," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mundane vs JINQ Way"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Mundane vs JINQ Way" />
 <meta property="og:description" content="New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ1 wasn&rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &hellip; ridiculed. However, JINQ still promises expressive succinct code." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2016/07/15/mundane-vs-jinq-way/" />
+<meta property="og:url" content="/2016/07/15/mundane-vs-jinq-way/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-07-15T06:27:45+00:00" />
 <meta property="article:modified_time" content="2016-07-15T06:27:45+00:00" />
+
 
 
 
@@ -145,7 +141,7 @@
 
   <p>New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> wasn&rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &hellip; ridiculed. However, JINQ still promises expressive succinct code.</p>
 <p>Here is an example (morphed from real-time code). Tell me what it is trying to do.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">CostInfo</span><span class="o">&gt;</span> <span class="nf">calculateCostsByDept</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">CostInfo</span><span class="o">&gt;</span> <span class="nf">calculateCostsByDept</span><span class="o">()</span> <span class="o">{</span>
 	<span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">CostInfo</span><span class="o">&gt;</span> <span class="n">costMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 
 	<span class="k">for</span> <span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span> <span class="o">:</span> <span class="n">employees</span><span class="o">)</span> <span class="o">{</span>
@@ -179,7 +175,7 @@
 <p>From a list of employees, select those that are not interns. And in the list of interns, gather the cost to the company information for the employee (based on hike, say for the current year) by creating a <code>CostInfo</code> for the employee. Then group the list of <code>CostInfo</code> by department such that we get the cost information by department.</p>
 </blockquote>
 <p>Let us JINQ all the way:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> 
 	<span class="k">new</span> <span class="n">Enumerable</span><span class="o">&lt;&gt;(</span><span class="n">employees</span><span class="o">)</span>
 		<span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">e</span><span class="o">.</span><span class="na">intern</span><span class="o">)</span>
 		<span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">CostInfo</span><span class="o">::</span><span class="k">new</span><span class="o">)</span>
@@ -195,13 +191,13 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://vivekragunathan.wordpress.com/2016/04/02/jinq/">https://vivekragunathan.wordpress.com/2016/04/02/jinq/</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://vivekragunathan.wordpress.com/2016/04/02/jinq/">https://vivekragunathan.wordpress.com/2016/04/02/jinq/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://www.github.com/VivekRagunathan/JINQ">https://www.github.com/VivekRagunathan/JINQ</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://www.github.com/VivekRagunathan/JINQ">https://www.github.com/VivekRagunathan/JINQ</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p><a href="https://gist.github.com/VivekRagunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1">https://gist.github.com/VivekRagunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://gist.github.com/VivekRagunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1">https://gist.github.com/VivekRagunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

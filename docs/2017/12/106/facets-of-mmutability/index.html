@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Facets of Immutability &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Facets of Immutability">
 <meta itemprop="description" content="Immutability, the cornerstone of functional programming, has many facets.
-Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.">
-<meta itemprop="datePublished" content="2017-12-06T00:00:00+00:00" />
+Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way."><meta itemprop="datePublished" content="2017-12-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2017-12-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2071">
-
-
-
+<meta itemprop="wordCount" content="2065">
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Facets of Immutability"/>
@@ -33,9 +28,10 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <meta property="og:description" content="Immutability, the cornerstone of functional programming, has many facets.
 Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2017/12/106/facets-of-mmutability/" />
+<meta property="og:url" content="/2017/12/106/facets-of-mmutability/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-12-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-12-06T00:00:00+00:00" />
+
 
 
 
@@ -162,7 +158,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Also called <em>compile-time</em> constants, it is the equivalent of using the value directly at the call site.</p>
 <p>On your behalf, the compiler hard-codes the value of the constant at the call-site (place of use). It is up to the compiler either to keep the identifiers in the final binary or throw them away during compilation (since the required values are hard-coded at the call site).</p>
 <p>(In an ideal world) A compiler should allow using a constant in any place where its value may be directly used; hard-coded. Although it is straightforward, there are cases like the use of constants in <a href="">annotations</a> or <a href="">attributes</a>; or its use restricted thereof in some languages/scenarios<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// The atrribute values below could be declared as constant
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// The atrribute values below could be declared as constant
 </span><span class="c1"></span><span class="na">[StringLength(
 </span><span class="na">  120,
 </span><span class="na">  MinimumLength=5,
@@ -180,7 +176,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Generally speaking, the use of constants is a good practice more than its need and purpose. Because you could hard-code the value as well, and your program will still work the same way. Like I said <em>generally speaking</em>. But not so in C++.</p>
 <p>As always, C++ has something interesting in store. While those languages that support constants support only constant identifiers (or <em>constant variables</em>, just to remind you), C++ supports <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp"><strong><code>constexpr</code></strong></a> or constant expressions. Unlike trivial assignments (<code>const int X = 10;</code>), <code>constexpr</code> are <em>expressions</em> that are evaluated at  compile time. A <code>constexpr</code> may be a simple identifier or even a full blown user-defined type (<code>class</code>). A <code>constexpr</code> is equivalent to using an identifier or the resultant value at the call site.</p>
 <p>Let us try this<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
 <span class="p">{</span>  
     <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
       <span class="o">?</span> <span class="mi">1</span>
@@ -195,7 +191,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p><strong><code>read-only</code> (RO), otherwise the constant variable</strong></p>
 <p>The constant that we saw earlier is a compile-time constant. RO is a runtime constant, if you will, although it is not a constant per se. <em>It is immutable</em>.</p>
 <p>By declaring a variable read-only, we intend to assign a value once (in its respective scope and frame). Needless to say, the value of the variable doesn&rsquo;t change thereafter.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// In Java
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// In Java
 </span><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">someFunc</span><span class="o">()</span> <span class="o">{</span>
    <span class="o">...</span>
    <span class="kd">final</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">getCount</span><span class="o">();</span>
@@ -220,7 +216,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>There are a few flavors of immutable objects.</p>
 <p><strong>Immutable Class</strong></p>
 <p>An instance whose members or state cannot be mutated after instantiation. Imagine writing the following in Java:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">StoneClass</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">StoneClass</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
 
@@ -233,7 +229,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
 </code></pre></div><p>Once an instance of the <code>StoneClass</code> is created, the <code>name</code> and <code>age</code> cannot change in a thousand years. Changes or mutations are realized by making a copy with new values. I would say <em>an immutable class is the holy grail of immutability</em>.</p>
 <p><strong>Immutable Interface or Copy</strong></p>
 <p>Think Java&rsquo;s <code>Collections.immutableList(list)</code> or one of the other variants, which hands out an immutable copy of the collection. This flavor is <em>primarily</em> associated with collections or container objects, wherein the immutability is applicable to the container objects and not the containee. The containee objects might as well be mutable.</p>
@@ -271,22 +267,22 @@ Can change where <code>cptr</code> points. <em>Cannot</em> modify the <code>char
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><strong>Usecase for a constant</strong>: Say you are writing a client that makes a bunch of API calls, say 30 different calls, to a third-party server. The API calls mandate a secret key assigned to your client as a parameter (query or form). You could hard-code the secret key in the 30 different methods that make the API calls. Or you could declare a constant, say <code>SECRET_KEY</code>, and use that. They are effectively the same. The value of <code>SECRET_KEY</code> is known at compile time, and it does not change, for whatever reason. Why do we want a constant if it is no different from hard-coding? Like I said, best practices. By assigning an identifier, we make it compiler-aware. Refactoring and what not. Also, the code that consumes the <code>SECRET_KEY</code> is not particular on its value. If the value had to be changed for whatever reason, changing it in one place is definitely better than changing it a bunch of places. Besides, we have a name, a token for a value. Doesn&rsquo;t it make sense it refer it by a name <code>SECRET_KEY</code>? Or do you prefer <code>AX12-345H-900N-TT6R</code>? <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><strong>Usecase for a constant</strong>: Say you are writing a client that makes a bunch of API calls, say 30 different calls, to a third-party server. The API calls mandate a secret key assigned to your client as a parameter (query or form). You could hard-code the secret key in the 30 different methods that make the API calls. Or you could declare a constant, say <code>SECRET_KEY</code>, and use that. They are effectively the same. The value of <code>SECRET_KEY</code> is known at compile time, and it does not change, for whatever reason. Why do we want a constant if it is no different from hard-coding? Like I said, best practices. By assigning an identifier, we make it compiler-aware. Refactoring and what not. Also, the code that consumes the <code>SECRET_KEY</code> is not particular on its value. If the value had to be changed for whatever reason, changing it in one place is definitely better than changing it a bunch of places. Besides, we have a name, a token for a value. Doesn&rsquo;t it make sense it refer it by a name <code>SECRET_KEY</code>? Or do you prefer <code>AX12-345H-900N-TT6R</code>?&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>Some languages like Java and Scala do not <em>fully</em> support the use of constants in annotations. For the constant to be used in annotations or other places where you would want to use an identifier instead of hard coding the value, the identifier has to be declared in the same class or package. I am not fully aware of the rules. But I have been bitten by it more than once. I did not have the patience and time to chase it to closure. I had other bigger problems to take care of then. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Some languages like Java and Scala do not <em>fully</em> support the use of constants in annotations. For the constant to be used in annotations or other places where you would want to use an identifier instead of hard coding the value, the identifier has to be declared in the same class or package. I am not fully aware of the rules. But I have been bitten by it more than once. I did not have the patience and time to chase it to closure. I had other bigger problems to take care of then.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>A <code>val</code> in Scala is analogous to <code>read-only</code>. Only a <code>final val</code> maps to a constant for most purposes but not all as discussed in the corresponding section. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>A <code>val</code> in Scala is analogous to <code>read-only</code>. Only a <code>final val</code> maps to a constant for most purposes but not all as discussed in the corresponding section.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p>The <code>exp</code> function was borrowed from <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp">MSDN</a> <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>The <code>exp</code> function was borrowed from <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp">MSDN</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:5" role="doc-endnote">
-<p><code>constexpr</code>  has rules that govern if the value can be determined at compile time. Read more. For instance, <code>exp(num)</code> cannot be computed at compile assuming <code>num</code> is not a compile time constant. Also, the value of a <code>constexpr</code> may be assigned to a mutable variable and could changed at run time, which is not under the purview of <code>constexpr</code>. <code>constexpr</code> is more of an indication to the compiler to try to evaluate the expression at compile time; similar to <code>tailrec</code> in some languages. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><code>constexpr</code>  has rules that govern if the value can be determined at compile time. Read more. For instance, <code>exp(num)</code> cannot be computed at compile assuming <code>num</code> is not a compile time constant. Also, the value of a <code>constexpr</code> may be assigned to a mutable variable and could changed at run time, which is not under the purview of <code>constexpr</code>. <code>constexpr</code> is more of an indication to the compiler to try to evaluate the expression at compile time; similar to <code>tailrec</code> in some languages.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:6" role="doc-endnote">
-<p>Imagine the user interface freezing for a few seconds when it is gone to do its thing when you clicked that button. Generally, the user interface is usable but it freezes for that bit. Scrap that, I was just trying to be funny. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Imagine the user interface freezing for a few seconds when it is gone to do its thing when you clicked that button. Generally, the user interface is usable but it freezes for that bit. Scrap that, I was just trying to be funny.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

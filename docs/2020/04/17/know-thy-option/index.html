@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Know Thy Option &middot; A Developer&#39;s Experience</title>
 
@@ -14,15 +14,10 @@
 <meta itemprop="name" content="Know Thy Option">
 <meta itemprop="description" content="Avoid .get at all costs. Forget there is even a .get function on Option. There is always a way out - better one, than using .get. Same applies to .head
 If you are going to have access the value in an Option in a test class, prefer extending your test class from OptionValues. Then you can use .value on an Option. Doing so establishes the presence of value as verification with meaningful error if value is not defined.
-">
-<meta itemprop="datePublished" content="2020-04-17T00:00:00+00:00" />
+"><meta itemprop="datePublished" content="2020-04-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="706">
-
-
-
+<meta itemprop="wordCount" content="704">
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Know Thy Option"/>
@@ -36,9 +31,10 @@ If you are going to have access the value in an Option in a test class, prefer e
 If you are going to have access the value in an Option in a test class, prefer extending your test class from OptionValues. Then you can use .value on an Option. Doing so establishes the presence of value as verification with meaningful error if value is not defined.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2020/04/17/know-thy-option/" />
+<meta property="og:url" content="/2020/04/17/know-thy-option/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-04-17T00:00:00+00:00" />
+
 
 
 
@@ -162,7 +158,7 @@ If you are going to have access the value in an Option in a test class, prefer e
 <p>Following are the different ways to <em>avoid the use of <code>.get</code> or <code>.head</code></em> to yield a value from an <code>Option</code>.</p>
 <h3 id="map-and-flatmap"><strong><code>map</code> and <code>flatMap</code></strong></h3>
 <p>When you think of reaching into an <code>Option</code> for its value, <code>map</code> or <code>flatMap</code> is the defacto choice and is safe because they allow us to safely reach into <code>Option</code> only if there is a value inside. They may be chained back to back to attempt a series of transformations on the <code>Option</code>. Since the resultant type of the  transformations is still an <code>Option</code>, it is common for <code>map</code> or <code>flatMap</code> to end with one of the <code>getOrElse</code> , <code>fold</code> or is pattern <code>match</code>ed to resolve to a value.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
 
 <span class="k">def</span> <span class="n">personalizeGreeting</span><span class="o">(</span><span class="n">g</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="o">...</span>
 
@@ -176,21 +172,21 @@ If you are going to have access the value in an Option in a test class, prefer e
 
 <span class="k">val</span> <span class="n">maybeGreeting</span> <span class="k">=</span> <span class="n">maybeGreetingKey</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">k</span> <span class="k">=&gt;</span> <span class="n">readGreetingValue</span><span class="o">(</span><span class="n">k</span><span class="o">))</span>
 </code></pre></div><h3 id="getorelse"><strong><code>getOrElse</code></strong></h3>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
 
 <span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">upperCase</span><span class="o">).</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&#34;HELLO!&#34;</span><span class="o">)</span>
 </code></pre></div><p><code>getOrElse</code> provides a default or replacement value if the <code>Option</code> does not have a value. It is commonly used in cases where the intent is to resolve to a value by <em>optionally</em> running a sequence of transformations; a common default value if none of the transformations in the pipeline yields a value.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="n">maybeValueFromConfig</span><span class="o">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="n">maybeValueFromConfig</span><span class="o">()</span>
 
 <span class="k">val</span> <span class="n">simpleStyleGreeting</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
    <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="n">yelling</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> 
-	<span class="n">maybeGreeting</span>
-		<span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">upperCase</span><span class="o">)</span>
-		<span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&#34;HELLO!&#34;</span><span class="o">)</span>
+  <span class="n">maybeGreeting</span>
+    <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">upperCase</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="s">&#34;HELLO!&#34;</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="n">greetingAfterTransformations</span> <span class="k">=</span>
   <span class="n">mayBeGreeting</span>
@@ -213,20 +209,20 @@ If you are going to have access the value in an Option in a test class, prefer e
 </ol>
 <h3 id="orelse"><strong><code>orElse</code></strong></h3>
 <p>Consider <code>orElse</code> as the dual of <code>flatMap</code>. While <code>flatMap</code> runs when the <code>Option</code> has a value, <code>orElse</code> does the opposite. It runs when the <code>Option</code> does not have a value. Like <code>flatMap</code>, <code>orElse</code> expects an <code>Option</code> back from the evaluated expression.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.option._</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.option._</span>
 <span class="k">import</span> <span class="nn">cats.instances.functor._</span>
 
 <span class="k">val</span> <span class="n">maybeG</span><span class="k">:</span> <span class="kt">Optional</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span>
-	<span class="n">maybeGreeting</span><span class="o">.</span><span class="n">orElse</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">.</span><span class="n">some</span><span class="o">)</span>
+  <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">orElse</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">.</span><span class="n">some</span><span class="o">)</span>
 </code></pre></div><h3 id="pattern-match"><strong>Pattern <code>match</code></strong></h3>
 <p>One of the facilities that would have</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">X</span> <span class="o">=</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">X</span> <span class="o">=</span>
   <span class="n">maybeGreeting</span> <span class="k">match</span> <span class="o">{</span>
     <span class="k">case</span> <span class="nc">Some</span><span class="o">(</span><span class="n">g</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">...</span>
     <span class="k">case</span> <span class="nc">None</span> <span class="k">=&gt;</span> <span class="o">...</span>
   <span class="o">}</span>
 </code></pre></div><p>where <code>X</code> is the type of value returned by the <code>match</code> expression.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.option._</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.option._</span>
 <span class="k">import</span> <span class="nn">cats.instances.functor._</span>
 
 <span class="k">val</span> <span class="n">maybeGreeting</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">...</span>
@@ -245,8 +241,8 @@ If you are going to have access the value in an Option in a test class, prefer e
 
 <span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
   <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">fold</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">)</span> <span class="o">{</span> <span class="n">g</span> <span class="k">=&gt;</span>
-	<span class="k">if</span> <span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&#34;How&#34;</span><span class="o">))</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">?&#34;</span>
-	<span class="k">else</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">!&#34;</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&#34;How&#34;</span><span class="o">))</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">?&#34;</span>
+  <span class="k">else</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">!&#34;</span>
   <span class="o">}</span>
 
 <span class="k">val</span> <span class="n">maybeG</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span>
@@ -256,18 +252,18 @@ If you are going to have access the value in an Option in a test class, prefer e
   <span class="o">}</span>
 </code></pre></div><h3 id="fold"><strong><code>fold</code></strong></h3>
 <p>When you want to resolve to a value with explicit paths for the empty and</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
-	<span class="n">maybeGreeting</span><span class="o">.</span><span class="n">fold</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">)</span> <span class="o">{</span> <span class="n">g</span> <span class="k">=&gt;</span>
-		<span class="k">if</span> <span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&#34;How&#34;</span><span class="o">))</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">?&#34;</span>
-		<span class="k">else</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">!&#34;</span>
-	<span class="o">}</span>
-</code></pre></div><h2 id="so-">So &hellip;</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">g</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
+  <span class="n">maybeGreeting</span><span class="o">.</span><span class="n">fold</span><span class="o">(</span><span class="s">&#34;Hello!&#34;</span><span class="o">)</span> <span class="o">{</span> <span class="n">g</span> <span class="k">=&gt;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&#34;How&#34;</span><span class="o">))</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">?&#34;</span>
+    <span class="k">else</span> <span class="s">s&#34;</span><span class="si">$g</span><span class="s">!&#34;</span>
+  <span class="o">}</span>
+</code></pre></div><h2 id="finally">Finally</h2>
 <p>As you can see, there is a myriad of options to avoid <code>.get</code> or <code>.head</code>, each with a different style and purpose and fitting different situations. You did not ask the question: <em>why should we avoid <code>.get</code> or <code>.head</code>?</em></p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>Test code is real time code. It is used / executed several dozen times a day. Its quality is equally vital to a robust application. So, it is natural to develop a lot of classes and facilities to write better quality tests. It is recommended to reserve the use of <code>OptionalValues</code>.<code>value</code> in the tests themselves rather than in the facilities supporting the tests. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Test code is real time code. It is used / executed several dozen times a day. Its quality is equally vital to a robust application. So, it is natural to develop a lot of classes and facilities to write better quality tests. It is recommended to reserve the use of <code>OptionalValues</code>.<code>value</code> in the tests themselves rather than in the facilities supporting the tests.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

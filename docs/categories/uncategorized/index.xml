@@ -85,7 +85,7 @@
 &lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So that would be as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;abc def ghi
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
 
 abc def
 
@@ -137,7 +137,7 @@ abc
       <pubDate>Wed, 30 Dec 2015 06:58:42 +0000</pubDate>
       
       <guid>/2015/12/30/bits-bytes-stones/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Academia&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;h3 id=&#34;academia&#34;&gt;Academia&lt;/h3&gt;
 &lt;p&gt;The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.&lt;/p&gt;</description>
     </item>
     
@@ -166,7 +166,7 @@ abc
       
       <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
 
@@ -233,7 +233,7 @@ abc
       
       <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
 &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 
 &lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Prints &amp;#34;Hello World!&amp;#34;
@@ -269,7 +269,7 @@ abc
       <guid>/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
 &lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
@@ -841,7 +841,7 @@ There are two types of programming or programming languages.</description>
       <pubDate>Sat, 15 Apr 2006 00:23:00 +0000</pubDate>
       
       <guid>/2006/04/15/serialization-and-exceptions/</guid>
-      <description>I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the .</description>
+      <description>I am just like Alice in Wonderland, and not yet got out of the wonders of the .</description>
     </item>
     
     <item>

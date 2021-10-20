@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Linked List Quiz – Part I !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Linked List Quiz – Part I !!!">
-<meta itemprop="description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list.">
-<meta itemprop="datePublished" content="2012-06-17T18:30:44+00:00" />
+<meta itemprop="description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list."><meta itemprop="datePublished" content="2012-06-17T18:30:44+00:00" />
 <meta itemprop="dateModified" content="2012-06-17T18:30:44+00:00" />
 <meta itemprop="wordCount" content="1042">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linked List Quiz – Part I !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Linked List Quiz – Part I !!!" />
 <meta property="og:description" content="A short while back, Sammy quizzed me on linked list based problems; singly linked list." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2012/06/18/linked-list-quiz-part-i/" />
+<meta property="og:url" content="/2012/06/18/linked-list-quiz-part-i/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2012-06-17T18:30:44+00:00" />
 <meta property="article:modified_time" content="2012-06-17T18:30:44+00:00" />
+
 
 
 
@@ -154,7 +150,7 @@
 <li>Reverse every K nodes in the list</li>
 </ul>
 <p>I will be solving reversing the list (both iteratively and recursively) and finding if the list is cyclic problems in this episode.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
 </span><span class="cp"></span>
 <span class="cp">#include</span>
 <span class="cpf">#include</span><span class="cp">
@@ -288,7 +284,7 @@
 <span class="p">}</span>
 </code></pre></div><p>The above list class allows creating cycles in the list (see <code>Node::Next()</code> method). The Node::Next method returns a reference to the next item pointer in the list, which allows pointing it to a previous Node in the list. The linked list class will be improved based on the problem being solved.</p>
 <p>Since reversing the list recursively came to me naturally, I&rsquo;ll go with it first. It was natural since the unit work of reversal involving current and next pointers is repeated until there are no more nodes in the list.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseRecursively</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseRecursively</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">root</span> <span class="o">=</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
 <span class="p">}</span>
@@ -320,7 +316,7 @@
    <span class="k">return</span> <span class="nf">UnitReverse</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">nextNext</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>Iterative version of reversal. Cute, eh!</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseIteratively</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseIteratively</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
    <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
@@ -344,11 +340,11 @@
    <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>   
 <span class="p">}</span>
 </code></pre></div><p>A cycle in a list is where the next pointer of the current node points to one of the previous nodes in the list; like the one below.</p>
-<pre><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt;
+<pre tabindex="0"><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt;
           ^------------|
 </code></pre><p>Above, the list doesn&rsquo;t end at 5, instead cycles back to 3. And as everybody knows, a traversal of the nodes in the list would never end. If one was using a traditional list implementation, it would not have allowed creating cycle(s) deliberately. However, the data from which the list is created may bear cycles or back references, in which case the data is assumed to corrupt. For instance, an employee reporting to manager, and the manager reporting back to the employee. But our list implementation above, for the purposes of illustration of the problem at hand, allows creating cycles. And we will see a solution later to resolve them too.</p>
 <p>Finding if there is a cycle in the list was tough for me. I sort of need a hammer and some hints from Sammy.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="nf">IsCyclic</span><span class="p">()</span> <span class="k">const</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="nf">IsCyclic</span><span class="p">()</span> <span class="k">const</span>
 <span class="p">{</span>   
    <span class="k">auto</span> <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
    <span class="k">auto</span> <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
@@ -370,7 +366,7 @@
    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p>Here is some code to test the above methods:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">LinkedList</span> <span class="n">ll</span><span class="p">;</span>
    <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>

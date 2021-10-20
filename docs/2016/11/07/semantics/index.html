@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Importance of Semantics &middot; A Developer&#39;s Experience</title>
 
@@ -25,15 +25,10 @@ the study of the relationship between the structure of a theory and its subject 
 
 
 
-Semantics is ever more important in programming.">
-<meta itemprop="datePublished" content="2016-11-07T06:04:46+00:00" />
+Semantics is ever more important in programming."><meta itemprop="datePublished" content="2016-11-07T06:04:46+00:00" />
 <meta itemprop="dateModified" content="2016-11-07T06:04:46+00:00" />
 <meta itemprop="wordCount" content="1065">
-
-
-
 <meta itemprop="keywords" content="api,clean code,design,programming,semantics," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Importance of Semantics"/>
@@ -69,9 +64,10 @@ the study of the relationship between the structure of a theory and its subject 
 
 Semantics is ever more important in programming." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2016/11/07/semantics/" />
+<meta property="og:url" content="/2016/11/07/semantics/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-11-07T06:04:46+00:00" />
 <meta property="article:modified_time" content="2016-11-07T06:04:46+00:00" />
+
 
 
 
@@ -201,11 +197,11 @@ Semantics is ever more important in programming." />
 <p>Java/JDK is notorious for such poor semantics. Not just Stack but many others – <code>Thread</code>, obtaining an immutable <code>List</code>, ambiguous method names<sup id="fnref-2002-2"><a href="#fn-2002-2">2</a></sup> etc.</p>
 </blockquote>
 <p>Let us think about obtaining that immutable list. Here is how you get an immutable list out of an existing immutable list:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// list could have been created elsewhere or in place new ArrayList();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// list could have been created elsewhere or in place new ArrayList();
 </span><span class="c1"></span><span class="n">Collections</span><span class="o">.</span><span class="na">immutableList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
 </code></pre></div><p>You might argue <em>it does the job</em>. However it is operating on broken or poor semantics. With a <code>List</code> in hand, how do you tell that it is immutable? Imagine that you are returning the immutable list from one of your methods. How would the caller know that the list is immutable and avoid modifying the list. Don’t tell me <em>from Java doc</em>. It is known for sure only at runtime when an <code>UnsupportedOperationException</code> is encountered in an attempt to modify the list. A better semantic is to have a separate interface/class that does not even provide mutator methods just like <a href="https://msdn.microsoft.com/en-us/library/hh192385.aspx"><code>IReadOnlyList</code></a> in .NET.</p>
 <p>Let us extend on the above thought a bit further. Suppose you have to implement an API <code>List getMeTheList(/*some input arguments*/)</code>. The API can return an empty list for some cases and a non-empty one for others; some business logic. It is not uncommon to declare a shared empty list <code>EMPTY_LIST</code> and use that for all empty list cases in the above method and other such methods too. We don’t want to be churning empty lists for no reason. Remember you don’t the garbage collector for free. So you would make that shared empty list immutable – <code>Collections.immutableList(new ArrayList());</code> If the shared list is not immutable, any consumer code that modified the list would make it non-empty and all consumers would not be getting empty list anymore when we return <code>EMPTY_LIST</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">AppLib</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">AppLib</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">List</span> <span class="n">EMPTY</span><span class="err">\</span><span class="n">_LIST</span><span class="err">\</span><span class="n">_REF</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">unmodifiableList</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
 
   <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>

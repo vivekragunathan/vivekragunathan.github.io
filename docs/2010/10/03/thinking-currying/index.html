@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Thinking Currying !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Thinking Currying !!!">
-<meta itemprop="description" content="Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.">
-<meta itemprop="datePublished" content="2010-10-03T12:08:00+00:00" />
+<meta itemprop="description" content="Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions."><meta itemprop="datePublished" content="2010-10-03T12:08:00+00:00" />
 <meta itemprop="dateModified" content="2010-10-03T12:08:00+00:00" />
-<meta itemprop="wordCount" content="902">
-
-
-
+<meta itemprop="wordCount" content="892">
 <meta itemprop="keywords" content="binding,currying,functional programming," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Thinking Currying !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Thinking Currying !!!" />
 <meta property="og:description" content="Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2010/10/03/thinking-currying/" />
+<meta property="og:url" content="/2010/10/03/thinking-currying/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2010-10-03T12:08:00+00:00" />
 <meta property="article:modified_time" content="2010-10-03T12:08:00+00:00" />
+
 
 
 
@@ -143,37 +139,37 @@
     <time datetime="2010-10-03T12:08:00Z">Oct 3, 2010</time> &middot; 5 min read
   </div>
 
-  <p><em>Currying</em> is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers <code>1</code> through <code>10</code>, what would you do? Class II mathematics… <code>in hand, `1` in the mind, add</code> and <code>1</code>, so <code>1</code> in the mind, then <code>2</code> in the hand, … up to <code>10</code>. So we compute the addition with one argument at a time.</p>
-<p>In the programming world, it is realized by transforming a n-arguments function into a (n-1) arguments function, which takes the remaining one argument. This transformation when applied recursively on each of the single argument functions is the chaining of single argument functions that I discussed earlier. Needless to say, currying is a gift of the functional programming world. In simple words, functional programming is about building functions from other functions, and so functions are treated as first class citizens (like data).</p>
-<p>If currying is just transforming a n arguments function into a single argument function, then extension method too is an example of currying.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="n">Replace</span><span class="p">(</span><span class="k">this</span> <span class="n">IList</span> <span class="n">srcList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span> <span class="n">item</span><span class="p">)</span>  
+  <p><em>Currying</em> is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers <code>1</code> through <code>10</code>, what would you do? Class II mathematics -<code>0</code> in hand, <code>1</code> in the mind, add <code>0</code> and <code>1</code>, so <code>1</code> in the mind, then <code>2</code> in the hand, &hellip; up to <code>10</code>. So we compute the addition with one argument at a time.</p>
+<p>In the programming world, it is realized by transforming a n-arguments function into a (n-1) arguments function, which takes the remaining one argument. This transformation when applied recursively on each of the single argument functions is the chaining of single argument functions. Needless to say, currying is a gift of the functional programming world. In simple words, functional programming is about building functions from other functions, and so functions are treated as first class citizens (like data).</p>
+<p>If currying is just transforming a n-arguments function into a single argument function, then extension method too is an example of currying.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="n">Replace</span><span class="p">(</span><span class="k">this</span> <span class="n">IList</span> <span class="n">srcList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span> <span class="n">item</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="c1">// Imagine an implementation here&amp;#8230;.
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><p>So you would be using the Replace above without explicitly passing the source list to the method; one argument less.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">list</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">newItem</span><span class="p">);</span>
+</code></pre></div><p>So you would be using the <code>Replace</code> above without explicitly passing the source list to the method; one argument less.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">list</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">newItem</span><span class="p">);</span>
 
 <span class="c1">// instead of Replace(ilistObj, 2, newItem) if extension method was not invented.
 </span></code></pre></div><p>Isn’t that right? Yes, but that is not the currying from the conventional standpoint of functional programming.</p>
 <p>For samples, we will not use the devil (any functional programming language) itself; instead we will use C#, which provides functional programming facilities. Alright, let us curry.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><p>Or to be <em>functional</em>, we may (re)write:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span> <span class="n">adderFunc</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">;</span>
+</code></pre></div><p>Or to be <em>functional</em>, we could (re)write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span> <span class="n">adderFunc</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">;</span>
 </code></pre></div><p>To curry out an increment function, we would write as follows:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Func</span><span class="p">&gt;</span> <span class="n">Incrementer</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Func</span><span class="p">&gt;</span> <span class="n">Incrementer</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">num</span> <span class="p">=&gt;</span> <span class="n">Add</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>and we use it is as follows:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">inc</span> <span class="p">=</span> <span class="n">Incrementer</span><span class="p">();</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">inc</span> <span class="p">=</span> <span class="n">Incrementer</span><span class="p">();</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">inc</span><span class="p">(</span><span class="m">5</span><span class="p">));</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">inc</span><span class="p">(</span><span class="m">12</span><span class="p">));</span>
 </code></pre></div><p>Is that not better and wise than writing <code>Sum(5, 1)</code>?</p>
 <p>If currying is just transforming a n-arguments function into a single argument function, then we should be able to write a generic currying function.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">Func</span><span class="p">&gt;</span> <span class="n">Curry</span><span class="p">(</span><span class="n">Func</span> <span class="n">fn</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Func</span><span class="p">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">Func</span><span class="p">&gt;</span> <span class="n">Curry</span><span class="p">(</span><span class="n">Func</span> <span class="n">fn</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">y</span> <span class="p">=&gt;</span> <span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 <span class="p">}</span>
@@ -186,19 +182,19 @@
 <p>When simple principles are tough for us to understand, it is our grandma who helps us. Our grandma here is C++; although grandma called it binding.</p>
 <p>In C++, many STL algorithms require a functor (roughly equivalent to a function definition) with one argument, where as the desired function was a two or more arguments function. Then we use std::bind1st or std::bind2nd to curry it into unary function.</p>
 <p>For instance, the <code>count\_if</code> algorithm calculates the number of elements in a sequence that satisfy the predicate, which happens to be a unary function. Suppose we want to count the even numbers in a collection of whole numbers (and imagine this to be a tough calculation). If there was a function that could take a number and return true if it was an even number, it could be fed to count_if. But what if we had a function like the one below – a two argument function.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">bool</span> <span class="n">IsDivisible</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="p">)</span>  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">bool</span> <span class="n">IsDivisible</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">number</span> <span class="p">%</span> <span class="n">divisor</span> <span class="p">==</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p>The functor we need is nothing but an <code>IsDivisible</code> function with the second argument as 2. We could write an IsEven function which in turn calls <code>IsDivisible</code>. But that could be tedious one we were write such wrappers for a function with 10 arguments. In situations like this, we curry. In C++, we (use) bind.</p>
 <blockquote>
-<p><code>std::bind1st</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the first argument of the binary function to a specified value.</p>
+<p><code>std::bind1st</code><a href="https://docs.microsoft.com/en-us/cpp/standard-library/functional-functions?view=msvc-160#bind1st">🔗</a> – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the first argument of the binary function to a specified value.</p>
 </blockquote>
 <blockquote>
-<p><code>std::bind2nd</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the second argument of the binary function to a specified value.</p>
+<p><code>std::bind2nd</code><a href="https://docs.microsoft.com/en-us/cpp/standard-library/functional-functions?view=msvc-160#bind2nd">🔗</a> – A helper template function that creates an adaptor to convert a binary function object into a unary function object by binding the second argument of the binary function to a specified value.</p>
 </blockquote>
 <p>So in our case, we will be using<code>bind2nd</code>, as follows:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">wholeNumbers</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">wholeNumbers</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">count_if</span><span class="p">(</span><span class="n">wholeNumbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
 
@@ -206,18 +202,7 @@
 
 <span class="n">std</span><span class="o">::</span><span class="n">bind2nd</span><span class="p">(</span><span class="n">IsDivisible</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
 </code></pre></div><p>Unfortunately, C++ stayed with <code>bind1st</code> and <code>bind2nd</code>, and currying was not that evident or securely possible since C++ did not have required facilities, say something like the C# <code>delegate</code>. So the concept has been in vogue from long time ago. Like every paradigm in programming, functional programming requires (re)aligning our thought (process). Instead of treating functions as just reusable pieces of code (as considered in procedural programming), they have to be conceived as the input processors, which may return either data or whole new function.</p>
-<p>So that is a quick thought on Currying. I will try to share a few other thoughts related to currying, slightly expanding to functional programming but later.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="http://msdn.microsoft.com/en-us/library/sh813d0y%2528v=VS.90%2529.aspx">http://msdn.microsoft.com/en-us/library/sh813d0y%2528v=VS.90%2529.aspx</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="http://msdn.microsoft.com/en-us/library/3f0defz2%2528v=VS.90%2529.aspx">http://msdn.microsoft.com/en-us/library/3f0defz2%2528v=VS.90%2529.aspx</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
+<p>That is a quick thought on Currying. I will try to share a few other thoughts related to currying, slightly expanding to functional programming.</p>
 
 </div>
 

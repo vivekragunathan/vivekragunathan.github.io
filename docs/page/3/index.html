@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>A Developer&#39;s Experience</title>
 
@@ -14,7 +14,6 @@
 <meta itemprop="name" content="A Developer&#39;s Experience">
 <meta itemprop="description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook">
 
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Developer&#39;s Experience"/>
 <meta name="twitter:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"/>
@@ -24,7 +23,7 @@
 <meta property="og:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2020-12-28T00:00:00+00:00" />
+
 
 
 
@@ -130,6 +129,46 @@
         
 
         <h1 class="post-title">
+          <a href="/2016/02/16/partial-classes-java/">Partial Classes – Java ???</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-02-16T04:27:37Z">Feb 16, 2016</time> &middot; 4 min read
+        </div>
+
+        <div>
+          <p>I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/02/16/partial-classes-java/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2016/01/19/sporting-a-new-look/">Sporting a new look</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-01-19T04:23:55Z">Jan 19, 2016</time> &middot; 3 min read
+        </div>
+
+        <div>
+          <p>I am very particular in composing the content of the posts (and pages) on this blog. By content, I mean what I literally put in the post/page while editing – text, image, HTML etc. I like to keep the content extremely clean and avoid polluting with HTML like I had to earlier (on blogspot). With the content polluted, it is a terrible pain when migrating blogs and/or rendering the posts flawless and consistent across browsers. <a href="http://www.blogger.com">Blogger</a> is notorious in that aspect 1.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/01/19/sporting-a-new-look/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
           <a href="/2016/01/19/publishing-ccli-on-leanpub/">Publishing C&#43;&#43;/CLI on LeanPub</a>
         </h1>
 
@@ -199,7 +238,7 @@
 
         <div>
           <p>What are your thoughts on the following piece of code?</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
 	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
 	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
 
@@ -307,100 +346,38 @@
           <a href="/2015/07/08/a-funny-moment-of-ioc/">Read More</a>
         </div>
       </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/07/07/mutating-strings/">Mutating Strings</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-07-07T06:52:45Z">Jul 7, 2015</time> &middot; 4 min read
-        </div>
-
-        <div>
-          <p>Today, we question our beliefs! Is string really immutable?</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp">  
-<span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;
-</span><span class="c1"></span>
-<span class="k">unsafe</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">message</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-  
-  <span class="k">fixed</span> <span class="p">(</span><span class="kt">char</span> <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">*(</span><span class="n">p</span> <span class="p">+</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints what? See for yourself!
-</span></code></pre></div>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/07/07/mutating-strings/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/05/02/time-begins/">A time when time did not exist …</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-05-02T18:08:59Z">May 2, 2015</time> &middot; 2 min read
-        </div>
-
-        <div>
-          <p>Those of us, non-physicists, we do seem to realize that time is eternal. Yet there was a time when time did not exist; tough to comprehend? For us, time is something running on a clock or tracked on a calendar. Let me share what I think about when time did not exist.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/05/02/time-begins/">Read More</a>
-        </div>
-      </article>
   </div>
 
   
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/2/">2</a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/4/">4</a>
-  </li>
-  <li class="page-item disabled">
-    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/11/">11</a>
-  </li>
-  <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/11/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
-
-
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/12/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
   </main>
 
   <footer>

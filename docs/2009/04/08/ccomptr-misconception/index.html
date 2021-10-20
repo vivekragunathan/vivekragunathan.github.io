@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>CComPtr Misconception !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="CComPtr Misconception !!!">
-<meta itemprop="description" content="This is about a killer bug identified by our chief software engineer in our application.">
-<meta itemprop="datePublished" content="2009-04-08T00:15:00+00:00" />
+<meta itemprop="description" content="This is about a killer bug identified by our chief software engineer in our application."><meta itemprop="datePublished" content="2009-04-08T00:15:00+00:00" />
 <meta itemprop="dateModified" content="2009-04-08T00:15:00+00:00" />
 <meta itemprop="wordCount" content="595">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CComPtr Misconception !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="CComPtr Misconception !!!" />
 <meta property="og:description" content="This is about a killer bug identified by our chief software engineer in our application." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2009/04/08/ccomptr-misconception/" />
+<meta property="og:url" content="/2009/04/08/ccomptr-misconception/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2009-04-08T00:15:00+00:00" />
 <meta property="article:modified_time" content="2009-04-08T00:15:00+00:00" />
+
 
 
 
@@ -145,14 +141,14 @@
 
   <p>This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!</p>
 <p><code>CComPtr</code> is a template class in ATL designed to wrap the discrete functionality of COM object management – <code>AddRef</code> and <code>Release</code>. Technically it is a smart pointer for a COM object.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeMethod</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeMethod</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">CComPtr</span> <span class="n">siPtr</span><span class="p">;</span>
    <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">siPtr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_SomeComponent</span><span class="p">);</span>
    <span class="n">siPtr</span><span class="o">-&gt;</span><span class="n">MethodOne</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>Without <code>CComPtr</code>, the code wouldn’t be as elegant as above. The code would be spilled with AddRef and Release. Besides, writing code to Release after use under any circumstance is either hard or ugly. CComPtr automatically takes care of releasing in its destructor just like std::auto_ptr. As a C++ programmer, we must be able to appreciate the inevitability of the destructor and its immense use in writing smart code. However there is a difference between pointers to normal C++ objects and pointers to COM objects; CComPtr and std::auto_ptr. When you assign one <code>auto_ptr</code> to another, the source is no more the owner of the object it was pointing to. The ownership is transferred to the destination. Whereas when a <code>CComPtr</code> is assigned to another, the reference count of the target COM object increases by one. And the two <code>CComPtr</code>s point to the same COM object. Changes made via one <code>CComPtr</code> object can be realized when the object is accessed via the other CComPtr. Release must be called on each <code>CComPtr</code> instance (to completely release the COM object). All fine, lets us see some code.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeOtherMethod</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeOtherMethod</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">CComPtr</span> <span class="n">aPtr</span><span class="p">;</span>
    <span class="n">InitAndPopulateObject</span><span class="p">(</span><span class="n">aPtr</span><span class="p">);</span>

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Offering __FILE__ and __LINE__ for C# !!! &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Offering __FILE__ and __LINE__ for C# !!!">
 <meta itemprop="description" content="Not the same way but we could say better.
-Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.">
-<meta itemprop="datePublished" content="2012-09-08T18:30:40+00:00" />
+Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time."><meta itemprop="datePublished" content="2012-09-08T18:30:40+00:00" />
 <meta itemprop="dateModified" content="2012-09-08T18:30:40+00:00" />
 <meta itemprop="wordCount" content="858">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Offering __FILE__ and __LINE__ for C# !!!"/>
@@ -33,9 +28,10 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 <meta property="og:description" content="Not the same way but we could say better.
 Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2012/09/09/caller_info_in_cs/" />
+<meta property="og:url" content="/2012/09/09/caller_info_in_cs/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2012-09-08T18:30:40+00:00" />
 <meta property="article:modified_time" content="2012-09-08T18:30:40+00:00" />
+
 
 
 
@@ -150,7 +146,7 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 <p>Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</p>
 <p>C++ offered the compiler defined macros FILE and LINE (and DATE and TIME), which are primarily intended for diagnostic purposes in a program, whereby the caller information is captured and logged. For instance, using LINE would be replaced with the exact line number in the file where this macro has been used. That sometimes beats the purpose and doesn’t gives us what we actually expect. Let’s see.</p>
 <p>For instance, suppose you wish to write a verbose Log method with an idea to print rich diagnostic details, it would look something like this.</p>
-<pre><code>void LogException(
+<pre tabindex="0"><code>void LogException(
   const std::string&amp; logText,
   const std::string&amp; fileName,
   int lineNumber
@@ -161,7 +157,7 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 </code></pre><p>Although it solves the purpose, it is not really developer friendly. You’ll have to explicitly pass the <code>__FILE__</code> and <code>__LINE__</code> parameters while calling the Log method. This results in these macros being scattered all over the files. What if there was a way to avoid passing these parameters explicitly. Yeah, you could make them default parameters – <code>const std::string&amp; fileName = __FILE__</code>, <code>int lineNumber = __LINE__</code>. However, the funny thing that happens is they are replaced with the line numbers of the parameters where they appear in the Log method declaration. Not only that, there is no macro for getting the method name. Any C++ developer would have experienced this difficulty.</p>
 <p>C# does not offer the caller information facility directly but developers until now have been resorting to reflection. Although reflection help achieve what is required, it is not quite beautiful in the eyes of a developer. It requires a boring boiler plate code, and requires explicit use of some method call that deduces the caller information. Above all it is not something provided by the compiler itself for use during compile time, which means deducing the line number would not work, since reflection is totally a runtime thing. It also hurts performance (especially in the cases like logging).</p>
 <p>Come Visual Studio 2012 (with C# 5.0), developers get the compile time facility to deduce caller information. This is different in two ways from what we have seen in C++. First, we are not going to use macros; we are going to use attributes. Second, we are going to do something at the place (in the method) where the caller information is required rather than at the place of method invocation as in C++. Let us see in action.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Runtime.CompilerServices</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Runtime.CompilerServices</span><span class="p">;</span>
 
 <span class="k">void</span> <span class="n">Log</span><span class="p">(</span><span class="kt">string</span> <span class="n">logText</span><span class="p">,</span>
 <span class="na">        [CallerFileName]</span> <span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span>
@@ -178,7 +174,7 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 <span class="p">}</span>
 </code></pre></div><p>If you see, there are CallerXXXName attributes that the parameters have been decorated with, and they are made optional arguments. The compiler sees these attributes, and identifies that the method expects the caller information and takes the responsibility of silently passing them itself. Since the parameters are made optional, you don’t have to explicitly mention the caller information in any way. The call sites thus are not littered with the caller information. It is transparent and clean. So, you would just say <code>Log(“some log message”)</code>, and the <code>Log</code> method gets the information of the calling method. As you see, the C# folks cleverly inverted the model used in C++. Besides, if you see that the caller method name attribute is named CallerMemberName. It is for a reason. Let us see it in the light of its application.</p>
 <p>It is common that the caller information is employed for logging in most applications. But there is one other application of the caller information that I love, and solves the problem in an elegant way. It is in WPF for property changed event. Until before caller information attributes, this too was patched using reflection.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeModel</span> <span class="p">:</span> <span class="n">INotifyPropertyChanged</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeModel</span> <span class="p">:</span> <span class="n">INotifyPropertyChanged</span>
 <span class="p">{</span>
    <span class="c1">// SomeModel ctor and other members
 </span><span class="c1"></span>

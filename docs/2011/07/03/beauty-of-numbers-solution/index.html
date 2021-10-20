@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Quiz: Beauty of Numbers - Solution !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Quiz: Beauty of Numbers - Solution !!!">
-<meta itemprop="description" content="One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains).">
-<meta itemprop="datePublished" content="2011-07-01T20:45:08+00:00" />
+<meta itemprop="description" content="One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains)."><meta itemprop="datePublished" content="2011-07-01T20:45:08+00:00" />
 <meta itemprop="dateModified" content="2011-07-01T20:45:08+00:00" />
 <meta itemprop="wordCount" content="477">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quiz: Beauty of Numbers - Solution !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Quiz: Beauty of Numbers - Solution !!!" />
 <meta property="og:description" content="One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2011/07/03/beauty-of-numbers-solution/" />
+<meta property="og:url" content="/2011/07/03/beauty-of-numbers-solution/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2011-07-01T20:45:08+00:00" />
 <meta property="article:modified_time" content="2011-07-01T20:45:08+00:00" />
+
 
 
 
@@ -222,7 +218,7 @@
 </table>
 <p>I have done that manual iteration for you and produced the Ks. By now, you should have seen the pattern in the Ks. Yep, <em>K should be a power of two</em>. So to be lucky to escape the wave, we got to be at a position that is the highest possible power of two; for any given queue size N.</p>
 <p>If we were to write a program (or a game with this logic), it would be composed of the following functions:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">GetLuckyPosition</span><span class="p">(</span><span class="kt">uint</span> <span class="n">queueSize</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">GetLuckyPosition</span><span class="p">(</span><span class="kt">uint</span> <span class="n">queueSize</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="c1">// 0 and 1 are cases of invalid input.
 </span><span class="c1"></span>   <span class="k">if</span> <span class="p">(</span><span class="n">queueSize</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">)</span>

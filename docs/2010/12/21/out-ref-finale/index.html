@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Invoking methods with out and ref – Finale !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Invoking methods with out and ref – Finale !!!">
-<meta itemprop="description" content="Alright, it is a long wait. And I am going to keep it short.">
-<meta itemprop="datePublished" content="2010-12-21T13:24:39+00:00" />
+<meta itemprop="description" content="Alright, it is a long wait. And I am going to keep it short."><meta itemprop="datePublished" content="2010-12-21T13:24:39+00:00" />
 <meta itemprop="dateModified" content="2010-12-21T13:24:39+00:00" />
 <meta itemprop="wordCount" content="189">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Invoking methods with out and ref – Finale !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Invoking methods with out and ref – Finale !!!" />
 <meta property="og:description" content="Alright, it is a long wait. And I am going to keep it short." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2010/12/21/out-ref-finale/" />
+<meta property="og:url" content="/2010/12/21/out-ref-finale/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2010-12-21T13:24:39+00:00" />
 <meta property="article:modified_time" content="2010-12-21T13:24:39+00:00" />
+
 
 
 
@@ -147,7 +143,7 @@
 <p>Recap of the problem: Why did the <code>ref</code> variable in SomeMethod not get the expected result (<code>DayOfWeek</code>.<code>Friday</code>) when called from a different thread?</p>
 <p>Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. <code>DayOfWeek</code> is an <code>enum</code> – a value type. When the method is called from a different thread, we put the argument (<code>arg3</code>) in an object array, and that’s where the value gets boxed. So we happen to assign the resultant value to the boxed value.</p>
 <p>So how do resolve the issue? Simple. Assign the value back from the object array to the <code>ref</code> variable.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">SomeMethod</span><span class="p">(</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">SomeMethod</span><span class="p">(</span>
 	<span class="kt">string</span> <span class="n">arg1</span><span class="p">,</span>
 	<span class="kt">string</span> <span class="n">arg2</span><span class="p">,</span>
 	<span class="k">ref</span> <span class="n">DayOfWeek</span> <span class="n">arg3</span>

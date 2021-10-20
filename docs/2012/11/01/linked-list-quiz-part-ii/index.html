@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Linked List Quiz – Part II !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Linked List Quiz – Part II !!!">
-<meta itemprop="description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.">
-<meta itemprop="datePublished" content="2012-10-31T18:30:21+00:00" />
+<meta itemprop="description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list."><meta itemprop="datePublished" content="2012-10-31T18:30:21+00:00" />
 <meta itemprop="dateModified" content="2012-10-31T18:30:21+00:00" />
 <meta itemprop="wordCount" content="592">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linked List Quiz – Part II !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Linked List Quiz – Part II !!!" />
 <meta property="og:description" content="In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2012/11/01/linked-list-quiz-part-ii/" />
+<meta property="og:url" content="/2012/11/01/linked-list-quiz-part-ii/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2012-10-31T18:30:21+00:00" />
 <meta property="article:modified_time" content="2012-10-31T18:30:21+00:00" />
+
 
 
 
@@ -155,7 +151,7 @@
 <li>According to my solution, the node which is actually supposed to be the end of the linked list is the cyclic node. Let us call <code>Cn</code>. Taking node <code>Cn</code> as the cyclic one has an advantage wherein you can break the cycle; assign <code>Cn-&gt;next = nullptr;</code></li>
 <li>But some people take the node after Cn as the cyclic node. The node after Cn is the node somewhere back in the list. This way it is not possible to break the cycle as we would traversed past Cn.</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">FindCyclicNode</span><span class="p">()</span> <span class="k">const</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">FindCyclicNode</span><span class="p">()</span> <span class="k">const</span>
 <span class="p">{</span>
    <span class="kt">int</span> <span class="n">iterCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -220,10 +216,10 @@
 </code></pre></div><p>The code above is the result of several iterations of discussions with Azhagu. It wasn&rsquo;t written that way the first time. The first version was much complex and naive. I think it looks better now. What do you say?</p>
 <p><strong>Reversing every K nodes in the list</strong></p>
 <p>This is an interesting puzzle. You should not reverse the whole list instead only every K nodes, where <code>N &gt;= K &gt; 1</code> and N is the number of nodes in the list. For instance, if you reverse 2 nodes (<code>K = 2</code>) in the following list:</p>
-<pre><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6
+<pre tabindex="0"><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6
 </code></pre><p>the resulting list would be</p>
-<pre><code>2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 6 -&gt; 5
-</code></pre><div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Reverse</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
+<pre tabindex="0"><code>2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 6 -&gt; 5
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Reverse</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="n">prevHead</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Quiz – Where am I ? &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Quiz – Where am I ?">
-<meta itemprop="description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap.">
-<meta itemprop="datePublished" content="2011-02-19T12:05:38+00:00" />
+<meta itemprop="description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap."><meta itemprop="datePublished" content="2011-02-19T12:05:38+00:00" />
 <meta itemprop="dateModified" content="2011-02-19T12:05:38+00:00" />
 <meta itemprop="wordCount" content="623">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quiz – Where am I ?"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Quiz – Where am I ?" />
 <meta property="og:description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2011/02/19/where-am-i/" />
+<meta property="og:url" content="/2011/02/19/where-am-i/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2011-02-19T12:05:38+00:00" />
 <meta property="article:modified_time" content="2011-02-19T12:05:38+00:00" />
+
 
 
 
@@ -150,7 +146,7 @@
 <p>It was very thoughtful of <a href="http://www2.research.att.com/~bs/homepage.html">Stroustoup</a> to keep the object allocation and initialization\construction separate. The <code>new</code> operator is responsible only for allocation. The compiler is responsible for weaving up the code for allocation and calling the constructor. It was also very thoughtful of being able to specify the location where the object needs to be allocated, which of course does not necessarily require overloading the <code>new</code> operator.</p>
 </blockquote>
 <p>C++ allows taking control of object allocation by overloading the <code>new</code> operator. By taking control, you would be able to detect where an object is allocated, and also keep a count of the objects allocated on the stack \ heap. The following code snippet illustrates the same:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// SomeClass.h
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// SomeClass.h
 </span><span class="c1">//
 </span><span class="c1"></span>
 <span class="cp">#include</span> <span class="cpf">&amp;lt;iostream&amp;gt;</span><span class="cp">

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>To Hold or Not to Hold – A story on Thread references !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="To Hold or Not to Hold – A story on Thread references !!!">
-<meta itemprop="description" content="void SomeMethod(int x, double y) { // some code  .">
-<meta itemprop="datePublished" content="2011-03-30T17:05:36+00:00" />
+<meta itemprop="description" content="void SomeMethod(int x, double y) { // some code  ."><meta itemprop="datePublished" content="2011-03-30T17:05:36+00:00" />
 <meta itemprop="dateModified" content="2011-03-30T17:05:36+00:00" />
 <meta itemprop="wordCount" content="1194">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="To Hold or Not to Hold – A story on Thread references !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="To Hold or Not to Hold – A story on Thread references !!!" />
 <meta property="og:description" content="void SomeMethod(int x, double y) { // some code  ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2011/03/30/thread-reference/" />
+<meta property="og:url" content="/2011/03/30/thread-reference/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2011-03-30T17:05:36+00:00" />
 <meta property="article:modified_time" content="2011-03-30T17:05:36+00:00" />
+
 
 
 
@@ -143,7 +139,7 @@
     <time datetime="2011-03-30T17:05:36Z">Mar 30, 2011</time> &middot; 6 min read
   </div>
 
-  <div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// some code
 </span><span class="c1"></span>  <span class="p">...</span>
   <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">ThreadFunc</span><span class="p">).</span><span class="n">Start</span><span class="p">();</span>
@@ -152,7 +148,7 @@
 <p>Some may say nothing seems to be wrong. Some may say there is not enough information to comment. A few may say that it is awful to spin off a thread like that (the last line of the method), and that there is a probability for the thread to be garbage collected at an unexpected point of execution. That is something interesting to discuss about.</p>
 <p>Before presenting my thoughts and supporting facts, the short answer is NO. A thread spun off like that will not be garbage collected as we expect, although one should be morally insane to write such code. Alright, let us discuss.</p>
 <p>The <code>Thread</code> class is like any other reference type in the BCL. When an instance of a reference type holds no more outstanding references, it is a candidate to be garbage collected. Even worse, it could become a <a href="http://blogs.msdn.com/b/cbrumme/archive/2003/04/19/51365.aspx">candidate</a> even while it is executing an instance method, while there are no more outstanding references to that instance. If such facts are considered, then the thread created at free will in the above code is bound to be collected anytime while executing the associated <code>ThreadFunc</code>. Let us try that with <em>simple</em> sample application.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;The Beginning&amp;#8230;.&#34;</span><span class="p">);</span>
 

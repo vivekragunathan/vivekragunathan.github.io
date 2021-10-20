@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Problem Reduction &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Problem Reduction">
 <meta itemprop="description" content="Problem Reduction is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.
-Take for instance, the word distance problem: Find the shortest distance between two words in a given set of words. Following is an unanimous solution, I suppose:">
-<meta itemprop="datePublished" content="2016-12-10T08:21:43+00:00" />
+Take for instance, the word distance problem: Find the shortest distance between two words in a given set of words. Following is an unanimous solution, I suppose:"><meta itemprop="datePublished" content="2016-12-10T08:21:43+00:00" />
 <meta itemprop="dateModified" content="2016-12-10T08:21:43+00:00" />
 <meta itemprop="wordCount" content="612">
-
-
-
 <meta itemprop="keywords" content="algorithms,C#,min-diff,programming,word-distance," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Problem Reduction"/>
@@ -33,9 +28,10 @@ Take for instance, the word distance problem: Find the shortest distance between
 <meta property="og:description" content="Problem Reduction is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.
 Take for instance, the word distance problem: Find the shortest distance between two words in a given set of words. Following is an unanimous solution, I suppose:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2016/12/10/problem-reduction/" />
+<meta property="og:url" content="/2016/12/10/problem-reduction/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-10T08:21:43+00:00" />
 <meta property="article:modified_time" content="2016-12-10T08:21:43+00:00" />
+
 
 
 
@@ -148,7 +144,7 @@ Take for instance, the word distance problem: Find the shortest distance between
 
   <p><em>Problem Reduction</em> is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.</p>
 <p>Take for instance, the word distance problem: <em>Find the shortest distance between two words in a given set of words</em>. Following is an unanimous solution, I suppose:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// Iterate the set of words, mark the position/index
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// Iterate the set of words, mark the position/index
 </span><span class="c1">/// of word1 and word2, track the minimum difference
 </span><span class="c1">/// in positions
 </span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
@@ -200,7 +196,7 @@ Take for instance, the word distance problem: Find the shortest distance between
 <p>We can achieve sub-linear time if we can cut short the time in iterating over all the words and focus on only the words of interest – <code>word1</code> and <code>word2</code>. Think Map! If we create a map out of the set of words with each word as the key and list of indices of the word as the value, then we can instantly know the words and the indices to scan for finding the minimum distance between the words. That should yield sub-linear time. Well, amortized, if you will, since creating the map takes linear time. But we linear-iterate only <code>once</code> to create the map.</p>
 <p>Before we proceed, when would you adopt such an approach? Well, when you want sub-linear time such as a service whose regular activity is to find the minimum distance. Reducing time (at the cost of space) is a desirable thing! On to the solution then &hellip;</p>
 <p>We grab the list of indices from the map for <code>word1</code> and <code>word2</code>, and if we find minimum difference between the two numbers in the lists of indices, that is nothing but our shortest distance. So the problem we are solving is to <em>find the minimum difference</em> (between two lists of indices) but we start out to <em>find the shortest distance</em> (between two words in set of words).</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">WordsCache</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">WordsCache</span>
 <span class="p">{</span>
     <span class="k">private</span> <span class="k">readonly</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">cache</span><span class="p">;</span>
 

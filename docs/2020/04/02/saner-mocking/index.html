@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Pattern for Saner Mocking &middot; A Developer&#39;s Experience</title>
 
@@ -42,15 +42,10 @@ scenario(&#34;Test Case 2&#34;) {
 }
 
 ... other such test cases
-">
-<meta itemprop="datePublished" content="2020-04-02T00:00:00+00:00" />
+"><meta itemprop="datePublished" content="2020-04-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="949">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pattern for Saner Mocking"/>
@@ -120,9 +115,10 @@ scenario(&#34;Test Case 2&#34;) {
 ... other such test cases
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2020/04/02/saner-mocking/" />
+<meta property="og:url" content="/2020/04/02/saner-mocking/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-04-02T00:00:00+00:00" />
+
 
 
 
@@ -234,7 +230,7 @@ scenario(&#34;Test Case 2&#34;) {
   </div>
 
   <p>It is common to see mocks being setup this way in unit tests.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
 	<span class="o">...</span>
 	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
 	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
@@ -267,7 +263,7 @@ scenario(&#34;Test Case 2&#34;) {
 <p>My problem is with the way the mocks are being setup. In a typical business application, there are tens of test cases for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock <code>reset</code>s scattered or sneaked in places leaving you wonder why.</p>
 <p>Instead of helpers, we need a mechanism where setting up the mocks inline within the test is not a problem for us. It should completely strip down the cognitive overload involved in comprehending the setting up of mocks. The other problem we like to get rid of is explicitly <code>reset</code> mocks.</p>
 <p>Let me first share the way I have been practicing for dealing with setting up mocks. And it has worked really well for me.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.either._</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.either._</span>
 
 <span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(</span><span class="cm">/*any args if required*/</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">LazyLogging</span> <span class="o">{</span>
 
@@ -307,7 +303,7 @@ scenario(&#34;Test Case 2&#34;) {
 	<span class="o">...</span> <span class="n">other</span> <span class="n">verifyXXX</span> <span class="n">methods</span> <span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div><p>Before you are overwhelmed &hellip; here is how your test case is going to look like from now on &hellip;</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
 	<span class="k">val</span> <span class="n">addressText</span>     <span class="k">=</span> <span class="s">&#34;...address..&#34;</span>
 	<span class="k">val</span> <span class="n">mockAddress</span> <span class="k">=</span> <span class="nc">Address</span><span class="o">(...)</span>
 	<span class="k">val</span> <span class="n">mockLatLong</span> <span class="k">=</span> <span class="nc">LatLong</span><span class="o">(...)</span>
@@ -334,7 +330,7 @@ scenario(&#34;Test Case 2&#34;) {
 <p>If you were overwhelmed earlier with the different overloads for the functions being mocked, it is for the better. Also, it could be the case you need not certain overloads; not so common though. The overloads highly help reduce the noise in your test case code, and you write the mock builder once for all of your test case classes.</p>
 <p>I am hopeful that you are convinced with the explanation and taking a look at the above code using the mock builder.</p>
 <p>On to the second part of not having to call <code>reset</code> explicitly. This is something I learnt from my current <a href="https://techblog.livongo.com">team</a>. The idea is to keep all the entities that a test case depends on local to the test case. The test case is stateless so to speak. It has access to the data and configuration required but does not depend on any state initialized or mutated outside the test case. Think of it as another way of implementing <code>beforeEach</code>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">trait</span> <span class="nc">UnitTestEnv</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">trait</span> <span class="nc">UnitTestEnv</span> <span class="o">{</span>
 
 	<span class="k">val</span> <span class="n">addressResolutionMockBuilder</span> <span class="k">=</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(...)</span>
 

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Anonymous Classes vs Delegates !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Anonymous Classes vs Delegates !!!">
-<meta itemprop="description" content="I am not a java programmer. By that, I do not mean I am against Java.">
-<meta itemprop="datePublished" content="2011-03-08T17:10:16+00:00" />
+<meta itemprop="description" content="I am not a java programmer. By that, I do not mean I am against Java."><meta itemprop="datePublished" content="2011-03-08T17:10:16+00:00" />
 <meta itemprop="dateModified" content="2011-03-08T17:10:16+00:00" />
 <meta itemprop="wordCount" content="468">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Anonymous Classes vs Delegates !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Anonymous Classes vs Delegates !!!" />
 <meta property="og:description" content="I am not a java programmer. By that, I do not mean I am against Java." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2011/03/08/anonymous-classes-vs-delegates/" />
+<meta property="og:url" content="/2011/03/08/anonymous-classes-vs-delegates/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2011-03-08T17:10:16+00:00" />
 <meta property="article:modified_time" content="2011-03-08T17:10:16+00:00" />
+
 
 
 
@@ -145,7 +141,7 @@
 
   <p>I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.</p>
 <p>In android, there is this <span style="font-family:Consolas;font-size:11pt;">OnClickListener</span> interface, which is used as a callback interface for a button click. So, it is used something like this:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Create an anonymous implementation of OnClickListener
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Create an anonymous implementation of OnClickListener
 </span><span class="c1"></span><span class="k">private</span> <span class="n">OnClickListener</span> <span class="n">mCorkyListener</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="n">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// do something when the button is clicked
@@ -166,12 +162,12 @@
 <span class="p">}</span>
 </code></pre></div><p><code>OnClickListener</code>, which is an interface with a single method <code>onClick</code>, represents <em>a type for the button click event</em>. The highlighted portion of the code that registers an event handler for the button click action is called an Anonymous Class definition. That is some really some clever syntax; although it seems a wrong tool for our purpose here. Actually the click event requires only a method to call when the button is clicked. Nothing more. So why do we need an interface here?</p>
 <p>I know of a better way in C#. Back there, it is called a <code>delegate</code>. In simple words, a delegate is an object-oriented pointer to a function, and it could point to any public \ private instance \ static function of any class. So a delegate is a good fit for our situation here. If the highlighted portion of the code (event registration) were to be written in C#:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">button</span><span class="p">.</span><span class="n">setOnClickListener</span><span class="p">(</span><span class="k">delegate</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">button</span><span class="p">.</span><span class="n">setOnClickListener</span><span class="p">(</span><span class="k">delegate</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Click handler action code....
 </span><span class="c1"></span><span class="p">});</span>
 </code></pre></div><p>I have gone one step further and used an anonymous delegate, which is even more succinct. Sometimes, less syntactic noise is a good feeling for a programmer. I am not doing a language war here. I am just trying to vote for delegates in Java. I am not sure if they are already there in one of the latest versions.</p>
 <p>But there is a C# fanatic inside of me, which compels me to show the world how better and good-looking (see pascal casing) C# code actually is.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">protected</span> <span class="k">void</span> <span class="n">OnCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">protected</span> <span class="k">void</span> <span class="n">OnCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">button</span> <span class="p">=</span> <span class="n">FindViewById</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Button</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">R</span><span class="p">.</span><span class="n">Id</span><span class="p">.</span><span class="n">SomeButton</span><span class="p">);</span>
      <span class="n">button</span><span class="p">.</span><span class="n">Click</span> <span class="p">+=</span> <span class="k">delegate</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>

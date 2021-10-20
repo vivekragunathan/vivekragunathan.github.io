@@ -6,7 +6,16 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Everyday IntelliJ Plugins</title>
+      <link>/post/2021-10-20-my-everyday-intellij-plugins/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-10-20-my-everyday-intellij-plugins/</guid>
+      <description>If IntelliJ is the perfect main course, its plugins are the seasoning to spice it up. There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.</description>
+    </item>
+    
     <item>
       <title>Either Disjoint or Union Types</title>
       <link>/post/2020-12-28-union-types/</link>
@@ -34,7 +43,7 @@
       
       <guid>/2020/04/02/saner-mocking/</guid>
       <description>&lt;p&gt;It is common to see mocks being setup this way in unit tests.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
 	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
 	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
@@ -72,7 +81,7 @@
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/2016/02/20/cyrilex/</guid>
-      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;https://vivekragunathan.wordpress.com/2014/07/23/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;
+      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;
 &lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;
 &lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
     </item>
@@ -122,6 +131,15 @@
       <guid>/2017/12/106/facets-of-mmutability/</guid>
       <description>&lt;p&gt;Immutability, the cornerstone of functional programming, has many facets.&lt;/p&gt;
 &lt;p&gt;Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&amp;rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Paradox of Braces</title>
+      <link>/2017/12/106/paradox-of-braces/</link>
+      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/106/paradox-of-braces/</guid>
+      <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
     </item>
     
     <item>
@@ -230,7 +248,7 @@
 &lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So that would be as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;abc def ghi
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
 
 abc def
 
@@ -282,7 +300,7 @@ abc
       <pubDate>Wed, 30 Dec 2015 06:58:42 +0000</pubDate>
       
       <guid>/2015/12/30/bits-bytes-stones/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Academia&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;h3 id=&#34;academia&#34;&gt;Academia&lt;/h3&gt;
 &lt;p&gt;The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.&lt;/p&gt;</description>
     </item>
     
@@ -321,7 +339,7 @@ abc
       
       <guid>/2015/10/13/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
 
@@ -397,7 +415,7 @@ abc
       
       <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;  
 &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 
 &lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Prints &amp;#34;Hello World!&amp;#34;
@@ -433,7 +451,7 @@ abc
       <guid>/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
 &lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
@@ -1112,7 +1130,7 @@ There are two types of programming or programming languages.</description>
       <pubDate>Sat, 15 Apr 2006 00:23:00 +0000</pubDate>
       
       <guid>/2006/04/15/serialization-and-exceptions/</guid>
-      <description>I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the .</description>
+      <description>I am just like Alice in Wonderland, and not yet got out of the wonders of the .</description>
     </item>
     
     <item>

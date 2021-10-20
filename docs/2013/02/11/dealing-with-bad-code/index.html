@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Dealing with Bad Code &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Dealing with Bad Code">
 <meta itemprop="description" content="Read this fine article by Joel Spolsky: Things You Should Never Do
-It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess.">
-<meta itemprop="datePublished" content="2013-02-10T18:30:26+00:00" />
+It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess."><meta itemprop="datePublished" content="2013-02-10T18:30:26+00:00" />
 <meta itemprop="dateModified" content="2013-02-10T18:30:26+00:00" />
 <meta itemprop="wordCount" content="1307">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dealing with Bad Code"/>
@@ -33,9 +28,10 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 <meta property="og:description" content="Read this fine article by Joel Spolsky: Things You Should Never Do
 It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2013/02/11/dealing-with-bad-code/" />
+<meta property="og:url" content="/2013/02/11/dealing-with-bad-code/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2013-02-10T18:30:26+00:00" />
 <meta property="article:modified_time" content="2013-02-10T18:30:26+00:00" />
+
 
 
 
@@ -151,7 +147,7 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 <p>Most people who are programmers are just people who write code for a living. Nothing wrong but forget the passion part of it. So the quality of the code that is generated is questionable. True programmers are different. They first build those intangible constructs in mind of how the code should be, and then they write code that reflects to the reader the intent of the task being achieved. Hence such code is readable, modular and maintainable. They are deliberate in building such code so that it is possible to implement new features (and do bug fixes, if any) in such code with ease for a fellow programmer too. That’s when Joel’s statement that <em>programmers, in their hearts, are architects applies</em>.</p>
 <p>I agree that rewriting the whole software from scratch is an ambitious attempt, and might end up foolish too. Nobody, in their sane mind, would attempt that without a backup plan. However those functions with over 200 lines of code, which ideally would be some ten lines of code, could be rewritten. I don’t agree that those functions, which clearly would have been written without forethought, with its tons of bug fixes carry loads of knowledge. They mislead the reader from understanding what is actually been achieved in the function. I would argue that most of those bugs should not have been there in the first place. They come into existence because of the programmer’s lack of due diligence when implementing the function. In simple words, programming is an art and not a contest of (fast) typewriting.</p>
 <p>I have seen my share of messy unmaintainable code; code that is just as dead with its smell or that just runs at the mercy of time! For instance, consider this piece of MFC code…..</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">controlId</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">controlId</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="n">GetDlgItem</span><span class="p">(</span><span class="n">controlId</span><span class="p">);</span>
 </code></pre></div><p>The above code assumes that there is a user control with an id equal to the this pointer, where the current object was some MFC form/window. That ugly code was there in production, and was running purely on luck; may be that code path was not used or God knows!</p>
 <p>I have seen programmers use <code>std::string*</code> for creating an array of strings, and the associated memory never properly released – a deliberate memory leak for free. They couldn’t accept that it could be replaced with <code>std::vector&lt;string&gt;</code>. I have also seen mightier – <code>std::list***</code>; perhaps the programmer was programming for Einstein trying to think more than three dimensions. And never bother to think if the memory management was in place for that. When I take this for a discussion with the programmer who wrote that crap of code, I get a soft slap on the face, <em>why bother, it works, right?</em>. Worse to accept is the possessiveness that they have for the code; they won’t allow the code to change (to be improved).</p>

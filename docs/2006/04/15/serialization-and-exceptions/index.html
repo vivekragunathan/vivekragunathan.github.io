@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Serialization and Exceptions !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,27 +12,23 @@
   
 
 <meta itemprop="name" content="Serialization and Exceptions !!!">
-<meta itemprop="description" content="I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the .">
-<meta itemprop="datePublished" content="2006-04-15T00:23:00+00:00" />
+<meta itemprop="description" content="I am just like Alice in Wonderland, and not yet got out of the wonders of the ."><meta itemprop="datePublished" content="2006-04-15T00:23:00+00:00" />
 <meta itemprop="dateModified" content="2006-04-15T00:23:00+00:00" />
-<meta itemprop="wordCount" content="381">
-
-
-
+<meta itemprop="wordCount" content="377">
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Serialization and Exceptions !!!"/>
-<meta name="twitter:description" content="I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the ."/>
+<meta name="twitter:description" content="I am just like Alice in Wonderland, and not yet got out of the wonders of the ."/>
 
 
 <meta property="og:title" content="Serialization and Exceptions !!!" />
-<meta property="og:description" content="I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the ." />
+<meta property="og:description" content="I am just like Alice in Wonderland, and not yet got out of the wonders of the ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2006/04/15/serialization-and-exceptions/" />
+<meta property="og:url" content="/2006/04/15/serialization-and-exceptions/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2006-04-15T00:23:00+00:00" />
 <meta property="article:modified_time" content="2006-04-15T00:23:00+00:00" />
+
 
 
 
@@ -143,11 +139,46 @@
     <time datetime="2006-04-15T00:23:00Z">Apr 15, 2006</time> &middot; 2 min read
   </div>
 
-  <p>I am just in a stage like Alice in Wonderland, and not yet got out of the wonders of the .NET framework, C# and the VS 2003(5) IDE. I thought that the serialization is all not my thing until I do something big in C#. I had written this custom exception class in my project that has 3 processes connected by .NET Remoting Infrastructure. I throw my custom exception for a scenario but all I got was some other exception that said “The constructor to deserialize an object of type MyException was not found”. But I had the Serializable attribute tagged to my custom expection class.</p>
-<p>Let me to get to the point. Even though you attach the Serializable attribute to your custom exception class, the base class Exception implements the ISerializable interface and the constructor required during the deserialization [Exception()] is protected. So when you throw MyException, it may get serialized and cross the remoting boundaries but on the client side, it will not able to deserialize because the required ctor is not accessible. So what we do is simple as shown in the following code:-</p>
-<pre><span style="font-family:Courier New;color:#000099;">[Serializable]<br />public class MyException : ApplicationException<br />{<br />    // Member Data<br /><br />    // Other necessary ctors<br /><br />   /// &lt;summary><br />   /// Let us call this ctor as Deserializing Ctor [DSCTOR]<br />   /// &lt;/summary><br />   public MyException(SerializationInfo info,<br />       StreamingContext context)<br />       : base(info, context)<br />   {<br />       // Any other custom data to be transferred<br />       // info.AddValue(CustomDataName, DataValue);<br />   }<br /><br />   /// &lt;summary><br />   /// If any custom information needs to be transferred<br />   /// with the MyException thown, it must be added to the<br />   /// SerializationInfo object on the call to<br />   /// GetObjectData() and to take them from this object in<br />   /// the constructor for deserialization.<br />   /// &lt;/summary><br />   public override void GetObjectData(SerializationInfo info,<br />          StreamingContext context)<br />   {<br />       base.GetObjectData(info, context);<br />       // Any other custom data to be transferred<br />       // info.AddValue(CustomDataName, DataValue);<br />   }<br /><br />   // Other methods<br />}</span></pre>
-<p>This DSCTOR is very much necessary, else the exception thrown will not be caught as the one thrown and you will get this excepetion “The constructor to deserialize an object of type MyException was not found”.</p>
-<p>If any custom data needs to be transferred with the MyException thown, it must be added to the SerializationInfo object on the call to GetObjectData() and to take them from this object in this secondary [deserialization] constructor.</p>
+  <p>I am just like Alice in Wonderland, and not yet got out of the wonders of the .NET framework, C# and the VS 2003(5) IDE. I thought that the serialization is all not my thing until I do something big in C#. I had written this custom exception class in my project that has 3 processes connected by .NET Remoting Infrastructure. I throw my custom exception for a scenario but all I got was some other exception:</p>
+<pre tabindex="0"><code>The constructor to deserialize an object of type MyException was not found
+</code></pre><p>Note I had the <code>Serializable</code> attribute tagged to my custom <code>Exception</code> class.</p>
+<p>Let me to get to the point. Even though you attach the <code>Serializable</code> attribute to your custom exception class, the base class Exception implements the <code>ISerializable</code> interface and the constructor required during the deserialization [<code>Exception()</code>] is protected. So when you throw MyException, it may get serialized and cross the remoting boundaries but on the client side, it will not able to deserialize because the required ctor is not accessible. So, what we do is simple as shown in the following code:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Serializable]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyException</span> <span class="p">:</span> <span class="n">ApplicationException</span>
+<span class="p">{</span>
+    <span class="c1">// Member Data
+</span><span class="c1"></span>
+    <span class="c1">// Other necessary ctors
+</span><span class="c1"></span>
+   <span class="c1">/// &amp;lt;summary&gt;
+</span><span class="c1"></span>   <span class="c1">/// Let us call this ctor as Deserializing Ctor [DSCTOR]
+</span><span class="c1"></span>   <span class="c1">/// &amp;lt;/summary&gt;
+</span><span class="c1"></span>   <span class="k">public</span> <span class="n">MyException</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
+       <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="c1">// Any other custom data to be transferred
+</span><span class="c1"></span>       <span class="c1">// info.AddValue(CustomDataName, DataValue);
+</span><span class="c1"></span>   <span class="p">}</span>
+
+   <span class="c1">/// &amp;lt;summary&gt;
+</span><span class="c1"></span>   <span class="c1">/// If any custom information needs to be transferred
+</span><span class="c1"></span>   <span class="c1">/// with the MyException thrown, it must be added to the
+</span><span class="c1"></span>   <span class="c1">/// SerializationInfo object on the call to
+</span><span class="c1"></span>   <span class="c1">/// GetObjectData() and to take them from this object in
+</span><span class="c1"></span>   <span class="c1">/// the constructor for deserialization.
+</span><span class="c1"></span>   <span class="c1">/// &amp;lt;/summary&gt;
+</span><span class="c1"></span>   <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">GetObjectData</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="k">base</span><span class="p">.</span><span class="n">GetObjectData</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+       <span class="c1">// Any other custom data to be transferred
+</span><span class="c1"></span>       <span class="c1">// info.AddValue(CustomDataName, DataValue);
+</span><span class="c1"></span>   <span class="p">}</span>
+
+   <span class="c1">// Other methods
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>This DSCTOR is very much necessary, else the exception thrown will not be caught as the one thrown and you will get the following exception:</p>
+<pre tabindex="0"><code>The constructor to deserialize an object of type MyException was not found
+</code></pre><p>If any custom data needs to be transferred with the <code>MyException</code> thrown, it must be added to the <code>SerializationInfo</code> object on the call to <code>GetObjectData()</code> and to take them from this object in this secondary [deserialization] constructor.</p>
 
 </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>An Unfair World of Tuples, Anons., var and auto &middot; A Developer&#39;s Experience</title>
 
@@ -17,15 +17,10 @@ There are at least a couple of options to return multiple values from a method:-
 
 return an instance of a class that holds the values
 return a tuple
-">
-<meta itemprop="datePublished" content="2015-08-24T01:10:27+00:00" />
+"><meta itemprop="datePublished" content="2015-08-24T01:10:27+00:00" />
 <meta itemprop="dateModified" content="2015-08-24T01:10:27+00:00" />
-<meta itemprop="wordCount" content="2348">
-
-
-
+<meta itemprop="wordCount" content="2345">
 <meta itemprop="keywords" content="anonymous-class,anonymous-types,auto,C#,Java,tuples,var," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="An Unfair World of Tuples, Anons., var and auto"/>
@@ -45,9 +40,10 @@ return an instance of a class that holds the values
 return a tuple
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2015/08/24/tuples-anons/" />
+<meta property="og:url" content="/2015/08/24/tuples-anons/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-08-24T01:10:27+00:00" />
 <meta property="article:modified_time" content="2015-08-24T01:10:27+00:00" />
+
 
 
 
@@ -167,7 +163,7 @@ return a tuple
 <p>Well, both the options are nothing unusual; not extraordinary either. If the method always returns closely/directly related values (say employee details), a class would be the default choice. Otherwise, if the method returns discrete or loosely related values, a tuple would be appropriate. In the latter case, one could still define a class with a really clumsy name (if naming is not something of importance to the person or team). But how many would you create?</p>
 <p>I was looking at something better - an anonymous type <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Why? Because I did not want a class, and my values being discrete, I did not want to access the return values as <code>Item0</code>, <code>Item1</code> etc. (on the calling side). Looks erghhh! I wanted the client code to be type safe and explicit when accessing the return values &hellip; without declaring a clumsy-named class. Anonymous types are a great way to do that. It is exactly how LINQ query makes elegant use of anonymous types to return strongly typed projections of the queried data. All good except <strong>it is not possible to return an anonymous type from a method</strong>. Duh!</p>
 <p>For instance, we would not be able to define something like this:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">var</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">var</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div><p>It is not that you cannot have a <code>return</code> statement with an anonymous type in a method. You can. But how do we declare the return type of the function? It would have been marvelous to name it using <code>var</code>. The <code>var</code> keyword is scoped and does not transcend declaration boundaries (methods). The C# design team seems to have purposely enforced such a limitation. To what purpose, that I am not aware of.</p>
@@ -181,7 +177,7 @@ return a tuple
 <p>You could cast the <code>object</code> to a type and establish compile time type safety. Since it is an anonymous type, we cannot cast it by its name. However, we could rely on an intrinsic detail that anonymous type declarations with the same properties and order would share the same compiler-generated type. So if I were to use the above <code>GiveMeAnonType</code> method in this context, it would be as follows:-</p>
 </li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"> <span class="k">public</span> <span class="kt">object</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"> <span class="k">public</span> <span class="kt">object</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
  <span class="p">{</span>
      <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
  <span class="p">}</span>
@@ -200,7 +196,7 @@ return a tuple
  <span class="p">}</span>
 </code></pre></div><p>Also, note that if it weren&rsquo;t an anonymous type, we wouldn&rsquo;t need the second parameter (<code>T type</code>) in the <code>Cast&lt;T&gt;</code> method. If you don&rsquo;t wish to push further, the above trick solves the purpose (to a certain extent). Except the code is not really fluid, and they say, <strong>Don&rsquo;t help the compiler</strong>. In this case, the compiler looks like a broken robot, and we are soldering a disconnect so that it dances to our tune. Let me tell you why it is not fluid. First, if the compiler folks were to change the strategy of reusing the compiler generated type for the anonymous type declaration, we are broke. Second, if <code>GiveMeAnonType</code> were to change the parameters of the anonymous type, agreed that we would get compilation errors in the <code>CallingMethod</code> but that&rsquo;s when our soldering wears out.</p>
 <p><strong><code>dynamic</code></strong>: Well, that seems to be a smart option:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">dynamic</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">dynamic</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
 <span class="p">}</span>
 
@@ -238,12 +234,12 @@ return a tuple
 <p><strong>Meanwhile Elsewhere</strong></p>
 <p>Usually, C++ has something in stock for such odd problems<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="https://vivekragunathan.wordpress.com/2011/03/27/crazybraces/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
 <p>So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though &hellip; as <a href="https://msdn.microsoft.com/en-us/library/Dd293608.aspx">lambdas</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div><p>I am sure you know where lambda is in the above code. The C++ compiler creates an anonymous class for the lambda as <a href="https://msdn.microsoft.com/en-US/library/Aa985932.aspx">functor</a>.</p>
 <p>So we proved we can create an anonymous class in C++. Let us now return one.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -269,13 +265,13 @@ return a tuple
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>The term <strong>anonymous types</strong> refers to the feature in C# while <strong>anonymous class</strong> refers to another feature in Java. They are similar and distinct in their own ways. However, in this post, the terms could have been used interchangeably in the context of C#. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>The term <strong>anonymous types</strong> refers to the feature in C# while <strong>anonymous class</strong> refers to another feature in Java. They are similar and distinct in their own ways. However, in this post, the terms could have been used interchangeably in the context of C#.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>See Also <a href="https://vivekragunathan.wordpress.com/2010/10/03/thinking-currying/">Think Currying</a>, <a href="https://vivekragunathan.wordpress.com/2008/04/09/extension-methods-a-polished-c-feature/">Extension Methods – A Polished C++ Feature</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>See Also <a href="https://vivekragunathan.wordpress.com/2010/10/03/thinking-currying/">Think Currying</a>, <a href="https://vivekragunathan.wordpress.com/2008/04/09/extension-methods-a-polished-c-feature/">Extension Methods – A Polished C++ Feature</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>The intricate details of <code>auto</code> and <code>decltype</code> are beyond the scope of this post. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>The intricate details of <code>auto</code> and <code>decltype</code> are beyond the scope of this post.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

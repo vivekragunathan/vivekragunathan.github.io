@@ -28,7 +28,7 @@
 &lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So that would be as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;abc def ghi
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
 
 abc def
 

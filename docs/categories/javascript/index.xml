@@ -6,7 +6,26 @@
     <description>Recent content in JavaScript on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate><atom:link href="/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go away node/npm</title>
+      <link>/2019/02/19/purge-node-npm/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/19/purge-node-npm/</guid>
+      <description>&lt;p&gt;If you haven&amp;rsquo;t found a use for this script that uninstalls the second largest junk in the world next to Mac/iOS updates, you are either lazy or scared of breaking things.  I am neither, so I polished this &lt;a href=&#34;https://gist.github.com/VivekRagunathan/15c8b3b408c8015683a8d5fcf97cbf2f&#34;&gt;script&lt;/a&gt; from the different versions you will find on the internet. Oh, I am talking about node/npm.&lt;/p&gt;
+&lt;p&gt;Happy cleaning!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Paradox of Braces</title>
+      <link>/2017/12/106/paradox-of-braces/</link>
+      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/106/paradox-of-braces/</guid>
+      <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
+    </item>
+    
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
       <link>/2014/05/29/overloading-and-varargs/</link>

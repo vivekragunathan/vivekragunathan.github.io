@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Missing MI !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Missing MI !!!">
-<meta itemprop="description" content="We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.">
-<meta itemprop="datePublished" content="2010-03-05T17:10:00+00:00" />
+<meta itemprop="description" content="We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it."><meta itemprop="datePublished" content="2010-03-05T17:10:00+00:00" />
 <meta itemprop="dateModified" content="2010-03-05T17:10:00+00:00" />
 <meta itemprop="wordCount" content="564">
-
-
-
 <meta itemprop="keywords" content="C#,codeproject,MI," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Missing MI !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Missing MI !!!" />
 <meta property="og:description" content="We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2010/03/05/missing-mi/" />
+<meta property="og:url" content="/2010/03/05/missing-mi/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2010-03-05T17:10:00+00:00" />
 <meta property="article:modified_time" content="2010-03-05T17:10:00+00:00" />
+
 
 
 
@@ -145,7 +141,7 @@
 
   <p>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.</p>
 <p>Imagine that I have a component (UI, non-UI, doesn’t matter). You can make calls into the component, which does some interesting work for you. Imagine that the component takes an interface <code>IComponentCallback</code> to notify its parent. So I would do is have my parent class derive from <code>IComponentCallback</code> interface and pass this to the component. The code would look something like this:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">interface</span> <span class="n">IComponentCallback</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">interface</span> <span class="n">IComponentCallback</span>
 <span class="p">{</span>
    <span class="kt">void</span> <span class="nf">Callback1</span><span class="p">();</span>
    <span class="kt">bool</span> <span class="nf">Callback2</span><span class="p">();</span>

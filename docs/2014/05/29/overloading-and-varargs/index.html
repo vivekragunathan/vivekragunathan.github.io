@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Overloading vs Variable Arguments !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Overloading vs Variable Arguments !!!">
-<meta itemprop="description" content="In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:">
-<meta itemprop="datePublished" content="2014-05-28T21:26:39+00:00" />
+<meta itemprop="description" content="In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:"><meta itemprop="datePublished" content="2014-05-28T21:26:39+00:00" />
 <meta itemprop="dateModified" content="2014-05-28T21:26:39+00:00" />
 <meta itemprop="wordCount" content="622">
-
-
-
 <meta itemprop="keywords" content="dynamic-languages,functions,javascript,overloading,php,static typing,variable arguments," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Overloading vs Variable Arguments !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Overloading vs Variable Arguments !!!" />
 <meta property="og:description" content="In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2014/05/29/overloading-and-varargs/" />
+<meta property="og:url" content="/2014/05/29/overloading-and-varargs/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2014-05-28T21:26:39+00:00" />
 <meta property="article:modified_time" content="2014-05-28T21:26:39+00:00" />
+
 
 
 
@@ -144,7 +140,7 @@
   </div>
 
   <p>In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
 </span><span class="c1"></span><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="n">CreateResponse</span><span class="p">(</span><span class="kt">string</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="n">CreateResponse</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 <span class="p">}</span>

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Quiz – (Journey through templates, SFINAE and specialization) !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Quiz – (Journey through templates, SFINAE and specialization) !!!">
-<meta itemprop="description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr.">
-<meta itemprop="datePublished" content="2010-04-10T07:39:00+00:00" />
+<meta itemprop="description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr."><meta itemprop="datePublished" content="2010-04-10T07:39:00+00:00" />
 <meta itemprop="dateModified" content="2010-04-10T07:39:00+00:00" />
 <meta itemprop="wordCount" content="1466">
-
-
-
 <meta itemprop="keywords" content="SFINAE,Templates," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quiz – (Journey through templates, SFINAE and specialization) !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Quiz – (Journey through templates, SFINAE and specialization) !!!" />
 <meta property="og:description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2010/04/10/sfinae/" />
+<meta property="og:url" content="/2010/04/10/sfinae/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2010-04-10T07:39:00+00:00" />
 <meta property="article:modified_time" content="2010-04-10T07:39:00+00:00" />
+
 
 
 
@@ -143,7 +139,7 @@
     <time datetime="2010-04-10T07:39:00Z">Apr 10, 2010</time> &middot; 7 min read
   </div>
 
-  <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">TClass</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span> <span class="n">TClass</span><span class="p">()</span>
@@ -167,22 +163,22 @@
         <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div><p>So that is a template class with SomeMethod overloads. Why would somebody write such a class? Imagine it is an adder class, and the method overloads could used to add with parameters specified in either order. Following is the way one could use the above (based on the adder example):-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
 <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">12.3f</span><span class="p">;</span>
 
 <span class="n">TClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">t1</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">idText</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="c1">// This calls Overload #1
 </span><span class="c1"></span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">diText</span> <span class="o">=</span> <span class="n">t2</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// This calls Overload #2
 </span></code></pre></div><p>Seems cool until you try this simple thing</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">TClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">t2</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">TClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">t2</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">idText</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 </code></pre></div><p>The mighty C++ compiler will complain</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Error <span class="m">1</span> error C2535:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Error <span class="m">1</span> error C2535:
 ‘std::string TClass::SomeMethod<span class="o">(</span>A,B<span class="o">)</span>’ : member <span class="k">function</span> already defined or declared
 </code></pre></div><p>A well-tuned C++ programmer would have guessed already how to resolve the situation. But we are are going to discuss a few other things related to the problem, besides the solution.</p>
 <h4 id="part-1-non-member-functions">Part 1: Non-member Functions</h4>
 <p>Let us say <code>TClass</code> was written for hosting <code>SomeMethod</code> overloads. By that I mean to say <code>SomeMethod</code> overloads are self-sufficient and could be made non-member functions (as global methods or methods inside a namespace).</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">SF</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">SF</span>
 <span class="p">{</span>
    <span class="c1">// Overload #1
 </span><span class="c1"></span>   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">A</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span><span class="p">)</span>
@@ -203,7 +199,7 @@
 </code></pre></div><p>Hang on. The above code will still result in a compilation error for <code>SomeMethod</code>; same type. We are going to now resolve this situation using one of the tough and less-used powers of C++. We are going have the two overloads, make some changes to one overload using SFINAE principle, and allow instantiation \ use of <code>SomeMethod</code> using like or different types. That is not a typo; I spelt it right – <a href="http://sites.google.com/site/kenbase/cpp/sfinae">SFINAE</a>, a.k.a <strong>S</strong>ubstitution <strong>F</strong>ailure <strong>I</strong>s <strong>N</strong>ot <strong>A</strong>n <strong>E</strong>rror.</p>
 <p>SFINAE is a principle adopted by the C++ compiler to prevent resulting in a compilation error when preparing the set of candidate overloads for a particular template instantiation. It is widely used for deliberately excluding one or more template overloads based on some condition. The principle is applied only in the case of templates.</p>
 <p>In our case, when <code>SF::SomeMethod</code> is called, right now both the overloads are successful candidates. That is why the compiler complains about method redefinition. Suppose we wrote the code in a way so as to detect that the two template types passed are same (“<em>the condition</em>“), and we exclude one of the overloads (consider overload #2). This would help us bind to the one method (overload #1). Well, SFINAE is exactly for such purposes. Alright, let us (re)write code &hellip;</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Alternatively, you can use EnableIf facility from Boost library
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Alternatively, you can use EnableIf facility from Boost library
 </span><span class="c1"></span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">Condition</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="nc">EnableIf</span>
 <span class="p">{</span>
@@ -255,7 +251,7 @@
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>We have tweaked overload #2 such that while creating the candidate set for overload resolution, it produces an error when the template parameter types <em>substituted</em> are same. <code>AreDifferentTypes::Result</code> will evaluate to false if the template parameters are of the same type, as a result of which the specialized version of EnableIf (EnableIf) is chosen which does not define the Type member <code>typedef</code>. This is spotted as an error when selecting candidates for overload resolution but ignored (for a good cause). Now the compiler will be able to bind to the only candidate found (Overload #1). So now you can enjoy using <code>SomeMethod</code>:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
    <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">34.56</span><span class="p">;</span>
@@ -269,7 +265,7 @@
 method signature from a template instantiation.</p>
 <p>In the case of non-member functions (above), the method decorated with <code>EnableIf</code> will always be considered to have a valid method signature. In other words, depending on the template parameters, the method will get an appropriate return type; although it may fail to be a successful candidate for overload resolution (using SFINAE) when the template parameters are of the same type. Irrespective of whether a template method or method inside a template class is used, the compiler will stop with errors if it has an invalid signature.</p>
 <p>Aimed with the above information, let us rewrite the <code>TClass</code> as follows and understand why the principle will not work for template member functions.</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">TClass</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span> <span class="n">TClass</span><span class="p">()</span>
@@ -294,14 +290,14 @@ method signature from a template instantiation.</p>
         <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div><p>You will see a whole of bunch of errors, of which we should be interested in the following:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Error <span class="m">1</span> error C2039: <span class="s1">&#39;Type&#39;</span> : is not a member of <span class="s1">&#39;EnableIf&lt;Condition,T&gt;&#39;</span> &lt;FileName&gt; &lt;Line&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Error <span class="m">1</span> error C2039: <span class="s1">&#39;Type&#39;</span> : is not a member of <span class="s1">&#39;EnableIf&lt;Condition,T&gt;&#39;</span> &lt;FileName&gt; &lt;Line&gt;
 
 Error <span class="m">5</span> error C2556: <span class="s1">&#39;int TClass&lt;A,B&gt;::SomeMethod(B,A)&#39;</span> : overloaded <span class="k">function</span> differs
 only by <span class="k">return</span> <span class="nb">type</span> from <span class="s1">&#39;std::string TClass&lt;A,B&gt;::SomeMethod(A,B)&#39;</span> &lt;FileName&gt; &lt;Line&gt;
 </code></pre></div><p>A template is almost a dead piece of code, until instantiated. Try writing a template method (with valid signature) that has few favorite quotes from Romeo Juliet (instead of C++ code) as its body. Unless you don’t instantiate \ call that method, the compiler will be tolerant. When a template is instantiated, that’s when the real code to bind to is cooked specifically for the parameter types. And when that is done, any invalid code will be flagged as an error. So when the SomeMethod (overload #2) is cooked for <code>TClass</code> instantiation, it results in an invalid code. That is our Error 1 above – Trying to access a member that does not exist. This means that the <code>SomeMethod</code> is being cooked without a return type being specified. In C++ (like in C) if you don’t specify a return type, it is assumed to be int. Since there already is an other <code>SomeMethod</code> with the same method signature but just differing in the return type, Error 5 above is raised.</p>
 <p>Another category of member functions are static template methods inside a non-template class, which are equivalent to non-members. Let us leave applying the above explanation to this category as an exercise.</p>
 <p>Does that mean we don’t have a solution? No, not using SFINAE. But by another friend – Template Specialization.</p>
-<pre><code>template&lt;typename A, typename B&gt;
+<pre tabindex="0"><code>template&lt;typename A, typename B&gt;
 class TClass
 {
 public: TClass()

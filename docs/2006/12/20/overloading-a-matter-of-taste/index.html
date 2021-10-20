@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Overloading - A Matter Of Taste !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Overloading - A Matter Of Taste !!!">
-<meta itemprop="description" content="This was a pretty interesting discussion about method overloading in the managed world.">
-<meta itemprop="datePublished" content="2006-12-20T12:21:00+00:00" />
+<meta itemprop="description" content="This was a pretty interesting discussion about method overloading in the managed world."><meta itemprop="datePublished" content="2006-12-20T12:21:00+00:00" />
 <meta itemprop="dateModified" content="2006-12-20T12:21:00+00:00" />
 <meta itemprop="wordCount" content="434">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Overloading - A Matter Of Taste !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Overloading - A Matter Of Taste !!!" />
 <meta property="og:description" content="This was a pretty interesting discussion about method overloading in the managed world." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2006/12/20/overloading-a-matter-of-taste/" />
+<meta property="og:url" content="/2006/12/20/overloading-a-matter-of-taste/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2006-12-20T12:21:00+00:00" />
 <meta property="article:modified_time" content="2006-12-20T12:21:00+00:00" />
+
 
 
 
@@ -146,7 +142,7 @@
   <p><a href="http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244">This</a> was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.</p>
 <p>As far traditional C++ goes, the overloaded method resolution starts from the derived but does not have strict type checking eg. for numeric types]. And the point to note is that only the method in the derived class with the exact prototype as the base is considered the overload. Of course, C++ is not as much type safe as C#. This is taken care in C# by the override keyword which allows only the exact prototypes to be involved in overloading. And at times explicit casting is required unlike in C++.</p>
 <p>But in the case of C#, the first principle observed in overloading is to avoid it. Pretty confusing, huh? Take a look at the example below:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">Samples.MyConsole</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">Samples.MyConsole</span>
 <span class="p">{</span>
    <span class="k">class</span> <span class="nc">Parent</span>
    <span class="p">{</span>
@@ -207,7 +203,7 @@
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>Here is the output at the console:-</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Playing with Derived
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Playing with Derived
 Parent.Foo
 Parent.Foo
 Playing with Base

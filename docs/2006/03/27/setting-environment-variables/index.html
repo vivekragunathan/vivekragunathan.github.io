@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Setting Environment Variables !!! &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="Setting Environment Variables !!!">
-<meta itemprop="description" content="Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine.">
-<meta itemprop="datePublished" content="2006-03-27T00:11:00+00:00" />
+<meta itemprop="description" content="Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine."><meta itemprop="datePublished" content="2006-03-27T00:11:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-27T00:11:00+00:00" />
-<meta itemprop="wordCount" content="353">
-
-
-
+<meta itemprop="wordCount" content="355">
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting Environment Variables !!!"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="Setting Environment Variables !!!" />
 <meta property="og:description" content="Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2006/03/27/setting-environment-variables/" />
+<meta property="og:url" content="/2006/03/27/setting-environment-variables/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2006-03-27T00:11:00+00:00" />
 <meta property="article:modified_time" content="2006-03-27T00:11:00+00:00" />
+
 
 
 
@@ -151,14 +147,17 @@
 <p>But the changes you made will be reflected after a log off or restart. After some research, I found the Win32 SDK API SetEnvironmentVariable. But unfortunately, it just the changes the variable value in the PEB of that process alone, it does not effect the global environment values. Pathetic.</p>
 <p>There is definitely a solution for this simple and primary problem. All we have to do is to update the registry as we discussed before, and also notify that the global enviroment variable list has been modified. Ok, how do we do that ?</p>
 <p>Simple, one line of code.</p>
-<p><span style="font-family:courier new;">// Broadcast the WM_SETTINGCHANGE message for Enviroment</span></p>
-<p><span style="font-family:courier new;">SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0,</span><br>
-<span style="font-family:courier new;">(LPARAM) “Environment”,</span><br>
-<span style="font-family:courier new;">SMTO_ABORTIFHUNG,</span><br>
-<span style="font-family:courier new;">5000, &amp;dwReturnValue);</p></p>
-<p>
-  </span>Of course, this is C++ code. Not a big deal to do that in C# or whatever.
-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Broadcast the WM_SETTINGCHANGE message for Enviroment&lt;/span&gt;
+</span><span class="c1"></span><span class="n">SendMessageTimeout</span><span class="p">(</span>
+  <span class="n">HWND_BROADCAST</span><span class="p">,</span> 
+  <span class="n">WM_SETTINGCHANGE</span><span class="p">,</span> 
+  <span class="mi">0</span><span class="p">,</span>
+  <span class="p">(</span><span class="n">LPARAM</span><span class="p">)</span> <span class="err">“</span><span class="n">Environment</span><span class="err">”</span><span class="p">,</span>
+  <span class="n">SMTO_ABORTIFHUNG</span><span class="p">,</span>
+  <span class="mi">5000</span><span class="p">,</span>
+  <span class="o">&amp;</span><span class="n">dwReturnValue</span>
+<span class="p">);</span>
+</code></pre></div><p>Of course, this is C++ code. Not a big deal to do that in C# or whatever.</p>
 
 </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Useful Unix Commands &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Useful Unix Commands">
 <meta itemprop="description" content="Change Permission on Folder/Files Recursively GOOD
-find /path/to/base/dir -type d -exec chmod 755 {} &#43; find /path/to/base/dir -type f -exec chmod 644 {} &#43;``` BETTER">
-<meta itemprop="datePublished" content="2015-02-07T08:02:58+00:00" />
+find /path/to/base/dir -type d -exec chmod 755 {} &#43; find /path/to/base/dir -type f -exec chmod 644 {} &#43;``` BETTER"><meta itemprop="datePublished" content="2015-02-07T08:02:58+00:00" />
 <meta itemprop="dateModified" content="2015-02-07T08:02:58+00:00" />
 <meta itemprop="wordCount" content="309">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Useful Unix Commands"/>
@@ -33,9 +28,10 @@ find /path/to/base/dir -type d -exec chmod 755 {} &#43; find /path/to/base/dir -
 <meta property="og:description" content="Change Permission on Folder/Files Recursively GOOD
 find /path/to/base/dir -type d -exec chmod 755 {} &#43; find /path/to/base/dir -type f -exec chmod 644 {} &#43;``` BETTER" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/pages/cmd-line-sucks/" />
+<meta property="og:url" content="/pages/cmd-line-sucks/" /><meta property="article:section" content="pages" />
 <meta property="article:published_time" content="2015-02-07T08:02:58+00:00" />
 <meta property="article:modified_time" content="2015-02-07T08:02:58+00:00" />
+
 
 
 
@@ -148,21 +144,21 @@ find /path/to/base/dir -type d -exec chmod 755 {} &#43; find /path/to/base/dir -
 
   <h3 id="change-permission-on-folderfiles-recursively1"><a href="http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively">Change Permission on Folder/Files Recursively</a></h3>
 <p><strong>GOOD</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">find /path/to/base/dir -type d -exec chmod <span class="m">755</span> <span class="o">{}</span> +
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">find /path/to/base/dir -type d -exec chmod <span class="m">755</span> <span class="o">{}</span> +
 
 find /path/to/base/dir -type f -exec chmod <span class="m">644</span> <span class="o">{}</span> +<span class="sb">```</span>
 </code></pre></div><p><strong>BETTER</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">find /path/to/base/dir -type d -print0 <span class="p">|</span> xargs -0 chmod <span class="m">755</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">find /path/to/base/dir -type d -print0 <span class="p">|</span> xargs -0 chmod <span class="m">755</span>
 
 find /path/to/base/dir -type f -print0 <span class="p">|</span> xargs -0 chmod <span class="m">644</span>
 </code></pre></div><p><strong>BEST 🙂</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">chmod -R u+rwX,go+rX,go-w /path
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">chmod -R u+rwX,go+rX,go-w /path
 </code></pre></div><hr>
 <h3 id="svn-unversioned-files-and-ignore-list">SVN: Unversioned Files and Ignore List</h3>
 <p>Use this command to get the list of files not under SVN:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">svn status <span class="p">|</span> grep <span class="s2">&#34;^\?&#34;</span> <span class="p">|</span> awk <span class="s2">&#34;{print \$2}&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">svn status <span class="p">|</span> grep <span class="s2">&#34;^\?&#34;</span> <span class="p">|</span> awk <span class="s2">&#34;{print \$2}&#34;</span>
 </code></pre></div><p>If one were to find the unversioned files to ignore them from versioning, this would be handy:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">svn status <span class="p">|</span> grep <span class="s2">&#34;^\?&#34;</span> <span class="p">|</span> awk <span class="s2">&#34;{print \$2}&#34;</span> &gt; unversioned.txt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">svn status <span class="p">|</span> grep <span class="s2">&#34;^\?&#34;</span> <span class="p">|</span> awk <span class="s2">&#34;{print \$2}&#34;</span> &gt; unversioned.txt
 
 svn propset svn:ignore -F unversioned.txt .
 
@@ -172,22 +168,22 @@ svn ci -m <span class="s2">&#34;ignore list&#34;</span>
 </code></pre></div><hr>
 <h3 id="svn-show-pending-check-ins">SVN: Show Pending Check-ins</h3>
 <p>Use this command to get the list of pending check-ins (similar to the pending check-ins in Tortoise SVN):</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">svn stat <span class="p">|</span> grep <span class="s2">&#34;^[^?]&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">svn stat <span class="p">|</span> grep <span class="s2">&#34;^[^?]&#34;</span>
 </code></pre></div><p>*<small>Would be really handy and nifty if you define an alias for the above command.</small></p>
 <hr>
 <h3 id="svn-tortoise-svn-like-show-modifications">SVN: (Tortoise SVN like) Show Modifications</h3>
 <p>Use this command to show what are the effective changes – those have changed on the server and also the ones that have changed locally in your code base:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">svn stat <span class="p">&amp;</span><span class="c1">#8211;show-updates | grep &#34;^[^?]&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">svn stat <span class="p">&amp;</span><span class="c1">#8211;show-updates | grep &#34;^[^?]&#34;</span>
 </code></pre></div><p>*<small>Would be really handy and nifty if you define an alias for the above command.</small></p>
 <hr>
 <h3 id="svn-compare-files-8211-show-differences-side-by-side">SVN: Compare Files – Show differences side-by-side</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">svn <span class="p">&amp;</span><span class="c1">#8211;diff-cmd &#34;diff&#34; &amp;#8211;extensions &#34;-y &amp;#8211;suppress-common-lines&#34; diff</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">svn <span class="p">&amp;</span><span class="c1">#8211;diff-cmd &#34;diff&#34; &amp;#8211;extensions &#34;-y &amp;#8211;suppress-common-lines&#34; diff</span>
 </code></pre></div><hr>
 <h3 id="everyday-grep">Everyday <code>grep</code></h3>
 <p>To look up files recursively in the given directory for the given text, and display the file name with line number that has the matching text:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grep -rHn <span class="s2">&#34;text to search&#34;</span> /path/to/dir
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grep -rHn <span class="s2">&#34;text to search&#34;</span> /path/to/dir
 </code></pre></div><p>To use a search pattern, use the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grep -rHn -e <span class="s2">&#34;text pattern to search&#34;</span> /path/to/dir
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grep -rHn -e <span class="s2">&#34;text pattern to search&#34;</span> /path/to/dir
 </code></pre></div><p><small>r – search recursively, H – display the file name with the matching text, n – display the line number in the file with the matching text</small></p>
 
 </div>

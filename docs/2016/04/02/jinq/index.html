@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>JINQ &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="JINQ">
-<meta itemprop="description" content="In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in trolling1 rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.">
-<meta itemprop="datePublished" content="2016-04-01T22:50:19+00:00" />
+<meta itemprop="description" content="In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in trolling1 rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code."><meta itemprop="datePublished" content="2016-04-01T22:50:19+00:00" />
 <meta itemprop="dateModified" content="2016-04-01T22:50:19+00:00" />
-<meta itemprop="wordCount" content="1868">
-
-
-
+<meta itemprop="wordCount" content="1839">
 <meta itemprop="keywords" content=".NET,C#,Java,jinq,LINQ,programming," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JINQ"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="JINQ" />
 <meta property="og:description" content="In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in trolling1 rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2016/04/02/jinq/" />
+<meta property="og:url" content="/2016/04/02/jinq/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-04-01T22:50:19+00:00" />
 <meta property="article:modified_time" content="2016-04-01T22:50:19+00:00" />
+
 
 
 
@@ -151,21 +147,21 @@
 <p>Even with application frameworks and libraries doing most of the work nowadays, we invent new ways to build and maintain the application size. Sometimes, I wonder if the application size is a matter of pride.</p>
 <p><em>Donald Knuth</em> summarized application development: All application writing is sorting and searching. Likewise, it is typical of any application, irrespective of its size, to process data, say primarily as collections – array, list, map or anything that you can iterate over, in various ways. The term <code>process</code> here denotes how a collection is treated in a specific context with various mechanisms to generate a result, be it a collection or not.</p>
 <p>For instance, in a particular scenario or <code>context</code>, the application might want to treat a collection of users in the following way:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">Iterate</span> <span class="n">the</span> <span class="n">list</span> <span class="k">of</span> <span class="n">users</span><span class="p">,</span>
-  
-<span class="n">find</span> <span class="n">those</span> <span class="n">that</span> <span class="n">live</span> <span class="k">in</span> <span class="n">a</span> <span class="k">specific</span> <span class="n">city</span> <span class="p">(</span><span class="n">say</span> <span class="n">San</span> <span class="n">Francisco</span><span class="p">)</span>
-  
-<span class="k">and</span> <span class="n">who</span> <span class="n">own</span> <span class="k">at</span> <span class="n">least</span> <span class="n">two</span> <span class="n">cars</span>
-  
-<span class="k">group</span> <span class="n">them</span> <span class="k">by</span> <span class="n">their</span> <span class="n">zip</span> <span class="n">codes</span><span class="p">.</span>
-</code></pre></div><p>The above problem statement is clear in its intent and the expectations of the result. In other words, the process here is to iterate, find and group the result by some key K; carry data through a pipeline to obtain the desired result. When this is implemented, most programmers model it around data rather than the pipeline, which makes it hard to understand and maintain the relevant piece of code. If we could decouple the context (or mechanics), it becomes easy to convey the intent. <em>I am trying to apply this process over this data subject to these conditions</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">Iterate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">users</span><span class="p">,</span><span class="w">
+</span><span class="w">  
+</span><span class="w"></span><span class="n">find</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="p">(</span><span class="n">say</span><span class="w"> </span><span class="n">San</span><span class="w"> </span><span class="n">Francisco</span><span class="p">)</span><span class="w">
+</span><span class="w">  
+</span><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">cars</span><span class="w">
+</span><span class="w">  
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">codes</span><span class="p">.</span><span class="w">
+</span></code></pre></div><p>The above problem statement is clear in its intent and the expectations of the result. In other words, the process here is to iterate, find and group the result by some key K; carry data through a pipeline to obtain the desired result. When this is implemented, most programmers model it around data rather than the pipeline, which makes it hard to understand and maintain the relevant piece of code. If we could decouple the context (or mechanics), it becomes easy to convey the intent. <em>I am trying to apply this process over this data subject to these conditions</em>.</p>
 <p>Wouldn’t it be a boon to be able to code likewise? Absolutely! However, on the other hand, it is not uncommon to hand-code such data processing using conventional loops that bundles everything from the skeleton that establishes the data pipeline to the mechanics involved in generating and passing intermediate data until the final result is extracted out of the pipeline. Even after carefully hand-coding, it is very likely for this block of code to be duplicated partly or wholly either because the context enforces a different evaluation for the same collection or it is altogether a different collection. In any case, the final and relevant code would then be of an intimidating size to spin folklores – beware of modifications. So in the case when the code really bears a defect or requires an update for a feature, we are forced to triplicate the block(s) of code. Thus are large applications developed! 😀</p>
 <p>Data processing or handling is a fundamental task performed in any application. Only if there was an elegant way to express it in a language. Think <a href="https://msdn.microsoft.com/en-us/library/bb397897.aspx">LINQ</a>!</p>
 <blockquote>
 <p>LINQ (<strong>L</strong>anguage <strong>IN</strong>tegrated Buery) is an innovative language construct introduced in C# and VB during the .NET 3.5 release. LINQ establishes a uniform surface area for working with collections – objects, SQL data rows, XML elements etc. In other words, LINQ makes querying a first class citizen in C# and VB.</p>
 </blockquote>
 <p>Here is a C# LINQ snippet that queries a given list of <code>File</code> objects for .txt files ordered by their modification timestamp descending.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="k">from</span> <span class="n">file</span> <span class="k">in</span> <span class="n">fileList</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="k">from</span> <span class="n">file</span> <span class="k">in</span> <span class="n">fileList</span>
       
 <span class="k">where</span> <span class="n">file</span><span class="p">.</span><span class="n">Extension</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="s">&#34;.txt&#34;</span><span class="p">)</span>
       
@@ -174,12 +170,12 @@
 <span class="k">select</span> <span class="n">file</span><span class="p">;</span>
 </code></pre></div><p>While the construct of querying remains the same for any collection – objects, XML elements, SQL data objects etc., the context dictates what data is channeled through the pipeline. For instance, there might be a scenario where the resultant collection needs to be ordered by name probably ascending. Or maybe we would want to filter by a different extension. Despite all such contextual differences, the way we express in LINQ makes the code short, clear and expressive!</p>
 <p>In the above snippet, note that the variable holding the resultant collection has been named query. You can call it anything but the name is indicative of an important and fundamental aspect of LINQ – lazy evaluation. The resultant collection is realized only when queried. In other words, the elements of the resultant collection are streamed out of the pipeline on demand. For instance, only when the query is used in an iteration to loop over the result …</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">file</span> <span class="k">in</span> <span class="n">query</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">file</span> <span class="k">in</span> <span class="n">query</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>or explicitly queried for the resultant list.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">files</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">files</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div><p>Until the point of evaluation, query is just an object that you can pass around without worrying about its weight. So it is very much unlike conventional loop oriented code.</p>
 <p>Similar to SQL, LINQ has all querying clauses from filtering (<code>where</code>) to joins and group by. It is important to understand that such querying is available in C# as a language construct, not a library of classes and types<sup id="fnref-1399-3"><a href="#fn-1399-3">3</a></sup>, and is equally efficient as a hand-written iteration. There is a lot <a href="https://msdn.microsoft.com/en-us/library/bb397926.aspx">more</a> to LINQ than meets the eye.</p>
 <p>If only you are programming in C# … Java continues to live with for loops and if-else blocks. Say hello to <a href="https://github.com/VivekRagunathan/JINQ">JINQ</a>!</p>
@@ -187,7 +183,7 @@
 <p>JINQ (<strong>J</strong>ava <strong>IN</strong>tegrated <strong>Q</strong>uery) is an ultra minimalistic library inspired from and mimicking the .NET LINQ. While LINQ is a language level construct, JINQ is composed of types – classes and methods, but to the same effect.</p>
 </blockquote>
 <p>If the above <code>File</code> example was written using JINQ, it would be as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="n">isTxtFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;()</span> <span class="o">{</span>   
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="n">isTxtFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;()</span> <span class="o">{</span>   
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">evaluate</span><span class="o">(</span><span class="n">File</span> <span class="n">file</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="n">f</span> <span class="o">-&gt;</span> <span class="n">f</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.txt&#34;</span><span class="o">);</span>  
@@ -222,7 +218,7 @@
   <span class="o">}</span>
 </code></pre></div><p>Alright, I know what you are thinking. <em>How in the world is this code written using JINQ short, succinct or expressive</em>? I purposely made it look big, fat and ugly. Let’s unravel.</p>
 <p>First, let us look at the query definition:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Enumerable</span><span class="o">&lt;&gt;(</span><span class="n">fileList</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Enumerable</span><span class="o">&lt;&gt;(</span><span class="n">fileList</span><span class="o">)</span>
   <span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="n">isTxtFile</span><span class="o">)</span>
   <span class="o">.</span><span class="na">orderBy</span><span class="o">(</span><span class="n">lengthComparator</span><span class="o">)</span>
   <span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">nameFunc</span><span class="o">);</span>

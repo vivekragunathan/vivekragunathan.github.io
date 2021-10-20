@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>CoMarshal ... Working in NT, Not in XP !!! &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="CoMarshal ... Working in NT, Not in XP !!!">
 <meta itemprop="description" content="Problem:
-I have created a multi-threaded application which works without any problems on a NT-4.">
-<meta itemprop="datePublished" content="2006-03-26T00:48:00+00:00" />
+I have created a multi-threaded application which works without any problems on a NT-4."><meta itemprop="datePublished" content="2006-03-26T00:48:00+00:00" />
 <meta itemprop="dateModified" content="2006-03-26T00:48:00+00:00" />
 <meta itemprop="wordCount" content="455">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoMarshal ... Working in NT, Not in XP !!!"/>
@@ -33,9 +28,10 @@ I have created a multi-threaded application which works without any problems on 
 <meta property="og:description" content="Problem:
 I have created a multi-threaded application which works without any problems on a NT-4." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2006/03/26/comarshal-working-in-nt-not-working-in-xp/" />
+<meta property="og:url" content="/2006/03/26/comarshal-working-in-nt-not-working-in-xp/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2006-03-26T00:48:00+00:00" />
 <meta property="article:modified_time" content="2006-03-26T00:48:00+00:00" />
+
 
 
 
@@ -152,7 +148,7 @@ I have created a multi-threaded application which works without any problems on 
 <p>Environment: Windows-XP,SP-2,Visual Studio 6.0,SP-4,ATL-3.0</p>
 <p>Should I be doing anything different in Windows XP?</p>
 <hr>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">S_OK</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">S_OK</span><span class="p">;</span>
 <span class="n">IUnknown</span><span class="o">**</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">m_vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="n">pp</span> <span class="n">m_vec</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">hr</span> <span class="o">==</span> <span class="n">S_OK</span><span class="p">)</span>
@@ -191,7 +187,7 @@ I have created a multi-threaded application which works without any problems on 
 <ul>
 <li>The commented code in <code>FinalConstruct</code> was:</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp">   <span class="n">hr</span> <span class="o">=</span> <span class="n">CoCreateFreeThreadedMarshaler</span><span class="p">(</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">   <span class="n">hr</span> <span class="o">=</span> <span class="n">CoCreateFreeThreadedMarshaler</span><span class="p">(</span>
          <span class="n">GetControllingUnknown</span><span class="p">(),</span>
          <span class="o">&amp;</span><span class="n">m_pUnkMarshaler</span><span class="p">.</span><span class="n">p</span>
    <span class="p">);</span>

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>A Rambling on Error Handling &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="A Rambling on Error Handling">
-<meta itemprop="description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred.">
-<meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
+<meta itemprop="description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred."><meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-09-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1060">
-
-
-
+<meta itemprop="wordCount" content="1058">
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Rambling on Error Handling"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="A Rambling on Error Handling" />
 <meta property="og:description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2018/02/18/ramble-error-handling/" />
+<meta property="og:url" content="/2018/02/18/ramble-error-handling/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-09-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-09-18T00:00:00+00:00" />
+
 
 
 
@@ -169,7 +165,7 @@
 </ol>
 <p>Have Fun!</p>
 <p><strong>C# Code (Using Exceptions)</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">ConvertToInt</span><span class="p">(</span><span class="kt">string</span> <span class="n">s</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">ConvertToInt</span><span class="p">(</span><span class="kt">string</span> <span class="n">s</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">s</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">()</span> <span class="p">||</span> <span class="n">s</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="p">!</span><span class="n">c</span><span class="p">.</span><span class="n">IsDigit</span><span class="p">()))</span>
     <span class="p">{</span>
@@ -192,7 +188,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>Scala code (without using exceptions)</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// null is represented by an Option. Hence it is not checked below.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// null is represented by an Option. Hence it is not checked below.
 </span><span class="c1"></span><span class="k">def</span> <span class="n">convertToInt</span><span class="o">(</span><span class="n">str</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
   <span class="n">str</span> <span class="k">match</span> <span class="o">{</span>
     <span class="k">case</span> <span class="n">s</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">isEmpty</span>            <span class="k">=&gt;</span> <span class="nc">Left</span><span class="o">(</span><span class="s">&#34;Empty Input&#34;</span><span class="o">)</span>
@@ -212,10 +208,10 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>Unless an exception has to be caught midway either for specialized handling — retry, transformation etc. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Unless an exception has to be caught midway either for specialized handling — retry, transformation etc.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>Functional <code>foldLeft</code> (say on Scala / JVM) that creates new aggregate type for every member / iteration of the original sequence. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Functional <code>foldLeft</code> (say on Scala / JVM) that creates new aggregate type for every member / iteration of the original sequence.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

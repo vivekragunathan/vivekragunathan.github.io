@@ -6,7 +6,25 @@
     <description>Recent content in Categories on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IDE</title>
+      <link>/categories/ide/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/ide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plugins</title>
+      <link>/categories/plugins/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/plugins/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Functional Programming</title>
       <link>/categories/functional-programming/</link>
@@ -31,6 +49,15 @@
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>/categories/javascript/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/javascript/</guid>
       <description></description>
     </item>
     
@@ -166,15 +193,6 @@
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
       <guid>/categories/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>/categories/javascript/</link>
-      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
-      
-      <guid>/categories/javascript/</guid>
       <description></description>
     </item>
     

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>JS Programming in C# - Immutability &middot; A Developer&#39;s Experience</title>
 
@@ -12,15 +12,10 @@
   
 
 <meta itemprop="name" content="JS Programming in C# - Immutability">
-<meta itemprop="description" content="Enough! JavaScript had us in its grip for long with its foot guns.">
-<meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
+<meta itemprop="description" content="Enough! JavaScript had us in its grip for long with its foot guns."><meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-09-18T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1488">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JS Programming in C# - Immutability"/>
@@ -30,9 +25,10 @@
 <meta property="og:title" content="JS Programming in C# - Immutability" />
 <meta property="og:description" content="Enough! JavaScript had us in its grip for long with its foot guns." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2018/02/18/js-in-cs-immutability/" />
+<meta property="og:url" content="/2018/02/18/js-in-cs-immutability/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-09-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-09-18T00:00:00+00:00" />
+
 
 
 
@@ -182,11 +178,11 @@
 <p><strong><code>immutable</code></strong></p>
 <p>&hellip; in parlance with F#&rsquo;s <code>mutable</code>.</p>
 <p>Of all the ways to declare variables, mutable and immutable, I like the F#&rsquo;s most; better than Scala&rsquo;s <code>var</code> and <code>val</code>. Like Scala, while F# supports mutable variables, you are required to specify it explicitly using the <code>mutable</code> keyword. But the beauty of F# is having to decorate the default <code>let</code> with <code>mutable</code> making it stand out visually.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fsharp" data-lang="fsharp"><span class="c1">// F# code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fsharp" data-lang="fsharp"><span class="c1">// F# code
 </span><span class="c1"></span><span class="k">let</span> <span class="nv">imCount</span>          <span class="o">=</span> <span class="n">GetNoOfItems</span><span class="bp">()</span><span class="o">;</span>
 <span class="k">let</span> <span class="nv">mutable</span> <span class="n">mutCount</span> <span class="o">=</span> <span class="n">GetNoOfItems</span><span class="bp">()</span><span class="o">;</span>
 </code></pre></div><p>Borrowing the idea, we could come up with an <code>immutable</code> keyword.</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
 </span><span class="c1"></span><span class="kt">int</span> <span class="n">mutCount</span>          <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
 <span class="n">immutable</span> <span class="kt">int</span> <span class="n">imCount</span> <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
 </code></pre></div><p>Does the job. Besides being mouthful, what do we with <code>readonly</code>? Two different keywords for essentially the same thing. This will be a catalyst for introducing yet another for immutable method parameters. Come on, this isn&rsquo;t PHP 😂.</p>
@@ -203,10 +199,10 @@
 <p><strong><code>let</code></strong></p>
 <p>Mixed feelings. <code>let</code> was schooled for LINQ queries. Although the (intermediary) variables declared through <code>let</code> are immutable[^1], it is not particularly obvious in an imperative language like C#. A <code>let</code> in C# does not suggest the same thing as in F#.</p>
 <p>Suppose we go with <code>let</code>, do we make it an independent keyword or a modifier on existing variable declarations?</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
 </span><span class="c1"></span><span class="k">let</span> <span class="n">immutableCount</span> <span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
 </code></pre></div><p>or</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// C# code
 </span><span class="c1"></span><span class="k">let</span> <span class="kt">int</span> <span class="n">imCount</span>	<span class="p">=</span> <span class="n">GetNoOfItems</span><span class="p">();</span>
 </code></pre></div><p>I prefer the latter because the former is on the same boat as <code>val</code> and implicit typing thing we discussed earlier. The latter seems to fit the bill. Just that <code>let</code> has got this unintended feel of a lame copy from F# and poorly applied. Do we really want that blame?</p>
 </li>

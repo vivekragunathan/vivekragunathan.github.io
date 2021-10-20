@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Mutating Strings &middot; A Developer&#39;s Experience</title>
 
@@ -29,15 +29,10 @@ unsafe {
 }
 
 Console.WriteLine(message); // Prints what? See for yourself!
-">
-<meta itemprop="datePublished" content="2015-07-07T06:52:45+00:00" />
+"><meta itemprop="datePublished" content="2015-07-07T06:52:45+00:00" />
 <meta itemprop="dateModified" content="2015-07-07T06:52:45+00:00" />
 <meta itemprop="wordCount" content="661">
-
-
-
 <meta itemprop="keywords" content=".NET,fixed,immutable,strings,unsafe," />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mutating Strings"/>
@@ -81,9 +76,10 @@ unsafe {
 Console.WriteLine(message); // Prints what? See for yourself!
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2015/07/07/mutating-strings/" />
+<meta property="og:url" content="/2015/07/07/mutating-strings/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-07-07T06:52:45+00:00" />
 <meta property="article:modified_time" content="2015-07-07T06:52:45+00:00" />
+
 
 
 
@@ -195,7 +191,7 @@ Console.WriteLine(message); // Prints what? See for yourself!
   </div>
 
   <p>Today, we question our beliefs! Is string really immutable?</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp">  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp">  
 <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
 
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;

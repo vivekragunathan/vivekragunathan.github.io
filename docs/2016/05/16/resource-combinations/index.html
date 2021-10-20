@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Selective Combinations &middot; A Developer&#39;s Experience</title>
 
@@ -24,15 +24,10 @@ abc def
 abc ghi
 
 abc
-">
-<meta itemprop="datePublished" content="2016-05-16T07:00:08+00:00" />
+"><meta itemprop="datePublished" content="2016-05-16T07:00:08+00:00" />
 <meta itemprop="dateModified" content="2016-05-16T07:00:08+00:00" />
 <meta itemprop="wordCount" content="666">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Selective Combinations"/>
@@ -66,9 +61,10 @@ abc ghi
 abc
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2016/05/16/resource-combinations/" />
+<meta property="og:url" content="/2016/05/16/resource-combinations/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-05-16T07:00:08+00:00" />
 <meta property="article:modified_time" content="2016-05-16T07:00:08+00:00" />
+
 
 
 
@@ -184,7 +180,7 @@ abc
 <p>You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is <code>abc</code>, <code>def</code> and <code>ghi</code>. I have to generate ordered combinations of the above list restricted to the ones starting with <code>abc</code>.</p>
 </blockquote>
 <p>So that would be as follows:</p>
-<pre><code>abc def ghi
+<pre tabindex="0"><code>abc def ghi
 
 abc def
 
@@ -193,7 +189,7 @@ abc ghi
 abc
 </code></pre><p>If the problem sounds abstract, here is the real situation. <!--more--> I have a list of parameters with which I have to select the best matching and available resource (a file in my application config folder). Let us say, the parameter values are</p>
 <p><code>config</code>, <code>type</code>, and <a href=""><code>Locale</code></a> (say <code>en_US</code> for this discussion). So I have to go find the best matching file for the given parameters but in the following order:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">config</span><span class="err">\</span><span class="n">_type</span><span class="err">\</span><span class="n">_en_US</span><span class="o">.</span><span class="na">json</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">config</span><span class="err">\</span><span class="n">_type</span><span class="err">\</span><span class="n">_en_US</span><span class="o">.</span><span class="na">json</span>
   
 <span class="n">config_type</span><span class="o">.</span><span class="na">json</span>
   
@@ -207,7 +203,7 @@ abc
 <p>The conventional technique or the <em>don’t overengineer</em> advice is to write a helper method with a bunch of nested <code>if</code>s; something I will not allow myself to succumb to. This helper method, although appears to be insignificant in the might of other things in the application, is going to be source of several problems later; at least the one related to resource selection.</p>
 <p><strong>Solution #3</strong></p>
 <p>A slightly better way is to have a predefined ordered set of strings that represent the filename pattern such as:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">  
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">resourceSelectionPatterns</span> <span class="o">=</span> <span class="o">{</span> 
 	<span class="s">&#34;{p1}\_{p2}\_{loc}&#34;</span><span class="o">,</span>
 	<span class="s">&#34;{p1}_{p2}&#34;</span><span class="o">,</span>
@@ -243,7 +239,7 @@ abc
 <p><strong>Finale</strong></p>
 <p>If we can represent the input parameters in a more succinct format like a number and if we can identify a pattern among the numerical representation for each parameter, then we should be able to generate the filename segments <em>dynamically</em>.</p>
 <p>If we assume each parameter to be a bit of an integer, first parameter being the most significant bit, then the bit representations for the input – <code>config</code>, <code>type</code>, <code>en_US</code> would be as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">0000</span> <span class="n">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">0000</span> <span class="n">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
 </span><span class="c1"></span>  
 <span class="n">0000</span> <span class="n">0110</span> <span class="c1">// 6 =&gt; config_type
 </span><span class="c1"></span>  

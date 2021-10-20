@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Tree List View &middot; A Developer&#39;s Experience</title>
 
@@ -13,15 +13,10 @@
 
 <meta itemprop="name" content="Tree List View">
 <meta itemprop="description" content="Article published on CodeProject
- Introduction Tree List View">
-<meta itemprop="datePublished" content="2014-10-01T03:45:22+00:00" />
+ Introduction Tree List View"><meta itemprop="datePublished" content="2014-10-01T03:45:22+00:00" />
 <meta itemprop="dateModified" content="2014-10-01T03:45:22+00:00" />
 <meta itemprop="wordCount" content="1004">
-
-
-
 <meta itemprop="keywords" content="" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tree List View"/>
@@ -33,9 +28,10 @@
 <meta property="og:description" content="Article published on CodeProject
  Introduction Tree List View" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/pages/tree-list-view/" />
+<meta property="og:url" content="/pages/tree-list-view/" /><meta property="article:section" content="pages" />
 <meta property="article:published_time" content="2014-10-01T03:45:22+00:00" />
 <meta property="article:modified_time" content="2014-10-01T03:45:22+00:00" />
+
 
 
 
@@ -167,7 +163,7 @@
 <p>Yes, we will have to take control of the painting logic for such a control. We will set the <code>OwnerDraw</code> to <code>true</code> and override <code>DrawItem</code> and <code>DrawSubItem</code> to implement the custom logic to render appropriately.</p>
 <p>There are several things which are part of the rendering logic. Each item in the list view can have a checkbox or an image. We have to show\hide items depending on whether their parent is expanded or collapsed. Besides, it will also show a plus (+) image if it has child items and if it is expanded; or a minus (-) image if it has child items and if it is collapsed. An item with children should expand when clicked on the collapsed (+) image, and collapse when clicked on the expanded (-) minus image. And depending on the depth, the text for the first sub-item of each list view item must be spaced\tabbed accordingly. We should take care of auto adjusting the length of the header item when double clicked on the header seam lines. Our custom logic has to take care of all these things to render.</p>
 <p>Following snippet is worth a thousand words of the core rendering logic. Please refer to the source code attached for further details.-</p>
-<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">void</span> <span class="n">OnDrawSubItem</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DrawListViewSubItemEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">void</span> <span class="n">OnDrawSubItem</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DrawListViewSubItemEventArgs</span> <span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="n">SuspendLayout</span><span class="p">();</span>
  
