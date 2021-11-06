@@ -1,3 +1,36 @@
+:root {
+   --brand-color: #323954;
+}
+blockquote {
+  /* width: 60%; */
+  /* font-family: Open Sans; */
+  font-size: 1.4em;
+  font-style: italic;
+  color: #555555;
+
+  margin: 50px auto;
+  padding: 1.2em 30px 1.2em 75px;
+  border-left: 8px solid var(--brand-color);
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+
+  &:before {
+    font-family: Arial;
+    content: "\201C";
+    color: var(--brand-color);
+    font-size: 4em;
+    position: absolute;
+    left:  10px;
+    top: -10px;
+  }
+
+  &:after {
+    content: '';
+  }
+}
+
+
 .blockquote {
    padding: 60px 80px 40px;
    position: relative;
