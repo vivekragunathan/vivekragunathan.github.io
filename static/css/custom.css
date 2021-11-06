@@ -1,3 +1,10 @@
+:root {
+   --code-font: 'Nanum Gothic Coding';
+   --code-font-size: 20px;
+   --code-block-font: var(--code-font);
+   --code-block-font-size: 18px;
+}
+
 @media (min-width: 48em) {
    .content {
       max-width: 47rem;
@@ -10,6 +17,11 @@ body {
 
 .sidebar {
   background-color: #323954;
+}
+
+.sidebar h1 {
+   font-family: fantasy;
+   font-weight: bold;
 }
 
 .lead {
@@ -51,10 +63,28 @@ article.post h1.post-title {
 }
 
 div.post pre code {
-  font-family: 'Nanum Gothic Coding', monospace;
-  font-size: 16px;
+  font-family: var(--code-block-font), monospace;
+  font-size: var(--code-block-font-size);
+  font-weight: normal;
   line-height: 1.8em !important;
   tab-size: 2;
+}
+
+code {
+   font-family: var(--code-font), monospace;
+}
+
+h1 code, h2 code, h3 code, h4 code {
+   font-size: inherit;
+}
+
+p code {
+  font-family: var(--code-font), monospace;
+  font-size: var(--code-font-size);
+}
+
+blockquote code {
+   font-style: normal;
 }
 
 ul.sidebar-nav li {

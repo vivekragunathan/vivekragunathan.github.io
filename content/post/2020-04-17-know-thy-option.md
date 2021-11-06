@@ -36,9 +36,9 @@ val maybeGreeting: Option[String] = ...
 def personalizeGreeting(g: String): String = ...
 
 val mayBeGreetingBanner = maybeGreeting.map(personalizeGreeting)
+```
 
-// ---------------------------------------------------------------
-
+```scala
 val maybeGreetingKey: Option[String] = getGreetingKeyConfigName()
 
 def readGreetingValue(g: String): Option[String] = ...
@@ -64,7 +64,7 @@ val maybeGreeting: Option[String] = maybeValueFromConfig()
 val simpleStyleGreeting: String =
    maybeGreeting.getOrElse("Hello!")
 
-val yelling: String = 
+val yelling: String =
   maybeGreeting
     .map(_.upperCase)
     .getOrElse("HELLO!")

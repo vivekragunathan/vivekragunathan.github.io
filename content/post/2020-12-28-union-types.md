@@ -22,7 +22,7 @@ String | null
 Int | String
 ```
 
-Similar to disjoint union types, you can pattern match over Union types. However, the differences outshine the similarities. 
+Similar to disjoint union types, you can pattern match over Union types. However, the differences outshine the similarities.
 
 Disjoint union types like `Either` and `Option` ...
 
@@ -35,12 +35,12 @@ On the other hand, Union Types (`|`) ...
 - Not parameterized. Types are specific.
 
 - The types involved don't have to be necessarily unique.
-	```scala
-	String | Int | String | Int
-	```
-	
-	The above definition is valid although the universe of types is just `String` and `Int`.
-	
+
+  ```scala
+  String | Int | String | Int
+  ```
+  The above definition is valid although the universe of types is just `String` and `Int`.
+
 - Language syntax
 
 There is one difference that stands out to me, in fact of disjoint union types. `Either` and `Option` are monads and so they give the niceties of `map`, `flatMap` and all those of a container. Can't do that with Union types.

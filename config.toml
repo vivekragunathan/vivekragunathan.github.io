@@ -34,7 +34,10 @@ enableEmoji = true
 	# themeColor = "#fc2803"
 
 	## Set custom CSS and/or JS to override site defaults.
-	customCss = ["css/custom.css"]
+	customCss = [
+    "css/blockquote.css",
+    "css/custom.css"
+  ]
 	# customJs = ["js/blog.js"]
 
 	  ## Set as many as you want.

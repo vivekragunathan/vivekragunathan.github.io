@@ -8,7 +8,6 @@ date: 2021-10-21T00:00:00+00:00
 
 ### Compile file(s) / folder
 
-
 ```bash
 scala-cli compile Hello.scala
 
@@ -172,10 +171,10 @@ Compiling project (Scala 3.0.2, JVM)
 Compiled project (Scala 3.0.2, JVM)
 Warning: found classes defined in the root package (Hello, Hello$, Includes, Includes$, test, test$, test_sc, test_sc$). These will not be accessible from the REPL.
 
-scala> Includes.run(Array.empty)                             
+scala> Includes.run(Array.empty)
 Includes says hi!
 
-scala> Hello.main(Array.empty)                               
+scala> Hello.main(Array.empty)
 Scala says Hello!  **  2021-10-22T11:23:47.327515
 
 scala> Includes.echo("1234567890")
