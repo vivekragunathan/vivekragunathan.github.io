@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  <title>A Developer&#39;s Experience</title>
+
+  <meta name="description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook" />
+
+  
+
+<meta itemprop="name" content="A Developer&#39;s Experience">
+<meta itemprop="description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Developer&#39;s Experience"/>
+<meta name="twitter:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"/>
+
+
+<meta property="og:title" content="A Developer&#39;s Experience" />
+<meta property="og:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Developer's Experience" />
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="#" rel="me" title="Linkedin" target="_blank">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="posts">
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/05/11/net-reflection-extravanganza/">.NET Reflection Extravanganza !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-05-11T22:40:00Z">May 11, 2006</time> &middot; 7 min read
+        </div>
+
+        <div>
+          <p>Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.</p>
+<p>Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires <strong>hundreds</strong> of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.</p>
+<p>The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/05/11/net-reflection-extravanganza/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/05/04/where-is-my-c/">Where is my C&#43;&#43; ?</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-05-04T06:11:00Z">May 4, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          I have been using C# for quite some time now, and that too VS 2005.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/05/04/where-is-my-c/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/29/infinite-net-languages/">Infinite .NET Languages !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-29T02:39:00Z">Apr 29, 2006</time> &middot; 1 min read
+        </div>
+
+        <div>
+          Though I knew that there are quite a few languages for the .
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/29/infinite-net-languages/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/29/implementing-com-outofproc-servers-in-c-net/">Implementing COM OutOfProc Servers in C# .NET !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-29T02:34:00Z">Apr 29, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/29/implementing-com-outofproc-servers-in-c-net/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/15/non-conventional-window-shapes-i-love-c/">Non-conventional Window Shapes [I love C#] !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-15T05:48:00Z">Apr 15, 2006</time> &middot; 1 min read
+        </div>
+
+        <div>
+          I am not a UI guy. More specifically, I love to work with UIs.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/15/non-conventional-window-shapes-i-love-c/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/15/serialization-and-exceptions/">Serialization and Exceptions !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-15T00:23:00Z">Apr 15, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          I am just like Alice in Wonderland, and not yet got out of the wonders of the .
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/15/serialization-and-exceptions/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/">Know where you initialize and Do not forget to uninitialize !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-11T04:33:00Z">Apr 11, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          If you have long been programming in C++/COM and then you move to C#.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/11/an-encounter-with-hashtables/">An encounter with Hashtables !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-11T04:26:00Z">Apr 11, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/11/an-encounter-with-hashtables/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/11/a-note-on-finalize/">A Note On Finalize !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-11T04:12:00Z">Apr 11, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/11/a-note-on-finalize/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2006/04/11/explicit-interface-implementation/">Explicit Interface Implementation !!!</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2006-04-11T04:06:00Z">Apr 11, 2006</time> &middot; 2 min read
+        </div>
+
+        <div>
+          I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2006/04/11/explicit-interface-implementation/">Read More</a>
+        </div>
+      </article>
+  </div>
+
+  
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/9/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/12/" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/11/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/12/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2021
+
+    &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/fsharp.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  <title>A Rambling on Error Handling &middot; A Developer&#39;s Experience</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="A Rambling on Error Handling">
+<meta itemprop="description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred."><meta itemprop="datePublished" content="2018-09-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-09-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1058">
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Rambling on Error Handling"/>
+<meta name="twitter:description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred."/>
+
+
+<meta property="og:title" content="A Rambling on Error Handling" />
+<meta property="og:description" content="In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say An error occurred." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2018/02/18/ramble-error-handling/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-09-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-18T00:00:00+00:00" />
+
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="#" rel="me" title="Linkedin" target="_blank">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="#" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <div class="image featured">
+  	
+  		<img src="https://images.unsplash.com/photo-1521650775848-620150d73160?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2912&amp;q=80">
+  	
+	</div>
+
+  <h1>A Rambling on Error Handling</h1>
+
+
+  <div class="post-date">
+    <time datetime="2018-09-18T00:00:00Z">Sep 18, 2018</time> &middot; 5 min read
+  </div>
+
+  <p>In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say <strong>An error occurred</strong>.</p>
+<p>Error handling and propagation was tedious in those days. Every call in the stack that reported an error (code or the sorts) had to be manually bubbled up to the surface. Software development, the art aspect of it aside, was also a job. Part of the job involved human errors, or worse sloppiness. It wouldn’t hurt skipping the error handling around a couple of calls. Would it?</p>
+<p>Exceptions (and exception handlers <code>try</code>-<code>catch</code>) freed us from the burden of having to deal with potential errors at each step in the call stack labyrinth. Without the need for a lateral intervention for bubbling up errors, all one needs is a <code>catch</code> guard at the API surface<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. That would capture any exception thrown anywhere down the call stack, which can be translated/transformed to relevant error information for reporting to the outside world.</p>
+<p>Exceptions have proven to be an incredible tool for error handling/reporting, and a real asset to those who have used it to their advantage. Others are unhappy about it. Especially, them! Those functional programming folks! Because they consider throwing exceptions as impure. Purity, that’s what matters more to them than performance. You know there is a cost to unwinding the stack in the event of an exception.</p>
+<p>Languages today are designed to please various cohorts of the programming community. Haskell pleases only the purists. C/C++ pleases those who believe in reality, whose battleground is the womb of the machine. Talk to them about <code>foldLeft</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, and they will punch you in the face. Java(Script) &hellip; for the delusional. Scala for those who win arguments; call themselves rationalists. F# &hellip; maybe the middle ground for debates. Go for those who hate C++.</p>
+<p>Anyways, my point was that languages today embrace different styles of programming. For instance, traditional object-oriented languages like Java have started adopting functional style constructs, making sure that necessary tools are at the programmer’s disposal to address the problem in hand rather than engaging in language wars. Of course, some languages are sophisticated than others, considering a particular feature for comparison.</p>
+<p>Error handling the legacy way using error codes or without the use of exceptions is not taken away by any programming language yet. On the other hand, some languages like Go do not support exceptions.</p>
+<p>Easy to say exceptions are for exceptional cases. The tough part, I think, is primarily education. The amount of effort that the industry invested in getting people off of error codes and on-boarding onto exceptions was phenomenal. The worst part of it is that it pressured the programmers into using exceptions even they hadn’t fully understood it. As an effect, exceptions got employed in non-exceptional situations questioning its very need.</p>
+<p>Fast forward to today, we are investing in discrediting exceptions rather than educating programmers how to deal in intense situations without exceptions. If it is just one method returning an error code / status, it is not a big deal. How do we handle errors, not same lame way, when there are many calls in a given context, especially nested in logic and deep in the call stack.</p>
+<p>Programming languages too are part of the problem. Take Java for example. Since version 8, Java supports <code>Optional</code>. We can write an <code>Either</code> ourselves. But we don&rsquo;t have pattern matching to make elegant use of such facilities. Not just pattern matching but other constructs to handle errors and maintain flow of control when there are no errors (think <code>flatMap</code>). It is not just Java but other languages too in general that call themselves <em>functional</em> or embracing functional programming.</p>
+<p>In the midst of all this, we have these fanatics, esp. functional programmers, discrediting every other paradigm of programming and claiming functional programming alone will solve all the problems of the world. Except a select few, rest of them do not contribute to the awareness, education and betterment of the programming community.</p>
+<p>It is a good thing that us programmers don’t accept and follow something because that’s what we were taught or came to know but we make our choices based on reason. But we shouldn’t forget that right education is essential for reasoning. Otherwise, our choices, our decisions are just impulsive.</p>
+<p>We are at this juncture where we need to spread awareness and educate better. Especially, the functional programming pundits, should develop the patience to sit with the mob and enlighten them of the style, value and guarantees that error reporting the functional way brings to the table; rather than shouting slogans.</p>
+<p>Let me end this rambling with some motivation:</p>
+<blockquote>
+<p><em>It is possible to write code to the same effect without exceptions as you would with exceptions.</em></p>
+</blockquote>
+<p>However, there are two things to keep in mind:</p>
+<ol>
+<li>Exceptions are for exceptional situations. Practice to report errors without throwing exceptions.</li>
+<li>Report errors with facilities natural to the language. It is easy to come up with an <code>Either</code> or <code>Option</code> or other related and supporting facilities in a language that does not provide such facilities first hand. But the house of cards topples without things like pattern matching and others. However, you can be creative! And don&rsquo;t overdo.</li>
+</ol>
+<p>Have Fun!</p>
+<p><strong>C# Code (Using Exceptions)</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">ConvertToInt</span><span class="p">(</span><span class="kt">string</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">s</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">()</span> <span class="p">||</span> <span class="n">s</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="p">!</span><span class="n">c</span><span class="p">.</span><span class="n">IsDigit</span><span class="p">()))</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">n</span> <span class="p">=</span> <span class="n">ConvertToInt</span><span class="p">(</span><span class="s">&#34;q12&#34;</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;N: {0}&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>Scala code (without using exceptions)</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// null is represented by an Option. Hence it is not checked below.
+</span><span class="c1"></span><span class="k">def</span> <span class="n">convertToInt</span><span class="o">(</span><span class="n">str</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+  <span class="n">str</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">s</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">isEmpty</span>            <span class="k">=&gt;</span> <span class="nc">Left</span><span class="o">(</span><span class="s">&#34;Empty Input&#34;</span><span class="o">)</span>
+    <span class="k">case</span> <span class="n">s</span> <span class="k">if</span> <span class="o">!</span><span class="n">s</span><span class="o">.</span><span class="n">forall</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">isDigit</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Left</span><span class="o">(</span><span class="s">&#34;Found non-digits&#34;</span><span class="o">)</span>
+    <span class="k">case</span> <span class="k">_</span>                         <span class="k">=&gt;</span>
+        <span class="nc">Try</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="n">parseInt</span><span class="o">(</span><span class="n">str</span><span class="o">)).</span><span class="n">toEither</span>
+  <span class="o">}</span>
+
+<span class="k">def</span> <span class="n">callingMethod</span> <span class="k">=</span>
+  <span class="n">convertToInt</span><span class="o">(</span><span class="s">&#34;q12&#34;</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Left</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">s&#34;Error: </span><span class="si">$e</span><span class="s">&#34;</span><span class="o">)</span>
+    <span class="k">case</span> <span class="nc">Right</span><span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">s&#34;N: </span><span class="si">$n</span><span class="s">&#34;</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div><hr>
+<p><em>Feature Photo by <a href="https://unsplash.com/photos/WeA1uHnzf60">Tuân Nguyễn Minh</a> on <a href="https://unsplash.com/">Unsplash</a></em></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Unless an exception has to be caught midway either for specialized handling — retry, transformation etc.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Functional <code>foldLeft</code> (say on Scala / JVM) that creates new aggregate type for every member / iteration of the original sequence.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2021
+
+    &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/ocean.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/scala.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/fsharp.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+</body>
+</html>
