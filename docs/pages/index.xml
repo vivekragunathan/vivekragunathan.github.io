@@ -6,7 +6,16 @@
     <description>Recent content in Pages on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="/pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scala-cli Cheatsheet</title>
+      <link>/pages/scala-cli-cheatsheet/</link>
+      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/scala-cli-cheatsheet/</guid>
+      <description>Compile file(s) / folder scala-cli compile Hello.scala # Compile with dependent classes scala-cli compile Hello.</description>
+    </item>
+    
     <item>
       <title>Lo and Behold</title>
       <link>/pages/lo-and-behold/</link>
