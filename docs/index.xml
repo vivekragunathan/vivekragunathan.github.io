@@ -6,7 +6,16 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 21 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anorm Primer</title>
+      <link>/post/2021-11-18-anorm-parsing-primer/</link>
+      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-11-18-anorm-parsing-primer/</guid>
+      <description>A primer on Anorm to use the interesting parts - core and combinator functions, as opposed to the mundane way of reading the column from &lt;code&gt;Row&lt;/code&gt;. The post highlights situations when you don&amp;rsquo;t have a predefined type for the parsed row, and you are dealing with discrete columns in the result set based on time and need.</description>
+    </item>
+    
     <item>
       <title>scala-cli - A Breeze</title>
       <link>/post/2021-10-21-scala-cli-breeze/</link>

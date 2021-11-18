@@ -1,6 +1,6 @@
 ---
 title: scala-cli Cheatsheet
-author: vivekragunathan
+author: higherkindedtype
 layout: page
 date: 2021-10-21T00:00:00+00:00
 
