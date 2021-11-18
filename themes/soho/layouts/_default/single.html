@@ -1,8 +1,9 @@
 {{ define "main" -}}
 <div class="post">
-  <div class="image featured">
+  {{ $fi_class := index .Params "featured_image_class" | default "" }}
+  <div class="image featured {{ $fi_class }}">
   	{{ if isset .Params "featured_image" }}
-  		<img src="{{ index .Params "featured_image" }}">
+  		<img alt="featured_image" src="{{ index .Params "featured_image" }}">
   	{{ end }}
 	</div>
 

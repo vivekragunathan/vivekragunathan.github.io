@@ -3,6 +3,7 @@ title: My Everyday IntelliJ Plugins
 author:
 layout: post
 date: 2021-10-20
+featured_image: /images/intellij.jpg
 categories:
   - IDE
   - Plugins
