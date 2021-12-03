@@ -3,6 +3,7 @@ title: scala-cli - A Breeze
 author:
 layout: post
 date: 2021-10-21
+featured_image: /images/scala-cli.png
 categories:
   - Scala
 summary: |
