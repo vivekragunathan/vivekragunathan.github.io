@@ -112,6 +112,18 @@
       </a>
       
     </section>
+
+    <section class="blog-search-section">
+      <div class="blog-search-box">
+	
+	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
+	<input type="text" class="blog-search-input" placeholder="Type to Search...">
+
+	<form style='display: none;' action='/search/' method="get">
+		<input name="q" type="text">
+	</form>
+</div>
+    </section>
   </div>
 </aside>
 
@@ -188,10 +200,35 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	
 
-	<script>hljs.highlightAll();</script>
+	<script>
+	window.store = {
+	  
+	  
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(
+);
+			}
+		});
+	</script>
 
 	
 </body>

@@ -66,12 +66,53 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	{{ range $.Site.Params.customJs -}}
 	<script src="{{ . | relURL }}"></script>
 	{{- end}}
 
-	<script>hljs.highlightAll();</script>
+	<script>
+	window.store = {
+	  // You can specify your blog section only:
+	  {{ range where .Site.Pages "Section" "blog" }}
+	  // For all pages in your site, use "range .Site.Pages"
+	  // You can use any unique identifier here
+	  "{{ .Permalink }}": {
+	      // You can customize your searchable fields using any .Page parameters
+	      "title": "{{ .Title  }}",
+	      "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
+	      "content": {{ .Content | plainify }}, // Strip out HTML tags
+	      "url": "{{ .Permalink }}"
+	  },
+	  {{ end }}
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(/*function (event) {
+						event.preventDefault();
+						
+						const text = 
+							document.querySelector('.blog-search-input').value
+						
+						window.location.href = `/search?q={text}`;
+					}*/);
+			}
+		});
+	</script>
 
 	{{ template "_internal/google_analytics_async.html" . }}
 </body>
