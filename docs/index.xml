@@ -9,19 +9,19 @@
     <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anorm Primer</title>
-      <link>/post/2021-11-18-anorm-parsing-primer/</link>
+      <link>/posts/anorm-primer/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021-11-18-anorm-parsing-primer/</guid>
+      <guid>/posts/anorm-primer/</guid>
       <description>A primer on Anorm to use the interesting parts - core and combinator functions, as opposed to the mundane way of reading the column from &lt;code&gt;Row&lt;/code&gt;. The post highlights situations when you don&amp;rsquo;t have a predefined type for the parsed row, and you are dealing with discrete columns in the result set based on time and need.</description>
     </item>
     
     <item>
       <title>scala-cli - A Breeze</title>
-      <link>/post/2021-10-21-scala-cli-breeze/</link>
+      <link>/posts/scala-cli-breeze/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021-10-21-scala-cli-breeze/</guid>
+      <guid>/posts/scala-cli-breeze/</guid>
       <description>New tool on the block is &lt;code&gt;scala-cli&lt;/code&gt; (from virtuslab.org) - a clean simple approachable non-fluff command line first interface to the Scala language.</description>
     </item>
     
@@ -36,10 +36,10 @@
     
     <item>
       <title>My Everyday IntelliJ Plugins</title>
-      <link>/post/2021-10-20-my-everyday-intellij-plugins/</link>
+      <link>/posts/everyday-intellij-plugins/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/2021-10-20-my-everyday-intellij-plugins/</guid>
+      <guid>/posts/everyday-intellij-plugins/</guid>
       <description>If IntelliJ is the perfect main course, its plugins are the seasoning to spice it up. There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.</description>
     </item>
     
@@ -803,11 +803,11 @@ I think there is a small window for error in the OrderedThreadPool class.</descr
     </item>
     
     <item>
-      <title>Guess Who ?</title>
-      <link>/2010/12/21/guess-who/</link>
+      <title>Meeting Martin</title>
+      <link>/post/2010-12-21-meeting-martin/</link>
       <pubDate>Tue, 21 Dec 2010 13:32:57 +0000</pubDate>
       
-      <guid>/2010/12/21/guess-who/</guid>
+      <guid>/post/2010-12-21-meeting-martin/</guid>
       <description>You may not know the guy in black. You should definitely be knowing the guy in green.</description>
     </item>
     

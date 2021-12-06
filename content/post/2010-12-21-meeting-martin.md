@@ -1,9 +1,8 @@
 ---
-title: Guess Who ?
+title: Meeting Martin
 author: vivekragunathan
 layout: post
 date: 2010-12-21T13:32:57+00:00
-url: /2010/12/21/guess-who/
 categories:
   - Computers and Internet
   - Uncategorized

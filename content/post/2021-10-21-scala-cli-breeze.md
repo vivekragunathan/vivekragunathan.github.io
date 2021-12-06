@@ -2,6 +2,7 @@
 title: scala-cli - A Breeze
 author:
 layout: post
+url: /posts/scala-cli-breeze
 date: 2021-10-21
 featured_image: /images/scala-cli.png
 categories:

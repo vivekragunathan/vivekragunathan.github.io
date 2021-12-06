@@ -2,6 +2,7 @@
 title: My Everyday IntelliJ Plugins
 author:
 layout: post
+url: /posts/everyday-intellij-plugins
 date: 2021-10-20
 featured_image: /images/intellij.jpg
 categories:
@@ -15,7 +16,7 @@ summary: |
 
 There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.
 
-**Productivity**
+### Productivity
 
 - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
 - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
@@ -24,13 +25,13 @@ There are hundreds of popular plugins that rank in probably every post on Intell
 - [Randomness](https://plugins.jetbrains.com/plugin/9836-randomness)
 - [Database Navigator](https://plugins.jetbrains.com/plugin/1800-database-navigator/)
 
-**Themes**
+### Themes
 
 - [Carbon](https://plugins.jetbrains.com/plugin/12280-carbon)
 - [One Dark Theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
 - [Monokai Pro Theme](https://plugins.jetbrains.com/plugin/13643-monokai-pro-theme)
 
-**On the house**
+### On the house
 
 - [Code with Me](https://plugins.jetbrains.com/plugin/14896-code-with-me)
 - [Test Data](https://plugins.jetbrains.com/plugin/16873-test-data)

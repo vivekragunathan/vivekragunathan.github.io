@@ -8,7 +8,7 @@
     <loc>/categories/anorm/</loc>
     <lastmod>2021-11-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2021-11-18-anorm-parsing-primer/</loc>
+    <loc>/posts/anorm-primer/</loc>
     <lastmod>2021-11-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
@@ -23,7 +23,7 @@
     <loc>/pages/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2021-10-21-scala-cli-breeze/</loc>
+    <loc>/posts/scala-cli-breeze/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/pages/scala-cli-cheatsheet/</loc>
@@ -32,7 +32,7 @@
     <loc>/categories/ide/</loc>
     <lastmod>2021-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2021-10-20-my-everyday-intellij-plugins/</loc>
+    <loc>/posts/everyday-intellij-plugins/</loc>
     <lastmod>2021-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/plugins/</loc>
@@ -536,7 +536,7 @@
     <loc>/2011/02/19/where-am-i/</loc>
     <lastmod>2011-02-19T12:05:38+00:00</lastmod>
   </url><url>
-    <loc>/2010/12/21/guess-who/</loc>
+    <loc>/post/2010-12-21-meeting-martin/</loc>
     <lastmod>2010-12-21T13:32:57+00:00</lastmod>
   </url><url>
     <loc>/2010/12/21/out-ref-finale/</loc>

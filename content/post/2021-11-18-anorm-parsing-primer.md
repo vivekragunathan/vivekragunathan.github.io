@@ -1,7 +1,8 @@
 ---
 title: Anorm Primer
-author:
+author: higherkindedtype
 layout: post
+url: /posts/anorm-primer
 date: 2021-11-18
 categories:
   - Scala
@@ -14,10 +15,10 @@ Typically, you would read the results of an [Anorm](http://playframework.github.
 
 ```scala
 val persons: List[Person] =
-	SQL("select id from ....")
-		.on(...)
-		.getRows()
-		.map(toPerson)
+  SQL("select id from ....")
+    .on(...)
+    .getRows()
+    .map(toPerson)
 
 final case class Person(id: Int, name: String, weight: Float)
 
@@ -33,23 +34,23 @@ There are times when you would want to read a single column. Or perhaps a set of
 
 ```scala
 val ids: List[Int] =
-	SQL("select id from ....")
-		.on(...)
-		.getRows()
-		.map(row => row[Int]("id"))
+SQL("select id from ....")
+    .on(...)
+    .getRows()
+    .map(row => row[Int]("id"))
 
 // or
 
 val ps: List[(Int, String)] =
-	SQL("select id from ....")
-	.on(...)
-	.getRows()
-	.map { row =>
-    (
-      row => row[Int]("id"),
-      row => row[String]("name")
-    )
-	}
+  SQL("select id from ....")
+    .on(...)
+    .getRows()
+    .map { row =>
+      (
+        row => row[Int]("id"),
+        row => row[String]("name")
+      )
+    }
 ```
 
 Note that the following is different from what we are discussing here.
@@ -85,32 +86,32 @@ val resultSetParser: ResultSetParser[List[Int ~ String]] = int("id") ~ str("name
 
 ```scala
 val parser: ResultSetParser[List[(Int, String)]] =
-	resultSetParser.map { case n ~ p => (n, p) }
+  resultSetParser.map { case n ~ p => (n, p) }
 
 // Shorthand of the above using built-in `flatten` function
 val parser: ResultSetParser[List[(Int, String)]] =
-	resultSetParser.map(flatten).*
+  resultSetParser.map(flatten).*
 
 // The finishing touch!
 val result: Map[Int, String] =
-	SQL(query)
-		.on(...)
-		.as(parser)  // List[(Int, String)]
-		.toMap
+  SQL(query)
+    .on(...)
+    .as(parser)  // List[(Int, String)]
+    .toMap
 ```
 
 ### A Bit More of Anorms' Parser Combinators
 
 Anorm provides a bunch of other parser combinators. Check Anorm's documentation for more details but here is a teaser:
 
-**Explicit control of how much to read from the `ResultSet`**
+#### Explicit control of how much to read from the `ResultSet`
 
 ```scala
 val parser: ResultSetParser[List[(String, Int)]] =
-	for {
-		name <- str("name")
-		age  <- int("age")
-	} yield name -> age
+  for {
+    name <- str("name")
+    age  <- int("age")
+  } yield name -> age
 
 
 val exactlyOne: (String, Int)         = SELECT("select ...").as(parser.single)
@@ -118,7 +119,7 @@ val zeroOneOrMore: List[(String, Int) = SQL("select ...").as(parser.*)
 val oneOrMore: List[(String, Int)     = SQL("select ...").as(parser.+)
 ```
 
-**The `to` combinator to the rescue**
+#### The `to` combinator to the rescue
 
 ```scala
 import anorm.SqlParser.{ int, str, to }
@@ -126,15 +127,15 @@ import anorm.SqlParser.{ int, str, to }
 def show(name: String, age: Int): String =  s"...."
 
 val parser: ResultSetParser[List[(String, Int)]] =
-	str("name") ~ int("age").map(to(show _))
+  str("name") ~ int("age").map(to(show _))
 ```
 
-**Parser using Pattern matching**
+#### Parser using Pattern matching
 
 ```scala
 val parser: ResultSetParser[List[(String, Int, Boolean)]] =
   str("name") ~ int("age") ~ str("millionaire").map {
-		case n ~ l ~ "T" => (n, l, true)
-		case n ~ l ~ "F" => (n, l, false)
+    case n ~ l ~ "T" => (n, l, true)
+    case n ~ l ~ "F" => (n, l, false)
   }.*
 ```
