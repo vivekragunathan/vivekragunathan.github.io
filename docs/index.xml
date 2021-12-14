@@ -386,15 +386,6 @@ abc
     </item>
     
     <item>
-      <title>Quotations</title>
-      <link>/quotations/</link>
-      <pubDate>Sun, 11 Oct 2015 07:01:10 +0000</pubDate>
-      
-      <guid>/quotations/</guid>
-      <description>The mark of an educated mind is to be able to entertain a certain thought without actually accepting it.</description>
-    </item>
-    
-    <item>
       <title>The unconquerable</title>
       <link>/2015/10/04/unconquerable/</link>
       <pubDate>Sat, 03 Oct 2015 19:28:22 +0000</pubDate>
@@ -1304,6 +1295,15 @@ I have created a multi-threaded application which works without any problems on 
       
       <guid>/2005/04/19/joining-the-game/</guid>
       <description>Everything has a beginning.</description>
+    </item>
+    
+    <item>
+      <title>Quotations</title>
+      <link>/quotations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/quotations/</guid>
+      <description>.quote { border: 1px solid rgb(128 0 0 / 0.</description>
     </item>
     
   </channel>
