@@ -1,0 +1,42 @@
+:root {
+   --brand-color: #323954;
+}
+
+blockquote {
+  font-size: 1.4em;
+  font-style: italic;
+  color: #555555;
+
+  margin: 50px auto;
+  border-left: 8px solid var(--brand-color);
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+
+  /* &:before {
+    font-family: 'Font Awesome 5 Free';
+
+    content: "\201C";
+    content:"\f10d";
+    content:"❝";
+
+    color: var(--brand-color);
+    font-size: 4em;
+    position: absolute;
+    left:  10px;
+    top: -10px;
+  }
+
+  &:after {
+    content: '';
+
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -100px;
+    height: 3px;
+    width: 200px;
+
+    border-bottom: 3px solid #bf0024;
+  } */
+}

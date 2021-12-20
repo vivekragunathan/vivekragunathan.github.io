@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carpool on A Developer&#39;s Experience</title>
+    <link>/tags/carpool/</link>
+    <description>Recent content in carpool on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 08 Jul 2015 06:16:56 +0000</lastBuildDate><atom:link href="/tags/carpool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A funny moment of IoC</title>
+      <link>/2015/07/08/a-funny-moment-of-ioc/</link>
+      <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
+      
+      <guid>/2015/07/08/a-funny-moment-of-ioc/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; - Inversion of control, is a design that enables fluid flow of control by decoupling  tight dependencies between the portion of a code that exhibits behavior and  another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on A Developer&#39;s Experience</title>
+    <link>/tags/c#/</link>
+    <description>Recent content in C# on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Reduction</title>
+      <link>/2016/12/10/problem-reduction/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/2016/12/10/problem-reduction/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
+&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Iterators vs. Generators</title>
+      <link>/2016/08/03/iterators-vs-generators/</link>
+      <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
+      
+      <guid>/2016/08/03/iterators-vs-generators/</guid>
+      <description>&lt;p&gt;Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JINQ</title>
+      <link>/2016/04/02/jinq/</link>
+      <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
+      
+      <guid>/2016/04/02/jinq/</guid>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt;&lt;sup id=&#34;fnref-1399-1&#34;&gt;&lt;a href=&#34;#fn-1399-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Partial Classes – Java ???</title>
+      <link>/2016/02/16/partial-classes-java/</link>
+      <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
+      
+      <guid>/2016/02/16/partial-classes-java/</guid>
+      <description>&lt;p&gt;I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>final, const and beyond</title>
+      <link>/2015/10/13/final-const-beyond/</link>
+      <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
+      
+      <guid>/2015/10/13/final-const-beyond/</guid>
+      <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	   &lt;span class=&#34;c1&#34;&gt;// some code that updates the sum variable
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sumValueInsideSomeClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSumValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;doSomeOperation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/*some parameters*/&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Unfair World of Tuples, Anons., var and auto</title>
+      <link>/2015/08/24/tuples-anons/</link>
+      <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
+      
+      <guid>/2015/08/24/tuples-anons/</guid>
+      <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
+&lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;return an instance of a class that holds the values&lt;/li&gt;
+&lt;li&gt;return a tuple&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
+      <link>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
+      
+      <guid>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
+      <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
+    </item>
+    
+    <item>
+      <title>A Simple Tree List View !!!</title>
+      <link>/2014/10/05/simple-tlv/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
+      
+      <guid>/2014/10/05/simple-tlv/</guid>
+      <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
+    </item>
+    
+    <item>
+      <title>Missing MI !!!</title>
+      <link>/2010/03/05/missing-mi/</link>
+      <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
+      
+      <guid>/2010/03/05/missing-mi/</guid>
+      <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
+    </item>
+    
+    <item>
+      <title>finally and Return Values !!!</title>
+      <link>/2009/07/02/finally-and-return-values/</link>
+      <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
+      
+      <guid>/2009/07/02/finally-and-return-values/</guid>
+      <description>Let us read some code:-
+int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } }  What is the return value of SomeMethod?</description>
+    </item>
+    
+    <item>
+      <title>Extension Methods – A Polished C&#43;&#43; Feature !!!</title>
+      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
+      
+      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
+      <description>Extension Methods is an excellent feature in C# 3.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,6 +1,8 @@
 .DS_Store
 bak/
+*.iml
 
 _site
 .sass-cache
 .jekyll-metadata
+.lock
