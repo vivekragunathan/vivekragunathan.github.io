@@ -8,4 +8,4 @@ bak/
 _site
 .sass-cache
 .jekyll-metadata
-.lock
+*.lock

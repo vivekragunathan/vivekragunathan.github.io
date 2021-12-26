@@ -10,14 +10,13 @@ summarylength = 10
 enableEmoji = true
 
 [params]
-  author = "Devex"
+  author = "HigherKindedType"
   description = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
   about = "The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook"
 	profilePicture = "images/profile.png" # (or) gravatar = "soho@example.com"
 	copyright = ""
 
   github = "example"
-  facebook = "example"
   twitter = "example"
   misskey = "user profile url"
   mastodon = "user profile url"
@@ -27,34 +26,34 @@ enableEmoji = true
   url = "https://example.com"
   keywords = "blog, google analytics"
 
-	license = "CC BY-SA 4.0"
-	licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+  license = "CC BY-SA 4.0"
+  licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
 
-	## Set custom theme color.
-	# themeColor = "#fc2803"
+  ## Set custom theme color.
+  # themeColor = "#fc2803"
 
-	## Set custom CSS and/or JS to override site defaults.
-	customCss = [
+  ## Set custom CSS and/or JS to override site defaults.
+  customCss = [
     "css/blockquote.css",
     "css/custom.css"
   ]
-	# customJs = ["js/blog.js"]
+  # customJs = ["js/blog.js"]
 
-	  ## Set as many as you want.
-	  [[params.socialIcons]]
-	  icon = "fa-stack-overflow"
-	  title = "Stackoverflow"
-	  url = "https://stackoverflow.com/users/495612"
+  ## Set as many as you want.
+  [[params.socialIcons]]
+  icon = "fa-stack-overflow"
+  title = "Stackoverflow"
+  url = "https://stackoverflow.com/users/495612"
 
-	  [[params.socialIcons]]
-	  icon = "fa-github"
-	  title = "GitHub"
-	  url = "https://github.com/vivekragunathan"
+  [[params.socialIcons]]
+  icon = "fa-github"
+  title = "GitHub"
+  url = "https://github.com/vivekragunathan"
 
-	  [[params.socialIcons]]
-	  icon = "fa-twitter"
-	  title = "Twitter"
-	  url = "https://twitter.com/higherkindedtpe"
+  [[params.socialIcons]]
+  icon = "fa-twitter"
+  title = "Twitter"
+  url = "https://twitter.com/higherkindedtpe"
 
 [menu]
 
