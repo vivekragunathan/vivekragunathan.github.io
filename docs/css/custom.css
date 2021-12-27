@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 :root {
 	--code-font: 'Nanum Gothic Coding';
 	--code-font-size: 20px;
@@ -16,13 +18,17 @@ body {
 }
 
 .sidebar {
-	background-color: #323954;
 	overflow: auto;
+	background-color: #323954;
 }
 
 .sidebar h1 {
-	font-family: fantasy;
+	font-family: Special Elite, fantasy;
 	font-weight: bold;
+}
+
+.sidebar h1 + .lead {
+	font-size: 16px;
 }
 
 article.post h1.post-title {
@@ -43,25 +49,50 @@ li {
 	color: snow;
 }
 
+.social-icons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
+
 .social-icons a {
-	margin-right: 15px;
+	color: snow;
+}
+
+.social-icons a[title="Twitter"]:hover {
+	color: cornflowerblue;
+}
+
+.social-icons a[title="Stackoverflow"]:hover {
+	color: orange;
+}
+
+.social-icons a[title="GitHub"] svg:hover {
+	border-radius: 50%;
+	box-shadow:
+		0 0 60px 30px #fff
+		, 0 0 100px 60px #f0f
+		/* , 0 0 140px 90px #0ff */
+		;
 }
 
 .content.container .posts .post {
 	border: 1px solid silver;
 	padding: 45px 25px;
 	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-	/*rgba(240, 46, 170, 0.7);*/
-	background: snow;
 }
 
 .content.container .posts .post:hover {
 	box-shadow: 10px 10px 15px 5px;
 }
 
-div.post pre code {
-	font-family: var(--code-block-font), monospace;
+div.highlight pre {
 	font-size: var(--code-block-font-size);
+}
+
+div.highlight pre code {
+	font-family: var(--code-block-font), monospace;
 	font-weight: normal;
 	line-height: 1.8em !important;
 	tab-size: 2;
@@ -69,6 +100,7 @@ div.post pre code {
 
 code {
 	font-family: var(--code-font), monospace;
+	font-size: 100% !important;
 }
 
 h1 code,
@@ -93,25 +125,6 @@ ul.sidebar-nav li {
 	margin-right: 10px;
 }
 
-.sidebar2 {
-	background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(153, 103, 186, 1) 41.2%, rgba(0, 113, 227, 1) 90%);
-	background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);
-	background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
-
-	background: #0F2027;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	background: #aa4b6b;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .banner-strip {
 	height: 300px;
