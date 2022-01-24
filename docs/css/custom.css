@@ -40,6 +40,13 @@ li {
 	margin-bottom: 10px;
 }
 
+.post img {
+	border: 1px solid silver;
+
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 .post-date {
 	font-size: 14px;
 }
