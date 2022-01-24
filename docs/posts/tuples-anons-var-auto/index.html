@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.92.0" />
+
+	<title>An Unfair World of Tuples, Anons., var and auto &middot; A Developer&#39;s Experience</title>
+
+	<meta name="description" content="" />
+
+	
+
+<meta itemprop="name" content="An Unfair World of Tuples, Anons., var and auto">
+<meta itemprop="description" content="It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.
+There are at least a couple of options to return multiple values from a method:-
+
+return an instance of a class that holds the values
+return a tuple
+"><meta itemprop="datePublished" content="2015-08-24T01:10:27+00:00" />
+<meta itemprop="dateModified" content="2015-08-24T01:10:27+00:00" />
+<meta itemprop="wordCount" content="2345">
+<meta itemprop="keywords" content="anonymous-class,anonymous-types,auto,C#,Java,tuples,var," />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Unfair World of Tuples, Anons., var and auto"/>
+<meta name="twitter:description" content="It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.
+There are at least a couple of options to return multiple values from a method:-
+
+return an instance of a class that holds the values
+return a tuple
+"/>
+
+
+<meta property="og:title" content="An Unfair World of Tuples, Anons., var and auto" />
+<meta property="og:description" content="It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.
+There are at least a couple of options to return multiple values from a method:-
+
+return an instance of a class that holds the values
+return a tuple
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/tuples-anons-var-auto/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2015-08-24T01:10:27+00:00" />
+<meta property="article:modified_time" content="2015-08-24T01:10:27+00:00" />
+
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+
+	<link type="text/css" rel="stylesheet" href="/css/poole.css">
+
+	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+	
+
+
+	<link type="text/css" rel="stylesheet" href="/css/blockquote.css"><link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+
+	<link rel="shortcut icon" href="/images/favicon.png">
+
+	
+	</head>
+
+<body>
+	<aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://stackoverflow.com/users/495612" rel="me" title="Stackoverflow" target="_blank">
+        <i class="fab fa-stack-overflow" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/vivekragunathan" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://twitter.com/higherkindedtpe" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+
+    <section class="blog-search-section">
+      <div class="blog-search-box">
+	
+	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
+	<input type="text" class="blog-search-input" placeholder="Type to Search...">
+
+	<form style='display: none;' action='/search/' method="get">
+		<input name="q" type="text">
+	</form>
+</div>
+    </section>
+  </div>
+</aside>
+
+
+	<main class="content container">
+		<div class="post">
+  
+  <div class="image featured ">
+  	
+	</div>
+
+  <h1>An Unfair World of Tuples, Anons., var and auto</h1>
+
+
+  <div class="post-date">
+    <time datetime="2015-08-24T01:10:27Z">Aug 24, 2015</time> &middot; 12 min read
+  </div>
+
+  <p>It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.</p>
+<p>There are at least a couple of options to return multiple values from a method:-</p>
+<ol>
+<li>return an instance of a class that holds the values</li>
+<li>return a tuple</li>
+</ol>
+<p>Well, both the options are nothing unusual; not extraordinary either. If the method always returns closely/directly related values (say employee details), a class would be the default choice. Otherwise, if the method returns discrete or loosely related values, a tuple would be appropriate. In the latter case, one could still define a class with a really clumsy name (if naming is not something of importance to the person or team). But how many would you create?</p>
+<p>I was looking at something better - an anonymous type <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Why? Because I did not want a class, and my values being discrete, I did not want to access the return values as <code>Item0</code>, <code>Item1</code> etc. (on the calling side). Looks erghhh! I wanted the client code to be type safe and explicit when accessing the return values &hellip; without declaring a clumsy-named class. Anonymous types are a great way to do that. It is exactly how LINQ query makes elegant use of anonymous types to return strongly typed projections of the queried data. All good except <strong>it is not possible to return an anonymous type from a method</strong>. Duh!</p>
+<p>For instance, we would not be able to define something like this:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">var</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>It is not that you cannot have a <code>return</code> statement with an anonymous type in a method. You can. But how do we declare the return type of the function? It would have been marvelous to name it using <code>var</code>. The <code>var</code> keyword is scoped and does not transcend declaration boundaries (methods). The C# design team seems to have purposely enforced such a limitation. To what purpose, that I am not aware of.</p>
+<p>That said, let us explore ways to circumvent this limitation and try return an anonymous type from a function.</p>
+<p><strong><code>object</code></strong>: The method could return an <code>object</code> in place of <code>var</code>. Hopefully no language rule or restriction could break that. Although we overcome the limitation, we don&rsquo;t solve the purpose. On the calling side, we would have to play gimmicks to access the properties of the actual anonymous type returned:-</p>
+<ul>
+<li>
+<p>Use reflection to access the properties. This does not provide compile time type safety. Besides, just imagine the mess. You would start to think a clumsy-named class is far better.</p>
+</li>
+<li>
+<p>You could cast the <code>object</code> to a type and establish compile time type safety. Since it is an anonymous type, we cannot cast it by its name. However, we could rely on an intrinsic detail that anonymous type declarations with the same properties and order would share the same compiler-generated type. So if I were to use the above <code>GiveMeAnonType</code> method in this context, it would be as follows:-</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"> <span class="k">public</span> <span class="kt">object</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
+ <span class="p">{</span>
+     <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+ <span class="p">}</span>
+
+ <span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
+ <span class="p">{</span>
+     <span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
+     <span class="kt">var</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">Cast</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="m">0.0</span> <span class="p">});</span>
+     <span class="c1">// wow is now a compile time type safe! Oh, don&#39;t look at
+</span><span class="c1"></span>     <span class="c1">// the ugly second parameter in the Cast call.
+</span><span class="c1"></span> <span class="p">}</span>
+
+ <span class="k">private</span> <span class="n">T</span> <span class="n">Cast</span><span class="p">(</span><span class="kt">object</span> <span class="n">obj</span><span class="p">,</span> <span class="n">T</span> <span class="n">type</span><span class="p">)</span>
+ <span class="p">{</span>
+     <span class="k">return</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="n">obj</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div><p>Also, note that if it weren&rsquo;t an anonymous type, we wouldn&rsquo;t need the second parameter (<code>T type</code>) in the <code>Cast&lt;T&gt;</code> method. If you don&rsquo;t wish to push further, the above trick solves the purpose (to a certain extent). Except the code is not really fluid, and they say, <strong>Don&rsquo;t help the compiler</strong>. In this case, the compiler looks like a broken robot, and we are soldering a disconnect so that it dances to our tune. Let me tell you why it is not fluid. First, if the compiler folks were to change the strategy of reusing the compiler generated type for the anonymous type declaration, we are broke. Second, if <code>GiveMeAnonType</code> were to change the parameters of the anonymous type, agreed that we would get compilation errors in the <code>CallingMethod</code> but that&rsquo;s when our soldering wears out.</p>
+<p><strong><code>dynamic</code></strong>: Well, that seems to be a smart option:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">dynamic</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">dynamic</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;{0}, {1}&#34;</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Symbol</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Amount</span><span class="p">);</span> <span class="c1">// Cool!
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>That looks really clean and beautiful. Beauty is skin deep! With <code>dynamic</code>, we lose compile-time type safety.</p>
+<p>Ignoring performance constraints, given a choice I would go for <code>dynamic</code> because at least I don&rsquo;t have to solder with the <code>Cast</code> method and the explicit dummy and match anonymous type as the second parameter.</p>
+<p><strong>Scenario</strong></p>
+<p>Imagine you are writing a web service that returns, let us say, employee information. Only that it returns what was asked for. For instance, if only the employee&rsquo;s name and designation was requested then that&rsquo;s what would be returned. The point is although we know the entire gamut of employee details, what would be returned, subset or whole, is determined at runtime.</p>
+<p>In such a case, we would neither want to create a combinatorial explosion of classes <code>EmployeeWithXXXProperties</code> class nor do we want to twiddle with Dictionary (or <code>Hashmap</code> sort of things). Yes, you are thinking <code>dynamic</code>. But we discussed it before - type safety and all that. I am thinking anonymous types!</p>
+<p><strong>The commission</strong></p>
+<p>Typically, somewhere in one of the methods in the call graph for the above service call, we would be gathering the necessary properties to be returned back. It is possible that these properties might have to be massaged a bit before sending it out. For instance, imagine Customer instead of Employee, and we would want to mask the credit card number; something like that. That means even our own code/infrastructure would have to access these properties in an explicit type safe way. It is not just one place where the ugly detail of gathering the Employee properties (into a HashMap or class) would be hidden.</p>
+<p>Now you might also counter me back - Even if there was a way to create and return anonymous types to solve this problem, parts of the code up in the call graph might not be able to access one of the properties (<code>anon.Name</code>) if that property is not part of the anonymous type returned. For instance, if the method did not return, say Designation, as part of the anonymous type, and if the caller was accessing it as <code>anon.Designation</code>, it would throw compilation error! Excellent observation. Let me explain.</p>
+<p>There are several things at play here. Let us analyze with a couple of cases:</p>
+<ul>
+<li>
+<p>A simple case. Client requests a bunch of properties (<code>getEmployeeDetails</code>). We (the server) knows what they are, knows how to gather them, creates an anonymous type with those properties and returns it. The upper layer that has the infrastructure for serializing outgoing objects serializes it to JSON or XML or whatever, and the data goes over the wire to the client. There is no massaging or that sort of thing involved here.</p>
+</li>
+<li>
+<p>Let us try to combine all non-simple cases into one case here. The reason is there are many ways to handle it depending on the real-time context. For us now, say we are returning credit card, and such properties should be massaged (not necessarily masked or even drop it!). In such cases, the gatherer method is responsible for having the control of what should be exposed or returned. In other words, data massaging is the gatherer method or class&rsquo;s responsibility so that other parts of the code are not littered with checks, exception handling and such. The <code>getCustomerDetails</code> service call hierarchy, in essence, would be very much like <code>getEmployeeDetails</code> hierarchy (they differ in the data gathering details)</p>
+</li>
+</ul>
+<p>Now you are awake, and asking, <strong>OK, what if other parts of the code need to access one of these properties (<code>anon.Property</code>)?</strong> Yes, there are options:</p>
+<ul>
+<li>Other parts (I imagine <em>part</em>) of the code in the current context would itself be prudent of the fact that it would have to inspect the existence of the property. Either this <em>other part(s)</em> of the code would be expecting an anonymous type and wouldn&rsquo;t shy away using inspection based access. Or it would be expecting an <code>Employee</code> or <code>Customer</code>, in which case the gatherer we discussed would be the one to talk to this other part of the code.</li>
+<li>Even in the case, when this <strong>other part(s) of the code</strong> were to unwillingly adopt inspection before access, how would it performed typed checks in the first place? The code cannot have <code>anon.SomeProperty</code> even inside of a condition that checks if the property exists. Conditional check or not, it would throw compilation errors for a flow that does not return an anonymous type with the property. This is a classic scenario for using <code>dynamic</code>. Yes, it wouldn&rsquo;t provide compile time type-safety. But we are in such a realm where the code optionally does something with a type that it does not know of; nobody knows of for that matter. This piece of code, I would imagine, to be an orthogonal piece in the design rather than something that is embedded in the getCustomerDetails sequence. I would imagine it to be some facility that when given a <code>dynamic</code> object would massage the properties based on the property&rsquo;s existence or value. Yes, there are checks involved.</li>
+</ul>
+<p>However, if asked to choose, I would go with option #1, and let the gatherer deal with it. That way, the massaging is a low-level detail of this sequence. I think it is easier and better to reason our code when it is typed; <code>massageData(Employee)</code>.</p>
+<p><strong>Utopia</strong></p>
+<p>Let us assume if C# were to allow returning anonymous types with the <code>var</code> keyword (or another keyword), imagine how fluid the code would be. The compiler would be aware of the (anonymous) type and the type information would flow without friction and noise. Yes, there will be rules and restrictions around such a feature. Yes, there are people who wouldn&rsquo;t understand the purpose of the feature and start using anonymous types all over. Some will fall in love with the feature that their code will no more have named types as <code>class</code>es or <code>struct</code>s. But that is not good enough reason to experience this feature in reality. It might as well prove to be a better alternative to <code>Tuple</code>s.</p>
+<p>Unlike C++, where <code>tuple</code> is defined using variadic templates (👏 👏 👏), most other languages including C# explicitly declare distinct class overloads distinguished by the number of generic parameters. 👎</p>
+<p><strong>Meanwhile Elsewhere</strong></p>
+<p>Usually, C++ has something in stock for such odd problems<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="/posts/crazy-brackets/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
+<p>So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though &hellip; as <a href="https://msdn.microsoft.com/en-us/library/Dd293608.aspx">lambdas</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div><p>I am sure you know where lambda is in the above code. The C++ compiler creates an anonymous class for the lambda as <a href="https://msdn.microsoft.com/en-US/library/Aa985932.aspx">functor</a>.</p>
+<p>So we proved we can create an anonymous class in C++. Let us now return one.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="nf">GiveMeAnon</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">anon</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="n">GiveMeAnon</span><span class="p">();</span>
+    <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">anon</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 25;
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>I know you feel a leech on your back.</p>
+<p>That&rsquo;s where it all ends in C++, just when we proved that we can return anonymous types. Yes, you pointed out that we are not actually returning an anonymous type constructed right at the return site. But hey, we at least got something.</p>
+<p><code>auto</code> is more or less <code>var</code> with a syntactic difference that it can be used as return type place holder for functions. However, the <code>decltype</code> addendum is mandatory <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<p><strong><code>try ... finally</code></strong></p>
+<p>It is not uncommon these days that part or whole of an application is based on data passing between the server and the client(s), and the data is dynamic that it wouldn&rsquo;t be worthwhile defining or at least hand code the data model classes. Creating classes/types on the fly and passing them around is not new in JavaScript. It is time for languages like C# to invent a way to create, pass around and work with such types - anonymous yet compile-time type-safe.</p>
+<p>So here is a challenge, obviously to the, C# team if they can crack this thing out - anonymous types on the fly. Yes, there are challenges, corner cases and all that. Remember a few years back, there was no <a href="https://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0%28v=vs.110%29.aspx">yield</a>, no <a href="https://msdn.microsoft.com/en-us/library/hh191443.aspx"><code>async</code>-<code>await</code></a> etc. We have them now. I believe we should be able to invent something around anonymous types.</p>
+<p><strong>State of Bliss</strong></p>
+<p>Ignorance is bliss and is itself a state of bliss. Java programmers wouldn&rsquo;t mind or care about any or all of what we discussed. They have got the <code>for</code> loop for all problems. 😆</p>
+<p>I was trying all this with Java, and finally ended up using <a href="http://www.javatuples.org">tuples</a>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>The term <strong>anonymous types</strong> refers to the feature in C# while <strong>anonymous class</strong> refers to another feature in Java. They are similar and distinct in their own ways. However, in this post, the terms could have been used interchangeably in the context of C#.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>See Also <a href="/posts/thinking-currying/">Think Currying</a>, <a href="/2008/04/09/extension-methods-a-polished-c-feature/">Extension Methods – A Polished C++ Feature</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>The intricate details of <code>auto</code> and <code>decltype</code> are beyond the scope of this post.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+
+
+	</main>
+
+	<footer>
+  <div>
+    &copy;  2022
+
+    &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>
+
+    
+  </div>
+</footer>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+
+	<script>
+	window.store = {
+	  
+	  
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(
+);
+			}
+		});
+	</script>
+
+	
+</body>
+
+</html>

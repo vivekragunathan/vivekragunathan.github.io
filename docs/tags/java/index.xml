@@ -18,20 +18,20 @@
     
     <item>
       <title>Mundane vs JINQ Way</title>
-      <link>/2016/07/15/mundane-vs-jinq-way/</link>
+      <link>/posts/mundane-vs-jinq-way/</link>
       <pubDate>Fri, 15 Jul 2016 06:27:45 +0000</pubDate>
       
-      <guid>/2016/07/15/mundane-vs-jinq-way/</guid>
-      <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
+      <guid>/posts/mundane-vs-jinq-way/</guid>
+      <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. &lt;a href=&#34;/posts/jinq/&#34;&gt;JINQ&lt;/a&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JINQ</title>
-      <link>/2016/04/02/jinq/</link>
+      <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/2016/04/02/jinq/</guid>
-      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt;&lt;sup id=&#34;fnref-1399-1&#34;&gt;&lt;a href=&#34;#fn-1399-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
+      <guid>/posts/jinq/</guid>
+      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
     </item>
     
     <item>
@@ -45,10 +45,10 @@
     
     <item>
       <title>final, const and beyond</title>
-      <link>/2015/10/13/final-const-beyond/</link>
+      <link>/posts/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/2015/10/13/final-const-beyond/</guid>
+      <guid>/posts/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
@@ -71,10 +71,10 @@
     
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/2015/08/24/tuples-anons/</link>
+      <link>/posts/tuples-anons-var-auto/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/2015/08/24/tuples-anons/</guid>
+      <guid>/posts/tuples-anons-var-auto/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;

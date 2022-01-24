@@ -3,10 +3,11 @@ title: Useful Unix Commands
 author: vivekragunathan
 layout: page
 date: 2015-02-07T08:02:58+00:00
+url: /pages/cmd-line-quickies
 
 ---
 
-### [Change Permission on Folder/Files Recursively][1]
+### Change Permission on Folder/Files Recursively[^1]
 
 **GOOD**
 
@@ -63,7 +64,7 @@ Use this command to get the list of pending check-ins (similar to the pending ch
 svn stat | grep "^[^?]"
 ```
 
-*<small>Would be really handy and nifty if you define an alias for the above command.</small>
+<small>Would be really handy and nifty if you define an alias for the above command.</small>
 
 * * *
 
@@ -75,7 +76,7 @@ Use this command to show what are the effective changes &#8211; those have chang
 svn stat &#8211;show-updates | grep "^[^?]"
 ```
 
-*<small>Would be really handy and nifty if you define an alias for the above command.</small>
+<small>Would be really handy and nifty if you define an alias for the above command.</small>
 
 * * *
 
@@ -103,4 +104,4 @@ grep -rHn -e "text pattern to search" /path/to/dir
 
 <small>r &#8211; search recursively, H &#8211; display the file name with the matching text, n &#8211; display the line number in the file with the matching text</small>
 
- [1]: http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively
+[^1]: http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively

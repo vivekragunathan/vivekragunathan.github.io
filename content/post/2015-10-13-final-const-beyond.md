@@ -3,7 +3,7 @@ title: final, const and beyond
 author: vivekragunathan
 layout: post
 date: 2015-10-13T08:13:30+00:00
-url: /2015/10/13/final-const-beyond
+url: /posts/final-const-beyond
 categories:
   - C++
   - Java
@@ -17,6 +17,7 @@ tags:
   - Java
 
 ---
+
 What are your thoughts on the following piece of code?
 
 ```java
@@ -175,7 +176,7 @@ C# plays Canadian. I wonder why the C# team has not offered anything in this are
 
 Immutability is a fundamental requirement for writing fault-free (or tolerant) and concurrent applications. Like everything else, it takes a bit of getting used to. Imperative languages do their best to offer immutability constructs, which without a doubt is not sufficient to write good code. Given what we have it is important to develop the discipline of using `final` or `const`; they are not nice-to-haves but must-haves. It is high time disciplined programming went mainstream.
 
-Where does that leave us? Nowhere but in an unfair world like [before](https://vivekragunathan.wordpress.com/2015/08/24/tuples-anons/).
+Where does that leave us? Nowhere but in an unfair world like [before](/2015/08/24/tuples-anons/).
 
 **Go functional** ...
 

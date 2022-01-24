@@ -1,9 +1,9 @@
 ---
-title: 'Crazy Braces – [](){}();'
+title: 'Crazy Brackets – [](){}();'
 author: vivekragunathan
 layout: post
 date: 2011-03-26T18:38:23+00:00
-url: /2011/03/27/crazybraces/
+url: /posts/crazy-brackets/
 categories:
   - C++
   - Uncategorized

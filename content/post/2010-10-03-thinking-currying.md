@@ -1,9 +1,9 @@
 ---
-title: Thinking Currying !!!
+title: Thinking Currying
 author: vivekragunathan
 layout: post
 date: 2010-10-03T12:08:00+00:00
-url: /2010/10/03/thinking-currying/
+url: /posts/thinking-currying/
 categories:
   - .NET
   - 'C#'

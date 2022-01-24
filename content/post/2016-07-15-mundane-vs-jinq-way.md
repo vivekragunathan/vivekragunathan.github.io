@@ -3,7 +3,7 @@ title: Mundane vs JINQ Way
 author: vivekragunathan
 layout: post
 date: 2016-07-15T06:27:45+00:00
-url: /2016/07/15/mundane-vs-jinq-way/
+url: /posts/mundane-vs-jinq-way/
 categories:
   - Java
   - Programming
@@ -16,7 +16,7 @@ tags:
   - LINQ
 
 ---
-New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. JINQ[^1] wasn't particularly welcomed. It was either discarded as unknown angel or worse ... ridiculed. However, JINQ still promises expressive succinct code.
+New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. [JINQ](/posts/jinq/) wasn't particularly welcomed. It was either discarded as unknown angel or worse ... ridiculed. However, JINQ still promises expressive succinct code.
 
 <!--more-->
 
@@ -74,12 +74,8 @@ final Map<String, String> map =
 
 Doesn't JINQ make the code simple and clear enough for the reader to understand the intent instantly. Oh, dont say no. I bet it took only a few seconds for you to understand when expressed the JINQ way. Forget the mechanics, focus on the expressing intent.
 
-If you are interested in the mechanics, dig in here[^2].
+If you are interested in the mechanics, dig in [here](https://www.github.com/vivekragunathan/JINQ).
 
 The difference demonstrated in the example above is based on a recent real time experience.
 
-See this gist[^3] for the complete sample code.
-
-[^1]: https://vivekragunathan.wordpress.com/2016/04/02/jinq/
-[^2]: https://www.github.com/VivekRagunathan/JINQ
-[^3]: https://gist.github.com/VivekRagunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1
+See this [gist](https://gist.github.com/vivekragunathan/c2a0f5b07b9a17ea89d5b75ce5176fa1) for the complete sample code.

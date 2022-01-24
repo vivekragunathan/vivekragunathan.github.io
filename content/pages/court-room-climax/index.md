@@ -1,13 +1,13 @@
 ---
 title: The Court Room Climax
-author: vivekragunathan
+author: higherkindedtype
 layout: page
+url: /pages/court-room-climax
 date: 2015-01-25T00:19:31+00:00
 
 ---
-> Before reading this page, please read the relevant blog post: [A-Team Library][1]. This page is an excerpt of a climactic &#8220;court room like&#8221; epilogue of a document that was authored for one of the clients I use to work with. The actual context and details have been omitted. The excerpt has been borrowed and tailored a little bit for public reading. The tone and message remain the same.
+<small>Before reading this page, please read the relevant blog post: [A-Team Library](/posts/a-team-lib). This page is an excerpt of a climactic _court room like_ epilogue of a document that was authored for one of the clients I use to work with. The actual context and details have been omitted. The excerpt has been borrowed and tailored a little bit for public reading. The tone and message remain the same.</small>
 
-* * *
 
 > We shape our tools, and thereafter our tools shape us – Marshall McLuhan.
 
@@ -27,22 +27,19 @@ The library in itself is succinct and uses advanced features of the language. So
 
 Why do we need to take so much pain → rephrase → effort in doing these things? It is a tricky question to answer. Typically the truth in the answer is subjective. Software is an intangible thing. Unlike most other branches of engineering &#8211; civil or automobile, it is difficult to identify and realize the right way to write software. Worse, it is even more difficult to prove it because what seems right to one may not be so to the other. Most other branches of science/engineering have laws (of nature) that we cannot break or positively stated, we can **depend** on &#8211; force, gravity etc. For instance, if I were to build a bridge, I have to obey nature’s laws &#8211; the length between the pillars being proportional to the maximum wind force. Failing to do so will have tangible results.
 
-<img src="images//2015/01/bridge.gif" width="100%" height="auto" />
-
+![bridge falling](/images/2015/01/bridge.gif)
 **<small>Falling Bridge Animation</small>**
 
 Over time, we seem to have found only one way to identify and confirm the right way to build software. Different people say it in different words, but it means the same. One has to look through the mind’s eye, and think how we intend to solve the problem, and also how long and how well will it withstand the test of time. That enlightens us with the solution of the time!
 
-In other words, we have to identify patterns, create models, and discover abstractions. We have to establish our own laws in software, more appropriately stated, define our conventions. Doing so prevents the butterfly effect in building and maintaining software. Or&#8230; get control over the butterfly effect, if you will.
+In other words, we have to identify patterns, create models, and discover abstractions. We have to establish our own laws in software, more appropriately stated, define our conventions. Doing so prevents the butterfly effect in building and maintaining software. Or ... get control over the butterfly effect, if you will.
 
 It is on these core principles that the ATL is built: **abstract**, **reuse**, **extend**!
 
 **EPILOGUE**
 
-> Our ability to imagine complex applications will always exceed our ability to create them &#8211; Grady Booch, Father of Object Orientation
+> Our ability to imagine complex applications will always exceed our ability to create them – Grady Booch, Father of Object Orientation
 
 Time isn’t enough to think about and document all the different ways we can improve our software. Sometimes, or most times, we just have to do it. There are lots of radical improvements that would truly benefit the business. For instance, imagine the code base that does not to physically have CSS per sister-site, or any configuration for that matter, on disk. Imagine the day when adding a new sister-site is just a click of a button, truly a click of a button. That is the horizon we should aim for. We may never touch it, but we can definitely learn a lot and reap some benefits in its pursuit.
 
 It was never the effort of one man. It has been the collective effort of the minds of the A-Team since the beginning. Even if denied by modest and affectionate team members, ATL has always been a product of inspiration, passed on from one to another.
-
- [1]: https://vivekragunathan.wordpress.com/2015/01/26/atl/

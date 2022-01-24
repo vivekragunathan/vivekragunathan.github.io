@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 24 Aug 2015 01:10:27 +0000</lastBuildDate><atom:link href="/tags/anonymous-types/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/2015/08/24/tuples-anons/</link>
+      <link>/posts/tuples-anons-var-auto/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/2015/08/24/tuples-anons/</guid>
+      <guid>/posts/tuples-anons-var-auto/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;

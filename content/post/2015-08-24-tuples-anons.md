@@ -3,7 +3,7 @@ title: An Unfair World of Tuples, Anons., var and auto
 author: vivekragunathan
 layout: post
 date: 2015-08-24T01:10:27+00:00
-url: /2015/08/24/tuples-anons
+url: /posts/tuples-anons-var-auto
 categories:
   - .NET
   - 'C#'
@@ -125,7 +125,7 @@ Unlike C++, where `tuple` is defined using variadic templates (:clap: :clap: :cl
 
 **Meanwhile Elsewhere**
 
-Usually, C++ has something in stock for such odd problems[^2]. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or [crazy](https://vivekragunathan.wordpress.com/2011/03/27/crazybraces/). Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.
+Usually, C++ has something in stock for such odd problems[^2]. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or [crazy](/posts/crazy-brackets/). Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.
 
 So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though ... as [lambdas](https://msdn.microsoft.com/en-us/library/Dd293608.aspx).
 
@@ -177,6 +177,6 @@ I was trying all this with Java, and finally ended up using [tuples](http://www.
 
 [^1]: The term **anonymous types** refers to the feature in C# while **anonymous class** refers to another feature in Java. They are similar and distinct in their own ways. However, in this post, the terms could have been used interchangeably in the context of C#.
 
-[^2]: See Also [Think Currying](https://vivekragunathan.wordpress.com/2010/10/03/thinking-currying/), [Extension Methods – A Polished C++ Feature](https://vivekragunathan.wordpress.com/2008/04/09/extension-methods-a-polished-c-feature/)
+[^2]: See Also [Think Currying](/posts/thinking-currying/), [Extension Methods – A Polished C++ Feature](/2008/04/09/extension-methods-a-polished-c-feature/)
 
 [^3]: The intricate details of `auto` and `decltype` are beyond the scope of this post.

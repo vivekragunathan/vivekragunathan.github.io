@@ -28,11 +28,11 @@
     
     <item>
       <title>JINQ</title>
-      <link>/2016/04/02/jinq/</link>
+      <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/2016/04/02/jinq/</guid>
-      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt;&lt;sup id=&#34;fnref-1399-1&#34;&gt;&lt;a href=&#34;#fn-1399-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
+      <guid>/posts/jinq/</guid>
+      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
     </item>
     
     <item>
@@ -46,10 +46,10 @@
     
     <item>
       <title>final, const and beyond</title>
-      <link>/2015/10/13/final-const-beyond/</link>
+      <link>/posts/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/2015/10/13/final-const-beyond/</guid>
+      <guid>/posts/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
 	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
@@ -72,10 +72,10 @@
     
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/2015/08/24/tuples-anons/</link>
+      <link>/posts/tuples-anons-var-auto/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/2015/08/24/tuples-anons/</guid>
+      <guid>/posts/tuples-anons-var-auto/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
 &lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
 &lt;ol&gt;
@@ -86,11 +86,11 @@
     
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</link>
+      <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</guid>
-      <description>A long time back, in one of my posts here, I had discussed about Extension Methods … in C++; sorta!</description>
+      <guid>/posts/secret-of-cpp-unified-syntax/</guid>
+      <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
     </item>
     
     <item>
@@ -122,12 +122,12 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
     </item>
     
     <item>
-      <title>Extension Methods – A Polished C&#43;&#43; Feature !!!</title>
+      <title>Extension Methods – A Polished C&#43;&#43; Feature</title>
       <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
       <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description>Extension Methods is an excellent feature in C# 3.</description>
+      <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
     </item>
     
   </channel>

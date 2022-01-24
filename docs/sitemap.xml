@@ -170,13 +170,13 @@
     <loc>/tags/linq/</loc>
     <lastmod>2016-08-02T19:16:00+00:00</lastmod>
   </url><url>
-    <loc>/2016/07/15/mundane-vs-jinq-way/</loc>
+    <loc>/posts/mundane-vs-jinq-way/</loc>
     <lastmod>2016-07-15T06:27:45+00:00</lastmod>
   </url><url>
     <loc>/categories/computers-and-internet/</loc>
     <lastmod>2016-05-29T07:49:39+00:00</lastmod>
   </url><url>
-    <loc>/2016/05/29/text-editors/</loc>
+    <loc>/posts/text-editors-rundown/</loc>
     <lastmod>2016-05-29T07:49:39+00:00</lastmod>
   </url><url>
     <loc>/2016/05/16/resource-combinations/</loc>
@@ -185,7 +185,7 @@
     <loc>/tags/.net/</loc>
     <lastmod>2016-04-01T22:50:19+00:00</lastmod>
   </url><url>
-    <loc>/2016/04/02/jinq/</loc>
+    <loc>/posts/jinq/</loc>
     <lastmod>2016-04-01T22:50:19+00:00</lastmod>
   </url><url>
     <loc>/categories/linq/</loc>
@@ -200,7 +200,7 @@
     <loc>/tags/partial-class/</loc>
     <lastmod>2016-02-16T04:27:37+00:00</lastmod>
   </url><url>
-    <loc>/2016/01/19/sporting-a-new-look/</loc>
+    <loc>/posts/new-look-2016/</loc>
     <lastmod>2016-01-19T04:23:55+00:00</lastmod>
   </url><url>
     <loc>/categories/c&#43;&#43;/</loc>
@@ -248,7 +248,7 @@
     <loc>/tags/final/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url><url>
-    <loc>/2015/10/13/final-const-beyond/</loc>
+    <loc>/posts/final-const-beyond/</loc>
     <lastmod>2015-10-13T08:13:30+00:00</lastmod>
   </url><url>
     <loc>/tags/immutability/</loc>
@@ -260,7 +260,7 @@
     <loc>/2015/09/14/jar-tips-loading-dependencies/</loc>
     <lastmod>2015-09-13T19:42:16+00:00</lastmod>
   </url><url>
-    <loc>/2015/08/24/tuples-anons/</loc>
+    <loc>/posts/tuples-anons-var-auto/</loc>
     <lastmod>2015-08-24T01:10:27+00:00</lastmod>
   </url><url>
     <loc>/tags/anonymous-class/</loc>
@@ -323,13 +323,13 @@
     <loc>/tags/value-types/</loc>
     <lastmod>2015-03-13T06:40:37+00:00</lastmod>
   </url><url>
-    <loc>/pages/cmd-line-sucks/</loc>
+    <loc>/pages/cmd-line-quickies/</loc>
     <lastmod>2015-02-07T08:02:58+00:00</lastmod>
   </url><url>
-    <loc>/2015/01/26/atl/</loc>
+    <loc>/posts/a-team-lib/</loc>
     <lastmod>2015-01-26T01:11:52+00:00</lastmod>
   </url><url>
-    <loc>/pages/a-team-libraries/</loc>
+    <loc>/pages/court-room-climax/</loc>
     <lastmod>2015-01-25T00:19:31+00:00</lastmod>
   </url><url>
     <loc>/tags/codeproject/</loc>
@@ -338,7 +338,7 @@
     <loc>/tags/extension-methods/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url><url>
-    <loc>/2014/11/09/the-secret-behind-bjarne-and-herbs-papers-on-unified-syntax/</loc>
+    <loc>/posts/secret-of-cpp-unified-syntax/</loc>
     <lastmod>2014-11-09T10:36:44+00:00</lastmod>
   </url><url>
     <loc>/tags/unified-syntax/</loc>
@@ -464,7 +464,7 @@
     <loc>/categories/mobile/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url><url>
-    <loc>/2013/11/28/the-windows-phone-epic/</loc>
+    <loc>/posts/windows-phone-epic/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url><url>
     <loc>/categories/windows-phone/</loc>
@@ -512,7 +512,7 @@
     <loc>/2011/09/10/seinfeld-calendar-update/</loc>
     <lastmod>2011-09-09T19:50:43+00:00</lastmod>
   </url><url>
-    <loc>/2011/08/21/android-meets-net/</loc>
+    <loc>/posts/android-meets-net/</loc>
     <lastmod>2011-08-21T13:07:44+00:00</lastmod>
   </url><url>
     <loc>/2011/07/03/beauty-of-numbers-solution/</loc>
@@ -524,7 +524,7 @@
     <loc>/2011/03/30/thread-reference/</loc>
     <lastmod>2011-03-30T17:05:36+00:00</lastmod>
   </url><url>
-    <loc>/2011/03/27/crazybraces/</loc>
+    <loc>/posts/crazy-brackets/</loc>
     <lastmod>2011-03-26T18:38:23+00:00</lastmod>
   </url><url>
     <loc>/2011/03/15/seinfeld/</loc>
@@ -566,7 +566,7 @@
     <loc>/tags/functional-programming/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url><url>
-    <loc>/2010/10/03/thinking-currying/</loc>
+    <loc>/posts/thinking-currying/</loc>
     <lastmod>2010-10-03T12:08:00+00:00</lastmod>
   </url><url>
     <loc>/2010/04/10/sfinae/</loc>

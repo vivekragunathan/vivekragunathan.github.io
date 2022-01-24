@@ -40,11 +40,15 @@ li {
 	margin-bottom: 10px;
 }
 
-.post img {
+.post p>img, .post li>img {
+	margin-top: 40px;
+	margin-bottom: 50px;
 	border: 1px solid silver;
 
-	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
-		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	/*box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;*/
+
+	box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .post-date {

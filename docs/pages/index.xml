@@ -46,20 +46,20 @@
     
     <item>
       <title>Useful Unix Commands</title>
-      <link>/pages/cmd-line-sucks/</link>
+      <link>/pages/cmd-line-quickies/</link>
       <pubDate>Sat, 07 Feb 2015 08:02:58 +0000</pubDate>
       
-      <guid>/pages/cmd-line-sucks/</guid>
-      <description>Change Permission on Folder/Files Recursively GOOD
+      <guid>/pages/cmd-line-quickies/</guid>
+      <description>Change Permission on Folder/Files Recursively1 GOOD
 find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type f -exec chmod 644 {} +``` BETTER</description>
     </item>
     
     <item>
       <title>The Court Room Climax</title>
-      <link>/pages/a-team-libraries/</link>
+      <link>/pages/court-room-climax/</link>
       <pubDate>Sun, 25 Jan 2015 00:19:31 +0000</pubDate>
       
-      <guid>/pages/a-team-libraries/</guid>
+      <guid>/pages/court-room-climax/</guid>
       <description>Before reading this page, please read the relevant blog post: A-Team Library.</description>
     </item>
     
