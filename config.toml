@@ -16,7 +16,7 @@ enableEmoji = true
 	profilePicture = "images/profile.png" # (or) gravatar = "soho@example.com"
 	copyright = ""
 
-  github = "example"
+  github = "vivekragunathan"
   twitter = "example"
   misskey = "user profile url"
   mastodon = "user profile url"
