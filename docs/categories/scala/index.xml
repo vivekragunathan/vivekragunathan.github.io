@@ -6,7 +6,16 @@
     <description>Recent content in Scala on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Case Class Shortcomings - Part 1</title>
+      <link>/posts/case-class-shortcomings-01/</link>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/case-class-shortcomings-01/</guid>
+      <description>Despite all the power and utility that &lt;code&gt;case class&lt;/code&gt;es provide, there are a couple of things that Scala could have done better. This post discusses the situation of defining the (ADT) sum type companions across multiple files.</description>
+    </item>
+    
     <item>
       <title>Confluence Alternatives</title>
       <link>/posts/confluence-alternatives/</link>
