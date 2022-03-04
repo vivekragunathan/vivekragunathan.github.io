@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Crazy Brackets – [](){}(); &middot; A Developer&#39;s Experience</title>
 
@@ -145,23 +145,23 @@
   <p>What does this cryptic bracket sequence mean? What programming language is it? Is it valid syntax? If there is even a weak chance of this syntax being valid? If so, what does it mean?</p>
 <p>Alright, alright, alright! It is C++. That would calm most people; with all their love (pun) for C++. Specifically, it is C++0x. Amongst many other features that we have been waiting for, C++0x gives us the power of lambdas.</p>
 <p>The formal definition of a lambda in C++0x is as follows:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[</span><span class="n">capture_mode</span><span class="p">]</span> <span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="k">mutable</span> <span class="k">throw</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">return_type</span> <span class="p">{</span>
-   <span class="n">body</span>
-<span class="p">}</span>
-</code></pre></div><p>A lambda may capture one or more variables in scope by value or by reference, or it may capture none. Specifying <code>return_type</code> is not necessary if the type can be inferred or is void.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[</span><span class="n">capture_mode</span><span class="p">]</span> <span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="k">mutable</span> <span class="k">throw</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">return_type</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">body</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>A lambda may capture one or more variables in scope by value or by reference, or it may capture none. Specifying <code>return_type</code> is not necessary if the type can be inferred or is void.</p>
 <p>For instance, a <code>std::for_each</code>‘s functor based code could be inlined with a lambda as follows:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div><p>A lambda definition could be assigned to a variable and then used or invoked later.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">lessthan</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div><p>In the above code, <code>lessthan</code> represents a function that takes two int parameters, and returns a <code>bool</code>. And it can be invoked as <code>lessthan(2, 3)</code>, which returns <code>true</code>. The cute thing about a lambda is that it can invoked directly right after its definition. The following code defines a lambda (which takes two ints and returns a bool) and invokes it right away.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[](</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">;</span>
-<span class="p">}</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</code></pre></div><p>Coming back to our initial question now! You should have guessed it by now.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>A lambda definition could be assigned to a variable and then used or invoked later.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">lessthan</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>In the above code, <code>lessthan</code> represents a function that takes two int parameters, and returns a <code>bool</code>. And it can be invoked as <code>lessthan(2, 3)</code>, which returns <code>true</code>. The cute thing about a lambda is that it can invoked directly right after its definition. The following code defines a lambda (which takes two ints and returns a bool) and invokes it right away.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">[](</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></div><p>Coming back to our initial question now! You should have guessed it by now.</p>
 <blockquote>
 <p>The bracket sequence – <code>[](){}();</code> – is nothing but a definition followed by a call (right away) to a lambda taking no arguments and returning nothing.</p>
 </blockquote>

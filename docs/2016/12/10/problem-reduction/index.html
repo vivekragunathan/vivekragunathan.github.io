@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Problem Reduction &middot; A Developer&#39;s Experience</title>
 
@@ -147,114 +147,114 @@ Take for instance, the word distance problem: Find the shortest distance between
 
   <p><em>Problem Reduction</em> is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.</p>
 <p>Take for instance, the word distance problem: <em>Find the shortest distance between two words in a given set of words</em>. Following is an unanimous solution, I suppose:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// Iterate the set of words, mark the position/index
-</span><span class="c1">/// of word1 and word2, track the minimum difference
-</span><span class="c1">/// in positions
-</span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
-  <span class="k">this</span> <span class="n">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span>
-  <span class="n">T</span> <span class="n">item1</span><span class="p">,</span>
-  <span class="n">T</span> <span class="n">item2</span>
-<span class="p">)</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
-<span class="p">{</span>
-  <span class="c1">// Imagine all the sanity checks!
-</span><span class="c1"></span>  <span class="cm">/*if (IsNullOrEmpty(array) || IsBlank(item1) || IsBlank(item2))
-</span><span class="cm">  {
-</span><span class="cm">    return -1;
-</span><span class="cm">  }*/</span>
-
-  <span class="kt">int</span> <span class="n">index1</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">index2</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">distance</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">item</span> <span class="p">=</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">item1</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">index1</span> <span class="p">=</span> <span class="n">index</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">item2</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">index2</span> <span class="p">=</span> <span class="n">index</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">index1</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">index2</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="kt">var</span> <span class="n">diff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">index1</span> <span class="p">-</span> <span class="n">index2</span><span class="p">);</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="n">diff</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-      <span class="p">}</span>
-
-      <span class="n">distance</span> <span class="p">=</span> <span class="n">distance</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">?</span> <span class="n">diff</span> <span class="p">:</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">diff</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>It&rsquo;s little mouthful but it works decent – O(N). Can we do better? In other words, can we find the shortest distance in sub-linear time?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="cs">/// Iterate the set of words, mark the position/index</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// of word1 and word2, track the minimum difference</span>
+</span></span><span class="line"><span class="cl"><span class="cs">/// in positions</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span> <span class="n">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">T</span> <span class="n">item1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">T</span> <span class="n">item2</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Imagine all the sanity checks!</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/*if (IsNullOrEmpty(array) || IsBlank(item1) || IsBlank(item2))
+</span></span></span><span class="line"><span class="cl"><span class="cm">  {
+</span></span></span><span class="line"><span class="cl"><span class="cm">    return -1;
+</span></span></span><span class="line"><span class="cl"><span class="cm">  }*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">index1</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">index2</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">distance</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">item</span> <span class="p">=</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">item1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">index1</span> <span class="p">=</span> <span class="n">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">item2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">index2</span> <span class="p">=</span> <span class="n">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">index1</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">index2</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">var</span> <span class="n">diff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">index1</span> <span class="p">-</span> <span class="n">index2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">diff</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">distance</span> <span class="p">=</span> <span class="n">distance</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">?</span> <span class="n">diff</span> <span class="p">:</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">diff</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>It&rsquo;s little mouthful but it works decent – O(N). Can we do better? In other words, can we find the shortest distance in sub-linear time?</p>
 <p>We can achieve sub-linear time if we can cut short the time in iterating over all the words and focus on only the words of interest – <code>word1</code> and <code>word2</code>. Think Map! If we create a map out of the set of words with each word as the key and list of indices of the word as the value, then we can instantly know the words and the indices to scan for finding the minimum distance between the words. That should yield sub-linear time. Well, amortized, if you will, since creating the map takes linear time. But we linear-iterate only <code>once</code> to create the map.</p>
 <p>Before we proceed, when would you adopt such an approach? Well, when you want sub-linear time such as a service whose regular activity is to find the minimum distance. Reducing time (at the cost of space) is a desirable thing! On to the solution then &hellip;</p>
 <p>We grab the list of indices from the map for <code>word1</code> and <code>word2</code>, and if we find minimum difference between the two numbers in the lists of indices, that is nothing but our shortest distance. So the problem we are solving is to <em>find the minimum difference</em> (between two lists of indices) but we start out to <em>find the shortest distance</em> (between two words in set of words).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">WordsCache</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="k">readonly</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">cache</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="n">WordDistanceFinder</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">words</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">cache</span> <span class="p">=</span> <span class="n">CreateCache</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">(</span><span class="kt">string</span> <span class="n">word1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">word2</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Wait for C# 7 😊 !!!
-</span><span class="c1"></span>        <span class="kt">bool</span> <span class="n">w1Exists</span> <span class="p">=</span> <span class="n">cache</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="k">out</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">indices1</span><span class="p">);</span>
-        <span class="kt">bool</span> <span class="n">w2Exists</span> <span class="p">=</span> <span class="n">cache</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="k">out</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">indices2</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(!</span><span class="n">w1Exists</span> <span class="p">||</span> <span class="p">!</span><span class="n">w2Exists</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">return</span> <span class="n">FindMinDifference</span><span class="p">(</span><span class="n">indices1</span><span class="p">,</span> <span class="n">indices2</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindMinDifference</span><span class="p">(</span><span class="n">Collection</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Collection</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">c2</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="kt">int</span> <span class="n">m</span> <span class="p">=</span> <span class="n">c1</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
-      <span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="n">c2</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
-
-      <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">dist</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span>
-
-      <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="n">m</span> <span class="p">&amp;&amp;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">n</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i1</span> <span class="p">=</span> <span class="n">c1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="n">i2</span> <span class="p">=</span> <span class="n">c2</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-
-        <span class="n">dist</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">i1</span> <span class="p">-</span> <span class="n">i2</span><span class="p">));</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">i1</span> <span class="p">&lt;</span> <span class="n">i2</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">i</span><span class="p">++;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="n">j</span><span class="p">++;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-
-      <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">CreateCache</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">words</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Implementation left to your imagination!
-</span><span class="c1"></span>    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>A couple of interesting things to note when iterating the indices for the two given words:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WordsCache</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">readonly</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">cache</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">WordDistanceFinder</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">cache</span> <span class="p">=</span> <span class="n">CreateCache</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">FindShortestDistance</span><span class="p">(</span><span class="kt">string</span> <span class="n">word1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">word2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Wait for C# 7 😊 !!!</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">w1Exists</span> <span class="p">=</span> <span class="n">cache</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="k">out</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">indices1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">w2Exists</span> <span class="p">=</span> <span class="n">cache</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="k">out</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">indices2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(!</span><span class="n">w1Exists</span> <span class="p">||</span> <span class="p">!</span><span class="n">w2Exists</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">FindMinDifference</span><span class="p">(</span><span class="n">indices1</span><span class="p">,</span> <span class="n">indices2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">FindMinDifference</span><span class="p">(</span><span class="n">Collection</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Collection</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">c2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">m</span> <span class="p">=</span> <span class="n">c1</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="n">c2</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">dist</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="n">m</span> <span class="p">&amp;&amp;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i1</span> <span class="p">=</span> <span class="n">c1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i2</span> <span class="p">=</span> <span class="n">c2</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">dist</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">i1</span> <span class="p">-</span> <span class="n">i2</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i1</span> <span class="p">&lt;</span> <span class="n">i2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">CreateCache</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Implementation left to your imagination!</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>A couple of interesting things to note when iterating the indices for the two given words:</p>
 <ul>
 <li>Number of iterations to make is much less than the words set</li>
 <li>Indices in our <code>cache</code> are sorted in increasing order</li>

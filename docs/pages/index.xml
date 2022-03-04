@@ -79,7 +79,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Wed, 01 Oct 2014 03:55:02 +0000</pubDate>
       
       <guid>/pages/code-treats/</guid>
-      <description>[contact-form subject=&#39;[Feedback on DevEx]’
+      <description>[contact-form subject=&amp;rsquo;[Feedback on DevEx]’
 [contact-field label=’Name’ type=’name’ required=’1’/]
 [contact-field label=’Email’ type=’email’ required=’1’/]</description>
     </item>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>scala-cli Cheatsheet &middot; A Developer&#39;s Experience</title>
 
@@ -143,109 +143,109 @@
   </div>
 
   <h3 id="compile-files--folder">Compile file(s) / folder</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile Hello.scala
-
-<span class="c1"># Compile with dependent classes</span>
-scala-cli compile Hello.scala Includes.scala
-
-<span class="c1"># Compiles all Scala files in the folder</span>
-scala-cli compile .
-</code></pre></div><h3 id="compile-and-run-scala-files--folder">Compile and run Scala files / folder</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Compile and run `main` in Hello.scala</span>
-scala-cli run Hello.scala
-
-<span class="c1"># `run` command is the default and may be omitted for running the class</span>
-scala-cli Hello.scala
-
-<span class="c1"># Compile and run `main` with all associated files listed</span>
-scala-cli Hello.scala Utils.scala
-
-<span class="c1"># Compile the whole directory and run `main`</span>
-scala-cli .
-</code></pre></div><h3 id="running-scripts">Running Scripts</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile Hello.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compile with dependent classes</span>
+</span></span><span class="line"><span class="cl">scala-cli compile Hello.scala Includes.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compiles all Scala files in the folder</span>
+</span></span><span class="line"><span class="cl">scala-cli compile .
+</span></span></code></pre></div><h3 id="compile-and-run-scala-files--folder">Compile and run Scala files / folder</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Compile and run `main` in Hello.scala</span>
+</span></span><span class="line"><span class="cl">scala-cli run Hello.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># `run` command is the default and may be omitted for running the class</span>
+</span></span><span class="line"><span class="cl">scala-cli Hello.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compile and run `main` with all associated files listed</span>
+</span></span><span class="line"><span class="cl">scala-cli Hello.scala Utils.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compile the whole directory and run `main`</span>
+</span></span><span class="line"><span class="cl">scala-cli .
+</span></span></code></pre></div><h3 id="running-scripts">Running Scripts</h3>
 <p><strong>HelloScript.sc</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env scala-cli
-</span><span class="cp"></span>println<span class="o">(</span><span class="s2">&#34;What a wonderful world!&#34;</span><span class="o">)</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli run HelloScript.sc
-</code></pre></div><h3 id="running-gist">Running gist</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli https://gist.github.com/&lt;user-handle&gt;/&lt;gist-id&gt;
-</code></pre></div><h3 id="specify-dependencies">Specify Dependencies</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile Hello.scala --dependency org.typelevel::cats-core:2.6.1
-
-scala-cli compile Hello.scala --jar /path/to/library.jar
-</code></pre></div><h3 id="watch-for-changes">Watch for changes</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli --watch .
-
-scala-cli --watch Hello.scala
-
-scala-cli compile --watch Hello.scala
-</code></pre></div><h3 id="specify-scala-version">Specify Scala Version</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile --scala 2.13.6 Hello.scala
-</code></pre></div><h3 id="picks-the-highest-corresponding-stable-scala-version">Picks the highest corresponding stable Scala version</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile --scala 2.12 Hello.scala
-scala-cli compile --scala <span class="m">2</span> Hello.scala
-scala-cli compile --scala <span class="m">3</span> Hello.scala
-</code></pre></div><h3 id="compiler-options">Compiler Options</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile Hello.scala -Xlint:unused
-</code></pre></div><h3 id="compiler-plugins">Compiler Plugins</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli compile <span class="se">\
-</span><span class="se"></span>  --scala 2.13 <span class="se">\
-</span><span class="se"></span>  --compiler-plugin com.olegpy:better-monadic-for:0.3.1 <span class="se">\
-</span><span class="se"></span>  Hello.scala
-</code></pre></div><h3 id="specify-main">Specify main</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env scala-cli
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>println<span class="o">(</span><span class="s2">&#34;What a wonderful world!&#34;</span><span class="o">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli run HelloScript.sc
+</span></span></code></pre></div><h3 id="running-gist">Running gist</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli https://gist.github.com/&lt;user-handle&gt;/&lt;gist-id&gt;
+</span></span></code></pre></div><h3 id="specify-dependencies">Specify Dependencies</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile Hello.scala --dependency org.typelevel::cats-core:2.6.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli compile Hello.scala --jar /path/to/library.jar
+</span></span></code></pre></div><h3 id="watch-for-changes">Watch for changes</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli --watch .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli --watch Hello.scala
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli compile --watch Hello.scala
+</span></span></code></pre></div><h3 id="specify-scala-version">Specify Scala Version</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile --scala 2.13.6 Hello.scala
+</span></span></code></pre></div><h3 id="picks-the-highest-corresponding-stable-scala-version">Picks the highest corresponding stable Scala version</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile --scala 2.12 Hello.scala
+</span></span><span class="line"><span class="cl">scala-cli compile --scala <span class="m">2</span> Hello.scala
+</span></span><span class="line"><span class="cl">scala-cli compile --scala <span class="m">3</span> Hello.scala
+</span></span></code></pre></div><h3 id="compiler-options">Compiler Options</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile Hello.scala -Xlint:unused
+</span></span></code></pre></div><h3 id="compiler-plugins">Compiler Plugins</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli compile <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --scala 2.13 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --compiler-plugin com.olegpy:better-monadic-for:0.3.1 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  Hello.scala
+</span></span></code></pre></div><h3 id="specify-main">Specify main</h3>
 <p>If there is more than one <code>main</code> found:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">➜ scala-cli .
-
-Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Found several main classes: Hello, Includes
-</code></pre></div><p>&hellip; in that case:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli --main-class Includes .
-
-Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Includes says hi!
-</code></pre></div><h3 id="specify-jvm">Specify JVM</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli --jvm graalvm:21 .
-</code></pre></div><h3 id="packaging">Packaging</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜ scala-cli .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Found several main classes: Hello, Includes
+</span></span></code></pre></div><p>&hellip; in that case:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli --main-class Includes .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Includes says hi!
+</span></span></code></pre></div><h3 id="specify-jvm">Specify JVM</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli --jvm graalvm:21 .
+</span></span></code></pre></div><h3 id="packaging">Packaging</h3>
 <p>Create a distributable library (eg. Maven)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli package --library Hello.scala -o hello.jar
-javap -cp hello.jar hello.Hello
-</code></pre></div><h3 id="create-a-light-weight-executablelauncher-jar">Create a light-weight executable/launcher JAR</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli package Hello.scala -o hello
-</code></pre></div><h3 id="create-an-heavy-weight-executable-assembly">Create an heavy-weight executable assembly</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli package --assembly Hello.scala -o hello
-</code></pre></div><h3 id="create-an-executable-and-package-into-a-docker-image">Create an executable and package into a docker image</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli package --docker Hello.scala --docker-image-repository hello-docker
-</code></pre></div><h3 id="create-a-native-executable">Create a native executable</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli package --native Hello.scala -o hello-native
-
-scala-cli package --native -S 2.13 --main-class Hello . -o hello-native
-</code></pre></div><h3 id="repl">REPL</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">➜ scala-cli repl .
-Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
-Warning: found classes defined in the root package <span class="o">(</span>Hello, Hello$, Includes, Includes$, test, test$, test_sc, test_sc$<span class="o">)</span>. These will not be accessible from the REPL.
-
-scala&gt; Includes.run<span class="o">(</span>Array.empty<span class="o">)</span>
-Includes says hi!
-
-scala&gt; Hello.main<span class="o">(</span>Array.empty<span class="o">)</span>
-Scala says Hello!  **  2021-10-22T11:23:47.327515
-
-scala&gt; Includes.echo<span class="o">(</span><span class="s2">&#34;1234567890&#34;</span><span class="o">)</span>
-You said: <span class="m">1234567890</span>
-</code></pre></div><h3 id="scalafmt">Scalafmt</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli package --library Hello.scala -o hello.jar
+</span></span><span class="line"><span class="cl">javap -cp hello.jar hello.Hello
+</span></span></code></pre></div><h3 id="create-a-light-weight-executablelauncher-jar">Create a light-weight executable/launcher JAR</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli package Hello.scala -o hello
+</span></span></code></pre></div><h3 id="create-an-heavy-weight-executable-assembly">Create an heavy-weight executable assembly</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli package --assembly Hello.scala -o hello
+</span></span></code></pre></div><h3 id="create-an-executable-and-package-into-a-docker-image">Create an executable and package into a docker image</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli package --docker Hello.scala --docker-image-repository hello-docker
+</span></span></code></pre></div><h3 id="create-a-native-executable">Create a native executable</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli package --native Hello.scala -o hello-native
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli package --native -S 2.13 --main-class Hello . -o hello-native
+</span></span></code></pre></div><h3 id="repl">REPL</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜ scala-cli repl .
+</span></span><span class="line"><span class="cl">Compiling project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Compiled project <span class="o">(</span>Scala 3.0.2, JVM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Warning: found classes defined in the root package <span class="o">(</span>Hello, Hello$, Includes, Includes$, test, test$, test_sc, test_sc$<span class="o">)</span>. These will not be accessible from the REPL.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala&gt; Includes.run<span class="o">(</span>Array.empty<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Includes says hi!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala&gt; Hello.main<span class="o">(</span>Array.empty<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Scala says Hello!  **  2021-10-22T11:23:47.327515
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala&gt; Includes.echo<span class="o">(</span><span class="s2">&#34;1234567890&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">You said: <span class="m">1234567890</span>
+</span></span></code></pre></div><h3 id="scalafmt">Scalafmt</h3>
 <p>There are some <a href="https://scala-cli.virtuslab.org/docs/commands/fmt#current-limitations">known</a> limitation(s); hopefully for the time being.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli fmt
-
-scala-cli fmt --check
-
-scala-cli fmt --dialect scala212
-</code></pre></div><h3 id="clean">Clean</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli fmt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli fmt --check
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scala-cli fmt --dialect scala212
+</span></span></code></pre></div><h3 id="clean">Clean</h3>
 <p>Removed all generated files (primarily those in <code>.scala/</code>)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scala-cli clean .
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scala-cli clean .
+</span></span></code></pre></div>
 </div>
 
 

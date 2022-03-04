@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Pattern Conflict &middot; A Developer&#39;s Experience</title>
 
@@ -177,7 +177,7 @@ protected: virtual void ReleaseDC() = 0;
 
 public: void Draw()
         {
-           cout &lt;&lt; &quot;Drawing &quot; &lt;&lt; Type();
+           cout &lt;&lt; &#34;Drawing &#34; &lt;&lt; Type();
 
            CreateDC();
            InitDC();
@@ -188,28 +188,28 @@ public: void Draw()
 </code></pre><p>The Shape class listed above implements the template method design pattern via the Draw method. The custom shapes like Circle or Rectangle would have to implement the pure virtual functions – CreateDC, InitDC, Paint, ReleaseDC – in order to be drawn. For instance, a Circle shape may be hypothetically implemented as follows:-</p>
 <pre tabindex="0"><code>class Circle : public Shape
 {
-public: Circle() : Shape(&quot;Circle&quot;)
+public: Circle() : Shape(&#34;Circle&#34;)
         {
         }
 
 protected: void CreateDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;Circle::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::CreateDC&#34;;
            }
 
 protected: void InitDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;Circle::InitDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::InitDC&#34;;
            }
 
 protected: void ReleaseDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;Circle::ReleaseDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::ReleaseDC&#34;;
            }
 
 protected: void Paint()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;Circle::Paint&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::Paint&#34;;
            }
 };
 </code></pre><p>The typical usage of the above classes would be as follows:-</p>
@@ -244,7 +244,7 @@ public: ShapeFiller(Shape* shapeTobeFilled)
 
 protected: void CreateDC()
            {
-              // CDC1: Call the underlying shape's CreateDC
+              // CDC1: Call the underlying shape&#39;s CreateDC
               _shape-&gt;CreateDC();
 
               cout &lt;&lt; std::endl &lt;InitDC();
@@ -256,15 +256,15 @@ protected: void CreateDC()
               // Paint2: Custom logic to fill the shape
               // (forget the color). Do you see it filling?
 
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeFiller::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller::CreateDC&#34;;
            }
 };
 </code></pre><p>There are several things to be observed in the above implementation.</p>
 <p>The above class will not compile, complaining the following error:-</p>
-<pre tabindex="0"><code>error C2248: 'Shape::CreateDC' : cannot access protected member declared in class 'Shape'
-error C2248: 'Shape::InitDC' : cannot access protected member declared in class 'Shape'
-error C2248: 'Shape::ReleaseDC' : cannot access protected member declared in class 'Shape'
-error C2248: 'Shape::Paint' : cannot access protected member declared in class 'Shape'
+<pre tabindex="0"><code>error C2248: &#39;Shape::CreateDC&#39; : cannot access protected member declared in class &#39;Shape&#39;
+error C2248: &#39;Shape::InitDC&#39; : cannot access protected member declared in class &#39;Shape&#39;
+error C2248: &#39;Shape::ReleaseDC&#39; : cannot access protected member declared in class &#39;Shape&#39;
+error C2248: &#39;Shape::Paint&#39; : cannot access protected member declared in class &#39;Shape&#39;
 </code></pre><p>Although no custom logic is required in the CreateDC, InitDC and ReleaseDC methods of the ShapeFiller, they must have to be implemented simply as place holders forwarding calls to the underlying shape (needless those methods are pure virtual). The quickest remedy may seem to have default (empty) implementation for the above methods in the Shape class. Doing so would not be creating (init and release) the DC when using the ShapeFiller class. In other words, application will misbehave (probably crash) when attempting to Paint().</p>
 <p>The other (ugly) remedy may be making the protected methods – CreateDC, InitDC, ReleaseDC – public. It is a bad design choice. In the Object Oriented world, it is a crime.</p>
 <p>So that is the problem – Attempting to extend a class that implements Template Method design pattern using Decorator design pattern results in a near-predicament situation.</p>
@@ -307,7 +307,7 @@ protected: virtual void ReleaseDC() = 0;
 
 public: void Draw()
         {
-                            cout &lt;&lt; &quot;Drawing &quot; &lt;&lt; Type();
+                            cout &lt;&lt; &#34;Drawing &#34; &lt;&lt; Type();
 
            CreateDC();
            InitDC();
@@ -324,43 +324,43 @@ protected: Shape* _shape;
 public: ShapeDecoratorBase (Shape* shapeTobeFilled) : Shape(shapeTobeFilled-&gt;Name()),
            _shape(shapeTobeFilled)
         {
-           cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase Ctor&quot;;
+           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase Ctor&#34;;
         }
 
 public: ~DecoratorBase()
         {
-           cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase Dtor&quot;;
+           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase Dtor&#34;;
         }
 
 protected: void CreateDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
 
-              // CDC1: Call the underlying shape's CreateDC
+              // CDC1: Call the underlying shape&#39;s CreateDC
               _shape-&gt;CreateDC();
            }
 
 protected: void InitDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
 
-              // IDC1: Call the underlying shape's CreateDC
+              // IDC1: Call the underlying shape&#39;s CreateDC
               _shape-&gt;InitDC();
            }
 
 protected: void ReleaseDC()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
 
-              // RDC1: Call the underlying shape's ReleaseDC
+              // RDC1: Call the underlying shape&#39;s ReleaseDC
               _shape-&gt;ReleaseDC();
            }
 
 protected: void Paint()
            {
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeDecoratorBase::Paint&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::Paint&#34;;
 
-              // Paint1: First call the underlying shape's CreateDC
+              // Paint1: First call the underlying shape&#39;s CreateDC
               _shape-&gt;Paint();
            }
 };
@@ -369,12 +369,12 @@ protected: void Paint()
 {
 public: ShapeFiller(Shape* shapeTobeFilled) : ShapeDecoratorBase(shapeTobeFilled)
         {
-           cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeFiller Ctor&quot;;
+           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller Ctor&#34;;
         }
 
 public: ~ShapeFiller()
         {
-           cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeFiller Dtor&quot;;
+           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller Dtor&#34;;
         }
 
 protected: void Paint()
@@ -384,7 +384,7 @@ protected: void Paint()
               // Paint2: Custom logic to fill the shape (forget the color).
               // Do you see it filling?
 
-              cout &lt;&lt; std::endl &lt;&lt; &quot;ShapeFiller::CreateDC&quot;;
+              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller::CreateDC&#34;;
            }
 };
 </code></pre><p>The ShapeFiller class now works as expected. We can now have more classes like ShapeBorderThickener etc implemented similarly.</p>

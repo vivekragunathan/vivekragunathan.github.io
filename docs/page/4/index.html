@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -226,23 +226,23 @@
 
         <div>
           <p>Today, we question our beliefs! Is string really immutable?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp">  
-<span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;
-</span><span class="c1"></span>
-<span class="k">unsafe</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">message</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-  
-  <span class="k">fixed</span> <span class="p">(</span><span class="kt">char</span> <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">*(</span><span class="n">p</span> <span class="p">+</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints what? See for yourself!
-</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">unsafe</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">message</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">fixed</span> <span class="p">(</span><span class="kt">char</span> <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">*(</span><span class="n">p</span> <span class="p">+</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints what? See for yourself!</span>
+</span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -284,9 +284,9 @@
         <div>
           <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
-<span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">

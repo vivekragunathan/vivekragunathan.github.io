@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Unique Id Generation !!! &middot; A Developer&#39;s Experience</title>
 
@@ -144,24 +144,24 @@
 
   <p>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction. I am little dumb and am used to GUIDs for a long time when it comes to unique ids. But GUIDs are more than 30 in length. I was trying out some stupid ways like stripping out the trail part of the GUID to make 30 length unique but my intuition wasn’t convinced about the tricks I was working out.</p>
 <p>Finally, Sriram helped me with it. I am sharing his code for the benefit of others.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">GenerateUniqueId</span><span class="p">(</span><span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="kt">string</span> <span class="n">asciiChars</span> <span class="p">=</span> <span class="s">&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&#34;</span><span class="p">;</span>
-   <span class="kt">char</span><span class="p">[]</span> <span class="n">chars</span> <span class="p">=</span> <span class="n">asciiChars</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
-   <span class="kt">byte</span><span class="p">[]</span> <span class="n">randombytes</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
-
-   <span class="n">RNGCryptoServiceProvider</span> <span class="n">crypto</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RNGCryptoServiceProvider</span><span class="p">();</span>
-   <span class="n">crypto</span><span class="p">.</span><span class="n">GetNonZeroBytes</span><span class="p">(</span><span class="n">randombytes</span><span class="p">);</span>
-   <span class="n">StringBuilder</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="n">length</span><span class="p">);</span>
-
-   <span class="k">foreach</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="k">in</span> <span class="n">randombytes</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">result</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">chars</span><span class="p">[</span><span class="n">b</span> <span class="p">%</span> <span class="n">asciiChars</span><span class="p">.</span><span class="n">Length</span><span class="p">]);</span>
-   <span class="p">}</span>
-
-   <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div><p>Thanks Sriram.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">GenerateUniqueId</span><span class="p">(</span><span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">string</span> <span class="n">asciiChars</span> <span class="p">=</span> <span class="s">&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">char</span><span class="p">[]</span> <span class="n">chars</span> <span class="p">=</span> <span class="n">asciiChars</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">byte</span><span class="p">[]</span> <span class="n">randombytes</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">RNGCryptoServiceProvider</span> <span class="n">crypto</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RNGCryptoServiceProvider</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">crypto</span><span class="p">.</span><span class="n">GetNonZeroBytes</span><span class="p">(</span><span class="n">randombytes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">StringBuilder</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">foreach</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="k">in</span> <span class="n">randombytes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">result</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">chars</span><span class="p">[</span><span class="n">b</span> <span class="p">%</span> <span class="n">asciiChars</span><span class="p">.</span><span class="n">Length</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Thanks Sriram.</p>
 
 </div>
 

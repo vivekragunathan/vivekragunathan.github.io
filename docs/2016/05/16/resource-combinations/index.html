@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Selective Combinations &middot; A Developer&#39;s Experience</title>
 
@@ -192,64 +192,64 @@ abc ghi
 abc
 </code></pre><p>If the problem sounds abstract, here is the real situation. <!--more--> I have a list of parameters with which I have to select the best matching and available resource (a file in my application config folder). Let us say, the parameter values are</p>
 <p><code>config</code>, <code>type</code>, and <a href=""><code>Locale</code></a> (say <code>en_US</code> for this discussion). So I have to go find the best matching file for the given parameters but in the following order:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">config</span><span class="err">\</span><span class="n">_type</span><span class="err">\</span><span class="n">_en_US</span><span class="o">.</span><span class="na">json</span>
-  
-<span class="n">config_type</span><span class="o">.</span><span class="na">json</span>
-  
-<span class="n">config</span><span class="err">\</span><span class="n">_en</span><span class="err">\</span><span class="n">_US</span><span class="o">.</span><span class="na">json</span>
-  
-<span class="n">config</span><span class="o">.</span><span class="na">json</span>
-</code></pre></div><p>Not a difficult one, eh? Only that, at the time of this writing, the number of parameters was not fixed but could be more (definitely not hundreds or thousands) but more than three.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">config</span><span class="err">\</span><span class="n">_type</span><span class="err">\</span><span class="n">_en_US</span><span class="o">.</span><span class="na">json</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">config_type</span><span class="o">.</span><span class="na">json</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">config</span><span class="err">\</span><span class="n">_en</span><span class="err">\</span><span class="n">_US</span><span class="o">.</span><span class="na">json</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="na">json</span>
+</span></span></code></pre></div><p>Not a difficult one, eh? Only that, at the time of this writing, the number of parameters was not fixed but could be more (definitely not hundreds or thousands) but more than three.</p>
 <p><strong>The non-solution</strong></p>
 <p>Alright, let us not talk about generating all possible combinations of the given list of strings, and pluck the ones starting with the first string in the list.</p>
 <p><strong>Solution #1</strong></p>
 <p>The conventional technique or the <em>don’t overengineer</em> advice is to write a helper method with a bunch of nested <code>if</code>s; something I will not allow myself to succumb to. This helper method, although appears to be insignificant in the might of other things in the application, is going to be source of several problems later; at least the one related to resource selection.</p>
 <p><strong>Solution #3</strong></p>
 <p>A slightly better way is to have a predefined ordered set of strings that represent the filename pattern such as:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">  
-<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">resourceSelectionPatterns</span> <span class="o">=</span> <span class="o">{</span> 
-	<span class="s">&#34;{p1}\_{p2}\_{loc}&#34;</span><span class="o">,</span>
-	<span class="s">&#34;{p1}_{p2}&#34;</span><span class="o">,</span>
-	<span class="s">&#34;{p1}_{loc}&#34;</span><span class="o">,</span>
-	<span class="s">&#34;{p1}&#34;</span>
-<span class="o">};</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">findResource</span><span class="o">(</span>
-    <span class="n">String</span> <span class="n">param1</span><span class="o">,</span>
-    <span class="n">String</span> <span class="n">param2</span><span class="o">,</span>
-    <span class="n">Locale</span> <span class="n">locale</span>
-<span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    
-	<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">pattern</span> <span class="o">:</span> <span class="n">patterns</span><span class="o">)</span> <span class="o">{</span>
-		<span class="kd">final</span> <span class="n">String</span> <span class="n">resName</span> <span class="o">=</span> 
-			<span class="n">pattern</span>
-				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{p1}&#34;</span><span class="o">,</span> <span class="n">param1</span><span class="o">)</span>    
-				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{p2}&#34;</span><span class="o">,</span> <span class="n">param2</span><span class="o">)</span>
-				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{loc}&#34;</span><span class="o">,</span> <span class="n">locale</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-
-		<span class="kd">final</span> <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">resName</span> <span class="o">+</span> <span class="s">&#34;.json&#34;</span><span class="o">;</span>
-
-		<span class="k">if</span> <span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">fileName</span><span class="o">).</span><span class="na">exists</span><span class="o">())</span> <span class="o">{</span>
-				<span class="k">return</span> <span class="n">resName</span><span class="o">;</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
-
-	<span class="k">throw</span> <span class="k">new</span> <span class="n">IOException</span><span class="o">(</span><span class="s">&#34;No matching resource found&#34;</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div><p>This is better than nested <code>if</code>s which I would not bother to show the code. But even this is not really better. First, when there are more parameters in the equation, I have to go update <code>resourceSelectionPatterns</code> with the corresponding patterns and in the right order, and <code>findResource</code> method too. Also, the <code>replaceFirst</code> calls could create many throw-away <code>String</code>s. Of course, you can use a <code>StringBuilder</code> but that does not make it all better.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">resourceSelectionPatterns</span> <span class="o">=</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;{p1}\_{p2}\_{loc}&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;{p1}_{p2}&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;{p1}_{loc}&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;{p1}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">findResource</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">param1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">param2</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Locale</span> <span class="n">locale</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">pattern</span> <span class="o">:</span> <span class="n">patterns</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">final</span> <span class="n">String</span> <span class="n">resName</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl">			<span class="n">pattern</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{p1}&#34;</span><span class="o">,</span> <span class="n">param1</span><span class="o">)</span>    
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{p2}&#34;</span><span class="o">,</span> <span class="n">param2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="s">&#34;{loc}&#34;</span><span class="o">,</span> <span class="n">locale</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="kd">final</span> <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">resName</span> <span class="o">+</span> <span class="s">&#34;.json&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">fileName</span><span class="o">).</span><span class="na">exists</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="n">resName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">throw</span> <span class="k">new</span> <span class="n">IOException</span><span class="o">(</span><span class="s">&#34;No matching resource found&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>This is better than nested <code>if</code>s which I would not bother to show the code. But even this is not really better. First, when there are more parameters in the equation, I have to go update <code>resourceSelectionPatterns</code> with the corresponding patterns and in the right order, and <code>findResource</code> method too. Also, the <code>replaceFirst</code> calls could create many throw-away <code>String</code>s. Of course, you can use a <code>StringBuilder</code> but that does not make it all better.</p>
 <p><strong>Take a step back</strong></p>
 <p>What I want is to generate the filename segments (or the equivalent patterns) <em>dynamically</em> based on the given set of input strings so that the solution is <em>write once and for all</em> (any count of parameters). We can assume that the order of the generated patterns is dictated by the order of the input strings.</p>
 <p><strong>Finale</strong></p>
 <p>If we can represent the input parameters in a more succinct format like a number and if we can identify a pattern among the numerical representation for each parameter, then we should be able to generate the filename segments <em>dynamically</em>.</p>
 <p>If we assume each parameter to be a bit of an integer, first parameter being the most significant bit, then the bit representations for the input – <code>config</code>, <code>type</code>, <code>en_US</code> would be as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">0000</span> <span class="n">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
-</span><span class="c1"></span>  
-<span class="n">0000</span> <span class="n">0110</span> <span class="c1">// 6 =&gt; config_type
-</span><span class="c1"></span>  
-<span class="n">0000</span> <span class="n">0101</span> <span class="c1">// 5 =&gt; config\_en\_US.json
-</span><span class="c1"></span>  
-<span class="n">0000</span> <span class="n">0100</span> <span class="c1">// 4 =&gt; config.json
-</span></code></pre></div><p>Well, I am sure you see the pattern. The integer representation of each filename segment decrements by 1 from the most specialized filename and stops at the least specialized one. This is true of any set of parameters and the selective combinations are generated dynamically.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0110</span> <span class="c1">// 6 =&gt; config_type
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0101</span> <span class="c1">// 5 =&gt; config\_en\_US.json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0100</span> <span class="c1">// 4 =&gt; config.json
+</span></span></span></code></pre></div><p>Well, I am sure you see the pattern. The integer representation of each filename segment decrements by 1 from the most specialized filename and stops at the least specialized one. This is true of any set of parameters and the selective combinations are generated dynamically.</p>
 <p>Writing the code now for this solution should be a pie, the pleasure of which I will leave it to you.</p>
 <p>Thanks to <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a> in helping me discover the solution!</p>
 </div>

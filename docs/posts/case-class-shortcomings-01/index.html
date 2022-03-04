@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Case Class Shortcomings - Part 1 &middot; A Developer&#39;s Experience</title>
 
@@ -147,66 +147,66 @@
 <p><strong>Defining Sum Type Companions Across Files</strong></p>
 <p>Recently, I had to write an ADT. Interestingly, the sum types had quite a bit of logic in them - <code>implicit</code> definitions, type specific helpers and so on. Having them all in one file was nothing but distraction to the eader; too much code so to speak.</p>
 <p>Here is a contrived example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">ErrorType</span>
-
-<span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
-  <span class="k">final</span> <span class="k">case</span> <span class="k">object</span> <span class="nc">None</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-
-	<span class="k">object</span> <span class="nc">BadRequest</span> <span class="o">{</span>
-		<span class="c1">// implicit definitions
-</span><span class="c1"></span>		<span class="c1">// BadRequest specific helpers
-</span><span class="c1"></span>	<span class="o">}</span>
-
-	<span class="k">object</span> <span class="nc">NotFound</span> <span class="o">{</span>
-		<span class="c1">// implicit definitions
-</span><span class="c1"></span>		<span class="c1">// NotFound specific helpers
-</span><span class="c1"></span>	<span class="o">}</span>
-
-	<span class="k">object</span> <span class="nc">Unknown</span> <span class="o">{</span>
-		<span class="c1">// implicit definitions
-</span><span class="c1"></span>		<span class="c1">// Unknown specific helpers
-</span><span class="c1"></span>	<span class="o">}</span>
-
-	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-<span class="o">}</span>
-</code></pre></div><p>Each of the sum types  needed a companion object with <code>implicits</code> and helpers that mentioned earlier. I wouldn&rsquo;t mind having it all in <code>ErrorType.scala</code> if the it were only a couple of sum types.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">final</span> <span class="k">case</span> <span class="k">object</span> <span class="nc">None</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">BadRequest</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// implicit definitions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// BadRequest specific helpers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">NotFound</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// implicit definitions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// NotFound specific helpers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">Unknown</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// implicit definitions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// Unknown specific helpers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>Each of the sum types  needed a companion object with <code>implicits</code> and helpers that mentioned earlier. I wouldn&rsquo;t mind having it all in <code>ErrorType.scala</code> if the it were only a couple of sum types.</p>
 <p>In my case, it was finite but definitely more than a handful. So, having all the companions with their big fat body in the same file was definitely not something I wanted to do. Also, I did not want to lose the power and guarantee of an ADT (<code>sealed trait</code>).</p>
 <p>Note that you could have the companion object declarations in different files outside the file that defines the <code>sealed trait</code>. If you do, those definitions are not going to be considered as companion objetcts, which means that the compiler will not automatically use those definitions during an implicit lookup.</p>
 <p>Fortunaely, there is a workaround, one that I learnt from <a href="https://users.scala-lang.org/u/balmungsan/summary">BalsungSan</a> in the Scala Discord <a href="https://discord.com/invite/scala">Channel</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// ErrorType.scala
-</span><span class="c1"></span>
-<span class="k">package</span> <span class="nn">domain.errors</span>
-
-<span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-
-	<span class="k">object</span> <span class="nc">BadRequest</span> <span class="k">extends</span> <span class="nc">BadRequestCompanion</span>
-	<span class="k">object</span> <span class="nc">NotFound</span> <span class="k">extends</span> <span class="nc">NotFoundCompanion</span>
-	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-	<span class="k">object</span> <span class="nc">Unknown</span> <span class="k">extends</span> <span class="nc">UnknownCompanion</span>
-<span class="o">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// BadRequest.scala
-</span><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
-
-<span class="k">private</span><span class="o">[</span><span class="kt">errors</span><span class="o">]</span> <span class="k">trait</span> <span class="nc">BadRequestCompanion</span> <span class="o">{</span> <span class="n">self</span><span class="k">:</span> <span class="kt">BadRequest.</span><span class="k">type</span> <span class="o">=&gt;</span>
-	 <span class="c1">// implicit and helpers, a bunch
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// NotFound.scala
-</span><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
-
-<span class="k">private</span><span class="o">[</span><span class="kt">errors</span><span class="o">]</span> <span class="k">trait</span> <span class="nc">NotFoundCompanion</span> <span class="o">{</span> <span class="n">self</span><span class="k">:</span> <span class="kt">NotFound.</span><span class="k">type</span> <span class="o">=&gt;</span>
-	<span class="c1">// implicit and helpers, a bunch
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="c1">// . . . and so on in other files, you get the idea
-</span></code></pre></div><p>So, you see what is going on. It is a workaround but clever. It works well and covers all bases.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// ErrorType.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">package</span> <span class="nn">domain.errors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">BadRequest</span> <span class="k">extends</span> <span class="nc">BadRequestCompanion</span>
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">NotFound</span> <span class="k">extends</span> <span class="nc">NotFoundCompanion</span>
+</span></span><span class="line"><span class="cl">	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">	<span class="k">object</span> <span class="nc">Unknown</span> <span class="k">extends</span> <span class="nc">UnknownCompanion</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// BadRequest.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">[</span><span class="kt">errors</span><span class="o">]</span> <span class="k">trait</span> <span class="nc">BadRequestCompanion</span> <span class="o">{</span> <span class="n">self</span><span class="k">:</span> <span class="kt">BadRequest.</span><span class="k">type</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">	 <span class="c1">// implicit and helpers, a bunch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// NotFound.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">[</span><span class="kt">errors</span><span class="o">]</span> <span class="k">trait</span> <span class="nc">NotFoundCompanion</span> <span class="o">{</span> <span class="n">self</span><span class="k">:</span> <span class="kt">NotFound.</span><span class="k">type</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// implicit and helpers, a bunch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// . . . and so on in other files, you get the idea
+</span></span></span></code></pre></div><p>So, you see what is going on. It is a workaround but clever. It works well and covers all bases.</p>
 <ul>
 <li>The sum type guarantee is not broken. The base <code>sealed trait</code> can be extended only in <code>ErrorType.scala</code></li>
 <li>Scala compiler is able to recognize the companions as they are. They are not namesakes.</li>
@@ -215,35 +215,35 @@
 <li>ADT defintion in <code>ErrorType.scala</code> is succinct and comprehensible to the reader.</li>
 </ul>
 <p>Yes, I called it a workaround because it is not exclusive to the problem at hand, which I think the compiler should support firsthand. I am not a compiler writer / expert but here is an imaginary version if / when Scala decides to support it firsthand.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// ErrorType.scala
-</span><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
-
-<span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
-
-	<span class="n">partial</span> <span class="k">object</span> <span class="nc">BadRequest</span>
-	<span class="n">partial</span> <span class="k">object</span> <span class="nc">NotFound</span>
-	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-	<span class="n">partial</span> <span class="k">object</span> <span class="nc">Unknown</span>
-<span class="o">}</span>
-
-<span class="c1">// BadRequest.scala
-</span><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
-
-<span class="n">partial</span> <span class="k">object</span> <span class="nc">BadRequest</span> <span class="o">{</span>
-	<span class="c1">// implicit and helpers, a bunch
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="c1">// NotFound.scala
-</span><span class="c1"></span><span class="n">partial</span> <span class="k">object</span> <span class="nc">NotFound</span> <span class="o">{</span>
-	<span class="c1">// implicit and helpers, a bunch
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="c1">// . . . and so on for other companions
-</span></code></pre></div><p>Taking the C#&rsquo;s <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods"><strong>partial</strong></a> keyword as inspiration, we are instructing the compiler that the definition / body of the type may be defined in constituents across files. This also gets rid of the noise / ceremony - <code>private[errors]</code>, self type etc.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// ErrorType.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">  <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Unknown</span><span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">partial</span> <span class="k">object</span> <span class="nc">BadRequest</span>
+</span></span><span class="line"><span class="cl">	<span class="n">partial</span> <span class="k">object</span> <span class="nc">NotFound</span>
+</span></span><span class="line"><span class="cl">	<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">	<span class="n">partial</span> <span class="k">object</span> <span class="nc">Unknown</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// BadRequest.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">package</span> <span class="nn">domain.errors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">partial</span> <span class="k">object</span> <span class="nc">BadRequest</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// implicit and helpers, a bunch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NotFound.scala
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">partial</span> <span class="k">object</span> <span class="nc">NotFound</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// implicit and helpers, a bunch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// . . . and so on for other companions
+</span></span></span></code></pre></div><p>Taking the C#&rsquo;s <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods"><strong>partial</strong></a> keyword as inspiration, we are instructing the compiler that the definition / body of the type may be defined in constituents across files. This also gets rid of the noise / ceremony - <code>private[errors]</code>, self type etc.</p>
 <p>Note, for our problem at hand, the <code>partial</code> keyword is applied only to the companion, not to the definition of the sum type (<code>case class</code>). I am not sure if marking the <code>partial case class</code> would work because it would break the guarantee or contradict with the <code>sealed trait</code> tenet. Some food for thought if Scala compiler team were to ever consider this.</p>
 <p>In general, if the Scala compiler were to provide the <code>partial</code> keyword, it could be applied to any type that will be defined across compilation units. This includes regular <code>classes</code> and other types alike. C# uses <code>partial</code> classes and methods for duming IDE generated code for user interfaces in XAML/WPF, which works really well.</p>
 <p>While <code>partial</code> in Scala is a speck in the wishlist for the foreseeable future, the above workaround (companion helper trait) is no less. You could say our needs are <code>partial</code>ly served.</p>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>To Hold or Not to Hold – A story on Thread references !!! &middot; A Developer&#39;s Experience</title>
 
@@ -13,18 +13,18 @@
 	
 
 <meta itemprop="name" content="To Hold or Not to Hold – A story on Thread references !!!">
-<meta itemprop="description" content="void SomeMethod(int x, double y) { // some code  ."><meta itemprop="datePublished" content="2011-03-30T17:05:36+00:00" />
+<meta itemprop="description" content="void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc)."><meta itemprop="datePublished" content="2011-03-30T17:05:36+00:00" />
 <meta itemprop="dateModified" content="2011-03-30T17:05:36+00:00" />
 <meta itemprop="wordCount" content="1194">
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="To Hold or Not to Hold – A story on Thread references !!!"/>
-<meta name="twitter:description" content="void SomeMethod(int x, double y) { // some code  ."/>
+<meta name="twitter:description" content="void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc)."/>
 
 
 <meta property="og:title" content="To Hold or Not to Hold – A story on Thread references !!!" />
-<meta property="og:description" content="void SomeMethod(int x, double y) { // some code  ." />
+<meta property="og:description" content="void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2011/03/30/thread-reference/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2011-03-30T17:05:36+00:00" />
@@ -142,44 +142,44 @@
     <time datetime="2011-03-30T17:05:36Z">Mar 30, 2011</time> &middot; 6 min read
   </div>
 
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// some code
-</span><span class="c1"></span>  <span class="p">...</span>
-  <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">ThreadFunc</span><span class="p">).</span><span class="n">Start</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div><p>What do you think about the code above?</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// some code</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">ThreadFunc</span><span class="p">).</span><span class="n">Start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>What do you think about the code above?</p>
 <p>Some may say nothing seems to be wrong. Some may say there is not enough information to comment. A few may say that it is awful to spin off a thread like that (the last line of the method), and that there is a probability for the thread to be garbage collected at an unexpected point of execution. That is something interesting to discuss about.</p>
 <p>Before presenting my thoughts and supporting facts, the short answer is NO. A thread spun off like that will not be garbage collected as we expect, although one should be morally insane to write such code. Alright, let us discuss.</p>
 <p>The <code>Thread</code> class is like any other reference type in the BCL. When an instance of a reference type holds no more outstanding references, it is a candidate to be garbage collected. Even worse, it could become a <a href="http://blogs.msdn.com/b/cbrumme/archive/2003/04/19/51365.aspx">candidate</a> even while it is executing an instance method, while there are no more outstanding references to that instance. If such facts are considered, then the thread created at free will in the above code is bound to be collected anytime while executing the associated <code>ThreadFunc</code>. Let us try that with <em>simple</em> sample application.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;The Beginning&amp;#8230;.&#34;</span><span class="p">);</span>
-
-  <span class="c1">// ThreadFunc inlined as anonymous delegate
-</span><span class="c1"></span>  <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="k">delegate</span><span class="p">()</span>
-  <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">1000</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
-    <span class="p">{</span>
-      <span class="kt">var</span> <span class="n">obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Junk</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
-      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;{0}, &#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-
-      <span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">%</span> <span class="m">10</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
-        <span class="n">GC</span><span class="p">.</span><span class="n">WaitForPendingFinalizers</span><span class="p">();</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-
-  <span class="p">}).</span><span class="n">Start</span><span class="p">();</span>
-
-  <span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
-  <span class="n">GC</span><span class="p">.</span><span class="n">WaitForPendingFinalizers</span><span class="p">();</span>
-
-  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;At the end!&#34;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>In the sample application above, I have forced garbage collections and also waited for pending finalizers at two important points of execution – 1) at the end of main thread 2) in the course of execution of the thread delegate. I have made sure that there is enough chance of GC kicking in by creating some Junk objects too. Those are some of the important triggers for GC to kick in.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;The Beginning&amp;#8230;.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// ThreadFunc inlined as anonymous delegate</span>
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="k">delegate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">1000</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">var</span> <span class="n">obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Junk</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;{0}, &#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">%</span> <span class="m">10</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GC</span><span class="p">.</span><span class="n">WaitForPendingFinalizers</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="n">Start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GC</span><span class="p">.</span><span class="n">WaitForPendingFinalizers</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;At the end!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In the sample application above, I have forced garbage collections and also waited for pending finalizers at two important points of execution – 1) at the end of main thread 2) in the course of execution of the thread delegate. I have made sure that there is enough chance of GC kicking in by creating some Junk objects too. Those are some of the important triggers for GC to kick in.</p>
 <p>If you run the application, you will see that the application does not quit until the loop runs to completion; although the main thread runs to completion – prints <code>At the end!</code>. Now, let us not enter an argument that the thread is a foreground thread and application shall not quit until all foreground threads have finished executing. Yes, if the thread in the above code was a background thread, the application would have quit before the loop completed. But then we would have created a reference to set it as a background thread, and we would have to stop the discussion there since we are talking about threads created\started without holding a reference. Besides, the context of the problem is not application exit but application running.</p>
 <p>Alright, let me rephrase it in a way that is relevant to our context – If you run the application, you will see that the thread function runs to completion successfully (loops 1000 times, creates 1000 objects, waits for 100ms each iteration of the loop, triggers garbage collection/waits for pending finalizers during execution). If thread had been garbage collected, it would not have run a 1000 iterations successfully. So does that mean the CLR has a soft corner for Thread types? Seems so.</p>
 <p>If you drill down the <code>Thread</code> type using Reflector, you will see that it neither implements <code>IDisposable</code> nor a<code>finalizer</code>. How could an object not implement cleanup mechanism, escape the almighty garbage collector, and still not cause any havoc? That is weird! It gives the impression that we might be leaking the underlying native thread resource. Obviously, the CLR folks are not that careless or we would not be running applications today written in managed code. My common sense told me that there is some trick played behind the scenes such that a reference to every thread is somehow maintained and the clean up is thus taken care of.</p>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Quiz: Beauty of Numbers - Solution !!! &middot; A Developer&#39;s Experience</title>
 
@@ -221,32 +221,32 @@
 </table>
 <p>I have done that manual iteration for you and produced the Ks. By now, you should have seen the pattern in the Ks. Yep, <em>K should be a power of two</em>. So to be lucky to escape the wave, we got to be at a position that is the highest possible power of two; for any given queue size N.</p>
 <p>If we were to write a program (or a game with this logic), it would be composed of the following functions:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">GetLuckyPosition</span><span class="p">(</span><span class="kt">uint</span> <span class="n">queueSize</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="c1">// 0 and 1 are cases of invalid input.
-</span><span class="c1"></span>   <span class="k">if</span> <span class="p">(</span><span class="n">queueSize</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-   <span class="p">}</span>
-
-   <span class="c1">// TODO: Suggest a better approach to find the K.
-</span><span class="c1"></span>   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="n">queueSize</span><span class="p">;</span> <span class="n">k</span> <span class="p">&gt;=</span> <span class="m">2</span><span class="p">;</span> <span class="p">--</span><span class="n">k</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">IsPowerOfTwo</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
-      <span class="p">{</span>
-         <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="c1">// Should never get here;
-</span><span class="c1"></span>   <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">bool</span> <span class="n">IsPowerofTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="k">return</span> <span class="n">num</span> <span class="p">&amp;</span> <span class="p">(</span><span class="n">num</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">==</span> <span class="m">0</span><span class="p">;</span>  
-<span class="p">}</span>
-</code></pre></div><p>In a power of two series, the on-bit keeps shifting to the left, and the same bit keeps shifting to the right during the wave of removals. I would say that K oscillates to settle at one position to survive. It is not about whether K is odd or even because when every wave strikes to remove, the even positions could become odds and vice versa. Only a power of two happens to remain at an even position, and hence it survives.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">GetLuckyPosition</span><span class="p">(</span><span class="kt">uint</span> <span class="n">queueSize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 0 and 1 are cases of invalid input.</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">queueSize</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// TODO: Suggest a better approach to find the K.</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="n">queueSize</span><span class="p">;</span> <span class="n">k</span> <span class="p">&gt;=</span> <span class="m">2</span><span class="p">;</span> <span class="p">--</span><span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">IsPowerOfTwo</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// Should never get here;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">IsPowerofTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">num</span> <span class="p">&amp;</span> <span class="p">(</span><span class="n">num</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">==</span> <span class="m">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In a power of two series, the on-bit keeps shifting to the left, and the same bit keeps shifting to the right during the wave of removals. I would say that K oscillates to settle at one position to survive. It is not about whether K is odd or even because when every wave strikes to remove, the even positions could become odds and vice versa. Only a power of two happens to remain at an even position, and hence it survives.</p>
 
 </div>
 

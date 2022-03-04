@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Either Disjoint or Union Types &middot; A Developer&#39;s Experience</title>
 
@@ -144,12 +144,12 @@
 
   <p>Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (<code>|</code>) are already being compared with <code>Either</code> and <code>Option</code> (disjoint unions).</p>
 <p>In some ways, <code>Either</code> and <code>Option</code> may be expressed as union types.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// Option[String]
-</span><span class="c1"></span><span class="nc">String</span> <span class="o">|</span> <span class="kc">null</span>
-
-<span class="c1">// Either[Int, String]
-</span><span class="c1"></span><span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span>
-</code></pre></div><p>Similar to disjoint union types, you can pattern match over Union types. However, the differences outshine the similarities.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// Option[String]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nc">String</span> <span class="o">|</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Either[Int, String]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span>
+</span></span></code></pre></div><p>Similar to disjoint union types, you can pattern match over Union types. However, the differences outshine the similarities.</p>
 <p>Disjoint union types like <code>Either</code> and <code>Option</code> &hellip;</p>
 <ul>
 <li>constraint the universe of types to be unique - <code>Left</code> and <code>Right</code>, <code>Some</code> and <code>None</code>. There is only one <code>Left</code> or <code>Some</code>.</li>
@@ -163,8 +163,8 @@
 </li>
 <li>
 <p>The types involved don&rsquo;t have to be necessarily unique.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span>
-</code></pre></div><p>The above definition is valid although the universe of types is just <code>String</code> and <code>Int</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span> <span class="o">|</span> <span class="nc">String</span> <span class="o">|</span> <span class="nc">Int</span>
+</span></span></code></pre></div><p>The above definition is valid although the universe of types is just <code>String</code> and <code>Int</code>.</p>
 </li>
 <li>
 <p>Language syntax</p>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>The Surprising Finalize Call !!! &middot; A Developer&#39;s Experience</title>
 
@@ -146,38 +146,38 @@ class SomeClass : IDisposable { public SomeClass() { Trace." />
   </div>
 
   <p>Guess the output of the following program:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">:</span> <span class="n">IDisposable</span>
-<span class="p">{</span>
-  <span class="k">public</span> <span class="n">SomeClass</span><span class="p">()</span>
-  <span class="p">{</span>
-		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass - Attempting instance creation&#34;</span><span class="p">);</span>
-		<span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">(</span><span class="s">&#34;Ohh !!! Not Now&#34;</span><span class="p">);</span>
-	<span class="p">}</span>
-
-	<span class="k">public</span> <span class="k">void</span> <span class="n">Dispose</span><span class="p">()</span>
-	<span class="p">{</span>
-		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass::Dispose&#34;</span><span class="p">);</span>
-	<span class="p">}</span>
-
-	<span class="p">~</span><span class="n">SomeClass</span><span class="p">()</span>
-	<span class="p">{</span>
-		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass::Finalizer&#34;</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span> <span class="n">args</span><span class="p">[]){</span>
-	<span class="k">try</span><span class="p">{</span>
-		<span class="n">SomeClass</span> <span class="n">sc</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="p">();</span>
-  <span class="p">}</span>
-	<span class="k">catch</span><span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">){</span>
-		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Main - {0}&#34;</span><span class="p">,</span> <span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><!-- more -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">:</span> <span class="n">IDisposable</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span> <span class="n">SomeClass</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass - Attempting instance creation&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">(</span><span class="s">&#34;Ohh !!! Not Now&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">void</span> <span class="n">Dispose</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass::Dispose&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="p">~</span><span class="n">SomeClass</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass::Finalizer&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span> <span class="n">args</span><span class="p">[]){</span>
+</span></span><span class="line"><span class="cl">	<span class="k">try</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">SomeClass</span> <span class="n">sc</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">catch</span><span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Main - {0}&#34;</span><span class="p">,</span> <span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><!-- more -->
 <p>This will be the output of the program:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">SomeClass - Attempting instance creation
-Ohh !!! Not Now SomeClass::Finalizer
-</code></pre></div><p>If you are surprised with the last line of the output, the post has served its purpose. In the .NET [managed] world, the garbage collector is entirely responsible for memory management – allocation and deallocation. In C#, an instance of a class is created using the new keyword. When an instance creation is requested, first memory for the instance is allocated followed by a call to the [appropriate] constructor of the class.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SomeClass - Attempting instance creation
+</span></span><span class="line"><span class="cl">Ohh !!! Not Now SomeClass::Finalizer
+</span></span></code></pre></div><p>If you are surprised with the last line of the output, the post has served its purpose. In the .NET [managed] world, the garbage collector is entirely responsible for memory management – allocation and deallocation. In C#, an instance of a class is created using the new keyword. When an instance creation is requested, first memory for the instance is allocated followed by a call to the [appropriate] constructor of the class.</p>
 <p>To explain the surprising output, the constructor is called after the memory is allocated by the GC. When the constructor throws exception, the object or resource creation is interrupted but the memory cannot deallocated instantly since the GC is entirely responsible for memory deallocation. The GC follows a complex and non-deterministic style for deallocating or reclaiming an allocated chunk of memory. The finalizer method is the last call made on a managed object just before reclaiming memory. Hence in the above case, the finalizer is being called before reclaiming the memory allocated for an instance of SomeClass.</p>
 <p>The above behavior is very much different from the unmanaged C++ where when the instance creation is interrupted [by throwing an exception], the allocated memory is deallocated and reclaimed instantaneously. Also the destructor is not called in this case.</p>
 <p>P.S: Thinking of a more detailed post on non-deterministic destruction.</p>

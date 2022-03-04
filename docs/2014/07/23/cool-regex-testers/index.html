@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Cool Regex Testers !!! &middot; A Developer&#39;s Experience</title>
 
@@ -153,24 +153,24 @@
 </blockquote>
 <p>In the above list, I like the last but not the least - <a href="http://freeformatter.com">freeformatter.com</a>. The cool thing about <em>freeformatter</em> is that it lists a lot of commonly used patterns such as emails, ip address etc. And I was lucky to find the ISO date pattern too, which saved me time. The uncool thing about it though, unlike other sites, is not haptic to the regex or input you type; instead requires an old-style submit button click to validate your expressions, and also does not show the matches (or capture groups).</p>
 <p>Thought it will help anyone playing a lot with regular expressions!</p>
-<p><small><strong>PS:</strong> The actual issue with Date was not directly with the parsing but later on when the getDate, getDay, getMonth methods are used. While other browsers took the browser'’&rsquo;s time zone into account, Firefox did not. I was too bored to proceed with Date, and resorted to regex to parse out the date parts from my response. Here is the snippet of the code I used:</small></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">function</span> <span class="n">formatDate</span><span class="p">(</span><span class="n">yyyymmdd</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">var</span> <span class="n">matches</span> <span class="p">=</span> <span class="n">yyyymmdd</span><span class="p">.</span><span class="n">match</span><span class="p">(/^(</span><span class="n">ISO</span> <span class="n">DATE</span> <span class="n">REGEX</span> <span class="n">PATTERN</span><span class="p">)</span><span class="err">$</span><span class="p">/);</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="n">matches</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">yyyymmdd</span><span class="p">;</span> <span class="p">}</span>
-
-  <span class="kt">var</span> <span class="n">yyyy</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
-  <span class="kt">var</span> <span class="n">mm</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-  <span class="kt">var</span> <span class="n">dd</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
-  <span class="kt">var</span> <span class="n">date</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">yyyy</span><span class="p">,</span> <span class="n">mm</span> <span class="p">-</span> <span class="m">1</span><span class="p">,</span> <span class="n">dd</span><span class="p">);</span>
-
-  <span class="k">return</span> <span class="n">DAYS</span><span class="p">[</span><span class="n">date</span><span class="p">.</span><span class="n">getDay</span><span class="p">()].</span><span class="n">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
-    <span class="p">+</span> <span class="s">&#34;, &#34;</span>
-    <span class="p">+</span> <span class="n">MONTHS</span><span class="p">[</span><span class="n">date</span><span class="p">.</span><span class="n">getMonth</span><span class="p">()].</span><span class="n">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
-    <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">date</span><span class="p">.</span><span class="n">getDate</span><span class="p">()</span>
-    <span class="p">+</span> <span class="s">&#34;, &#34;</span> <span class="p">+</span> <span class="n">date</span><span class="p">.</span><span class="n">getFullYear</span><span class="p">();</span> 
-<span class="p">}</span>
-</code></pre></div>
+<p><small><strong>PS:</strong> The actual issue with Date was not directly with the parsing but later on when the getDate, getDay, getMonth methods are used. While other browsers took the browser&rsquo;’&rsquo;s time zone into account, Firefox did not. I was too bored to proceed with Date, and resorted to regex to parse out the date parts from my response. Here is the snippet of the code I used:</small></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">function</span> <span class="n">formatDate</span><span class="p">(</span><span class="n">yyyymmdd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">matches</span> <span class="p">=</span> <span class="n">yyyymmdd</span><span class="p">.</span><span class="n">match</span><span class="p">(/^(</span><span class="n">ISO</span> <span class="n">DATE</span> <span class="n">REGEX</span> <span class="n">PATTERN</span><span class="p">)</span><span class="err">$</span><span class="p">/);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">matches</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">yyyymmdd</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">yyyy</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">mm</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">dd</span> <span class="p">=</span> <span class="n">matches</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">date</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">yyyy</span><span class="p">,</span> <span class="n">mm</span> <span class="p">-</span> <span class="m">1</span><span class="p">,</span> <span class="n">dd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">DAYS</span><span class="p">[</span><span class="n">date</span><span class="p">.</span><span class="n">getDay</span><span class="p">()].</span><span class="n">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">+</span> <span class="s">&#34;, &#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">+</span> <span class="n">MONTHS</span><span class="p">[</span><span class="n">date</span><span class="p">.</span><span class="n">getMonth</span><span class="p">()].</span><span class="n">substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">date</span><span class="p">.</span><span class="n">getDate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">+</span> <span class="s">&#34;, &#34;</span> <span class="p">+</span> <span class="n">date</span><span class="p">.</span><span class="n">getFullYear</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
 </div>
 
 

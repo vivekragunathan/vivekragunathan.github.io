@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Pattern for Saner Mocking &middot; A Developer&#39;s Experience</title>
 
@@ -233,137 +233,137 @@ scenario(&#34;Test Case 2&#34;) {
   </div>
 
   <p>It is common to see mocks being setup this way in unit tests.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
-	<span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="o">...</span>
-	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-
-	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
-	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
-<span class="o">}</span>
-
-<span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
-	<span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="o">...</span>
-	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-
-	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
-	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
-<span class="o">}</span>
-
-<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
-</code></pre></div><p>See something wrong? <em>Why would do someone write a test with all such services gobbled together in a test?</em> Well, that is not the problem and definitely not the topic of this post. The example is arbitrary just to establish the complexity involved in writing such test cases; especially mock-ridden.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
+</span></span></code></pre></div><p>See something wrong? <em>Why would do someone write a test with all such services gobbled together in a test?</em> Well, that is not the problem and definitely not the topic of this post. The example is arbitrary just to establish the complexity involved in writing such test cases; especially mock-ridden.</p>
 <p>My problem is with the way the mocks are being setup. In a typical business application, there are tens of test cases for a given scenario. Each such test might differ in the inputs or other external factors such as configuration etc. It is a typical in such test suites for repeating these mock setups over and over. Yeah, you might throw in a helper method to setup some of the mocks. But let me assure that such helper methods will go outdated or crammed with other irrelevant mocks in no time clouding the original purpose for writing the helper. Or you might end up with a whole bunch of helpers that setup mocks for various cases in question with little differences. I am not even going to talk about the mock <code>reset</code>s scattered or sneaked in places leaving you wonder why.</p>
 <p>Instead of helpers, we need a mechanism where setting up the mocks inline within the test is not a problem for us. It should completely strip down the cognitive overload involved in comprehending the setting up of mocks. The other problem we like to get rid of is explicitly <code>reset</code> mocks.</p>
 <p>Let me first share the way I have been practicing for dealing with setting up mocks. And it has worked really well for me.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">cats.syntax.either._</span>
-
-<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(</span><span class="cm">/*any args if required*/</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">LazyLogging</span> <span class="o">{</span>
-
-  <span class="k">val</span> <span class="n">addressServiceMock</span><span class="k">:</span> <span class="kt">AddressResolutionService</span> <span class="o">=</span>
-  	<span class="n">mock</span><span class="o">[</span><span class="kt">AddressResolutionService</span><span class="o">]</span>
-
-  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Address</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
-		<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="n">asRight</span><span class="o">)</span>
-		<span class="k">this</span>
-	<span class="o">}</span>
-
-  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">error</span><span class="k">:</span> <span class="kt">Throwable</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
-  	<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="n">asLeft</span><span class="o">)</span>
-  	<span class="k">this</span>
-  <span class="o">}</span>
-
-  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span>
-    <span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
-    <span class="n">result</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">Throwable</span>, <span class="kt">Address</span><span class="o">]</span>
-  <span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
-  	<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">)</span>
-  	<span class="k">this</span>
-	<span class="o">}</span>
-
-	<span class="k">def</span> <span class="n">geoLocation</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">result</span><span class="k">:</span> <span class="kt">LatLong</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
-		<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">)</span>
-		<span class="k">this</span>
-	<span class="o">}</span>
-
-	<span class="o">...</span>
-
-	<span class="k">def</span> <span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">withInput</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
-		<span class="n">verify</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="n">resolve</span><span class="o">(</span><span class="n">withInput</span><span class="o">)</span>
-		<span class="k">this</span>
-	<span class="o">}</span>
-
-	<span class="o">...</span> <span class="n">other</span> <span class="n">verifyXXX</span> <span class="n">methods</span> <span class="o">...</span>
-<span class="o">}</span>
-</code></pre></div><p>Before you are overwhelmed &hellip; here is how your test case is going to look like from now on &hellip;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
-	<span class="k">val</span> <span class="n">addressText</span>     <span class="k">=</span> <span class="s">&#34;...address..&#34;</span>
-	<span class="k">val</span> <span class="n">mockAddress</span> <span class="k">=</span> <span class="nc">Address</span><span class="o">(...)</span>
-	<span class="k">val</span> <span class="n">mockLatLong</span> <span class="k">=</span> <span class="nc">LatLong</span><span class="o">(...)</span>
-
-	<span class="k">val</span> <span class="n">addressResolutionMock</span> <span class="k">=</span>
-		<span class="nc">AddressResolutionMockBuilder</span><span class="o">()</span>
-			<span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">addressText</span><span class="o">,</span> <span class="n">mockAddress</span><span class="o">)</span>
-			<span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">,</span> <span class="n">mockLatLong</span><span class="o">)</span>
-
-	<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">....</span><span class="o">]</span> <span class="k">=</span>
-		<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-	<span class="n">addressResolutionMock</span>
-		<span class="o">.</span><span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">)</span>
-		<span class="o">.</span><span class="n">verifyGeoLocationCalledOnce</span><span class="o">(</span><span class="n">mockLatLong</span><span class="o">)</span>
-		<span class="o">.</span><span class="n">verifyNormalizeAddressNeverCalled</span><span class="o">()</span>
-
-	<span class="nc">Inside</span><span class="o">.</span><span class="n">inside</span><span class="o">(</span><span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-		<span class="k">case</span> <span class="nc">Some</span><span class="o">(...)</span> <span class="k">=&gt;</span>
-			<span class="o">....</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><p>We create a mock builder class that provides different overloads (as necessary) of the functions you need to mock. We need name these functions same as the original class. That way you won&rsquo;t have to squint what is being mocked. We also provide functions for verifying either calls are made as expected or never made. We use explicit names if a function is expected to called once or never. We allow chaining the functions in our mock builder so that we could use them like a breeze.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">cats.syntax.either._</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(</span><span class="cm">/*any args if required*/</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">LazyLogging</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="n">addressServiceMock</span><span class="k">:</span> <span class="kt">AddressResolutionService</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">mock</span><span class="o">[</span><span class="kt">AddressResolutionService</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Address</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="n">asRight</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">this</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">error</span><span class="k">:</span> <span class="kt">Throwable</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="n">asLeft</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">this</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="n">resolve</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">Throwable</span>, <span class="kt">Address</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">this</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="n">geoLocation</span><span class="o">(</span><span class="n">address</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">result</span><span class="k">:</span> <span class="kt">LatLong</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">when</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">address</span><span class="o">)).</span><span class="n">thenReturn</span><span class="o">(</span><span class="n">result</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">this</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">withInput</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">AddressResolutionMockBuilder</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">verify</span><span class="o">(</span><span class="n">addressServiceMock</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="n">resolve</span><span class="o">(</span><span class="n">withInput</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">this</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">verifyXXX</span> <span class="n">methods</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>Before you are overwhelmed &hellip; here is how your test case is going to look like from now on &hellip;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">addressText</span>     <span class="k">=</span> <span class="s">&#34;...address..&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">mockAddress</span> <span class="k">=</span> <span class="nc">Address</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">mockLatLong</span> <span class="k">=</span> <span class="nc">LatLong</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">addressResolutionMock</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">AddressResolutionMockBuilder</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">			<span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">addressText</span><span class="o">,</span> <span class="n">mockAddress</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">			<span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">,</span> <span class="n">mockLatLong</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">....</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">		<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">addressResolutionMock</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">verifyGeoLocationCalledOnce</span><span class="o">(</span><span class="n">mockLatLong</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">verifyNormalizeAddressNeverCalled</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nc">Inside</span><span class="o">.</span><span class="n">inside</span><span class="o">(</span><span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nc">Some</span><span class="o">(...)</span> <span class="k">=&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">....</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>We create a mock builder class that provides different overloads (as necessary) of the functions you need to mock. We need name these functions same as the original class. That way you won&rsquo;t have to squint what is being mocked. We also provide functions for verifying either calls are made as expected or never made. We use explicit names if a function is expected to called once or never. We allow chaining the functions in our mock builder so that we could use them like a breeze.</p>
 <p>If you were overwhelmed earlier with the different overloads for the functions being mocked, it is for the better. Also, it could be the case you need not certain overloads; not so common though. The overloads highly help reduce the noise in your test case code, and you write the mock builder once for all of your test case classes.</p>
 <p>I am hopeful that you are convinced with the explanation and taking a look at the above code using the mock builder.</p>
 <p>On to the second part of not having to call <code>reset</code> explicitly. This is something I learnt from my current <a href="https://techblog.livongo.com">team</a>. The idea is to keep all the entities that a test case depends on local to the test case. The test case is stateless so to speak. It has access to the data and configuration required but does not depend on any state initialized or mutated outside the test case. Think of it as another way of implementing <code>beforeEach</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">trait</span> <span class="nc">UnitTestEnv</span> <span class="o">{</span>
-
-	<span class="k">val</span> <span class="n">addressResolutionMockBuilder</span> <span class="k">=</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(...)</span>
-
-	<span class="c1">// Other mock builder and data dependencies ...
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="k">final</span> <span class="k">class</span> <span class="nc">MyTestSuite</span> <span class="k">extends</span> <span class="nc">FeatureSpec</span> <span class="k">with</span> <span class="nc">MustMatchers</span> <span class="o">...</span> <span class="o">{</span>
-	<span class="n">feature</span> <span class="o">(</span><span class="s">&#34;....&#34;</span><span class="o">)</span> <span class="n">must</span> <span class="o">{</span>
-		<span class="n">scenario</span> <span class="o">(</span><span class="s">&#34;....&#34;</span><span class="o">)</span> <span class="n">in</span> <span class="nc">UnitTestEnv</span><span class="o">()</span> <span class="o">{</span>
-
-			<span class="n">addressResolutionMockBuilder</span>
-				<span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">addressText</span><span class="o">,</span> <span class="n">mockAddress</span><span class="o">)</span>
-				<span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">,</span> <span class="n">mockLatLong</span><span class="o">)</span>
-
-			<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">....</span><span class="o">]</span> <span class="k">=</span>
-				<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-			<span class="n">addressResolutionMockBuilder</span>
-				<span class="o">.</span><span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">)</span>
-				<span class="o">.</span><span class="n">verifyGeoLocationCalledOnce</span><span class="o">(</span><span class="n">mockLatLong</span><span class="o">)</span>
-				<span class="o">.</span><span class="n">verifyNormalizeAddressNeverCalled</span><span class="o">()</span>
-
-			<span class="nc">Inside</span><span class="o">.</span><span class="n">inside</span><span class="o">(</span><span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-				<span class="k">case</span> <span class="nc">Some</span><span class="o">(...)</span> <span class="k">=&gt;</span>
-					<span class="o">....</span>
-			<span class="o">}</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><p>The <code>UnitTestEnv</code> acts as a <code>beforeEach</code> but keeping it stateless. The <code>addressResolutionMockBuilder</code> and other data dependencies are tore down when the test case completes. The next test case using <code>UnitTestEnv</code> gets a fresh copy of the dependencies essentially removing the need to call <code>reset</code>. Isn&rsquo;t that something?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">trait</span> <span class="nc">UnitTestEnv</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="n">addressResolutionMockBuilder</span> <span class="k">=</span> <span class="nc">AddressResolutionMockBuilder</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Other mock builder and data dependencies ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">final</span> <span class="k">class</span> <span class="nc">MyTestSuite</span> <span class="k">extends</span> <span class="nc">FeatureSpec</span> <span class="k">with</span> <span class="nc">MustMatchers</span> <span class="o">...</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">feature</span> <span class="o">(</span><span class="s">&#34;....&#34;</span><span class="o">)</span> <span class="n">must</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">scenario</span> <span class="o">(</span><span class="s">&#34;....&#34;</span><span class="o">)</span> <span class="n">in</span> <span class="nc">UnitTestEnv</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="n">addressResolutionMockBuilder</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="n">resolve</span><span class="o">(</span><span class="n">addressText</span><span class="o">,</span> <span class="n">mockAddress</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="n">geoLocation</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">,</span> <span class="n">mockLatLong</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">....</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">				<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="n">addressResolutionMockBuilder</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="n">verifyResolveCalledOnce</span><span class="o">(</span><span class="n">mockAddress</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="n">verifyGeoLocationCalledOnce</span><span class="o">(</span><span class="n">mockLatLong</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">				<span class="o">.</span><span class="n">verifyNormalizeAddressNeverCalled</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nc">Inside</span><span class="o">.</span><span class="n">inside</span><span class="o">(</span><span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">case</span> <span class="nc">Some</span><span class="o">(...)</span> <span class="k">=&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="o">....</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>The <code>UnitTestEnv</code> acts as a <code>beforeEach</code> but keeping it stateless. The <code>addressResolutionMockBuilder</code> and other data dependencies are tore down when the test case completes. The next test case using <code>UnitTestEnv</code> gets a fresh copy of the dependencies essentially removing the need to call <code>reset</code>. Isn&rsquo;t that something?</p>
 <p>Give it a shot. I am sure you will like it.</p>
 <p><strong>Final Thoughts</strong></p>
 <ul>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.93.1" />
 
 	<title>Invoking methods with out and ref – Finale !!! &middot; A Developer&#39;s Experience</title>
 
@@ -146,34 +146,34 @@
 <p>Recap of the problem: Why did the <code>ref</code> variable in SomeMethod not get the expected result (<code>DayOfWeek</code>.<code>Friday</code>) when called from a different thread?</p>
 <p>Boxing. Yes, that is the culprit. Sometimes, it is subtle to note. <code>DayOfWeek</code> is an <code>enum</code> – a value type. When the method is called from a different thread, we put the argument (<code>arg3</code>) in an object array, and that’s where the value gets boxed. So we happen to assign the resultant value to the boxed value.</p>
 <p>So how do resolve the issue? Simple. Assign the value back from the object array to the <code>ref</code> variable.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">SomeMethod</span><span class="p">(</span>
-	<span class="kt">string</span> <span class="n">arg1</span><span class="p">,</span>
-	<span class="kt">string</span> <span class="n">arg2</span><span class="p">,</span>
-	<span class="k">ref</span> <span class="n">DayOfWeek</span> <span class="n">arg3</span>
-<span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">Dispatcher</span><span class="p">.</span><span class="n">CheckAccess</span><span class="p">())</span>
-    <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">funcDelegate</span> <span class="p">=</span> <span class="p">(</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="n">DayOfWeek</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;)</span><span class="n">SomeMethod</span><span class="p">;</span>
-
-        <span class="kt">var</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span>
-            <span class="n">arg1</span><span class="p">,</span>
-            <span class="n">arg2</span><span class="p">,</span>
-            <span class="n">arg3</span>
-        <span class="p">};</span>
-
-        <span class="kt">int</span> <span class="n">retVal</span> <span class="p">=</span> <span class="n">Dispatcher</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">funcDelegate</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
-        <span class="n">arg3</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-
-        <span class="k">return</span> <span class="n">retVal</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// No more implementation
-</span><span class="c1"></span>    <span class="n">arg3</span> <span class="p">=</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Friday</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="m">1234</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SomeMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">string</span> <span class="n">arg1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">string</span> <span class="n">arg2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="k">ref</span> <span class="n">DayOfWeek</span> <span class="n">arg3</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">Dispatcher</span><span class="p">.</span><span class="n">CheckAccess</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">funcDelegate</span> <span class="p">=</span> <span class="p">(</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="n">DayOfWeek</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;)</span><span class="n">SomeMethod</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arg1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arg2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arg3</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">retVal</span> <span class="p">=</span> <span class="n">Dispatcher</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">funcDelegate</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arg3</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">retVal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// No more implementation</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arg3</span> <span class="p">=</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Friday</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="m">1234</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>It may not be worth the wait but it is subtle enough to plant a bug in the code; tough enough to be noted.</p>
 
 </div>
 
