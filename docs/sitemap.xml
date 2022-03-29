@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/profile/trumpet/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/</loc>
     <lastmod>2022-02-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -242,7 +245,7 @@
     <loc>/tags/rosyln/</loc>
     <lastmod>2015-12-03T09:36:26+00:00</lastmod>
   </url><url>
-    <loc>/profile/</loc>
+    <loc>/forte/</loc>
     <lastmod>2015-10-17T04:18:06+00:00</lastmod>
   </url><url>
     <loc>/tags/const/</loc>

@@ -8,6 +8,16 @@
     <language>en</language>
     <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Profile - Boring Parts</title>
+      <link>/profile/trumpet/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/profile/trumpet/</guid>
+      <description>A short version of my Profile is available here
+SKILL SPRINKLES</description>
+    </item>
+    
+    <item>
       <title>Case Class Shortcomings - Part 1</title>
       <link>/posts/case-class-shortcomings-01/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
@@ -369,12 +379,12 @@ abc
     
     <item>
       <title>Profile</title>
-      <link>/profile/</link>
+      <link>/forte/</link>
       <pubDate>Sat, 17 Oct 2015 04:18:06 +0000</pubDate>
       
-      <guid>/profile/</guid>
+      <guid>/forte/</guid>
       <description>FORTE
- Full stack web developer Have extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications Skillful in object oriented design, programming and methodologies.</description>
+ Have extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications Eloquent and skillful in functional and object-oriented programming, design and methodologies.</description>
     </item>
     
     <item>
