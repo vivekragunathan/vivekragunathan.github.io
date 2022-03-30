@@ -2,7 +2,7 @@
 title: Profile
 author: vivekragunathan
 layout: page
-url: /forte
+url: /profile
 date: 2015-10-17T04:18:06+00:00
 
 ---
