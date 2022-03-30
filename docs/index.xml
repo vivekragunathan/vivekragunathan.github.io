@@ -179,6 +179,15 @@ SKILL SPRINKLES</description>
     </item>
     
     <item>
+      <title>SMS Firewall Privacy Policy</title>
+      <link>/pages/sms-firewall-privacy/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/sms-firewall-privacy/</guid>
+      <description>SMS Firewall The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
+    </item>
+    
+    <item>
       <title>Facets of Immutability</title>
       <link>/2017/12/106/facets-of-mmutability/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
@@ -725,7 +734,7 @@ I think there is a small window for error in the OrderedThreadPool class.</descr
     </item>
     
     <item>
-      <title>Sms FireWall !!!</title>
+      <title>Sms FireWall</title>
       <link>/2012/03/09/smsfirewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
