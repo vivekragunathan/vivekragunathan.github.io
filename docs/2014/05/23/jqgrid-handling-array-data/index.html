@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>jqGrid: Handling array data !!! &middot; A Developer&#39;s Experience</title>
 
@@ -144,117 +144,117 @@
 
   <p>This post is primarily a personal reference. I also consider this a tribute to <a href="http://stackoverflow.com/users/315935/oleg">Oleg</a>, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.</p>
 <p>If you are working with local array data as the source for jqGrid, meaning you will get the data from the server but want the jqGrid not to talk to the server anymore, and want to have custom handling of the edit functionality/form and delete functionality, it is not going to be straightforward – you need to have a decent understanding of how jqGrid works, and you should be aware of the bug Oleg pointed in our discussion. I repeat this is all about using jqGrid to manage array data locally, no posting to server when you edit or delete, which is where the bug is.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#grid&#39;</span><span class="p">).</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;navGrid&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;#pager&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">recreateForm</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-
-        <span class="nx">add</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">search</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">refresh</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-
-        <span class="nx">edit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">edittext</span><span class="o">:</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span>
-        <span class="nx">editicon</span><span class="o">:</span> <span class="s1">&#39;ui-icon-tag&#39;</span><span class="p">,</span>
-        <span class="nx">editurl</span><span class="o">:</span> <span class="s1">&#39;clientArray&#39;</span><span class="p">,</span>
-
-        <span class="nx">del</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">deltext</span><span class="o">:</span> <span class="s1">&#39;Delete&#39;</span>
-    <span class="p">},</span> <span class="p">{</span> <span class="c1">// edit options
-</span><span class="c1"></span>        <span class="nx">editCaption</span><span class="o">:</span> <span class="s1">&#39;Fix Error Record&#39;</span><span class="p">,</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;clientArray&#39;</span><span class="p">,</span>
-        <span class="nx">recreateForm</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">closeAfterEdit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">reloadAfterSubmit</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nx">beforeShowForm</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#editmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;grid-dialog&#39;</span><span class="p">);</span>
-            <span class="c1">// You can disable or alter certain fields in the form if you need.
-</span><span class="c1"></span>        <span class="p">},</span>
-        <span class="nx">processing</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// very important or the custom handling will not work!
-</span><span class="c1"></span>
-        <span class="c1">// Edit - Custom handling of submit button in the edit form
-</span><span class="c1"></span>        <span class="nx">onclicksubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">postdata</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">gridId</span> <span class="o">=</span> <span class="s1">&#39;grid&#39;</span><span class="p">;</span>
-
-            <span class="kd">var</span> <span class="nx">idInPostdata</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&#34;_id&#34;</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">]</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">idInPostdata</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">idInPostdata</span><span class="p">];</span>
-            <span class="p">}</span>
-
-            <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">postdata</span><span class="p">);</span>
-            <span class="nx">$</span><span class="p">(</span><span class="nx">gridSelector</span><span class="p">).</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;setRowData&#39;</span><span class="p">,</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">],</span> <span class="nx">clone</span><span class="p">);</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">d_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">d_length</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">d_index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">d_length</span><span class="p">;</span>
-                <span class="o">++</span><span class="nx">d_index</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">p_data_row</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">d_index</span><span class="p">];</span>
-
-                <span class="k">if</span> <span class="p">(</span><span class="nx">p_data_row</span><span class="p">[</span><span class="nx">INDEX_ROW</span><span class="p">]</span> <span class="o">==</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">])</span> <span class="p">{</span>
-                    <span class="kd">var</span> <span class="nx">dataObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">d_index</span><span class="p">];</span>
-                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_NAME</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_NAME</span><span class="p">];</span>
-                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_AGE</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_AGE</span><span class="p">];</span>
-                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_STATE</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_STATE</span><span class="p">];</span>
-                    <span class="k">break</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">closeAfterEdit</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">$</span><span class="p">.</span><span class="nx">jgrid</span><span class="p">.</span><span class="nx">hideModal</span><span class="p">(</span><span class="s1">&#39;#editmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span> <span class="p">{</span>
-                    <span class="nx">gb</span><span class="o">:</span> <span class="s1">&#39;#gbox_&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span>
-                    <span class="nx">jqm</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">jqModal</span><span class="p">,</span>
-                    <span class="nx">onClose</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">onClose</span>
-                <span class="p">});</span>
-            <span class="p">}</span>
-
-            <span class="nx">options</span><span class="p">.</span><span class="nx">processing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-            <span class="k">return</span> <span class="p">{};</span>
-        <span class="p">}</span>
-    <span class="p">},</span> <span class="p">{},</span> <span class="c1">// add options,
-</span><span class="c1"></span>    <span class="p">{</span> <span class="c1">// delete options
-</span><span class="c1"></span>        <span class="nx">processing</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// very important, else the custom handling will not work!
-</span><span class="c1"></span>
-        <span class="c1">// Custom handling of the delete functionality.
-</span><span class="c1"></span>        <span class="c1">// Prevents posting to the server but handles everything locally.
-</span><span class="c1"></span>        <span class="nx">onclickSubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">grid</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#grid&#39;</span><span class="p">);</span>
-            <span class="kd">var</span> <span class="nx">gridData</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">selectedRows</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">multiselect</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">selarrrow</span> <span class="o">:</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">selrow</span><span class="p">];</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">selectedRows</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">rowId</span> <span class="o">=</span> <span class="nx">selectedRows</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
-
-                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">pd_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">pd_length</span> <span class="o">=</span> <span class="nx">gridData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">pd_index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">pd_length</span><span class="p">;</span>
-                    <span class="o">++</span><span class="nx">pd_index</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="kd">var</span> <span class="nx">gd_row</span> <span class="o">=</span> <span class="nx">gridData</span><span class="p">[</span><span class="nx">pd_index</span><span class="p">];</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">gd_row</span><span class="p">[</span><span class="nx">INDEX_ROW_NO</span><span class="p">]</span> <span class="o">==</span> <span class="nx">rowId</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">gridData</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">pd_index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-                        <span class="k">break</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Refresh grid to previous page if the current page is the
-</span><span class="c1"></span>            <span class="c1">// last page in the grid; so that when all records of the
-</span><span class="c1"></span>            <span class="c1">// last page are deleted, we show the previous page.
-</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">page</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">lastpage</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">grid</span><span class="p">.</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;setGridParam&#39;</span><span class="p">,</span> <span class="p">{</span>
-                    <span class="nx">page</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">page</span> <span class="o">-</span> <span class="mi">1</span>
-                <span class="p">});</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Refresh the grid to load the changes
-</span><span class="c1"></span>            <span class="nx">grid</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reloadGrid&#39;</span><span class="p">);</span>
-
-            <span class="nx">$</span><span class="p">.</span><span class="nx">jgrid</span><span class="p">.</span><span class="nx">hideModal</span><span class="p">(</span><span class="s1">&#39;#delmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span> <span class="p">{</span>
-                <span class="nx">gb</span><span class="o">:</span> <span class="s1">&#39;#gbox_&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span>
-                <span class="nx">jqm</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">jqModal</span><span class="p">,</span>
-                <span class="nx">onClose</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">onClose</span>
-            <span class="p">});</span>
-
-            <span class="nx">options</span><span class="p">.</span><span class="nx">processing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-            <span class="k">return</span> <span class="p">{};</span>
-        <span class="p">}</span>
-    <span class="p">},</span> <span class="p">{}</span> <span class="c1">// search options
-</span><span class="c1"></span><span class="p">);</span>
-</code></pre></div><p>Hope this post helps any poor soul battling the same or similar problem. You should definitely check out the <a href="http://stackoverflow.com/questions/21194964/jqgrid-form-edits-saved-to-row-but-all-changes-lost-when-paging-back-or-forth">question</a> I had originally raised at <a href="https:www.stackoverflow.com">StackOverflow.com</a>, and the interesting discussion thereon.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#grid&#39;</span><span class="p">).</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;navGrid&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;#pager&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">recreateForm</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">add</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">search</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">refresh</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">edit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">edittext</span><span class="o">:</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">editicon</span><span class="o">:</span> <span class="s1">&#39;ui-icon-tag&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">editurl</span><span class="o">:</span> <span class="s1">&#39;clientArray&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">del</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">deltext</span><span class="o">:</span> <span class="s1">&#39;Delete&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">{</span> <span class="c1">// edit options
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">editCaption</span><span class="o">:</span> <span class="s1">&#39;Fix Error Record&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;clientArray&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">recreateForm</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">closeAfterEdit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">reloadAfterSubmit</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">beforeShowForm</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#editmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;grid-dialog&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// You can disable or alter certain fields in the form if you need.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">processing</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// very important or the custom handling will not work!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Edit - Custom handling of submit button in the edit form
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">onclicksubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">postdata</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">gridId</span> <span class="o">=</span> <span class="s1">&#39;grid&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">idInPostdata</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">&#34;_id&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">]</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">idInPostdata</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">idInPostdata</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">postdata</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">$</span><span class="p">(</span><span class="nx">gridSelector</span><span class="p">).</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;setRowData&#39;</span><span class="p">,</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">],</span> <span class="nx">clone</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">d_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">d_length</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">d_index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">d_length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">++</span><span class="nx">d_index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">p_data_row</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">d_index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">p_data_row</span><span class="p">[</span><span class="nx">INDEX_ROW</span><span class="p">]</span> <span class="o">==</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_ROW_NO</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">var</span> <span class="nx">dataObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">d_index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_NAME</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_NAME</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_AGE</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_AGE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">dataObject</span><span class="p">[</span><span class="nx">INDEX_STATE</span><span class="p">]</span> <span class="o">=</span> <span class="nx">postdata</span><span class="p">[</span><span class="nx">COL_MODEL_STATE</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">closeAfterEdit</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">$</span><span class="p">.</span><span class="nx">jgrid</span><span class="p">.</span><span class="nx">hideModal</span><span class="p">(</span><span class="s1">&#39;#editmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">gb</span><span class="o">:</span> <span class="s1">&#39;#gbox_&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">jqm</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">jqModal</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">onClose</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">onClose</span>
+</span></span><span class="line"><span class="cl">                <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nx">options</span><span class="p">.</span><span class="nx">processing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">{},</span> <span class="c1">// add options,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span> <span class="c1">// delete options
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">processing</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// very important, else the custom handling will not work!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Custom handling of the delete functionality.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// Prevents posting to the server but handles everything locally.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">onclickSubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">grid</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#grid&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">gridData</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">selectedRows</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">multiselect</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">selarrrow</span> <span class="o">:</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">selrow</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">selectedRows</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">rowId</span> <span class="o">=</span> <span class="nx">selectedRows</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">pd_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">pd_length</span> <span class="o">=</span> <span class="nx">gridData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">pd_index</span> <span class="o">&amp;</span> <span class="nx">lt</span><span class="p">;</span> <span class="nx">pd_length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">++</span><span class="nx">pd_index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">var</span> <span class="nx">gd_row</span> <span class="o">=</span> <span class="nx">gridData</span><span class="p">[</span><span class="nx">pd_index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="nx">gd_row</span><span class="p">[</span><span class="nx">INDEX_ROW_NO</span><span class="p">]</span> <span class="o">==</span> <span class="nx">rowId</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">gridData</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">pd_index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Refresh grid to previous page if the current page is the
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// last page in the grid; so that when all records of the
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// last page are deleted, we show the previous page.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">page</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">lastpage</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">grid</span><span class="p">.</span><span class="nx">jqGrid</span><span class="p">(</span><span class="s1">&#39;setGridParam&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">page</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">p</span><span class="p">.</span><span class="nx">page</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Refresh the grid to load the changes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">grid</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reloadGrid&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nx">$</span><span class="p">.</span><span class="nx">jgrid</span><span class="p">.</span><span class="nx">hideModal</span><span class="p">(</span><span class="s1">&#39;#delmod&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">gb</span><span class="o">:</span> <span class="s1">&#39;#gbox_&#39;</span> <span class="o">+</span> <span class="nx">gridId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">jqm</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">jqModal</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">onClose</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">onClose</span>
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nx">options</span><span class="p">.</span><span class="nx">processing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">{}</span> <span class="c1">// search options
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span>
+</span></span></code></pre></div><p>Hope this post helps any poor soul battling the same or similar problem. You should definitely check out the <a href="http://stackoverflow.com/questions/21194964/jqgrid-form-edits-saved-to-row-but-all-changes-lost-when-paging-back-or-forth">question</a> I had originally raised at <a href="https:www.stackoverflow.com">StackOverflow.com</a>, and the interesting discussion thereon.</p>
 </div>
 
 

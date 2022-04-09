@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Extension Methods – A Polished C&#43;&#43; Feature &middot; A Developer&#39;s Experience</title>
 
@@ -143,46 +143,46 @@
   </div>
 
   <p>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type. Why do we need extension methods anyway ? Ok, that is the big story of lamba and LINQ. But from a conceptual standpoint, the extension methods establish a mechanism to extend the public interface of a type. The compiler is smart enough to make the method a part of the public interface of the type. Yeah, that is what it does, and the intellisense is very cool in making us believe that. It is cleaner and easier (for the library developers and for us programmers even) to add extra functionality (methods) not provided in the type. That is the intent. And we know that was exercised extravagantly in LINQ. The IEnumerable was extended with a whole lot set of methods to aid the LINQ design. Remember the <code>Where</code>, <code>Select</code> etc methods on <code>IEnumerable</code>. An example code snippet is worth a thousand words:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span>
-<span class="p">{</span>
-<span class="c1">///
-</span><span class="c1">/// ‘this’ decorator signifies that this is an extension method.
-</span><span class="c1">/// It must be appear only on a public static method.
-</span><span class="c1">/// Such a method is added to the public interface of the type following
-</span><span class="c1">/// the ‘this’ decorator.
-</span><span class="c1">///
-</span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">ToInteger</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">public</span> <span class="k">static</span> <span class="n">string</span> <span class="nf">Left</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">position</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">public</span> <span class="k">static</span> <span class="n">string</span> <span class="nf">Right</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Length</span> <span class="err">–</span> <span class="n">position</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>You might be aware of all this hot news. But our topic of the day is neither Extension Methods nor LINQ. It is something that dates back to C++. And you will see at the end of this post that extension methods are a polished version of a C++ principle. Ok, let us try to read some code:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">&amp;</span> <span class="n">sc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// Let us get to here a little later.
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="k">class</span> <span class="nc">SomeClass</span>
-<span class="p">{</span>
-  <span class="k">private</span><span class="o">:</span> <span class="kt">int</span> <span class="n">m_nNum</span><span class="p">;</span>
-  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
-
-  <span class="k">public</span><span class="o">:</span> <span class="kt">int</span> <span class="n">Num</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_nNum</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div><p>The code is simple – We have a class called <code>SomeClass</code> and a global function. The global function takes a <code>SomeClass</code> instance by reference and an integer by value. The intent of the function is to add <code>x</code> with m_nNum. But whether to save it to <code>m_nNum</code> or just return is a topic we will deal in a little while. But do we understand that the <code>Add</code> function and <code>SomeClass</code> are closely related ?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">///
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// ‘this’ decorator signifies that this is an extension method.
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// It must be appear only on a public static method.
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// Such a method is added to the public interface of the type following
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// the ‘this’ decorator.
+</span></span></span><span class="line"><span class="cl"><span class="c1">///
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">ToInteger</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="n">string</span> <span class="nf">Left</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="n">string</span> <span class="nf">Right</span><span class="p">(</span><span class="k">this</span> <span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Length</span> <span class="err">–</span> <span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>You might be aware of all this hot news. But our topic of the day is neither Extension Methods nor LINQ. It is something that dates back to C++. And you will see at the end of this post that extension methods are a polished version of a C++ principle. Ok, let us try to read some code:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">&amp;</span> <span class="n">sc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Let us get to here a little later.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SomeClass</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span> <span class="kt">int</span> <span class="n">m_nNum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">int</span> <span class="n">Num</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_nNum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>The code is simple – We have a class called <code>SomeClass</code> and a global function. The global function takes a <code>SomeClass</code> instance by reference and an integer by value. The intent of the function is to add <code>x</code> with m_nNum. But whether to save it to <code>m_nNum</code> or just return is a topic we will deal in a little while. But do we understand that the <code>Add</code> function and <code>SomeClass</code> are closely related ?</p>
 <p>There are two principles to know in C++ to understand the relation.</p>
 <p><strong>Interface Principle</strong></p>
 <p>For a class <code>X</code>, all functions, including free functions, that both (a) <em>mention</em> <code>X</code>, and (b) are <em>supplied with</em> <code>X</code> are logically part of <code>X</code>, because they form part of the interface of <code>X</code>.</p>
@@ -190,32 +190,32 @@
 <p>So now, Add mentions SomeClass and (to keep the discussion short assume that it) is supplied with <code>SomeClass</code>. If that, then <code>Add</code> is a part of the public interface of <code>X</code>. That should convince you.</p>
 <p><strong>Koenig Lookup</strong></p>
 <p>When an unqualified name is used as the postfix-expression in a function call, other namespaces not considered during the usual unqualified lookup may be searched, and namespace-scope friend function declarations not otherwise visible may be found. These modifications to the search depend on the types of the arguments. Those are lines from the C++ standard and must be tough to understand like the verses in the Bible. So let us talk our language to understand that:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">CPP</span>
-<span class="p">{</span>
-  <span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">{</span> <span class="p">};</span>
-  <span class="kt">void</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">SomeClass</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span> <span class="n">sc</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="n">sc</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>Will you be still surprised that <code>Foo(sc)</code> call will link to the <code>CPP::Foo</code> ? Dont be. That is what the cryptic lines above talks about. Ok, one more example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">CPP</span>
-<span class="p">{</span>
-  <span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">{</span> <span class="p">};</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span><span class="p">);</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span> <span class="n">sc</span><span class="p">;</span>
-  <span class="n">Foo</span><span class="p">(</span><span class="n">sc</span><span class="p">);</span> <span class="c1">// Got it ?
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><p>So now down to my point, Extension Methods is a polished version of the <em>Interface Principle</em> (or <em>Koenig Lookup</em>) in C++. The facility has been in C++ for a long time but not sure if exercised well (and wisely). Had the intellisense been intelligent enough, C++ would claimed it a mighty feature. Since the C++ IDE has been the same sucking way for a long time now, C++ got the wrong outlook – a hard programming language.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">CPP</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">{</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">SomeClass</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span> <span class="n">sc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Foo</span><span class="p">(</span><span class="n">sc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Will you be still surprised that <code>Foo(sc)</code> call will link to the <code>CPP::Foo</code> ? Dont be. That is what the cryptic lines above talks about. Ok, one more example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">CPP</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">{</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CPP</span><span class="o">::</span><span class="n">SomeClass</span> <span class="n">sc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Foo</span><span class="p">(</span><span class="n">sc</span><span class="p">);</span> <span class="c1">// Got it ?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>So now down to my point, Extension Methods is a polished version of the <em>Interface Principle</em> (or <em>Koenig Lookup</em>) in C++. The facility has been in C++ for a long time but not sure if exercised well (and wisely). Had the intellisense been intelligent enough, C++ would claimed it a mighty feature. Since the C++ IDE has been the same sucking way for a long time now, C++ got the wrong outlook – a hard programming language.</p>
 <p>Hey C#, No hard feelings. It is just a perspective. Either way, <strong>My compiler compiles your compiler</strong>.</p>
 
 </div>

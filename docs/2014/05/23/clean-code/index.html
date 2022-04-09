@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Clean Code &middot; A Developer&#39;s Experience</title>
 
@@ -148,20 +148,20 @@
 <p>So if one transcends the language wars, programming is about three things – logic, semantic and structure. I am going to assume that those terms are self-explanatory in our context. And if I were to order them, they are reversed ordered……to sound better. Although the order relates to the importance of each facet, one cannot and should not be sacrificed over the other. Each facet carries equal importance as the other and must be given attention to achieve good code. So the order is more of which one to attend to first.</p>
 <p>Whenever I came across code that could be made better, I had thought making a collection of such things. Well, I think I am up to it now. I am starting to write a series of posts (at irregular intervals), which will talk about how certain piece of code could be written so that it is easier for the reader to understand; in other words tell him why something is done a certain way. We see that line “<em>…for the reader to understand…</em>” everywhere in books and articles. The assumption there is that the reader is looking for the reason. If one were to just read code literally but never question why it is or is not written certain way, we got nothing to discuss. So every effort taken to write good code, and more importantly, maintain it that way, is not just for self-satisfaction.</p>
 <p>Let me get started with the first one today, and it is about logic. Logic means how do solve a certain problem (specific and granular) efficiently. Efficiency does not mean only speed. If you can solve the problem in a comparatively fewer lines code without losing clarity and readability, then that is efficient. That sometimes involves educating ourselves and our peers with new techniques. For instance, in a language of your choice, how would you implement a function that returns the sum of all numbers starting 1 through N (including). One could start with this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">function</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-	<span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-
-	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">total</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
-	<span class="o">}</span>
-
-	<span class="k">return</span> <span class="n">total</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div><p>That’s about 5 effective lines of code. It can be made succinct:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">function</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-	<span class="k">return</span> <span class="o">(</span><span class="n">n</span> <span class="o">*</span> <span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">1</span><span class="o">))</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div><p>The above code is just one line. One could even question if we need a function. If programmers in the team were educated with the technique, calculating the sum doesn’t need any encapsulation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">function</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">total</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">total</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>That’s about 5 effective lines of code. It can be made succinct:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">function</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">(</span><span class="n">n</span> <span class="o">*</span> <span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">1</span><span class="o">))</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>The above code is just one line. One could even question if we need a function. If programmers in the team were educated with the technique, calculating the sum doesn’t need any encapsulation.</p>
 <p>Some people will fight back saying what I am explaining here is just algorithms in action. True but it is not just limited to applying algorithms. What I am talking about applies even implementing an algorithm. I am talking about how can one write logic to improve the efficiency of code without losing the readability. I will leave it to the reader whether to agree with me or not.</p>
 </div>
 

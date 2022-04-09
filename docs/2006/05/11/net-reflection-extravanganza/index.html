@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>.NET Reflection Extravanganza !!! &middot; A Developer&#39;s Experience</title>
 
@@ -154,89 +154,89 @@ The twist in the game was that this was a brown &#43; green field development pr
 <p>So, I came up with a different approach with the incredible Reflection in .NET. All of the events fired by the Server, its prototype and other relevant information can be got through reflection. For each of the event methods, an event sink [event handler] can be generated at runtime. This means I have to create a method at runtime matching the prototype of the event. The dynamic method thus generated runtime has to appended with some method body performing the desired <code>Action</code>, and then has to be registered as the event sink for the corresponding event. So, when the event is fired by the Server, the dynamically created event handler is called without any intervention. This is the theme of my solution. This keeps the Bridge unaffected for any event related changes in the Server.</p>
 <p>Implementing this solution was a great and exciting adventure, although a tiring one too.</p>
 <p>I was able to get the event information about the events fired by Server through reflection. I used the following sort of code for generating the dynamic method or the supposedly the dynamic event handler:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Threading</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Reflection</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Reflection.Emit</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">TaskDynamicEventHandler</span>
-<span class="p">{</span>
-	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
-		<span class="k">ref</span> <span class="n">TypeBuilder</span> <span class="n">myTypeBld</span><span class="p">,</span>
-		<span class="kt">string</span> <span class="n">methodName</span><span class="p">,</span>
-		<span class="n">Type</span><span class="p">[]</span> <span class="n">eventMethodParameters</span><span class="p">,</span>
-		<span class="n">Type</span> <span class="n">eventreturnType</span>
-	<span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">MethodBuilder</span> <span class="n">myMthdBld</span> <span class="p">=</span>
-			<span class="n">myTypeBld</span><span class="p">.</span><span class="n">DefineMethod</span><span class="p">(</span>
-				<span class="n">methodName</span><span class="p">,</span>
-				<span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Static</span><span class="p">,</span>
-				<span class="n">eventreturnType</span><span class="p">,</span>
-				<span class="n">eventMethodParameters</span>
-			<span class="p">);</span>
-
-		<span class="n">ILGenerator</span> <span class="n">ILout</span> <span class="p">=</span> <span class="n">myMthdBld</span><span class="p">.</span><span class="n">GetILGenerator</span><span class="p">();</span>
-		<span class="kt">int</span> <span class="n">numParams</span> <span class="p">=</span> <span class="n">eventMethodParameters</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-
-		<span class="k">for</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">x</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">numParams</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span>
-		<span class="p">{</span>
-			<span class="c1">// Load the parameter onto the evaulation stack
-</span><span class="c1"></span>			<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_S</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-		<span class="p">}</span>
-
-		<span class="c1">// Use the above sort of logic to access the event parameter
-</span><span class="c1"></span>		<span class="c1">// values and then package into a hashtable, and then call
-</span><span class="c1"></span>		<span class="c1">// a static method HandleEvent in TaskDynamicEventHandler,
-</span><span class="c1"></span>		<span class="c1">// which takes the hashtable as a parameter. All the code is
-</span><span class="c1"></span>		<span class="c1">// generated in IL using ILGenerator.
-</span><span class="c1"></span>		<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
-	<span class="p">}</span>
-
-	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
-	<span class="p">{</span>
-		<span class="n">AppDomain</span> <span class="n">myDomain</span> <span class="p">=</span> <span class="n">Thread</span><span class="p">.</span><span class="n">GetDomain</span><span class="p">();</span>
-		<span class="n">AssemblyName</span> <span class="n">asmName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AssemblyName</span><span class="p">(</span><span class="s">&#34;DynamicAssembly1&#34;</span><span class="p">);</span>
-
-		<span class="n">AssemblyBuilder</span> <span class="n">myAsmBuilder</span> <span class="p">=</span>
-			<span class="n">myDomain</span><span class="p">.</span><span class="n">DefineDynamicAssembly</span><span class="p">(</span>
-					<span class="n">asmName</span><span class="p">,</span>
-					<span class="n">AssemblyBuilderAccess</span><span class="p">.</span><span class="n">RunAndSave</span>
-			<span class="p">);</span>
-
-		<span class="n">ModuleBuilder</span> <span class="n">myModule</span> <span class="p">=</span> <span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">DefineDynamicModule</span><span class="p">(</span><span class="s">&#34;DynamicModule1&#34;</span><span class="p">,</span> <span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
-		<span class="n">TypeBuilder</span> <span class="n">myTypeBld</span> <span class="p">=</span> <span class="n">myModule</span><span class="p">.</span><span class="n">DefineType</span><span class="p">(</span><span class="s">&#34;MyDynamicType&#34;</span><span class="p">,</span> <span class="n">TypeAttributes</span><span class="p">.</span><span class="n">Public</span><span class="p">);</span>
-		<span class="kt">string</span> <span class="n">dynamicMethodName</span> <span class="p">=</span> <span class="s">&#34;DynamicEventHandler&#34;</span><span class="p">;</span>
-
-		<span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
-			<span class="n">myTypeBld</span><span class="p">,</span>
-			<span class="n">dynamicMethodName</span><span class="p">,</span>
-			<span class="n">eventMethodParameters</span><span class="p">,</span>
-			<span class="n">eventreturnType</span>
-		<span class="p">);</span>
-
-		<span class="n">Type</span> <span class="n">myType</span> <span class="p">=</span> <span class="n">myTypeBld</span><span class="p">.</span><span class="n">CreateType</span><span class="p">();</span>
-		<span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Threading</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Reflection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Reflection.Emit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TaskDynamicEventHandler</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="k">ref</span> <span class="n">TypeBuilder</span> <span class="n">myTypeBld</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">string</span> <span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span><span class="p">[]</span> <span class="n">eventMethodParameters</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span> <span class="n">eventreturnType</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">MethodBuilder</span> <span class="n">myMthdBld</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myTypeBld</span><span class="p">.</span><span class="n">DefineMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">				<span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Static</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">eventreturnType</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">eventMethodParameters</span>
+</span></span><span class="line"><span class="cl">			<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">ILGenerator</span> <span class="n">ILout</span> <span class="p">=</span> <span class="n">myMthdBld</span><span class="p">.</span><span class="n">GetILGenerator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">numParams</span> <span class="p">=</span> <span class="n">eventMethodParameters</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">x</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">numParams</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Load the parameter onto the evaulation stack</span>
+</span></span><span class="line"><span class="cl">			<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_S</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// Use the above sort of logic to access the event parameter</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// values and then package into a hashtable, and then call</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// a static method HandleEvent in TaskDynamicEventHandler,</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// which takes the hashtable as a parameter. All the code is</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// generated in IL using ILGenerator.</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">AppDomain</span> <span class="n">myDomain</span> <span class="p">=</span> <span class="n">Thread</span><span class="p">.</span><span class="n">GetDomain</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">AssemblyName</span> <span class="n">asmName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AssemblyName</span><span class="p">(</span><span class="s">&#34;DynamicAssembly1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">AssemblyBuilder</span> <span class="n">myAsmBuilder</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myDomain</span><span class="p">.</span><span class="n">DefineDynamicAssembly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">					<span class="n">asmName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="n">AssemblyBuilderAccess</span><span class="p">.</span><span class="n">RunAndSave</span>
+</span></span><span class="line"><span class="cl">			<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">ModuleBuilder</span> <span class="n">myModule</span> <span class="p">=</span> <span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">DefineDynamicModule</span><span class="p">(</span><span class="s">&#34;DynamicModule1&#34;</span><span class="p">,</span> <span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">TypeBuilder</span> <span class="n">myTypeBld</span> <span class="p">=</span> <span class="n">myModule</span><span class="p">.</span><span class="n">DefineType</span><span class="p">(</span><span class="s">&#34;MyDynamicType&#34;</span><span class="p">,</span> <span class="n">TypeAttributes</span><span class="p">.</span><span class="n">Public</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">string</span> <span class="n">dynamicMethodName</span> <span class="p">=</span> <span class="s">&#34;DynamicEventHandler&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myTypeBld</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">dynamicMethodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">eventMethodParameters</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">eventreturnType</span>
+</span></span><span class="line"><span class="cl">		<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span> <span class="n">myType</span> <span class="p">=</span> <span class="n">myTypeBld</span><span class="p">.</span><span class="n">CreateType</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
 <p>Though a level of efficiency may have been achieved, it was not elegant enough to be satisfied. The dynamic event handlers [DEH] are all methods of a specific type belonging to a different assembly that is generated at run-time, and these DEH do not belong to the same assembly as the <code>TaskDynamicEventHandler</code> class. The responsibility of the DEHs was to read its parameter name and values at runtime, package them into a hash table, and call a method <code>HandleEvent</code> of <code>TaskDynamicEventHandler</code>, and it is in <code>HandleEvent</code> that the actual job of logging is done. Well, the actual job is not only logging but other things that require access to the members of <code>TaskDynamicEventHandler</code>. So the non-elegance here was that <code>HandleEvent</code> was exposed as <code>public</code> <code>static</code> method so that the DEH in the dynamic assembly could call, which lead to the ugliness where <code>HandleEvent</code> was exposed to the outside world from the assembly to which <code>TaskDynamicEventHandler</code> belongs to. So <code>HandleEvent</code> cannot be non-public. But it was required for other reasons to be an instance method.</p>
 <ul>
 <li>Here is the most interesting part. The aim was then make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class in the DEH execution, and IF i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. That was the pain and it was pretty tricky and interesting that everybody to whomever I explained could not correctly grasp that the ‘this’ used during the compiled code will not be the same in the runtime IL code of the DEH, and neither can I load an object reference without me creating it or getting it as a parameter. That is all the .NET type security. You will not be given any chance to do <code>reinterpret\_cast</code> kind of stuff at all. But you can pass the <code>TaskDynamicEventHandler</code> object reference [<code>this</code>] to the DEH but that beats the goal where the prototype of the DEH will not match the prototype of its corresponding event and so cannot act as a sink.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// returnType - event method&#39;s return type
-</span><span class="c1">// parameterTypes - event method&#39;s parameter types list
-</span><span class="c1"></span><span class="n">ArrayList</span> <span class="n">parameterTypes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">parameterTypes</span><span class="p">);</span>
-<span class="n">parameterTypes</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
-
-<span class="n">DynamicMethod</span> <span class="n">dynamicEventHandler</span> <span class="p">=</span>
-  <span class="k">new</span> <span class="n">DynamicMethod</span><span class="p">(</span>
-    <span class="n">methodName</span><span class="p">,</span>
-    <span class="n">returnType</span><span class="p">,</span>
-    <span class="p">(</span><span class="n">Type</span><span class="p">[])</span> <span class="n">parameterTypes</span><span class="p">.</span><span class="n">ToArray</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Type</span><span class="p">)),</span>
-    <span class="k">typeof</span><span class="p">(</span><span class="n">TaskDynamicEventHandler</span><span class="p">)</span>
-  <span class="p">);</span>
-</code></pre></div><p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to <code>TaskDynamicEventHandler</code> using DynamicMethod class is a static method and hence cannot access instance methods of <code>TaskDynamicEventHandler</code>, although it can access non-public methods.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// returnType - event method&#39;s return type</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// parameterTypes - event method&#39;s parameter types list</span>
+</span></span><span class="line"><span class="cl"><span class="n">ArrayList</span> <span class="n">parameterTypes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">parameterTypes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">parameterTypes</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DynamicMethod</span> <span class="n">dynamicEventHandler</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">DynamicMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">returnType</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">Type</span><span class="p">[])</span> <span class="n">parameterTypes</span><span class="p">.</span><span class="n">ToArray</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Type</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="k">typeof</span><span class="p">(</span><span class="n">TaskDynamicEventHandler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span></code></pre></div><p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to <code>TaskDynamicEventHandler</code> using DynamicMethod class is a static method and hence cannot access instance methods of <code>TaskDynamicEventHandler</code>, although it can access non-public methods.</p>
 <ul>
 <li>
 <p>Here is the most interesting part. The aim of this iteration is to make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class during the DEH execution, and if i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. Things are going to get interesting now. The difference between an instance and static method is that an instance method has the object reference, to which it belongs, as the first parameter while a static method does not. Though syntactically, the object reference is not added, the compiler adds it. So while creating the dynamic method [DEH] for an event, the <code>TaskDynamicEventHandler</code> object reference [this] is added as the first parameter to the event parameter list. This makes the DEH seem to be an instance method. So during runtime, when an event is fired, its corresponding DEH executes, the <code>Lgarg\_0</code> in the IL code represents the object reference it belongs to, and it is the same as that for <code>HandleEvent</code>.</p>

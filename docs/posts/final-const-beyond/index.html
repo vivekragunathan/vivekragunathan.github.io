@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>final, const and beyond &middot; A Developer&#39;s Experience</title>
 
@@ -194,23 +194,23 @@ public String someGibberishMethod() {
   </div>
 
   <p>What are your thoughts on the following piece of code?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
-	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
-	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-
-	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-	   <span class="c1">// some code that updates the sum variable
-</span><span class="c1"></span>	<span class="o">}</span>
-
-	<span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
-	<span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
-	<span class="c1">// use someText, maybe log or something
-</span><span class="c1"></span>
-	<span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
-	<span class="c1">// use someText, maybe log or something
-</span><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	   <span class="c1">// some code that updates the sum variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><blockquote>
 <p>It is imperative if you are programming with imperative languages you should be explicit in your intent to achieve precision. That is why imperative languages provide keyword constructs.</p>
 </blockquote>
 <p>That said the above code is not explicit or rather precise in specifying if the variables should be allowed to mutate or not. That is the theme of this post - immutability.</p>
@@ -220,23 +220,23 @@ public String someGibberishMethod() {
 <p>This post is neither a language war nor is biased towards a certain language. It is an exploration across languages of a highly-wanted facility or discipline.</p>
 </blockquote>
 <p>That is Java code. So how do express the fact that variables like <code>length</code>, <code>sumValueInsideSomeClass</code> etc. do not change after they are initialized? Mark it <code>final</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
-	<span class="kd">final</span> <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
-	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-
-	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-	   <span class="c1">// some code that updates the sum variable
-</span><span class="c1"></span>	<span class="o">}</span>
-
-	<span class="kd">final</span> <span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
-	<span class="kd">final</span> <span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
-	<span class="c1">// use someText, maybe log or something
-</span><span class="c1"></span>
-	<span class="kd">final</span> <span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
-	<span class="c1">// use someText, maybe log or something
-</span><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div><p>But what good does <code>final</code> do with these variables<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>? After all, it is just another blue colored text on the screen.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">final</span> <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	   <span class="c1">// some code that updates the sum variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">final</span> <span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">final</span> <span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="kd">final</span> <span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>But what good does <code>final</code> do with these variables<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>? After all, it is just another blue colored text on the screen.</p>
 <ul>
 <li>
 <p>Variables<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> marked <code>final</code> offer a certain level of confidence in the rest of the code that consumes it. <code>final</code> variables are fenced from any accidental or unintentional changes, which is a big source of bugs. You might think <em>What is he talking about? Accidental change? How could somebody change a variable like that?</em> Yes, nobody would that intentionally. But if the method is 800 lines with a rich history how it got so big and tradition of preserving it so then unintentional change is unavoidable. Such methods exhibit a couple of patterns:</p>
@@ -271,23 +271,23 @@ public String someGibberishMethod() {
 <p>Besides, using <code>final</code> to prevent subclassing is a keyword abuse. If <code>final</code> meant to prevent changes, marking a <code>class</code> <code>final</code> should mean that it is immutable (the second flavor above, which syntactically establishes the two immutability invariants).</p>
 <p><strong>Enter <code>const</code></strong> &hellip;</p>
 <p><code>const</code>? Yes, <code>const</code> as in C++ constant qualifier.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">someGibberishMethod</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">const</span> <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="p">();</span>
-	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
-	   <span class="c1">// some code that updates the sum variable
-</span><span class="c1"></span>	<span class="p">}</span>
-
-	<span class="k">const</span> <span class="n">SomeClass</span><span class="o">*</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
-	<span class="k">const</span> <span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">-&gt;</span><span class="n">getSumValue</span><span class="p">();</span>
-	<span class="c1">// use someText, maybe log or something
-</span><span class="c1"></span>
-	<span class="c1">// some more code ...
-</span><span class="c1"></span>
-	<span class="k">return</span> <span class="mi">22</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p><code>const</code> offers the same guarantee like <code>final</code> for primitive data types (<code>length</code>, <code>sumValueInsideSomeClass</code> etc.). For the rest, it gets interesting.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">someGibberishMethod</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	   <span class="c1">// some code that updates the sum variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="n">SomeClass</span><span class="o">*</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">-&gt;</span><span class="n">getSumValue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// some more code ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">22</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>const</code> offers the same guarantee like <code>final</code> for primitive data types (<code>length</code>, <code>sumValueInsideSomeClass</code> etc.). For the rest, it gets interesting.</p>
 <blockquote>
 <p>The <code>const</code> qualifier can be seen to have two facets - consumer and provider. Pardon the terminology. When being a consumer such as <code>strlen</code> (see code below), it offers the <code>const</code>ness guarantee for the input consumed. For a provider, <code>const</code> mandates to provide the guarantee - <code>const</code> methods in an interface<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
 </blockquote>
@@ -296,23 +296,23 @@ public String someGibberishMethod() {
 <p>Of course, it is highly discouraged to use raw strings (or raw pointers for that matter) anymore. Instead use <code>std::string</code>.</p>
 </blockquote>
 <p>Let us move on &hellip;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">str</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="k">return</span> <span class="n">len</span><span class="p">;</span>
-	<span class="p">}</span>
-
-	<span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="o">++</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="o">++</span><span class="n">len</span><span class="p">;</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="n">len</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>That is a sample implementation of a string length function. The <code>const</code> qualifier on the <code>char*</code> argument <code>str</code> provides a strong guarantee that the <em>function may do anything but alter the contents</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">str</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="o">++</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="o">++</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>That is a sample implementation of a string length function. The <code>const</code> qualifier on the <code>char*</code> argument <code>str</code> provides a strong guarantee that the <em>function may do anything but alter the contents</em>.</p>
 <p>Alternatively, to allow altering the content but point nowhere else, push the <code>const</code> beyond the star; <code>char* const str</code>. To disallow both - pointer or content change, make it <code>const char* const str</code>, which is primarily for read-only purposes like writing to the console.</p>
 <p>You could also <code>const</code>-qualify the methods of your class, and establish the guarantee that the method shall not alter object state. This is especially useful when you are implementing a framework in which the client code has to implement certain interfaces/methods. You mandate the client to implement <code>const</code>-qualified methods. But what if the client code tries to trick by implementing/providing a non-<code>const</code> version of the method.</p>
 <blockquote>

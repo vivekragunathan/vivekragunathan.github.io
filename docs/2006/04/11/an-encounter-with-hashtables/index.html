@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>An encounter with Hashtables !!! &middot; A Developer&#39;s Experience</title>
 
@@ -144,28 +144,28 @@
 
   <p>I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value. I used the some of the facilities – enumerator, the Keys property etc provided by the hash table itself but it did not work out, and I spent too much time on this.</p>
 <p>The interesting thing is that for the following code,</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">IDictionaryEnumerator</span> <span class="n">de</span> <span class="p">=</span> <span class="n">ht</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">();</span>
-
-<span class="k">while</span> <span class="p">(</span><span class="n">de</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
-<span class="p">{</span>
-   <span class="n">de</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>&hellip; the compiler spat an error:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">System.Collections.IDictionaryEnumerator.Value cannot be assigned to; it is read only;
-</code></pre></div><p>while for this code</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>it compiled successfully but threw a runtime exception</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">An unhandled exception of type System.InvalidOperationException occurred in mscorlib.dll Additional information: Collection was modified; enumeration operation may not execute].
-</code></pre></div><p>But the solution was just bit out of sight while it was in hand. Just forget that you encountered this problem, and start again, you will have the solution simple like this:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ArrayList</span> <span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">);</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Another thing I came to know was that the hash table entries are not maintained in the same order as they are inserted. I came to know that it is the inherent nature of the algorithm. That is basic but it was new to me.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">IDictionaryEnumerator</span> <span class="n">de</span> <span class="p">=</span> <span class="n">ht</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">de</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">de</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>&hellip; the compiler spat an error:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">System.Collections.IDictionaryEnumerator.Value cannot be assigned to; it is read only;
+</span></span></code></pre></div><p>while for this code</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>it compiled successfully but threw a runtime exception</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">An unhandled exception of type System.InvalidOperationException occurred in mscorlib.dll Additional information: Collection was modified; enumeration operation may not execute].
+</span></span></code></pre></div><p>But the solution was just bit out of sight while it was in hand. Just forget that you encountered this problem, and start again, you will have the solution simple like this:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">ArrayList</span> <span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Another thing I came to know was that the hash table entries are not maintained in the same order as they are inserted. I came to know that it is the inherent nature of the algorithm. That is basic but it was new to me.</p>
 
 </div>
 

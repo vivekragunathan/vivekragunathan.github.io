@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -132,6 +132,26 @@
         
 
         <h1 class="post-title">
+          <a href="/2015/10/04/unconquerable/">The unconquerable</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2015-10-03T19:28:22Z">Oct 3, 2015</time> &middot; 1 min read
+        </div>
+
+        <div>
+          Hercules was a strong man; a tall muscular perfect masculine figure.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2015/10/04/unconquerable/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
           <a href="/2015/09/14/jar-tips-loading-dependencies/">JAR Tips: Loading dependencies</a>
         </h1>
 
@@ -206,23 +226,23 @@
 
         <div>
           <p>Today, we question our beliefs! Is string really immutable?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp">  
-<span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;
-</span><span class="c1"></span>
-<span class="k">unsafe</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">message</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-  
-  <span class="k">fixed</span> <span class="p">(</span><span class="kt">char</span> <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">*(</span><span class="n">p</span> <span class="p">+</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints what? See for yourself!
-</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints &#34;Hello World!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">unsafe</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">message</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">fixed</span> <span class="p">(</span><span class="kt">char</span> <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="p">++</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">*(</span><span class="n">p</span> <span class="p">+</span> <span class="n">index</span><span class="p">)</span> <span class="p">=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// Prints what? See for yourself!</span>
+</span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -264,9 +284,9 @@
         <div>
           <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
-<span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -331,26 +351,6 @@
 
         <div class="read-more-link">
           <a href="/2014/10/05/simple-tlv/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2014/09/30/php-property-bag/">PHP Savers – PropertyBag</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2014-09-29T22:36:35Z">Sep 29, 2014</time> &middot; 5 min read
-        </div>
-
-        <div>
-          <p>The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code<sup id="fnref-452-1"><a href="#fn-452-1">1</a></sup> specifically when there is a need to interact with code that is not open for change; legacy or not.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2014/09/30/php-property-bag/">Read More</a>
         </div>
       </article>
   </div>

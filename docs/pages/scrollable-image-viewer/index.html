@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Scrollable Image Viewer &middot; A Developer&#39;s Experience</title>
 
@@ -151,43 +151,43 @@
 <p>So, why do we need such a control? In applications where a live image display is required, a control that shows the image in one of the above two modes is desperately wanted. It is really sad that .NET BCL does not provide one. And in my experience, I have not used, and have not seen programmers using, many of the scaling modes provided by the PictureBox, except the Stretch and Normal modes. Pardon me, I may be unaware.</p>
 <h3 id="control-basics">Control Basics</h3>
 <p>I would say this is the easiest part of the article. Our control here is is a UserControl. It has a picture box docked to fill the area of the UserControl, and (horizontal and vertical) scrollbars docked to the edges (bottom and right). The display and value range of the scrollbars are controlled by the image chosen for display. The code snippet below shows the typical way of creating the control:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ScrollableImageViewer</span> <span class="n">siViewer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScrollableImageViewer</span><span class="p">();</span>
-<span class="c1">// var siViewer = new ScrollableImageViewer(@”C:\SomeImage.bmp”);
-</span><span class="c1"></span> 
-<span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;siViewer&#34;</span><span class="p">;</span>
-<span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">Dock</span> <span class="p">=</span> <span class="n">DockStyle</span><span class="p">.</span><span class="n">Fill</span><span class="p">;</span>
-<span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">ShowFullImage</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// Shows the full image
-</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="n">Controls</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">);</span>
-</code></pre></div><h3 id="drawing-the-image">Drawing the Image</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">ScrollableImageViewer</span> <span class="n">siViewer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScrollableImageViewer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// var siViewer = new ScrollableImageViewer(@”C:\SomeImage.bmp”);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;siViewer&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">Dock</span> <span class="p">=</span> <span class="n">DockStyle</span><span class="p">.</span><span class="n">Fill</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">.</span><span class="n">ShowFullImage</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// Shows the full image</span>
+</span></span><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="n">Controls</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">siViewer</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="drawing-the-image">Drawing the Image</h3>
 <p>This is the IP that you have to maintain secrecy about. The DrawImage is responsible for drawing the image based on the scroll position. When the scrollbars are dragged, the image is drawn, with the offsets borrowed from the scrollbar positions so that we see the image scrolled.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">void</span> <span class="n">DrawImage</span><span class="p">(</span><span class="kt">int</span> <span class="n">startX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startY</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pbImage</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
-  <span class="p">{</span>
-  	<span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
- 
-  <span class="n">Graphics</span> <span class="n">pbGraphics</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">CreateGraphics</span><span class="p">();</span>
-  <span class="kt">var</span> <span class="n">currentGraphicsContext</span> <span class="p">=</span> <span class="n">BufferedGraphicsManager</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
- 
-  <span class="n">Rectangle</span> <span class="n">targetRect</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span>
-  <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">DisplayRectangle</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Width</span><span class="p">),</span>
-  <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">DisplayRectangle</span><span class="p">.</span><span class="n">Height</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Height</span><span class="p">));</span>
- 
-  <span class="k">using</span> <span class="p">(</span><span class="n">BufferedGraphics</span> <span class="n">pbGDIBuffer</span> <span class="p">=</span>
-  <span class="n">currentGraphicsContext</span><span class="p">.</span><span class="n">Allocate</span><span class="p">(</span><span class="n">pbGraphics</span><span class="p">,</span> <span class="n">targetRect</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="n">Rectangle</span> <span class="n">drawRect</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span>
-    <span class="n">startY</span><span class="p">,</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Height</span><span class="p">);</span> 
- 
-    <span class="n">pbGDIBuffer</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">DrawImageUnscaledAndClipped</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">,</span> <span class="n">drawRect</span><span class="p">);</span>
- 
-    <span class="n">pbGDIBuffer</span><span class="p">.</span><span class="n">Render</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><h3 id="points-of-interest">Points of Interest</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">void</span> <span class="n">DrawImage</span><span class="p">(</span><span class="kt">int</span> <span class="n">startX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pbImage</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="n">Graphics</span> <span class="n">pbGraphics</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">CreateGraphics</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">currentGraphicsContext</span> <span class="p">=</span> <span class="n">BufferedGraphicsManager</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="n">Rectangle</span> <span class="n">targetRect</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">DisplayRectangle</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Width</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pictureBox</span><span class="p">.</span><span class="n">DisplayRectangle</span><span class="p">.</span><span class="n">Height</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Height</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  <span class="k">using</span> <span class="p">(</span><span class="n">BufferedGraphics</span> <span class="n">pbGDIBuffer</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">currentGraphicsContext</span><span class="p">.</span><span class="n">Allocate</span><span class="p">(</span><span class="n">pbGraphics</span><span class="p">,</span> <span class="n">targetRect</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Rectangle</span> <span class="n">drawRect</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">startY</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Width</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">.</span><span class="n">Height</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">pbGDIBuffer</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">DrawImageUnscaledAndClipped</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">pbImage</span><span class="p">,</span> <span class="n">drawRect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">pbGDIBuffer</span><span class="p">.</span><span class="n">Render</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="points-of-interest">Points of Interest</h3>
 <p>Since double buffering is being used, the drawing of the image even during scrolling is flicker-free, and is also good to use for large images. Besides that, the control is tolerant to size changes. The scroll bars and the image get automatically adjusted when the control size changes. You can make the display void by setting the Picture property on the control to null. For an image which shows up the scroll bars, a large change of the value of the scroll bar is assumed as 10% of the scrollbar maximum value. That means, it is kind of hard-coded. I hope this must not be an issue. But, for cases that require this value to be changeable at runtime, a little tweak would do – take the percentage of the maximum value that the large change value has to assume.</p>
 
 </div>

@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>SMS Firewall Privacy Policy</title>
+      <link>/pages/sms-firewall-privacy/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/sms-firewall-privacy/</guid>
+      <description>SMS Firewall The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
+    </item>
+    
+    <item>
       <title>Lo and Behold</title>
       <link>/pages/lo-and-behold/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
@@ -79,7 +88,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       <pubDate>Wed, 01 Oct 2014 03:55:02 +0000</pubDate>
       
       <guid>/pages/code-treats/</guid>
-      <description>[contact-form subject=&#39;[Feedback on DevEx]’
+      <description>[contact-form subject=&amp;rsquo;[Feedback on DevEx]’
 [contact-field label=’Name’ type=’name’ required=’1’/]
 [contact-field label=’Email’ type=’email’ required=’1’/]</description>
     </item>

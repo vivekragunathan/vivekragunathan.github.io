@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Setting Environment Variables !!! &middot; A Developer&#39;s Experience</title>
 
@@ -150,17 +150,17 @@
 <p>But the changes you made will be reflected after a log off or restart. After some research, I found the Win32 SDK API SetEnvironmentVariable. But unfortunately, it just the changes the variable value in the PEB of that process alone, it does not effect the global environment values. Pathetic.</p>
 <p>There is definitely a solution for this simple and primary problem. All we have to do is to update the registry as we discussed before, and also notify that the global enviroment variable list has been modified. Ok, how do we do that ?</p>
 <p>Simple, one line of code.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Broadcast the WM_SETTINGCHANGE message for Enviroment&lt;/span&gt;
-</span><span class="c1"></span><span class="n">SendMessageTimeout</span><span class="p">(</span>
-  <span class="n">HWND_BROADCAST</span><span class="p">,</span> 
-  <span class="n">WM_SETTINGCHANGE</span><span class="p">,</span> 
-  <span class="mi">0</span><span class="p">,</span>
-  <span class="p">(</span><span class="n">LPARAM</span><span class="p">)</span> <span class="err">“</span><span class="n">Environment</span><span class="err">”</span><span class="p">,</span>
-  <span class="n">SMTO_ABORTIFHUNG</span><span class="p">,</span>
-  <span class="mi">5000</span><span class="p">,</span>
-  <span class="o">&amp;</span><span class="n">dwReturnValue</span>
-<span class="p">);</span>
-</code></pre></div><p>Of course, this is C++ code. Not a big deal to do that in C# or whatever.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Broadcast the WM_SETTINGCHANGE message for Enviroment&lt;/span&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">SendMessageTimeout</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HWND_BROADCAST</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">WM_SETTINGCHANGE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="n">LPARAM</span><span class="p">)</span> <span class="err">“</span><span class="n">Environment</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">SMTO_ABORTIFHUNG</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&amp;</span><span class="n">dwReturnValue</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span></code></pre></div><p>Of course, this is C++ code. Not a big deal to do that in C# or whatever.</p>
 
 </div>
 

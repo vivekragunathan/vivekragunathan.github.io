@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -127,6 +127,26 @@
 
 	<main class="content container">
 		<div class="posts">
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/posts/case-class-shortcomings-01/">Case Class Shortcomings - Part 1</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2022-02-28T00:00:00Z">Feb 28, 2022</time> &middot; 5 min read
+        </div>
+
+        <div>
+          Despite all the power and utility that <code>case class</code>es provide, there are a couple of things that Scala could have done better. This post discusses the situation of defining the (ADT) sum type companions across multiple files.
+        </div>
+
+        <div class="read-more-link">
+          <a href="/posts/case-class-shortcomings-01/">Read More</a>
+        </div>
+      </article>
       <article class="post">
 
         
@@ -271,36 +291,36 @@
 
         <div>
           <p>It is common to see mocks being setup this way in unit tests.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
-	<span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="o">...</span>
-	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-
-	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
-	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
-<span class="o">}</span>
-
-<span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
-	<span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-	<span class="o">...</span>
-	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
-	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
-
-	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
-
-	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
-	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
-<span class="o">}</span>
-
-<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
+</span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -348,26 +368,6 @@
 
         <div class="read-more-link">
           <a href="/2019/02/19/purge-node-npm/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2019/02/19/fp-conversion-caveat/">Non-FP to FP Conversion Caveat</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2019-02-19T00:00:00Z">Feb 19, 2019</time> &middot; 3 min read
-        </div>
-
-        <div>
-          Sometimes you learn the best from others; by watching. This post is based on such an instance.
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2019/02/19/fp-conversion-caveat/">Read More</a>
         </div>
       </article>
   </div>

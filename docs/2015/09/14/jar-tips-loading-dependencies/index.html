@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>JAR Tips: Loading dependencies &middot; A Developer&#39;s Experience</title>
 
@@ -151,27 +151,27 @@
 <li>I will be using Maven for the project scaffold and build purposes.</li>
 </ul>
 <p>First let us make an executable JAR. Let us Maven to tell Java that there is an entry point in the JAR that the runtime should use start executing unlike just loading the JAR.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4<span class="nt">&lt;/version&gt;</span>
-    ....
-<span class="nt">&lt;/plugin&gt;</span>
-</code></pre></div><p>Now we have to specify the Java compiler to bake in the directories where to look for dependent JARs aka provide additional <a href="http://docs.oracle.com/javase/tutorial/essential/environment/paths.html">classpath</a> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> so that the runtime will look up and load them. We will instruct Maven to deal with that.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;configuration&gt;</span>
-        <span class="nt">&lt;archive&gt;</span>
-            <span class="nt">&lt;manifest&gt;</span>
-                <span class="nt">&lt;mainClass&gt;</span>fully-scoped-class-name-that-contains-main-method<span class="nt">&lt;/mainClass&gt;</span>
-                <span class="nt">&lt;addClasspath&gt;</span>true<span class="nt">&lt;/addClasspath&gt;</span>
-            <span class="nt">&lt;/manifest&gt;</span>
-        <span class="nt">&lt;/archive&gt;</span>
-    <span class="nt">&lt;/configuration&gt;</span>
-<span class="nt">&lt;/plugin&gt;</span>
-</code></pre></div><p>Code is better than a thousand words. You can <a href="https://gitlab.com/VivekRagunathan/jarload.git">grab</a> a working sample and see it for yourself. Should you need to add or re-define the lookup directory, you could add a <code>classpathPrefix</code> or additional <code>Class-Path</code> under <code>manifestEntries</code> in the pom file depending on your scenario.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>2.4<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    ....
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>Now we have to specify the Java compiler to bake in the directories where to look for dependent JARs aka provide additional <a href="http://docs.oracle.com/javase/tutorial/essential/environment/paths.html">classpath</a> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> so that the runtime will look up and load them. We will instruct Maven to deal with that.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>2.4<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;archive&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;manifest&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;mainClass&gt;</span>fully-scoped-class-name-that-contains-main-method<span class="nt">&lt;/mainClass&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;addClasspath&gt;</span>true<span class="nt">&lt;/addClasspath&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/manifest&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/archive&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>Code is better than a thousand words. You can <a href="https://gitlab.com/VivekRagunathan/jarload.git">grab</a> a working sample and see it for yourself. Should you need to add or re-define the lookup directory, you could add a <code>classpathPrefix</code> or additional <code>Class-Path</code> under <code>manifestEntries</code> in the pom file depending on your scenario.</p>
 <p>Now we have an executable JAR that can load its dependent JARs from the current directory.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>

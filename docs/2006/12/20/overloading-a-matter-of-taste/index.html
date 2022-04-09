@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Overloading - A Matter Of Taste !!! &middot; A Developer&#39;s Experience</title>
 
@@ -145,76 +145,76 @@
   <p><a href="http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244">This</a> was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.</p>
 <p>As far traditional C++ goes, the overloaded method resolution starts from the derived but does not have strict type checking eg. for numeric types]. And the point to note is that only the method in the derived class with the exact prototype as the base is considered the overload. Of course, C++ is not as much type safe as C#. This is taken care in C# by the override keyword which allows only the exact prototypes to be involved in overloading. And at times explicit casting is required unlike in C++.</p>
 <p>But in the case of C#, the first principle observed in overloading is to avoid it. Pretty confusing, huh? Take a look at the example below:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">Samples.MyConsole</span>
-<span class="p">{</span>
-   <span class="k">class</span> <span class="nc">Parent</span>
-   <span class="p">{</span>
-       <span class="k">public</span> <span class="k">void</span> <span class="n">Foo</span><span class="p">()</span>
-       <span class="p">{</span>
-           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Parent.Foo&#34;</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">class</span> <span class="nc">Child</span> <span class="p">:</span> <span class="n">Parent</span>
-   <span class="p">{</span>
-       <span class="k">public</span> <span class="k">void</span> <span class="n">Bar</span><span class="p">()</span>
-       <span class="p">{</span>
-           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Child.Bar&#34;</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">class</span> <span class="nc">Base</span>
-   <span class="p">{</span>
-       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
-       <span class="p">{</span>
-           <span class="n">c</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
-           <span class="n">c</span><span class="p">.</span><span class="n">Bar</span><span class="p">();</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span>
-   <span class="p">{</span>
-       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Parent</span> <span class="n">p</span><span class="p">)</span>
-       <span class="p">{</span>
-           <span class="n">p</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
-       <span class="p">}</span>
-
-       <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
-       <span class="p">{</span>
-           <span class="k">base</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">class</span> <span class="nc">User</span>
-   <span class="p">{</span>
-       <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
-       <span class="p">{</span>
-           <span class="n">Child</span> <span class="n">c</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Child</span><span class="p">();</span>
-           <span class="n">Parent</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Parent</span><span class="p">;</span>
-
-           <span class="n">Derived</span> <span class="n">d</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Derived</span><span class="p">();</span>
-           <span class="n">Base</span> <span class="n">b</span> <span class="p">=</span> <span class="n">d</span> <span class="k">as</span> <span class="n">Base</span><span class="p">;</span>
-
-           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Playing with Derived&#34;</span><span class="p">);</span>
-           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-
-           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;\nPlaying with Base&#34;</span><span class="p">);</span>
-           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span> <span class="k">as</span> <span class="n">Child</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>Here is the output at the console:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Playing with Derived
-Parent.Foo
-Parent.Foo
-Playing with Base
-Parent.Foo
-Child.Bar
-Parent.Foo
-Child.Bar
-</code></pre></div><p>You would have guessed the surprise that you are about to experience. Yes, d.XYZ(c) calls the Derived.XYZ(Parent p), and not the Derived.XYZ(Child c) which is a better match. It does if it had been defined as public new void XYZ(Child c). But same is not the case with C++. It gives us no surprise.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nn">Samples.MyConsole</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Parent</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">void</span> <span class="n">Foo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Parent.Foo&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Child</span> <span class="p">:</span> <span class="n">Parent</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">void</span> <span class="n">Bar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Child.Bar&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Base</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">c</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">c</span><span class="p">.</span><span class="n">Bar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Parent</span> <span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">p</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">base</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">User</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Child</span> <span class="n">c</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Child</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Parent</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">Derived</span> <span class="n">d</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Derived</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Base</span> <span class="n">b</span> <span class="p">=</span> <span class="n">d</span> <span class="k">as</span> <span class="n">Base</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Playing with Derived&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="n">d</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;\nPlaying with Base&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="n">b</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">p</span> <span class="k">as</span> <span class="n">Child</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Here is the output at the console:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Playing with Derived
+</span></span><span class="line"><span class="cl">Parent.Foo
+</span></span><span class="line"><span class="cl">Parent.Foo
+</span></span><span class="line"><span class="cl">Playing with Base
+</span></span><span class="line"><span class="cl">Parent.Foo
+</span></span><span class="line"><span class="cl">Child.Bar
+</span></span><span class="line"><span class="cl">Parent.Foo
+</span></span><span class="line"><span class="cl">Child.Bar
+</span></span></code></pre></div><p>You would have guessed the surprise that you are about to experience. Yes, d.XYZ(c) calls the Derived.XYZ(Parent p), and not the Derived.XYZ(Child c) which is a better match. It does if it had been defined as public new void XYZ(Child c). But same is not the case with C++. It gives us no surprise.</p>
 <p>As far as C++/CLI is concerned, it behaves as traditional C++.</p>
 <p>So the intriguing bitter part is that the overloading in the managed world is not a thing at the CLR level nor does it seem to be something concerned with the specification. It seems to be a matter of taste.</p>
 

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>OrderedThreadPool – Task Execution In Queued Order !!! &middot; A Developer&#39;s Experience</title>
 
@@ -145,72 +145,72 @@
   <p>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.</p>
 <p>In some situations, it is required that the tasks queued to the thread pool are dispatched (and executed) in the order they were queued. For instance, in my (and most?) applications, a series of events are fired to notify the clients with what is happening inside the (server) application. Although the events may be fired from any thread (asynchronous), I would want them or rather the client would be expecting that the events are received in a certain order, which aligns with the sequence of steps carried out inside the server application for the requested service. So sequential execution of the queued tasks is not something one must not wish for.</p>
 <p>Enough talking…….eat code.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
-
-<span class="k">namespace</span> <span class="nn">System.Threading</span>
-<span class="p">{</span>
-   <span class="k">struct</span> <span class="nc">ThreadPoolTaskInfo</span>
-   <span class="p">{</span>
-      <span class="k">public</span> <span class="k">readonly</span> <span class="n">WaitCallback</span> <span class="n">CallbackDelegate</span><span class="p">;</span>
-      <span class="k">public</span> <span class="k">readonly</span> <span class="kt">object</span> <span class="n">State</span><span class="p">;</span>
-
-      <span class="k">public</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wc</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
-         <span class="n">CallbackDelegate</span> <span class="p">=</span> <span class="n">wc</span><span class="p">;</span>
-         <span class="n">State</span> <span class="p">=</span> <span class="n">state</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">class</span> <span class="nc">OrderedThreadPool</span>
-   <span class="p">{</span>
-      <span class="k">private</span> <span class="n">Queue</span> <span class="n">workItemQ</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">();</span>
-
-      <span class="k">public</span> <span class="k">void</span> <span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wcbDelegate</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
-         <span class="p">{</span>
-            <span class="n">workItemQ</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="k">new</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">wcbDelegate</span><span class="p">,</span> <span class="n">state</span><span class="p">));</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span>
-            <span class="p">{</span>
-               <span class="n">ThreadPool</span><span class="p">.</span><span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">LoopWork</span><span class="p">);</span>
-            <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-
-      <span class="k">private</span> <span class="k">void</span> <span class="n">LoopWork</span><span class="p">(</span><span class="kt">object</span> <span class="n">notUsed</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">WaitCallback</span> <span class="n">wcb</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-         <span class="kt">object</span> <span class="n">state</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-
-         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
-         <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
-            <span class="p">{</span>
-               <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="n">ThreadPoolTaskInfo</span> <span class="n">tptInfo</span> <span class="p">=</span> <span class="n">workItemQ</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
-            <span class="n">state</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
-            <span class="n">wcb</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">CallbackDelegate</span><span class="p">;</span>
-            <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wcb</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
-         <span class="p">}</span>
-
-         <span class="k">try</span>
-         <span class="p">{</span>
-            <span class="n">wcb</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
-         <span class="p">}</span>
-         <span class="k">finally</span>
-         <span class="p">{</span>
-            <span class="n">ThreadPool</span><span class="p">.</span><span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">LoopWork</span><span class="p">,</span> <span class="n">notUsed</span><span class="p">);</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>The above class wraps the System.Threading.ThreadPool and offers the facility of execution of tasks in the order they are queued. Hope that is useful!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nn">System.Threading</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">struct</span> <span class="nc">ThreadPoolTaskInfo</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">readonly</span> <span class="n">WaitCallback</span> <span class="n">CallbackDelegate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">readonly</span> <span class="kt">object</span> <span class="n">State</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wc</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">CallbackDelegate</span> <span class="p">=</span> <span class="n">wc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">State</span> <span class="p">=</span> <span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">OrderedThreadPool</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">private</span> <span class="n">Queue</span> <span class="n">workItemQ</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">void</span> <span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wcbDelegate</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">workItemQ</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="k">new</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">wcbDelegate</span><span class="p">,</span> <span class="n">state</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">ThreadPool</span><span class="p">.</span><span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">LoopWork</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">private</span> <span class="k">void</span> <span class="n">LoopWork</span><span class="p">(</span><span class="kt">object</span> <span class="n">notUsed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">WaitCallback</span> <span class="n">wcb</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">object</span> <span class="n">state</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">ThreadPoolTaskInfo</span> <span class="n">tptInfo</span> <span class="p">=</span> <span class="n">workItemQ</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">state</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wcb</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">CallbackDelegate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wcb</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="k">try</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wcb</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="k">finally</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ThreadPool</span><span class="p">.</span><span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">LoopWork</span><span class="p">,</span> <span class="n">notUsed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The above class wraps the System.Threading.ThreadPool and offers the facility of execution of tasks in the order they are queued. Hope that is useful!</p>
 
 </div>
 

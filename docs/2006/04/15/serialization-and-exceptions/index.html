@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Serialization and Exceptions !!! &middot; A Developer&#39;s Experience</title>
 
@@ -146,40 +146,40 @@
 <pre tabindex="0"><code>The constructor to deserialize an object of type MyException was not found
 </code></pre><p>Note I had the <code>Serializable</code> attribute tagged to my custom <code>Exception</code> class.</p>
 <p>Let me to get to the point. Even though you attach the <code>Serializable</code> attribute to your custom exception class, the base class Exception implements the <code>ISerializable</code> interface and the constructor required during the deserialization [<code>Exception()</code>] is protected. So when you throw MyException, it may get serialized and cross the remoting boundaries but on the client side, it will not able to deserialize because the required ctor is not accessible. So, what we do is simple as shown in the following code:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Serializable]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">MyException</span> <span class="p">:</span> <span class="n">ApplicationException</span>
-<span class="p">{</span>
-    <span class="c1">// Member Data
-</span><span class="c1"></span>
-    <span class="c1">// Other necessary ctors
-</span><span class="c1"></span>
-   <span class="c1">/// &amp;lt;summary&gt;
-</span><span class="c1"></span>   <span class="c1">/// Let us call this ctor as Deserializing Ctor [DSCTOR]
-</span><span class="c1"></span>   <span class="c1">/// &amp;lt;/summary&gt;
-</span><span class="c1"></span>   <span class="k">public</span> <span class="n">MyException</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
-       <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-   <span class="p">{</span>
-       <span class="c1">// Any other custom data to be transferred
-</span><span class="c1"></span>       <span class="c1">// info.AddValue(CustomDataName, DataValue);
-</span><span class="c1"></span>   <span class="p">}</span>
-
-   <span class="c1">/// &amp;lt;summary&gt;
-</span><span class="c1"></span>   <span class="c1">/// If any custom information needs to be transferred
-</span><span class="c1"></span>   <span class="c1">/// with the MyException thrown, it must be added to the
-</span><span class="c1"></span>   <span class="c1">/// SerializationInfo object on the call to
-</span><span class="c1"></span>   <span class="c1">/// GetObjectData() and to take them from this object in
-</span><span class="c1"></span>   <span class="c1">/// the constructor for deserialization.
-</span><span class="c1"></span>   <span class="c1">/// &amp;lt;/summary&gt;
-</span><span class="c1"></span>   <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">GetObjectData</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
-   <span class="p">{</span>
-       <span class="k">base</span><span class="p">.</span><span class="n">GetObjectData</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
-       <span class="c1">// Any other custom data to be transferred
-</span><span class="c1"></span>       <span class="c1">// info.AddValue(CustomDataName, DataValue);
-</span><span class="c1"></span>   <span class="p">}</span>
-
-   <span class="c1">// Other methods
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><p>This DSCTOR is very much necessary, else the exception thrown will not be caught as the one thrown and you will get the following exception:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="na">[Serializable]</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">MyException</span> <span class="p">:</span> <span class="n">ApplicationException</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Member Data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Other necessary ctors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="cs">/// &amp;lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// Let us call this ctor as Deserializing Ctor [DSCTOR]</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// &amp;lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span> <span class="n">MyException</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// Any other custom data to be transferred</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// info.AddValue(CustomDataName, DataValue);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="cs">/// &amp;lt;summary&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// If any custom information needs to be transferred</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// with the MyException thrown, it must be added to the</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// SerializationInfo object on the call to</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// GetObjectData() and to take them from this object in</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// the constructor for deserialization.</span>
+</span></span><span class="line"><span class="cl">   <span class="cs">/// &amp;lt;/summary&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">GetObjectData</span><span class="p">(</span><span class="n">SerializationInfo</span> <span class="n">info</span><span class="p">,</span> <span class="n">StreamingContext</span> <span class="n">context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">base</span><span class="p">.</span><span class="n">GetObjectData</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// Any other custom data to be transferred</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// info.AddValue(CustomDataName, DataValue);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// Other methods</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This DSCTOR is very much necessary, else the exception thrown will not be caught as the one thrown and you will get the following exception:</p>
 <pre tabindex="0"><code>The constructor to deserialize an object of type MyException was not found
 </code></pre><p>If any custom data needs to be transferred with the <code>MyException</code> thrown, it must be added to the <code>SerializationInfo</code> object on the call to <code>GetObjectData()</code> and to take them from this object in this secondary [deserialization] constructor.</p>
 

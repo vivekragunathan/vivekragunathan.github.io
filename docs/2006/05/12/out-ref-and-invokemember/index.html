@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>out, ref and InvokeMember !!! &middot; A Developer&#39;s Experience</title>
 
@@ -143,50 +143,50 @@
   </div>
 
   <p>When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.InvokeMember. How will pass out or ref parameters for the method invoked using Type.InvokeMember ? If you are going to invoke a method with the prototype</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
-</code></pre></div><p>then you would use InvokeMember like this:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span><span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
-        <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-        <span class="k">null</span><span class="p">,</span>
-        <span class="k">this</span><span class="p">,</span>
-        <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="err">“</span><span class="n">Largest</span> <span class="n">Integer</span><span class="err">”</span><span class="p">,</span> <span class="m">1</span><span class="p">});</span>
-</code></pre></div><p>or use some variables in the new object[] {…}. But what do you with the args if DoSomething takes out or ref parameters ?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="k">out</span> <span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
-</code></pre></div><p>Something like this will not work</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">string</span> <span class="n">someText</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">someInt</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
-  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
-    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
-    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-    <span class="k">null</span><span class="p">,</span>
-    <span class="k">this</span><span class="p">,</span>
-    <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span><span class="p">}</span>
-  <span class="p">);</span>
-</code></pre></div><p>It is tricky.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span> <span class="p">};</span>
-
-<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
-	<span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
-		<span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
-		<span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-    <span class="k">null</span><span class="p">,</span>
-    <span class="k">this</span><span class="p">,</span>
-    <span class="n">args</span>
-  <span class="p">);</span>
-</code></pre></div><p>or even suprisingly this works:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-<span class="c1">// or object[] args = new object[] { null, null };
-</span><span class="c1"></span>
-<span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
-  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
-    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
-    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-    <span class="k">null</span><span class="p">,</span>
-    <span class="k">this</span><span class="p">,</span>
-    <span class="n">args</span>
-  <span class="p">);</span>
-</code></pre></div><p>Access the values by indexing args. So declaring the argument object[] as a local variable solves the problem, but I do not understand why this behavior. May be somebody can explain !!!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
+</span></span></code></pre></div><p>then you would use InvokeMember like this:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span><span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="err">“</span><span class="n">Largest</span> <span class="n">Integer</span><span class="err">”</span><span class="p">,</span> <span class="m">1</span><span class="p">});</span>
+</span></span></code></pre></div><p>or use some variables in the new object[] {…}. But what do you with the args if DoSomething takes out or ref parameters ?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">DoSomething</span><span class="p">(</span><span class="k">out</span> <span class="kt">string</span> <span class="n">someString</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">int</span> <span class="n">someInt</span><span class="p">);</span>
+</span></span></code></pre></div><p>Something like this will not work</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">someText</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">someInt</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span></code></pre></div><p>It is tricky.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">	<span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">args</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span></code></pre></div><p>or even suprisingly this works:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">object</span><span class="p">[]</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// or object[] args = new object[] { null, null };</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">args</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span></code></pre></div><p>Access the values by indexing args. So declaring the argument object[] as a local variable solves the problem, but I do not understand why this behavior. May be somebody can explain !!!</p>
 
 </div>
 

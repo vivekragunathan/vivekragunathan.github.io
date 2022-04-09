@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Linked List Quiz – Part I !!! &middot; A Developer&#39;s Experience</title>
 
@@ -153,255 +153,255 @@
 <li>Reverse every K nodes in the list</li>
 </ul>
 <p>I will be solving reversing the list (both iteratively and recursively) and finding if the list is cyclic problems in this episode.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
-</span><span class="cp"></span>
-<span class="cp">#include</span>
-<span class="cpf">#include</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">LinkedList</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span> <span class="k">class</span> <span class="nc">Node</span>
-        <span class="p">{</span>
-        <span class="k">private</span><span class="o">:</span> <span class="n">T</span> <span class="n">item</span><span class="p">;</span>
-        <span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
-
-        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">)</span>
-                <span class="p">{</span>
-                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
-                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-                <span class="p">}</span>
-
-        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
-                <span class="p">{</span>
-                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
-                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
-                <span class="p">}</span>
-
-        <span class="k">public</span><span class="o">:</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span>
-                <span class="p">{</span>
-                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
-                <span class="p">}</span>
-
-        <span class="k">public</span><span class="o">:</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span> <span class="k">const</span>
-                <span class="p">{</span>
-                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
-                <span class="p">}</span>
-
-        <span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*&amp;</span> <span class="n">Next</span><span class="p">()</span>
-                <span class="p">{</span>
-                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-                <span class="p">}</span>
-        <span class="p">};</span>
-
-<span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">;</span>
-<span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">end</span><span class="p">;</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="p">()</span>
-        <span class="p">{</span>
-           <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">LinkedList</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="c1">// If a cycle exists, break it; else the delete loop
-</span><span class="c1"></span>            <span class="c1">// below will never end, and lead to undefined behavior/crash.
-</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">IsCyclic</span><span class="p">())</span>
-            <span class="p">{</span>
-               <span class="k">auto</span> <span class="n">cyclicNode</span> <span class="o">=</span> <span class="n">FindCyclicNode</span><span class="p">();</span>
-               <span class="n">cyclicNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Delete all nodes
-</span><span class="c1"></span>            <span class="k">auto</span> <span class="n">current</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-            <span class="p">{</span>
-               <span class="k">auto</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-               <span class="k">delete</span> <span class="n">current</span><span class="p">;</span>
-               <span class="n">current</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="nf">GetNthNode</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">GetNthNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="c1">// index is zero-based.
-</span><span class="c1"></span>        <span class="p">{</span>
-            <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-            <span class="p">{</span>
-               <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-               <span class="o">--</span><span class="n">index</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">Append</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span>
-        <span class="p">{</span>
-           <span class="n">Node</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-           <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-           <span class="p">{</span>
-              <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
-           <span class="p">}</span>
-           <span class="k">else</span>
-           <span class="p">{</span>
-              <span class="n">end</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
-              <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
-           <span class="p">}</span>
-
-           <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">Root</span><span class="p">()</span> <span class="k">const</span>
-        <span class="p">{</span>
-           <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">ostr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">separator</span> <span class="o">=</span> <span class="s">&#34; -&gt; &#34;</span><span class="p">,</span>
-           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">terminator</span> <span class="o">=</span> <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="p">{</span>
-           <span class="n">Node</span><span class="o">*</span> <span class="n">currentNode</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-
-           <span class="k">while</span> <span class="p">(</span><span class="n">currentNode</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-           <span class="p">{</span>
-              <span class="k">const</span> <span class="kt">bool</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span>
-              <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">linkText</span> <span class="o">=</span> <span class="p">(</span><span class="n">lastNode</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">separator</span><span class="p">);</span>
-              <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">linkText</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-              <span class="n">currentNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-           <span class="p">}</span>
-
-           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">terminator</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-        <span class="p">}</span>
-
-<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseIteratively</span><span class="p">();</span>
-<span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseRecusively</span><span class="p">();</span>
-<span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">IsCyclic</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
-<span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>The above list class allows creating cycles in the list (see <code>Node::Next()</code> method). The Node::Next method returns a reference to the next item pointer in the list, which allows pointing it to a previous Node in the list. The linked list class will be improved based on the problem being solved.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma once
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span>
+</span></span><span class="line"><span class="cl"><span class="cpf">#include</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LinkedList</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">class</span> <span class="nc">Node</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span><span class="o">:</span> <span class="n">T</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">item</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span><span class="o">:</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span><span class="o">:</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">Item</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*&amp;</span> <span class="n">Next</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">end</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">LinkedList</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// If a cycle exists, break it; else the delete loop
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// below will never end, and lead to undefined behavior/crash.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">IsCyclic</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="k">auto</span> <span class="n">cyclicNode</span> <span class="o">=</span> <span class="n">FindCyclicNode</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">               <span class="n">cyclicNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Delete all nodes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">auto</span> <span class="n">current</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="k">auto</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">               <span class="k">delete</span> <span class="n">current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">               <span class="n">current</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nf">GetNthNode</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">GetNthNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="c1">// index is zero-based.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">               <span class="o">--</span><span class="n">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">Append</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Node</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">root</span> <span class="o">=</span> <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">           <span class="k">else</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">end</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">              <span class="n">end</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">Root</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Print</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">ostr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">separator</span> <span class="o">=</span> <span class="s">&#34; -&gt; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">terminator</span> <span class="o">=</span> <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Node</span><span class="o">*</span> <span class="n">currentNode</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="k">while</span> <span class="p">(</span><span class="n">currentNode</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="k">const</span> <span class="kt">bool</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">              <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">linkText</span> <span class="o">=</span> <span class="p">(</span><span class="n">lastNode</span> <span class="o">?</span> <span class="s">&#34;&#34;</span> <span class="o">:</span> <span class="n">separator</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">              <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">linkText</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">              <span class="n">currentNode</span> <span class="o">=</span> <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">terminator</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseIteratively</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReverseRecusively</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">IsCyclic</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">Node</span><span class="o">*</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The above list class allows creating cycles in the list (see <code>Node::Next()</code> method). The Node::Next method returns a reference to the next item pointer in the list, which allows pointing it to a previous Node in the list. The linked list class will be improved based on the problem being solved.</p>
 <p>Since reversing the list recursively came to me naturally, I&rsquo;ll go with it first. It was natural since the unit work of reversal involving current and next pointers is repeated until there are no more nodes in the list.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseRecursively</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">root</span> <span class="o">=</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="k">if</span> <span class="p">(</span><span class="n">current</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
-   <span class="p">}</span>
-
-   <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="c1">// First time call.
-</span><span class="c1"></span>      <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-      <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-      <span class="n">end</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
-   <span class="p">}</span>
-
-   <span class="n">Node</span><span class="o">*</span> <span class="n">nextNext</span> <span class="o">=</span> <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-   <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
-
-   <span class="k">if</span> <span class="p">(</span><span class="n">nextNext</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="c1">// Reached end of list!
-</span><span class="c1"></span>      <span class="k">return</span> <span class="n">next</span><span class="p">;</span>
-   <span class="p">}</span>
-
-   <span class="k">return</span> <span class="nf">UnitReverse</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">nextNext</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>Iterative version of reversal. Cute, eh!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseIteratively</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
-   <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-   <span class="n">Node</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-
-   <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-   <span class="p">{</span>
-     <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-     <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
-
-     <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
-     <span class="p">{</span>
-        <span class="k">break</span><span class="p">;</span>
-     <span class="p">}</span>
-
-     <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
-     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
-   <span class="p">}</span>
-
-   <span class="k">this</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
-   <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>   
-<span class="p">}</span>
-</code></pre></div><p>A cycle in a list is where the next pointer of the current node points to one of the previous nodes in the list; like the one below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseRecursively</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">root</span> <span class="o">=</span> <span class="n">UnitReverse</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">UnitReverse</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">,</span> <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">current</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// First time call.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">end</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">Node</span><span class="o">*</span> <span class="n">nextNext</span> <span class="o">=</span> <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">next</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">nextNext</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// Reached end of list!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="nf">UnitReverse</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">nextNext</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Iterative version of reversal. Cute, eh!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">LinkedList</span><span class="o">::</span><span class="n">ReverseIteratively</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Node</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Node</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">     <span class="n">current</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">this</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">this</span><span class="o">-&gt;</span><span class="n">root</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>A cycle in a list is where the next pointer of the current node points to one of the previous nodes in the list; like the one below.</p>
 <pre tabindex="0"><code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt;
           ^------------|
 </code></pre><p>Above, the list doesn&rsquo;t end at 5, instead cycles back to 3. And as everybody knows, a traversal of the nodes in the list would never end. If one was using a traditional list implementation, it would not have allowed creating cycle(s) deliberately. However, the data from which the list is created may bear cycles or back references, in which case the data is assumed to corrupt. For instance, an employee reporting to manager, and the manager reporting back to the employee. But our list implementation above, for the purposes of illustration of the problem at hand, allows creating cycles. And we will see a solution later to resolve them too.</p>
 <p>Finding if there is a cycle in the list was tough for me. I sort of need a hammer and some hints from Sammy.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="nf">IsCyclic</span><span class="p">()</span> <span class="k">const</span>
-<span class="p">{</span>   
-   <span class="k">auto</span> <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-   <span class="k">auto</span> <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-
-   <span class="k">while</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
-      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
-      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-      <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">==</span> <span class="n">jmpBy2Ptr</span><span class="p">)</span>
-      <span class="p">{</span>
-         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Stop node is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-
-   <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Here is some code to test the above methods:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">LinkedList</span> <span class="n">ll</span><span class="p">;</span>
-   <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-
-   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">lastNode</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-   <span class="p">}</span>
-
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Initial Sequence....&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (iteratively)...&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseIteratively</span><span class="p">();</span>
-   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-
-   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (recursively).....Back to original sequence!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseRecursively</span><span class="p">();</span>
-   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-
-   <span class="c1">// This should return false, as the list has no cycles yet.
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// Get the 4th node from root (element 4)
-</span><span class="c1"></span>   <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Root</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
-
-   <span class="c1">// Point the last node to the 4th node (a previous node in the list).
-</span><span class="c1"></span>   <span class="c1">// This creates a cycle or loop.
-</span><span class="c1"></span>   <span class="n">lastNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
-
-   <span class="c1">// This should return true now!
-</span><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>We&rsquo;ll see the rest of the problems in the next episode. Let me know your comments on the solution, implementation, and bugs if any!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">IsCyclic</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>   
+</span></span><span class="line"><span class="cl">   <span class="k">auto</span> <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">auto</span> <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">while</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span> <span class="o">!=</span> <span class="k">nullptr</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&amp;&amp;</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">jmpBy1Ptr</span> <span class="o">=</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">jmpBy2Ptr</span> <span class="o">=</span> <span class="n">jmpBy2Ptr</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">jmpBy1Ptr</span> <span class="o">==</span> <span class="n">jmpBy2Ptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Stop node is &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">jmpBy1Ptr</span><span class="o">-&gt;</span><span class="n">Item</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Here is some code to test the above methods:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">LinkedList</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">LinkedList</span><span class="o">::</span><span class="n">Node</span><span class="o">*</span> <span class="n">lastNode</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">lastNode</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Initial Sequence....&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (iteratively)...&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseIteratively</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Reverse (recursively).....Back to original sequence!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ll</span><span class="p">.</span><span class="n">ReverseRecursively</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ll</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// This should return false, as the list has no cycles yet.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// Get the 4th node from root (element 4)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">ll</span><span class="p">.</span><span class="n">Root</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// Point the last node to the 4th node (a previous node in the list).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">// This creates a cycle or loop.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">lastNode</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">()</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">// This should return true now!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;IsCyclic: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ll</span><span class="p">.</span><span class="n">IsCyclic</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>We&rsquo;ll see the rest of the problems in the next episode. Let me know your comments on the solution, implementation, and bugs if any!</p>
 
 </div>
 

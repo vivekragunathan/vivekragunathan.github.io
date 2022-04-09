@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Facets of Immutability &middot; A Developer&#39;s Experience</title>
 
@@ -161,14 +161,14 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Also called <em>compile-time</em> constants, it is the equivalent of using the value directly at the call site.</p>
 <p>On your behalf, the compiler hard-codes the value of the constant at the call-site (place of use). It is up to the compiler either to keep the identifiers in the final binary or throw them away during compilation (since the required values are hard-coded at the call site).</p>
 <p>(In an ideal world) A compiler should allow using a constant in any place where its value may be directly used; hard-coded. Although it is straightforward, there are cases like the use of constants in <a href="">annotations</a> or <a href="">attributes</a>; or its use restricted thereof in some languages/scenarios<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// The atrribute values below could be declared as constant
-</span><span class="c1"></span><span class="na">[StringLength(
-</span><span class="na">  120,
-</span><span class="na">  MinimumLength=5,
-</span><span class="na">  ErrorMessage=&#34;Value does not meet length requirements&#34;
-</span><span class="na">)]</span>
-<span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div><p>A taste of support for constants in a few popular languages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// The atrribute values below could be declared as constant</span>
+</span></span><span class="line"><span class="cl"><span class="na">[StringLength(
+</span></span></span><span class="line"><span class="cl"><span class="na">  120,
+</span></span></span><span class="line"><span class="cl"><span class="na">  MinimumLength=5,
+</span></span></span><span class="line"><span class="cl"><span class="na">  ErrorMessage=&#34;Value does not meet length requirements&#34;
+</span></span></span><span class="line"><span class="cl"><span class="na">)]</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></div><p>A taste of support for constants in a few popular languages:</p>
 <ul>
 <li>C++ - <strong><code>const</code></strong></li>
 <li>C# - <strong><code>const</code></strong></li>
@@ -179,29 +179,29 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Generally speaking, the use of constants is a good practice more than its need and purpose. Because you could hard-code the value as well, and your program will still work the same way. Like I said <em>generally speaking</em>. But not so in C++.</p>
 <p>As always, C++ has something interesting in store. While those languages that support constants support only constant identifiers (or <em>constant variables</em>, just to remind you), C++ supports <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp"><strong><code>constexpr</code></strong></a> or constant expressions. Unlike trivial assignments (<code>const int X = 10;</code>), <code>constexpr</code> are <em>expressions</em> that are evaluated at  compile time. A <code>constexpr</code> may be a simple identifier or even a full blown user-defined type (<code>class</code>). A <code>constexpr</code> is equivalent to using an identifier or the resultant value at the call site.</p>
 <p>Let us try this<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
-      <span class="o">?</span> <span class="mi">1</span>
-      <span class="o">:</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="o">?</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="o">:</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>  
-<span class="p">};</span>
-</code></pre></div><p>The above function <code>exp</code> is evaluated at compile time. Using <code>exp(8, 2)</code> directly at the call site or assigning to an identifier and consuming it are exactly the same. In either case, the value is computed at compile time and cannot be mutated<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. Also, you can throw in templates in the mix.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="o">?</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">      <span class="o">:</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="o">?</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>The above function <code>exp</code> is evaluated at compile time. Using <code>exp(8, 2)</code> directly at the call site or assigning to an identifier and consuming it are exactly the same. In either case, the value is computed at compile time and cannot be mutated<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. Also, you can throw in templates in the mix.</p>
 <p>By the way, if you failed to notice, <code>exp</code> uses recursion &hellip; at compile time. In the past, you might have implemented compile-time recursive logic using templates (think canonical <code>factorial</code> function). Now, you have <code>constexpr</code> on your side.</p>
 <p>Recap: In order to qualify as a <strong>constant</strong>, it should satisfy the criteria that we saw at the beginning of this section.</p>
 <hr>
 <p><strong><code>read-only</code> (RO), otherwise the constant variable</strong></p>
 <p>The constant that we saw earlier is a compile-time constant. RO is a runtime constant, if you will, although it is not a constant per se. <em>It is immutable</em>.</p>
 <p>By declaring a variable read-only, we intend to assign a value once (in its respective scope and frame). Needless to say, the value of the variable doesn&rsquo;t change thereafter.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="c1">// In Java
-</span><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">someFunc</span><span class="o">()</span> <span class="o">{</span>
-   <span class="o">...</span>
-   <span class="kd">final</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">getCount</span><span class="o">();</span>
-   <span class="o">...</span>
-   <span class="k">return</span> <span class="n">someValue</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// In Java
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">someFunc</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   <span class="o">...</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">final</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">getCount</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">   <span class="o">...</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">someValue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
 <p>If you think about it, the constant variable is not only a misnomer but an oxymoron. But if we were given a chance to associate the term <em>constant variable</em> with something, it would be a <em>read only variable</em>.</p>
 <p>A taste of support for <em>read-only variables</em> in a few popular languages:</p>
 <ul>
@@ -219,21 +219,21 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>There are a few flavors of immutable objects.</p>
 <p><strong>Immutable Class</strong></p>
 <p>An instance whose members or state cannot be mutated after instantiation. Imagine writing the following in Java:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">StoneClass</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">StoneClass</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span> <span class="o">}</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
-</code></pre></div><p>Once an instance of the <code>StoneClass</code> is created, the <code>name</code> and <code>age</code> cannot change in a thousand years. Changes or mutations are realized by making a copy with new values. I would say <em>an immutable class is the holy grail of immutability</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">StoneClass</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">StoneClass</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+</span></span></code></pre></div><p>Once an instance of the <code>StoneClass</code> is created, the <code>name</code> and <code>age</code> cannot change in a thousand years. Changes or mutations are realized by making a copy with new values. I would say <em>an immutable class is the holy grail of immutability</em>.</p>
 <p><strong>Immutable Interface or Copy</strong></p>
 <p>Think Java&rsquo;s <code>Collections.immutableList(list)</code> or one of the other variants, which hands out an immutable copy of the collection. This flavor is <em>primarily</em> associated with collections or container objects, wherein the immutability is applicable to the container objects and not the containee. The containee objects might as well be mutable.</p>
 <p>This flavor of immutability is not driven by language keywords. It is a library/API thing. Besides, it need not necessarily (although <em>primarily</em>) be associated with collections but simple objects too. The idea is that there is an extensible interface for the type/class of interest that the library/API takes advantage of to look like it is immutable. The ugly side to this flavor is that the mutable portions of the interface are still accessible although they either may not suppress mutation or throw an exception condemning the mutation attempted. Despite that this flavor is still useful to establish <a href="https://vivekragunathan.wordpress.com/2016/11/07/semantics/">semantics</a>, and promote immutability / functional-style programming in an imperative world.</p>

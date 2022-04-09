@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>CoMarshal ... Working in NT, Not in XP !!! &middot; A Developer&#39;s Experience</title>
 
@@ -151,52 +151,52 @@ I have created a multi-threaded application which works without any problems on 
 <p>Environment: Windows-XP,SP-2,Visual Studio 6.0,SP-4,ATL-3.0</p>
 <p>Should I be doing anything different in Windows XP?</p>
 <hr>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">S_OK</span><span class="p">;</span>
-<span class="n">IUnknown</span><span class="o">**</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">m_vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-
-<span class="k">while</span> <span class="p">(</span><span class="n">pp</span> <span class="n">m_vec</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">hr</span> <span class="o">==</span> <span class="n">S_OK</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">pp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
-   <span class="p">{</span>
-         <span class="n">IEvent</span><span class="o">*</span> <span class="n">pEvent</span> <span class="o">=</span> <span class="p">(</span><span class="n">IEvent</span><span class="o">*</span><span class="p">)</span><span class="o">*</span><span class="n">pp</span><span class="p">;</span>
-         <span class="n">IStream</span><span class="o">*</span> <span class="n">pIStream</span><span class="p">;</span>
-
-         <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">CoMarshalInterThreadInterfaceInStream</span><span class="p">(</span>
-            <span class="n">IID_IEvent</span><span class="p">,</span>
-            <span class="n">pEvent</span><span class="p">,</span>
-            <span class="o">&amp;</span><span class="n">pIStream</span>
-         <span class="p">);</span>
-
-         <span class="k">if</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span>
-         <span class="p">{</span>
-            <span class="n">CComPtr</span> <span class="n">pMarshalEvent</span><span class="p">;</span>
-            <span class="n">hr</span> <span class="o">=</span> <span class="n">CoGetInterfaceAndReleaseStream</span><span class="p">(</span>
-               <span class="n">pIStream</span><span class="p">,</span>
-               <span class="n">IID_IEvent</span><span class="p">,</span>
-               <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">pMarshalEvent</span>
-            <span class="p">);</span>
-
-            <span class="k">if</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span>
-            <span class="p">{</span>
-               <span class="n">hr</span> <span class="o">=</span> <span class="n">pMarshalEvent</span><span class="o">-&gt;</span><span class="n">NewCurrentCassette</span><span class="p">(</span><span class="n">m_pCurrentCassette</span><span class="p">,</span> <span class="n">m_setBy</span><span class="p">);</span>
-            <span class="p">}</span>
-         <span class="p">}</span>
-
-      <span class="n">p</span><span class="o">++</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p><strong>Thread 2:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">S_OK</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">IUnknown</span><span class="o">**</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">m_vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">pp</span> <span class="n">m_vec</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">hr</span> <span class="o">==</span> <span class="n">S_OK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">pp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">IEvent</span><span class="o">*</span> <span class="n">pEvent</span> <span class="o">=</span> <span class="p">(</span><span class="n">IEvent</span><span class="o">*</span><span class="p">)</span><span class="o">*</span><span class="n">pp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">IStream</span><span class="o">*</span> <span class="n">pIStream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">CoMarshalInterThreadInterfaceInStream</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">IID_IEvent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pEvent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&amp;</span><span class="n">pIStream</span>
+</span></span><span class="line"><span class="cl">         <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="k">if</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">CComPtr</span> <span class="n">pMarshalEvent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hr</span> <span class="o">=</span> <span class="n">CoGetInterfaceAndReleaseStream</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">               <span class="n">pIStream</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">IID_IEvent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">pMarshalEvent</span>
+</span></span><span class="line"><span class="cl">            <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">hr</span> <span class="o">=</span> <span class="n">pMarshalEvent</span><span class="o">-&gt;</span><span class="n">NewCurrentCassette</span><span class="p">(</span><span class="n">m_pCurrentCassette</span><span class="p">,</span> <span class="n">m_setBy</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Thread 2:</strong></p>
 <p>I remember facing this problem long time back.The reason it happened was because of the Free-Threaded marshaller code in <code>FinalConstruct</code> and <code>FinalRelease</code> even though I don&rsquo;t remember the logic behind it. In my case commenting the Free-Threaded marshaller code did the trick.</p>
 <ul>
 <li>The commented code in <code>FinalConstruct</code> was:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">   <span class="n">hr</span> <span class="o">=</span> <span class="n">CoCreateFreeThreadedMarshaler</span><span class="p">(</span>
-         <span class="n">GetControllingUnknown</span><span class="p">(),</span>
-         <span class="o">&amp;</span><span class="n">m_pUnkMarshaler</span><span class="p">.</span><span class="n">p</span>
-   <span class="p">);</span>
-
-   <span class="n">PROCESS_HR</span><span class="p">(</span><span class="n">IID_ISomeThing</span><span class="p">);</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">   <span class="n">hr</span> <span class="o">=</span> <span class="n">CoCreateFreeThreadedMarshaler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">         <span class="n">GetControllingUnknown</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">         <span class="o">&amp;</span><span class="n">m_pUnkMarshaler</span><span class="p">.</span><span class="n">p</span>
+</span></span><span class="line"><span class="cl">   <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">PROCESS_HR</span><span class="p">(</span><span class="n">IID_ISomeThing</span><span class="p">);</span>
+</span></span></code></pre></div><ul>
 <li>In <code>FinalRelease</code> it was the corresponding `m_pUnkMarshaler.Release();`` that was commented.</li>
 <li>In the header, <code>DECLARE_GET_CONTROLLING_UNKNOWN()</code> and <code>COM_INTERFACE_ENTRY_AGGREGATE(IID_IMarshal, m_pUnkMarshaler.p)</code> and <code>CComPtr m_pUnkMarshaler;</code> was commented.</li>
 <li>Remove marshaling code i.e., <code>CoInterface</code> and related marshaling code. The interface pointer can be accessed in the secondary thread directly, no need of marshaling.</li>

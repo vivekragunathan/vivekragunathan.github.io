@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>An Unfair World of Tuples, Anons., var and auto &middot; A Developer&#39;s Experience</title>
 
@@ -166,10 +166,10 @@ return a tuple
 <p>Well, both the options are nothing unusual; not extraordinary either. If the method always returns closely/directly related values (say employee details), a class would be the default choice. Otherwise, if the method returns discrete or loosely related values, a tuple would be appropriate. In the latter case, one could still define a class with a really clumsy name (if naming is not something of importance to the person or team). But how many would you create?</p>
 <p>I was looking at something better - an anonymous type <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Why? Because I did not want a class, and my values being discrete, I did not want to access the return values as <code>Item0</code>, <code>Item1</code> etc. (on the calling side). Looks erghhh! I wanted the client code to be type safe and explicit when accessing the return values &hellip; without declaring a clumsy-named class. Anonymous types are a great way to do that. It is exactly how LINQ query makes elegant use of anonymous types to return strongly typed projections of the queried data. All good except <strong>it is not possible to return an anonymous type from a method</strong>. Duh!</p>
 <p>For instance, we would not be able to define something like this:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">var</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div><p>It is not that you cannot have a <code>return</code> statement with an anonymous type in a method. You can. But how do we declare the return type of the function? It would have been marvelous to name it using <code>var</code>. The <code>var</code> keyword is scoped and does not transcend declaration boundaries (methods). The C# design team seems to have purposely enforced such a limitation. To what purpose, that I am not aware of.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">var</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>It is not that you cannot have a <code>return</code> statement with an anonymous type in a method. You can. But how do we declare the return type of the function? It would have been marvelous to name it using <code>var</code>. The <code>var</code> keyword is scoped and does not transcend declaration boundaries (methods). The C# design team seems to have purposely enforced such a limitation. To what purpose, that I am not aware of.</p>
 <p>That said, let us explore ways to circumvent this limitation and try return an anonymous type from a function.</p>
 <p><strong><code>object</code></strong>: The method could return an <code>object</code> in place of <code>var</code>. Hopefully no language rule or restriction could break that. Although we overcome the limitation, we don&rsquo;t solve the purpose. On the calling side, we would have to play gimmicks to access the properties of the actual anonymous type returned:-</p>
 <ul>
@@ -180,35 +180,35 @@ return a tuple
 <p>You could cast the <code>object</code> to a type and establish compile time type safety. Since it is an anonymous type, we cannot cast it by its name. However, we could rely on an intrinsic detail that anonymous type declarations with the same properties and order would share the same compiler-generated type. So if I were to use the above <code>GiveMeAnonType</code> method in this context, it would be as follows:-</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"> <span class="k">public</span> <span class="kt">object</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
- <span class="p">{</span>
-     <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
- <span class="p">}</span>
-
- <span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
- <span class="p">{</span>
-     <span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
-     <span class="kt">var</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">Cast</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="m">0.0</span> <span class="p">});</span>
-     <span class="c1">// wow is now a compile time type safe! Oh, don&#39;t look at
-</span><span class="c1"></span>     <span class="c1">// the ugly second parameter in the Cast call.
-</span><span class="c1"></span> <span class="p">}</span>
-
- <span class="k">private</span> <span class="n">T</span> <span class="n">Cast</span><span class="p">(</span><span class="kt">object</span> <span class="n">obj</span><span class="p">,</span> <span class="n">T</span> <span class="n">type</span><span class="p">)</span>
- <span class="p">{</span>
-     <span class="k">return</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="n">obj</span><span class="p">;</span>
- <span class="p">}</span>
-</code></pre></div><p>Also, note that if it weren&rsquo;t an anonymous type, we wouldn&rsquo;t need the second parameter (<code>T type</code>) in the <code>Cast&lt;T&gt;</code> method. If you don&rsquo;t wish to push further, the above trick solves the purpose (to a certain extent). Except the code is not really fluid, and they say, <strong>Don&rsquo;t help the compiler</strong>. In this case, the compiler looks like a broken robot, and we are soldering a disconnect so that it dances to our tune. Let me tell you why it is not fluid. First, if the compiler folks were to change the strategy of reusing the compiler generated type for the anonymous type declaration, we are broke. Second, if <code>GiveMeAnonType</code> were to change the parameters of the anonymous type, agreed that we would get compilation errors in the <code>CallingMethod</code> but that&rsquo;s when our soldering wears out.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"> <span class="k">public</span> <span class="kt">object</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">object</span> <span class="n">result</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">var</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">Cast</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="m">0.0</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// wow is now a compile time type safe! Oh, don&#39;t look at</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// the ugly second parameter in the Cast call.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">private</span> <span class="n">T</span> <span class="n">Cast</span><span class="p">(</span><span class="kt">object</span> <span class="n">obj</span><span class="p">,</span> <span class="n">T</span> <span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="n">obj</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></div><p>Also, note that if it weren&rsquo;t an anonymous type, we wouldn&rsquo;t need the second parameter (<code>T type</code>) in the <code>Cast&lt;T&gt;</code> method. If you don&rsquo;t wish to push further, the above trick solves the purpose (to a certain extent). Except the code is not really fluid, and they say, <strong>Don&rsquo;t help the compiler</strong>. In this case, the compiler looks like a broken robot, and we are soldering a disconnect so that it dances to our tune. Let me tell you why it is not fluid. First, if the compiler folks were to change the strategy of reusing the compiler generated type for the anonymous type declaration, we are broke. Second, if <code>GiveMeAnonType</code> were to change the parameters of the anonymous type, agreed that we would get compilation errors in the <code>CallingMethod</code> but that&rsquo;s when our soldering wears out.</p>
 <p><strong><code>dynamic</code></strong>: Well, that seems to be a smart option:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">dynamic</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
-<span class="p">}</span>
-
-<span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">dynamic</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
-    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;{0}, {1}&#34;</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Symbol</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Amount</span><span class="p">);</span> <span class="c1">// Cool!
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><p>That looks really clean and beautiful. Beauty is skin deep! With <code>dynamic</code>, we lose compile-time type safety.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">dynamic</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="n">String</span> <span class="n">symbol</span><span class="p">,</span> <span class="kt">double</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">Amount</span> <span class="p">=</span> <span class="n">amount</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">CallingMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">dynamic</span> <span class="n">wow</span> <span class="p">=</span> <span class="n">GiveMeAnonType</span><span class="p">(</span><span class="s">&#34;$&#34;</span><span class="p">,</span> <span class="m">44.99</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;{0}, {1}&#34;</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Symbol</span><span class="p">,</span> <span class="n">wow</span><span class="p">.</span><span class="n">Amount</span><span class="p">);</span> <span class="c1">// Cool!</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>That looks really clean and beautiful. Beauty is skin deep! With <code>dynamic</code>, we lose compile-time type safety.</p>
 <p>Ignoring performance constraints, given a choice I would go for <code>dynamic</code> because at least I don&rsquo;t have to solder with the <code>Cast</code> method and the explicit dummy and match anonymous type as the second parameter.</p>
 <p><strong>Scenario</strong></p>
 <p>Imagine you are writing a web service that returns, let us say, employee information. Only that it returns what was asked for. For instance, if only the employee&rsquo;s name and designation was requested then that&rsquo;s what would be returned. The point is although we know the entire gamut of employee details, what would be returned, subset or whole, is determined at runtime.</p>
@@ -237,25 +237,25 @@ return a tuple
 <p><strong>Meanwhile Elsewhere</strong></p>
 <p>Usually, C++ has something in stock for such odd problems<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="/posts/crazy-brackets/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
 <p>So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though &hellip; as <a href="https://msdn.microsoft.com/en-us/library/Dd293608.aspx">lambdas</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div><p>I am sure you know where lambda is in the above code. The C++ compiler creates an anonymous class for the lambda as <a href="https://msdn.microsoft.com/en-US/library/Aa985932.aspx">functor</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>I am sure you know where lambda is in the above code. The C++ compiler creates an anonymous class for the lambda as <a href="https://msdn.microsoft.com/en-US/library/Aa985932.aspx">functor</a>.</p>
 <p>So we proved we can create an anonymous class in C++. Let us now return one.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">auto</span> <span class="nf">GiveMeAnon</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">anon</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="n">GiveMeAnon</span><span class="p">();</span>
-    <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">anon</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 25;
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><p>I know you feel a leech on your back.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="nf">GiveMeAnon</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">anon</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">anon</span> <span class="o">=</span> <span class="n">GiveMeAnon</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">anon</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 25;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>I know you feel a leech on your back.</p>
 <p>That&rsquo;s where it all ends in C++, just when we proved that we can return anonymous types. Yes, you pointed out that we are not actually returning an anonymous type constructed right at the return site. But hey, we at least got something.</p>
 <p><code>auto</code> is more or less <code>var</code> with a syntactic difference that it can be used as return type place holder for functions. However, the <code>decltype</code> addendum is mandatory <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
 <p><strong><code>try ... finally</code></strong></p>

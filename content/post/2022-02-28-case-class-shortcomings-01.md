@@ -6,7 +6,7 @@ url: /posts/case-class-shortcomings-01
 aliases:
   - /posts/case-class-shortcomings-01
   - /posts/sum-type-companions
-date: 2022-01-23
+date: 2022-02-28
 categories:
   - Scala
 summary: |

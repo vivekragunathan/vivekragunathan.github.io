@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Partial Classes – Java ??? &middot; A Developer&#39;s Experience</title>
 
@@ -153,12 +153,12 @@
 <p>What I do not like with the workaround, as is, is: Because my class provides some extended functionalities, although integral to the entity, I do not want to call it a <code>BetterPerson</code>. It is still is a <code>Person</code> that mentally I like to map to the database table. Oh, enough of the abstractions, it is a table for Christ sake. There are things that you can’t hide by just abstracting away. But you can and should de-couple or loosely couple the ties.</p>
 <p>What works well for me is tiny improvement over the existing workaround – <em>having the same class names but in different namespaces</em>.</p>
 <p>Let us say if the generated Person class is in <code>name.space.generated.entities</code> namespace, then my mainstream <code>Person</code> that extends <code>name.space.generated.entities.Person</code> would be in <code>name.space.database.entities</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">name.space.database.entities</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">extends</span> <span class="n">name</span><span class="o">.</span><span class="na">space</span><span class="o">.</span><span class="na">generated</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">Person</span> <span class="o">{</span>
-  
-<span class="o">}</span>
-</code></pre></div><p>Again, the whole thing is a workaround. My workaround is convention based but pretty clean, I think. Besides, it addresses use case #1 directly. #2 may be seen as a variant of #1, and the workaround applied judiciously. The right thing to do regarding #2 is be aware of the class’s size ahead of time and never be there.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">name.space.database.entities</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span> <span class="kd">extends</span> <span class="n">name</span><span class="o">.</span><span class="na">space</span><span class="o">.</span><span class="na">generated</span><span class="o">.</span><span class="na">entities</span><span class="o">.</span><span class="na">Person</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>Again, the whole thing is a workaround. My workaround is convention based but pretty clean, I think. Besides, it addresses use case #1 directly. #2 may be seen as a variant of #1, and the workaround applied judiciously. The right thing to do regarding #2 is be aware of the class’s size ahead of time and never be there.</p>
 <p>You are thinking “<em>That’s it? You are worried just about a name</em>“. Hey you know what they say, “<em>There are only two hard things in Computer Science: cache invalidation and naming things</em>“. Names do matter!</p>
 <p>Hard to accept but we can settle with not having the partial feature in Java; being an old language and all. How about Scala? It is the hot chick around the block. It does so using <a href="http://docs.scala-lang.org/tutorials/tour/mixin-class-composition.html">mixins</a> (like the PHP traits<sup id="fnref-1385-2"><a href="#fn-1385-2">2</a></sup>). Scala might not be requiring it all because it provides extremely succint syntax and constructs that you end up with relatively much less footprint; unless you want to write Java in Scala.</p>
 <li id="fn-1385-1">

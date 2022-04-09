@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>Anorm Primer &middot; A Developer&#39;s Experience</title>
 
@@ -143,97 +143,97 @@
   </div>
 
   <p>Typically, you would read the results of an <a href="http://playframework.github.io/anorm/">Anorm</a> query, and map to a already defined type - <code>case class</code>, something like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">persons</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span> <span class="k">=</span>
-  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
-    <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">toPerson</span><span class="o">)</span>
-
-<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Person</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">weight</span><span class="k">:</span> <span class="kt">Float</span><span class="o">)</span>
-
-<span class="k">def</span> <span class="n">toPerson</span><span class="o">(</span><span class="n">row</span><span class="k">:</span> <span class="kt">Row</span><span class="o">)</span><span class="k">:</span> <span class="kt">Person</span> <span class="o">=</span>
-  <span class="nc">Person</span><span class="o">(</span>
-    <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">),</span>
-    <span class="n">row</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&#34;name&#34;</span><span class="o">),</span>
-    <span class="n">row</span><span class="o">[</span><span class="kt">Float</span><span class="o">](</span><span class="s">&#34;weight&#34;</span><span class="o">),</span>
-  <span class="o">)</span>
-</code></pre></div><p>There are times when you would want to read a single column. Or perhaps a set of columns for which you don&rsquo;t have a pre-defined type (like <code>Person</code> above). In such cases, you will toil as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">ids</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
-<span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
-    <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">))</span>
-
-<span class="c1">// or
-</span><span class="c1"></span>
-<span class="k">val</span> <span class="n">ps</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span>
-  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
-    <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">row</span> <span class="k">=&gt;</span>
-      <span class="o">(</span>
-        <span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">),</span>
-        <span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
-      <span class="o">)</span>
-    <span class="o">}</span>
-</code></pre></div><p>Note that the following is different from what we are discussing here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// NOTE: We are not talking about this !!!
-</span><span class="c1"></span><span class="k">val</span> <span class="n">count</span><span class="k">:</span> <span class="kt">Long</span> <span class="o">=</span> <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select count(*) from users&#34;</span><span class="o">).</span><span class="n">as</span><span class="o">(</span><span class="n">scalar</span><span class="o">[</span><span class="kt">Long</span><span class="o">].</span><span class="n">single</span><span class="o">)</span>
-</code></pre></div><h3 id="using-core-anorm-functions">Using core Anorm functions</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">anorm.</span><span class="o">{</span><span class="nc">SQL</span><span class="o">,</span> <span class="nc">SqlParser</span><span class="o">},</span> <span class="nc">SqlParser</span><span class="o">.{</span><span class="n">int</span><span class="o">,</span> <span class="n">str</span><span class="o">,</span> <span class="n">to</span><span class="o">}</span>
-
-<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
-  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from persons where ...&#34;</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">))</span>
-
-<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span> <span class="kt">~</span> <span class="kt">String</span><span class="o">]</span> <span class="k">=</span>    <span class="c1">// Anorm&#39;s type `~` for chanining types (much like shapeless HList)
-</span><span class="c1"></span>  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id, name from ....&#34;</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">))</span>
-</code></pre></div><h3 id="anorms-parser-combinators-101">Anorm&rsquo;s parser combinators 101</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">persons</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">toPerson</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Person</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">weight</span><span class="k">:</span> <span class="kt">Float</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="n">toPerson</span><span class="o">(</span><span class="n">row</span><span class="k">:</span> <span class="kt">Row</span><span class="o">)</span><span class="k">:</span> <span class="kt">Person</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nc">Person</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&#34;name&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row</span><span class="o">[</span><span class="kt">Float</span><span class="o">](</span><span class="s">&#34;weight&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">  <span class="o">)</span>
+</span></span></code></pre></div><p>There are times when you would want to read a single column. Or perhaps a set of columns for which you don&rsquo;t have a pre-defined type (like <code>Person</code> above). In such cases, you will toil as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">ids</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl"><span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// or
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">ps</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from ....&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">getRows</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">row</span> <span class="k">=&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&#34;id&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">row</span> <span class="k">=&gt;</span> <span class="n">row</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div><p>Note that the following is different from what we are discussing here.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// NOTE: We are not talking about this !!!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">count</span><span class="k">:</span> <span class="kt">Long</span> <span class="o">=</span> <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select count(*) from users&#34;</span><span class="o">).</span><span class="n">as</span><span class="o">(</span><span class="n">scalar</span><span class="o">[</span><span class="kt">Long</span><span class="o">].</span><span class="n">single</span><span class="o">)</span>
+</span></span></code></pre></div><h3 id="using-core-anorm-functions">Using core Anorm functions</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">anorm.</span><span class="o">{</span><span class="nc">SQL</span><span class="o">,</span> <span class="nc">SqlParser</span><span class="o">},</span> <span class="nc">SqlParser</span><span class="o">.{</span><span class="n">int</span><span class="o">,</span> <span class="n">str</span><span class="o">,</span> <span class="n">to</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id from persons where ...&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span> <span class="kt">~</span> <span class="kt">String</span><span class="o">]</span> <span class="k">=</span>    <span class="c1">// Anorm&#39;s type `~` for chanining types (much like shapeless HList)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nc">SQL</span><span class="o">(</span><span class="s">&#34;select id, name from ....&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">))</span>
+</span></span></code></pre></div><h3 id="anorms-parser-combinators-101">Anorm&rsquo;s parser combinators 101</h3>
 <p>Extracting a reusable parser for your query</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">resultSetParser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">Int</span> <span class="kt">~</span> <span class="kt">String</span><span class="o">]]</span> <span class="k">=</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]]</span> <span class="k">=</span>
-  <span class="n">resultSetParser</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">p</span><span class="o">)</span> <span class="o">}</span>
-
-<span class="c1">// Shorthand of the above using built-in `flatten` function
-</span><span class="c1"></span><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]]</span> <span class="k">=</span>
-  <span class="n">resultSetParser</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">flatten</span><span class="o">).*</span>
-
-<span class="c1">// The finishing touch!
-</span><span class="c1"></span><span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Map</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">]</span> <span class="k">=</span>
-  <span class="nc">SQL</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
-    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">parser</span><span class="o">)</span>  <span class="c1">// List[(Int, String)]
-</span><span class="c1"></span>    <span class="o">.</span><span class="n">toMap</span>
-</code></pre></div><h3 id="a-bit-more-of-anorms-parser-combinators">A Bit More of Anorms' Parser Combinators</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">resultSetParser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">Int</span> <span class="kt">~</span> <span class="kt">String</span><span class="o">]]</span> <span class="k">=</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">resultSetParser</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">p</span><span class="o">)</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Shorthand of the above using built-in `flatten` function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)]]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">resultSetParser</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">flatten</span><span class="o">).*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// The finishing touch!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Map</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nc">SQL</span><span class="o">(</span><span class="n">query</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">on</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">as</span><span class="o">(</span><span class="n">parser</span><span class="o">)</span>  <span class="c1">// List[(Int, String)]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">.</span><span class="n">toMap</span>
+</span></span></code></pre></div><h3 id="a-bit-more-of-anorms-parser-combinators">A Bit More of Anorms&rsquo; Parser Combinators</h3>
 <p>Anorm provides a bunch of other parser combinators. Check Anorm&rsquo;s documentation for more details but here is a teaser:</p>
 <h4 id="explicit-control-of-how-much-to-read-from-the-resultset">Explicit control of how much to read from the <code>ResultSet</code></h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]]</span> <span class="k">=</span>
-  <span class="k">for</span> <span class="o">{</span>
-    <span class="n">name</span> <span class="k">&lt;-</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
-    <span class="n">age</span>  <span class="k">&lt;-</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span>
-  <span class="o">}</span> <span class="k">yield</span> <span class="n">name</span> <span class="o">-&gt;</span> <span class="n">age</span>
-
-
-<span class="k">val</span> <span class="n">exactlyOne</span><span class="k">:</span> <span class="o">(</span><span class="kt">String</span><span class="o">,</span> <span class="kt">Int</span><span class="o">)</span>         <span class="k">=</span> <span class="nc">SELECT</span><span class="o">(</span><span class="s">&#34;select ...&#34;</span><span class="o">).</span><span class="n">as</span><span class="o">(</span><span class="n">parser</span><span class="o">.</span><span class="n">single</span><span class="o">)</span>
-<span class="k">val</span> <span class="n">zeroOneOrMore</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)</span> <span class="kt">=</span> <span class="kt">SQL</span><span class="o">(</span><span class="err">&#34;</span><span class="kt">select</span> <span class="kt">...</span><span class="err">&#34;</span><span class="o">)</span><span class="kt">.as</span><span class="o">(</span><span class="kt">parser.*</span><span class="o">)</span>
-<span class="kt">val</span> <span class="kt">oneOrMore:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)</span>     <span class="kt">=</span> <span class="kt">SQL</span><span class="o">(</span><span class="err">&#34;</span><span class="kt">select</span> <span class="kt">...</span><span class="err">&#34;</span><span class="o">)</span><span class="kt">.as</span><span class="o">(</span><span class="kt">parser.+</span><span class="o">)</span>
-</code></pre></div><h4 id="the-to-combinator-to-the-rescue">The <code>to</code> combinator to the rescue</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">anorm.SqlParser.</span><span class="o">{</span> <span class="n">int</span><span class="o">,</span> <span class="n">str</span><span class="o">,</span> <span class="n">to</span> <span class="o">}</span>
-
-<span class="k">def</span> <span class="n">show</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>  <span class="s">s&#34;....&#34;</span>
-
-<span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]]</span> <span class="k">=</span>
-  <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">to</span><span class="o">(</span><span class="n">show</span> <span class="k">_</span><span class="o">))</span>
-</code></pre></div><h4 id="parser-using-pattern-matching">Parser using Pattern matching</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span>, <span class="kt">Boolean</span><span class="o">)]]</span> <span class="k">=</span>
-  <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;millionaire&#34;</span><span class="o">).</span><span class="n">map</span> <span class="o">{</span>
-    <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">l</span> <span class="o">~</span> <span class="s">&#34;T&#34;</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">l</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
-    <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">l</span> <span class="o">~</span> <span class="s">&#34;F&#34;</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">l</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
-  <span class="o">}.*</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="k">&lt;-</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">age</span>  <span class="k">&lt;-</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span> <span class="k">yield</span> <span class="n">name</span> <span class="o">-&gt;</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">exactlyOne</span><span class="k">:</span> <span class="o">(</span><span class="kt">String</span><span class="o">,</span> <span class="kt">Int</span><span class="o">)</span>         <span class="k">=</span> <span class="nc">SELECT</span><span class="o">(</span><span class="s">&#34;select ...&#34;</span><span class="o">).</span><span class="n">as</span><span class="o">(</span><span class="n">parser</span><span class="o">.</span><span class="n">single</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">zeroOneOrMore</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)</span> <span class="kt">=</span> <span class="kt">SQL</span><span class="o">(</span><span class="err">&#34;</span><span class="kt">select</span> <span class="kt">...</span><span class="err">&#34;</span><span class="o">)</span><span class="kt">.as</span><span class="o">(</span><span class="kt">parser.*</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kt">val</span> <span class="kt">oneOrMore:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)</span>     <span class="kt">=</span> <span class="kt">SQL</span><span class="o">(</span><span class="err">&#34;</span><span class="kt">select</span> <span class="kt">...</span><span class="err">&#34;</span><span class="o">)</span><span class="kt">.as</span><span class="o">(</span><span class="kt">parser.+</span><span class="o">)</span>
+</span></span></code></pre></div><h4 id="the-to-combinator-to-the-rescue">The <code>to</code> combinator to the rescue</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">anorm.SqlParser.</span><span class="o">{</span> <span class="n">int</span><span class="o">,</span> <span class="n">str</span><span class="o">,</span> <span class="n">to</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="n">show</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>  <span class="s">s&#34;....&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">to</span><span class="o">(</span><span class="n">show</span> <span class="k">_</span><span class="o">))</span>
+</span></span></code></pre></div><h4 id="parser-using-pattern-matching">Parser using Pattern matching</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">parser</span><span class="k">:</span> <span class="kt">ResultSetParser</span><span class="o">[</span><span class="kt">List</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span>, <span class="kt">Boolean</span><span class="o">)]]</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">str</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">int</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span> <span class="o">~</span> <span class="n">str</span><span class="o">(</span><span class="s">&#34;millionaire&#34;</span><span class="o">).</span><span class="n">map</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">l</span> <span class="o">~</span> <span class="s">&#34;T&#34;</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">l</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">n</span> <span class="o">~</span> <span class="n">l</span> <span class="o">~</span> <span class="s">&#34;F&#34;</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">l</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}.*</span>
+</span></span></code></pre></div>
 </div>
 
 

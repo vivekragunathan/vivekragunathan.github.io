@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.94.1" />
 
 	<title>CComPtr Misconception !!! &middot; A Developer&#39;s Experience</title>
 
@@ -144,50 +144,50 @@
 
   <p>This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!</p>
 <p><code>CComPtr</code> is a template class in ATL designed to wrap the discrete functionality of COM object management – <code>AddRef</code> and <code>Release</code>. Technically it is a smart pointer for a COM object.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeMethod</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">CComPtr</span> <span class="n">siPtr</span><span class="p">;</span>
-   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">siPtr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_SomeComponent</span><span class="p">);</span>
-   <span class="n">siPtr</span><span class="o">-&gt;</span><span class="n">MethodOne</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div><p>Without <code>CComPtr</code>, the code wouldn’t be as elegant as above. The code would be spilled with AddRef and Release. Besides, writing code to Release after use under any circumstance is either hard or ugly. CComPtr automatically takes care of releasing in its destructor just like std::auto_ptr. As a C++ programmer, we must be able to appreciate the inevitability of the destructor and its immense use in writing smart code. However there is a difference between pointers to normal C++ objects and pointers to COM objects; CComPtr and std::auto_ptr. When you assign one <code>auto_ptr</code> to another, the source is no more the owner of the object it was pointing to. The ownership is transferred to the destination. Whereas when a <code>CComPtr</code> is assigned to another, the reference count of the target COM object increases by one. And the two <code>CComPtr</code>s point to the same COM object. Changes made via one <code>CComPtr</code> object can be realized when the object is accessed via the other CComPtr. Release must be called on each <code>CComPtr</code> instance (to completely release the COM object). All fine, lets us see some code.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">SomeOtherMethod</span><span class="p">()</span>
-<span class="p">{</span>
-   <span class="n">CComPtr</span> <span class="n">aPtr</span><span class="p">;</span>
-   <span class="n">InitAndPopulateObject</span><span class="p">(</span><span class="n">aPtr</span><span class="p">);</span>
-
-   <span class="kt">int</span> <span class="n">itemCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetCount</span><span class="p">(</span><span class="o">&amp;</span><span class="n">itemCount</span><span class="p">);</span>
-   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-
-   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">itemCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-      <span class="n">CComBSTR</span> <span class="n">bstrKey</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">);</span>
-
-      <span class="kt">int</span> <span class="n">iValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetItem</span><span class="p">(</span><span class="n">bstrKey</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">iValue</span><span class="p">);</span>
-      <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bstrKey</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; - &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">iValue</span><span class="p">;</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">InitAndPopulateObject</span><span class="p">(</span><span class="n">CComPtr</span> <span class="n">bPtr</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_Hashtable</span><span class="p">);</span>
-
-   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-
-   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-   <span class="p">{</span>
-      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-      <span class="n">bPtr</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-   <span class="p">}</span>  
-<span class="p">}</span>
-</code></pre></div><p><code>CComPtr</code> saved a whole of code as explained above. But my application was always crashing in the SomeOtherMethod on the line where GetCount method is called on the COM object initialized one line above. So I am passing a <code>CComPtr</code> to <code>InitAndPopulateObject</code>, which is supposed to create me my COM object and fill it with some information I expect. Since I am passing a CComPtr, a return value is not needed. Looks fine, but the application crashed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SomeMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">CComPtr</span> <span class="n">siPtr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">siPtr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_SomeComponent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">siPtr</span><span class="o">-&gt;</span><span class="n">MethodOne</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Without <code>CComPtr</code>, the code wouldn’t be as elegant as above. The code would be spilled with AddRef and Release. Besides, writing code to Release after use under any circumstance is either hard or ugly. CComPtr automatically takes care of releasing in its destructor just like std::auto_ptr. As a C++ programmer, we must be able to appreciate the inevitability of the destructor and its immense use in writing smart code. However there is a difference between pointers to normal C++ objects and pointers to COM objects; CComPtr and std::auto_ptr. When you assign one <code>auto_ptr</code> to another, the source is no more the owner of the object it was pointing to. The ownership is transferred to the destination. Whereas when a <code>CComPtr</code> is assigned to another, the reference count of the target COM object increases by one. And the two <code>CComPtr</code>s point to the same COM object. Changes made via one <code>CComPtr</code> object can be realized when the object is accessed via the other CComPtr. Release must be called on each <code>CComPtr</code> instance (to completely release the COM object). All fine, lets us see some code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SomeOtherMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">CComPtr</span> <span class="n">aPtr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">InitAndPopulateObject</span><span class="p">(</span><span class="n">aPtr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">itemCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetCount</span><span class="p">(</span><span class="o">&amp;</span><span class="n">itemCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">itemCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">CComBSTR</span> <span class="n">bstrKey</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">iValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetItem</span><span class="p">(</span><span class="n">bstrKey</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">iValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bstrKey</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; - &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">iValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">InitAndPopulateObject</span><span class="p">(</span><span class="n">CComPtr</span> <span class="n">bPtr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_Hashtable</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">bPtr</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>CComPtr</code> saved a whole of code as explained above. But my application was always crashing in the SomeOtherMethod on the line where GetCount method is called on the COM object initialized one line above. So I am passing a <code>CComPtr</code> to <code>InitAndPopulateObject</code>, which is supposed to create me my COM object and fill it with some information I expect. Since I am passing a CComPtr, a return value is not needed. Looks fine, but the application crashed.</p>
 <p>People are often misled with many things in programming mostly because they stick to the prime way of its use. <code>CComPtr</code>, in most cases, is used for creating a COM object, passed around across various sections in the code where <code>AddRef</code> and <code>Release</code> is done under the covers until the COM object dies a pleasant death. People tend to forget that the member in <code>CComPtr</code> (named poorly as p) is the one that is actually pointing to the COM object. So <code>aPtr.p</code>, whose value is <code>0x0000</code> (<code>NULL</code>), is passed by value and copied to bPtr.p. When the COM object is created using bPtr, it is <code>bPtr.p</code> ,which is assigned the COM object’s address, say <code>0x23456789</code>; whereas <code>aPtr.p</code> remains NULL even after <code>InitAndPopulateObject</code> returns. Hence the application was crashing because of null pointer access.</p>
 <p>The problem might be obvious in the above few lines of clear code. It sure was very tough to locate and reason it in our huge code base.</p>
 
