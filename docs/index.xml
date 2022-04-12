@@ -6,7 +6,16 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala on Discord</title>
+      <link>/posts/scala-on-discord/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/scala-on-discord/</guid>
+      <description>Scala community like others needs a platform for discussions and exchange thoughts and ideas. Above all, a platform where fellow programmers, old or new, can reach out for help and guidance, a platform for education and to breed and spread knowledge. Is Discord the right choice of platform? More importantly, is moving from Gitter to Discord the right choice?</description>
+    </item>
+    
     <item>
       <title>Profile - Boring Parts</title>
       <link>/profile/trumpet/</link>
