@@ -746,12 +746,26 @@
     <loc>/2005/04/19/joining-the-game/</loc>
     <lastmod>2005-04-19T17:25:00+00:00</lastmod>
   </url><url>
+    <loc>/index.html</loc>
+  </url><url>
+    <loc>/blog-google-analytics/</loc>
+  </url><url>
     <loc>/categories/c&#43;&#43;/cli/</loc>
+  </url><url>
+    <loc>/example/</loc>
+  </url><url>
+    <loc>/example/example.github.io/</loc>
+  </url><url>
+    <loc>/exampledomain.com/</loc>
+  </url><url>
+    <loc>/https/example.com/</loc>
   </url><url>
     <loc>/quotations/</loc>
   </url><url>
     <loc>/search/</loc>
   </url><url>
     <loc>/series/</loc>
+  </url><url>
+    <loc>/user-profile-url/</loc>
   </url>
 </urlset>
