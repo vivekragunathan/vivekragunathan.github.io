@@ -11,6 +11,8 @@ summary: |
   Is Confluence your documentation / knowledge-management system? Are you sick of its shortcomings? Poor and non-standard rendering. Lack of markdown support. Weird and inconsistent handling of unicode. Do you still think Confluence is a boon for document writing? Just be aware that there are better alternatives. 
 ---
 
+> <small>UPDATE: This post was [featured](https://hackernoon.com/confluence-is-for-the-uninformed-document-management-alternatives-to-confluence) on [hakernoon](https://www.hakernoon.com) 🎉</small>
+
 I have been using Confluence for a long time now. I should say the experience so far has been _revolting_. Read on to know why, and learn that there are alternatives, if you wish to look for an alternative.
 
 ### Stipulations
