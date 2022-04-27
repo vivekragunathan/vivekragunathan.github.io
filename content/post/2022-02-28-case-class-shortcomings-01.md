@@ -27,7 +27,7 @@ Here is a contrived example:
 ```scala
 sealed trait ErrorType
 
-object trait ErrorType {
+object ErrorType {
   final case object None extends ErrorType
 	final case class BadRequest(field: String) extends ErrorType
 	final case class NotFound(id: Long, msg: String) extends ErrorType

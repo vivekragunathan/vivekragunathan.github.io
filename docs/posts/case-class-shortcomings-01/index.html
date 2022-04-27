@@ -15,7 +15,7 @@
 <meta itemprop="name" content="Case Class Shortcomings - Part 1">
 <meta itemprop="description" content="Despite all the power and utility that case classes provide, there are a couple of things that Scala could have done better. This post discusses the situation of defining the (ADT) sum type companions across multiple files."><meta itemprop="datePublished" content="2022-02-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="923">
+<meta itemprop="wordCount" content="922">
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
@@ -179,7 +179,7 @@
 <p>Here is a contrived example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">ErrorType</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">trait</span> <span class="nc">ErrorType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">ErrorType</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">final</span> <span class="k">case</span> <span class="k">object</span> <span class="nc">None</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
 </span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">BadRequest</span><span class="o">(</span><span class="n">field</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
 </span></span><span class="line"><span class="cl">	<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span> <span class="n">msg</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ErrorType</span>
