@@ -6,7 +6,16 @@
     <description>Recent content in Posts on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restricting sum type instance creation</title>
+      <link>/posts/restrict-sum-types-creation/</link>
+      <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/restrict-sum-types-creation/</guid>
+      <description>With Scala sum types, you can establish type strictness. But can you restrict creation of instances of sum types? So that you can guarantee that the values they hold pertain to the types defined.</description>
+    </item>
+    
     <item>
       <title>Scala on Discord</title>
       <link>/posts/scala-on-discord/</link>
