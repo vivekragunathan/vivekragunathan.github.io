@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.96.0" />
+	<meta name="generator" content="Hugo 0.98.0" />
 
 	<title>Non-FP to FP Conversion Caveat &middot; A Developer&#39;s Experience</title>
 
@@ -191,14 +191,14 @@
 <p>It is easy to think of this incident as a mistake by the team. Or think of it as having overlooked such a basic and simple effect of adopting of functional programming. Not really! Consider logging if you decide to log <em>functionally</em>. Remember logging / IO is impure, and there was ways around it. In such a scenario, one should be aware of the order and timing of the logs, which is no big deal when you choose to write directly to your destination. I am sure there are other similar instances of <em>Ahaa!</em> if not revelation when making that real shift into functional programming.</p>
 <p>The lesson we learnt is that we got our chance to be aware of the impact a change from non-functional to functional style is going to lay on the functionality. What are some of yours?</p>
 <p>As always, there is details to the grand scheme. I have shrunk the might of the scheme to simple helper method and such so that we can focus on the caveat of converting non-functional code to functional style.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>For error reporting, we use one of <code>Either</code>, <code>Option</code>, and cats -<code>Validated</code>, <code>ValidatedNel</code> etc.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
 </div>
 

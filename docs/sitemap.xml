@@ -20,7 +20,7 @@
     <loc>/profile/trumpet/</loc>
     <lastmod>2022-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/case-class-shortcomings-01/</loc>
+    <loc>/posts/sum-types-across-files/</loc>
     <lastmod>2022-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/anorm/</loc>
@@ -389,10 +389,10 @@
     <loc>/tags/object/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url><url>
-    <loc>/categories/php/</loc>
+    <loc>/tags/php/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url><url>
-    <loc>/tags/php/</loc>
+    <loc>/categories/php/</loc>
     <lastmod>2014-09-29T22:36:35+00:00</lastmod>
   </url><url>
     <loc>/2014/09/30/php-property-bag/</loc>
@@ -440,10 +440,10 @@
     <loc>/tags/variable-arguments/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url><url>
-    <loc>/categories/android/</loc>
+    <loc>/tags/android/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url><url>
-    <loc>/tags/android/</loc>
+    <loc>/categories/android/</loc>
     <lastmod>2014-05-23T01:47:56+00:00</lastmod>
   </url><url>
     <loc>/2014/05/23/android-reminder/</loc>
@@ -455,10 +455,10 @@
     <loc>/tags/array-data/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url><url>
-    <loc>/categories/jqgrid/</loc>
+    <loc>/tags/jqgrid/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url><url>
-    <loc>/tags/jqgrid/</loc>
+    <loc>/categories/jqgrid/</loc>
     <lastmod>2014-05-23T01:43:15+00:00</lastmod>
   </url><url>
     <loc>/2014/05/23/jqgrid-handling-array-data/</loc>
@@ -479,10 +479,10 @@
     <loc>/posts/windows-phone-epic/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url><url>
-    <loc>/categories/windows-phone/</loc>
+    <loc>/tags/windows-phone/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url><url>
-    <loc>/tags/windows-phone/</loc>
+    <loc>/categories/windows-phone/</loc>
     <lastmod>2013-11-28T03:48:57+00:00</lastmod>
   </url><url>
     <loc>/tags/wp8/</loc>
@@ -754,9 +754,9 @@
   </url><url>
     <loc>/example/</loc>
   </url><url>
-    <loc>/example/example.github.io/</loc>
-  </url><url>
     <loc>/exampledomain.com/</loc>
+  </url><url>
+    <loc>/example/example.github.io/</loc>
   </url><url>
     <loc>/https/example.com/</loc>
   </url><url>

@@ -17,12 +17,12 @@
     </item>
     
     <item>
-      <title>Case Class Shortcomings - Part 1</title>
-      <link>/posts/case-class-shortcomings-01/</link>
+      <title>Defining sum types across files</title>
+      <link>/posts/sum-types-across-files/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/case-class-shortcomings-01/</guid>
-      <description>Despite all the power and utility that &lt;code&gt;case class&lt;/code&gt;es provide, there are a couple of things that Scala could have done better. This post discusses the situation of defining the (ADT) sum type companions across multiple files.</description>
+      <guid>/posts/sum-types-across-files/</guid>
+      <description>While Scala allows creating defining ADTs, unfortunately all the sum types and their associated definitions have to be defined in the same file as the &lt;code&gt;sealed trait&lt;/code&gt; (ADT). This post discusses the situation of defining the sum type (companions) across multiple files.</description>
     </item>
     
     <item>

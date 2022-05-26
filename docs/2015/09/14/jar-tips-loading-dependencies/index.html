@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.96.0" />
+	<meta name="generator" content="Hugo 0.98.0" />
 
 	<title>JAR Tips: Loading dependencies &middot; A Developer&#39;s Experience</title>
 
@@ -203,17 +203,17 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/plugin&gt;</span>
 </span></span></code></pre></div><p>Code is better than a thousand words. You can <a href="https://gitlab.com/VivekRagunathan/jarload.git">grab</a> a working sample and see it for yourself. Should you need to add or re-define the lookup directory, you could add a <code>classpathPrefix</code> or additional <code>Class-Path</code> under <code>manifestEntries</code> in the pom file depending on your scenario.</p>
 <p>Now we have an executable JAR that can load its dependent JARs from the current directory.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>Don’t wonder that I am comparing Java and Windows – a language/technology with an operating system. &#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p>You could use <code>CLASSPATH</code> environment variable to specify the dependent JARs location. But be aware that changes to <code>CLASSPATH</code> is applicable system-wide, and might work against us in times of conflict between applications on the same machine. Besides, it is better to have the configuration changes local to our application. &#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 </div>
 
 

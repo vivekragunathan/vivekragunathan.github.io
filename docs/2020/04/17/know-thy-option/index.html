@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.96.0" />
+	<meta name="generator" content="Hugo 0.98.0" />
 
 	<title>Know Thy Option &middot; A Developer&#39;s Experience</title>
 
@@ -289,14 +289,14 @@ If you are going to have access the value in an Option in a test class, prefer e
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h2 id="finally">Finally</h2>
 <p>As you can see, there is a myriad of options to avoid <code>.get</code> or <code>.head</code>, each with a different style and purpose and fitting different situations. You did not ask the question: <em>why should we avoid <code>.get</code> or <code>.head</code>?</em></p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>Test code is real time code. It is used / executed several dozen times a day. Its quality is equally vital to a robust application. So, it is natural to develop a lot of classes and facilities to write better quality tests. It is recommended to reserve the use of <code>OptionalValues</code>.<code>value</code> in the tests themselves rather than in the facilities supporting the tests.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
 </div>
 

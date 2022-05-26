@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.96.0" />
+	<meta name="generator" content="Hugo 0.98.0" />
 
 	<title>Facets of Immutability &middot; A Developer&#39;s Experience</title>
 
@@ -296,29 +296,29 @@ Can change where <code>cptr</code> points. <em>Cannot</em> modify the <code>char
 </ul>
 <hr>
 <p><small>Featured image is some hill near Cascavelle, Mauritius. Courtesy: self.</small></p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p><strong>Usecase for a constant</strong>: Say you are writing a client that makes a bunch of API calls, say 30 different calls, to a third-party server. The API calls mandate a secret key assigned to your client as a parameter (query or form). You could hard-code the secret key in the 30 different methods that make the API calls. Or you could declare a constant, say <code>SECRET_KEY</code>, and use that. They are effectively the same. The value of <code>SECRET_KEY</code> is known at compile time, and it does not change, for whatever reason. Why do we want a constant if it is no different from hard-coding? Like I said, best practices. By assigning an identifier, we make it compiler-aware. Refactoring and what not. Also, the code that consumes the <code>SECRET_KEY</code> is not particular on its value. If the value had to be changed for whatever reason, changing it in one place is definitely better than changing it a bunch of places. Besides, we have a name, a token for a value. Doesn&rsquo;t it make sense it refer it by a name <code>SECRET_KEY</code>? Or do you prefer <code>AX12-345H-900N-TT6R</code>?&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p>Some languages like Java and Scala do not <em>fully</em> support the use of constants in annotations. For the constant to be used in annotations or other places where you would want to use an identifier instead of hard coding the value, the identifier has to be declared in the same class or package. I am not fully aware of the rules. But I have been bitten by it more than once. I did not have the patience and time to chase it to closure. I had other bigger problems to take care of then.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:3" role="doc-endnote">
+<li id="fn:3">
 <p>A <code>val</code> in Scala is analogous to <code>read-only</code>. Only a <code>final val</code> maps to a constant for most purposes but not all as discussed in the corresponding section.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:4" role="doc-endnote">
+<li id="fn:4">
 <p>The <code>exp</code> function was borrowed from <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp">MSDN</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:5" role="doc-endnote">
+<li id="fn:5">
 <p><code>constexpr</code>  has rules that govern if the value can be determined at compile time. Read more. For instance, <code>exp(num)</code> cannot be computed at compile assuming <code>num</code> is not a compile time constant. Also, the value of a <code>constexpr</code> may be assigned to a mutable variable and could changed at run time, which is not under the purview of <code>constexpr</code>. <code>constexpr</code> is more of an indication to the compiler to try to evaluate the expression at compile time; similar to <code>tailrec</code> in some languages.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:6" role="doc-endnote">
+<li id="fn:6">
 <p>Imagine the user interface freezing for a few seconds when it is gone to do its thing when you clicked that button. Generally, the user interface is usable but it freezes for that bit. Scrap that, I was just trying to be funny.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 </div>
 
 
