@@ -12,11 +12,8 @@ date: 2015-10-17T04:18:06+00:00
   * Eloquent and skillful in _functional_ and object-oriented programming, design and methodologies.
   * Dogmatic about producing highly reusable semantically meaningful space-efficient debuggable and maintainable quality code. To crash is a shame!
   * Have extensive experience in refactoring beyond-repair production code and transforming it into robust secure testable high quality code with no new defects and agreed breaking changes
-  * Agnostic, interested and hungry to work with any present day language/technology.
-    * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, C++, JavaScript, Python, PHP, Go
-    * Prudent enough to employ the power of the language/technology to effectively solve business problems – Not do C programming with C++
-  * Have extensive experience working in small and large teams practicing Agile software development with XP (eXtreme Programming) and TDD; project inceptions, story creations and estimations.
-  * Adaptive to delivery-centric or research/innovation centric work style
+  * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, Rust, Go, Python, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively – Not do C programming with C++.
+  * Have extensive experience working in small and large teams practicing Agile software development with XP (eXtreme Programming) and TDD.
 
 **PERSONA**
 
