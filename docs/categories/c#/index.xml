@@ -210,7 +210,7 @@ I think there is a small window for error in the OrderedThreadPool class.</descr
       
       <guid>/2009/07/02/finally-and-return-values/</guid>
       <description>Let us read some code:-
-int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } }  What is the return value of SomeMethod?</description>
+int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
     </item>
     
     <item>
@@ -246,7 +246,7 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       
       <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:-  public void Operate(IList iList2)</description>
+      <description>Let us take a look at the following piece of code:- public void Operate(IList iList2)</description>
     </item>
     
     <item>

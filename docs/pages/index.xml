@@ -79,7 +79,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       
       <guid>/pages/jit/</guid>
       <description>An excerpt from the book Professional .NET v2.0
-  The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly.</description>
+The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly.</description>
     </item>
     
     <item>
@@ -100,7 +100,8 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       
       <guid>/pages/tree-list-view/</guid>
       <description>Article published on CodeProject
- Introduction Tree List View</description>
+Introduction Tree List View
+How about a control like that?</description>
     </item>
     
     <item>
@@ -128,7 +129,7 @@ find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type
       
       <guid>/pages/typesafe-logger/</guid>
       <description>Article co-authored with Sanjeev, and published on CodeProject
- PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
+PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
     </item>
     
     <item>

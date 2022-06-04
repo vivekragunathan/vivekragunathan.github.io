@@ -1,7 +1,6 @@
 .idea
 .vscode
 
-.DS_Store
 *.iml
 bak/
 
@@ -9,3 +8,5 @@ _site
 .sass-cache
 .jekyll-metadata
 *.lock
+
+.DS_Store

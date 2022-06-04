@@ -191,7 +191,7 @@ I think there is a small window for error in the OrderedThreadPool class.</descr
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       
       <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:-  public void Operate(IList iList2)</description>
+      <description>Let us take a look at the following piece of code:- public void Operate(IList iList2)</description>
     </item>
     
     <item>
