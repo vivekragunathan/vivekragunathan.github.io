@@ -2,1367 +2,1088 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Developer&#39;s Experience</title>
-    <link>/</link>
+    <link>/index.html</link>
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 25 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Restricting sum type instance creation</title>
-      <link>/posts/restrict-sum-types-creation/</link>
+      <title>Categories</title>
+      <link>/categories/</link>
       <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/restrict-sum-types-creation/</guid>
-      <description>With Scala sum types, you can establish type strictness. But can you restrict creation of instances of sum types? So that you can guarantee that the values they hold pertain to the types defined.</description>
+      <guid>/categories/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Scala on Discord</title>
-      <link>/posts/scala-on-discord/</link>
-      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      <title>Scala</title>
+      <link>/categories/scala/</link>
+      <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/scala-on-discord/</guid>
-      <description>Scala community like others needs a platform for discussions and exchange thoughts and ideas. Above all, a platform where fellow programmers, old or new, can reach out for help and guidance, a platform for education and to breed and spread knowledge. Is Discord the right choice of platform? More importantly, is moving from Gitter to Discord the right choice?</description>
+      <guid>/categories/scala/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Profile - Boring Parts</title>
-      <link>/profile/trumpet/</link>
-      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/profile/trumpet/</guid>
-      <description>A short version of my Profile is available here
-SKILL SPRINKLES</description>
-    </item>
-    
-    <item>
-      <title>Defining sum types across files</title>
-      <link>/posts/sum-types-across-files/</link>
-      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/sum-types-across-files/</guid>
-      <description>While Scala allows creating defining ADTs, unfortunately all the sum types and their associated definitions have to be defined in the same file as the &lt;code&gt;sealed trait&lt;/code&gt; (ADT). This post discusses the situation of defining the sum type (companions) across multiple files.</description>
-    </item>
-    
-    <item>
-      <title>Confluence Alternatives</title>
-      <link>/posts/confluence-alternatives/</link>
+      <title>Anorm</title>
+      <link>/categories/anorm/</link>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/confluence-alternatives/</guid>
-      <description>Is Confluence your documentation / knowledge-management system? Are you sick of its shortcomings? Poor and non-standard rendering. Lack of markdown support. Weird and inconsistent handling of unicode. Do you still think Confluence is a boon for document writing? Just be aware that there are better alternatives.</description>
+      <guid>/categories/anorm/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Anorm Primer</title>
-      <link>/posts/anorm-primer/</link>
-      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/anorm-primer/</guid>
-      <description>A primer on Anorm to use the interesting parts - core and combinator functions, as opposed to the mundane way of reading the column from &lt;code&gt;Row&lt;/code&gt;. The post highlights situations when you don&amp;rsquo;t have a predefined type for the parsed row, and you are dealing with discrete columns in the result set based on time and need.</description>
-    </item>
-    
-    <item>
-      <title>scala-cli - A Breeze</title>
-      <link>/posts/scala-cli-breeze/</link>
-      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/scala-cli-breeze/</guid>
-      <description>New tool on the block is &lt;code&gt;scala-cli&lt;/code&gt; (from virtuslab.org) - a clean simple approachable non-fluff command line first interface to the Scala language.</description>
-    </item>
-    
-    <item>
-      <title>scala-cli Cheatsheet</title>
-      <link>/pages/scala-cli-cheatsheet/</link>
-      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/pages/scala-cli-cheatsheet/</guid>
-      <description>Compile file(s) / folder scala-cli compile Hello.scala # Compile with dependent classes scala-cli compile Hello.</description>
-    </item>
-    
-    <item>
-      <title>My Everyday IntelliJ Plugins</title>
-      <link>/posts/everyday-intellij-plugins/</link>
+      <title>IDE</title>
+      <link>/categories/ide/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/everyday-intellij-plugins/</guid>
-      <description>If IntelliJ is the perfect main course, its plugins are the seasoning to spice it up. There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.</description>
+      <guid>/categories/ide/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Either Disjoint or Union Types</title>
-      <link>/post/2020-12-28-union-types/</link>
+      <title>Plugins</title>
+      <link>/categories/plugins/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functional Programming</title>
+      <link>/categories/functional-programming/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-12-28-union-types/</guid>
-      <description>Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions).</description>
+      <guid>/categories/functional-programming/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Know Thy Option</title>
-      <link>/2020/04/17/know-thy-option/</link>
-      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/17/know-thy-option/</guid>
-      <description>&lt;p&gt;Avoid &lt;code&gt;.get&lt;/code&gt; at all costs. Forget there is even a &lt;code&gt;.get&lt;/code&gt; function on &lt;code&gt;Option&lt;/code&gt;. There is always a way out - better one, than using &lt;code&gt;.get&lt;/code&gt;. Same applies to &lt;code&gt;.head&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;If you are going to have access the value in an &lt;code&gt;Option&lt;/code&gt; in a test class, prefer extending your test class from &lt;code&gt;OptionValues&lt;/code&gt;. Then you can use &lt;code&gt;.value&lt;/code&gt; on an &lt;code&gt;Option&lt;/code&gt;. Doing so establishes the presence of value as verification with meaningful error if value is not defined.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Pattern for Saner Mocking</title>
-      <link>/2020/04/02/saner-mocking/</link>
-      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/02/saner-mocking/</guid>
-      <description>&lt;p&gt;It is common to see mocks being setup this way in unit tests.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 1&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;scenario&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Test Case 2&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addressResolutionService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;....&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;another&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bunch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;give&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;take&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;one&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;more&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mocks&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;compared&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;when&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shipmentService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thenReturn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;thisIsTheActualCalltoTest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vendorInventoryService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checkInventory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verifications&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;other&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;such&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cases&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Cyrilex – Online Regex Tester</title>
-      <link>/2016/02/20/cyrilex/</link>
+      <title>Programming</title>
+      <link>/categories/programming/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2016/02/20/cyrilex/</guid>
-      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;
-&lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;
-&lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
+      <guid>/categories/programming/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Go away node/npm</title>
-      <link>/2019/02/19/purge-node-npm/</link>
+      <title>JavaScript</title>
+      <link>/categories/javascript/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/02/19/purge-node-npm/</guid>
-      <description>&lt;p&gt;If you haven&amp;rsquo;t found a use for this script that uninstalls the second largest junk in the world next to Mac/iOS updates, you are either lazy or scared of breaking things.  I am neither, so I polished this &lt;a href=&#34;https://gist.github.com/VivekRagunathan/15c8b3b408c8015683a8d5fcf97cbf2f&#34;&gt;script&lt;/a&gt; from the different versions you will find on the internet. Oh, I am talking about node/npm.&lt;/p&gt;
-&lt;p&gt;Happy cleaning!&lt;/p&gt;</description>
+      <guid>/categories/javascript/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Non-FP to FP Conversion Caveat</title>
-      <link>/2019/02/19/fp-conversion-caveat/</link>
-      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/02/19/fp-conversion-caveat/</guid>
-      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
-    </item>
-    
-    <item>
-      <title>A Rambling on Error Handling</title>
-      <link>/2018/02/18/ramble-error-handling/</link>
-      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/02/18/ramble-error-handling/</guid>
-      <description>&lt;p&gt;In the early years, software applications were tiny, compared to what we build today. In any given application, one could say, there were only a handful of error scenarios to deal with. Besides, error reporting, if not error handling, lacked finesse. Just slap the user with something red enough, and just say &lt;strong&gt;An error occurred&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Programming in C# - Immutability</title>
-      <link>/2018/02/18/js-in-cs-immutability/</link>
-      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/02/18/js-in-cs-immutability/</guid>
-      <description>Enough! JavaScript had us in its grip for long with its foot guns.</description>
-    </item>
-    
-    <item>
-      <title>SMS Firewall Privacy Policy</title>
-      <link>/pages/sms-firewall-privacy/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/pages/sms-firewall-privacy/</guid>
-      <description>SMS Firewall The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
-    </item>
-    
-    <item>
-      <title>Facets of Immutability</title>
-      <link>/2017/12/106/facets-of-mmutability/</link>
-      <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/12/106/facets-of-mmutability/</guid>
-      <description>&lt;p&gt;Immutability, the cornerstone of functional programming, has many facets.&lt;/p&gt;
-&lt;p&gt;Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&amp;rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Paradox of Braces</title>
-      <link>/2017/12/106/paradox-of-braces/</link>
-      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/12/106/paradox-of-braces/</guid>
-      <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
-    </item>
-    
-    <item>
-      <title>Lo and Behold</title>
-      <link>/pages/lo-and-behold/</link>
-      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/pages/lo-and-behold/</guid>
-      <description>Netflix’s movie recommendations has never impressed me. I have found the recommendations are either unrelated or predictable.</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
-      <link>/2016/12/11/cpp-cli-apress/</link>
+      <title>Uncategorized</title>
+      <link>/categories/uncategorized/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       
-      <guid>/2016/12/11/cpp-cli-apress/</guid>
-      <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
+      <guid>/categories/uncategorized/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Problem Reduction</title>
-      <link>/2016/12/10/problem-reduction/</link>
+      <title>.NET</title>
+      <link>/categories/.net/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       
-      <guid>/2016/12/10/problem-reduction/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
-&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+      <guid>/categories/.net/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Importance of Semantics</title>
-      <link>/2016/11/07/semantics/</link>
+      <title>algorithms</title>
+      <link>/tags/algorithms/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algos and Puzzles</title>
+      <link>/categories/algos-and-puzzles/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/categories/algos-and-puzzles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>/tags/c#/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>/categories/c#/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/categories/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>min-diff</title>
+      <link>/tags/min-diff/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/min-diff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>/tags/programming/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>/tags/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>word-distance</title>
+      <link>/tags/word-distance/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/tags/word-distance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api</title>
+      <link>/tags/api/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       
-      <guid>/2016/11/07/semantics/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;
-&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;
-&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)
-&lt;ul&gt;
-&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;
-&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;
-&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
+      <guid>/tags/api/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Application Models</title>
-      <link>/2016/08/27/app-models/</link>
+      <title>clean code</title>
+      <link>/tags/clean-code/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>/tags/clean-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design</title>
+      <link>/tags/design/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semantics</title>
+      <link>/tags/semantics/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>/tags/semantics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Design</title>
+      <link>/categories/software-design/</link>
+      <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
+      
+      <guid>/categories/software-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>/tags/architecture/</link>
       <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/2016/08/27/app-models/</guid>
-      <description>&lt;p&gt;A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application &amp;ndash; the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.&lt;/p&gt;</description>
+      <guid>/tags/architecture/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Application Models</title>
-      <link>/pages/app-models/</link>
-      <pubDate>Sat, 27 Aug 2016 15:50:00 +0000</pubDate>
+      <title>enterprise</title>
+      <link>/tags/enterprise/</link>
+      <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
       
-      <guid>/pages/app-models/</guid>
-      <description>&lt;p&gt;A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.&lt;/p&gt;</description>
+      <guid>/tags/enterprise/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Iterators vs. Generators</title>
-      <link>/2016/08/03/iterators-vs-generators/</link>
+      <title>patterns</title>
+      <link>/tags/patterns/</link>
+      <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
+      
+      <guid>/tags/patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Architecture</title>
+      <link>/categories/software-architecture/</link>
+      <pubDate>Sat, 27 Aug 2016 15:50:31 +0000</pubDate>
+      
+      <guid>/categories/software-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>/tags/java/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/2016/08/03/iterators-vs-generators/</guid>
-      <description>&lt;p&gt;Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.&lt;/p&gt;</description>
+      <guid>/tags/java/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Mundane vs JINQ Way</title>
-      <link>/posts/mundane-vs-jinq-way/</link>
-      <pubDate>Fri, 15 Jul 2016 06:27:45 +0000</pubDate>
+      <title>Java</title>
+      <link>/categories/java/</link>
+      <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
       
-      <guid>/posts/mundane-vs-jinq-way/</guid>
-      <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. &lt;a href=&#34;/posts/jinq/&#34;&gt;JINQ&lt;/a&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
+      <guid>/categories/java/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Text Editors</title>
-      <link>/posts/text-editors-rundown/</link>
+      <title>jinq</title>
+      <link>/tags/jinq/</link>
+      <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
+      
+      <guid>/tags/jinq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LINQ</title>
+      <link>/tags/linq/</link>
+      <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
+      
+      <guid>/tags/linq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computers and Internet</title>
+      <link>/categories/computers-and-internet/</link>
       <pubDate>Sun, 29 May 2016 07:49:39 +0000</pubDate>
       
-      <guid>/posts/text-editors-rundown/</guid>
-      <description>I am not a *nix commands expert … but a professional?</description>
+      <guid>/categories/computers-and-internet/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Selective Combinations</title>
-      <link>/2016/05/16/resource-combinations/</link>
-      <pubDate>Mon, 16 May 2016 07:00:08 +0000</pubDate>
-      
-      <guid>/2016/05/16/resource-combinations/</guid>
-      <description>&lt;p&gt;Consider this scenario:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;So that would be as follows:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
-
-abc def
-
-abc ghi
-
-abc
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-    <item>
-      <title>JINQ</title>
-      <link>/posts/jinq/</link>
+      <title>.NET</title>
+      <link>/tags/.net/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       
-      <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <guid>/tags/.net/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Partial Classes – Java ???</title>
-      <link>/2016/02/16/partial-classes-java/</link>
+      <title>LINQ</title>
+      <link>/categories/linq/</link>
+      <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
+      
+      <guid>/categories/linq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>partial</title>
+      <link>/tags/partial/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/2016/02/16/partial-classes-java/</guid>
-      <description>&lt;p&gt;I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.&lt;/p&gt;</description>
+      <guid>/tags/partial/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Sporting a new look</title>
-      <link>/posts/new-look-2016/</link>
-      <pubDate>Tue, 19 Jan 2016 04:23:55 +0000</pubDate>
+      <title>partial-class</title>
+      <link>/tags/partial-class/</link>
+      <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
       
-      <guid>/posts/new-look-2016/</guid>
-      <description>&lt;p&gt;I am very particular in composing the content of the posts (and pages) on this blog. By content, I mean what I literally put in the post/page while editing – text, image, HTML etc. I like to keep the content extremely clean and avoid polluting with HTML like I had to earlier (on blogspot). With the content polluted, it is a terrible pain when migrating blogs and/or rendering the posts flawless and consistent across browsers. &lt;a href=&#34;http://www.blogger.com&#34;&gt;Blogger&lt;/a&gt; is notorious in that aspect 1.&lt;/p&gt;</description>
+      <guid>/tags/partial-class/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Publishing C&#43;&#43;/CLI on LeanPub</title>
-      <link>/2016/01/19/publishing-ccli-on-leanpub/</link>
+      <title>C&#43;&#43;</title>
+      <link>/categories/c&#43;&#43;/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       
-      <guid>/2016/01/19/publishing-ccli-on-leanpub/</guid>
-      <description>I came across LeanPub a few months back. I believe it was through hanselman – blog, video or something.</description>
+      <guid>/categories/c&#43;&#43;/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Written in Stone</title>
-      <link>/2015/12/30/bits-bytes-stones/</link>
-      <pubDate>Wed, 30 Dec 2015 06:58:42 +0000</pubDate>
+      <title>Unmanaged</title>
+      <link>/categories/unmanaged/</link>
+      <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       
-      <guid>/2015/12/30/bits-bytes-stones/</guid>
-      <description>&lt;h3 id=&#34;academia&#34;&gt;Academia&lt;/h3&gt;
-&lt;p&gt;The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.&lt;/p&gt;</description>
+      <guid>/categories/unmanaged/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Lights Preserved</title>
-      <link>/2015/12/28/lights-preserved/</link>
-      <pubDate>Sun, 27 Dec 2015 21:45:40 +0000</pubDate>
-      
-      <guid>/2015/12/28/lights-preserved/</guid>
-      <description>I have a separate blog – Lights Preserved where I get to claim myself a photographer, and where I publish some of my artistic snapshots.</description>
-    </item>
-    
-    <item>
-      <title>.NET for the next generation</title>
-      <link>/2015/12/03/net-oss/</link>
+      <title>.net-core</title>
+      <link>/tags/.net-core/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/2015/12/03/net-oss/</guid>
-      <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
+      <guid>/tags/.net-core/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Profile</title>
-      <link>/profile/</link>
-      <pubDate>Sat, 17 Oct 2015 04:18:06 +0000</pubDate>
+      <title>CLR</title>
+      <link>/categories/clr/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
       
-      <guid>/profile/</guid>
-      <description>FORTE
-Have extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications Eloquent and skillful in functional and object-oriented programming, design and methodologies.</description>
+      <guid>/categories/clr/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>final, const and beyond</title>
-      <link>/posts/final-const-beyond/</link>
+      <title>corefx</title>
+      <link>/tags/corefx/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
+      
+      <guid>/tags/corefx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cross-platform</title>
+      <link>/tags/cross-platform/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
+      
+      <guid>/tags/cross-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oss</title>
+      <link>/tags/oss/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
+      
+      <guid>/tags/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rosyln</title>
+      <link>/tags/rosyln/</link>
+      <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
+      
+      <guid>/tags/rosyln/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>const</title>
+      <link>/tags/const/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/posts/final-const-beyond/</guid>
-      <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;someGibberishMethod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someMethodReturningLength&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	   &lt;span class=&#34;c1&#34;&gt;// some code that updates the sum variable
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SomeClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sumValueInsideSomeClass&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSumValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;doSomeOperation&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;/*some parameters*/&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;// use someText, maybe log or something
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;someText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>/tags/const/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The unconquerable</title>
-      <link>/2015/10/04/unconquerable/</link>
-      <pubDate>Sat, 03 Oct 2015 19:28:22 +0000</pubDate>
+      <title>final</title>
+      <link>/tags/final/</link>
+      <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/2015/10/04/unconquerable/</guid>
-      <description>Hercules was a strong man; a tall muscular perfect masculine figure.</description>
+      <guid>/tags/final/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>JAR Tips: Loading dependencies</title>
-      <link>/2015/09/14/jar-tips-loading-dependencies/</link>
-      <pubDate>Sun, 13 Sep 2015 19:42:16 +0000</pubDate>
+      <title>immutability</title>
+      <link>/tags/immutability/</link>
+      <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
       
-      <guid>/2015/09/14/jar-tips-loading-dependencies/</guid>
-      <description>&lt;p&gt;If you are writing a typical console based application in Windows, you would end up with an executable (exe). You might also have one or more dependent libraries (DLL). The question is where do we place these DLLs so that they are picked up at runtime by the application; loaded and consumed. Actually it is no brainer, just put them along side the console application executable. Or you could place the DLLs in the &lt;em&gt;System32&lt;/em&gt; directory. Or you could add the directory to the &lt;em&gt;PATH&lt;/em&gt;. Well, my point was actually to say that the DLLs can be simply placed alongside the executable and it would be picked up.&lt;/p&gt;</description>
+      <guid>/tags/immutability/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>/posts/tuples-anons-var-auto/</link>
+      <title>anonymous-class</title>
+      <link>/tags/anonymous-class/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
       
-      <guid>/posts/tuples-anons-var-auto/</guid>
-      <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;
-&lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;return an instance of a class that holds the values&lt;/li&gt;
-&lt;li&gt;return a tuple&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <guid>/tags/anonymous-class/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>A funny moment of IoC</title>
-      <link>/2015/07/08/a-funny-moment-of-ioc/</link>
+      <title>anonymous-types</title>
+      <link>/tags/anonymous-types/</link>
+      <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
+      
+      <guid>/tags/anonymous-types/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>auto</title>
+      <link>/tags/auto/</link>
+      <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
+      
+      <guid>/tags/auto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tuples</title>
+      <link>/tags/tuples/</link>
+      <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
+      
+      <guid>/tags/tuples/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>var</title>
+      <link>/tags/var/</link>
+      <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
+      
+      <guid>/tags/var/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>carpool</title>
+      <link>/tags/carpool/</link>
       <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
       
-      <guid>/2015/07/08/a-funny-moment-of-ioc/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inversion_of_control&#34;&gt;IoC&lt;/a&gt; - Inversion of control, is a design that enables fluid flow of control by decoupling  tight dependencies between the portion of a code that exhibits behavior and  another portion of code that provides required functionality. One form of IoC, as we know, is Dependency Injection (DI). For instance, a &lt;code&gt;TextEditor&lt;/code&gt; could refer an &lt;code&gt;ISpellChecker&lt;/code&gt; instead of direct coupling to a specific implementation of spell checker thereby enabling the text editor to switch spell checker or even use more than one.&lt;/p&gt;</description>
+      <guid>/tags/carpool/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Mutating Strings</title>
-      <link>/2015/07/07/mutating-strings/</link>
+      <title>inversion-of-control</title>
+      <link>/tags/inversion-of-control/</link>
+      <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
+      
+      <guid>/tags/inversion-of-control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ioc</title>
+      <link>/tags/ioc/</link>
+      <pubDate>Wed, 08 Jul 2015 06:16:56 +0000</pubDate>
+      
+      <guid>/tags/ioc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fixed</title>
+      <link>/tags/fixed/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/2015/07/07/mutating-strings/</guid>
-      <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Prints &amp;#34;Hello World!&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;unsafe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;fixed&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;*(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;?&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Prints what? See for yourself!&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>/tags/fixed/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>A time when time did not exist …</title>
-      <link>/2015/05/02/time-begins/</link>
-      <pubDate>Sat, 02 May 2015 18:08:59 +0000</pubDate>
+      <title>immutable</title>
+      <link>/tags/immutable/</link>
+      <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
       
-      <guid>/2015/05/02/time-begins/</guid>
-      <description>&lt;p&gt;Those of us, non-physicists, we do seem to realize that time is eternal. Yet there was a time when time did not exist; tough to comprehend? For us, time is something running on a clock or tracked on a calendar. Let me share what I think about when time did not exist.&lt;/p&gt;</description>
+      <guid>/tags/immutable/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Quiz: Choosing an array of integers !!!</title>
-      <link>/2015/03/13/jaoints/</link>
+      <title>strings</title>
+      <link>/tags/strings/</link>
+      <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
+      
+      <guid>/tags/strings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unsafe</title>
+      <link>/tags/unsafe/</link>
+      <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
+      
+      <guid>/tags/unsafe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array</title>
+      <link>/tags/array/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/2015/03/13/jaoints/</guid>
-      <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;
-&lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;na2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>/tags/array/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Useful Unix Commands</title>
-      <link>/pages/cmd-line-quickies/</link>
-      <pubDate>Sat, 07 Feb 2015 08:02:58 +0000</pubDate>
+      <title>integers</title>
+      <link>/tags/integers/</link>
+      <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/pages/cmd-line-quickies/</guid>
-      <description>Change Permission on Folder/Files Recursively1 GOOD
-find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type f -exec chmod 644 {} +``` BETTER</description>
+      <guid>/tags/integers/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>A-Team Library</title>
-      <link>/posts/a-team-lib/</link>
-      <pubDate>Mon, 26 Jan 2015 01:11:52 +0000</pubDate>
+      <title>reference-types</title>
+      <link>/tags/reference-types/</link>
+      <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/posts/a-team-lib/</guid>
-      <description>&lt;p&gt;A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it &lt;em&gt;A-Team Library&lt;/em&gt; or &lt;strong&gt;ATL&lt;/strong&gt;. Having to learn the “&lt;em&gt;eyes-wide-shut&lt;/em&gt;” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and &lt;em&gt;functionality&lt;/em&gt;. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it.&lt;/p&gt;</description>
+      <guid>/tags/reference-types/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The Court Room Climax</title>
-      <link>/pages/court-room-climax/</link>
-      <pubDate>Sun, 25 Jan 2015 00:19:31 +0000</pubDate>
+      <title>value-types</title>
+      <link>/tags/value-types/</link>
+      <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
       
-      <guid>/pages/court-room-climax/</guid>
-      <description>Before reading this page, please read the relevant blog post: A-Team Library.</description>
+      <guid>/tags/value-types/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>/posts/secret-of-cpp-unified-syntax/</link>
+      <title>codeproject</title>
+      <link>/tags/codeproject/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       
-      <guid>/posts/secret-of-cpp-unified-syntax/</guid>
-      <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
+      <guid>/tags/codeproject/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>A Simple Tree List View !!!</title>
-      <link>/2014/10/05/simple-tlv/</link>
+      <title>extension methods</title>
+      <link>/tags/extension-methods/</link>
+      <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
+      
+      <guid>/tags/extension-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unified syntax</title>
+      <link>/tags/unified-syntax/</link>
+      <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
+      
+      <guid>/tags/unified-syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CodeProject</title>
+      <link>/categories/codeproject/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/2014/10/05/simple-tlv/</guid>
-      <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
+      <guid>/categories/codeproject/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Just-In-Time (JIT) Compilation</title>
-      <link>/pages/jit/</link>
-      <pubDate>Wed, 01 Oct 2014 04:27:30 +0000</pubDate>
+      <title>listview</title>
+      <link>/tags/listview/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/pages/jit/</guid>
-      <description>An excerpt from the book Professional .NET v2.0
-The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly.</description>
+      <guid>/tags/listview/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Code Treats</title>
-      <link>/pages/code-treats/</link>
-      <pubDate>Wed, 01 Oct 2014 03:55:02 +0000</pubDate>
+      <title>treelistview</title>
+      <link>/tags/treelistview/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/pages/code-treats/</guid>
-      <description>[contact-form subject=&amp;rsquo;[Feedback on DevEx]’
-[contact-field label=’Name’ type=’name’ required=’1’/]
-[contact-field label=’Email’ type=’email’ required=’1’/]</description>
+      <guid>/tags/treelistview/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Tree List View</title>
-      <link>/pages/tree-list-view/</link>
-      <pubDate>Wed, 01 Oct 2014 03:45:22 +0000</pubDate>
+      <title>WinForms</title>
+      <link>/tags/winforms/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/pages/tree-list-view/</guid>
-      <description>Article published on CodeProject
-Introduction Tree List View
-How about a control like that?</description>
+      <guid>/tags/winforms/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>C&#43;&#43;0x Like Algorithms</title>
-      <link>/pages/cpp0x-algos/</link>
-      <pubDate>Wed, 01 Oct 2014 03:32:28 +0000</pubDate>
+      <title>WinForms</title>
+      <link>/categories/winforms/</link>
+      <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       
-      <guid>/pages/cpp0x-algos/</guid>
-      <description>A few C++0x algorithms and other helper methods implemented for C++98</description>
+      <guid>/categories/winforms/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>PHP Savers – PropertyBag</title>
-      <link>/2014/09/30/php-property-bag/</link>
+      <title>object</title>
+      <link>/tags/object/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
       
-      <guid>/2014/09/30/php-property-bag/</guid>
-      <description>&lt;p&gt;The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code&lt;sup id=&#34;fnref-452-1&#34;&gt;&lt;a href=&#34;#fn-452-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; specifically when there is a need to interact with code that is not open for change; legacy or not.&lt;/p&gt;</description>
+      <guid>/tags/object/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Cool Regex Testers !!!</title>
-      <link>/2014/07/23/cool-regex-testers/</link>
+      <title>php</title>
+      <link>/tags/php/</link>
+      <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
+      
+      <guid>/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>/categories/php/</link>
+      <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
+      
+      <guid>/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php-saver</title>
+      <link>/tags/php-saver/</link>
+      <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
+      
+      <guid>/tags/php-saver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>propertybag</title>
+      <link>/tags/propertybag/</link>
+      <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
+      
+      <guid>/tags/propertybag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>online regex</title>
+      <link>/tags/online-regex/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       
-      <guid>/2014/07/23/cool-regex-testers/</guid>
-      <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
+      <guid>/tags/online-regex/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Overloading vs Variable Arguments !!!</title>
-      <link>/2014/05/29/overloading-and-varargs/</link>
+      <title>regex</title>
+      <link>/tags/regex/</link>
+      <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
+      
+      <guid>/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testers</title>
+      <link>/tags/testers/</link>
+      <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
+      
+      <guid>/tags/testers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
+      
+      <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamic-languages</title>
+      <link>/tags/dynamic-languages/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
       
-      <guid>/2014/05/29/overloading-and-varargs/</guid>
-      <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
+      <guid>/tags/dynamic-languages/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Getting reminded of the reminder !!!</title>
-      <link>/2014/05/23/android-reminder/</link>
+      <title>functions</title>
+      <link>/tags/functions/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>/tags/functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>overloading</title>
+      <link>/tags/overloading/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>/tags/overloading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>static typing</title>
+      <link>/tags/static-typing/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>/tags/static-typing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>variable arguments</title>
+      <link>/tags/variable-arguments/</link>
+      <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
+      
+      <guid>/tags/variable-arguments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>/tags/android/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       
-      <guid>/2014/05/23/android-reminder/</guid>
-      <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
+      <guid>/tags/android/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>jqGrid: Handling array data !!!</title>
-      <link>/2014/05/23/jqgrid-handling-array-data/</link>
+      <title>Android</title>
+      <link>/categories/android/</link>
+      <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
+      
+      <guid>/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reminders</title>
+      <link>/tags/reminders/</link>
+      <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
+      
+      <guid>/tags/reminders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array data</title>
+      <link>/tags/array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/2014/05/23/jqgrid-handling-array-data/</guid>
-      <description>&lt;p&gt;This post is primarily a personal reference. I also consider this a tribute to &lt;a href=&#34;http://stackoverflow.com/users/315935/oleg&#34;&gt;Oleg&lt;/a&gt;, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.&lt;/p&gt;</description>
+      <guid>/tags/array-data/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Clean Code</title>
-      <link>/2014/05/23/clean-code/</link>
-      <pubDate>Fri, 23 May 2014 01:31:21 +0000</pubDate>
+      <title>jqgrid</title>
+      <link>/tags/jqgrid/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
       
-      <guid>/2014/05/23/clean-code/</guid>
-      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>/tags/jqgrid/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The Windows Phone Epic !!!</title>
-      <link>/posts/windows-phone-epic/</link>
+      <title>jqGrid</title>
+      <link>/categories/jqgrid/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
+      
+      <guid>/categories/jqgrid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>/categories/jquery/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
+      
+      <guid>/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stackoverflow</title>
+      <link>/tags/stackoverflow/</link>
+      <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
+      
+      <guid>/tags/stackoverflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mobile</title>
+      <link>/categories/mobile/</link>
       <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/posts/windows-phone-epic/</guid>
-      <description>&lt;p&gt;Dear Reader,&lt;/p&gt;
-&lt;p&gt;Do not be overwhelmed by the length of the article. I have tried my best to keep the length of the article NOT directly proportional to the time required to read it.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;If you want to tell people the truth, make them laugh, otherwise they’ll kill you&lt;/em&gt; - Oscar Wilde&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;There are times when truth tends to be subjective, such as this article. However, I have definitely added the fun component to keep up earlier promise. Consider the time you spent reading this article as a break from your work or routine. I am sure you will enjoy it; doesn’t matter if you are using a Windows Phone 1. Perhaps you will read it again.&lt;/p&gt;
-&lt;p&gt;I am programmer&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; gadget savvy, an avid fan of Microsoft products (especially Visual Studio and associated suite of development tools), and an honest critic of any product I use. I have an Android Phone, an iPhone, and for a few months now, a Windows Phone. And this is my experience with the Windows Phone – good, bad and grey.&lt;/p&gt;
-&lt;p&gt;To begin with, the Windows Phone landscape (app and feature set) is dry and unpromising. There are a few good things here and there to console ourselves for the money we spent on the phone, and for the love of Microsoft!&lt;/p&gt;</description>
+      <guid>/categories/mobile/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Dealing with Bad Code</title>
-      <link>/2013/02/11/dealing-with-bad-code/</link>
-      <pubDate>Sun, 10 Feb 2013 18:30:26 +0000</pubDate>
+      <title>windows phone</title>
+      <link>/tags/windows-phone/</link>
+      <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/2013/02/11/dealing-with-bad-code/</guid>
-      <description>&lt;p&gt;Read this fine article by &lt;a href=&#34;http://www.joelonsoftware.com/&#34;&gt;Joel Spolsky&lt;/a&gt;: &lt;a href=&#34;http://www.joelonsoftware.com/articles/fog0000000069.html&#34;&gt;Things You Should Never Do&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess.&lt;/p&gt;</description>
+      <guid>/tags/windows-phone/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Linked List Quiz – Part II !!!</title>
-      <link>/2012/11/01/linked-list-quiz-part-ii/</link>
-      <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
+      <title>Windows Phone</title>
+      <link>/categories/windows-phone/</link>
+      <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
-      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
+      <guid>/categories/windows-phone/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Offering __FILE__ and __LINE__ for C# !!!</title>
-      <link>/2012/09/09/caller_info_in_cs/</link>
-      <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
+      <title>wp8</title>
+      <link>/tags/wp8/</link>
+      <pubDate>Thu, 28 Nov 2013 03:48:57 +0000</pubDate>
       
-      <guid>/2012/09/09/caller_info_in_cs/</guid>
-      <description>Not the same way but we could say better.
-Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
+      <guid>/tags/wp8/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Linked List Quiz – Part I !!!</title>
-      <link>/2012/06/18/linked-list-quiz-part-i/</link>
-      <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
-      
-      <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
-      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
-    </item>
-    
-    <item>
-      <title>Sms FireWall Update !!!</title>
-      <link>/2012/04/24/smsfwupdate/</link>
+      <title>software</title>
+      <link>/tags/software/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       
-      <guid>/2012/04/24/smsfwupdate/</guid>
-      <description>I gave SMS FireWall a refresh with a couple of features requested by users:- An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
+      <guid>/tags/software/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>OrderedThreadPool – Bug Fix !!!</title>
-      <link>/2012/04/14/otp-bug-fix/</link>
-      <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
-      
-      <guid>/2012/04/14/otp-bug-fix/</guid>
-      <description>Hugh pointed out a bug in the OrderedThreadPool.
-I think there is a small window for error in the OrderedThreadPool class.</description>
-    </item>
-    
-    <item>
-      <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uid-gen/</link>
-      <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
-      
-      <guid>/2012/03/09/uid-gen/</guid>
-      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
-    </item>
-    
-    <item>
-      <title>Sms FireWall</title>
-      <link>/2012/03/09/smsfirewall/</link>
+      <title>mobile</title>
+      <link>/tags/mobile/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/2012/03/09/smsfirewall/</guid>
-      <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
+      <guid>/tags/mobile/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>To Ritchie !!!</title>
-      <link>/2011/10/17/toritchie/</link>
-      <pubDate>Mon, 17 Oct 2011 15:34:09 +0000</pubDate>
-      
-      <guid>/2011/10/17/toritchie/</guid>
-      <description>Dennis Ritchie, whom we all know as the creator of the C programming language passed away on Oct 12, 2011.</description>
-    </item>
-    
-    <item>
-      <title>Seinfeld Calendar Update !!!</title>
-      <link>/2011/09/10/seinfeld-calendar-update/</link>
-      <pubDate>Fri, 09 Sep 2011 19:50:43 +0000</pubDate>
-      
-      <guid>/2011/09/10/seinfeld-calendar-update/</guid>
-      <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
-    </item>
-    
-    <item>
-      <title>Android meets .NET</title>
-      <link>/posts/android-meets-net/</link>
-      <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
-      
-      <guid>/posts/android-meets-net/</guid>
-      <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
-    </item>
-    
-    <item>
-      <title>Quiz: Beauty of Numbers - Solution !!!</title>
-      <link>/2011/07/03/beauty-of-numbers-solution/</link>
-      <pubDate>Fri, 01 Jul 2011 20:45:08 +0000</pubDate>
-      
-      <guid>/2011/07/03/beauty-of-numbers-solution/</guid>
-      <description>One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains).</description>
-    </item>
-    
-    <item>
-      <title>Quiz: Beauty of Numbers !!!</title>
-      <link>/2011/07/02/quiz-beauty-of-numbers/</link>
-      <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
-      
-      <guid>/2011/07/02/quiz-beauty-of-numbers/</guid>
-      <description>Sriram quizzed:
-Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
-    </item>
-    
-    <item>
-      <title>To Hold or Not to Hold – A story on Thread references !!!</title>
-      <link>/2011/03/30/thread-reference/</link>
-      <pubDate>Wed, 30 Mar 2011 17:05:36 +0000</pubDate>
-      
-      <guid>/2011/03/30/thread-reference/</guid>
-      <description>void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc).</description>
-    </item>
-    
-    <item>
-      <title>Crazy Brackets – [](){}();</title>
-      <link>/posts/crazy-brackets/</link>
-      <pubDate>Sat, 26 Mar 2011 18:38:23 +0000</pubDate>
-      
-      <guid>/posts/crazy-brackets/</guid>
-      <description>What does this cryptic bracket sequence mean? What programming language is it?</description>
-    </item>
-    
-    <item>
-      <title>Wetting my feet in Android – Seinfeld Calendar</title>
-      <link>/2011/03/15/seinfeld/</link>
-      <pubDate>Tue, 15 Mar 2011 18:20:04 +0000</pubDate>
-      
-      <guid>/2011/03/15/seinfeld/</guid>
-      <description>A couple of my colleagues and I huddled up to learn a bit of Android.</description>
-    </item>
-    
-    <item>
-      <title>Anonymous Classes vs Delegates !!!</title>
-      <link>/2011/03/08/anonymous-classes-vs-delegates/</link>
-      <pubDate>Tue, 08 Mar 2011 17:10:16 +0000</pubDate>
-      
-      <guid>/2011/03/08/anonymous-classes-vs-delegates/</guid>
-      <description>I am not a java programmer. By that, I do not mean I am against Java.</description>
-    </item>
-    
-    <item>
-      <title>Quiz – Where am I ?</title>
-      <link>/2011/02/19/where-am-i/</link>
-      <pubDate>Sat, 19 Feb 2011 12:05:38 +0000</pubDate>
-      
-      <guid>/2011/02/19/where-am-i/</guid>
-      <description>The question is, in C++, how do detect if an object is allocated on the stack or heap.</description>
-    </item>
-    
-    <item>
-      <title>Meeting Martin</title>
-      <link>/post/2010-12-21-meeting-martin/</link>
-      <pubDate>Tue, 21 Dec 2010 13:32:57 +0000</pubDate>
-      
-      <guid>/post/2010-12-21-meeting-martin/</guid>
-      <description>You may not know the guy in black. You should definitely be knowing the guy in green.</description>
-    </item>
-    
-    <item>
-      <title>Invoking methods with out and ref – Finale !!!</title>
-      <link>/2010/12/21/out-ref-finale/</link>
-      <pubDate>Tue, 21 Dec 2010 13:24:39 +0000</pubDate>
-      
-      <guid>/2010/12/21/out-ref-finale/</guid>
-      <description>Alright, it is a long wait. And I am going to keep it short.</description>
-    </item>
-    
-    <item>
-      <title>Invoking methods with Out and Ref (Part 2) !!!</title>
-      <link>/2010/10/28/outref2/</link>
-      <pubDate>Thu, 28 Oct 2010 17:22:39 +0000</pubDate>
-      
-      <guid>/2010/10/28/outref2/</guid>
-      <description>Straight to code&amp;#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!</description>
-    </item>
-    
-    <item>
-      <title>Scrollable Image Viewer</title>
-      <link>/pages/scrollable-image-viewer/</link>
-      <pubDate>Sat, 09 Oct 2010 00:00:00 +0000</pubDate>
-      
-      <guid>/pages/scrollable-image-viewer/</guid>
-      <description>The .NET Base Class Library comes with a PictureBox control that is used for displaying images.</description>
-    </item>
-    
-    <item>
-      <title>Typesafe Logger</title>
-      <link>/pages/typesafe-logger/</link>
-      <pubDate>Fri, 08 Oct 2010 18:34:09 +0000</pubDate>
-      
-      <guid>/pages/typesafe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
-    </item>
-    
-    <item>
-      <title>Pattern Conflict</title>
-      <link>/pages/pattern-conflict/</link>
-      <pubDate>Fri, 08 Oct 2010 17:56:18 +0000</pubDate>
-      
-      <guid>/pages/pattern-conflict/</guid>
-      <description>Are your classes that implement the Template Method Design Pattern “Decorator aware”?</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Tue, 05 Oct 2010 15:45:33 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>I am &amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Thinking Currying</title>
-      <link>/posts/thinking-currying/</link>
+      <title>binding</title>
+      <link>/tags/binding/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       
-      <guid>/posts/thinking-currying/</guid>
-      <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
+      <guid>/tags/binding/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Quiz – (Journey through templates, SFINAE and specialization) !!!</title>
-      <link>/2010/04/10/sfinae/</link>
+      <title>currying</title>
+      <link>/tags/currying/</link>
+      <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
+      
+      <guid>/tags/currying/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>functional programming</title>
+      <link>/tags/functional-programming/</link>
+      <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
+      
+      <guid>/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SFINAE</title>
+      <link>/tags/sfinae/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       
-      <guid>/2010/04/10/sfinae/</guid>
-      <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34;-&amp;#34; &amp;lt;&amp;lt; b; return ostr.</description>
+      <guid>/tags/sfinae/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Missing MI !!!</title>
-      <link>/2010/03/05/missing-mi/</link>
+      <title>Templates</title>
+      <link>/tags/templates/</link>
+      <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
+      
+      <guid>/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MI</title>
+      <link>/tags/mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       
-      <guid>/2010/03/05/missing-mi/</guid>
-      <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
+      <guid>/tags/mi/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>sizeof vs Marshal.SizeOf !!!</title>
-      <link>/2009/12/30/sizeof-vs-marshal-sizeof/</link>
-      <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
-      
-      <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
-      <description>There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.</description>
-    </item>
-    
-    <item>
-      <title>Curious Case Of Anonymous Delegates !!!</title>
-      <link>/2009/09/02/anondelegates/</link>
-      <pubDate>Wed, 02 Sep 2009 18:29:00 +0000</pubDate>
-      
-      <guid>/2009/09/02/anondelegates/</guid>
-      <description>Senthil has left us thrilled in his new post, and also inspired me to write about the topic.</description>
-    </item>
-    
-    <item>
-      <title>finally and Return Values !!!</title>
-      <link>/2009/07/02/finally-and-return-values/</link>
+      <title>finally</title>
+      <link>/tags/finally/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       
-      <guid>/2009/07/02/finally-and-return-values/</guid>
-      <description>Let us read some code:-
-int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
+      <guid>/tags/finally/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Type Safe Logger</title>
-      <link>/2009/04/25/type-safe-logger/</link>
-      <pubDate>Sat, 25 Apr 2009 15:02:00 +0000</pubDate>
-      
-      <guid>/2009/04/25/type-safe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
-    </item>
-    
-    <item>
-      <title>Simple Array Class For C&#43;&#43;</title>
-      <link>/2009/04/10/simple-array-class-for-c/</link>
-      <pubDate>Fri, 10 Apr 2009 16:48:00 +0000</pubDate>
-      
-      <guid>/2009/04/10/simple-array-class-for-c/</guid>
-      <description>This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.</description>
-    </item>
-    
-    <item>
-      <title>CComPtr Misconception !!!</title>
-      <link>/2009/04/08/ccomptr-misconception/</link>
+      <title>COM</title>
+      <link>/categories/com/</link>
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
       
-      <guid>/2009/04/08/ccomptr-misconception/</guid>
-      <description>This is about a killer bug identified by our chief software engineer in our application.</description>
+      <guid>/categories/com/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
-      <link>/2009/03/18/ordered-thread-pool/</link>
+      <title>threadpool</title>
+      <link>/tags/threadpool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       
-      <guid>/2009/03/18/ordered-thread-pool/</guid>
-      <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
+      <guid>/tags/threadpool/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Settling Casting Restrictions !!!</title>
-      <link>/2009/02/06/settling-casting-restrictions/</link>
-      <pubDate>Thu, 05 Feb 2009 20:31:00 +0000</pubDate>
-      
-      <guid>/2009/02/06/settling-casting-restrictions/</guid>
-      <description>Remember the Casting Restrictions we discussed a while back, let us settle that now.</description>
-    </item>
-    
-    <item>
-      <title>The WD Anti-Propaganda Campaign !!!</title>
-      <link>/2009/01/25/the-wd-anti-propaganda-campaign/</link>
-      <pubDate>Sun, 25 Jan 2009 22:35:00 +0000</pubDate>
-      
-      <guid>/2009/01/25/the-wd-anti-propaganda-campaign/</guid>
-      <description>Thanks to the internet. If nobody else bothers or understands what loss of data means, you can shout it aloud here.</description>
-    </item>
-    
-    <item>
-      <title>Casting Restrictions ???</title>
-      <link>/2008/11/22/casting-restrictions/</link>
-      <pubDate>Sat, 22 Nov 2008 11:43:00 +0000</pubDate>
-      
-      <guid>/2008/11/22/casting-restrictions/</guid>
-      <description>We all know that the runtime can detect the actual type of a System.</description>
-    </item>
-    
-    <item>
-      <title>Understanding (ref)erences !!!</title>
-      <link>/2008/09/26/understanding-references/</link>
-      <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
-      
-      <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:- public void Operate(IList iList2)</description>
-    </item>
-    
-    <item>
-      <title>Extension Methods – A Polished C&#43;&#43; Feature</title>
-      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <title>interface principle</title>
+      <link>/tags/interface-principle/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
+      <guid>/tags/interface-principle/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>The Surprising Finalize Call !!!</title>
-      <link>/2007/02/22/the-surprising-finalize-call/</link>
-      <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
+      <title>koenig lookup</title>
+      <link>/tags/koenig-lookup/</link>
+      <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       
-      <guid>/2007/02/22/the-surprising-finalize-call/</guid>
-      <description>Guess the output of the following program:-
-class SomeClass : IDisposable { public SomeClass() { Trace.</description>
+      <guid>/tags/koenig-lookup/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Learning Type Access Modifiers Basics !!!</title>
-      <link>/2006/12/20/learning-type-access-modifiers-basics/</link>
-      <pubDate>Wed, 20 Dec 2006 18:01:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/learning-type-access-modifiers-basics/</guid>
-      <description>When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:-</description>
-    </item>
-    
-    <item>
-      <title>First Google Gadget(s) !!!</title>
-      <link>/2006/12/20/first-google-gadgets/</link>
-      <pubDate>Wed, 20 Dec 2006 17:53:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/first-google-gadgets/</guid>
-      <description>I did some cool stuff here with google. I wrote my first &amp;#8220;Hello World&amp;#8221; sort of google gadget.</description>
-    </item>
-    
-    <item>
-      <title>Follow the trail…….Join the Concurrency Revolution !!!</title>
-      <link>/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</link>
-      <pubDate>Wed, 20 Dec 2006 17:50:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</guid>
-      <description>I could not stop writing this post after I read this article by Herb Sutter.</description>
-    </item>
-    
-    <item>
-      <title>The New Looking Post !!!</title>
-      <link>/2006/12/20/the-new-looking-post/</link>
-      <pubDate>Wed, 20 Dec 2006 17:44:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/the-new-looking-post/</guid>
-      <description>I am very much fond of tools, updates and stuff.</description>
-    </item>
-    
-    <item>
-      <title>where enum does not work !!!</title>
-      <link>/2006/12/20/where-enum-does-not-work/</link>
-      <pubDate>Wed, 20 Dec 2006 12:25:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/where-enum-does-not-work/</guid>
-      <description>I was writing a generic method with enum as the Constraint, and the compiler spat a few errors that did not directly convey me that enums cannot used as generic constraints.</description>
-    </item>
-    
-    <item>
-      <title>Overloading - A Matter Of Taste !!!</title>
-      <link>/2006/12/20/overloading-a-matter-of-taste/</link>
-      <pubDate>Wed, 20 Dec 2006 12:21:00 +0000</pubDate>
-      
-      <guid>/2006/12/20/overloading-a-matter-of-taste/</guid>
-      <description>This was a pretty interesting discussion about method overloading in the managed world.</description>
-    </item>
-    
-    <item>
-      <title>Fooled by the Activator !!!</title>
-      <link>/2006/07/07/fooled-by-the-activator/</link>
-      <pubDate>Fri, 07 Jul 2006 01:56:00 +0000</pubDate>
-      
-      <guid>/2006/07/07/fooled-by-the-activator/</guid>
-      <description>It was interesting to know that a custom exception, say an exception class derived from System.</description>
-    </item>
-    
-    <item>
-      <title>Properties C# 2.0 – Not Elegant Enough !!!</title>
-      <link>/2006/06/03/properties-c-2-0-not-elegant-enough/</link>
-      <pubDate>Sat, 03 Jun 2006 06:59:00 +0000</pubDate>
-      
-      <guid>/2006/06/03/properties-c-2-0-not-elegant-enough/</guid>
-      <description>Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers.</description>
-    </item>
-    
-    <item>
-      <title>Singularity – Safety &amp; Speed !!!</title>
-      <link>/2006/06/02/singularity-safety-speed/</link>
-      <pubDate>Fri, 02 Jun 2006 19:54:00 +0000</pubDate>
-      
-      <guid>/2006/06/02/singularity-safety-speed/</guid>
-      <description>I read about this interesting thing somewhere in MSDN.
-There are two types of programming or programming languages.</description>
-    </item>
-    
-    <item>
-      <title>out, ref and InvokeMember !!!</title>
-      <link>/2006/05/12/out-ref-and-invokemember/</link>
-      <pubDate>Fri, 12 May 2006 02:26:00 +0000</pubDate>
-      
-      <guid>/2006/05/12/out-ref-and-invokemember/</guid>
-      <description>When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.</description>
-    </item>
-    
-    <item>
-      <title>.NET Reflection Extravanganza !!!</title>
-      <link>/2006/05/11/net-reflection-extravanganza/</link>
-      <pubDate>Thu, 11 May 2006 22:40:00 +0000</pubDate>
-      
-      <guid>/2006/05/11/net-reflection-extravanganza/</guid>
-      <description>&lt;p&gt;Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.&lt;/p&gt;
-&lt;p&gt;Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires &lt;strong&gt;hundreds&lt;/strong&gt; of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.&lt;/p&gt;
-&lt;p&gt;The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Where is my C&#43;&#43; ?</title>
-      <link>/2006/05/04/where-is-my-c/</link>
-      <pubDate>Thu, 04 May 2006 06:11:00 +0000</pubDate>
-      
-      <guid>/2006/05/04/where-is-my-c/</guid>
-      <description>I have been using C# for quite some time now, and that too VS 2005.</description>
-    </item>
-    
-    <item>
-      <title>Infinite .NET Languages !!!</title>
-      <link>/2006/04/29/infinite-net-languages/</link>
-      <pubDate>Sat, 29 Apr 2006 02:39:00 +0000</pubDate>
-      
-      <guid>/2006/04/29/infinite-net-languages/</guid>
-      <description>Though I knew that there are quite a few languages for the .</description>
-    </item>
-    
-    <item>
-      <title>Implementing COM OutOfProc Servers in C# .NET !!!</title>
-      <link>/2006/04/29/implementing-com-outofproc-servers-in-c-net/</link>
-      <pubDate>Sat, 29 Apr 2006 02:34:00 +0000</pubDate>
-      
-      <guid>/2006/04/29/implementing-com-outofproc-servers-in-c-net/</guid>
-      <description>Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .</description>
-    </item>
-    
-    <item>
-      <title>Non-conventional Window Shapes [I love C#] !!!</title>
-      <link>/2006/04/15/non-conventional-window-shapes-i-love-c/</link>
-      <pubDate>Sat, 15 Apr 2006 05:48:00 +0000</pubDate>
-      
-      <guid>/2006/04/15/non-conventional-window-shapes-i-love-c/</guid>
-      <description>I am not a UI guy. More specifically, I love to work with UIs.</description>
-    </item>
-    
-    <item>
-      <title>Serialization and Exceptions !!!</title>
-      <link>/2006/04/15/serialization-and-exceptions/</link>
-      <pubDate>Sat, 15 Apr 2006 00:23:00 +0000</pubDate>
-      
-      <guid>/2006/04/15/serialization-and-exceptions/</guid>
-      <description>I am just like Alice in Wonderland, and not yet got out of the wonders of the .</description>
-    </item>
-    
-    <item>
-      <title>Know where you initialize and Do not forget to uninitialize !!!</title>
-      <link>/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</link>
-      <pubDate>Tue, 11 Apr 2006 04:33:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</guid>
-      <description>If you have long been programming in C++/COM and then you move to C#.</description>
-    </item>
-    
-    <item>
-      <title>An encounter with Hashtables !!!</title>
-      <link>/2006/04/11/an-encounter-with-hashtables/</link>
-      <pubDate>Tue, 11 Apr 2006 04:26:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/an-encounter-with-hashtables/</guid>
-      <description>I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value.</description>
-    </item>
-    
-    <item>
-      <title>A Note On Finalize !!!</title>
-      <link>/2006/04/11/a-note-on-finalize/</link>
-      <pubDate>Tue, 11 Apr 2006 04:12:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/a-note-on-finalize/</guid>
-      <description>This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .</description>
-    </item>
-    
-    <item>
-      <title>Explicit Interface Implementation !!!</title>
-      <link>/2006/04/11/explicit-interface-implementation/</link>
-      <pubDate>Tue, 11 Apr 2006 04:06:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/explicit-interface-implementation/</guid>
-      <description>I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.</description>
-    </item>
-    
-    <item>
-      <title>The Interface Based Programming Argument !!!</title>
-      <link>/2006/04/11/the-interface-based-programming-argument/</link>
-      <pubDate>Tue, 11 Apr 2006 04:03:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/the-interface-based-programming-argument/</guid>
-      <description>I am always a great fan of interface programming. I mean not exactly the interface keyowrd but some way to expose the functionality of the class or your module relieving the user about the worries of the implementation.</description>
-    </item>
-    
-    <item>
-      <title>Properties in C&#43;&#43;/CLI….The C# look alike !!!</title>
-      <link>/2006/04/11/properties-in-ccli-the-c-look-alike/</link>
-      <pubDate>Tue, 11 Apr 2006 03:56:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/properties-in-ccli-the-c-look-alike/</guid>
-      <description>Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.</description>
-    </item>
-    
-    <item>
-      <title>Managed Debugging Assistant !!!</title>
-      <link>/2006/04/11/managed-debugging-assistant/</link>
-      <pubDate>Tue, 11 Apr 2006 03:52:00 +0000</pubDate>
-      
-      <guid>/2006/04/11/managed-debugging-assistant/</guid>
-      <description>The Loader Lock is a synchronization object that hepls to provide mutual exclusion during DLL loading and unloading.</description>
-    </item>
-    
-    <item>
-      <title>Do not delete [] a scalar pointer !!!</title>
-      <link>/2006/03/27/do-not-delete-a-scalar-pointer/</link>
-      <pubDate>Mon, 27 Mar 2006 20:28:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/do-not-delete-a-scalar-pointer/</guid>
-      <description>Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer.</description>
-    </item>
-    
-    <item>
-      <title>Where do you QueryInterface ???</title>
-      <link>/2006/03/27/where-do-you-queryinterface/</link>
-      <pubDate>Mon, 27 Mar 2006 00:23:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/where-do-you-queryinterface/</guid>
-      <description>For an ATL class, the QueryInterface is implemented in CComObject. The figure below is the inheritance hierarchy for a class generated by the wizard representing an ATL-COM object.</description>
-    </item>
-    
-    <item>
-      <title>Use Of Class Factories !!!</title>
-      <link>/2006/03/27/use-of-class-factories/</link>
-      <pubDate>Mon, 27 Mar 2006 00:22:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/use-of-class-factories/</guid>
-      <description>To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object.</description>
-    </item>
-    
-    <item>
-      <title>Unsafe Operations with STL !!!</title>
-      <link>/2006/03/27/unsafe-operations-with-stl/</link>
-      <pubDate>Mon, 27 Mar 2006 00:19:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/unsafe-operations-with-stl/</guid>
-      <description>It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its existing element.</description>
-    </item>
-    
-    <item>
-      <title>Consoles for Mr.GUI !!!</title>
-      <link>/2006/03/27/consoles-for-mr-gui/</link>
-      <pubDate>Mon, 27 Mar 2006 00:13:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/consoles-for-mr-gui/</guid>
-      <description>Learnt something new, a small one but very useful.
-Many times I have seen GUI applications accompanied by console windows that show logs or trace information of the application.</description>
-    </item>
-    
-    <item>
-      <title>Setting Environment Variables !!!</title>
-      <link>/2006/03/27/setting-environment-variables/</link>
-      <pubDate>Mon, 27 Mar 2006 00:11:00 +0000</pubDate>
-      
-      <guid>/2006/03/27/setting-environment-variables/</guid>
-      <description>Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine.</description>
-    </item>
-    
-    <item>
-      <title>CoMarshal ... Working in NT, Not in XP !!!</title>
-      <link>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</link>
-      <pubDate>Sun, 26 Mar 2006 00:48:00 +0000</pubDate>
-      
-      <guid>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</guid>
-      <description>Problem:
-I have created a multi-threaded application which works without any problems on a NT-4.</description>
-    </item>
-    
-    <item>
-      <title>Consts in .NET !!!</title>
-      <link>/2006/03/26/consts-in-net/</link>
-      <pubDate>Sun, 26 Mar 2006 00:37:00 +0000</pubDate>
-      
-      <guid>/2006/03/26/consts-in-net/</guid>
-      <description>I was doing some programming with C# and I had to use some ‘const’s as everybody does generally in programming.</description>
-    </item>
-    
-    <item>
-      <title>Joining the Game</title>
-      <link>/2005/04/19/joining-the-game/</link>
-      <pubDate>Tue, 19 Apr 2005 17:25:00 +0000</pubDate>
-      
-      <guid>/2005/04/19/joining-the-game/</guid>
-      <description>Everything has a beginning.</description>
-    </item>
-    
-    <item>
-      <title>Quotations</title>
-      <link>/quotations/</link>
+      <title>Blog, Google Analytics</title>
+      <link>/blog-google-analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/quotations/</guid>
-      <description> </description>
+      <guid>/blog-google-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;/CLI</title>
+      <link>/categories/c&#43;&#43;/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/c&#43;&#43;/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Example</title>
+      <link>/example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Example@domain.com</title>
+      <link>/exampledomain.com/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/exampledomain.com/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Example/Example.github.io</title>
+      <link>/example/example.github.io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/example/example.github.io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Https://Example.com</title>
+      <link>/https/example.com/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/https/example.com/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search me!</title>
+      <link>/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Series</title>
+      <link>/series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>User Profile Url</title>
+      <link>/user-profile-url/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/user-profile-url/</guid>
+      <description></description>
     </item>
     
   </channel>

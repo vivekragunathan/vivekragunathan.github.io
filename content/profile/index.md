@@ -12,7 +12,9 @@ date: 2015-10-17T04:18:06+00:00
   * Eloquent and skillful in _functional_ and object-oriented programming, design and methodologies.
   * Dogmatic about producing highly reusable semantically meaningful space-efficient debuggable and maintainable quality code. To crash is a shame!
   * Have extensive experience in refactoring beyond-repair production code and transforming it into robust secure testable high quality code with no new defects and agreed breaking changes
-  * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, Rust, Go, Python, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively – Not do C programming with C++.
+  * Conceive, Propose, Document, Maintain and Adapt engineering standards and policies for efficient functioning of team and the product. The _what_ and _how_ matters, the _why_ gives meaning.
+  * Dutifully groom and mentor engineers to build and sustain the best-in-class team. _Be the brain to pick, an ear to listen, and a push in the right direction_.
+  * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, Rust, Go, Python, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively.
   * Have extensive experience working in small and large teams practicing Agile software development with XP (eXtreme Programming) and TDD.
 
 **PERSONA**
