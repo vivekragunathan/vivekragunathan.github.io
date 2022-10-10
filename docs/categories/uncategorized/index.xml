@@ -6,7 +6,25 @@
     <description>Recent content in Uncategorized on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Dec 2016 09:18:37 +0000</lastBuildDate><atom:link href="/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bloggi - Request for Updates</title>
+      <link>/posts/bloggi/</link>
+      <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/bloggi/</guid>
+      <description>The quest for the simple blogging platform of my dreams continues. Tried this. Tried that. Stumbled upon Bloggi. It is simple, beautiful, content-centric and everything I could ask for. So, am I ready to move this blog to Bloggi?</description>
+    </item>
+    
+    <item>
+      <title>Rebooting on Ghost Land</title>
+      <link>/post/2021-07-22-rebooting-on-ghost-land/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-07-22-rebooting-on-ghost-land/</guid>
+      <description>Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions).</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
       <link>/2016/12/11/cpp-cli-apress/</link>
@@ -119,7 +137,7 @@ abc
       <pubDate>Tue, 19 Jan 2016 04:23:55 +0000</pubDate>
       
       <guid>/posts/new-look-2016/</guid>
-      <description>&lt;p&gt;I am very particular in composing the content of the posts (and pages) on this blog. By content, I mean what I literally put in the post/page while editing – text, image, HTML etc. I like to keep the content extremely clean and avoid polluting with HTML like I had to earlier (on blogspot). With the content polluted, it is a terrible pain when migrating blogs and/or rendering the posts flawless and consistent across browsers. &lt;a href=&#34;http://www.blogger.com&#34;&gt;Blogger&lt;/a&gt; is notorious in that aspect 1.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I am very particular about composing the content of the posts (and pages) on this blog. By content, I mean whatever goes in the body of a post/page – text, image, HTML, etc. I like to keep the content extremely clean and avoid polluting with HTML like I had to on Blogspot. With such content, it is a terrible pain to migrate blogs or render posts flawless and consistent across browsers. &lt;a href=&#34;http://www.blogger.com&#34;&gt;Blogger&lt;/a&gt; is notorious for that aspect&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
