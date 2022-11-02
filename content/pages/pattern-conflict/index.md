@@ -2,7 +2,9 @@
 title: Pattern Conflict
 author: vivekragunathan
 layout: page
+url: /pages/pattern-conflict
 date: 2010-10-08T17:56:18+00:00
+summary: Are your classes that implement the Template Method Design Pattern “Decorator aware”?
 
 ---
 
@@ -10,7 +12,7 @@ Are your classes that implement the Template Method Design Pattern “Decorator 
 
 ------
 
-This [article](www.codeproject.com/KB/architecture/DecoratorVsTemplateMethod.aspx) was co-authored with [Sanjeev](http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=172038) on [CodeProject](www.codeproject.com) titled _“Please don’t fail me!” – Decorator says to Template method_
+> This article was co-authored with [Sanjeev](http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=172038) and [published](https://www.codeproject.com/KB/architecture/DecoratorVsTemplateMethod.aspx) on  [CodeProject](www.codeproject.com) titled _“Please don’t fail me!” – Decorator says to Template method_
 
 ------
 
@@ -29,7 +31,7 @@ This article assumes knowledge in the following areas
 
 Consider a Shape class like the one below, which is the base class for all Shapes, viz Circle, Rectangle, Square, etc.
 
-```
+```cpp
 class Shape
 {
 public: typedef void (Shape::*TemplateMethodFuncPtr)();
@@ -63,7 +65,7 @@ public: void Draw()
 
 The Shape class listed above implements the template method design pattern via the Draw method. The custom shapes like Circle or Rectangle would have to implement the pure virtual functions – CreateDC, InitDC, Paint, ReleaseDC – in order to be drawn. For instance, a Circle shape may be hypothetically implemented as follows:-
 
-```
+```cpp
 class Circle : public Shape
 {
 public: Circle() : Shape("Circle")
@@ -94,7 +96,7 @@ protected: void Paint()
 
 The typical usage of the above classes would be as follows:-
 
-```
+```cpp
 void main()
 {
    //
@@ -122,7 +124,7 @@ Per the topic of the discussion, we choose Option #2.
 
 Following is a hypothetical implementation of the ShapeFiller (Decorator) class:-
 
-```
+```cpp
 class ShapeFiller : public Shape
 {
 private: Shape* _shape;
@@ -191,7 +193,7 @@ Approach 1: Make the class that uses the template method design pattern Decorato
 
 Consider the new Shape class
 
-```
+```cpp
 class Shape
 {
 friend class ShapeDecoratorBase;
@@ -229,7 +231,7 @@ Instead of every individual decorator bloat the code with redundant code that fo
 
 The ShapeDecoratorBase class is defined as follows:-
 
-```
+```cpp
 class ShapeDecoratorBase : public Shape
 {
 protected: Shape* _shape;
@@ -281,7 +283,7 @@ protected: void Paint()
 
 Here is the revised implementation of the ShapeFiller Decorator class
 
-```
+```cpp
 class ShapeFiller : public ShapeDecoratorBase
 {
 public: ShapeFiller(Shape* shapeTobeFilled) : ShapeDecoratorBase(shapeTobeFilled)

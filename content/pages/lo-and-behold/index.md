@@ -3,8 +3,11 @@ title: Lo and Behold
 author: vivekragunathan
 layout: page
 date: 2017-03-16
+url: /pages/lo-behold
 featured_image: person-of-interest.gif
 ---
+
+> This article was published also on [LinkedIn](https://www.linkedin.com/pulse/lo-behold-vivek-ragunathan).
 
 Netflix’s movie recommendations has never impressed me. I have found the recommendations are either unrelated or predictable. When I have finished watching a low-rated movie, it would be nice if Netflix recommends a better-rated ones in the same genre rather than dump more low-rated ones on me. I wonder if my outdated LED TV is the reason.
 

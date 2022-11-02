@@ -27,12 +27,11 @@
     
     <item>
       <title>Typesafe Logger</title>
-      <link>/pages/typesafe-logger/</link>
+      <link>/pages/ts-logger/</link>
       <pubDate>Fri, 08 Oct 2010 18:34:09 +0000</pubDate>
       
-      <guid>/pages/typesafe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
+      <guid>/pages/ts-logger/</guid>
+      <description>This article was co-authored with Sanjeev, and published on CodeProject</description>
     </item>
     
     <item>

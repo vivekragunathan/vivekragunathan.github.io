@@ -2,6 +2,7 @@
 title: Typesafe Logger
 author: vivekragunathan
 layout: page
+url: /pages/ts-logger
 date: 2010-10-08T18:34:09+00:00
 date2: 2009-04-25T15:02:00+00:00
 categories:
@@ -9,7 +10,7 @@ categories:
   - CodeProject
 ---
 
-Article co-authored with [Sanjeev](http://localhost:1313/pages/typesafe-logger/www.linkedin.com/in/sanjeev-venkataramanan-3496b018), and [published](http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C) on [CodeProject](http://localhost:1313/pages/typesafe-logger/www.codeproject.com)
+> This article was co-authored with [Sanjeev](https://www.linkedin.com/in/sanjeev-venkataramanan-3496b018), and [published](https://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C) on [CodeProject](https://localhost:1313/pages/typesafe-logger/www.codeproject.com)
 
 -----
 

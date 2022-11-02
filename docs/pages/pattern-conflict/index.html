@@ -15,7 +15,7 @@
 <meta itemprop="name" content="Pattern Conflict">
 <meta itemprop="description" content="Are your classes that implement the Template Method Design Pattern “Decorator aware”?"><meta itemprop="datePublished" content="2010-10-08T17:56:18+00:00" />
 <meta itemprop="dateModified" content="2010-10-08T17:56:18+00:00" />
-<meta itemprop="wordCount" content="1600">
+<meta itemprop="wordCount" content="1602">
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
@@ -174,7 +174,9 @@
 
   <p>Are your classes that implement the Template Method Design Pattern “Decorator aware”?</p>
 <hr>
-<p>This <a href="www.codeproject.com/KB/architecture/DecoratorVsTemplateMethod.aspx">article</a> was co-authored with <a href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=172038">Sanjeev</a> on <a href="www.codeproject.com">CodeProject</a> titled <em>“Please don’t fail me!” – Decorator says to Template method</em></p>
+<blockquote>
+<p>This article was co-authored with <a href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=172038">Sanjeev</a> and <a href="https://www.codeproject.com/KB/architecture/DecoratorVsTemplateMethod.aspx">published</a> on  <a href="www.codeproject.com">CodeProject</a> titled <em>“Please don’t fail me!” – Decorator says to Template method</em></p>
+</blockquote>
 <hr>
 <h2 id="introduction">Introduction</h2>
 <p>This article is a result of serendipity that I experienced when implementing a small framework. As an ardent fan of design patterns I tend to use them where ever I could. I had a few classes in my framework in which I used the “Template Method” Design Pattern. When I wanted to extend my classes without modifying them, the first pattern that came to my mind was the Decorator Design Pattern. This article explains what problems I encountered during this implementation and how they were circumvented. Do these patterns gel well? Please read on to find out the answer.</p>
@@ -186,110 +188,110 @@
 </ul>
 <h2 id="problem">Problem</h2>
 <p>Consider a Shape class like the one below, which is the base class for all Shapes, viz Circle, Rectangle, Square, etc.</p>
-<pre tabindex="0"><code>class Shape
-{
-public: typedef void (Shape::*TemplateMethodFuncPtr)();
-private: std::string _ type;
-
-public: Shape(const std::string&amp; type) : _ type (type)
-        {
-        }
-
-public: std::string Type() const
-        {
-           return _type;
-        }
-
-protected: virtual void CreateDC() = 0;
-protected: virtual void InitDC() = 0;
-protected: virtual void Paint() = 0;
-protected: virtual void ReleaseDC() = 0;
-
-public: void Draw()
-        {
-           cout &lt;&lt; &#34;Drawing &#34; &lt;&lt; Type();
-
-           CreateDC();
-           InitDC();
-           Paint();
-           ReleaseDC();
-        }
-};
-</code></pre><p>The Shape class listed above implements the template method design pattern via the Draw method. The custom shapes like Circle or Rectangle would have to implement the pure virtual functions – CreateDC, InitDC, Paint, ReleaseDC – in order to be drawn. For instance, a Circle shape may be hypothetically implemented as follows:-</p>
-<pre tabindex="0"><code>class Circle : public Shape
-{
-public: Circle() : Shape(&#34;Circle&#34;)
-        {
-        }
-
-protected: void CreateDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::CreateDC&#34;;
-           }
-
-protected: void InitDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::InitDC&#34;;
-           }
-
-protected: void ReleaseDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::ReleaseDC&#34;;
-           }
-
-protected: void Paint()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;Circle::Paint&#34;;
-           }
-};
-</code></pre><p>The typical usage of the above classes would be as follows:-</p>
-<pre tabindex="0"><code>void main()
-{
-   //
-   // Previous Code...
-   //
-
-   Shape* s = new Circle();
-   s-&gt;Draw();
-
-   //
-   // Later Code...
-   //
-}
-</code></pre><p>The output of the above program should be obvious.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">Shape</span><span class="o">::*</span><span class="n">TemplateMethodFuncPtr</span><span class="p">)();</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_</span> <span class="n">type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Shape</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">)</span> <span class="o">:</span> <span class="n">_</span> <span class="n">type</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">Type</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">_type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">CreateDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">InitDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Paint</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">ReleaseDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Draw</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Drawing &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Type</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">CreateDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">InitDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">ReleaseDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>The Shape class listed above implements the template method design pattern via the Draw method. The custom shapes like Circle or Rectangle would have to implement the pure virtual functions – CreateDC, InitDC, Paint, ReleaseDC – in order to be drawn. For instance, a Circle shape may be hypothetically implemented as follows:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Circle</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Circle</span><span class="p">()</span> <span class="o">:</span> <span class="n">Shape</span><span class="p">(</span><span class="s">&#34;Circle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">CreateDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Circle::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">InitDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Circle::InitDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReleaseDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Circle::ReleaseDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Circle::Paint&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>The typical usage of the above classes would be as follows:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">// Previous Code...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">   <span class="n">Shape</span><span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">s</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">// Later Code...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>The output of the above program should be obvious.</p>
 <p>As in the story of any application development, the Circle must be extensible without modifying the existing classes. For instance, the Circle may be filled; its border color and thickness may be changed, and so on. Let us say we want to fill the Circle. We have a couple of options:-</p>
 <p>Derive a class from Circle, say FilledCircle and override the Paint method – This technique is not scalable, and cannot be used for filling other types of shapes. Besides, this is an approach which would result in a combinatorial explosion of classes depending on the extenders desired.</p>
 <p>Use a decorator, say ShapeFiller – This technique is extremely scalable since we can apply this to any Shape class.</p>
 <p>Per the topic of the discussion, we choose Option #2.</p>
 <p>Following is a hypothetical implementation of the ShapeFiller (Decorator) class:-</p>
-<pre tabindex="0"><code>class ShapeFiller : public Shape
-{
-private: Shape* _shape;
-
-public: ShapeFiller(Shape* shapeTobeFilled)
-            : Shape(shapeTobeFilled-&gt;Name()),
-           _shape(shapeTobeFilled)
-        {
-        }
-
-protected: void CreateDC()
-           {
-              // CDC1: Call the underlying shape&#39;s CreateDC
-              _shape-&gt;CreateDC();
-
-              cout &lt;&lt; std::endl &lt;InitDC();
-
-              cout &lt;&lt; std::endl &lt;ReleaseDC();
-
-              cout &lt;&lt; std::endl &lt;Paint();
-
-              // Paint2: Custom logic to fill the shape
-              // (forget the color). Do you see it filling?
-
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller::CreateDC&#34;;
-           }
-};
-</code></pre><p>There are several things to be observed in the above implementation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ShapeFiller</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">Shape</span><span class="o">*</span> <span class="n">_shape</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">ShapeFiller</span><span class="p">(</span><span class="n">Shape</span><span class="o">*</span> <span class="n">shapeTobeFilled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="o">:</span> <span class="n">Shape</span><span class="p">(</span><span class="n">shapeTobeFilled</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">           <span class="n">_shape</span><span class="p">(</span><span class="n">shapeTobeFilled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">CreateDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="c1">// CDC1: Call the underlying shape&#39;s CreateDC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">_shape</span><span class="o">-&gt;</span><span class="n">CreateDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;</span><span class="n">InitDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;</span><span class="n">ReleaseDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// Paint2: Custom logic to fill the shape
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="c1">// (forget the color). Do you see it filling?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeFiller::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>There are several things to be observed in the above implementation.</p>
 <p>The above class will not compile, complaining the following error:-</p>
 <pre tabindex="0"><code>error C2248: &#39;Shape::CreateDC&#39; : cannot access protected member declared in class &#39;Shape&#39;
 error C2248: &#39;Shape::InitDC&#39; : cannot access protected member declared in class &#39;Shape&#39;
@@ -314,110 +316,110 @@ error C2248: &#39;Shape::Paint&#39; : cannot access protected member declared in
 <p><strong>YES</strong></p>
 <p>Approach 1: Make the class that uses the template method design pattern Decorator Pattern aware</p>
 <p>Consider the new Shape class</p>
-<pre tabindex="0"><code>class Shape
-{
-friend class ShapeDecoratorBase;
-
-public: typedef void (Shape::*TemplateMethodFuncPtr)();
-private: std::string _ type;
-
-public: Shape(const std::string&amp; type) : _ type (type)
-        {
-        }
-
-public: std::string Type() const
-        {
-           return _type;
-        }
-
-protected: virtual void CreateDC() = 0;
-protected: virtual void InitDC() = 0;
-protected: virtual void Paint() = 0;
-protected: virtual void ReleaseDC() = 0;
-
-public: void Draw()
-        {
-                            cout &lt;&lt; &#34;Drawing &#34; &lt;&lt; Type();
-
-           CreateDC();
-           InitDC();
-           Paint();
-           ReleaseDC();
-        }
-};
-</code></pre><p>Instead of every individual decorator bloat the code with redundant code that forwards calls to the underlying shape object, a common ShapeDecoratorBase base class is introduced. In other words, ShapeDecoratorBase truly implements the decorator pattern. This class is made a friend of the Shape class (Yes, a friend. Some readers think that using friends is a bad design, I suggest them to follow the link “When to use friends”). The individual decorators may now derive from ShapeDecoratorBase and implement the Paint method to decorate the underlying shape.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">friend</span> <span class="k">class</span> <span class="nc">ShapeDecoratorBase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">Shape</span><span class="o">::*</span><span class="n">TemplateMethodFuncPtr</span><span class="p">)();</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_</span> <span class="n">type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Shape</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">)</span> <span class="o">:</span> <span class="n">_</span> <span class="n">type</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">Type</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">_type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">CreateDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">InitDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Paint</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="kt">void</span> <span class="n">ReleaseDC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Draw</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Drawing &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">Type</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="n">CreateDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">InitDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="n">ReleaseDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Instead of every individual decorator bloat the code with redundant code that forwards calls to the underlying shape object, a common ShapeDecoratorBase base class is introduced. In other words, ShapeDecoratorBase truly implements the decorator pattern. This class is made a friend of the Shape class (Yes, a friend. Some readers think that using friends is a bad design, I suggest them to follow the link “When to use friends”). The individual decorators may now derive from ShapeDecoratorBase and implement the Paint method to decorate the underlying shape.</p>
 <p>The ShapeDecoratorBase class is defined as follows:-</p>
-<pre tabindex="0"><code>class ShapeDecoratorBase : public Shape
-{
-protected: Shape* _shape;
-
-public: ShapeDecoratorBase (Shape* shapeTobeFilled) : Shape(shapeTobeFilled-&gt;Name()),
-           _shape(shapeTobeFilled)
-        {
-           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase Ctor&#34;;
-        }
-
-public: ~DecoratorBase()
-        {
-           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase Dtor&#34;;
-        }
-
-protected: void CreateDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
-
-              // CDC1: Call the underlying shape&#39;s CreateDC
-              _shape-&gt;CreateDC();
-           }
-
-protected: void InitDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
-
-              // IDC1: Call the underlying shape&#39;s CreateDC
-              _shape-&gt;InitDC();
-           }
-
-protected: void ReleaseDC()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::CreateDC&#34;;
-
-              // RDC1: Call the underlying shape&#39;s ReleaseDC
-              _shape-&gt;ReleaseDC();
-           }
-
-protected: void Paint()
-           {
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeDecoratorBase::Paint&#34;;
-
-              // Paint1: First call the underlying shape&#39;s CreateDC
-              _shape-&gt;Paint();
-           }
-};
-</code></pre><p>Here is the revised implementation of the ShapeFiller Decorator class</p>
-<pre tabindex="0"><code>class ShapeFiller : public ShapeDecoratorBase
-{
-public: ShapeFiller(Shape* shapeTobeFilled) : ShapeDecoratorBase(shapeTobeFilled)
-        {
-           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller Ctor&#34;;
-        }
-
-public: ~ShapeFiller()
-        {
-           cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller Dtor&#34;;
-        }
-
-protected: void Paint()
-           {
-              DecoratorBase::Paint();
-
-              // Paint2: Custom logic to fill the shape (forget the color).
-              // Do you see it filling?
-
-              cout &lt;&lt; std::endl &lt;&lt; &#34;ShapeFiller::CreateDC&#34;;
-           }
-};
-</code></pre><p>The ShapeFiller class now works as expected. We can now have more classes like ShapeBorderThickener etc implemented similarly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ShapeDecoratorBase</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="n">Shape</span><span class="o">*</span> <span class="n">_shape</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">ShapeDecoratorBase</span> <span class="p">(</span><span class="n">Shape</span><span class="o">*</span> <span class="n">shapeTobeFilled</span><span class="p">)</span> <span class="o">:</span> <span class="n">Shape</span><span class="p">(</span><span class="n">shapeTobeFilled</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">           <span class="n">_shape</span><span class="p">(</span><span class="n">shapeTobeFilled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase Ctor&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">DecoratorBase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase Dtor&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">CreateDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// CDC1: Call the underlying shape&#39;s CreateDC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">_shape</span><span class="o">-&gt;</span><span class="n">CreateDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">InitDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// IDC1: Call the underlying shape&#39;s CreateDC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">_shape</span><span class="o">-&gt;</span><span class="n">InitDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">ReleaseDC</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// RDC1: Call the underlying shape&#39;s ReleaseDC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">_shape</span><span class="o">-&gt;</span><span class="n">ReleaseDC</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeDecoratorBase::Paint&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// Paint1: First call the underlying shape&#39;s CreateDC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">_shape</span><span class="o">-&gt;</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Here is the revised implementation of the ShapeFiller Decorator class</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ShapeFiller</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ShapeDecoratorBase</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">ShapeFiller</span><span class="p">(</span><span class="n">Shape</span><span class="o">*</span> <span class="n">shapeTobeFilled</span><span class="p">)</span> <span class="o">:</span> <span class="n">ShapeDecoratorBase</span><span class="p">(</span><span class="n">shapeTobeFilled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeFiller Ctor&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">ShapeFiller</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeFiller Dtor&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="kt">void</span> <span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">DecoratorBase</span><span class="o">::</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="c1">// Paint2: Custom logic to fill the shape (forget the color).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="c1">// Do you see it filling?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ShapeFiller::CreateDC&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>The ShapeFiller class now works as expected. We can now have more classes like ShapeBorderThickener etc implemented similarly.</p>
 <p>Approach 2: Using member function pointers to implement the template method design pattern. This technique is not discussed further since it is a far less elegant approach than Approach 1. In other words, it hurts the eyes of an object oriented programmer. However, the source code is attached for reference.</p>
 <h3 id="downside">Downside</h3>
 <p>The major downside of these two approaches is that both require access to the source code of the base class (The Shape class in our case). This might not be possible in all situations. If the framework implementer had not given forethought about this problem, we are led to an impasse to choosing an elegant solution.</p>

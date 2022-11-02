@@ -220,7 +220,7 @@ SKILL SPRINKLES</description>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/pages/sms-firewall-privacy/</guid>
-      <description>SMS Firewall The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
+      <description>The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
     </item>
     
     <item>
@@ -244,11 +244,12 @@ SKILL SPRINKLES</description>
     
     <item>
       <title>Lo and Behold</title>
-      <link>/pages/lo-and-behold/</link>
+      <link>/pages/lo-behold/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/pages/lo-and-behold/</guid>
-      <description>Netflix’s movie recommendations has never impressed me. I have found the recommendations are either unrelated or predictable.</description>
+      <guid>/pages/lo-behold/</guid>
+      <description>This article was published also on LinkedIn.
+Netflix’s movie recommendations has never impressed me.</description>
     </item>
     
     <item>
@@ -307,7 +308,10 @@ SKILL SPRINKLES</description>
       <pubDate>Sat, 27 Aug 2016 15:50:00 +0000</pubDate>
       
       <guid>/pages/app-models/</guid>
-      <description>&lt;p&gt;A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This article was published also on &lt;a href=&#34;https://www.linkedin.com/pulse/application-models-vivek-ragunathan&#34;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A typical business application is composed of several flows or use-cases. Also, these flows consist of logical ones like a transaction that spans several flows. Take for instance an e-commerce application which consists of user registration/login, product lookup, and one of the most important interactions in an e-commerce application – the shopping cart, and much more. Although these application flows might appear to be discrete and independent of one another, it is after producing a working solution that we realize that these flows are inherently interrelated for one reason or another. The idea of designing stateless application flows is many times confused with the relation between the flows.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -396,11 +400,14 @@ abc
     
     <item>
       <title>Written in Stone</title>
-      <link>/2015/12/30/bits-bytes-stones/</link>
+      <link>/pages/written-in-stone/</link>
       <pubDate>Wed, 30 Dec 2015 06:58:42 +0000</pubDate>
       
-      <guid>/2015/12/30/bits-bytes-stones/</guid>
-      <description>&lt;h3 id=&#34;academia&#34;&gt;Academia&lt;/h3&gt;
+      <guid>/pages/written-in-stone/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This article was &lt;a href=&#34;https://www.linkedin.com/pulse/bits-bytes-stones-vivek-ragunathan&#34;&gt;published&lt;/a&gt; also on LinkedIn.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;academia&#34;&gt;Academia&lt;/h3&gt;
 &lt;p&gt;The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.&lt;/p&gt;</description>
     </item>
     
@@ -604,25 +611,13 @@ The Just in Time (JIT) Compiler gets its name because it compiles your managed c
     </item>
     
     <item>
-      <title>Code Treats</title>
-      <link>/pages/code-treats/</link>
-      <pubDate>Wed, 01 Oct 2014 03:55:02 +0000</pubDate>
-      
-      <guid>/pages/code-treats/</guid>
-      <description>[contact-form subject=&amp;rsquo;[Feedback on DevEx]’
-[contact-field label=’Name’ type=’name’ required=’1’/]
-[contact-field label=’Email’ type=’email’ required=’1’/]</description>
-    </item>
-    
-    <item>
       <title>Tree List View</title>
-      <link>/pages/tree-list-view/</link>
+      <link>/pages/tlv/</link>
       <pubDate>Wed, 01 Oct 2014 03:45:22 +0000</pubDate>
       
-      <guid>/pages/tree-list-view/</guid>
-      <description>Article published on CodeProject
-Introduction Tree List View
-How about a control like that?</description>
+      <guid>/pages/tlv/</guid>
+      <description>This article was published also on CodeProject.com.
+Introduction How about a control like that?</description>
     </item>
     
     <item>
@@ -899,21 +894,21 @@ Imagine there is a queue of people for getting a ticket for a movie or somehing.
     
     <item>
       <title>Scrollable Image Viewer</title>
-      <link>/pages/scrollable-image-viewer/</link>
+      <link>/pages/img-viewer/</link>
       <pubDate>Sat, 09 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>/pages/scrollable-image-viewer/</guid>
-      <description>The .NET Base Class Library comes with a PictureBox control that is used for displaying images.</description>
+      <guid>/pages/img-viewer/</guid>
+      <description>This article was published also on CodeProject.
+The .NET Base Class Library comes with a PictureBox control that is used for displaying images.</description>
     </item>
     
     <item>
       <title>Typesafe Logger</title>
-      <link>/pages/typesafe-logger/</link>
+      <link>/pages/ts-logger/</link>
       <pubDate>Fri, 08 Oct 2010 18:34:09 +0000</pubDate>
       
-      <guid>/pages/typesafe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
+      <guid>/pages/ts-logger/</guid>
+      <description>This article was co-authored with Sanjeev, and published on CodeProject</description>
     </item>
     
     <item>

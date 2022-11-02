@@ -3,13 +3,18 @@ title: Written in Stone
 author: vivekragunathan
 layout: post
 date: 2015-12-30T06:58:42+00:00
-url: /2015/12/30/bits-bytes-stones/
+url:
+  - /2015/12/30/bits-bytes-stones/
+  - /pages/written-in-stone
+  - /pages/bits-bytes-stones
 featured_image: mahabalipuram.jpg
 categories:
   - Computers and Internet
   - Uncategorized
-
 ---
+
+> This article was [published](https://www.linkedin.com/pulse/bits-bytes-stones-vivek-ragunathan) also on LinkedIn.
+
 ### Academia
 
 The Mamallapuram Shore Temple, constructed on the deep southern shores of the Bay of Bengal, is one of the oldest stone structures on the planet. It was built around the beginning of the Anno Domini (AD). The site consists of three temple structures, subsidiary structures, and statues primarily built with granite. Prominent statues are that of a lion and elephant with great significance in the way it was rock-cut. Chariots are the primary subsidiary structures other than the temple. It is inevitable not to be marveled at the temple design, intricate and precise carvings and inscriptions. Carvings are made on a monolithic rock on which the works of an elephant and its ear with its loose skin are nearly impossible even today. Inscriptions, according to linguists, is poetic and metaphorical, a sophisticated language nevertheless. Another marvel is Krishna’s Butter Ball, a massive boulder of rock sitting tight above a rocky slope.

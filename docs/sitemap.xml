@@ -104,7 +104,7 @@
     <loc>/2017/12/106/paradox-of-braces/</loc>
     <lastmod>2017-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pages/lo-and-behold/</loc>
+    <loc>/pages/lo-behold/</loc>
     <lastmod>2017-03-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/2016/12/11/cpp-cli-apress/</loc>
@@ -233,7 +233,7 @@
     <loc>/categories/unmanaged/</loc>
     <lastmod>2016-01-19T03:07:03+00:00</lastmod>
   </url><url>
-    <loc>/2015/12/30/bits-bytes-stones/</loc>
+    <loc>/pages/written-in-stone/</loc>
     <lastmod>2015-12-30T06:58:42+00:00</lastmod>
   </url><url>
     <loc>/2015/12/28/lights-preserved/</loc>
@@ -386,10 +386,7 @@
     <loc>/pages/jit/</loc>
     <lastmod>2014-10-01T04:27:30+00:00</lastmod>
   </url><url>
-    <loc>/pages/code-treats/</loc>
-    <lastmod>2014-10-01T03:55:02+00:00</lastmod>
-  </url><url>
-    <loc>/pages/tree-list-view/</loc>
+    <loc>/pages/tlv/</loc>
     <lastmod>2014-10-01T03:45:22+00:00</lastmod>
   </url><url>
     <loc>/pages/cpp0x-algos/</loc>
@@ -566,10 +563,10 @@
     <loc>/2010/10/28/outref2/</loc>
     <lastmod>2010-10-28T17:22:39+00:00</lastmod>
   </url><url>
-    <loc>/pages/scrollable-image-viewer/</loc>
+    <loc>/pages/img-viewer/</loc>
     <lastmod>2010-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pages/typesafe-logger/</loc>
+    <loc>/pages/ts-logger/</loc>
     <lastmod>2010-10-08T18:34:09+00:00</lastmod>
   </url><url>
     <loc>/pages/pattern-conflict/</loc>

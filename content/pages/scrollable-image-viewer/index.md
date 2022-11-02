@@ -2,8 +2,12 @@
 title: Scrollable Image Viewer
 author: vivekragunathan
 layout: page
+url: /pages/img-viewer
 date: 2010-10-09
+
 ---
+
+> This article was published also on [CodeProject](https://www.codeproject.com/Articles/25748/Scrollable-Image-Viewer).
 
 The .NET Base Class Library comes with a PictureBox control that is used for displaying images. Although it offers a few scaling modes, unfortunately, it does not provide a scrolling facility. This article presents a picture box like control [Scrollable Image Viewer Control or SIV Control] that is used to display images in one of two modes:-
 

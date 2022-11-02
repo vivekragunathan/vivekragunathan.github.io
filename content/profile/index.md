@@ -15,7 +15,7 @@ date: 2015-10-17T04:18:06+00:00
   * Conceive, Propose, Document, Maintain and Adapt engineering standards and policies for efficient functioning of team and the product. The _what_ and _how_ matters, the _why_ gives meaning.
   * Dutifully groom and mentor engineers to build and sustain the best-in-class team. _Be the brain to pick, an ear to listen, and a push in the right direction_.
   * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, Rust, Go, Python, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively.
-  * Have extensive experience working in small and large teams practicing Agile software development with XP (eXtreme Programming) and TDD.
+  * Have extensive experience working collaboratively in small and large teams practicing Agile software development.
 
 **PERSONA**
 
@@ -36,14 +36,14 @@ date: 2015-10-17T04:18:06+00:00
 **Articles Published Online**
 
   * C++/CLI Primer – An Apress [Book](https://www.amazon.com/dp/1484223667)
-  * [JINQ](https://blog.rhetoricalmusings.com/jinq/) – **J**ava **IN*tegrated **Q**uery. [🔗](https://blog.rhetoricalmusings.com/mundane-vs-jinq-way/)
+  * [JINQ](/posts/jinq/) – **J**ava **IN**tegrated **Q**uery. [🔗](/posts/mundane-vs-jinq-way/)
   * Application Models [🔗](https://www.linkedin.com/pulse/application-models-vivek-ragunathan)
   * Lo and Behold [🔗](https://www.linkedin.com/pulse/lo-behold-vivek-ragunathan)
   * Bits, Bytes and Stones [🔗](https://www.linkedin.com/pulse/bits-bytes-stones-vivek-ragunathan)
-  * &#8220;Please Don’t Fail Me!&#8221; – Decorator Cries Out to Template Method [🔗](https://blog.rhetoricalmusings.com/mundane-vs-jinq-way/)
-  * Type-Safe Logger For C++ [🔗](http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C)
-  * Scrollable Image Viewer [🔗](http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C)
-  * Simple Tree List View [🔗](http://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View)
+  * &#8220;Please Don’t Fail Me!&#8221; – Decorator Cries Out to Template Method [🔗](/pages/pattern-conflict)
+  * Type-Safe Logger For C++ [🔗](/pages/ts-logger)
+  * Scrollable Image Viewer [🔗](/pages/img-viewer)
+  * Simple Tree List View [🔗](/pages/tlv)
 
 **WORK EXPERIENCE**
 

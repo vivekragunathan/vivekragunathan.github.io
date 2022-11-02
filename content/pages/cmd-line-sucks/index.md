@@ -4,7 +4,6 @@ author: vivekragunathan
 layout: page
 date: 2015-02-07T08:02:58+00:00
 url: /pages/cmd-line-quickies
-
 ---
 
 ### Change Permission on Folder/Files Recursively[^1]

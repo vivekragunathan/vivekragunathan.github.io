@@ -2,14 +2,16 @@
 title: Tree List View
 author: vivekragunathan
 layout: page
+url: /pages/tlv
 date: 2014-10-01T03:45:22+00:00
-featured_image: tlv.png
+
 ---
-> <small>Article <a href="http://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View">published</a> on <a href="www.codeproject.com">CodeProject</a></small> 
+
+> This article was published also on [CodeProject.com](https://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View).
 
 ### Introduction
 
-**Tree List View**
+![featured_image](tlv.png)
 
 How about a control like that? Isn&#8217;t it cool? Unfortunately, you don&#8217;t get that with the Windows Forms controls collection. But you can get yourself one; read on.
 
@@ -32,7 +34,7 @@ Yes, we will have to take control of the painting logic for such a control. We w
 
 There are several things which are part of the rendering logic. Each item in the list view can have a checkbox or an image. We have to show\hide items depending on whether their parent is expanded or collapsed. Besides, it will also show a plus (+) image if it has child items and if it is expanded; or a minus (-) image if it has child items and if it is collapsed. An item with children should expand when clicked on the collapsed (+) image, and collapse when clicked on the expanded (-) minus image. And depending on the depth, the text for the first sub-item of each list view item must be spaced\tabbed accordingly. We should take care of auto adjusting the length of the header item when double clicked on the header seam lines. Our custom logic has to take care of all these things to render.
 
-Following snippet is worth a thousand words of the core rendering logic. Please refer to the source code attached for further details.-
+Code is worth a thousand words. Following is the meat of the rendering logic.
 
 ```csharp
 private void OnDrawSubItem(object sender, DrawListViewSubItemEventArgs e)
