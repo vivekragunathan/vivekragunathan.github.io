@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.104.3" />
+	<meta name="generator" content="Hugo 0.105.0">
 
 	<title>Understanding (ref)erences !!! &middot; A Developer&#39;s Experience</title>
 
@@ -13,18 +13,18 @@
 	
 
 <meta itemprop="name" content="Understanding (ref)erences !!!">
-<meta itemprop="description" content="Let us take a look at the following piece of code:- public void Operate(IList iList2)"><meta itemprop="datePublished" content="2008-09-26T17:03:00+00:00" />
+<meta itemprop="description" content="Let us take a look at the following piece of code:-"><meta itemprop="datePublished" content="2008-09-26T17:03:00+00:00" />
 <meta itemprop="dateModified" content="2008-09-26T17:03:00+00:00" />
 <meta itemprop="wordCount" content="357">
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Understanding (ref)erences !!!"/>
-<meta name="twitter:description" content="Let us take a look at the following piece of code:- public void Operate(IList iList2)"/>
+<meta name="twitter:description" content="Let us take a look at the following piece of code:-"/>
 
 
 <meta property="og:title" content="Understanding (ref)erences !!!" />
-<meta property="og:description" content="Let us take a look at the following piece of code:- public void Operate(IList iList2)" />
+<meta property="og:description" content="Let us take a look at the following piece of code:-" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2008/09/26/understanding-references/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2008-09-26T17:03:00+00:00" />
@@ -172,26 +172,46 @@
     <time datetime="2008-09-26T17:03:00Z">Sep 26, 2008</time> &middot; 2 min read
   </div>
 
-  <div style="font-family:Tahoma;">
-  Let us take a look at the following piece of code:-
-</div>
-<pre style="font-family:Consolas;font-size:11pt;">public void Operate(IList iList2)<br />{<br /> iList2 = new List();<br /> iList2.Add(1);<br /> iList2.Add(2);<br /> iList2.Add(3);<br />}<br /><br />public static void Main()<br />{<br /> IList iList= new List();<br /> iList.Add(10);<br /> Operate(iList);<br /> Console.WriteLine(iList[0].ToString());<br />}</pre>
-<div style="font-family:Tahoma;">
-  Be thinking about what would the above program print to the console ? And that is what we are going to talk about in this post &#8211; simple but subtle.
-</div>
-<div style="font-family:Tahoma;">
-  I saw this code at CodeProject discussions. The author was confused with why was the program printing 10 instead of 1. I am writing about this since the &#8216;gotcha&#8217; was not highlighted in the discussion.
-</div>
-<div style="font-family:Tahoma;">
-  So we passed the reference &#8216;iList&#8217; to the function which is supposed to make it point to the &#8216;List&#8217; that it creates and so must be printing 1. Well, a C++ programmer knowing how to program in C# would have said &#8216;Gotcha&#8217; already. A reference (in C#), equivalent to a pointer in C++, is an entity that stores the address of an object in heap and accesses it using this address. So when we pass a reference (by value) to a function, then we are passing this address value. That is captured in another 4 byte variable local to that function; so creating assigning inside the function will make iList2 point to newly created object &#8211; iList and iList are two different reference pointing to the same object. So if you want to transmit the effect of the changes you make to the List inside the function, pass it by reference &#8211; use ref keyword.
-</div>
-<div style="font-family:Tahoma;">
-  Now the fun part !!! Let us try writing the same stuff in C++:-
-</div>
-<pre style="font-family:Consolas;font-size:11pt;">// This function will not alter the source pointer<br />void Operator(IList* pList)<br />{<br />  pList = new List();<br />  pList-&gt;Add(1);<br />  pList-&gt;Add(2);<br />  pList-&gt;Add(3);<br />}<br /><br />// This function will affect the source; similar to using ref in C#<br />// 1) const IList*& pList - Can make pList point elsewhere but cannot modify the existing object<br />// 2) IList* const &pList - pList cannot point to anywhere else but can modify the existing object<br />void Operator(IList*& pList)<br />{<br />  pList = new List();<br />  pList-&gt;Add(1);<br />  pList-&gt;Add(2);<br />  pList-&gt;Add(3);<br />}<br /></pre>
-<div style="font-family:Tahoma;">
-  Hope that was fun !!!
-</div>
+  <p>Let us take a look at the following piece of code:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">Operate</span><span class="p">(</span><span class="n">IList</span> <span class="n">iList2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="n">iList2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> <span class="n">iList2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">iList2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">iList2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="n">IList</span> <span class="n">iList</span><span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> <span class="n">iList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Operate</span><span class="p">(</span><span class="n">iList</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">iList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">ToString</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Be thinking about what would the above program print to the console ? And that is what we are going to talk about in this post – simple but subtle.</p>
+<p>I saw this code at CodeProject discussions. The author was confused with why was the program printing <code>10</code> instead of <code>1</code>. I am writing about this since the ‘gotcha’ was not highlighted in the discussion.</p>
+<p>So we passed the reference <code>iList</code> to the function which is supposed to make it point to the <code>List</code> that it creates and so must be printing 1. Well, a C programmer knowing how to program in C# would have said <em>Gotcha</em> already. A reference (in C#), equivalent to a pointer in C, is an entity that stores the address of an object in heap and accesses it using this address. So when we pass a reference (by value) to a function, then we are passing this address value. That is captured in another 4 byte variable local to that function; so creating assigning inside the function will make <code>iList2</code> point to newly created object – <code>iList</code> and <code>iList2</code> are two different reference pointing to the same object. So if you want to transmit the effect of the changes you make to the List inside the function, pass it by reference – use ref keyword.</p>
+<p>Now the fun part !!! Let us try writing the same stuff in C++:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// This function will not alter the source pointer</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Operator</span><span class="p">(</span><span class="n">IList</span><span class="p">*</span> <span class="n">pList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// This function will affect the source; similar to using ref in C#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 1) const IList*&amp; pList - Can make pList point elsewhere but cannot modify the existing object</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 2) IList* const &amp;pList - pList cannot point to anywhere else but can modify the existing object</span>
+</span></span><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Operator</span><span class="p">(</span><span class="n">IList</span><span class="p">*&amp;</span> <span class="n">pList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pList</span><span class="p">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Hope that was fun !!!</p>
 
 </div>
 

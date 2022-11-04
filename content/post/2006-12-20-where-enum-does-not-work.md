@@ -11,74 +11,46 @@ categories:
   - Uncategorized
 
 ---
-<div style="font-family:Open Sans, Tahoma;font-size:14px;">
-  I was writing a <a href="http://msdn2.microsoft.com/en-us/library/0x6a29h6.aspx">generic</a> method with enum as the <a href="http://msdn2.microsoft.com/en-us/library/d5x73970.aspx">Constraint</a>, and the compiler spat a few errors that did not directly convey me that enums cannot used as generic constraints. And I learnt the following from my investigation:</p>
 
-  <p>
-    <strong>C# language specification for generic constraints</strong>
-  </p>
+I was writing a [generic](http://msdn2.microsoft.com/en-us/library/0x6a29h6.aspx) method with `enum` as the [Constraint](http://msdn2.microsoft.com/en-us/library/d5x73970.aspx), and the compiler spat a few errors that did not directly convey me that `enum`s cannot used as generic constraints. I learnt the following from my investigation:
 
-  <p>
-    A class-type constraint shall satisfy the following rules:
-  </p>
+Following is an excerpt from the [C# language specification](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf) **for generic constraints**
 
-  <ul>
-    <li>
-      The type shall be a class type.
-    </li>
-    <li>
-      The type shall not be sealed.
-    </li>
-    <li>
-      The type shall not be one of the following: types: <code>System.Array</code>, <code>System.Delegate</code>, <code>System.Enum</code> or <code>System.ValueType</code>.
-    </li>
-    <li>
-      The type shall not the <code>&lt;strong>object&lt;/strong></code>. [Note: Since all types, derive from <code>&lt;strong>object&lt;/strong></code> such a constraint would have no effect if it were permitted, end note]
-    </li>
-    <li>
-      At most one constraint for a given type parameter can be a class type.
-    </li>
-  </ul>
+```
+A _class-type_ constraint must satisfy the following rules:
 
-  <p>
-    A type specified as an interface-type constraint shall satisfy the following rules:
-  </p>
+- The type must be a class type.
+- The type must not be sealed.
+- The type must not be one of the following types: `System.Array`, `System.Delegate`, `System.Enum`, or `System.ValueType`.
 
-  <ul>
-    <li>
-      The type shall be an interface type.
-    </li>
-  </ul>
+- The type must not be `object`. Because all types derive from `object`, such a constraint would have no effect if it were permitted.
 
-  <p>
-    This is an excerpt from the <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf">C# Language Specification</a>. Enums are value types and there is no way that you can specify the System.ValueType as a constraint, as per the specification. But if you wish to specify a non-reference type as a [primary] constraint, struct can be used.
-  </p>
+- At most one constraint for a given type parameter can be a class type.
 
-  <pre style="color:#008080;font-size:14px;font-family:Consolas, Courier New, Courier, Monospace;">private void Method where T : struct</pre>
+A type specified as an _interface-type_ constraint must satisfy the following rules:
 
-  <p>
-    During the course of investigation, I was surprised (my bad!) to know that the numeric types like int, float etc in C# are declared struct. It is not far from the fact that they are value types, but it was interesting to know that they are declared as:
-  </p>
+- The type must be an interface type.
+- A type must not be specified more than once in a given `where` clause.
+```
 
-  <p>
-    <code>public struct Int32 : IComparable, IFormattable, IConvertible, IComparable, IEquatable</code>
-  </p>
+There you have it. The specification deliberately restricts value types and `enum`s as generic type parameters. But if you wish to specify a non-reference type as the *primary* constraint, a `struct` can be used.
 
-  <p>
-    Similar thing for other numeric types. Whereas an enum [<a href="http://msdn2.microsoft.com/en-us/library/system.enum.aspx">System.Enum]</a>, though a value type, is declared as an abstract class that derives from System.ValueTypes unlike the int or float. The end result is that enums are value types but i wonder the way they are declared.
-  </p>
+```csharp
+private void Method where T : struct
+```
 
-  <p>
-    Anyway, the question still remains unresolved &#8211; why enums cannot be used as constraints, and just the specification saying that enums cannot be used as constraints does not seem satisfactory.
-  </p>
+We know that the numeric types like `int`, `float` etc in C# are declared `struct` (value type). An `int` (Int32) is declared as follows:
 
-  <div>
-    I am not sure if there is any other way to resolve my situation. Question open to cyber space !!!</p>
+```csharp
+public struct Int32 : IComparable, IFormattable, IConvertible, IComparable, IEquatable
+```
 
-    <blockquote>
-      <p>
-        P.S. Refer section 25.7 through for the specification on Generic Type Constraints.
-      </p>
-    </blockquote>
-  </div>
-</div>
+Whereas an [`enum`](http://msdn2.microsoft.com/en-us/library/system.enum.aspx), though a value type, is declared as an abstract class that derives from `System.ValueType`; unlike `int` or `float`. However, the end result is `enum`s are value types. Go figure!
+
+Anyway, the question still remains unresolved – why `enum`s cannot be used as constraints. *Because the language specification says so* is not satisfactory.
+
+I am not sure if there is any other way to resolve my situation. Question open to cyberspace !!!
+
+------
+
+<small>P.S. Refer section 25.7 through for the specification on Generic Type Constraints.</small>

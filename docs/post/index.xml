@@ -646,29 +646,29 @@ I think there is a small window for error in the OrderedThreadPool class.</descr
     
     <item>
       <title>Sms FireWall</title>
-      <link>/2012/03/09/smsfirewall/</link>
+      <link>/posts/sms-firewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       
-      <guid>/2012/03/09/smsfirewall/</guid>
+      <guid>/posts/sms-firewall/</guid>
       <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
     </item>
     
     <item>
       <title>To Ritchie !!!</title>
-      <link>/2011/10/17/toritchie/</link>
+      <link>/post/2011-10-17-toritchie/</link>
       <pubDate>Mon, 17 Oct 2011 15:34:09 +0000</pubDate>
       
-      <guid>/2011/10/17/toritchie/</guid>
+      <guid>/post/2011-10-17-toritchie/</guid>
       <description>Dennis Ritchie, whom we all know as the creator of the C programming language passed away on Oct 12, 2011.</description>
     </item>
     
     <item>
       <title>Seinfeld Calendar Update !!!</title>
-      <link>/2011/09/10/seinfeld-calendar-update/</link>
+      <link>/posts/seinfeld/</link>
       <pubDate>Fri, 09 Sep 2011 19:50:43 +0000</pubDate>
       
-      <guid>/2011/09/10/seinfeld-calendar-update/</guid>
-      <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
+      <guid>/posts/seinfeld/</guid>
+      <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
     </item>
     
     <item>
@@ -896,7 +896,7 @@ PROBLEM Every application logs a whole bunch of diagnostic messages, primarily f
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       
       <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:- public void Operate(IList iList2)</description>
+      <description>Let us take a look at the following piece of code:-</description>
     </item>
     
     <item>
