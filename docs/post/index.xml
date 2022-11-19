@@ -6,7 +6,16 @@
     <description>Recent content in Posts on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Practices and Tradition</title>
+      <link>/posts/software-tradition/</link>
+      <pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/software-tradition/</guid>
+      <description>A note on software tradition - practices, conventions and standards. How it started and how is it going.</description>
+    </item>
+    
     <item>
       <title>Bloggi - Request for Updates</title>
       <link>/posts/bloggi/</link>
