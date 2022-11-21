@@ -26,4 +26,4 @@ If we are not careful, we will make the mistake of building a software tradition
 
 Later generations might not have the complete information or understanding of why they follow them today. So they will question it. It is a healthy sign - a sign to revisit such customs. And either _rewrite_ or _reiterate_ them.
 
-> Otherwise, engineers will look for a dog to tie to the post to proceed with their ceremonies.
+> Otherwise, engineers will look for a dog to tie to a pole to proceed with their ceremonies.
