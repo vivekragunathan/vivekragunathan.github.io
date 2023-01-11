@@ -21,9 +21,9 @@ quotes:
     - William R. Cook
 
   - - My Compiler Compiles Your Compiler. I Still Am A C++ Fanatic.
-    - Anonymous & [Higher-Kinded Type](https://www.twitter.com/higherkindedtpe)
+    - Anonymous & <a href="https://www.twitter.com/higherkindedtpe">Higher-Kinded Type</a>
 
-  - - If you think C++ is not overly complicated, just what is a \`protected abstract virtual base pure virtual private\` destructor and when was the last time you needed one?
+  - - If you think C++ is not overly complicated, just what is a <code>protected abstract virtual base pure virtual private</code> destructor and when was the last time you needed one?
     - Tom Cargill
 
   - - C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows away your whole leg.
@@ -65,6 +65,10 @@ quotes:
   - - The most important single aspect of software development is to be clear about what you are trying to build.
     - Bjarne Stroustrup
 
+  - - A language that doesn’t affect the way you think about programming is not worth knowing.
+    - Alan Perlis, first recipient of the Turing Award
+    - https://twitter.com/alvinalexander/status/1612931904277282819?s=46&t=BDm2YHl1ARTsgIhpaVhPBQ
+
   - - If it doesn't work, it doesn't matter how fast it doesn't work.
     - Mich Ravera
 
@@ -83,6 +87,3 @@ quotes:
   - - Why do programmers mix up Halloween and Christmas? Because <code>Oct 31 = Dec 25</code>
     - ➶
     - https://twitter.com/mikiobraun/status/1454909340033458181?s=21
-
-  - - Progress lies not in enhancing what is, but in advancing toward what will be.
-    - Khalil Gibran

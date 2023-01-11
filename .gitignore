@@ -1,12 +1,15 @@
+.hugo_build.lock
+docs
+
 .idea
 .vscode
-
+.fleet
 *.iml
-bak/
 
 _site
 .sass-cache
 .jekyll-metadata
-*.lock
+.lock
+bak/
 
 .DS_Store
