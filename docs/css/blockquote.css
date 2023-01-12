@@ -1,0 +1,16 @@
+:root {
+   --brand-color: #323954;
+}
+
+blockquote {
+  font-size: 1.4em;
+  font-style: italic;
+  color: #555555;
+
+  margin: 50px auto;
+  border-left: 8px solid var(--brand-color);
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+  padding-right: 2.5rem;
+}

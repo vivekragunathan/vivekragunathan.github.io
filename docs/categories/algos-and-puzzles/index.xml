@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algos and Puzzles on A Developer&#39;s Experience</title>
+    <link>/categories/algos-and-puzzles/</link>
+    <description>Recent content in Algos and Puzzles on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate><atom:link href="/categories/algos-and-puzzles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Reduction</title>
+      <link>/2016/12/10/problem-reduction/</link>
+      <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
+      
+      <guid>/2016/12/10/problem-reduction/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
+&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Selective Combinations</title>
+      <link>/2016/05/16/resource-combinations/</link>
+      <pubDate>Mon, 16 May 2016 07:00:08 +0000</pubDate>
+      
+      <guid>/2016/05/16/resource-combinations/</guid>
+      <description>&lt;p&gt;Consider this scenario:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So that would be as follows:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
+
+abc def
+
+abc ghi
+
+abc
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linked List Quiz – Part II !!!</title>
+      <link>/2012/11/01/linked-list-quiz-part-ii/</link>
+      <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
+      
+      <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
+      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
+    </item>
+    
+    <item>
+      <title>Linked List Quiz – Part I !!!</title>
+      <link>/2012/06/18/linked-list-quiz-part-i/</link>
+      <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
+      
+      <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
+      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
+    </item>
+    
+    <item>
+      <title>Unique Id Generation !!!</title>
+      <link>/2012/03/09/uid-gen/</link>
+      <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
+      
+      <guid>/2012/03/09/uid-gen/</guid>
+      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
+    </item>
+    
+    <item>
+      <title>Quiz: Beauty of Numbers - Solution !!!</title>
+      <link>/2011/07/03/beauty-of-numbers-solution/</link>
+      <pubDate>Fri, 01 Jul 2011 20:45:08 +0000</pubDate>
+      
+      <guid>/2011/07/03/beauty-of-numbers-solution/</guid>
+      <description>One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains).</description>
+    </item>
+    
+    <item>
+      <title>Quiz: Beauty of Numbers !!!</title>
+      <link>/2011/07/02/quiz-beauty-of-numbers/</link>
+      <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
+      
+      <guid>/2011/07/02/quiz-beauty-of-numbers/</guid>
+      <description>Sriram quizzed:
+Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
+    </item>
+    
+  </channel>
+</rss>

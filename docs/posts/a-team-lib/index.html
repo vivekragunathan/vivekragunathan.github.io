@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.109.0">
+
+	<title>A-Team Library &middot; A Developer&#39;s Experience</title>
+
+	<meta name="description" content="" />
+
+	
+
+<meta itemprop="name" content="A-Team Library">
+<meta itemprop="description" content="A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it A-Team Library or ATL. Having to learn the “eyes-wide-shut” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and functionality. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it."><meta itemprop="datePublished" content="2015-01-26T01:11:52+00:00" />
+<meta itemprop="dateModified" content="2015-01-26T01:11:52+00:00" />
+<meta itemprop="wordCount" content="656">
+<meta itemprop="keywords" content="design," />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A-Team Library"/>
+<meta name="twitter:description" content="A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it A-Team Library or ATL. Having to learn the “eyes-wide-shut” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and functionality. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it."/>
+
+
+<meta property="og:title" content="A-Team Library" />
+<meta property="og:description" content="A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it A-Team Library or ATL. Having to learn the “eyes-wide-shut” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and functionality. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/a-team-lib/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2015-01-26T01:11:52+00:00" />
+<meta property="article:modified_time" content="2015-01-26T01:11:52+00:00" />
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+
+	<link type="text/css" rel="stylesheet" href="/css/poole.css">
+
+	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+	
+<style type="text/css">
+  .sidebar {
+    background-color: #347B98;
+  }
+
+  .read-more-link a {
+    border-color: #347B98;
+  }
+
+  .pagination li a {
+    color: #347B98;
+    border: 1px solid #347B98;
+  }
+
+  .pagination li.active a {
+    background-color: #347B98;
+  }
+
+  .pagination li a:hover {
+    background-color: #347B98;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #347B98;
+  }
+</style>
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/blockquote.css"><link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+
+	<link rel="shortcut icon" href="/images/favicon.png">
+
+	
+	</head>
+
+<body>
+	<aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://stackoverflow.com/users/495612" rel="me" title="Stackoverflow" target="_blank">
+        <i class="fab fa-stack-overflow" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/vivekragunathan" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://twitter.com/higherkindedtpe" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+
+    <section class="blog-search-section">
+      <div class="blog-search-box">
+	
+	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
+	<input type="text" class="blog-search-input" placeholder="Type to Search...">
+
+	<form style='display: none;' action='/search/' method="get">
+		<input name="q" type="text">
+	</form>
+</div>
+    </section>
+  </div>
+</aside>
+
+
+	<main class="content container">
+		<div class="post">
+  
+  <div class="image featured ">
+  	
+	</div>
+
+  <h1>A-Team Library</h1>
+
+
+  <div class="post-date">
+    <time datetime="2015-01-26T01:11:52Z">Jan 26, 2015</time> &middot; 4 min read
+  </div>
+
+  <p>A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it <em>A-Team Library</em> or <strong>ATL</strong>. Having to learn the “<em>eyes-wide-shut</em>” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and <em>functionality</em>. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it.</p>
+<p>Instead of showcasing the issues that were being faced and yet not realized, let me state the alternate – how things in such cases can be better:</p>
+<ul>
+<li>Business has to realize or let known: When the engineering team accepts the authority of the business in deciding the priority of features, the business has to be prudent enough and trust the recommendations of the engineering team. Business has to shed off the old-school thoughts and educate itself that things like refactoring, redesigning etc. have an <em>effective customer value</em>.</li>
+<li>Promote collaborative development – Huddle with fellow developers, Discuss and validate one’s ideas</li>
+<li>Think twice before investing time/effort in churning code. It is easy and usual to think that it is one’s own invention!</li>
+<li>Resist the temptation to modify code without consulting its author, even when there is a bug.</li>
+<li>Someone once told me a quote- <em>If you are writing code the way you were writing 10 years ago, you should probably change your profession</em>. Developers should keep a constant watch on the way they write code and the way they think about solving problems. Meta-thinking! A good tool to aid meta-thinking is a hammer. 😂</li>
+<li><em>First there was Waterfall, and then came Agile</em>. Agile is not a silver bullet. It is us who has to be agile, and know what we have to be Agile about.</li>
+<li>Was it Waterfall’s fault? Is it even a living thing? We always need something to follow to establish discipline, and when we fail, we blame the inanimate. Sooner or later it will happen to Agile too. In the end, we have to blame ourselves, and not any methodology, for what we did not do.</li>
+</ul>
+<p>Of course, none of this can be reasoned across the table without winning bureaucracy! On the other hand, documenting it would be a better approach. The <em>document would be a mind voice</em>. I was diligent to focus on the issues(s) rather than the person(s). Generally speaking, the issues are commonly occurring although their flavor would differ from case to case. Among the several issues that were making our jobs mundane and tedious, I narrated top 10 in the document – introduce the issue, its effects, solution, how it can abstracted for reuse and reliability, how my library solves them and yields actual business value etc.</p>
+<p>In that document, towards the epilogue, I had to persuade the intended client audience to realize that such issues existed in the system, establish discipline and accountability, and develop a culture of solving the issues with a holistic mindset. In a way, I had to implore the desired audience, at a philosophical level, emotional level. That climactic <em>court room like</em> dialogue is what this post showcases: <strong>A-Team Library</strong>.</p>
+<hr>
+<p><small>ATL was a bag of things – lot of classes, functions, scripts, utilities, techniques and practices, which when adopted as a (company) standard and <em>managed with discipline</em> guaranteed effective business value (time/effort/cost). Besides saving developer time for better use and increasing the reliability of the code, it would eliminate the mundane testing, not necessarily manual, and pave way for automating the scenarios(regress and beyond), which eventually provides confidence to release the final product when new features/changes are introduced – a value that the business wishes to have and demands!</small></p>
+</div>
+
+
+	</main>
+
+	<footer>
+  <div>
+    &copy;  2023
+
+    
+
+    
+  </div>
+</footer>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+
+	<script>
+	window.store = {
+	  
+	  
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(
+);
+			}
+		});
+	</script>
+
+	
+</body>
+
+</html>

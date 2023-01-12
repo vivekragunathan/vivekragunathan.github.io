@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.109.0">
+
+	<title>Rebooting on Ghost Land &middot; A Developer&#39;s Experience</title>
+
+	<meta name="description" content="" />
+
+	
+
+<meta itemprop="name" content="Rebooting on Ghost Land">
+<meta itemprop="description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions)."><meta itemprop="datePublished" content="2021-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-07-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="346">
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rebooting on Ghost Land"/>
+<meta name="twitter:description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions)."/>
+
+
+<meta property="og:title" content="Rebooting on Ghost Land" />
+<meta property="og:description" content="Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2021-07-22-rebooting-on-ghost-land/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-22T00:00:00+00:00" />
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+
+	<link type="text/css" rel="stylesheet" href="/css/poole.css">
+
+	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+	
+<style type="text/css">
+  .sidebar {
+    background-color: #347B98;
+  }
+
+  .read-more-link a {
+    border-color: #347B98;
+  }
+
+  .pagination li a {
+    color: #347B98;
+    border: 1px solid #347B98;
+  }
+
+  .pagination li.active a {
+    background-color: #347B98;
+  }
+
+  .pagination li a:hover {
+    background-color: #347B98;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #347B98;
+  }
+</style>
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/blockquote.css"><link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+
+	<link rel="shortcut icon" href="/images/favicon.png">
+
+	
+	</head>
+
+<body>
+	<aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://stackoverflow.com/users/495612" rel="me" title="Stackoverflow" target="_blank">
+        <i class="fab fa-stack-overflow" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/vivekragunathan" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://twitter.com/higherkindedtpe" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+
+    <section class="blog-search-section">
+      <div class="blog-search-box">
+	
+	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
+	<input type="text" class="blog-search-input" placeholder="Type to Search...">
+
+	<form style='display: none;' action='/search/' method="get">
+		<input name="q" type="text">
+	</form>
+</div>
+    </section>
+  </div>
+</aside>
+
+
+	<main class="content container">
+		<div class="post">
+  
+  <div class="image featured ">
+  	
+	</div>
+
+  <h1>Rebooting on Ghost Land</h1>
+
+
+  <div class="post-date">
+    <time datetime="2021-07-22T00:00:00Z">Jul 22, 2021</time> &middot; 2 min read
+  </div>
+
+  <p>The last time this blog got a facelift was about <a href="/posts/new-look-2016/">five</a> years ago. Phew! I had moved from the infamous Blogger to the famous WordPress. It was a relief moving away from Blogger.</p>
+<p>Despite the move to WordPress, I was also interested in Ghost. I have been in love with Ghost since its inception. One of the reasons for this affinity is its first-class support for markdown and satisfying default themes (remember the first version of Casper).</p>
+<p>For a long time now, as a hobby, I have been experimenting with Ghost in all sorts of ways - local machine, docker, Raspberry Pi, Ghost Pro trial (when it was not exorbitant $29 and even after). As much as it was a hobby, I have also been lazy moving to Ghost. The primary reason is self-hosting because I have to sell one of my kidneys for their Pro version. I consider their $9 plan a namesake.</p>
+<p>Why am I moving my blog to Ghost after all this time?</p>
+<ul>
+<li>
+<p>WordPress does not appeal to me for hosting blogs, especially programming.</p>
+</li>
+<li>
+<p>Their markdown support has gotten weird over time. It annoys me when posts written in Markdown get converted to HTML. I have encountered it more than a few times.</p>
+</li>
+<li>
+<p>I find only their <a href="https://wordpress.org/themes/twentyfifteen/">Twenty Fifteen</a> as the only sane free theme. Other free and paid do not fit my taste and needs, not without sufficient customization.</p>
+</li>
+<li>
+<p>The free version of WordPress has only primitive support for customization and no support for plugins, which is limiting. The paid version did not appeal to me just for plugins.</p>
+</li>
+</ul>
+<p>After long deliberation, I convinced myself that it is worthwhile to bear a little pain in self-hosting to enjoy the customizations I need.</p>
+<p>So, here we are! In <a href="https://blog.rhetoricalmusings.com/">Ghostland</a> in the <a href="https://ghost.org/themes/attila/">Attila</a> costume. Bye-bye WordPress.</p>
+<hr>
+<ul>
+<li>I will eventually discontinue posting on <a href="https://vivekragunathan.wordpress.com">WordPress</a>. I have no immediate plans to move <a href="https://lightspreserved.wordpress.com/">Lights Preserved</a>.</li>
+<li>I know my frequency of writing has gone down a lot. Call it writer&rsquo;s block. Or laziness. Or not learned anything new. I hope it is just a phase and will pass.</li>
+</ul>
+
+</div>
+
+
+	</main>
+
+	<footer>
+  <div>
+    &copy;  2023
+
+    
+
+    
+  </div>
+</footer>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+
+	<script>
+	window.store = {
+	  
+	  
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(
+);
+			}
+		});
+	</script>
+
+	
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anorm on A Developer&#39;s Experience</title>
+    <link>/categories/anorm/</link>
+    <description>Recent content in Anorm on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/anorm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confluence Alternatives</title>
+      <link>/posts/confluence-alternatives/</link>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/confluence-alternatives/</guid>
+      <description>Is Confluence your documentation / knowledge-management system? Are you sick of its shortcomings? Poor and non-standard rendering. Lack of markdown support. Weird and inconsistent handling of unicode. Do you still think Confluence is a boon for document writing? Just be aware that there are better alternatives.</description>
+    </item>
+    
+    <item>
+      <title>Anorm Primer</title>
+      <link>/posts/anorm-primer/</link>
+      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/anorm-primer/</guid>
+      <description>A primer on Anorm to use the interesting parts - core and combinator functions, as opposed to the mundane way of reading the column from &lt;code&gt;Row&lt;/code&gt;. The post highlights situations when you don&amp;rsquo;t have a predefined type for the parsed row, and you are dealing with discrete columns in the result set based on time and need.</description>
+    </item>
+    
+  </channel>
+</rss>

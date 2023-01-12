@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.109.0">
+
+	<title>.NET Reflection Extravanganza !!! &middot; A Developer&#39;s Experience</title>
+
+	<meta name="description" content="" />
+
+	
+
+<meta itemprop="name" content=".NET Reflection Extravanganza !!!">
+<meta itemprop="description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future."><meta itemprop="datePublished" content="2006-05-11T22:40:00+00:00" />
+<meta itemprop="dateModified" content="2006-05-11T22:40:00+00:00" />
+<meta itemprop="wordCount" content="1341">
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=".NET Reflection Extravanganza !!!"/>
+<meta name="twitter:description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future."/>
+
+
+<meta property="og:title" content=".NET Reflection Extravanganza !!!" />
+<meta property="og:description" content="Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.
+Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires hundreds of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.
+The twist in the game was that this was a brown &#43; green field development project. That demanded a wise solution - learn from the past and better the future." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2006/05/11/net-reflection-extravanganza/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2006-05-11T22:40:00+00:00" />
+<meta property="article:modified_time" content="2006-05-11T22:40:00+00:00" />
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+
+	<link type="text/css" rel="stylesheet" href="/css/poole.css">
+
+	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+	
+<style type="text/css">
+  .sidebar {
+    background-color: #347B98;
+  }
+
+  .read-more-link a {
+    border-color: #347B98;
+  }
+
+  .pagination li a {
+    color: #347B98;
+    border: 1px solid #347B98;
+  }
+
+  .pagination li.active a {
+    background-color: #347B98;
+  }
+
+  .pagination li a:hover {
+    background-color: #347B98;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #347B98;
+  }
+</style>
+
+
+
+	<link type="text/css" rel="stylesheet" href="/css/blockquote.css"><link type="text/css" rel="stylesheet" href="/css/custom.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+
+	<link rel="shortcut icon" href="/images/favicon.png">
+
+	
+	</head>
+
+<body>
+	<aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="/">
+            <img 
+              src="/images/profile.png" 
+              class="img-circle img-headshot center" 
+              alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>A Developer&#39;s Experience</h1>
+
+      
+      <p class="lead">The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook</p>
+      
+    </div>
+
+    <hr />
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        <li>
+          <a href="/post/">Posts</a>
+        </li><li>
+          <a href="/pages">Pages</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/quotations">Qs</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://stackoverflow.com/users/495612" rel="me" title="Stackoverflow" target="_blank">
+        <i class="fab fa-stack-overflow" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/vivekragunathan" rel="me" title="GitHub" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://twitter.com/higherkindedtpe" rel="me" title="Twitter" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+
+    <section class="blog-search-section">
+      <div class="blog-search-box">
+	
+	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
+	<input type="text" class="blog-search-input" placeholder="Type to Search...">
+
+	<form style='display: none;' action='/search/' method="get">
+		<input name="q" type="text">
+	</form>
+</div>
+    </section>
+  </div>
+</aside>
+
+
+	<main class="content container">
+		<div class="post">
+  
+  <div class="image featured ">
+  	
+	</div>
+
+  <h1>.NET Reflection Extravanganza !!!</h1>
+
+
+  <div class="post-date">
+    <time datetime="2006-05-11T22:40:00Z">May 11, 2006</time> &middot; 7 min read
+  </div>
+
+  <p>Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.</p>
+<p>Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires <strong>hundreds</strong> of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.</p>
+<p>The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.</p>
+<p>So, I came up with a different approach with the incredible Reflection in .NET. All of the events fired by the Server, its prototype and other relevant information can be got through reflection. For each of the event methods, an event sink [event handler] can be generated at runtime. This means I have to create a method at runtime matching the prototype of the event. The dynamic method thus generated runtime has to appended with some method body performing the desired <code>Action</code>, and then has to be registered as the event sink for the corresponding event. So, when the event is fired by the Server, the dynamically created event handler is called without any intervention. This is the theme of my solution. This keeps the Bridge unaffected for any event related changes in the Server.</p>
+<p>Implementing this solution was a great and exciting adventure, although a tiring one too.</p>
+<p>I was able to get the event information about the events fired by Server through reflection. I used the following sort of code for generating the dynamic method or the supposedly the dynamic event handler:-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Threading</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Reflection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Reflection.Emit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TaskDynamicEventHandler</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="k">ref</span> <span class="n">TypeBuilder</span> <span class="n">myTypeBld</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">string</span> <span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span><span class="p">[]</span> <span class="n">eventMethodParameters</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span> <span class="n">eventreturnType</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">MethodBuilder</span> <span class="n">myMthdBld</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myTypeBld</span><span class="p">.</span><span class="n">DefineMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">				<span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">MethodAttributes</span><span class="p">.</span><span class="n">Static</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">eventreturnType</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">eventMethodParameters</span>
+</span></span><span class="line"><span class="cl">			<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">ILGenerator</span> <span class="n">ILout</span> <span class="p">=</span> <span class="n">myMthdBld</span><span class="p">.</span><span class="n">GetILGenerator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">numParams</span> <span class="p">=</span> <span class="n">eventMethodParameters</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">x</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">numParams</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Load the parameter onto the evaulation stack</span>
+</span></span><span class="line"><span class="cl">			<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ldarg_S</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// Use the above sort of logic to access the event parameter</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// values and then package into a hashtable, and then call</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// a static method HandleEvent in TaskDynamicEventHandler,</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// which takes the hashtable as a parameter. All the code is</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// generated in IL using ILGenerator.</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">AppDomain</span> <span class="n">myDomain</span> <span class="p">=</span> <span class="n">Thread</span><span class="p">.</span><span class="n">GetDomain</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">AssemblyName</span> <span class="n">asmName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AssemblyName</span><span class="p">(</span><span class="s">&#34;DynamicAssembly1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">AssemblyBuilder</span> <span class="n">myAsmBuilder</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myDomain</span><span class="p">.</span><span class="n">DefineDynamicAssembly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">					<span class="n">asmName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="n">AssemblyBuilderAccess</span><span class="p">.</span><span class="n">RunAndSave</span>
+</span></span><span class="line"><span class="cl">			<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">ModuleBuilder</span> <span class="n">myModule</span> <span class="p">=</span> <span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">DefineDynamicModule</span><span class="p">(</span><span class="s">&#34;DynamicModule1&#34;</span><span class="p">,</span> <span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">TypeBuilder</span> <span class="n">myTypeBld</span> <span class="p">=</span> <span class="n">myModule</span><span class="p">.</span><span class="n">DefineType</span><span class="p">(</span><span class="s">&#34;MyDynamicType&#34;</span><span class="p">,</span> <span class="n">TypeAttributes</span><span class="p">.</span><span class="n">Public</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">string</span> <span class="n">dynamicMethodName</span> <span class="p">=</span> <span class="s">&#34;DynamicEventHandler&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">			<span class="n">myTypeBld</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">dynamicMethodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">eventMethodParameters</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="n">eventreturnType</span>
+</span></span><span class="line"><span class="cl">		<span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">Type</span> <span class="n">myType</span> <span class="p">=</span> <span class="n">myTypeBld</span><span class="p">.</span><span class="n">CreateType</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">myAsmBuilder</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">&#34;MyDynamicAsm.dll&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The drawback in this approach was that a dynamic assembly+module+type was getting created for each event. This was not efficient enough, and so slightly altered the logic to create the dynamic assembly+module+type once and add the methods [dynamic event handlers] to the dynamic type.</p>
+<p>Though a level of efficiency may have been achieved, it was not elegant enough to be satisfied. The dynamic event handlers [DEH] are all methods of a specific type belonging to a different assembly that is generated at run-time, and these DEH do not belong to the same assembly as the <code>TaskDynamicEventHandler</code> class. The responsibility of the DEHs was to read its parameter name and values at runtime, package them into a hash table, and call a method <code>HandleEvent</code> of <code>TaskDynamicEventHandler</code>, and it is in <code>HandleEvent</code> that the actual job of logging is done. Well, the actual job is not only logging but other things that require access to the members of <code>TaskDynamicEventHandler</code>. So the non-elegance here was that <code>HandleEvent</code> was exposed as <code>public</code> <code>static</code> method so that the DEH in the dynamic assembly could call, which lead to the ugliness where <code>HandleEvent</code> was exposed to the outside world from the assembly to which <code>TaskDynamicEventHandler</code> belongs to. So <code>HandleEvent</code> cannot be non-public. But it was required for other reasons to be an instance method.</p>
+<ul>
+<li>Here is the most interesting part. The aim was then make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class in the DEH execution, and IF i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. That was the pain and it was pretty tricky and interesting that everybody to whomever I explained could not correctly grasp that the ‘this’ used during the compiled code will not be the same in the runtime IL code of the DEH, and neither can I load an object reference without me creating it or getting it as a parameter. That is all the .NET type security. You will not be given any chance to do <code>reinterpret\_cast</code> kind of stuff at all. But you can pass the <code>TaskDynamicEventHandler</code> object reference [<code>this</code>] to the DEH but that beats the goal where the prototype of the DEH will not match the prototype of its corresponding event and so cannot act as a sink.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// returnType - event method&#39;s return type</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// parameterTypes - event method&#39;s parameter types list</span>
+</span></span><span class="line"><span class="cl"><span class="n">ArrayList</span> <span class="n">parameterTypes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">parameterTypes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">parameterTypes</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DynamicMethod</span> <span class="n">dynamicEventHandler</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">DynamicMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">methodName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">returnType</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">Type</span><span class="p">[])</span> <span class="n">parameterTypes</span><span class="p">.</span><span class="n">ToArray</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Type</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="k">typeof</span><span class="p">(</span><span class="n">TaskDynamicEventHandler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span></code></pre></div><p>Hence the DEH is now a part of the same assembly and class and it can call even non-public methods. Efficiency was well achieved but still elegant was a few feet away. The dynamic method created and added to <code>TaskDynamicEventHandler</code> using DynamicMethod class is a static method and hence cannot access instance methods of <code>TaskDynamicEventHandler</code>, although it can access non-public methods.</p>
+<ul>
+<li>
+<p>Here is the most interesting part. The aim of this iteration is to make the DEH call an instance method of the <code>TaskDynamicEventHandler</code> ie <code>HandleEvent</code>. How do you make a static method call an instance method ? Well, if I have an object reference of the <code>TaskDynamicEventHandler</code> class during the DEH execution, and if i can load that on to the evaluation stack [using the IL code/ILGenerator], then i call an instance method. Things are going to get interesting now. The difference between an instance and static method is that an instance method has the object reference, to which it belongs, as the first parameter while a static method does not. Though syntactically, the object reference is not added, the compiler adds it. So while creating the dynamic method [DEH] for an event, the <code>TaskDynamicEventHandler</code> object reference [this] is added as the first parameter to the event parameter list. This makes the DEH seem to be an instance method. So during runtime, when an event is fired, its corresponding DEH executes, the <code>Lgarg\_0</code> in the IL code represents the object reference it belongs to, and it is the same as that for <code>HandleEvent</code>.</p>
+</li>
+<li>
+<p>But even now the <code>HandleEvent</code> is public and is vulnerable for improper usage. I made it a virtual method. That is fun, and now it is entirely the user’s responsibility to avoid improper usage, and it is up to the user to override <code>HandleEvent</code> to do whatever he wants.</p>
+</li>
+<li>
+<p>Few minor things- Added <code>Trace</code>.<code>WriteLine</code> in the IL code using ILGenerator for debugging; Added try-catch exception blocks for catching exceptions, but unfortunately does not seem to work.</p>
+</li>
+</ul>
+<p>All of these approaches until the final efficient and elegant solution took several iterations of revisit and review. I will not able to explain about the difficulties and tough IL debugging experience that I went through trying to make the <code>HandleEvent</code> an instance virtual method, although I will be able to share the joy and knowledge now. It was a great experience !!!</p>
+</div>
+
+
+	</main>
+
+	<footer>
+  <div>
+    &copy;  2023
+
+    
+
+    
+  </div>
+</footer>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+
+	<script>
+	window.store = {
+	  
+	  
+	}
+
+	hljs.highlightAll();
+
+	document
+		.querySelector('.blog-search-input')
+		.addEventListener('keyup', function (event) {
+			event.preventDefault();
+
+			if (event.keyCode === 13) {
+				document.querySelector('.blog-search-box>form>input').value = 
+					document.querySelector('.blog-search-input').value;
+
+				document
+					.querySelector('.blog-search-box>form')
+					.submit(
+);
+			}
+		});
+	</script>
+
+	
+</body>
+
+</html>
