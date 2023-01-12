@@ -1,5 +1,6 @@
 .hugo_build.lock
-docs
+docs/*
+!docs/.gitkeep 
 
 .idea
 .vscode
