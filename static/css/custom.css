@@ -17,6 +17,10 @@ body {
 	background-image: url(/images/page-bg.png)
 }
 
+hr {
+	border-top: 1px solid #aca5a5;
+}
+
 .sidebar {
 	overflow: auto;
 	background-color: #323954;

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Now I&#39;ll have padding both ways</title>
+      <link>/posts/css-padding-props/</link>
+      <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/css-padding-props/</guid>
+      <description>In my CSS tinkering endeavors, I can&amp;rsquo;t believe I was ignorant of the existence of the very properties that I have been longing for. I am delighted I finally found it.</description>
+    </item>
+    
     <item>
       <title>Software Practices and Tradition</title>
       <link>/posts/software-tradition/</link>
