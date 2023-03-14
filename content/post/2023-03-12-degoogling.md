@@ -8,7 +8,7 @@ categories:
   - CSS
 tags: [ 'online', 'security', 'privacy' ]
 summary: |
-  In my CSS tinkering endeavors, I can't believe I was ignorant of the existence of the very properties that I have been longing for. I am delighted I finally found it.
+  A rundown of alternatives for degoogling based on recent conversations with friends and acquitances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  *Brand names are not functionalities*. Don't hesistate to ditch a product/company in the case of foul play. 
 ---
 
 Recently I have been talking more and more about the security and privacy of software applications/services with friends and acquaintances. Conversations start somewhere on an unrelated topic and eventually land on emails, chats, or other applications. What a great place to start talking about security and privacy.
