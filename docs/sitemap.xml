@@ -3,7 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2023-03-12T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/arm64/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/parallels/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/popos-arm64/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/popos/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
     <lastmod>2023-03-12T00:00:00+00:00</lastmod>
@@ -17,16 +38,10 @@
     <loc>/tags/online/</loc>
     <lastmod>2023-03-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2023-03-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/privacy/</loc>
     <lastmod>2023-03-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/security/</loc>
-    <lastmod>2023-03-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2023-03-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/css-padding-props/</loc>
