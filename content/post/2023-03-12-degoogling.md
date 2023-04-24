@@ -104,7 +104,7 @@ Most would recommend an E2E email alternative, which I am sure Gmail already is.
 
 There is [Hey](https://www.hey.com/). It is fancy. E2E. But I think it is unnecessarily expensive. Just a worthy mention though.
 
-[Skiff](https://skiff.com) is new kid in the block. It is ZKE like Proton or Tutanota. What Proton took like a decade to offer, Skiff is already offering almost everything within a year of their inception. Their interface is ways better than others. They offer email, drive, calendar, pages (writing), all E2E. Reasonably better pricing.
+[Skiff](https://skiff.com) is new kid in the block. It is ZKE - Zero Knowledge Encryption; like Proton or Tutanota. What Proton took like a decade to offer, Skiff is already offering almost everything a little over a year of their inception. Their interface is ways better than others. They offer email, drive, calendar, pages (writing). ZKE. No Ads. No Tracking. Better pricing. Actively developed. Extremely responsive team.
 
 Best bet is [Fastmail](https://www.fastmail.com) which offers E2E encryption. But they have been around for like 20 years or something. They have earned high reputation for their privacy / security and seen in the same light as Proton / Tutanota. They have the simplest and clean interface. What you will love is the virtually unlimited [aliases](https://www.fastmail.com/how-it-works/#section-2) they allow to create. Plus support for [masked](https://www.fastmail.com/how-it-works/#section-4) emails (integration with [1Password](https://1password.com) and [Bitwarden](https://www.bitwarden.com)). One app gets you all - Mail, Calendar, Contacts, with the same consistent interface across all platforms.
 
