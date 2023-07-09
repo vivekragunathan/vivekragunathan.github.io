@@ -8,7 +8,7 @@ categories:
   - CSS
 tags: [ 'online', 'security', 'privacy' ]
 summary: |
-  A rundown of alternatives for degoogling based on recent conversations with friends and acquitances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  *Brand names are not functionalities*. Don't hesistate to ditch a product/company in the case of foul play. 
+  A rundown of alternatives for degoogling based on recent conversations with friends and acquitances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  *Brand names are not functionalities*. Don't hesistate to ditch a product/company in the case of foul play.
 ---
 
 Recently I have been talking more and more about the security and privacy of software applications/services with friends and acquaintances. Conversations start somewhere on an unrelated topic and eventually land on emails, chats, or other applications. What a great place to start talking about security and privacy.
@@ -47,16 +47,31 @@ If you are looking for a Chromium-based alternative, [Firefox](https://getfirefo
 
 Or you can just use one of these. Or all of them like me 😀:
 
-- Duck Duck Go - 
+- [Mullvad Browser](https://mullvad.net/en/browser)
+  - From the company that provides VPN in colloboration with the Tor project
+  - Hardened setup and comes with a strict defaults. uBlock preinstalled.
+  - The most aggressive one of the kind. Kills trackers. Blocks fingerprinting. Blocks XSS. Blocks Youtube.
+  - Customizable. Can install extensions but mostly not needed.
+  - Firefox based
+
+- Duck Duck Go
   - Browser from the search engine company.
   - Available currently for Mac, iOS and Android. Since it is in its infancy, it lacks many features.
-  - The most aggressive one of the kind. Kills almost all trackers. Suppress ads the best.
+  - Kills almost all trackers. Suppress ads the best.
   - Automatically suppress cookie popups 🚀saying no to tracking.
   - Has builtin Duck Player as a Youtube player replacement.
   - Handy 🔥 icon to burn the trace of browsing anytime in a tab or window.
   - DDG (not browser per se) offers email protection or email [relay](https://duckduckgo.com/email) that strips emails of trackers, for free. Mozilla does it too but does not seem to have earned public trust. Puzzled why.
   - Webkit based.
-  
+
+- [LibreWolf](https://librewolf.net/)
+
+  Better said in their own words ...
+
+  _This project is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. This is achieved through our privacy and security oriented settings and patches. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM_.
+
+  Like Mullvad, LibreWolf is a hardened setup and comes with a strict set of defaults yet fully featured.
+
 - [Orion](https://browser.kagi.com/)
 
   - Webkit based. Safari on steroids.
@@ -71,7 +86,7 @@ Or you can just use one of these. Or all of them like me 😀:
   - Currently only for Mac. But mobile and other platforms coming soon.
   - You will be thrilled to see the kind of [features](https://youtu.be/sKUdS1LUzhs) they [built](https://start.arc.net/cure-tab-overload) on top of Chromium - Spaces, Profiles, Boosts (scripting and styling), Easels (Canvas), Notes and more. Can share links for notes.
 
-Firefox is solo against the rest of the browsers that use Chromimum. a worthy mention and has a following of its own. It is I left out Firefox because 
+Firefox is solo against the rest of the browsers that use Chromimum. a worthy mention and has a following of its own. It is I left out Firefox because
 
 Sinceit is on the verge of fading away (like Windows Phone). Future is either Chromium or Webkit, for the mainstream.
 
@@ -153,9 +168,9 @@ A similar setup is available on Apple but not with that much storage but way les
 
 ## Messenger
 
-[Signal](https://signal.org) is the one of the top alternatives for messengers of any platform. But it is not the ultimate. [Session](https://getsession.org/privacy-policy) (kind of) is. If you happen to decide to switch to Session, don't worry, you got a friend to talk to; the only one 🤣
+[Signal](https://signal.org) is the one of the top alternatives for messengers of any platform. But it is not the ultimate. [Session](https://getsession.org/privacy-policy) (kind of) is. If you happen to decide to switch to Session, don't worry, you got a friend to talk to; possibly the only one 🤣
 
-Everybody talks about Session and [Briar](https://briarproject.org/) but nobody seems to be on it. Perhaps we should categorize them as Classic (A book which people praise and don’t read.) 
+Everybody talks about Session and [Briar](https://briarproject.org/) but nobody seems to be on it. Perhaps we should categorize them as Classic (A book which people praise and don’t read.)
 
 Some claim [Matrix](https://www.matrix.org) to be great. Personally, I found maintaining it a royal pain let alone the pain setting it up. There are implementations like [Element](https://element.io) that provide integrations if you like to try. Am not sure if it is E2E for all integrations. Tried Element too but couldn't spare time at the time to troubleshoot the bridge / integrations issues for an uninterrupted connection to the target messaging platforms.
 
@@ -163,7 +178,7 @@ If you are an iPhone user, iMessage is better than Google Chat. With the recent 
 
 [Telegram](https://www.telegram.org) is an option on the table as long as they don't go dirty. It is E2E but ZKE is supported on per device basis, which is not helpful. *It has got the best usability and cross platform availability of the kind*.
 
-Do not use WhatsApp is an *ideal* to strive for. But we may not be able to attain it. Because every single person around you will drag you into the dirt (WhatsApp). Starting from schools, residential community, business contacts, and mainly family will force you into installing WhatsApp. It is a zombie game. First you are infected then you will infect others. 
+Do not use WhatsApp is an *ideal* to strive for. But we may not be able to attain it. Because every single person around you will drag you into the dirt (WhatsApp). Starting from schools, residential community, business contacts, and mainly family will force you into installing WhatsApp. It is a zombie game. First you are infected then you will infect others.
 
 Good luck resisting and fighting the society. FWIW, here is some inspiration, I am free of evil and stayed clear of WhatsApp. Never installed. Never used. You will lose friends. But the ones you lose are proving that they are indeed not friends. But don't worry, you will find new ones. At least one, on Session 🤣.
 
@@ -197,7 +212,7 @@ Please note that there are other avenues and actors involved when it comes to se
 
 Do not get emotionally attached to a name.  *Brand names are not functionalities*. Based on what we know, Apple does not sell user data. If ever they do, don't hesistate to ditch them. Same goes to any app. Telegram seems to play nice today. It is a great app and has fantastic features. But if you know or suspect that there is foul play, be the first to switch although you should at least be on Signal already.
 
-We have been led to believe that Facebook and Instagram are how we build and maintain relationships and our circles. If you are a public figure, you will be forced to use these platforms to your advantage. If not, there are ways to share it [wisely](https://family-album.com/en/letter_from_founder). 
+We have been led to believe that Facebook and Instagram are how we build and maintain relationships and our circles. If you are a public figure, you will be forced to use these platforms to your advantage. If not, there are ways to share it [wisely](https://family-album.com/en/letter_from_founder).
 
 Do not trust apps (except Maps) that require your location. Even weather apps do not need location access. You should be able to provide the location manually and even set notifications for weather alerts. contact info and other identification details. It is real concerning that simple apps for simple note taking and news require location, contact info and other identification details.
 
@@ -222,7 +237,7 @@ So, that's a start. Choose your app wisely.
 ## Appendix
 
 - Degoogling discussed here is relevant only for your personal digital life. In all likelihood, you will not have control over work life. Say your company uses Google workspace.
-- I mentioned a number of 
+- I mentioned a number of
   - Mac apps / options because Mac has become the de facto machine for work in many companies.
   - iOS apps because it is widely used. Also, aren't we talking about staying away from Android?
 - I did not mention the Tor browser or its variants. There are a few annoyances that not many will be ready to deal with.
@@ -231,3 +246,8 @@ So, that's a start. Choose your app wisely.
 - While talking about Word and Spreadsheets, I did not talk about Presentation. I feel it is less used unless it is like bread and butter for you. Fear not, there are good alternatives.
 - Most of the apps are cross-platform. So you would find it on Windows. Finding it on Linux is a 50-50 chance. But these apps are also accessible online via a browser.
 - I did not mention about F-droid, open source play store on Android. I have been on Android for 14+ years. Been there. Done that - custom ROMs, F-droid, adb to remove OEM/stock apps. Trust me, it is not fun. In fact, it is a pain. While F-Droid has an immense collection of apps, you will not find everything you need. Over the years, as the phones became more expensive, I lost the thrill to tinker a $800+ phone - Samsung or other.
+
+### Updates
+
+2023-03-12: Initial
+2023-07-11: Added Mullvad and LibreWolf to Browsers
