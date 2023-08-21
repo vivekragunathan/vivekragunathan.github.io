@@ -15,12 +15,12 @@ summary: |
 ---
 
 - sbt build is a collection of settings that are loaded from various places
-    - global plugins (`~/.sbt/1.0/plugins`)
-    - project plugins (`<project-folder>/project/`)
-    - project settings (`build.sbt`)
+  - global plugins (`~/.sbt/1.0/plugins`)
+  - project plugins (`<project-folder>/project/`)
+  - project settings (`build.sbt`)
 - Cache `.ivy2` and `.sbt` on CI like the way it happens on local for speed
 - `consoleProject` - Starts Scala interpreter with sbt and build definition
-    - `buildStructure.eval.settings.size` - Prints the total number of settings found in the project
+  - `buildStructure.eval.settings.size` - Prints the total number of settings found in the project
 - Chain commands `sbt clean compile test:compile`
 - `inspect <setting>` - `inspect tree SourceDirectory`, `inspect sourceDirectory`
 - Force resolution from a specific resolver
@@ -47,11 +47,11 @@ summary: |
     
     # To enable forking all test tasks only
     Test / fork := true
+    ```
+
+    Use the following command to kill everything java except sbt (when fork is enabled)
     
-    # -- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
-    
-    # Use the following command to kill everything java 
-    # except sbt (when fork is enabled)
+    ```scala
     kill -9 `ps -h |
       grep java |
       grep -v sbt-launch |
@@ -59,12 +59,32 @@ summary: |
     ```
     
 - `Test / testOptions += Tests.Argument("-oT")`
-    - `-oI`: List failed tests at the end of the build cycle
-    - `-oT`: List failed tests with a short stack trace
-    - `-oG`: List failed tests with full stack trace
+  - `-oI`: List failed tests at the end of the build cycle
+  - `-oT`: List failed tests with a short stack trace
+  - `-oG`: List failed tests with full stack trace
 
-**Resources I am ever grateful for**
+### Tidbits
 
-- [SBT - A Task Engine](https://jazzy.id.au/2015/03/03/sbt-task-engine.html)
-- [SBT - A Declarative DSL](https://jazzy.id.au/2015/03/04/sbt-declarative-dsl.html)
+#### Define environment variables
+
+If you are running your program via `sbt run` (or `runMain`) and your program expects certain environment variables defined then you can use one of the following techniques to define environment variables.
+
+- Via command line args: `KEY1=VALUE1 KEY2=VALUE2 sbt run`
+
+- Via JVM args: `sbt -DKEY1=VALUE1 -DKEY2=VALUE2 run`
+
+- Define env. variables from within sbt shell
+
+  ```scala
+  $ sbt> eval System.setProperty("key1", "value1")
+  $ sbt> eval System.setProperty("key2", "value2")
+  $ sbt> run
+  ```
+
+  The last command `run` will allow your program to use the environment variables defined prior using `eval`.
+
+### Resources I am ever grateful for
+
+- [SBT - A Task Engine](https://jazzy.id.au/2015/03/03/sbt-task-engine.html) by [James Roper](https://jazzy.id.au)
+- [SBT - A Declarative DSL](https://jazzy.id.au/2015/03/04/sbt-declarative-dsl.html) by [James Roper](https://jazzy.id.au)
 - [How to waste less time with SBT](https://youtube.com/watch?v=qkQoKWBlWok)

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.115.1">
+	<meta name="generator" content="Hugo 0.117.0">
 
 	<title>Quiz: Choosing an array of integers !!! &middot; A Developer&#39;s Experience</title>
 
@@ -90,7 +90,7 @@ Integer[] na2 = new Integer[10];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -185,8 +185,8 @@ Integer[] na2 = new Integer[10];
 
   <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">];</span>
 </span></span></code></pre></div><p>Not to poke the feelings of passionate Java programmers &hellip; even the experienced ones seemed to have misplaced the difference. I would blame the language. Well, not the language, it is inanimate. I mean the fault lies with the language designers.</p>
 <p>The first one <code>int[]</code> is an array of integers, primitives. In other words, the array is going to store primitive integer values each of which are of the processor-word size. The second one <code>Integer[]</code> is an array of objects each holding an integer inside. Each <code>Integer</code> is not just equal to the size of an int. Since <code>Integer</code> is inherently an <code>Object</code>, there is an extra runtime/type-system associated size overhead.</p>
 <p>Unlike the <code>int[]</code>, the <code>Integer[]</code> plays relatively hard on the GC. Along with the underlying array, each individual <code>Integer</code> object becomes of the graph that the GC has to walk through during clean up.</p>

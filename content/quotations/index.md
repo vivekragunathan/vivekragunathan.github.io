@@ -49,7 +49,7 @@ sharing_disabled:
 }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" crossorigin="anonymous"></script>
 
 <script>
 function renderAuthor(quote) {

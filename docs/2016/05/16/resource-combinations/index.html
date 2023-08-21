@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.115.1">
+	<meta name="generator" content="Hugo 0.117.0">
 
 	<title>Selective Combinations &middot; A Developer&#39;s Experience</title>
 
@@ -114,7 +114,7 @@ abc
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -271,13 +271,13 @@ abc
 <p><strong>Finale</strong></p>
 <p>If we can represent the input parameters in a more succinct format like a number and if we can identify a pattern among the numerical representation for each parameter, then we should be able to generate the filename segments <em>dynamically</em>.</p>
 <p>If we assume each parameter to be a bit of an integer, first parameter being the most significant bit, then the bit representations for the input – <code>config</code>, <code>type</code>, <code>en_US</code> would be as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mo">0000</span> <span class="mo">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0111</span> <span class="c1">// 7 =&gt; config\_type\_en_US
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
-</span></span><span class="line"><span class="cl"><span class="mo">0000</span> <span class="mo">0110</span> <span class="c1">// 6 =&gt; config_type
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0110</span> <span class="c1">// 6 =&gt; config_type
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
-</span></span><span class="line"><span class="cl"><span class="mo">0000</span> <span class="mo">0101</span> <span class="c1">// 5 =&gt; config\_en\_US.json
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0101</span> <span class="c1">// 5 =&gt; config\_en\_US.json
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
-</span></span><span class="line"><span class="cl"><span class="mo">0000</span> <span class="mo">0100</span> <span class="c1">// 4 =&gt; config.json
+</span></span><span class="line"><span class="cl"><span class="n">0000</span> <span class="n">0100</span> <span class="c1">// 4 =&gt; config.json
 </span></span></span></code></pre></div><p>Well, I am sure you see the pattern. The integer representation of each filename segment decrements by 1 from the most specialized filename and stops at the least specialized one. This is true of any set of parameters and the selective combinations are generated dynamically.</p>
 <p>Writing the code now for this solution should be a pie, the pleasure of which I will leave it to you.</p>
 <p>Thanks to <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a> in helping me discover the solution!</p>
