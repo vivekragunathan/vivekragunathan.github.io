@@ -4,11 +4,10 @@ author: higherkindedtype
 layout: post
 url: /posts/degoogling
 date: 2023-03-12
-categories:
-  - CSS
+featured_image: /images/degoogling.png
 tags: [ 'online', 'security', 'privacy' ]
 summary: |
-  A rundown of alternatives for degoogling based on recent conversations with friends and acquitances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  *Brand names are not functionalities*. Don't hesistate to ditch a product/company in the case of foul play.
+  A rundown of alternatives for degoogling based on recent conversations with friends and acquaintances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  *Brand names are not functionalities*. Don't hesitate to ditch a product/company in the case of foul play.
 ---
 
 Recently I have been talking more and more about the security and privacy of software applications/services with friends and acquaintances. Conversations start somewhere on an unrelated topic and eventually land on emails, chats, or other applications. What a great place to start talking about security and privacy.

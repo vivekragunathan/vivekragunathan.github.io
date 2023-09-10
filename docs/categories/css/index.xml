@@ -6,16 +6,7 @@
     <description>Recent content in CSS on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/css/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Degooling</title>
-      <link>/posts/degoogling/</link>
-      <pubDate>Sun, 12 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/degoogling/</guid>
-      <description>A rundown of alternatives for degoogling based on recent conversations with friends and acquitances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  &lt;em&gt;Brand names are not functionalities&lt;/em&gt;. Don&amp;rsquo;t hesistate to ditch a product/company in the case of foul play.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Now I&#39;ll have padding both ways</title>
       <link>/posts/css-padding-props/</link>
