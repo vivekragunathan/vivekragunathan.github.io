@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>The Surprising Finalize Call !!! &middot; A Developer&#39;s Experience</title>
 
@@ -177,13 +177,13 @@ class SomeClass : IDisposable { public SomeClass() { Trace." />
   <p>Guess the output of the following program:-</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SomeClass</span> <span class="p">:</span> <span class="n">IDisposable</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span> <span class="n">SomeClass</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">SomeClass</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass - Attempting instance creation&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">		<span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">(</span><span class="s">&#34;Ohh !!! Not Now&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">void</span> <span class="n">Dispose</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="k">void</span> <span class="n">Dispose</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="n">Trace</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;SomeClass::Dispose&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>

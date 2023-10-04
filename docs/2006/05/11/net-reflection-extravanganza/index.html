@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>.NET Reflection Extravanganza !!! &middot; A Developer&#39;s Experience</title>
 
@@ -190,7 +190,7 @@ The twist in the game was that this was a brown &#43; green field development pr
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TaskDynamicEventHandler</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">CreateDynamicEventHandler</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">		<span class="k">ref</span> <span class="n">TypeBuilder</span> <span class="n">myTypeBld</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">		<span class="kt">string</span> <span class="n">methodName</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">		<span class="n">Type</span><span class="p">[]</span> <span class="n">eventMethodParameters</span><span class="p">,</span>
@@ -222,7 +222,7 @@ The twist in the game was that this was a brown &#43; green field development pr
 </span></span><span class="line"><span class="cl">		<span class="n">ILout</span><span class="p">.</span><span class="n">Emit</span><span class="p">(</span><span class="n">OpCodes</span><span class="p">.</span><span class="n">Ret</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="n">AppDomain</span> <span class="n">myDomain</span> <span class="p">=</span> <span class="n">Thread</span><span class="p">.</span><span class="n">GetDomain</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">		<span class="n">AssemblyName</span> <span class="n">asmName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AssemblyName</span><span class="p">(</span><span class="s">&#34;DynamicAssembly1&#34;</span><span class="p">);</span>

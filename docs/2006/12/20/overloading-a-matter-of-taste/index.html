@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Overloading - A Matter Of Taste !!! &middot; A Developer&#39;s Experience</title>
 
@@ -178,7 +178,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Parent</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">void</span> <span class="n">Foo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="k">void</span> <span class="n">Foo</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Parent.Foo&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">       <span class="p">}</span>
@@ -186,7 +186,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Child</span> <span class="p">:</span> <span class="n">Parent</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">void</span> <span class="n">Bar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="k">void</span> <span class="n">Bar</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Child.Bar&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">       <span class="p">}</span>
@@ -194,7 +194,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Base</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">c</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">           <span class="n">c</span><span class="p">.</span><span class="n">Bar</span><span class="p">();</span>
@@ -203,12 +203,12 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Parent</span> <span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Parent</span> <span class="n">p</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">p</span><span class="p">.</span><span class="n">Foo</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">       <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">XYZ</span><span class="p">(</span><span class="n">Child</span> <span class="n">c</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="k">base</span><span class="p">.</span><span class="n">XYZ</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">       <span class="p">}</span>
@@ -216,7 +216,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">User</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">       <span class="p">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">Child</span> <span class="n">c</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Child</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">           <span class="n">Parent</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span> <span class="k">as</span> <span class="n">Parent</span><span class="p">;</span>

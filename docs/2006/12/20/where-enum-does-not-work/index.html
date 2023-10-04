@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>where enum does not work !!! &middot; A Developer&#39;s Experience</title>
 
@@ -188,9 +188,9 @@ A type specified as an _interface-type_ constraint must satisfy the following ru
 - The type must be an interface type.
 - A type must not be specified more than once in a given `where` clause.
 </code></pre><p>There you have it. The specification deliberately restricts value types and <code>enum</code>s as generic type parameters. But if you wish to specify a non-reference type as the <em>primary</em> constraint, a <code>struct</code> can be used.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">void</span> <span class="n">Method</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="k">struct</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">private</span> <span class="k">void</span> <span class="n">Method</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="k">struct</span>
 </span></span></code></pre></div><p>We know that the numeric types like <code>int</code>, <code>float</code> etc in C# are declared <code>struct</code> (value type). An <code>int</code> (Int32) is declared as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">struct</span> <span class="nc">Int32</span> <span class="p">:</span> <span class="n">IComparable</span><span class="p">,</span> <span class="n">IFormattable</span><span class="p">,</span> <span class="n">IConvertible</span><span class="p">,</span> <span class="n">IComparable</span><span class="p">,</span> <span class="n">IEquatable</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">struct</span> <span class="nc">Int32</span> <span class="p">:</span> <span class="n">IComparable</span><span class="p">,</span> <span class="n">IFormattable</span><span class="p">,</span> <span class="n">IConvertible</span><span class="p">,</span> <span class="n">IComparable</span><span class="p">,</span> <span class="n">IEquatable</span>
 </span></span></code></pre></div><p>Whereas an <a href="http://msdn2.microsoft.com/en-us/library/system.enum.aspx"><code>enum</code></a>, though a value type, is declared as an abstract class that derives from <code>System.ValueType</code>; unlike <code>int</code> or <code>float</code>. However, the end result is <code>enum</code>s are value types. Go figure!</p>
 <p>Anyway, the question still remains unresolved – why <code>enum</code>s cannot be used as constraints. <em>Because the language specification says so</em> is not satisfactory.</p>
 <p>I am not sure if there is any other way to resolve my situation. Question open to cyberspace !!!</p>

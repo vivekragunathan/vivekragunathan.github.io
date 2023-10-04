@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>OrderedThreadPool – Task Execution In Queued Order !!! &middot; A Developer&#39;s Experience</title>
 
@@ -182,12 +182,12 @@
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="k">struct</span> <span class="nc">ThreadPoolTaskInfo</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">readonly</span> <span class="n">WaitCallback</span> <span class="n">CallbackDelegate</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">readonly</span> <span class="kt">object</span> <span class="n">State</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">public</span> <span class="k">readonly</span> <span class="n">WaitCallback</span> <span class="n">CallbackDelegate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">public</span> <span class="k">readonly</span> <span class="kt">object</span> <span class="n">State</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wc</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">public</span> <span class="n">ThreadPoolTaskInfo</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wc</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wc</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wc</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">         <span class="n">CallbackDelegate</span> <span class="p">=</span> <span class="n">wc</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">         <span class="n">State</span> <span class="p">=</span> <span class="n">state</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
@@ -195,9 +195,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">OrderedThreadPool</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">private</span> <span class="n">Queue</span> <span class="n">workItemQ</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">private</span> <span class="n">Queue</span> <span class="n">workItemQ</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">void</span> <span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wcbDelegate</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">public</span> <span class="k">void</span> <span class="n">QueueUserWorkItem</span><span class="p">(</span><span class="n">WaitCallback</span> <span class="n">wcbDelegate</span><span class="p">,</span> <span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">         <span class="p">{</span>
@@ -210,10 +210,10 @@
 </span></span><span class="line"><span class="cl">         <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="k">private</span> <span class="k">void</span> <span class="n">LoopWork</span><span class="p">(</span><span class="kt">object</span> <span class="n">notUsed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">private</span> <span class="k">void</span> <span class="n">LoopWork</span><span class="p">(</span><span class="kt">object</span> <span class="n">notUsed</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="n">WaitCallback</span> <span class="n">wcb</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">         <span class="kt">object</span> <span class="n">state</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">WaitCallback</span> <span class="n">wcb</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">object</span> <span class="n">state</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">         <span class="k">lock</span> <span class="p">(</span><span class="n">workItemQ</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">         <span class="p">{</span>
@@ -225,7 +225,7 @@
 </span></span><span class="line"><span class="cl">            <span class="n">ThreadPoolTaskInfo</span> <span class="n">tptInfo</span> <span class="p">=</span> <span class="n">workItemQ</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">            <span class="n">state</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">wcb</span> <span class="p">=</span> <span class="n">tptInfo</span><span class="p">.</span><span class="n">CallbackDelegate</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wcb</span> <span class="p">!=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">wcb</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">         <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">         <span class="k">try</span>

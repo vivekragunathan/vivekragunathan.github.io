@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>out, ref and InvokeMember !!! &middot; A Developer&#39;s Experience</title>
 
@@ -176,7 +176,7 @@
 </span></span></code></pre></div><p>then you would use InvokeMember like this:-</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span><span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="err">“</span><span class="n">Largest</span> <span class="n">Integer</span><span class="err">”</span><span class="p">,</span> <span class="m">1</span><span class="p">});</span>
 </span></span></code></pre></div><p>or use some variables in the new object[] {…}. But what do you with the args if DoSomething takes out or ref parameters ?</p>
@@ -188,7 +188,7 @@
 </span></span><span class="line"><span class="cl">  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span><span class="n">someText</span><span class="p">,</span> <span class="n">someInt</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">);</span>
@@ -199,7 +199,7 @@
 </span></span><span class="line"><span class="cl">	<span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">		<span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">		<span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">args</span>
 </span></span><span class="line"><span class="cl">  <span class="p">);</span>
@@ -211,7 +211,7 @@
 </span></span><span class="line"><span class="cl">  <span class="n">someType</span><span class="p">.</span><span class="n">InvokeMember</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="err">“</span><span class="n">DoSomething</span><span class="err">”</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Public</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">NonPublic</span> <span class="p">|</span> <span class="n">BindingFlags</span><span class="p">.</span><span class="n">Instance</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">args</span>
 </span></span><span class="line"><span class="cl">  <span class="p">);</span>

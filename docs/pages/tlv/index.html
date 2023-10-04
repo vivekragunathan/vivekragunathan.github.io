@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Tree List View &middot; A Developer&#39;s Experience</title>
 
@@ -193,12 +193,12 @@ Introduction How about a control like that?" />
 <p>Yes, we will have to take control of the painting logic for such a control. We will set the <code>OwnerDraw</code> to <code>true</code> and override <code>DrawItem</code> and <code>DrawSubItem</code> to implement the custom logic to render appropriately.</p>
 <p>There are several things which are part of the rendering logic. Each item in the list view can have a checkbox or an image. We have to show\hide items depending on whether their parent is expanded or collapsed. Besides, it will also show a plus (+) image if it has child items and if it is expanded; or a minus (-) image if it has child items and if it is collapsed. An item with children should expand when clicked on the collapsed (+) image, and collapse when clicked on the expanded (-) minus image. And depending on the depth, the text for the first sub-item of each list view item must be spaced\tabbed accordingly. We should take care of auto adjusting the length of the header item when double clicked on the header seam lines. Our custom logic has to take care of all these things to render.</p>
 <p>Code is worth a thousand words. Following is the meat of the rendering logic.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">void</span> <span class="n">OnDrawSubItem</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DrawListViewSubItemEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">private</span> <span class="k">void</span> <span class="n">OnDrawSubItem</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DrawListViewSubItemEventArgs</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="n">SuspendLayout</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">   <span class="kt">var</span> <span class="n">lvItem</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span> <span class="k">as</span> <span class="n">ListViewItem2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">lvItem</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">lvItem</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">||</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
@@ -212,7 +212,7 @@ Introduction How about a control like that?" />
 </span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">SubItem</span> <span class="p">==</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">SubItems</span><span class="p">[</span><span class="m">0</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">iLevel</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">GetIndentLevel</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">      <span class="kt">bool</span> <span class="n">hasParent</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">Parent</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">false</span> <span class="p">:</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">bool</span> <span class="n">hasParent</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">Parent</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">?</span> <span class="kc">false</span> <span class="p">:</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">      <span class="n">xBound</span> <span class="p">+=</span> <span class="n">hasParent</span> <span class="p">?</span> <span class="n">iLevel</span> <span class="p">*</span> <span class="m">14</span> <span class="p">:</span> <span class="m">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> 
@@ -246,7 +246,7 @@ Introduction How about a control like that?" />
 </span></span><span class="line"><span class="cl">         <span class="n">xBound</span> <span class="p">+=</span> <span class="n">cbBounds</span><span class="p">.</span><span class="n">Width</span> <span class="p">+</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">GeneralGapWidth</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SmallImageList</span> <span class="p">!=</span> <span class="k">null</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SmallImageList</span> <span class="p">!=</span> <span class="kc">null</span>
 </span></span><span class="line"><span class="cl">	      		<span class="p">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageIndex</span> <span class="p">&gt;=</span> <span class="m">0</span>
 </span></span><span class="line"><span class="cl">	      		<span class="p">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageIndex</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">SmallImageList</span><span class="p">.</span><span class="n">Images</span><span class="p">.</span><span class="n">Count</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
@@ -275,7 +275,7 @@ Introduction How about a control like that?" />
 </span></span><span class="line"><span class="cl">      <span class="n">txtFormat</span>
 </span></span><span class="line"><span class="cl">  <span class="p">);</span>
 </span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="n">ResumeLayout</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ResumeLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span> 
 </span></span></code></pre></div><p>That is it. We got our control working.</p>
 <h3 id="points-of-interest">Points Of Interest</h3>

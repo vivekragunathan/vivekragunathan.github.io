@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Anonymous Classes vs Delegates !!! &middot; A Developer&#39;s Experience</title>
 
@@ -174,19 +174,19 @@
   <p>I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.</p>
 <p>In android, there is this <span style="font-family:Consolas;font-size:11pt;">OnClickListener</span> interface, which is used as a callback interface for a button click. So, it is used something like this:-</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// Create an anonymous implementation of OnClickListener</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span> <span class="n">OnClickListener</span> <span class="n">mCorkyListener</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">OnClickListener</span> <span class="n">mCorkyListener</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// do something when the button is clicked</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">protected</span> <span class="k">void</span> <span class="n">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="k">void</span> <span class="n">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">Button</span> <span class="n">button</span> <span class="p">=</span> <span class="p">(</span><span class="n">Button</span><span class="p">)</span><span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">someButton</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">button</span><span class="p">.</span><span class="n">setOnClickListener</span><span class="p">(</span><span class="k">new</span> <span class="n">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">@Override</span>
-</span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="k">void</span> <span class="n">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="k">void</span> <span class="n">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="c1">// Click handler action code...</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
@@ -199,7 +199,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>I have gone one step further and used an anonymous delegate, which is even more succinct. Sometimes, less syntactic noise is a good feeling for a programmer. I am not doing a language war here. I am just trying to vote for delegates in Java. I am not sure if they are already there in one of the latest versions.</p>
 <p>But there is a C# fanatic inside of me, which compels me to show the world how better and good-looking (see pascal casing) C# code actually is.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">protected</span> <span class="k">void</span> <span class="n">OnCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">protected</span> <span class="k">void</span> <span class="n">OnCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">bundle</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">button</span> <span class="p">=</span> <span class="n">FindViewById</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Button</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">R</span><span class="p">.</span><span class="n">Id</span><span class="p">.</span><span class="n">SomeButton</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">     <span class="n">button</span><span class="p">.</span><span class="n">Click</span> <span class="p">+=</span> <span class="k">delegate</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>

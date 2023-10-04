@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Thinking Currying &middot; A Developer&#39;s Experience</title>
 
@@ -174,7 +174,7 @@
   <p><em>Currying</em> is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers <code>1</code> through <code>10</code>, what would you do? Class II mathematics -<code>0</code> in hand, <code>1</code> in the mind, add <code>0</code> and <code>1</code>, so <code>1</code> in the mind, then <code>2</code> in the hand, &hellip; up to <code>10</code>. So we compute the addition with one argument at a time.</p>
 <p>In the programming world, it is realized by transforming a n-arguments function into a (n-1) arguments function, which takes the remaining one argument. This transformation when applied recursively on each of the single argument functions is the chaining of single argument functions. Needless to say, currying is a gift of the functional programming world. In simple words, functional programming is about building functions from other functions, and so functions are treated as first class citizens (like data).</p>
 <p>If currying is just transforming a n-arguments function into a single argument function, then extension method too is an example of currying.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="n">Replace</span><span class="p">(</span><span class="k">this</span> <span class="n">IList</span> <span class="n">srcList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span> <span class="n">item</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">bool</span> <span class="n">Replace</span><span class="p">(</span><span class="k">this</span> <span class="n">IList</span> <span class="n">srcList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">T</span> <span class="n">item</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// Imagine an implementation here&amp;#8230;.</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Offering __FILE__ and __LINE__ for C# !!! &middot; A Developer&#39;s Experience</title>
 
@@ -206,13 +206,13 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>If you see, there are CallerXXXName attributes that the parameters have been decorated with, and they are made optional arguments. The compiler sees these attributes, and identifies that the method expects the caller information and takes the responsibility of silently passing them itself. Since the parameters are made optional, you don’t have to explicitly mention the caller information in any way. The call sites thus are not littered with the caller information. It is transparent and clean. So, you would just say <code>Log(“some log message”)</code>, and the <code>Log</code> method gets the information of the calling method. As you see, the C# folks cleverly inverted the model used in C++. Besides, if you see that the caller method name attribute is named CallerMemberName. It is for a reason. Let us see it in the light of its application.</p>
 <p>It is common that the caller information is employed for logging in most applications. But there is one other application of the caller information that I love, and solves the problem in an elegant way. It is in WPF for property changed event. Until before caller information attributes, this too was patched using reflection.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeModel</span> <span class="p">:</span> <span class="n">INotifyPropertyChanged</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SomeModel</span> <span class="p">:</span> <span class="n">INotifyPropertyChanged</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="c1">// SomeModel ctor and other members</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">public</span> <span class="k">event</span> <span class="n">PropertyChangedEventHandler</span> <span class="n">PropertyChanged</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="k">event</span> <span class="n">PropertyChangedEventHandler</span> <span class="n">PropertyChanged</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">public</span> <span class="kt">string</span> <span class="n">SomeProperty</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="kt">string</span> <span class="n">SomeProperty</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">get</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
@@ -225,9 +225,9 @@ Visual Studio 2012, another power packed release of Visual Studio, among a lot o
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">private</span> <span class="k">void</span> <span class="n">NotifyPropertyChanged</span><span class="p">([</span><span class="n">CallerMemberName</span><span class="p">]</span> <span class="n">String</span> <span class="n">propertyWhichChanged</span>  <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">private</span> <span class="k">void</span> <span class="n">NotifyPropertyChanged</span><span class="p">([</span><span class="n">CallerMemberName</span><span class="p">]</span> <span class="n">String</span> <span class="n">propertyWhichChanged</span>  <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">PropertyChanged</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">PropertyChanged</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="n">PropertyChanged</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">new</span> <span class="n">PropertyChangedEventArgs</span><span class="p">(</span><span class="n">propertyWhichChanged</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>

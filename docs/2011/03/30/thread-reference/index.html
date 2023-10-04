@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>To Hold or Not to Hold – A story on Thread references !!! &middot; A Developer&#39;s Experience</title>
 
@@ -180,7 +180,7 @@
 <p>Some may say nothing seems to be wrong. Some may say there is not enough information to comment. A few may say that it is awful to spin off a thread like that (the last line of the method), and that there is a probability for the thread to be garbage collected at an unexpected point of execution. That is something interesting to discuss about.</p>
 <p>Before presenting my thoughts and supporting facts, the short answer is NO. A thread spun off like that will not be garbage collected as we expect, although one should be morally insane to write such code. Alright, let us discuss.</p>
 <p>The <code>Thread</code> class is like any other reference type in the BCL. When an instance of a reference type holds no more outstanding references, it is a candidate to be garbage collected. Even worse, it could become a <a href="http://blogs.msdn.com/b/cbrumme/archive/2003/04/19/51365.aspx">candidate</a> even while it is executing an instance method, while there are no more outstanding references to that instance. If such facts are considered, then the thread created at free will in the above code is bound to be collected anytime while executing the associated <code>ThreadFunc</code>. Let us try that with <em>simple</em> sample application.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;The Beginning&amp;#8230;.&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">

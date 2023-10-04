@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Understanding (ref)erences !!! &middot; A Developer&#39;s Experience</title>
 
@@ -172,7 +172,7 @@
   </div>
 
   <p>Let us take a look at the following piece of code:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">Operate</span><span class="p">(</span><span class="n">IList</span> <span class="n">iList2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">void</span> <span class="n">Operate</span><span class="p">(</span><span class="n">IList</span> <span class="n">iList2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="n">iList2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"> <span class="n">iList2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
@@ -180,7 +180,7 @@
 </span></span><span class="line"><span class="cl"> <span class="n">iList2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="n">IList</span> <span class="n">iList</span><span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"> <span class="n">iList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>

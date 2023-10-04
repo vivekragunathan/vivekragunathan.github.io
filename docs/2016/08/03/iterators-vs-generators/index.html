@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>Iterators vs. Generators &middot; A Developer&#39;s Experience</title>
 
@@ -184,7 +184,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntCounter</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">IntCounter</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">IntCounter</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">IntCounter</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
@@ -192,7 +192,7 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">IntCountIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="nf">IntCountIterator</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">counter</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">moveNext</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">counter</span> <span class="o">!=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">counter</span><span class="o">++;</span> <span class="o">}</span>
@@ -203,13 +203,13 @@
 </span></span></code></pre></div><p>You get the idea!</p>
 <p><strong>Generators</strong></p>
 <p>A generator is a language construct supported by the compiler. The compiler saves you from hand-weaving the boiler plate code of implementing the iterator pattern. You are then left to write the last couple of lines of the code that will save the planet!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeClass</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SomeClass</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// &amp;#8230;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// Can also be instance method</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">GetNextInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">GetNextInt</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">counter</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">counter</span> <span class="p">&lt;</span> <span class="kt">int</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span> <span class="p">++</span><span class="n">counter</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>

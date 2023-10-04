@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 
 	<title>An encounter with Hashtables !!! &middot; A Developer&#39;s Experience</title>
 
@@ -177,14 +177,14 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">de</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">de</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">de</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>&hellip; the compiler spat an error:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">System.Collections.IDictionaryEnumerator.Value cannot be assigned to; it is read only;
 </span></span></code></pre></div><p>while for this code</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>it compiled successfully but threw a runtime exception</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">An unhandled exception of type System.InvalidOperationException occurred in mscorlib.dll Additional information: Collection was modified; enumeration operation may not execute].
@@ -192,7 +192,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">ArrayList</span> <span class="n">keys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">ht</span><span class="p">.</span><span class="n">Keys</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ht</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Another thing I came to know was that the hash table entries are not maintained in the same order as they are inserted. I came to know that it is the inherent nature of the algorithm. That is basic but it was new to me.</p>
 
