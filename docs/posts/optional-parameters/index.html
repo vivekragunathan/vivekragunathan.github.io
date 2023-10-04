@@ -15,7 +15,7 @@
 <meta itemprop="name" content="Optional Parameters">
 <meta itemprop="description" content="The billion dollar mistake has been committed already. No going back. But it is not necessary to keep repeating it. Oh, I am talking about the infamous null. Would Java&rsquo;s Optional come to the rescue? Or are there any ironic &ldquo;Don&rsquo;ts&rdquo; when using Optional?"><meta itemprop="datePublished" content="2023-10-03T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-10-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="986">
+<meta itemprop="wordCount" content="964">
 <meta itemprop="keywords" content="java,optional,scala," />
 
 <meta name="twitter:card" content="summary"/>
@@ -201,9 +201,9 @@
 <p>Let us switch gears. Java too has a nullable container - the infamous<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> <code>Optional&lt;T&gt;</code>.</p>
 <p>In the Java realm, returning <code>Optional</code> from methods is acceptable. Passing <code>Optional</code> as parameters is not.</p>
 <p>IntelliJ warns such cases via its <a href="https://www.jetbrains.com/help/idea/code-inspection.html">inspections</a>.
-![[opt.jpg]]</p>
+<img src="/images/2023-10-03-opt.jpg" alt="opt.jpg"></p>
 <p>While you can suppress inspections at your will, that is the not point. It is recommended not to pass <code>Optional</code> as parameters. <a href="https://stackoverflow.com/a/26328555">Even by Java experts</a>.</p>
-<p>![[opt2.jpg]]</p>
+<p><img src="/images/2023-10-03-opt2.jpg" alt="opt2.jpg"></p>
 <p>I was not able to find a compelling reason behind such a recommendation, which is in contrast to Scala. Almost every link or material I came across was about to disabling<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> the inspection to silence IntelliJ from throwing the warning.</p>
 <p>However, I came across a couple of things where were better out of the lot. <strong>But not compelling</strong>.</p>
 <ul>
@@ -220,8 +220,8 @@
 </ul>
 </li>
 </ul>
-<p>On a larger scale, I prefer to align with the community - practices, guidelines and conventions. And temper only specific things to cater to my taste/style. For a good reason. In the case of this warning about using <code>Optional</code> parameters, I have mixed feelings. Neither do I want to disable the inspection in IntelliJ because IntelliJ team is way smarter than us, and they should have added this for a reason. Nor do I want litter my code with <code>SuppressWarnings</code><sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
-<p>Given that the IntelliJ inspection is a tooling aspect, I might consider disabling it after all. Because I don&rsquo;t think none of us can commit to the alternative - <em>never write code that takes <code>Optional</code> parameter(s)</em>. It may not be possible.</p>
+<p>On a larger scale, I prefer to align with the community - practices, guidelines and conventions. And temper only specific things to cater to my taste/style. For a good reason. In the case of this warning about using <code>Optional</code> parameters, I have mixed feelings. Neither do I want to disable the inspection in IntelliJ because IntelliJ team is way smarter than us, and I hope they added it for a reason. Nor do I want litter my code with <code>SuppressWarnings</code><sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>Given that the IntelliJ inspection is a tooling aspect and general advice from elders, I <em>might</em> consider disabling it after all.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
