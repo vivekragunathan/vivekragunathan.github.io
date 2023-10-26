@@ -161,6 +161,43 @@
         
 
         <h1 class="post-title">
+          <a href="/posts/final-const-beyond/">final, const and beyond</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2015-10-13T08:13:30Z">Oct 13, 2015</time> &middot; 9 min read
+        </div>
+
+        <div>
+          <p>What are your thoughts on the following piece of code?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	   <span class="c1">// some code that updates the sum variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/posts/final-const-beyond/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
           <a href="/2015/10/04/unconquerable/">The unconquerable</a>
         </h1>
 
@@ -360,26 +397,6 @@
 
         <div class="read-more-link">
           <a href="/posts/secret-of-cpp-unified-syntax/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2014/10/05/simple-tlv/">A Simple Tree List View !!!</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2014-10-04T19:43:27Z">Oct 4, 2014</time> &middot; 1 min read
-        </div>
-
-        <div>
-          Digging up stash is one of the best pass times. You know you never know what you will find.
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2014/10/05/simple-tlv/">Read More</a>
         </div>
       </article>
   </div>
