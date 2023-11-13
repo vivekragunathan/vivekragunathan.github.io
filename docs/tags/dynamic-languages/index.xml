@@ -6,15 +6,14 @@
     <description>Recent content in dynamic-languages on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate><atom:link href="/tags/dynamic-languages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate>
+    <atom:link href="/tags/dynamic-languages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
       <link>/2014/05/29/overloading-and-varargs/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
-      
       <guid>/2014/05/29/overloading-and-varargs/</guid>
       <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

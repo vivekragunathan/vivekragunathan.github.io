@@ -6,15 +6,14 @@
     <description>Recent content in Plugins on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/plugins/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Everyday IntelliJ Plugins</title>
       <link>/posts/everyday-intellij-plugins/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/everyday-intellij-plugins/</guid>
       <description>If IntelliJ is the perfect main course, its plugins are the seasoning to spice it up. There are hundreds of popular plugins that rank in probably every post on IntelliJ plugins. However, the ones listed here are those that I use almost everyday. Besides, I like using these plugins, and highly recommend.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.3">
 
 	<title>Facets of Immutability &middot; A Developer&#39;s Experience</title>
 
@@ -32,6 +32,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <meta property="og:url" content="/2017/12/106/facets-of-mmutability/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-12-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-12-06T00:00:00+00:00" />
+
 
 
 
@@ -223,14 +224,14 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p><strong><code>read-only</code> (RO), otherwise the constant variable</strong></p>
 <p>The constant that we saw earlier is a compile-time constant. RO is a runtime constant, if you will, although it is not a constant per se. <em>It is immutable</em>.</p>
 <p>By declaring a variable read-only, we intend to assign a value once (in its respective scope and frame). Needless to say, the value of the variable doesn&rsquo;t change thereafter.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// In Java
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">someFunc</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">   <span class="o">...</span>
-</span></span><span class="line"><span class="cl">   <span class="kd">final</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">getCount</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">   <span class="o">...</span>
-</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">someValue</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// In Java</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">someFunc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCount</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">someValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
 <p>If you think about it, the constant variable is not only a misnomer but an oxymoron. But if we were given a chance to associate the term <em>constant variable</em> with something, it would be a <em>read only variable</em>.</p>
 <p>A taste of support for <em>read-only variables</em> in a few popular languages:</p>
 <ul>
@@ -248,19 +249,19 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>There are a few flavors of immutable objects.</p>
 <p><strong>Immutable Class</strong></p>
 <p>An instance whose members or state cannot be mutated after instantiation. Imagine writing the following in Java:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">StoneClass</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">StoneClass</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span> <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="o">;</span> <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StoneClass</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">StoneClass</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getAge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
 </span></span></code></pre></div><p>Once an instance of the <code>StoneClass</code> is created, the <code>name</code> and <code>age</code> cannot change in a thousand years. Changes or mutations are realized by making a copy with new values. I would say <em>an immutable class is the holy grail of immutability</em>.</p>
 <p><strong>Immutable Interface or Copy</strong></p>

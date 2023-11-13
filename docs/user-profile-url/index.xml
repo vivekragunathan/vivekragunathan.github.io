@@ -5,6 +5,7 @@
     <link>/user-profile-url/</link>
     <description>Recent content in User Profile Url on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/user-profile-url/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="/user-profile-url/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

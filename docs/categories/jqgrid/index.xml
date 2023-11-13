@@ -6,15 +6,14 @@
     <description>Recent content in jqGrid on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 May 2014 01:43:15 +0000</lastBuildDate><atom:link href="/categories/jqgrid/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 May 2014 01:43:15 +0000</lastBuildDate>
+    <atom:link href="/categories/jqgrid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>jqGrid: Handling array data !!!</title>
       <link>/2014/05/23/jqgrid-handling-array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
-      
       <guid>/2014/05/23/jqgrid-handling-array-data/</guid>
       <description>&lt;p&gt;This post is primarily a personal reference. I also consider this a tribute to &lt;a href=&#34;http://stackoverflow.com/users/315935/oleg&#34;&gt;Oleg&lt;/a&gt;, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

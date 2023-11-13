@@ -5,6 +5,7 @@
     <link>/example@domain.com/</link>
     <description>Recent content in Example@domain.com on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/example@domain.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="/example@domain.com/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

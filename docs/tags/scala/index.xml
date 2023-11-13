@@ -6,15 +6,14 @@
     <description>Recent content in scala on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Optional Parameters</title>
       <link>/posts/optional-parameters/</link>
       <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>/posts/optional-parameters/</guid>
       <description>The billion dollar mistake has been committed already. No going back. But it is not necessary to keep repeating it. Oh, I am talking about the infamous &lt;code&gt;null&lt;/code&gt;. Would Java&amp;rsquo;s &lt;code&gt;Optional&lt;/code&gt; come to the rescue? Or are there any ironic &amp;ldquo;Don&amp;rsquo;ts&amp;rdquo; when using &lt;code&gt;Optional&lt;/code&gt;?</description>
     </item>
-    
   </channel>
 </rss>

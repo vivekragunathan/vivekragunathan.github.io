@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.3">
 
 	<title>Quiz: Choosing an array of integers !!! &middot; A Developer&#39;s Experience</title>
 
@@ -41,6 +41,7 @@ Integer[] na2 = new Integer[10];
 <meta property="og:url" content="/2015/03/13/jaoints/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-03-13T06:40:37+00:00" />
 <meta property="article:modified_time" content="2015-03-13T06:40:37+00:00" />
+
 
 
 
@@ -185,9 +186,9 @@ Integer[] na2 = new Integer[10];
 
   <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</span></span></code></pre></div><p>Not to poke the feelings of passionate Java programmers &hellip; even the experienced ones seemed to have misplaced the difference. I would blame the language. Well, not the language, it is inanimate. I mean the fault lies with the language designers.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">na1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">na2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Not to poke the feelings of passionate Java programmers &hellip; even the experienced ones seemed to have misplaced the difference. I would blame the language. Well, not the language, it is inanimate. I mean the fault lies with the language designers.</p>
 <p>The first one <code>int[]</code> is an array of integers, primitives. In other words, the array is going to store primitive integer values each of which are of the processor-word size. The second one <code>Integer[]</code> is an array of objects each holding an integer inside. Each <code>Integer</code> is not just equal to the size of an int. Since <code>Integer</code> is inherently an <code>Object</code>, there is an extra runtime/type-system associated size overhead.</p>
 <p>Unlike the <code>int[]</code>, the <code>Integer[]</code> plays relatively hard on the GC. Along with the underlying array, each individual <code>Integer</code> object becomes of the graph that the GC has to walk through during clean up.</p>
 <p>So which array should I choose then? There isn&rsquo;t one good answer. We have to make a choice. We should be able to make one based on what we discussed above. For instance, if the scenario is to operate on a fixed size collection of integers, one in which these integers would not be added to another object that takes integers only as <code>Integer</code>, <code>int[]</code> would be a better choice. On the other hand, if the integers would be eventually be boxed as <code>Integer</code>s, for instance if we would adding them to an <code>ArrayList</code> or something, then <code>Integer[]</code> would be better; because in such a case, we would be shuffling references of the <code>Integer</code> we already have in hand to the other object, <code>ArrayList</code>. Why not use <code>ArrayList</code> directly then? I have taken <code>ArrayList</code> as an example. Like I said earlier, it is the scenario that dictates, whether to work with a fixed size collection of integers or the integers boxed in the process.</p>

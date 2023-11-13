@@ -6,15 +6,14 @@
     <description>Recent content in online on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/online/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/online/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Degooling</title>
       <link>/posts/degoogling/</link>
       <pubDate>Sun, 12 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>/posts/degoogling/</guid>
       <description>A rundown of alternatives for degoogling based on recent conversations with friends and acquaintances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  &lt;em&gt;Brand names are not functionalities&lt;/em&gt;. Don&amp;rsquo;t hesitate to ditch a product/company in the case of foul play.</description>
     </item>
-    
   </channel>
 </rss>

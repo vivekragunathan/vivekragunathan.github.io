@@ -6,21 +6,19 @@
     <description>Recent content in CLR on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Dec 2015 09:36:26 +0000</lastBuildDate><atom:link href="/categories/clr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Dec 2015 09:36:26 +0000</lastBuildDate>
+    <atom:link href="/categories/clr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>.NET for the next generation</title>
       <link>/2015/12/03/net-oss/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
-      
       <guid>/2015/12/03/net-oss/</guid>
       <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Mutating Strings</title>
       <link>/2015/07/07/mutating-strings/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
-      
       <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
@@ -41,54 +39,43 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Prints what? See for yourself!&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>To Hold or Not to Hold – A story on Thread references !!!</title>
       <link>/2011/03/30/thread-reference/</link>
       <pubDate>Wed, 30 Mar 2011 17:05:36 +0000</pubDate>
-      
       <guid>/2011/03/30/thread-reference/</guid>
       <description>void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc).</description>
     </item>
-    
     <item>
       <title>sizeof vs Marshal.SizeOf !!!</title>
       <link>/2009/12/30/sizeof-vs-marshal-sizeof/</link>
       <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
-      
       <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
       <description>There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.</description>
     </item>
-    
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
       <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
-      
       <guid>/2009/03/18/ordered-thread-pool/</guid>
       <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
     </item>
-    
     <item>
       <title>The Surprising Finalize Call !!!</title>
       <link>/2007/02/22/the-surprising-finalize-call/</link>
       <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
-      
       <guid>/2007/02/22/the-surprising-finalize-call/</guid>
       <description>Guess the output of the following program:-
 class SomeClass : IDisposable { public SomeClass() { Trace.</description>
     </item>
-    
     <item>
       <title>.NET Reflection Extravanganza !!!</title>
       <link>/2006/05/11/net-reflection-extravanganza/</link>
       <pubDate>Thu, 11 May 2006 22:40:00 +0000</pubDate>
-      
       <guid>/2006/05/11/net-reflection-extravanganza/</guid>
       <description>&lt;p&gt;Over the past few weeks, I have been involved with this module that got the best of both worlds - .NET and I, 😁.&lt;/p&gt;
 &lt;p&gt;Ok, this was the problem. We have a COM server, let us name it Server. I had to write an assembly in C#, let us call it Bridge, that will listen to all of the events fired by the Server and perform an action Action. To keep that Action simple, let us assume we have to log them to the database. But the Server fires &lt;strong&gt;hundreds&lt;/strong&gt; of events, and it is not wise to write up static event handlers for all of them. Also, if more events are (ever) added in the future, the Bridge should be able to support it without code changes.&lt;/p&gt;
 &lt;p&gt;The twist in the game was that this was a brown + green field development project. That demanded a wise solution - learn from the past and better the future.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

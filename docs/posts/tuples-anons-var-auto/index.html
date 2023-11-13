@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.3">
 
 	<title>An Unfair World of Tuples, Anons., var and auto &middot; A Developer&#39;s Experience</title>
 
@@ -44,6 +44,7 @@ return a tuple
 <meta property="og:url" content="/posts/tuples-anons-var-auto/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-08-24T01:10:27+00:00" />
 <meta property="article:modified_time" content="2015-08-24T01:10:27+00:00" />
+
 
 
 
@@ -262,7 +263,7 @@ return a tuple
 <p>However, if asked to choose, I would go with option #1, and let the gatherer deal with it. That way, the massaging is a low-level detail of this sequence. I think it is easier and better to reason our code when it is typed; <code>massageData(Employee)</code>.</p>
 <p><strong>Utopia</strong></p>
 <p>Let us assume if C# were to allow returning anonymous types with the <code>var</code> keyword (or another keyword), imagine how fluid the code would be. The compiler would be aware of the (anonymous) type and the type information would flow without friction and noise. Yes, there will be rules and restrictions around such a feature. Yes, there are people who wouldn&rsquo;t understand the purpose of the feature and start using anonymous types all over. Some will fall in love with the feature that their code will no more have named types as <code>class</code>es or <code>struct</code>s. But that is not good enough reason to experience this feature in reality. It might as well prove to be a better alternative to <code>Tuple</code>s.</p>
-<p>Unlike C++, where <code>tuple</code> is defined using variadic templates (👏 👏 👏), most other languages including C# explicitly declare distinct class overloads distinguished by the number of generic parameters. 👎</p>
+<p>Unlike C++, where <code>tuple</code> is defined using variadic templates (&#x1f44f; &#x1f44f; &#x1f44f;), most other languages including C# explicitly declare distinct class overloads distinguished by the number of generic parameters. &#x1f44e;</p>
 <p><strong>Meanwhile Elsewhere</strong></p>
 <p>Usually, C++ has something in stock for such odd problems<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. The matter is you should be willing to look back. And the difference is the syntax is either clumsy or <a href="/posts/crazy-brackets/">crazy</a>. Many concepts available in the form of refined constructs in current day languages would available in crude forms. If not, it would be available in a very limited form.</p>
 <p>So let us see if we can return anonymous types in C++, limited or brief nevertheless. In C++, we cannot create anonymous types the way we do in C#. We do can create anonymous types, though &hellip; as <a href="https://msdn.microsoft.com/en-us/library/Dd293608.aspx">lambdas</a>.</p>
@@ -291,7 +292,7 @@ return a tuple
 <p>It is not uncommon these days that part or whole of an application is based on data passing between the server and the client(s), and the data is dynamic that it wouldn&rsquo;t be worthwhile defining or at least hand code the data model classes. Creating classes/types on the fly and passing them around is not new in JavaScript. It is time for languages like C# to invent a way to create, pass around and work with such types - anonymous yet compile-time type-safe.</p>
 <p>So here is a challenge, obviously to the, C# team if they can crack this thing out - anonymous types on the fly. Yes, there are challenges, corner cases and all that. Remember a few years back, there was no <a href="https://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0%28v=vs.110%29.aspx">yield</a>, no <a href="https://msdn.microsoft.com/en-us/library/hh191443.aspx"><code>async</code>-<code>await</code></a> etc. We have them now. I believe we should be able to invent something around anonymous types.</p>
 <p><strong>State of Bliss</strong></p>
-<p>Ignorance is bliss and is itself a state of bliss. Java programmers wouldn&rsquo;t mind or care about any or all of what we discussed. They have got the <code>for</code> loop for all problems. 😆</p>
+<p>Ignorance is bliss and is itself a state of bliss. Java programmers wouldn&rsquo;t mind or care about any or all of what we discussed. They have got the <code>for</code> loop for all problems. &#x1f606;</p>
 <p>I was trying all this with Java, and finally ended up using <a href="http://www.javatuples.org">tuples</a>.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>

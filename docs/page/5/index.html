@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.3">
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -24,6 +24,7 @@
 <meta property="og:description" content="The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before – John D. Cook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
+
 
 
 
@@ -170,23 +171,23 @@
 
         <div>
           <p>What are your thoughts on the following piece of code?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">someGibberishMethod</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">someMethodReturningLength</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="o">++</span><span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">	   <span class="c1">// some code that updates the sum variable
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">SomeClass</span> <span class="n">someClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">sumValueInsideSomeClass</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">getSumValue</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="n">String</span> <span class="n">someText</span> <span class="o">=</span> <span class="n">someClass</span><span class="o">.</span><span class="na">doSomeOperation</span><span class="o">(</span><span class="cm">/*some parameters*/</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// use someText, maybe log or something
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">someText</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">someGibberishMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">someMethodReturningLength</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="c1">// some code that updates the sum variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">SomeClass</span><span class="w"> </span><span class="n">someClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SomeClass</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">sumValueInsideSomeClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">someClass</span><span class="p">.</span><span class="na">getSumValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// use someText, maybe log or something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">String</span><span class="w"> </span><span class="n">someText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">someClass</span><span class="p">.</span><span class="na">doSomeOperation</span><span class="p">(</span><span class="cm">/*some parameters*/</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// use someText, maybe log or something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">someText</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
@@ -350,9 +351,9 @@
         <div>
           <p>In the recent interviews, I asked the candidates the following question:</p>
 <p>Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">na1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="o">[]</span> <span class="n">na2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">na1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">na2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
         </div>
 
         <div class="read-more-link">
