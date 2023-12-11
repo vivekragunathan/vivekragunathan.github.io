@@ -13,28 +13,14 @@
       <link>/2016/12/10/problem-reduction/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       <guid>/2016/12/10/problem-reduction/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
-&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;&#xA;&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Importance of Semantics</title>
       <link>/2016/11/07/semantics/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
       <guid>/2016/11/07/semantics/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;
-&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;
-&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)
-&lt;ul&gt;
-&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;
-&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;
-&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;&#xA;&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;&#xA;&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Iterators vs. Generators</title>

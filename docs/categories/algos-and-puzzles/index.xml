@@ -13,27 +13,14 @@
       <link>/2016/12/10/problem-reduction/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
       <guid>/2016/12/10/problem-reduction/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;
-&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;&#xA;&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Selective Combinations</title>
       <link>/2016/05/16/resource-combinations/</link>
       <pubDate>Mon, 16 May 2016 07:00:08 +0000</pubDate>
       <guid>/2016/05/16/resource-combinations/</guid>
-      <description>&lt;p&gt;Consider this scenario:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;So that would be as follows:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi
-
-abc def
-
-abc ghi
-
-abc
-&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>&lt;p&gt;Consider this scenario:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is &lt;code&gt;abc&lt;/code&gt;, &lt;code&gt;def&lt;/code&gt; and &lt;code&gt;ghi&lt;/code&gt;. I have to generate ordered combinations of the above list restricted to the ones starting with &lt;code&gt;abc&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So that would be as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;abc def ghi&#xA;&#xA;abc def&#xA;&#xA;abc ghi&#xA;&#xA;abc&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Linked List Quiz – Part II !!!</title>
@@ -68,8 +55,7 @@ abc
       <link>/2011/07/02/quiz-beauty-of-numbers/</link>
       <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
       <guid>/2011/07/02/quiz-beauty-of-numbers/</guid>
-      <description>Sriram quizzed:
-Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
+      <description>Sriram quizzed:&#xA;Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
     </item>
   </channel>
 </rss>

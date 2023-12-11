@@ -69,16 +69,14 @@
       <link>/2009/07/02/finally-and-return-values/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       <guid>/2009/07/02/finally-and-return-values/</guid>
-      <description>Let us read some code:-
-int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
+      <description>Let us read some code:-&#xA;int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
     </item>
     <item>
       <title>Type Safe Logger</title>
       <link>/2009/04/25/type-safe-logger/</link>
       <pubDate>Sat, 25 Apr 2009 15:02:00 +0000</pubDate>
       <guid>/2009/04/25/type-safe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
+      <description>Article co-authored with Sanjeev, and published on CodeProject&#xA;PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
     </item>
     <item>
       <title>Simple Array Class For C&#43;&#43;</title>
@@ -134,8 +132,7 @@ PROBLEM Every application logs a whole bunch of diagnostic messages, primarily f
       <link>/2007/02/22/the-surprising-finalize-call/</link>
       <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
       <guid>/2007/02/22/the-surprising-finalize-call/</guid>
-      <description>Guess the output of the following program:-
-class SomeClass : IDisposable { public SomeClass() { Trace.</description>
+      <description>Guess the output of the following program:-&#xA;class SomeClass : IDisposable { public SomeClass() { Trace.</description>
     </item>
     <item>
       <title>Learning Type Access Modifiers Basics !!!</title>
@@ -198,8 +195,7 @@ class SomeClass : IDisposable { public SomeClass() { Trace.</description>
       <link>/2006/06/02/singularity-safety-speed/</link>
       <pubDate>Fri, 02 Jun 2006 19:54:00 +0000</pubDate>
       <guid>/2006/06/02/singularity-safety-speed/</guid>
-      <description>I read about this interesting thing somewhere in MSDN.
-There are two types of programming or programming languages.</description>
+      <description>I read about this interesting thing somewhere in MSDN.&#xA;There are two types of programming or programming languages.</description>
     </item>
     <item>
       <title>out, ref and InvokeMember !!!</title>
