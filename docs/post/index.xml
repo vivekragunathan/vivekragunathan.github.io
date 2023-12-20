@@ -16,6 +16,13 @@
       <description>There are times when even decent chaps have to pick up the sword and fight. I am talking about times when some process on your machine is always peeking over your shoulder. Worst part, consumes a lot of resources, especially CPU time, and obstructs your productivity. Or peace of mind. For such cases, I give you &lt;code&gt;slay&lt;/code&gt;</description>
     </item>
     <item>
+      <title>Python Overloaded</title>
+      <link>/posts/python-overloaded/</link>
+      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/python-overloaded/</guid>
+      <description>Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything &lt;a href=&#34;https://go.dev/doc/faq#overloading&#34;&gt;hard&lt;/a&gt;. 🙄 But function overloading in dynamic languages are not really sought after.</description>
+    </item>
+    <item>
       <title>Optional Parameters</title>
       <link>/posts/optional-parameters/</link>
       <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>

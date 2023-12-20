@@ -11,10 +11,19 @@
     <loc>/posts/keep-killing/</loc>
     <lastmod>2023-10-26T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/overloading/</loc>
+    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/pkill/</loc>
     <lastmod>2023-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
+    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/python/</loc>
+    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/python-overloaded/</loc>
     <lastmod>2023-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
@@ -495,9 +504,6 @@
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url><url>
     <loc>/tags/javascript/</loc>
-    <lastmod>2014-05-28T21:26:39+00:00</lastmod>
-  </url><url>
-    <loc>/tags/overloading/</loc>
     <lastmod>2014-05-28T21:26:39+00:00</lastmod>
   </url><url>
     <loc>/2014/05/29/overloading-and-varargs/</loc>

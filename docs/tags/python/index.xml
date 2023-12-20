@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on A Developer&#39;s Experience</title>
+    <link>/tags/python/</link>
+    <description>Recent content in python on A Developer&#39;s Experience</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Overloaded</title>
+      <link>/posts/python-overloaded/</link>
+      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/python-overloaded/</guid>
+      <description>Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything &lt;a href=&#34;https://go.dev/doc/faq#overloading&#34;&gt;hard&lt;/a&gt;. 🙄 But function overloading in dynamic languages are not really sought after.</description>
+    </item>
+  </channel>
+</rss>
