@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.121.1">
+	<meta name="generator" content="Hugo 0.121.2">
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -156,6 +156,56 @@
 
 	<main class="content container">
 		<div class="posts">
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
+          <a href="/2020/04/02/saner-mocking/">Pattern for Saner Mocking</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2020-04-02T00:00:00Z">Apr 2, 2020</time> &middot; 5 min read
+        </div>
+
+        <div>
+          <p>It is common to see mocks being setup this way in unit tests.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 1&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">scenario</span><span class="o">(</span><span class="s">&#34;Test Case 2&#34;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">addressResolutionService</span><span class="o">.</span><span class="n">resolve</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">.</span><span class="n">checkInventory</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="o">....</span> <span class="n">another</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">when</span> <span class="n">and</span> <span class="n">then</span> <span class="n">returns</span> <span class="o">...</span><span class="n">give</span> <span class="n">or</span> <span class="n">take</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">mocks</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">test</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">	<span class="n">when</span><span class="o">(</span><span class="n">shipmentService</span><span class="o">.</span><span class="n">schedule</span><span class="o">(...)).</span><span class="n">thenReturn</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">...</span><span class="n">thisIsTheActualCalltoTest</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">verify</span><span class="o">(</span><span class="n">vendorInventoryService</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">checkInventory</span><span class="o">(...)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">verifications</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">...</span> <span class="n">other</span> <span class="n">such</span> <span class="n">test</span> <span class="n">cases</span>
+</span></span></code></pre></div>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2020/04/02/saner-mocking/">Read More</a>
+        </div>
+      </article>
       <article class="post">
 
         
@@ -353,39 +403,6 @@
           <a href="/2016/12/10/problem-reduction/">Read More</a>
         </div>
       </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2016/11/07/semantics/">Importance of Semantics</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2016-11-07T06:04:46Z">Nov 7, 2016</time> &middot; 5 min read
-        </div>
-
-        <div>
-          <p><strong>semantics</strong><sup id="fnref-2002-1"><a href="#fn-2002-1">1</a></sup> | /sɪˈmæntɪks/ | noun (functioning as sing)</p>
-<ol>
-<li>the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings</li>
-<li>the study of the relationships between signs and symbols and what they represent</li>
-<li>(<strong>logic</strong>)
-<ul>
-<li>the study of interpretations of a formal theory</li>
-<li>the study of the relationship between the structure of a theory and its subject matter</li>
-<li>(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms</li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>Semantics is ever more important in programming.</p>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2016/11/07/semantics/">Read More</a>
-        </div>
-      </article>
   </div>
 
   
@@ -422,7 +439,7 @@
 
 	<footer>
   <div>
-    &copy;  2023
+    &copy;  2024
 
     
 

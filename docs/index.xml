@@ -6,8 +6,15 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matter Feature Request - Series</title>
+      <link>/posts/matter-series/</link>
+      <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/matter-series/</guid>
+      <description>Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything &lt;a href=&#34;https://go.dev/doc/faq#overloading&#34;&gt;hard&lt;/a&gt;. 🙄 But function overloading in dynamic languages are not really sought after.</description>
+    </item>
     <item>
       <title>Keep Killing It</title>
       <link>/posts/keep-killing/</link>
