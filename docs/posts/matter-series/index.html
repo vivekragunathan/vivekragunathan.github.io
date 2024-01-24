@@ -13,17 +13,17 @@
 	
 
 <meta itemprop="name" content="Matter Feature Request - Series">
-<meta itemprop="description" content="Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything hard. 🙄 But function overloading in dynamic languages are not really sought after."><meta itemprop="datePublished" content="2024-01-17T00:00:00+00:00" />
+<meta itemprop="description" content="Matter is a fantastic app for reading; articles, blog posts etc. There is one feature I love to have in Matter. Let us find out what that is."><meta itemprop="datePublished" content="2024-01-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-01-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="431">
+<meta itemprop="wordCount" content="493">
 <meta itemprop="keywords" content="matter,rss,blogs," />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matter Feature Request - Series"/>
-<meta name="twitter:description" content="Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything hard. 🙄 But function overloading in dynamic languages are not really sought after."/>
+<meta name="twitter:description" content="Matter is a fantastic app for reading; articles, blog posts etc. There is one feature I love to have in Matter. Let us find out what that is."/>
 
 
 <meta property="og:title" content="Matter Feature Request - Series" />
-<meta property="og:description" content="Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything hard. 🙄 But function overloading in dynamic languages are not really sought after." />
+<meta property="og:description" content="Matter is a fantastic app for reading; articles, blog posts etc. There is one feature I love to have in Matter. Let us find out what that is." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/matter-series/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-01-17T00:00:00+00:00" />
@@ -171,24 +171,27 @@
     <time datetime="2024-01-17T00:00:00Z">Jan 17, 2024</time> &middot; 3 min read
   </div>
 
-  <h3 id="prelude">Prelude</h3>
-<ul>
-<li>This is a composite feature request, meaning there are multiple parts to the target feature requested. So, it may be broken down and implemented  iteratively to deliver the final product.</li>
-<li>Take the  design aspects of the feature  discussed here lightly. Matter’s design team is  definitely way more creative than me. I am sure they will improve it greatly if Matter decides to take up this feature request.</li>
-</ul>
-<h3 id="feature-description">Feature Description</h3>
-<p>One could easily say that <a href="https://hq.getmatter.com">Matter</a> is the best app for reading articles / posts. Many times authors produce a series of posts under a given title. The count of posts in a series range from 3 to 15.</p>
-<p>Here is an example of an excellent series: <a href="https://abbeyperini.hashnode.dev/coding-and-adhd-adhd-brains">Coding and ADHD Brains</a>. I think there are 5 posts in the series.</p>
+  <h3 id="problem-description">Problem Description</h3>
+<p><a href="https://hq.getmatter.com">Matter</a> is a fantastic app for reading blog posts, articles - especially long ones, newsletters and such. Distraction-free reading. Simple elegant user interface. Ability to subscribe to blogs and newsletters. <strong>However, there is one feature I love to have in Matter</strong>.</p>
+<p>Many times, authors publish a series of posts under a given topic. Breaking down a big topic into multiple parts is convenient for readers. And for authors. Typically, the count of posts in a series ranges from 3 to 15.</p>
+<p>Here is an example of an excellent series: <a href="https://abbeyperini.hashnode.dev/coding-and-adhd-adhd-brains">Coding and ADHD Brains</a>. This series has six posts.</p>
 <h4 id="pain-point-1">Pain point #1</h4>
-<p>The only way add import these posts in a series into Matter is to add them one by one. Instead it would be great to bulk import. For example, provide a list of post urls (in the input box when you click <strong>+</strong> in the app) to import them in one go. This solves one piece of the puzzle.</p>
+<p>The only way to add/import these posts in a series into Matter is to add them one by one. Instead it would be great to bulk import. For example, provide a list of post urls (in the input box when you click <strong>+</strong> in the app) to import them in one go. This solves one piece of the puzzle.</p>
 <h4 id="pain-point-2">Pain point #2</h4>
-<p>Even if bulk import is implemented, there is still a pain point in terms of organization. Bulk import would just import all the urls and <em>litter it in the Queue</em>. It is not inherently possible to say that these posts belong to a series (unless the author decides to use the same title with a part number).</p>
-<p>You could provide the option to assign Tags for all the posts during bulk import. <em>But Tags are not the right taxonomy for this case</em> (although it is convenient to assign Tags during bulk import). What would be great is to support an alternative taxonomy. Let us call it <em>Series</em>.</p>
+<p>Even if bulk import is implemented, there is still a pain point in terms of organization. Bulk import would just import all the urls and <em>litter it in the Queue</em>. It is not inherently possible to say that these posts belong to a <em>series</em>; unless the author decides to use the same title with a part number. Even so, the posts may be scattered in the queue depending on the parts you read and how the queue is sorted.</p>
+<p>You could provide the option to assign Tags for all the posts during bulk import. <em>But Tag is not the right taxonomy for this case</em> (although it is convenient to assign Tags during bulk import).</p>
+<h3 id="feature-description">Feature Description</h3>
+<p>What would be great is to support an alternative taxonomy. Let us call it <em>Series</em>.</p>
 <ul>
 <li>You should be able to create a <em>Series</em> to which you should be able to add new urls or already imported posts / articles. In the Queue, the <em>Series</em> should show up as a line item with ▶ icon on the right denoting that there are posts inside.</li>
 <li>During bulk import, Matter should provide an option to either create a Series for the posts being imported or assign to an existing Series.</li>
 </ul>
-<p>While there are standards like RSS or atom, AFAIK, there isn’t any standard for denoting a series. If such a standard exists, Matter could import the series of posts into a  Series automatically, which would be super awesome.</p>
+<p>While there are standards like RSS or atom, AFAIK, there isn’t any standard for denoting a series. If such a standard exists, Matter could import the series of posts into a <em>Series</em> automatically, which would be super awesome.</p>
+<h3 id="finally">Finally</h3>
+<ul>
+<li>This is a composite feature request, meaning there are multiple parts to the target feature requested. So, it may be broken down and implemented  iteratively to deliver the final product.</li>
+<li>Take the  design aspects of the feature  discussed here lightly. Matter’s design team is  definitely way more creative than me. I am sure they will improve it greatly if Matter decides to take up this feature request.</li>
+</ul>
 <p>I have shared this request with the Matter team a few weeks back. Let us see what they decide.</p>
 
 </div>
