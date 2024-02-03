@@ -6,8 +6,22 @@
     <description>Recent content in Tags on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>journey</title>
+      <link>/tags/journey/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/journey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>scala</title>
+      <link>/tags/scala/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/scala/</guid>
+      <description></description>
+    </item>
     <item>
       <title>blogs</title>
       <link>/tags/blogs/</link>
@@ -69,13 +83,6 @@
       <link>/tags/optional/</link>
       <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
       <guid>/tags/optional/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>scala</title>
-      <link>/tags/scala/</link>
-      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/scala/</guid>
       <description></description>
     </item>
     <item>

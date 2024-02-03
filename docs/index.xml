@@ -6,8 +6,15 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Scala Story</title>
+      <link>/posts/my-scala-story/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/my-scala-story/</guid>
+      <description>I have been reading the &lt;em&gt;My Scala Story&lt;/em&gt; &lt;a href=&#34;https://softwaremill.com/blog/?tag=myscalastory&#34;&gt;series&lt;/a&gt; by Software Mill - short interview of the renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill&amp;rsquo;s radar but their series inspired me to share mine. So, here it goes &amp;hellip;</description>
+    </item>
     <item>
       <title>Matter Feature Request - Series</title>
       <link>/posts/matter-series/</link>
