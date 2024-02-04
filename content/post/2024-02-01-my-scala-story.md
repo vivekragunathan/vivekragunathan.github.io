@@ -6,17 +6,17 @@ url: /posts/my-scala-story
 date: 2024-02-01
 tags: [ 'scala', 'journey' ]
 summary: |
-  I have been reading the _My Scala Story_ [series](https://softwaremill.com/blog/?tag=myscalastory) by Software Mill - short interview of the renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill's radar but their series inspired me to share mine. So, here it goes ...
+  I have been reading the _My Scala Story_ [series](https://softwaremill.com/blog/?tag=myscalastory) by Software Mill - a short interview of renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill's radar. But their series inspired me to share mine. So, here it goes ...
 
 ---
 
-I have been reading the _My Scala Story_ [series](https://softwaremill.com/blog/?tag=myscalastory) by Software Mill - short interview of the renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill's radar but their series inspired me to share mine. So, here it goes ...
+I have been reading the _My Scala Story_ [series](https://softwaremill.com/blog/?tag=myscalastory) by Software Mill - a short interview of renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill's radar. But their series inspired me to share mine. So, here it goes ...
 
 **How did you first get introduced to Scala, and what did you think about it?**
 
-About 6 years ago, I was kind of bored with main stream languages at the time. I had programmed for long with C++, Java, C#, Python and the like. I no longer wanted to write loops and such. I wanted to program on a higher plane (functional style).
+Around six years ago, I was tired of programming in the mainstream imperative languages - C++, Java, C#, Python, and the like. I was not interested anymore in writing loops and such. I wanted to program on a higher plane (functional style)
 
-I started dipping my toes in Scala. The syntax instantly impressed me - short and succinct yet expressive. The language dropped every bit of syntax that was conventional and redundant, which cuts to the chase. Types was the central idea. That got me hooked to Scala.
+I had begun exploring Scala. The syntax instantly impressed me - concise yet expressive. The language dropped every bit of conventional and redundant syntax, which cuts to the chase. Types were the central idea. That got me hooked on Scala.
 
 Also, I wasn't particularly interested in developing pet projects but wanted to use it as my primary language. Luckily, my new job at the time was Scala-based, which set me on a course to never let go of Scala.
 
@@ -24,13 +24,13 @@ Also, I wasn't particularly interested in developing pet projects but wanted to 
 
 Without second thought, it is the `implicit`s, which extend to type classes. Implicit gives you a whole new model of defining dependencies. Typeclasses threw away conventional inheritance out of the window.
 
-Particularly, recursive implicit resolution was my _Aha! Scala is awesome_ moment.
+In particular, recursive implicit resolution was my _Aha! Scala is awesome_ moment.
 
 **How has Scala influenced your approach to solving programming problems?**
 
-Scala was my gateway into functional programming. It has taught me not only to develop an intuition to abstract but establish/use abstraction patterns. In contrast to object oriented languages, the abstractions and patterns in the functional world cannot be discarded as subjective. There are proofs. Functor laws for instance.
+Scala was my gateway into functional programming. It taught me to develop an intuition to abstract and establish/use abstraction patterns. In contrast to object-oriented languages, functional abstractions/patterns cannot be discarded as subjective because they are backed by proof. Functor laws, for instance.
 
-The other big influence is this idea of declarative lazy style. You describe / declare your program but not execute until you have declared it fully. It is a powerful idea that brings up nice patterns in such a style of programming. To explain this idea to newcomers, I use punched cards (or mainframes) as an example. You write your program fully and submit it for execution. It is kind of a funny loose example but easy to get the message across. 🤷‍♂️
+The other big influence for me is the idea of declarative lazy style. You describe/declare your program but do not execute it until you have declared it fully. It is a powerful idea that brings up nice patterns. To explain this idea to newcomers, I use punched cards (or mainframes) as an example. You write your program fully and submit it for execution. Despite being a funny and loose example, it gets the message across. 🤷‍♂️
 
 **What is your favorite programming meme?**
 
