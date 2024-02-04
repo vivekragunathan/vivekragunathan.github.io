@@ -61,14 +61,14 @@ Some wonderful people I love interacting with:
 
 - I love interacting with [Nicolas Rinaudo](https://nrinaudo.github.io) online - Scala related and online social stuff. I *love* his talks. Anytime he posts something Scala on social media, I reply, "I see a talk coming!" He is polite and friendly.
 - I am amazed at [Noel Welsh](https://noelwelsh.com/)'s dedication in onboarding people of all backgrounds to Scala (or programming in general). And his relentless contribution in writing materials that is approachable to newcomers. If you did not know, he runs the [Scala Bridge London](https://www.scalabridgelondon.org/) group. Come join!
-- If I am allowed to say I know a bit of Scala, I will say without hesitation that the credit goes to [Morgen Peschke](https://github.com/morgen-peschke). I can't count the number of times I have bugged him when I am stuck.
+- If I am allowed to say I know a bit of Scala, I will say without hesitation that the credit goes to [Morgen Peschke](https://github.com/morgen-peschke). I can't count the number of times I have bugged him when I was stuck.
 - I am not sure if [Kit Langton](https://www.kitlangton.com/) remembers me (not by name though). He is a humble and kind person. I remember one time I asked him a question, and he sent me a video replying in detail.
 
 There are other great people in the community I have interacted with ; briefly or for long. It is hard to list all names.
 
 Caveats:
 
-- There are forums and groups that might may not be relevant to you depending on where one is in the journey. So, it is difficult to gauge the nature of the conversations in those communities. For example, Scala contributors forum, if you are not in to following SIP and such.
+- There are forums and groups that might may not be relevant to you depending on where you are in your journey. So, it is difficult to gauge the nature of the conversations in those communities. For example, Scala contributors forum, if you are not in to following SIP and such.
 - One thing that might be a barrier for newcomers is experienced people interacting amongst themselves. So, a newcomer may feel left out. It is not exclusive to Scala.
 
 I mentioned caveats in the middle to highlight the following. There are a lot of great people in the community that I admire for two reasons; especially those I mentioned above:
