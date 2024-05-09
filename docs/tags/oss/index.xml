@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>oss on A Developer&#39;s Experience</title>
+    <title>Oss on A Developer&#39;s Experience</title>
     <link>/tags/oss/</link>
-    <description>Recent content in oss on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Oss on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 03 Dec 2015 09:36:26 +0000</lastBuildDate>
     <atom:link href="/tags/oss/index.xml" rel="self" type="application/rss+xml" />

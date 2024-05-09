@@ -8,7 +8,7 @@ categories:
   - Scala
   - Anorm
 summary: |
-  Is Confluence your documentation / knowledge-management system? Are you sick of its shortcomings? Poor and non-standard rendering. Lack of markdown support. Weird and inconsistent handling of unicode. Do you still think Confluence is a boon for document writing? Just be aware that there are better alternatives. 
+  Is Confluence your documentation / knowledge-management system? Are you sick of its shortcomings? Poor and non-standard rendering. Lack of markdown support. Weird and inconsistent handling of unicode. Do you still think Confluence is a boon for document writing? Just be aware that there are better alternatives.
 ---
 
 > <small>UPDATE: This post was [featured](https://hackernoon.com/confluence-is-for-the-uninformed-document-management-alternatives-to-confluence) on [hakernoon](https://www.hakernoon.com) 🎉</small>
@@ -53,7 +53,7 @@ I have been using Confluence for a long time now. I should say the experience so
 
 - No real support for collaborative editing and other collaborative features.
 - Does not have concept of *publishing* for sharing. Enjoy the doc update email spam!
-- AFAIK there is concept of team and spaces and moderators. Just dump everything and make it insanely hard to find in the labyrinth of nested hierarchies. The other option - bookmark of all confluence 🤣. While the organization is usually blamed on the team / personnel configuring Confluence, I see it as an inevitable outcome of a poorly designed product. 
+- AFAIK there is concept of team and spaces and moderators. Just dump everything and make it insanely hard to find in the labyrinth of nested hierarchies. The other option - bookmark of all confluence 🤣. While the organization is usually blamed on the team / personnel configuring Confluence, I see it as an inevitable outcome of a poorly designed product.
 - Macros are a love-hate deal.
 
 ### **Some Nice Alternatives**
@@ -87,4 +87,3 @@ P.S: StackOverflow for [**Teams**](https://stackoverflow.com/teams) is a good op
 
 
 [^1]: Extremely naive attempt with CSS for standard page-width for documents. ![img](/images/2022/confluence/confluence-custom-css.png)
-

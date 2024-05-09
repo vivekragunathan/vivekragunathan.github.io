@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rss on A Developer&#39;s Experience</title>
+    <title>Rss on A Developer&#39;s Experience</title>
     <link>/tags/rss/</link>
-    <description>Recent content in rss on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Rss on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/tags/rss/index.xml" rel="self" type="application/rss+xml" />

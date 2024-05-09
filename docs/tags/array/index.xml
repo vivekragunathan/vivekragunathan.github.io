@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>array on A Developer&#39;s Experience</title>
+    <title>Array on A Developer&#39;s Experience</title>
     <link>/tags/array/</link>
-    <description>Recent content in array on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Array on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 13 Mar 2015 06:40:37 +0000</lastBuildDate>
     <atom:link href="/tags/array/index.xml" rel="self" type="application/rss+xml" />

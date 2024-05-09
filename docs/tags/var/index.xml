@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>var on A Developer&#39;s Experience</title>
+    <title>Var on A Developer&#39;s Experience</title>
     <link>/tags/var/</link>
-    <description>Recent content in var on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Var on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 24 Aug 2015 01:10:27 +0000</lastBuildDate>
     <atom:link href="/tags/var/index.xml" rel="self" type="application/rss+xml" />

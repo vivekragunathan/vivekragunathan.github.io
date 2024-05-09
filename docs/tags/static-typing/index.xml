@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>static typing on A Developer&#39;s Experience</title>
+    <title>Static Typing on A Developer&#39;s Experience</title>
     <link>/tags/static-typing/</link>
-    <description>Recent content in static typing on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Static Typing on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate>
     <atom:link href="/tags/static-typing/index.xml" rel="self" type="application/rss+xml" />

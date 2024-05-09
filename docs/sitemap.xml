@@ -11,9 +11,6 @@
     <loc>/posts/my-scala-story/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/scala/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -137,9 +134,6 @@
     <loc>/posts/anorm-primer/</loc>
     <lastmod>2021-11-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/pages/</loc>
-    <lastmod>2021-10-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/posts/scala-cli-breeze/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
   </url><url>
@@ -215,10 +209,10 @@
     <loc>/categories/algos-and-puzzles/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url><url>
-    <loc>/tags/c#/</loc>
+    <loc>/tags/c%23/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url><url>
-    <loc>/categories/c#/</loc>
+    <loc>/categories/c%23/</loc>
     <lastmod>2016-12-10T08:21:43+00:00</lastmod>
   </url><url>
     <loc>/tags/min-diff/</loc>
@@ -315,6 +309,9 @@
     <lastmod>2016-01-19T04:23:55+00:00</lastmod>
   </url><url>
     <loc>/categories/c&#43;&#43;/</loc>
+    <lastmod>2016-01-19T03:07:03+00:00</lastmod>
+  </url><url>
+    <loc>/categories/c&#43;&#43;/cli/</loc>
     <lastmod>2016-01-19T03:07:03+00:00</lastmod>
   </url><url>
     <loc>/2016/01/19/publishing-ccli-on-leanpub/</loc>
@@ -839,19 +836,19 @@
     <loc>/2005/04/19/joining-the-game/</loc>
     <lastmod>2005-04-19T17:25:00+00:00</lastmod>
   </url><url>
-    <loc>/index.html</loc>
-  </url><url>
     <loc>/blog-google-analytics/</loc>
-  </url><url>
-    <loc>/categories/c&#43;&#43;/cli/</loc>
   </url><url>
     <loc>/example/</loc>
   </url><url>
-    <loc>/example@domain.com/</loc>
+    <loc>/https/example.com/</loc>
   </url><url>
     <loc>/example/example.github.io/</loc>
   </url><url>
-    <loc>/https/example.com/</loc>
+    <loc>/example@domain.com/</loc>
+  </url><url>
+    <loc>/pages/</loc>
+  </url><url>
+    <loc>/post/</loc>
   </url><url>
     <loc>/quotations/</loc>
   </url><url>

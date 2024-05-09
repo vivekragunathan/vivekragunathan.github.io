@@ -1,21 +1,23 @@
 ---
 title: Profile
-author: vivekragunathan
+author: higherkindedtype
 layout: page
 url: /profile
 date: 2015-10-17T04:18:06+00:00
 
 ---
+
 **FORTE**
 
-  * Have extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications
-  * Eloquent and skillful in _functional_ and object-oriented programming, design and methodologies.
-  * Dogmatic about producing highly reusable semantically meaningful space-efficient debuggable and maintainable quality code. To crash is a shame!
-  * Have extensive experience in refactoring beyond-repair production code and transforming it into robust secure testable high quality code with no new defects and agreed breaking changes
-  * Conceive, Propose, Document, Maintain and Adapt engineering standards and policies for efficient functioning of team and the product. The _what_ and _how_ matters, the _why_ gives meaning.
-  * Dutifully groom and mentor engineers to build and sustain the best-in-class team. _Be the brain to pick, an ear to listen, and a push in the right direction_.
-  * Language agnostic, polyglot, linguist, linguaphile - Scala, C#, Java, Rust, Go, Python, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively.
-  * Have extensive experience working collaboratively in small and large teams practicing Agile software development.
+- Extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications
+- Eloquent and skillful in functional and object-oriented programming, design and methodologies.
+- Resolute in producing highly reusable semantically meaningful space-efficient debuggable and maintainable quality code. To crash is a shame!
+- Language agnostic, polyglot, linguist, linguaphile - Scala, Java, C#, Go, Python, Rust, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively.
+- Extensive experience in refactoring beyond-repair production code and transforming it into robust secure testable high quality code with no new defects and agreed breaking changes
+- Conceive, Propose, Document, Maintain and Adapt engineering standards and policies for efficient functioning of team and the product. The what and how matters, the why gives meaning.
+- Self-driven in sharing knowledge and mentoring engineers to build and sustain the best-in-class team. Be the brain to pick, an ear to listen, and a push in the right direction.
+- Open-minded and receptive to alternative viewpoints to find the most constructive path forward. Team work makes dream work possible.
+- Have extensive experience working collaboratively in small and large teams practicing Agile software development.
 
 **PERSONA**
 
@@ -25,7 +27,7 @@ date: 2015-10-17T04:18:06+00:00
 
     Introduce discrete programming problems from an alternative viewpoint, not HOWTOs, and present plausible solutions, Wild analogies of scenarios identified across platforms or languages.
 
-  - [**`Rhetoric Musings`**](https://rhetoricalmusings.wordpress.com)
+  - [**`Rhetoric Musings`**](https://rhetoricmusings.wordpress.com)
 
     Thinker, philosopher, failed writer
 
@@ -36,14 +38,15 @@ date: 2015-10-17T04:18:06+00:00
 **Articles Published Online**
 
   * C++/CLI Primer – An Apress [Book](https://www.amazon.com/dp/1484223667)
-  * [JINQ](/posts/jinq/) – **J**ava **IN**tegrated **Q**uery. [🔗](/posts/mundane-vs-jinq-way/)
-  * Application Models [🔗](https://www.linkedin.com/pulse/application-models-vivek-ragunathan)
-  * Lo and Behold [🔗](https://www.linkedin.com/pulse/lo-behold-vivek-ragunathan)
-  * Bits, Bytes and Stones [🔗](https://www.linkedin.com/pulse/bits-bytes-stones-vivek-ragunathan)
-  * &#8220;Please Don’t Fail Me!&#8221; – Decorator Cries Out to Template Method [🔗](/pages/pattern-conflict)
-  * Type-Safe Logger For C++ [🔗](/pages/ts-logger)
-  * Scrollable Image Viewer [🔗](/pages/img-viewer)
-  * Simple Tree List View [🔗](/pages/tlv)
+  * [JINQ](/posts/jinq/) – **J**ava **IN**tegrated **Q**uery. [➚](/posts/mundane-vs-jinq-way/)
+  * Application Models [➚](https://www.linkedin.com/pulse/application-models-vivek-ragunathan)
+  * Lo and Behold [➚](https://www.linkedin.com/pulse/lo-behold-vivek-ragunathan)
+  * Written on Stone [➚](https://www.linkedin.com/pulse/bits-bytes-stones-vivek-ragunathan)
+  * Confluence Alternatives [➚](/posts/confluence-alternatives/)
+  * "Please Don’t Fail Me!" – Decorator Cries Out to Template Method [➚](/pages/pattern-conflict)
+  * Type-Safe Logger For C++ [➚](/pages/ts-logger)
+  * Scrollable Image Viewer [➚](/pages/img-viewer)
+  * Simple Tree List View [➚](/pages/tlv)
 
 **WORK EXPERIENCE**
 

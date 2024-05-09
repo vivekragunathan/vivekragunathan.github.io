@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>currying on A Developer&#39;s Experience</title>
+    <title>Currying on A Developer&#39;s Experience</title>
     <link>/tags/currying/</link>
-    <description>Recent content in currying on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Currying on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 Oct 2010 12:08:00 +0000</lastBuildDate>
     <atom:link href="/tags/currying/index.xml" rel="self" type="application/rss+xml" />

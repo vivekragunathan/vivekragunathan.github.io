@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dynamic-languages on A Developer&#39;s Experience</title>
+    <title>Dynamic-Languages on A Developer&#39;s Experience</title>
     <link>/tags/dynamic-languages/</link>
-    <description>Recent content in dynamic-languages on A Developer&#39;s Experience</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Dynamic-Languages on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 28 May 2014 21:26:39 +0000</lastBuildDate>
     <atom:link href="/tags/dynamic-languages/index.xml" rel="self" type="application/rss+xml" />
