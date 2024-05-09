@@ -5,6 +5,9 @@
 .fleet
 *.iml
 
+docs/*
+resources/*
+
 _site
 .sass-cache
 .jekyll-metadata
