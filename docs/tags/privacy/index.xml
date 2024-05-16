@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Privacy on A Developer&#39;s Experience</title>
-    <link>/tags/privacy/</link>
+    <link>//localhost:51234/tags/privacy/</link>
     <description>Recent content in Privacy on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>For a better Signal (Part 1)</title>
-      <link>/posts/signal-part1/</link>
+      <link>//localhost:51234/posts/signal-part1/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>/posts/signal-part1/</guid>
+      <guid>//localhost:51234/posts/signal-part1/</guid>
       <description>Signal is undisputedly the gold standard of chat messengers, especially for the staunch privacy-conscious. Signal gets its gold star for its security/privacy aspects. Nothing to argue in that regard. &lt;strong&gt;However, I would rate Signal very low when it comes to user friendliness&lt;/strong&gt;. Read the post find out why.</description>
     </item>
     <item>
       <title>Degooling</title>
-      <link>/posts/degoogling/</link>
+      <link>//localhost:51234/posts/degoogling/</link>
       <pubDate>Sun, 12 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>/posts/degoogling/</guid>
+      <guid>//localhost:51234/posts/degoogling/</guid>
       <description>A rundown of alternatives for degoogling based on recent conversations with friends and acquaintances. There are alternatives  that are user privacy friendly, and some of them free. Besides, do not get emotionally attached to a name.  &lt;em&gt;Brand names are not functionalities&lt;/em&gt;. Don&amp;rsquo;t hesitate to ditch a product/company in the case of foul play.</description>
     </item>
   </channel>

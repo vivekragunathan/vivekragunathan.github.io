@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,34 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Properties in C&#43;&#43;/CLI….The C# look alike !!!">
-  <meta itemprop="description" content="Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.">
-  <meta itemprop="datePublished" content="2006-04-11T03:56:00+00:00">
-  <meta itemprop="dateModified" content="2006-04-11T03:56:00+00:00">
-  <meta itemprop="wordCount" content="408">
-  <meta itemprop="keywords" content="Uncategorized,Uncategorized">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Properties in C&#43;&#43;/CLI….The C# look alike !!!">
-<meta name="twitter:description" content="Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.">
-
-
-<meta property="og:url" content="/2006/04/11/properties-in-ccli-the-c-look-alike/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Properties in C&#43;&#43;/CLI….The C# look alike !!!">
-  <meta property="og:description" content="Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2006-04-11T03:56:00+00:00">
-    <meta property="article:modified_time" content="2006-04-11T03:56:00+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -79,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -152,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -176,35 +154,35 @@
   </div>
 
   <p>Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#. And could not resist myself writing property like syntax in C++ [ofcourse C++/CLI, threw away the ugly Managed C++ before it was too late for my code to grow into a tree]. Then I learnt that properties are supported in C++.NET too but as always in the ugly way. But in C++/CLI, I was happy enough that the syntax is more elegantly redefined. For instance, there was this boolean member <code>logToStdError</code> in my class, and in my legacy code, the property definition for <code>logToStdError</code> looked like:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">__property</span> <span class="kt">bool</span> <span class="nf">get_LogToStdError</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">logToStdError</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">__property</span> <span class="kt">void</span> <span class="nf">set_LogToStdError</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>__property <span style="color:#8be9fd">bool</span> <span style="color:#50fa7b">get_LogToStdError</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> logToStdError;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>__property <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">set_LogToStdError</span>(<span style="color:#8be9fd">bool</span> value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> logToStdError <span style="color:#ff79c6">=</span> value;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Doesn&rsquo;t that seem like the cat scorching its skin wanting to look like a tiger ? But we need to understand that the Managed C++ is just an extension provided by Microsoft for C++, and is not standard unlike C++/CLI. And then in C++/CLI, the syntax for property was reformed with the property keyword:-</p></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">property</span> <span class="kt">bool</span> <span class="n">LogToStdError</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="nf">get</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">logToStdError</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>property <span style="color:#8be9fd">bool</span> LogToStdError
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">bool</span> <span style="color:#50fa7b">get</span>() { <span style="color:#ff79c6">return</span> logToStdError; }
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">set</span>(<span style="color:#8be9fd">bool</span> value) { logToStdError <span style="color:#ff79c6">=</span> value; }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This makes life bit luxurious, and the compiler takes care of still generating the <code>get_LogToStdError</code> and <code>set_LogToStdError</code> versions of the methods. Try defining a method with that name and see what happens.</p>
 <p>The purpose of this post is not just put another note on C++/CLI Property instead there are 2 cute features that I liked:-</p>
 <ol>
 <li>If the property that we define is a very simple one, just getting and setting the value of the related member variable, then we can simply declare a statement like this in our class [for the LogToStdError], and the compiler takes care of the under-the-cover activities.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">property</span> <span class="kt">bool</span> <span class="n">logToStdError</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>property <span style="color:#8be9fd">bool</span> logToStdError;
 </span></span></code></pre></div><ol start="2">
 <li>This one I love very much because I wanted this behaviour in a lot of places in my code, and before. It is possible to specify different accessibility levels for the get and the set property accessors. For example &hellip;</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">property</span> <span class="kt">bool</span> <span class="n">LogToStdError</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">logToStdError</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">protected</span> <span class="nl">internal</span><span class="p">:</span> <span class="kt">void</span> <span class="n">set</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="n">logToStdError</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>property <span style="color:#8be9fd">bool</span> LogToStdError
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">bool</span> get() { <span style="color:#ff79c6">return</span> logToStdError; }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">protected</span> <span style="color:#8be9fd;font-style:italic">internal</span>: <span style="color:#8be9fd">void</span> set(<span style="color:#8be9fd">bool</span> value) { logToStdError <span style="color:#ff79c6">=</span> value; }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The get accessor can be accessed anywhere outside the class in the assembly, but the set accessor can be accessed only inside the current assembly or within the types derived from the type in which LogToStdError is declared. I guess that this facility is not ava</span>ilable in C#.</p>
 
 </div>
@@ -224,18 +202,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

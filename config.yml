@@ -1,13 +1,14 @@
 title: A Developer's Experience
 theme: soho
+
 publishDir: docs/
 baseURL: ''
 languageCode: en
 enableInlineShortcodes: true
 summarylength: 10
 enableEmoji: true
+
 params:
-  author: HigherKindedType
   description: >-
     The romantic image of an über-programmer is someone who fires up Emacs,
     types like a machine gun, and delivers a flawless final product from
@@ -20,6 +21,7 @@ params:
     scratch. A more accurate image would be someone who stares quietly into
     space for a few minutes and then says Hmm. I think I’ve seen something like
     this before – John D. Cook
+  author: HigherKindedType
   profilePicture: images/profile.png
   avatar: /images/profile.png
   github: vivekragunathan
@@ -63,15 +65,16 @@ markup:
     renderer:
       unsafe: true
   highlight:
+    style: dracula
     codeFences: true
+    tabWidth: 2
     guessSyntax: false
     hl_Lines: ''
     lineNoStart: 1
     lineNos: false
     lineNumbersInTable: true
-    noClasses: false
-    style: zenburn
-    tabWidth: 2
+    noClasses: true
+    noHl: false
   tableOfContents:
     endLevel: 3
     ordered: false
@@ -80,12 +83,3 @@ taxonomies:
   category: categories
   series: series
   tag: tags
-# Unfilled fields
-  copyright: ''
-  twitter: example
-  misskey: user profile url
-  mastodon: user profile url
-  email: example@domain.com
-  utterances: example/example.github.io
-  url: 'https://example.com'
-  keywords: 'blog, google analytics'

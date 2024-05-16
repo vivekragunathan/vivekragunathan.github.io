@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,61 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Selective Combinations">
-  <meta itemprop="description" content="Consider this scenario:
-
-You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is abc, def and ghi. I have to generate ordered combinations of the above list restricted to the ones starting with abc.
-
-So that would be as follows:
-abc def ghi
-
-abc def
-
-abc ghi
-
-abc
-">
-  <meta itemprop="datePublished" content="2016-05-16T07:00:08+00:00">
-  <meta itemprop="dateModified" content="2016-05-16T07:00:08+00:00">
-  <meta itemprop="wordCount" content="666">
-  <meta itemprop="keywords" content="Algos and Puzzles,Uncategorized,Algos and Puzzles,Uncategorized">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Selective Combinations">
-<meta name="twitter:description" content="Consider this scenario:
-
-You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is abc, def and ghi. I have to generate ordered combinations of the above list restricted to the ones starting with abc.
-
-So that would be as follows:
-abc def ghi
-
-abc def
-
-abc ghi
-
-abc
-">
-
-
-<meta property="og:url" content="/2016/05/16/resource-combinations/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Selective Combinations">
-  <meta property="og:description" content="Consider this scenario:
-You have a list of strings with which you have generate ordered selective combinations of strings starting with the first string in the list. Let us say the list of strings is abc, def and ghi. I have to generate ordered combinations of the above list restricted to the ones starting with abc.
-So that would be as follows:
-abc def ghi abc def abc ghi abc ">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2016-05-16T07:00:08+00:00">
-    <meta property="article:modified_time" content="2016-05-16T07:00:08+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -106,10 +53,14 @@ abc def ghi abc def abc ghi abc ">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -179,7 +130,7 @@ abc def ghi abc def abc ghi abc ">
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -216,64 +167,64 @@ abc ghi
 abc
 </code></pre><p>If the problem sounds abstract, here is the real situation. <!--more--> I have a list of parameters with which I have to select the best matching and available resource (a file in my application config folder). Let us say, the parameter values are</p>
 <p><code>config</code>, <code>type</code>, and <a href=""><code>Locale</code></a> (say <code>en_US</code> for this discussion). So I have to go find the best matching file for the given parameters but in the following order:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">config</span><span class="err">\</span><span class="n">_type</span><span class="err">\</span><span class="n">_en_US</span><span class="p">.</span><span class="na">json</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">config_type</span><span class="p">.</span><span class="na">json</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">config</span><span class="err">\</span><span class="n">_en</span><span class="err">\</span><span class="n">_US</span><span class="p">.</span><span class="na">json</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">config</span><span class="p">.</span><span class="na">json</span><span class="w">
-</span></span></span></code></pre></div><p>Not a difficult one, eh? Only that, at the time of this writing, the number of parameters was not fixed but could be more (definitely not hundreds or thousands) but more than three.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>config\_type\_en_US.<span style="color:#50fa7b">json</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>config_type.<span style="color:#50fa7b">json</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>config\_en\_US.<span style="color:#50fa7b">json</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>config.<span style="color:#50fa7b">json</span>
+</span></span></code></pre></div><p>Not a difficult one, eh? Only that, at the time of this writing, the number of parameters was not fixed but could be more (definitely not hundreds or thousands) but more than three.</p>
 <p><strong>The non-solution</strong></p>
 <p>Alright, let us not talk about generating all possible combinations of the given list of strings, and pluck the ones starting with the first string in the list.</p>
 <p><strong>Solution #1</strong></p>
 <p>The conventional technique or the <em>don’t overengineer</em> advice is to write a helper method with a bunch of nested <code>if</code>s; something I will not allow myself to succumb to. This helper method, although appears to be insignificant in the might of other things in the application, is going to be source of several problems later; at least the one related to resource selection.</p>
 <p><strong>Solution #3</strong></p>
 <p>A slightly better way is to have a predefined ordered set of strings that represent the filename pattern such as:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">resourceSelectionPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;{p1}\_{p2}\_{loc}&#34;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;{p1}_{p2}&#34;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;{p1}_{loc}&#34;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;{p1}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">};</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">findResource</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">param1</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">param2</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Locale</span><span class="w"> </span><span class="n">locale</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">patterns</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">resName</span><span class="w"> </span><span class="o">=</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">pattern</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="p">.</span><span class="na">replaceFirst</span><span class="p">(</span><span class="s">&#34;{p1}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">param1</span><span class="p">)</span><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="p">.</span><span class="na">replaceFirst</span><span class="p">(</span><span class="s">&#34;{p2}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">param2</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="p">.</span><span class="na">replaceFirst</span><span class="p">(</span><span class="s">&#34;{loc}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;.json&#34;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">fileName</span><span class="p">).</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="k">return</span><span class="w"> </span><span class="n">resName</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IOException</span><span class="p">(</span><span class="s">&#34;No matching resource found&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>This is better than nested <code>if</code>s which I would not bother to show the code. But even this is not really better. First, when there are more parameters in the equation, I have to go update <code>resourceSelectionPatterns</code> with the corresponding patterns and in the right order, and <code>findResource</code> method too. Also, the <code>replaceFirst</code> calls could create many throw-away <code>String</code>s. Of course, you can use a <code>StringBuilder</code> but that does not make it all better.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String<span style="color:#ff79c6">[]</span> resourceSelectionPatterns <span style="color:#ff79c6">=</span> { 
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;{p1}\_{p2}\_{loc}&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;{p1}_{p2}&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;{p1}_{loc}&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;{p1}&#34;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> String <span style="color:#50fa7b">findResource</span>(
+</span></span><span style="display:flex;"><span>    String param1,
+</span></span><span style="display:flex;"><span>    String param2,
+</span></span><span style="display:flex;"><span>    Locale locale
+</span></span><span style="display:flex;"><span>) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> (String pattern : patterns) {
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd;font-style:italic">final</span> String resName <span style="color:#ff79c6">=</span> 
+</span></span><span style="display:flex;"><span>			pattern
+</span></span><span style="display:flex;"><span>				.<span style="color:#50fa7b">replaceFirst</span>(<span style="color:#f1fa8c">&#34;{p1}&#34;</span>, param1)    
+</span></span><span style="display:flex;"><span>				.<span style="color:#50fa7b">replaceFirst</span>(<span style="color:#f1fa8c">&#34;{p2}&#34;</span>, param2)
+</span></span><span style="display:flex;"><span>				.<span style="color:#50fa7b">replaceFirst</span>(<span style="color:#f1fa8c">&#34;{loc}&#34;</span>, locale.<span style="color:#50fa7b">toString</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8be9fd;font-style:italic">final</span> String fileName <span style="color:#ff79c6">=</span> resName <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;.json&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">new</span> File(fileName).<span style="color:#50fa7b">exists</span>()) {
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">return</span> resName;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException(<span style="color:#f1fa8c">&#34;No matching resource found&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is better than nested <code>if</code>s which I would not bother to show the code. But even this is not really better. First, when there are more parameters in the equation, I have to go update <code>resourceSelectionPatterns</code> with the corresponding patterns and in the right order, and <code>findResource</code> method too. Also, the <code>replaceFirst</code> calls could create many throw-away <code>String</code>s. Of course, you can use a <code>StringBuilder</code> but that does not make it all better.</p>
 <p><strong>Take a step back</strong></p>
 <p>What I want is to generate the filename segments (or the equivalent patterns) <em>dynamically</em> based on the given set of input strings so that the solution is <em>write once and for all</em> (any count of parameters). We can assume that the order of the generated patterns is dictated by the order of the input strings.</p>
 <p><strong>Finale</strong></p>
 <p>If we can represent the input parameters in a more succinct format like a number and if we can identify a pattern among the numerical representation for each parameter, then we should be able to generate the filename segments <em>dynamically</em>.</p>
 <p>If we assume each parameter to be a bit of an integer, first parameter being the most significant bit, then the bit representations for the input – <code>config</code>, <code>type</code>, <code>en_US</code> would be as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">0000</span><span class="w"> </span><span class="n">0111</span><span class="w"> </span><span class="c1">// 7 =&gt; config\_type\_en_US</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0000</span><span class="w"> </span><span class="n">0110</span><span class="w"> </span><span class="c1">// 6 =&gt; config_type</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0000</span><span class="w"> </span><span class="n">0101</span><span class="w"> </span><span class="c1">// 5 =&gt; config\_en\_US.json</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0000</span><span class="w"> </span><span class="n">0100</span><span class="w"> </span><span class="c1">// 4 =&gt; config.json</span><span class="w">
-</span></span></span></code></pre></div><p>Well, I am sure you see the pattern. The integer representation of each filename segment decrements by 1 from the most specialized filename and stops at the least specialized one. This is true of any set of parameters and the selective combinations are generated dynamically.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>0000 0111 <span style="color:#6272a4">// 7 =&gt; config\_type\_en_US</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>0000 0110 <span style="color:#6272a4">// 6 =&gt; config_type</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>0000 0101 <span style="color:#6272a4">// 5 =&gt; config\_en\_US.json</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>0000 0100 <span style="color:#6272a4">// 4 =&gt; config.json</span>
+</span></span></code></pre></div><p>Well, I am sure you see the pattern. The integer representation of each filename segment decrements by 1 from the most specialized filename and stops at the least specialized one. This is true of any set of parameters and the selective combinations are generated dynamically.</p>
 <p>Writing the code now for this solution should be a pie, the pleasure of which I will leave it to you.</p>
 <p>Thanks to <a href="https://www.linkedin.com/in/azhaguthasan">Sammy</a> in helping me discover the solution!</p>
 </div>
@@ -293,18 +244,19 @@ abc
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

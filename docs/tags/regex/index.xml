@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Regex on A Developer&#39;s Experience</title>
-    <link>/tags/regex/</link>
+    <link>//localhost:51234/tags/regex/</link>
     <description>Recent content in Regex on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 23 Jul 2014 11:30:28 +0000</lastBuildDate>
-    <atom:link href="/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/tags/regex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cool Regex Testers !!!</title>
-      <link>/2014/07/23/cool-regex-testers/</link>
+      <link>//localhost:51234/2014/07/23/cool-regex-testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
-      <guid>/2014/07/23/cool-regex-testers/</guid>
+      <guid>//localhost:51234/2014/07/23/cool-regex-testers/</guid>
       <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
     </item>
   </channel>

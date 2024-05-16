@@ -2,220 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Developer&#39;s Experience</title>
-    <link>/categories/</link>
+    <link>//localhost:51234/categories/</link>
     <description>Recent content in Categories on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS</title>
-      <link>/categories/css/</link>
+      <link>//localhost:51234/categories/css/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/css/</guid>
+      <guid>//localhost:51234/categories/css/</guid>
       <description></description>
     </item>
     <item>
       <title>Scala</title>
-      <link>/categories/scala/</link>
+      <link>//localhost:51234/categories/scala/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/scala/</guid>
+      <guid>//localhost:51234/categories/scala/</guid>
       <description></description>
     </item>
     <item>
       <title>Uncategorized</title>
-      <link>/categories/uncategorized/</link>
+      <link>//localhost:51234/categories/uncategorized/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/uncategorized/</guid>
+      <guid>//localhost:51234/categories/uncategorized/</guid>
       <description></description>
     </item>
     <item>
       <title>Anorm</title>
-      <link>/categories/anorm/</link>
+      <link>//localhost:51234/categories/anorm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/anorm/</guid>
+      <guid>//localhost:51234/categories/anorm/</guid>
       <description></description>
     </item>
     <item>
       <title>IDE</title>
-      <link>/categories/ide/</link>
+      <link>//localhost:51234/categories/ide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/ide/</guid>
+      <guid>//localhost:51234/categories/ide/</guid>
       <description></description>
     </item>
     <item>
       <title>Plugins</title>
-      <link>/categories/plugins/</link>
+      <link>//localhost:51234/categories/plugins/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/plugins/</guid>
+      <guid>//localhost:51234/categories/plugins/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional-Programming</title>
-      <link>/categories/functional-programming/</link>
+      <link>//localhost:51234/categories/functional-programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/functional-programming/</guid>
+      <guid>//localhost:51234/categories/functional-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>/categories/programming/</link>
+      <link>//localhost:51234/categories/programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/programming/</guid>
+      <guid>//localhost:51234/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>/categories/javascript/</link>
+      <link>//localhost:51234/categories/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/javascript/</guid>
+      <guid>//localhost:51234/categories/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>.NET</title>
-      <link>/categories/.net/</link>
+      <link>//localhost:51234/categories/.net/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/.net/</guid>
+      <guid>//localhost:51234/categories/.net/</guid>
       <description></description>
     </item>
     <item>
       <title>Algos and Puzzles</title>
-      <link>/categories/algos-and-puzzles/</link>
+      <link>//localhost:51234/categories/algos-and-puzzles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/algos-and-puzzles/</guid>
+      <guid>//localhost:51234/categories/algos-and-puzzles/</guid>
       <description></description>
     </item>
     <item>
       <title>C#</title>
-      <link>/categories/c%23/</link>
+      <link>//localhost:51234/categories/c%23/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/c%23/</guid>
+      <guid>//localhost:51234/categories/c%23/</guid>
       <description></description>
     </item>
     <item>
       <title>Software Design</title>
-      <link>/categories/software-design/</link>
+      <link>//localhost:51234/categories/software-design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/software-design/</guid>
+      <guid>//localhost:51234/categories/software-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Software Architecture</title>
-      <link>/categories/software-architecture/</link>
+      <link>//localhost:51234/categories/software-architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/software-architecture/</guid>
+      <guid>//localhost:51234/categories/software-architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>/categories/java/</link>
+      <link>//localhost:51234/categories/java/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/java/</guid>
+      <guid>//localhost:51234/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Computers and Internet</title>
-      <link>/categories/computers-and-internet/</link>
+      <link>//localhost:51234/categories/computers-and-internet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/computers-and-internet/</guid>
+      <guid>//localhost:51234/categories/computers-and-internet/</guid>
       <description></description>
     </item>
     <item>
       <title>LINQ</title>
-      <link>/categories/linq/</link>
+      <link>//localhost:51234/categories/linq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/linq/</guid>
+      <guid>//localhost:51234/categories/linq/</guid>
       <description></description>
     </item>
     <item>
       <title>C&#43;&#43;</title>
-      <link>/categories/c&#43;&#43;/</link>
+      <link>//localhost:51234/categories/c&#43;&#43;/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/c&#43;&#43;/</guid>
+      <guid>//localhost:51234/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     <item>
       <title>C&#43;&#43;/CLI</title>
-      <link>/categories/c&#43;&#43;/cli/</link>
+      <link>//localhost:51234/categories/c&#43;&#43;/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/c&#43;&#43;/cli/</guid>
+      <guid>//localhost:51234/categories/c&#43;&#43;/cli/</guid>
       <description></description>
     </item>
     <item>
       <title>Unmanaged</title>
-      <link>/categories/unmanaged/</link>
+      <link>//localhost:51234/categories/unmanaged/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/unmanaged/</guid>
+      <guid>//localhost:51234/categories/unmanaged/</guid>
       <description></description>
     </item>
     <item>
       <title>CLR</title>
-      <link>/categories/clr/</link>
+      <link>//localhost:51234/categories/clr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/clr/</guid>
+      <guid>//localhost:51234/categories/clr/</guid>
       <description></description>
     </item>
     <item>
       <title>CodeProject</title>
-      <link>/categories/codeproject/</link>
+      <link>//localhost:51234/categories/codeproject/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/codeproject/</guid>
+      <guid>//localhost:51234/categories/codeproject/</guid>
       <description></description>
     </item>
     <item>
       <title>WinForms</title>
-      <link>/categories/winforms/</link>
+      <link>//localhost:51234/categories/winforms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/winforms/</guid>
+      <guid>//localhost:51234/categories/winforms/</guid>
       <description></description>
     </item>
     <item>
       <title>PHP</title>
-      <link>/categories/php/</link>
+      <link>//localhost:51234/categories/php/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/php/</guid>
+      <guid>//localhost:51234/categories/php/</guid>
       <description></description>
     </item>
     <item>
       <title>Android</title>
-      <link>/categories/android/</link>
+      <link>//localhost:51234/categories/android/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/android/</guid>
+      <guid>//localhost:51234/categories/android/</guid>
       <description></description>
     </item>
     <item>
       <title>JqGrid</title>
-      <link>/categories/jqgrid/</link>
+      <link>//localhost:51234/categories/jqgrid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/jqgrid/</guid>
+      <guid>//localhost:51234/categories/jqgrid/</guid>
       <description></description>
     </item>
     <item>
       <title>JQuery</title>
-      <link>/categories/jquery/</link>
+      <link>//localhost:51234/categories/jquery/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/jquery/</guid>
+      <guid>//localhost:51234/categories/jquery/</guid>
       <description></description>
     </item>
     <item>
       <title>Mobile</title>
-      <link>/categories/mobile/</link>
+      <link>//localhost:51234/categories/mobile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/mobile/</guid>
+      <guid>//localhost:51234/categories/mobile/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows Phone</title>
-      <link>/categories/windows-phone/</link>
+      <link>//localhost:51234/categories/windows-phone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/windows-phone/</guid>
+      <guid>//localhost:51234/categories/windows-phone/</guid>
       <description></description>
     </item>
     <item>
       <title>COM</title>
-      <link>/categories/com/</link>
+      <link>//localhost:51234/categories/com/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/com/</guid>
+      <guid>//localhost:51234/categories/com/</guid>
       <description></description>
     </item>
   </channel>

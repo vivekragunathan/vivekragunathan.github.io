@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on A Developer&#39;s Experience</title>
-    <link>/tags/programming/</link>
+    <link>//localhost:51234/tags/programming/</link>
     <description>Recent content in Programming on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Dec 2016 08:21:43 +0000</lastBuildDate>
-    <atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Problem Reduction</title>
-      <link>/2016/12/10/problem-reduction/</link>
+      <link>//localhost:51234/2016/12/10/problem-reduction/</link>
       <pubDate>Sat, 10 Dec 2016 08:21:43 +0000</pubDate>
-      <guid>/2016/12/10/problem-reduction/</guid>
+      <guid>//localhost:51234/2016/12/10/problem-reduction/</guid>
       <description>&lt;p&gt;&lt;em&gt;Problem Reduction&lt;/em&gt; is what I call when a given problem can be expressed in terms of or solved using a solution to an alternate problem.&lt;/p&gt;&#xA;&lt;p&gt;Take for instance, the word distance problem: &lt;em&gt;Find the shortest distance between two words in a given set of words&lt;/em&gt;. Following is an unanimous solution, I suppose:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Importance of Semantics</title>
-      <link>/2016/11/07/semantics/</link>
+      <link>//localhost:51234/2016/11/07/semantics/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
-      <guid>/2016/11/07/semantics/</guid>
+      <guid>//localhost:51234/2016/11/07/semantics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;&#xA;&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;&#xA;&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Iterators vs. Generators</title>
-      <link>/2016/08/03/iterators-vs-generators/</link>
+      <link>//localhost:51234/2016/08/03/iterators-vs-generators/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
-      <guid>/2016/08/03/iterators-vs-generators/</guid>
+      <guid>//localhost:51234/2016/08/03/iterators-vs-generators/</guid>
       <description>&lt;p&gt;Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JINQ</title>
-      <link>/posts/jinq/</link>
+      <link>//localhost:51234/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
-      <guid>/posts/jinq/</guid>
+      <guid>//localhost:51234/posts/jinq/</guid>
       <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
     </item>
     <item>
       <title>Getting reminded of the reminder !!!</title>
-      <link>/2014/05/23/android-reminder/</link>
+      <link>//localhost:51234/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
-      <guid>/2014/05/23/android-reminder/</guid>
+      <guid>//localhost:51234/2014/05/23/android-reminder/</guid>
       <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
-      <link>/2014/05/23/jqgrid-handling-array-data/</link>
+      <link>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
-      <guid>/2014/05/23/jqgrid-handling-array-data/</guid>
+      <guid>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</guid>
       <description>&lt;p&gt;This post is primarily a personal reference. I also consider this a tribute to &lt;a href=&#34;http://stackoverflow.com/users/315935/oleg&#34;&gt;Oleg&lt;/a&gt;, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clean Code</title>
-      <link>/2014/05/23/clean-code/</link>
+      <link>//localhost:51234/2014/05/23/clean-code/</link>
       <pubDate>Fri, 23 May 2014 01:31:21 +0000</pubDate>
-      <guid>/2014/05/23/clean-code/</guid>
-      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>//localhost:51234/2014/05/23/clean-code/</guid>
+      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;//localhost:51234/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sms FireWall Update !!!</title>
-      <link>/2012/04/24/smsfwupdate/</link>
+      <link>//localhost:51234/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
-      <guid>/2012/04/24/smsfwupdate/</guid>
+      <guid>//localhost:51234/2012/04/24/smsfwupdate/</guid>
       <description>I gave SMS FireWall a refresh with a couple of features requested by users:- An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
     </item>
     <item>
       <title>Unique Id Generation !!!</title>
-      <link>/2012/03/09/uid-gen/</link>
+      <link>//localhost:51234/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
-      <guid>/2012/03/09/uid-gen/</guid>
+      <guid>//localhost:51234/2012/03/09/uid-gen/</guid>
       <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
     </item>
   </channel>

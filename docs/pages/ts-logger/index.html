@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,34 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Typesafe Logger">
-  <meta itemprop="description" content="This article was co-authored with Sanjeev, and published on CodeProject">
-  <meta itemprop="datePublished" content="2010-10-08T18:34:09+00:00">
-  <meta itemprop="dateModified" content="2010-10-08T18:34:09+00:00">
-  <meta itemprop="wordCount" content="1733">
-  <meta itemprop="keywords" content="C&#43;&#43;,CodeProject,C&#43;&#43;,CodeProject">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Typesafe Logger">
-<meta name="twitter:description" content="This article was co-authored with Sanjeev, and published on CodeProject">
-
-
-<meta property="og:url" content="/pages/ts-logger/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Typesafe Logger">
-  <meta property="og:description" content="This article was co-authored with Sanjeev, and published on CodeProject">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="pages">
-    <meta property="article:published_time" content="2010-10-08T18:34:09+00:00">
-    <meta property="article:modified_time" content="2010-10-08T18:34:09+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -79,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -152,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -182,18 +160,18 @@
 <h3 id="problem">PROBLEM</h3>
 <p>Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files. There are so many other destinations where the logs can be written to. Irrespective of the destination that each application must be able to configure, the diagnostic log message and the way to generate the message is of our interest now. So we are in need of a logger class that can behave transparent to the logging destination. That should not be a problem, it would be fun to design that.</p>
 <p>The crux of the problem now is the generation of the log messages. Usually the log messages are generated dynamically in your code. For instance if an user calls an API <code>int GetFileSize(LPCTSTR lpszFilePath)</code>, the log may look something like this:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">GetFileSize – File: C:<span class="se">\T</span>emp<span class="se">\S</span>ample.txt. Size: <span class="m">1492</span> bytes.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GetFileSize – File: C:<span style="color:#f1fa8c">\T</span>emp<span style="color:#f1fa8c">\S</span>ample.txt. Size: <span style="color:#bd93f9">1492</span> bytes.
 </span></span></code></pre></div><p>In the above line of log, the file path and size values are known at runtime depending on the file. And the log could also bear the current date and time with the current logged in user requesting the file size and a variety of other stuff that might look information rich to the user. So, no doubt, our logger should have a method with variable number of arguments. Let us do the first draft of our logger class.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Logger</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="n">Logger</span><span class="p">()</span> <span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">Logger</span><span class="p">()</span> <span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">LogTrace</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fmtSpec</span><span class="p">,</span> <span class="p">...);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">LogInformation</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fmtSpec</span><span class="p">,</span> <span class="p">...);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">LogWarning</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fmtSpec</span><span class="p">,</span> <span class="p">...);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">LogError</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fmtSpec</span><span class="p">,</span> <span class="p">...);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Logger</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> Logger() ;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">~</span>Logger() ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">void</span> LogTrace(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> category, <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> fmtSpec, ...);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">void</span> LogInformation(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> category, <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> fmtSpec, ...);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">void</span> LogWarning(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> category, <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> fmtSpec, ...);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">void</span> LogError(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> category, <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> fmtSpec, ...);
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>The variable number of arguments is just fair enough. The C/C++ style of format specification string is cryptic with <code>%</code> and tough to match the corresponding format specification for each type; and especially tough when the format specification string is a long one. For instance, in order to output an <code>int</code>, the format specifier must be <code>%d</code>; if the programmer made a mistake by specifying <code>%s</code>, the whole show comes down. The application crashes pathetically. That is our prime problem to be solved – type safe logging.</p>
 <p>So</p>
 <ul>
@@ -204,106 +182,106 @@
 </ul>
 <h3 id="solution--type-safe-logger">SOLUTION – (Type Safe) Logger</h3>
 <p>First obstacle to get through is the facility to specify the variable number of arguments, especially in a type safe way. Fortunately the Standard Template Library is our savior. We can rely on <code>std::ostringstream</code> cutie for generating messages on the fly. A quick look:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ostr</span> <span class="err">«</span> <span class="err">“</span><span class="n">GetFileSize</span> <span class="err">–</span> <span class="nl">File</span><span class="p">:</span> <span class="s">&#34; « filePath.c_str() « “</span><span class="se">\t</span><span class="s">Size: &#34;</span> <span class="err">«</span> <span class="n">fileSize</span> <span class="err">«</span> <span class="s">&#34; bytes.&#34;</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ostr « “GetFileSize – <span style="color:#8be9fd;font-style:italic">File</span>: <span style="color:#f1fa8c">&#34; « filePath.c_str() « “</span><span style="color:#f1fa8c">\t</span><span style="color:#f1fa8c">Size: &#34;</span> « fileSize « <span style="color:#f1fa8c">&#34; bytes.&#34;</span>;
 </span></span></code></pre></div><p>The message thus constructed can be then directed to any destination – file, standard error, UI etc. That is the core of our solution.</p>
 <p>However the message construction must be based on a format specification. One good advantage of a format specification is that it gives a world view of the message that would be constructed\logged; while on the other hand, it is cryptic to read and know the message from a <code>std::ostringstream</code> construct as as above. That means we are thinking of blending and innovating a logging construct which involves printf-like format specification with <code>std::ostringstream</code>. Although we seem to have solved the variable arguments problem, we are back to square on the format specification. Our aim is to get rid of the world where %ld has to be matched for a numeric or %s for a string. For that matter, even <code>std::ostringstream</code>‘s « operator does not do good with a parameter that is a <code>std::string</code>.</p>
 <p>If that is our pain, then let us devise our own format specification, which provides type safety. By type safety we aim to never crash at runtime and also detect specification anomalies. So let us use the .NET style of format specification which uses argument index placeholders but the format specifier still is <code>%</code>. So for our GetFileSize example, the format specification string may look like the following:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">GetFileSize – File: %0. Size: %1 bytes. User: %2. Is ‘%0’ read-only: %3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>GetFileSize – File: %0. Size: %1 bytes. User: %2. Is ‘%0’ read-only: %3
 </span></span></code></pre></div><p>By now, you must be say wow! First good thing in the above format specification string is the repeating index placeholders (<code>%0</code>), which avoids specifying duplicate arguments. Other good things will be discussed in a short while.</p>
 <p>We are ready with our format specification design – format specification and variable arguments. Now we need to merge these to construct messages on the fly. We need a way (via methods or such) to pass in the format specification, followed by argument passing. Besides that, we must be able to do log level based logging. That means I must be able to pass in the format spec and arguments, and say I want to log the message as Trace, Information, Warning or Error using the <code>LogXXX</code> methods in the logger. May be our logger usage could be:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Logger</span> <span class="nf">x</span><span class="p">(</span><span class="err">“</span><span class="n">GetFileSize</span> <span class="err">–</span> <span class="nl">File</span><span class="p">:</span> <span class="o">%</span><span class="mf">0.</span> <span class="nl">Size</span><span class="p">:</span> <span class="o">%</span><span class="mi">1</span> <span class="n">bytes</span><span class="p">.</span> <span class="nl">User</span><span class="p">:</span> <span class="o">%</span><span class="mf">2.</span> <span class="n">Is</span> <span class="err">‘</span><span class="o">%</span><span class="mi">0</span><span class="err">’</span> <span class="n">read</span><span class="o">-</span><span class="nl">only</span><span class="p">:</span> <span class="o">%</span><span class="mi">3</span><span class="err">”</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="err">«</span> <span class="err">“</span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">Sample</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span> <span class="err">«</span> <span class="mi">2945</span> <span class="err">«</span> <span class="n">Visitor</span> <span class="err">«</span> <span class="err">“</span><span class="n">True</span><span class="err">”</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">LogInformation</span><span class="p">();</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Logger <span style="color:#50fa7b">x</span>(“GetFileSize – <span style="color:#8be9fd;font-style:italic">File</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">0.</span> <span style="color:#8be9fd;font-style:italic">Size</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">1</span> bytes. <span style="color:#8be9fd;font-style:italic">User</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">2.</span> Is ‘<span style="color:#ff79c6">%</span><span style="color:#bd93f9">0</span>’ read<span style="color:#ff79c6">-</span><span style="color:#8be9fd;font-style:italic">only</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">3</span>”);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x « “<span style="color:#8be9fd;font-style:italic">C</span>:\Temp\Sample.txt” « <span style="color:#bd93f9">2945</span> « Visitor « “True”;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x.LogInformation();
 </span></span></code></pre></div><p>Horrible, Isn’t it? By doing it the ugly way, we realize there is an elegant way.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Logger</span><span class="p">().</span><span class="n">LogInformation</span><span class="p">(</span><span class="err">“</span><span class="n">GetFileSize</span> <span class="err">–</span> <span class="nl">File</span><span class="p">:</span> <span class="o">%</span><span class="mf">0.</span> <span class="nl">Size</span><span class="p">:</span> <span class="o">%</span><span class="mi">1</span> <span class="n">bytes</span><span class="p">.</span> <span class="nl">User</span><span class="p">:</span> <span class="o">%</span><span class="mf">2.</span> <span class="n">Is</span> <span class="s">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">“&#39;</span><span class="o">%</span><span class="mi">0</span><span class="err">&#39;</span> <span class="n">read</span><span class="o">-</span><span class="nl">only</span><span class="p">:</span> <span class="o">%</span><span class="mi">3</span><span class="err">”</span><span class="p">)</span> <span class="err">«</span> <span class="err">“</span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">Sample</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span> <span class="err">«</span> <span class="mi">2945</span> <span class="err">«</span> <span class="n">Visitor</span> <span class="err">«</span> <span class="err">“</span><span class="n">True</span><span class="err">”</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Logger().LogInformation(“GetFileSize – <span style="color:#8be9fd;font-style:italic">File</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">0.</span> <span style="color:#8be9fd;font-style:italic">Size</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">1</span> bytes. <span style="color:#8be9fd;font-style:italic">User</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">2.</span> Is <span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>“&#39;<span style="color:#ff79c6">%</span><span style="color:#bd93f9">0</span>&#39; read<span style="color:#ff79c6">-</span><span style="color:#8be9fd;font-style:italic">only</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">3</span>”) « “<span style="color:#8be9fd;font-style:italic">C</span>:\Temp\Sample.txt” « <span style="color:#bd93f9">2945</span> « Visitor « “True”;
 </span></span></code></pre></div><p>OR</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Logger</span><span class="p">().</span><span class="n">LogError</span><span class="p">(</span><span class="err">“</span><span class="n">Failed</span> <span class="n">to</span> <span class="n">get</span> <span class="n">file</span> <span class="n">size</span><span class="o">!</span><span class="s">&#34;);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Logger().LogError(“Failed to get file size<span style="color:#ff79c6">!</span><span style="color:#f1fa8c">&#34;);</span>
 </span></span></code></pre></div><p>That is how we will be logging. We create and log in a single line of code. Our Logger class will be overloading the « operator to intake the arguments passed, and will be making of the use of the destructor to log to the desired destination right after the line where logging is done.</p>
 <h3 id="where-do-we-log">WHERE DO WE LOG?</h3>
 <p>As we discussed earlier, our Logger is transparent to the logging destination. And for that reason, I intend to keep the part of physical logging out of the Logger class. The Logger is an abstract class with <code>LogMessage</code> pure virtual function. And here is how our Logger is refined to:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">LogSections</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGSECTION_APPGENERAL</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGSECTION_APPINIT</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGSECTION_APPSHUTDOWN</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGSECTION_MODULEA</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGSECTION_MODULEB</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Add other log categories
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">LogLevel</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGLEVEL_TRACE</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGLEVEL_INFO</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGLEVEL_WARNING</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="n">LOGLEVEL_ERROR</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">MessageInfo</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">LogLevel</span> <span class="n">Level</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">LogSections</span> <span class="n">Category</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">Message</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">Timestamp</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">ThreadID</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">public</span><span class="o">:</span> <span class="n">MessageInfo</span><span class="p">(</span><span class="n">LogLevel</span> <span class="n">gLevel</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">LogSections</span> <span class="n">gSection</span><span class="p">)</span> <span class="o">:</span> <span class="n">Level</span><span class="p">(</span><span class="n">gLevel</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">Category</span><span class="p">(</span><span class="n">gSection</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">this</span><span class="o">-&gt;</span><span class="n">Timestamp</span> <span class="o">=</span> <span class="n">DateTimeAsString</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">		<span class="k">this</span><span class="o">-&gt;</span><span class="n">ThreadID</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">::</span><span class="n">IDAsString</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Logger</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">MessageInfo</span> <span class="n">_mInfo</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_fmtSpec</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">Logger</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	     <span class="n">LogLevel</span> <span class="n">logLevel</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	     <span class="n">LogSections</span> <span class="n">logSection</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">fmtSpec</span>
-</span></span><span class="line"><span class="cl">     <span class="p">)</span><span class="o">:</span> <span class="n">_mInfo</span><span class="p">(</span><span class="n">logLevel</span><span class="p">,</span> <span class="n">logSection</span><span class="p">),</span> <span class="n">_fmtSpec</span><span class="p">(</span><span class="n">fmtSpec</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">virtual</span> <span class="o">~</span><span class="n">Logger</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Use PrepareStream private method that
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// constructs the message from the _fmtSpec
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// and arguments passed using overloaded the
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// « operator.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="n">_mInfo</span><span class="p">.</span><span class="n">Message</span> <span class="o">=</span> <span class="n">PrepareStream</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">	<span class="n">_mInfo</span><span class="p">.</span><span class="n">Timestamp</span> <span class="o">=</span> <span class="n">DateTimeAsString</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">LogMessage</span><span class="p">(</span><span class="n">mi</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">protected</span><span class="o">:</span> <span class="k">virtual</span> <span class="n">LogMessage</span><span class="p">(</span><span class="n">MessageInfo</span> <span class="n">mi</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TLogger</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">enum</span> <span style="color:#50fa7b">LogSections</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	LOGSECTION_APPGENERAL,
+</span></span><span style="display:flex;"><span>	LOGSECTION_APPINIT,
+</span></span><span style="display:flex;"><span>	LOGSECTION_APPSHUTDOWN,
+</span></span><span style="display:flex;"><span>	LOGSECTION_MODULEA,
+</span></span><span style="display:flex;"><span>	LOGSECTION_MODULEB
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Add other log categories
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">enum</span> <span style="color:#50fa7b">LogLevel</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	LOGLEVEL_TRACE,
+</span></span><span style="display:flex;"><span>	LOGLEVEL_INFO,
+</span></span><span style="display:flex;"><span>	LOGLEVEL_WARNING,
+</span></span><span style="display:flex;"><span>	LOGLEVEL_ERROR
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">MessageInfo</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> LogLevel Level;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> LogSections Category;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string Message;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string Timestamp;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string ThreadID;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> MessageInfo(LogLevel gLevel,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	LogSections gSection) <span style="color:#ff79c6">:</span> Level(gLevel),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	Category(gSection)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>Timestamp <span style="color:#ff79c6">=</span> DateTimeAsString();
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>ThreadID <span style="color:#ff79c6">=</span> Thread<span style="color:#ff79c6">::</span>IDAsString();
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Logger</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> MessageInfo _mInfo;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string _fmtSpec;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> Logger(
+</span></span><span style="display:flex;"><span>	     LogLevel logLevel,
+</span></span><span style="display:flex;"><span>	     LogSections logSection,
+</span></span><span style="display:flex;"><span>	     <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> fmtSpec
+</span></span><span style="display:flex;"><span>     )<span style="color:#ff79c6">:</span> _mInfo(logLevel, logSection), _fmtSpec(fmtSpec) { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">virtual</span> <span style="color:#ff79c6">~</span>Logger()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Use PrepareStream private method that
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// constructs the message from the _fmtSpec
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// and arguments passed using overloaded the
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#6272a4">// « operator.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>	_mInfo.Message <span style="color:#ff79c6">=</span> PrepareStream();
+</span></span><span style="display:flex;"><span>	_mInfo.Timestamp <span style="color:#ff79c6">=</span> DateTimeAsString();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	LogMessage(mi);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">protected</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">virtual</span> LogMessage(MessageInfo mi) <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TLogger<span style="color:#ff79c6">&amp;</span> <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">&lt;</span>(T t);
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>The users are required to derive from the Logger class and implement the <code>LogMessage</code> method to perform the physical logging in the format they desire. For ease of use, loggers that log to standard error device and file are provided in the download.</p>
 <h3 id="highlights">HIGHLIGHTS</h3>
 <p>The format specification (<code>%n</code>) considers only <code>%</code> followed by n as the indexed place holder, where n is any number in the range 0-256. Any other character after the % is not given any special treatment and is directed to the logging destination; except a <code>%</code> (after <code>%</code>) is for logging a <code>%</code>, like a � in C style logging. In short, a <code>%%</code> is an escape sequence for <code>%</code>.</p>
 <p>Since Logger overloads <code>&lt;&lt;</code> operator and internally relies on <code>std::ostringstream</code>, any argument in essence should be a string-convertible. All simple types are identified and automatically converted to string for logging. For complex types and special logging formats, the user supplies the formatted string. For instance, if I want to log my class, I may (have to) provide a ToString method on the class that gives me the string representation of the class, which is not an unfair thing.</p>
 <p>Since we used custom format specification with <code>%</code>, there is no possibility of argument-type mismatch, and no crashes due to the same. Besides, any argument passed that is not string-convertible results in a compiler error, which is one of the biggest benefits.</p>
 <p>The argument count mismatch is safely handled avoiding runtime crashes. If the number of arguments passed (via <code>&lt;&lt;</code>) is less than the number of argument placeholders (<code>%n</code>), then asserts are issued for each argument placeholder for which the corresponding argument is not found, and the %n is directly logged. For instance, in the following line of log, <code>%2</code> is asserted for argument mismatch and the string <code>%2</code> is logged.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Logger</span><span class="p">().</span><span class="n">LogInformation</span><span class="p">(</span><span class="err">“</span><span class="n">GetFileSize</span> <span class="err">–</span> <span class="nl">File</span><span class="p">:</span> <span class="o">%</span><span class="mf">0.</span> <span class="nl">Size</span><span class="p">:</span> <span class="o">%</span><span class="mi">1</span> <span class="n">bytes</span><span class="p">.</span> <span class="s">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">“</span><span class="nl">User</span><span class="p">:</span> <span class="o">%</span><span class="mf">2.</span> <span class="n">Is</span> <span class="err">‘</span><span class="o">%</span><span class="mi">0</span><span class="err">’</span> <span class="n">read</span><span class="o">-</span><span class="nl">only</span><span class="p">:</span> <span class="o">%</span><span class="mi">3</span><span class="err">”</span><span class="p">)</span> <span class="err">«</span> <span class="err">“</span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">Sample</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span> <span class="err">«</span> <span class="mi">2945</span> <span class="err">«</span> <span class="n">Visitor</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Logger().LogInformation(“GetFileSize – <span style="color:#8be9fd;font-style:italic">File</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">0.</span> <span style="color:#8be9fd;font-style:italic">Size</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">1</span> bytes. <span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>“<span style="color:#8be9fd;font-style:italic">User</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">2.</span> Is ‘<span style="color:#ff79c6">%</span><span style="color:#bd93f9">0</span>’ read<span style="color:#ff79c6">-</span><span style="color:#8be9fd;font-style:italic">only</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">3</span>”) « “<span style="color:#8be9fd;font-style:italic">C</span>:\Temp\Sample.txt” « <span style="color:#bd93f9">2945</span> « Visitor;
 </span></span></code></pre></div><p>If the number of arguments passed is greater than the number of placeholders, the extra arguments are ignored from logging. So all argument mismatches can be identified and resolved during compile time without doubt.</p>
 <h3 id="limitations">LIMITATIONS</h3>
 <p>Although the specification is half .NET style, our Logger does not offer all formatting facilities – hex, spacing etc. All such things are kept outside of the Logger. This was not intentional but I thought to start the Logger simple. So if you want to output a number in hex, the ToHexString static method of the Logger class may be used.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Logger</span><span class="p">(</span><span class="err">“</span><span class="n">Hex</span> <span class="nl">number</span><span class="p">:</span> <span class="o">%</span><span class="mi">0</span><span class="err">”</span><span class="p">,</span> <span class="n">Logger</span><span class="o">::</span><span class="n">ToHexString</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Logger(“Hex <span style="color:#8be9fd;font-style:italic">number</span>: <span style="color:#ff79c6">%</span><span style="color:#bd93f9">0</span>”, Logger<span style="color:#ff79c6">::</span>ToHexString(<span style="color:#bd93f9">1000</span>));
 </span></span></code></pre></div><p>The maximum number of arguments that can be specified (in the format spec) is 256. At the time of writing this logger for my application, my application had no chance of having a format spec with more than 256 arguments. Besides, I thought a Logger that allows constructing a format spec with 256 arguments may be fancy enough but from the ease of use stand-point, reading and getting a world of view of the message is not that easy, and the purpose is beaten. However, for people who opine otherwise, this limitation can be easily gotten rid of from the code (remove an if condition), and you are free to construct a format spec with any number of arguments.</p>
 
 </div>
@@ -323,18 +301,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

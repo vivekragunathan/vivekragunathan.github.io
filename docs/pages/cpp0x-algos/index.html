@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,33 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="C&#43;&#43;0x Like Algorithms">
-  <meta itemprop="description" content="A few C&#43;&#43;0x algorithms and other helper methods implemented for C&#43;&#43;98">
-  <meta itemprop="datePublished" content="2014-10-01T03:32:28+00:00">
-  <meta itemprop="dateModified" content="2014-10-01T03:32:28+00:00">
-  <meta itemprop="wordCount" content="692">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="C&#43;&#43;0x Like Algorithms">
-<meta name="twitter:description" content="A few C&#43;&#43;0x algorithms and other helper methods implemented for C&#43;&#43;98">
-
-
-<meta property="og:url" content="/pages/cpp0x-algos/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="C&#43;&#43;0x Like Algorithms">
-  <meta property="og:description" content="A few C&#43;&#43;0x algorithms and other helper methods implemented for C&#43;&#43;98">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="pages">
-    <meta property="article:published_time" content="2014-10-01T03:32:28+00:00">
-    <meta property="article:modified_time" content="2014-10-01T03:32:28+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -78,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -151,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -175,309 +154,309 @@
   </div>
 
   <p>A few C++0x algorithms and other helper methods implemented for C++98</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma once
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Include.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">stdext</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">const</span> <span class="n">TCHAR</span><span class="o">*</span> <span class="n">EmptyString</span> <span class="o">=</span> <span class="n">_TXT</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">Predicate</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">virtual</span> <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">virtual</span> <span class="o">~</span><span class="n">Predicate</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TPredicate</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">TrueForAll</span><span class="p">(</span><span class="n">TIterator</span> <span class="n">begin</span><span class="p">,</span> <span class="n">TIterator</span> <span class="n">end</span><span class="p">,</span> <span class="n">TPredicate</span> <span class="n">predicateFunc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(;</span> <span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">begin</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">predicateFunc</span><span class="p">(</span><span class="o">*</span><span class="n">begin</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TPredicate</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TIterator</span> <span class="n">TrueForAny</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TIterator</span> <span class="n">begin</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TIterator</span> <span class="n">end</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TPredicate</span> <span class="n">predicateFunc</span>
-</span></span><span class="line"><span class="cl">		<span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">predicateFunc</span><span class="p">(</span><span class="o">*</span><span class="n">begin</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">begin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">begin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">end</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TPredicate</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">IndexOf</span><span class="p">(</span><span class="n">TIterator</span> <span class="n">begin</span><span class="p">,</span> <span class="n">TIterator</span> <span class="n">end</span><span class="p">,</span> <span class="n">TPredicate</span> <span class="n">predicateFunc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">index</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">predicateFunc</span><span class="p">(</span><span class="o">*</span><span class="n">begin</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">begin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TContainer</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">IndexOf</span><span class="p">(</span><span class="n">TContainer</span> <span class="n">stlContainer</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TContainer</span><span class="o">::</span><span class="n">value_type</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">typedef</span> <span class="k">typename</span> <span class="n">TContainer</span><span class="o">::</span><span class="n">const_iterator</span> <span class="n">TContainerConstIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">TContainerConstIter</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">stlContainer</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">iter</span> <span class="o">!=</span> <span class="n">stlContainer</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">index</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">iter</span> <span class="o">==</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">iter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TSrcIter</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TDestIter</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TPredicate</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TDestIter</span> <span class="n">CopyIf</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TSrcIter</span> <span class="n">srcIterBegin</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TSrcIter</span> <span class="n">srcIterEnd</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TDestIter</span> <span class="n">destIter</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TPredicate</span> <span class="n">predFunc</span>
-</span></span><span class="line"><span class="cl">		<span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">srcIterBegin</span> <span class="o">!=</span> <span class="n">srcIterEnd</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">predFunc</span><span class="p">(</span><span class="o">*</span><span class="n">srcIterBegin</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">\</span><span class="o">*</span><span class="n">destIter</span> <span class="o">=</span> <span class="err">\</span><span class="o">*</span><span class="n">srcIterBegin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">srcIterBegin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">destIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">destIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TSrcIter</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TDestIter</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TDestIter</span> <span class="n">CopyN</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TSrcIter</span> <span class="n">srcIterBegin</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">size_t</span> <span class="n">copySize</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">TDestIter</span> <span class="n">destIter</span>
-</span></span><span class="line"><span class="cl">		<span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">copySize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="err">\</span><span class="o">*</span><span class="n">destIter</span> <span class="o">=</span> <span class="err">\</span><span class="o">*</span><span class="n">srcIterBegin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&amp;</span><span class="err">#</span><span class="mi">8211</span><span class="p">;</span><span class="n">copySize</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">srcIterBegin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">destIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">destIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TPredicate</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">IsPartitioned</span><span class="p">(</span><span class="n">TIterator</span> <span class="n">begin</span><span class="p">,</span> <span class="n">TIterator</span> <span class="n">end</span><span class="p">,</span> <span class="n">TPredicate</span> <span class="n">predFunc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">isPartioned</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">((</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">predFunc</span><span class="p">(</span><span class="o">*</span><span class="n">begin</span><span class="o">++</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">begin</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">((</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">predFunc</span><span class="p">(</span><span class="o">*</span><span class="n">begin</span><span class="o">++</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">begin</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">Itoa</span><span class="p">(</span><span class="n">TIterator</span> <span class="n">begin</span><span class="p">,</span> <span class="n">TIterator</span> <span class="n">end</span><span class="p">,</span> <span class="n">T</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="o">*</span><span class="n">begin</span> <span class="o">=</span> <span class="n">value</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">begin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">,</span> <span class="k">typename</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TContainer</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">              <span class="k">typename</span> <span class="n">TInType</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">              <span class="k">typename</span> <span class="n">TOutType</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">              <span class="k">typename</span> <span class="n">TConverter</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TContainer</span><span class="o">&lt;</span><span class="n">TOutType</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">TOutType</span><span class="o">&gt;&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">ConvertAll</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="n">TContainer</span><span class="o">&lt;</span><span class="n">TInType</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">TInType</span><span class="o">&gt;&gt;&amp;</span> <span class="n">src</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">TConverter</span> <span class="n">convFunc</span>
-</span></span><span class="line"><span class="cl">            <span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">typedef</span> <span class="k">typename</span> <span class="n">TContainer</span><span class="o">&lt;</span><span class="n">TInType</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">TInType</span><span class="o">&gt;&gt;</span> <span class="n">SourceContainer</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">typedef</span> <span class="k">typename</span> <span class="n">TContainer</span><span class="o">&lt;</span><span class="n">TOutType</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">TOutType</span><span class="o">&gt;&gt;</span> <span class="n">TargetContainer</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">typename</span> <span class="n">SourceContainer</span><span class="o">::</span><span class="n">const_iterator</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">TargetContainer</span> <span class="n">target</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">!=</span> <span class="n">iter</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">TOutType</span> <span class="n">outValue</span> <span class="o">=</span> <span class="n">convFunc</span><span class="p">(</span><span class="o">*</span><span class="n">iter</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">target</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">outValue</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">iter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">target</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// This method will convert a string to type T.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// NOTE: T is intended for numeric conversions.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">bool</span> <span class="n">FromString</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">T</span><span class="o">&amp;</span> <span class="n">tObj</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="err">\</span><span class="n">_base</span><span class="o">&amp;</span> <span class="p">(</span><span class="o">*</span><span class="n">pfn</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="err">\</span><span class="n">_base</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">dec</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">StringStream</span> <span class="nf">tstr</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">tstr</span> <span class="o">&gt;&gt;</span> <span class="n">pfn</span> <span class="o">&gt;&gt;</span> <span class="n">tObj</span><span class="p">).</span><span class="n">fail</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">String</span> <span class="n">ToString</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="n">OStringStream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">String</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">TContainer</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">ToString</span><span class="p">(</span><span class="k">const</span> <span class="n">TContainer</span><span class="o">&amp;</span> <span class="n">tcont</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">typedef</span> <span class="k">typename</span> <span class="n">TContainer</span><span class="o">::</span><span class="n">const_iterator</span> <span class="n">TContainerConstIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="n">OStringStream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="n">String</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">prefix</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">TContainerConstIter</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">tcont</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">iter</span> <span class="o">!=</span> <span class="n">tcont</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">iter</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">iter</span> <span class="o">&lt;&lt;</span> <span class="n">delimiter</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">suffix</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="nf">TrimStart</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">inString</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">trimChars</span> <span class="o">=</span> <span class="n">_TXT</span><span class="p">(</span><span class="s">&#34; </span><span class="se">\t</span><span class="s">&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">inString</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">inString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span><span class="err">\</span><span class="n">_t</span> <span class="n">posLeft</span> <span class="o">=</span> <span class="n">inString</span><span class="p">.</span><span class="n">find</span><span class="err">\</span><span class="n">_first</span><span class="err">\</span><span class="n">_not</span><span class="err">\</span><span class="n">_of</span><span class="p">(</span><span class="n">trimChars</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">inString</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">posLeft</span><span class="p">,</span> <span class="n">inString</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">8211</span><span class="p">;</span> <span class="n">posLeft</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="nf">TrimEnd</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">inString</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">trimChars</span> <span class="o">=</span> <span class="n">_TXT</span><span class="p">(</span><span class="s">&#34; </span><span class="se">\t</span><span class="s">&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">inString</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">inString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span><span class="err">\</span><span class="n">_t</span> <span class="n">posRight</span> <span class="o">=</span> <span class="n">inString</span><span class="p">.</span><span class="n">find</span><span class="err">\</span><span class="n">_last</span><span class="err">\</span><span class="n">_not</span><span class="err">\</span><span class="n">_of</span><span class="p">(</span><span class="n">trimChars</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">inString</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">posRight</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="nf">Trim</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">inString</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">trimChars</span> <span class="o">=</span> <span class="n">_TXT</span><span class="p">(</span><span class="s">&#34; </span><span class="se">\t</span><span class="s">&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">inString</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">inString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span><span class="err">\</span><span class="n">_t</span> <span class="n">posLeft</span> <span class="o">=</span> <span class="n">inString</span><span class="p">.</span><span class="n">find</span><span class="err">\</span><span class="n">_first</span><span class="err">\</span><span class="n">_not</span><span class="err">\</span><span class="n">_of</span><span class="p">(</span><span class="n">trimChars</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span><span class="err">\</span><span class="n">_t</span> <span class="n">posRight</span> <span class="o">=</span> <span class="n">inString</span><span class="p">.</span><span class="n">find</span><span class="err">\</span><span class="n">_last</span><span class="err">\</span><span class="n">_not</span><span class="err">\</span><span class="n">_of</span><span class="p">(</span><span class="n">trimChars</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">inString</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">posLeft</span><span class="p">,</span> <span class="n">posRight</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">8211</span><span class="p">;</span> <span class="n">posLeft</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">Functors</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">IsNegative</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIn</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TOut</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">staticCast</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">virtual</span> <span class="n">TOut</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">TIn</span><span class="o">&amp;</span> <span class="n">tin</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">TOut</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tin</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">StringCast</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T</span> <span class="n">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">stdext</span><span class="o">::</span><span class="n">ToString</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIn</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TOut</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">ReinterpretCast</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">virtual</span> <span class="n">TOut</span> <span class="k">operator</span><span class="p">()(</span><span class="n">TIn</span><span class="o">&amp;</span> <span class="n">tin</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">TOut</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tin</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TIn</span><span class="p">,</span> <span class="k">typename</span> <span class="n">TOut</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">DynamicCast</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">virtual</span> <span class="n">TOut</span><span class="err">\</span><span class="o">*</span> <span class="k">operator</span><span class="p">()(</span><span class="n">TIn</span><span class="err">\</span><span class="o">*</span> <span class="n">tin</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">TOut</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">tin</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">TStrLen</span><span class="p">(</span><span class="k">const</span> <span class="n">TCHAR</span><span class="o">*</span> <span class="n">pszString</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">pszString</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="err">&#39;&#39;</span> <span class="o">!=</span> <span class="o">*</span><span class="n">pszString</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">pszString</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#pragma once
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;Include.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> stdext
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">const</span> TCHAR<span style="color:#ff79c6">*</span> EmptyString <span style="color:#ff79c6">=</span> _TXT(<span style="color:#f1fa8c">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Predicate</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">virtual</span> <span style="color:#8be9fd">bool</span> <span style="color:#ff79c6">operator</span>()(<span style="color:#ff79c6">const</span> T<span style="color:#ff79c6">&amp;</span> t) <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">virtual</span> <span style="color:#ff79c6">~</span>Predicate() <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span> { }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIterator, <span style="color:#ff79c6">typename</span> TPredicate<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">bool</span> TrueForAll(TIterator begin, TIterator end, TPredicate predicateFunc)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> (; begin <span style="color:#ff79c6">!=</span> end; <span style="color:#ff79c6">++</span>begin)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>predicateFunc(<span style="color:#ff79c6">*</span>begin))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIterator, <span style="color:#ff79c6">typename</span> TPredicate<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    TIterator TrueForAny(
+</span></span><span style="display:flex;"><span>			TIterator begin,
+</span></span><span style="display:flex;"><span>			TIterator end,
+</span></span><span style="display:flex;"><span>			TPredicate predicateFunc
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (begin <span style="color:#ff79c6">!=</span> end)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (predicateFunc(<span style="color:#ff79c6">*</span>begin))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> begin;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>begin;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> end;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIterator, <span style="color:#ff79c6">typename</span> TPredicate<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> IndexOf(TIterator begin, TIterator end, TPredicate predicateFunc)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> index <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (begin <span style="color:#ff79c6">!=</span> end)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>index;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (predicateFunc(<span style="color:#ff79c6">*</span>begin))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> index;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>begin;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> index;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> IndexOf(TContainer stlContainer, <span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">::</span>value_type value)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">typedef</span> <span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">::</span>const_iterator TContainerConstIter;
+</span></span><span style="display:flex;"><span>        TContainerConstIter iter <span style="color:#ff79c6">=</span> stlContainer.begin();
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> index <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (iter <span style="color:#ff79c6">!=</span> stlContainer.end())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>index;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">*</span>iter <span style="color:#ff79c6">==</span> value)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> index;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>iter;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TSrcIter, <span style="color:#ff79c6">typename</span> TDestIter, <span style="color:#ff79c6">typename</span> TPredicate<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    TDestIter CopyIf(
+</span></span><span style="display:flex;"><span>			TSrcIter srcIterBegin,
+</span></span><span style="display:flex;"><span>			TSrcIter srcIterEnd,
+</span></span><span style="display:flex;"><span>			TDestIter destIter,
+</span></span><span style="display:flex;"><span>			TPredicate predFunc
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (srcIterBegin <span style="color:#ff79c6">!=</span> srcIterEnd)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (predFunc(<span style="color:#ff79c6">*</span>srcIterBegin))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                \<span style="color:#ff79c6">*</span>destIter <span style="color:#ff79c6">=</span> \<span style="color:#ff79c6">*</span>srcIterBegin;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>srcIterBegin;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>destIter;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> destIter;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TSrcIter, <span style="color:#ff79c6">typename</span> TDestIter<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    TDestIter CopyN(
+</span></span><span style="display:flex;"><span>			TSrcIter srcIterBegin,
+</span></span><span style="display:flex;"><span>			size_t copySize,
+</span></span><span style="display:flex;"><span>			TDestIter destIter
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (copySize <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            \<span style="color:#ff79c6">*</span>destIter <span style="color:#ff79c6">=</span> \<span style="color:#ff79c6">*</span>srcIterBegin;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&amp;</span>#<span style="color:#bd93f9">8211</span>;copySize;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>srcIterBegin;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>destIter;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> destIter;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIterator, <span style="color:#ff79c6">typename</span> TPredicate<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">bool</span> IsPartitioned(TIterator begin, TIterator end, TPredicate predFunc)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">bool</span> isPartioned <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> ((begin <span style="color:#ff79c6">!=</span> end) <span style="color:#ff79c6">&amp;&amp;</span> predFunc(<span style="color:#ff79c6">*</span>begin<span style="color:#ff79c6">++</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (begin <span style="color:#ff79c6">==</span> end)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> ((begin <span style="color:#ff79c6">!=</span> end) <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">!</span>predFunc(<span style="color:#ff79c6">*</span>begin<span style="color:#ff79c6">++</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (begin <span style="color:#ff79c6">==</span> end)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIterator, <span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">void</span> Itoa(TIterator begin, TIterator end, T value)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (begin <span style="color:#ff79c6">!=</span> end)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">*</span>begin <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>begin;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span>, <span style="color:#ff79c6">typename</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TContainer</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">typename</span> TInType,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">typename</span> TOutType,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">typename</span> TConverter<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    TContainer<span style="color:#ff79c6">&lt;</span>TOutType, std<span style="color:#ff79c6">::</span>allocator<span style="color:#ff79c6">&lt;</span>TOutType<span style="color:#ff79c6">&gt;&gt;</span>
+</span></span><span style="display:flex;"><span>            ConvertAll(
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">const</span> TContainer<span style="color:#ff79c6">&lt;</span>TInType,
+</span></span><span style="display:flex;"><span>                std<span style="color:#ff79c6">::</span>allocator<span style="color:#ff79c6">&lt;</span>TInType<span style="color:#ff79c6">&gt;&gt;&amp;</span> src,
+</span></span><span style="display:flex;"><span>                TConverter convFunc
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">typedef</span> <span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">&lt;</span>TInType, std<span style="color:#ff79c6">::</span>allocator<span style="color:#ff79c6">&lt;</span>TInType<span style="color:#ff79c6">&gt;&gt;</span> SourceContainer;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">typedef</span> <span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">&lt;</span>TOutType, std<span style="color:#ff79c6">::</span>allocator<span style="color:#ff79c6">&lt;</span>TOutType<span style="color:#ff79c6">&gt;&gt;</span> TargetContainer;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">typename</span> SourceContainer<span style="color:#ff79c6">::</span>const_iterator iter <span style="color:#ff79c6">=</span> src.begin();
+</span></span><span style="display:flex;"><span>        TargetContainer target;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (src.end() <span style="color:#ff79c6">!=</span> iter)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            TOutType outValue <span style="color:#ff79c6">=</span> convFunc(<span style="color:#ff79c6">*</span>iter);
+</span></span><span style="display:flex;"><span>            target.push_back(outValue);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>iter;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> target;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// This method will convert a string to type T.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// NOTE: T is intended for numeric conversions.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span> <span style="color:#8be9fd">bool</span> FromString(
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> text,
+</span></span><span style="display:flex;"><span>        T<span style="color:#ff79c6">&amp;</span> tObj,
+</span></span><span style="display:flex;"><span>        std<span style="color:#ff79c6">::</span>ios\_base<span style="color:#ff79c6">&amp;</span> (<span style="color:#ff79c6">*</span>pfn)(std<span style="color:#ff79c6">::</span>ios\_base<span style="color:#ff79c6">&amp;</span>) <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>dec
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        StringStream <span style="color:#50fa7b">tstr</span>(text);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">!</span>(tstr <span style="color:#ff79c6">&gt;&gt;</span> pfn <span style="color:#ff79c6">&gt;&gt;</span> tObj).fail();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span> String ToString(<span style="color:#ff79c6">const</span> T<span style="color:#ff79c6">&amp;</span> t)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">static</span> OStringStream ostr;
+</span></span><span style="display:flex;"><span>        ostr.str(String());
+</span></span><span style="display:flex;"><span>        ostr <span style="color:#ff79c6">&lt;&lt;</span> t;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    String ToString(<span style="color:#ff79c6">const</span> TContainer<span style="color:#ff79c6">&amp;</span> tcont,
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> delimiter <span style="color:#ff79c6">=</span> _T(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\r\n</span><span style="color:#f1fa8c">&#34;</span>),
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> prefix <span style="color:#ff79c6">=</span> _T(<span style="color:#f1fa8c">&#34;&#34;</span>),
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> suffix <span style="color:#ff79c6">=</span> _T(<span style="color:#f1fa8c">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">typedef</span> <span style="color:#ff79c6">typename</span> TContainer<span style="color:#ff79c6">::</span>const_iterator TContainerConstIter;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">static</span> OStringStream ostr;
+</span></span><span style="display:flex;"><span>        ostr.str(String());
+</span></span><span style="display:flex;"><span>        ostr <span style="color:#ff79c6">&lt;&lt;</span> prefix.c_str();
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> (TContainerConstIter iter <span style="color:#ff79c6">=</span> tcont.begin(); iter <span style="color:#ff79c6">!=</span> tcont.end(); <span style="color:#ff79c6">++</span>iter)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            ostr <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#ff79c6">*</span>iter <span style="color:#ff79c6">&lt;&lt;</span> delimiter.c_str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ostr <span style="color:#ff79c6">&lt;&lt;</span> suffix.c_str();
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    String <span style="color:#50fa7b">TrimStart</span>(<span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> inString, <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> trimChars <span style="color:#ff79c6">=</span> _TXT(<span style="color:#f1fa8c">&#34; </span><span style="color:#f1fa8c">\t</span><span style="color:#f1fa8c">&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (inString.empty())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> inString;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        size\_t posLeft <span style="color:#ff79c6">=</span> inString.find\_first\_not\_of(trimChars, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> inString.substr(posLeft, inString.length() <span style="color:#ff79c6">&amp;</span>#<span style="color:#bd93f9">8211</span>; posLeft);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    String <span style="color:#50fa7b">TrimEnd</span>(<span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> inString, <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> trimChars <span style="color:#ff79c6">=</span> _TXT(<span style="color:#f1fa8c">&#34; </span><span style="color:#f1fa8c">\t</span><span style="color:#f1fa8c">&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (inString.empty())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> inString;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        size\_t posRight <span style="color:#ff79c6">=</span> inString.find\_last\_not\_of(trimChars);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> inString.substr(<span style="color:#bd93f9">0</span>, posRight <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    String <span style="color:#50fa7b">Trim</span>(<span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> inString, <span style="color:#ff79c6">const</span> String<span style="color:#ff79c6">&amp;</span> trimChars <span style="color:#ff79c6">=</span> _TXT(<span style="color:#f1fa8c">&#34; </span><span style="color:#f1fa8c">\t</span><span style="color:#f1fa8c">&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (inString.empty())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> inString;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        size\_t posLeft <span style="color:#ff79c6">=</span> inString.find\_first\_not\_of(trimChars, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>        size\_t posRight <span style="color:#ff79c6">=</span> inString.find\_last\_not\_of(trimChars);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> inString.substr(posLeft, posRight <span style="color:#ff79c6">&amp;</span>#<span style="color:#bd93f9">8211</span>; posLeft <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">namespace</span> Functors
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">IsNegative</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">bool</span> <span style="color:#ff79c6">operator</span>()(<span style="color:#ff79c6">const</span> T<span style="color:#ff79c6">&amp;</span> value) <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> (value <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIn, <span style="color:#ff79c6">typename</span> TOut<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">staticCast</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">virtual</span> TOut <span style="color:#ff79c6">operator</span>()(<span style="color:#ff79c6">const</span> TIn<span style="color:#ff79c6">&amp;</span> tin)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">static_cast</span><span style="color:#ff79c6">&lt;</span>TOut<span style="color:#ff79c6">&gt;</span>(tin);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">StringCast</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        String <span style="color:#ff79c6">operator</span>()(T value)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> stdext<span style="color:#ff79c6">::</span>ToString(value);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIn, <span style="color:#ff79c6">typename</span> TOut<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ReinterpretCast</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">virtual</span> TOut <span style="color:#ff79c6">operator</span>()(TIn<span style="color:#ff79c6">&amp;</span> tin)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">reinterpret_cast</span><span style="color:#ff79c6">&lt;</span>TOut<span style="color:#ff79c6">&gt;</span>(tin);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> TIn, <span style="color:#ff79c6">typename</span> TOut<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DynamicCast</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">virtual</span> TOut\<span style="color:#ff79c6">*</span> <span style="color:#ff79c6">operator</span>()(TIn\<span style="color:#ff79c6">*</span> tin)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">dynamic_cast</span><span style="color:#ff79c6">&lt;</span>TOut<span style="color:#ff79c6">*&gt;</span>(tin);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">TStrLen</span>(<span style="color:#ff79c6">const</span> TCHAR<span style="color:#ff79c6">*</span> pszString)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd;font-style:italic">NULL</span> <span style="color:#ff79c6">==</span> pszString)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> length <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> (&#39;&#39; <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">*</span>pszString)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>length;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">++</span>pszString;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> length;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 </div>
 
@@ -496,18 +475,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,36 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Tree List View">
-  <meta itemprop="description" content="This article was published also on CodeProject.com.
-Introduction How about a control like that?">
-  <meta itemprop="datePublished" content="2014-10-01T03:45:22+00:00">
-  <meta itemprop="dateModified" content="2014-10-01T03:45:22+00:00">
-  <meta itemprop="wordCount" content="996">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Tree List View">
-<meta name="twitter:description" content="This article was published also on CodeProject.com.
-Introduction How about a control like that?">
-
-
-<meta property="og:url" content="/pages/tlv/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Tree List View">
-  <meta property="og:description" content="This article was published also on CodeProject.com.
-Introduction How about a control like that?">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="pages">
-    <meta property="article:published_time" content="2014-10-01T03:45:22+00:00">
-    <meta property="article:modified_time" content="2014-10-01T03:45:22+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -81,10 +53,14 @@ Introduction How about a control like that?">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -154,7 +130,7 @@ Introduction How about a control like that?">
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -196,90 +172,90 @@ Introduction How about a control like that?">
 <p>Yes, we will have to take control of the painting logic for such a control. We will set the <code>OwnerDraw</code> to <code>true</code> and override <code>DrawItem</code> and <code>DrawSubItem</code> to implement the custom logic to render appropriately.</p>
 <p>There are several things which are part of the rendering logic. Each item in the list view can have a checkbox or an image. We have to show\hide items depending on whether their parent is expanded or collapsed. Besides, it will also show a plus (+) image if it has child items and if it is expanded; or a minus (-) image if it has child items and if it is collapsed. An item with children should expand when clicked on the collapsed (+) image, and collapse when clicked on the expanded (-) minus image. And depending on the depth, the text for the first sub-item of each list view item must be spaced\tabbed accordingly. We should take care of auto adjusting the length of the header item when double clicked on the header seam lines. Our custom logic has to take care of all these things to render.</p>
 <p>Code is worth a thousand words. Following is the meat of the rendering logic.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">private</span> <span class="k">void</span> <span class="n">OnDrawSubItem</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">DrawListViewSubItemEventArgs</span> <span class="n">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">SuspendLayout</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   <span class="kt">var</span> <span class="n">lvItem</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span> <span class="k">as</span> <span class="n">ListViewItem2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">lvItem</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">||</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   <span class="kt">var</span> <span class="n">txtMetrics</span> <span class="p">=</span> <span class="n">Helpers</span><span class="p">.</span><span class="n">GetTextMetrics</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Graphics</span><span class="p">);</span>      
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">yFactor</span> <span class="p">=</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Height</span> <span class="p">-</span> <span class="n">txtMetrics</span><span class="p">.</span><span class="n">tmHeight</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   <span class="kt">bool</span> <span class="n">hasChildren</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">HasChildren</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">xBound</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">X</span> <span class="p">+</span> <span class="m">5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">SubItem</span> <span class="p">==</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">SubItems</span><span class="p">[</span><span class="m">0</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">iLevel</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">GetIndentLevel</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">      <span class="kt">bool</span> <span class="n">hasParent</span> <span class="p">=</span> <span class="n">lvItem</span><span class="p">.</span><span class="n">Parent</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">?</span> <span class="kc">false</span> <span class="p">:</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">      <span class="n">xBound</span> <span class="p">+=</span> <span class="n">hasParent</span> <span class="p">?</span> <span class="n">iLevel</span> <span class="p">*</span> <span class="m">14</span> <span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">hasChildren</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="kt">var</span> <span class="n">imageLocation</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">xBound</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="n">yFactor</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">         
-</span></span><span class="line"><span class="cl">         <span class="n">lvItem</span><span class="p">.</span><span class="n">PlusMinusLocation</span> <span class="p">=</span> <span class="n">imageLocation</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">         
-</span></span><span class="line"><span class="cl">         <span class="kt">var</span> <span class="n">image</span> <span class="p">=</span> 
-</span></span><span class="line"><span class="cl">         		<span class="n">lvItem</span><span class="p">.</span><span class="n">Expanded</span> 
-</span></span><span class="line"><span class="cl">         		<span class="p">?</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">MinusImage</span> 
-</span></span><span class="line"><span class="cl">         		<span class="p">:</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">PlusImage</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">         <span class="n">e</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">DrawImage</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">imageLocation</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">         <span class="n">xBound</span> <span class="p">+=</span> <span class="p">(</span><span class="n">TreeListView</span><span class="p">.</span><span class="n">PlusImage</span><span class="p">.</span><span class="n">Width</span> <span class="p">+</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">GeneralGapWidth</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CheckBoxes</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="n">Size</span> <span class="n">cbSize</span> <span class="p">=</span> <span class="n">CalculateCheckBoxSize</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">SubItem</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">				<span class="n">Rectangle</span> <span class="n">cbBounds</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">xBound</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span> <span class="n">cbSize</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">				<span class="n">ControlPaint</span><span class="p">.</span><span class="n">DrawCheckBox</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">					<span class="n">e</span><span class="p">.</span><span class="n">Graphics</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">					<span class="n">cbBounds</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">					<span class="p">(</span><span class="n">lvItem</span><span class="p">.</span><span class="n">Checked</span> <span class="p">?</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Checked</span> <span class="p">:</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Normal</span><span class="p">)</span> <span class="p">|</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Flat</span>
-</span></span><span class="line"><span class="cl">				<span class="p">);</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">         <span class="n">lvItem</span><span class="p">.</span><span class="n">CheckBoxBounds</span> <span class="p">=</span> <span class="n">cbBounds</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">         <span class="n">xBound</span> <span class="p">+=</span> <span class="n">cbBounds</span><span class="p">.</span><span class="n">Width</span> <span class="p">+</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">GeneralGapWidth</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SmallImageList</span> <span class="p">!=</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">	      		<span class="p">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageIndex</span> <span class="p">&gt;=</span> <span class="m">0</span>
-</span></span><span class="line"><span class="cl">	      		<span class="p">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageIndex</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">SmallImageList</span><span class="p">.</span><span class="n">Images</span><span class="p">.</span><span class="n">Count</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">Image</span> <span class="n">img</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageList</span><span class="p">.</span><span class="n">Images</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ImageIndex</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">imageWidth</span> <span class="p">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Width</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">imageHeight</span> <span class="p">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Height</span> <span class="p">-</span> <span class="m">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">e</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">DrawImage</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">xBound</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">imageWidth</span><span class="p">,</span> <span class="n">imageHeight</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">        <span class="n">xBound</span> <span class="p">+=</span> <span class="n">imageWidth</span> <span class="p">+</span> <span class="n">TreeListView</span><span class="p">.</span><span class="n">GeneralGapWidth</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">PointF</span> <span class="n">drawPoint</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PointF</span><span class="p">(</span><span class="n">xBound</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Y</span> <span class="p">+</span> <span class="n">yFactor</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">SizeF</span> <span class="n">drawBound</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SizeF</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">X</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Width</span> <span class="p">-</span> <span class="n">xBound</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Bounds</span><span class="p">.</span><span class="n">Height</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">RectangleF</span> <span class="n">drawRect</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RectangleF</span><span class="p">(</span><span class="n">drawPoint</span><span class="p">,</span> <span class="n">drawBound</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">StringFormat</span> <span class="n">txtFormat</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringFormat</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">	<span class="n">txtFormat</span><span class="p">.</span><span class="n">Trimming</span> <span class="p">=</span> <span class="n">StringTrimming</span><span class="p">.</span><span class="n">EllipsisCharacter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">txtFormat</span><span class="p">.</span><span class="n">LineAlignment</span> <span class="p">=</span> <span class="n">ToStringAlignment</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Header</span><span class="p">.</span><span class="n">TextAlign</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">e</span><span class="p">.</span><span class="n">Graphics</span><span class="p">.</span><span class="n">DrawString</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">			<span class="n">e</span><span class="p">.</span><span class="n">SubItem</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">Font</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="k">new</span> <span class="n">SolidBrush</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Item</span><span class="p">.</span><span class="n">ForeColor</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="n">drawRect</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">txtFormat</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="n">ResumeLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">void</span> OnDrawSubItem(<span style="color:#8be9fd">object</span> sender, DrawListViewSubItemEventArgs e)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   SuspendLayout();
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">var</span> lvItem = e.Item <span style="color:#ff79c6">as</span> ListViewItem2;
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">if</span> (lvItem == <span style="color:#ff79c6">null</span> || lvItem.IsEmpty)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">var</span> txtMetrics = Helpers.GetTextMetrics(e.Graphics);      
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">int</span> yFactor = (e.Bounds.Height - txtMetrics.tmHeight) / <span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">bool</span> hasChildren = lvItem.HasChildren;
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">int</span> xBound = e.Bounds.X + <span style="color:#bd93f9">5</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">if</span> (e.SubItem == e.Item.SubItems[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">int</span> iLevel = lvItem.GetIndentLevel();
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">bool</span> hasParent = lvItem.Parent == <span style="color:#ff79c6">null</span> ? <span style="color:#ff79c6">false</span> : <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>      xBound += hasParent ? iLevel * <span style="color:#bd93f9">14</span> : <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (hasChildren)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>         <span style="color:#8be9fd">var</span> imageLocation = <span style="color:#ff79c6">new</span> Point(xBound, e.Bounds.Y + yFactor + <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>         
+</span></span><span style="display:flex;"><span>         lvItem.PlusMinusLocation = imageLocation;
+</span></span><span style="display:flex;"><span>         
+</span></span><span style="display:flex;"><span>         <span style="color:#8be9fd">var</span> image = 
+</span></span><span style="display:flex;"><span>         		lvItem.Expanded 
+</span></span><span style="display:flex;"><span>         		? TreeListView.MinusImage 
+</span></span><span style="display:flex;"><span>         		: TreeListView.PlusImage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>         e.Graphics.DrawImage(image, imageLocation);
+</span></span><span style="display:flex;"><span>         xBound += (TreeListView.PlusImage.Width + TreeListView.GeneralGapWidth);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">this</span>.CheckBoxes)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>				Size cbSize = CalculateCheckBoxSize(e.SubItem);
+</span></span><span style="display:flex;"><span>				Rectangle cbBounds = <span style="color:#ff79c6">new</span> Rectangle(<span style="color:#ff79c6">new</span> Point(xBound, e.Bounds.Y), cbSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				ControlPaint.DrawCheckBox(
+</span></span><span style="display:flex;"><span>					e.Graphics,
+</span></span><span style="display:flex;"><span>					cbBounds,
+</span></span><span style="display:flex;"><span>					(lvItem.Checked ? ButtonState.Checked : ButtonState.Normal) | ButtonState.Flat
+</span></span><span style="display:flex;"><span>				);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>         lvItem.CheckBoxBounds = cbBounds;
+</span></span><span style="display:flex;"><span>         xBound += cbBounds.Width + TreeListView.GeneralGapWidth;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">this</span>.SmallImageList != <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>	      		&amp;&amp; e.Item.ImageIndex &gt;= <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>	      		&amp;&amp; e.Item.ImageIndex &lt; <span style="color:#ff79c6">this</span>.SmallImageList.Images.Count)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        Image img = e.Item.ImageList.Images[e.Item.ImageIndex];
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> imageWidth = img.Width;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> imageHeight = img.Height - <span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        e.Graphics.DrawImage(img, <span style="color:#ff79c6">new</span> Rectangle(xBound, e.Bounds.Y + <span style="color:#bd93f9">1</span>, imageWidth, imageHeight));
+</span></span><span style="display:flex;"><span>        xBound += imageWidth + TreeListView.GeneralGapWidth;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	PointF drawPoint = <span style="color:#ff79c6">new</span> PointF(xBound, e.Bounds.Y + yFactor);
+</span></span><span style="display:flex;"><span>	SizeF drawBound = <span style="color:#ff79c6">new</span> SizeF(e.Bounds.X + e.Bounds.Width - xBound, e.Bounds.Height);
+</span></span><span style="display:flex;"><span>	RectangleF drawRect = <span style="color:#ff79c6">new</span> RectangleF(drawPoint, drawBound);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	StringFormat txtFormat = <span style="color:#ff79c6">new</span> StringFormat();
+</span></span><span style="display:flex;"><span>	txtFormat.Trimming = StringTrimming.EllipsisCharacter;
+</span></span><span style="display:flex;"><span>	txtFormat.LineAlignment = ToStringAlignment(e.Header.TextAlign);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  e.Graphics.DrawString(
+</span></span><span style="display:flex;"><span>			e.SubItem.Text,
+</span></span><span style="display:flex;"><span>      e.Item.Font,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">new</span> SolidBrush(e.Item.ForeColor),
+</span></span><span style="display:flex;"><span>      drawRect,
+</span></span><span style="display:flex;"><span>      txtFormat
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>	ResumeLayout(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>} 
 </span></span></code></pre></div><p>That is it. We got our control working.</p>
 <h3 id="points-of-interest">Points Of Interest</h3>
 <ul>
@@ -309,18 +285,19 @@ Introduction How about a control like that?">
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,38 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Pop OS and Zorin on ARM64">
-  <meta itemprop="description" content="When Mac M1 was released, I did not have the same displeasure like many others. In fact, I was hopeful that the vast majority of the apps and tools will be ready for M1 in no time. So, I got myself an M1 with no hesitation. Took a little while but everything from brew to big fat applications were ready. All seemed fine until I came around to play with Parallels and those Linux distros.">
-  <meta itemprop="datePublished" content="2023-03-21T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-03-21T00:00:00+00:00">
-  <meta itemprop="wordCount" content="793">
-  <meta itemprop="keywords" content="Linux,Arm64,Parallels,Popos">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Pop OS and Zorin on ARM64">
-<meta name="twitter:description" content="When Mac M1 was released, I did not have the same displeasure like many others. In fact, I was hopeful that the vast majority of the apps and tools will be ready for M1 in no time. So, I got myself an M1 with no hesitation. Took a little while but everything from brew to big fat applications were ready. All seemed fine until I came around to play with Parallels and those Linux distros.">
-
-
-<meta property="og:url" content="/posts/popos-arm64/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Pop OS and Zorin on ARM64">
-  <meta property="og:description" content="When Mac M1 was released, I did not have the same displeasure like many others. In fact, I was hopeful that the vast majority of the apps and tools will be ready for M1 in no time. So, I got myself an M1 with no hesitation. Took a little while but everything from brew to big fat applications were ready. All seemed fine until I came around to play with Parallels and those Linux distros.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2023-03-21T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-03-21T00:00:00+00:00">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Arm64">
-    <meta property="article:tag" content="Parallels">
-    <meta property="article:tag" content="Popos">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -83,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -156,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -221,15 +195,15 @@
 </tbody>
 </table>
 <p>Finally, I was able to get Pop OS running on Parallels.  My original intent with this post was to provide step by step instructions to install Pop OS. But it wasn&rsquo;t smooth. It wasn&rsquo;t entirely the same as described in some of the material I found online (See also <a href="#credit">Credits</a> below). I had to play around a lot night after night to get it working. So much so, I don&rsquo;t remember the exact set of steps I followed except the following:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Download Ubuntu Server ARM64 Image - v22.04.2 / Jammy from https://ubuntu.com/download/server/arm</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># *** ANY VERSION OTHER 22.04 WILL NOT WORK BECAUSE POP OS WAS BUILT AGAINST THE ABOVE VERSION OF UBUNTU ***</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Install the above image on Parallels</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># After installation and after you login into the shell, install the POP OS desktop interface:</span>
-</span></span><span class="line"><span class="cl">sudo add-apt-repository ppa:system76/pop  
-</span></span><span class="line"><span class="cl">sudo apt update  
-</span></span><span class="line"><span class="cl">sudo apt install pop-desktop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># Download Ubuntu Server ARM64 Image - v22.04.2 / Jammy from https://ubuntu.com/download/server/arm</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># *** ANY VERSION OTHER 22.04 WILL NOT WORK BECAUSE POP OS WAS BUILT AGAINST THE ABOVE VERSION OF UBUNTU ***</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Install the above image on Parallels</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># After installation and after you login into the shell, install the POP OS desktop interface:</span>
+</span></span><span style="display:flex;"><span>sudo add-apt-repository ppa:system76/pop  
+</span></span><span style="display:flex;"><span>sudo apt update  
+</span></span><span style="display:flex;"><span>sudo apt install pop-desktop
 </span></span></code></pre></div><p>NOTE: You might have to install other dependencies depending on the error you might get in the last step.</p>
 <blockquote>
 <p>Be prepared to get your hands dirty because it is not going to be 3 easy steps. At least, it wasn&rsquo;t for me.</p>
@@ -237,15 +211,15 @@
 <p>After pop-desktop is installed, you will have to install Parallel Tools for smoother graphics among other things. Without Parallel Tools, your experience might be bad anywhere from blackened or blue windows to unresponsive at worst. So, you might have to try your luck and patience to restart a few times to get the sweet spot/time to install Parallel Tools. Once installed, it was smooth like butter.</p>
 <h3 id="zorin-and-elementary-for-another-day">Zorin and Elementary For Another Day</h3>
 <p>I had no luck with Zorin and Elementary. Zorin is compatible only with Ubuntu-Focal. But no amount of effort to have the dependencies installed worked. It always ended up with error like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">The following packages have unmet dependencies:  
-</span></span><span class="line"><span class="cl">sudo apt install   
-</span></span><span class="line"><span class="cl">gdm3: Depends: gnome-session-bin <span class="o">(=</span> 3.10<span class="o">)</span> but it is not going to be installed  
-</span></span><span class="line"><span class="cl">gnome-settings-daemon: Ereaks: edm3 <span class="m">10</span> 3.37.01 but 3.36.3-oubuntuo.20.04.4 is to be installed 3.37.0<span class="o">)</span> but  
-</span></span><span class="line"><span class="cl">Breaks: gnome-she11 c 3.37.90<span class="o">)</span> but 3.36.9-oubunto.20.04.2 is to be installed .280.09.150, 605t be 4,  
-</span></span><span class="line"><span class="cl">gnome-shell: Depends: mutter <span class="o">(=</span> 3.36.0<span class="o">)</span> but it is not going to be installed  
-</span></span><span class="line"><span class="cl">gnome-shell-extensions-zorin-desktop: Depends: gnome-shell-extensions but it is not going to be installed  
-</span></span><span class="line"><span class="cl">Depends: gnome-shell-extension-zorin-desktop-icons but it is not going to be installed  
-</span></span><span class="line"><span class="cl">zorin-desktop-session: Depends: gnome-session-bin but it is not going to be installed
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>The following packages have unmet dependencies:  
+</span></span><span style="display:flex;"><span>sudo apt install   
+</span></span><span style="display:flex;"><span>gdm3: Depends: gnome-session-bin <span style="color:#ff79c6">(=</span> 3.10<span style="color:#ff79c6">)</span> but it is not going to be installed  
+</span></span><span style="display:flex;"><span>gnome-settings-daemon: Ereaks: edm3 <span style="color:#bd93f9">10</span> 3.37.01 but 3.36.3-oubuntuo.20.04.4 is to be installed 3.37.0<span style="color:#ff79c6">)</span> but  
+</span></span><span style="display:flex;"><span>Breaks: gnome-she11 c 3.37.90<span style="color:#ff79c6">)</span> but 3.36.9-oubunto.20.04.2 is to be installed .280.09.150, 605t be 4,  
+</span></span><span style="display:flex;"><span>gnome-shell: Depends: mutter <span style="color:#ff79c6">(=</span> 3.36.0<span style="color:#ff79c6">)</span> but it is not going to be installed  
+</span></span><span style="display:flex;"><span>gnome-shell-extensions-zorin-desktop: Depends: gnome-shell-extensions but it is not going to be installed  
+</span></span><span style="display:flex;"><span>Depends: gnome-shell-extension-zorin-desktop-icons but it is not going to be installed  
+</span></span><span style="display:flex;"><span>zorin-desktop-session: Depends: gnome-session-bin but it is not going to be installed
 </span></span></code></pre></div><p>There was some circular dependency or incompatible version dependency I couldn&rsquo;t really figure out. Too many late nights, and I had to give up but to enjoy the Pop OS I managed to get it running. ARM64 images for Zorin and Elementary some day!</p>
 <h4 id="credits">Credits</h4>
 <ul>
@@ -255,13 +229,13 @@
 <li><a href="https://askubuntu.com/questions/866901/what-can-i-do-if-a-repository-ppa-does-not-have-a-release-file">https://askubuntu.com/questions/866901/what-can-i-do-if-a-repository-ppa-does-not-have-a-release-file</a></li>
 <li><a href="http://apt-origin.pop-os.org/release/dists/">http://apt-origin.pop-os.org/release/dists/</a></li>
 <li>After installing Ubuntu Server, if your (WiFi) network is not accessible, try the following:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">### /etc/netplan/config.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">network</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enpos5</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6272a4">### /etc/netplan/config.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">network</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">ethernets</span>:  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enpos5</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">dhcp4</span>: <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div></li>
 </ul>
 
 </div>
@@ -281,18 +255,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,34 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Quiz – Where am I ?">
-  <meta itemprop="description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap.">
-  <meta itemprop="datePublished" content="2011-02-19T12:05:38+00:00">
-  <meta itemprop="dateModified" content="2011-02-19T12:05:38+00:00">
-  <meta itemprop="wordCount" content="626">
-  <meta itemprop="keywords" content="C&#43;&#43;,Uncategorized,Unmanaged,C&#43;&#43;,Uncategorized,Unmanaged">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Quiz – Where am I ?">
-<meta name="twitter:description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap.">
-
-
-<meta property="og:url" content="/2011/02/19/where-am-i/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Quiz – Where am I ?">
-  <meta property="og:description" content="The question is, in C&#43;&#43;, how do detect if an object is allocated on the stack or heap.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2011-02-19T12:05:38+00:00">
-    <meta property="article:modified_time" content="2011-02-19T12:05:38+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -79,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -152,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -182,142 +160,142 @@
 <p>It was very thoughtful of <a href="http://www2.research.att.com/~bs/homepage.html">Stroustoup</a> to keep the object allocation and initialization\construction separate. The <code>new</code> operator is responsible only for allocation. The compiler is responsible for weaving up the code for allocation and calling the constructor. It was also very thoughtful of being able to specify the location where the object needs to be allocated, which of course does not necessarily require overloading the <code>new</code> operator.</p>
 </blockquote>
 <p>C++ allows taking control of object allocation by overloading the <code>new</code> operator. By taking control, you would be able to detect where an object is allocated, and also keep a count of the objects allocated on the stack \ heap. The following code snippet illustrates the same:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// SomeClass.h
-</span></span></span><span class="line"><span class="cl"><span class="c1">//
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#include &amp;lt;iostream&amp;gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include &amp;lt;stdlib.h&amp;gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include &amp;lt;deque&amp;gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include &amp;lt;algorithm&amp;gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SomeClass</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">SomeClass</span><span class="o">*&amp;</span><span class="n">gt</span><span class="p">;</span>      <span class="n">SomeClassDB</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">SomeClassDB</span><span class="o">::</span><span class="n">iterator</span>    <span class="n">SomeClassDBIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">SomeClassDB</span><span class="o">::</span><span class="n">const_iterator</span> <span class="n">SomeClassDBConstIter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SomeClass</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="k">static</span> <span class="n">SomeClassDB</span> <span class="n">heapObjects</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="k">static</span> <span class="n">SomeClassDB</span> <span class="n">stackObjects</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="kt">double</span> <span class="n">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">isOnHeap</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">SomeClass</span><span class="p">(</span><span class="kt">double</span> <span class="n">d</span><span class="p">)</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">isOnHeap</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">::</span><span class="n">IsOnHeap</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">IsOnHeap</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">           <span class="p">{</span>
-</span></span><span class="line"><span class="cl">              <span class="n">SomeClass</span><span class="o">::</span><span class="n">stackObjects</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">           <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">           <span class="n">PrintLocationInfo</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="o">~</span><span class="n">SomeClass</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">SomeClassDBIter</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">           <span class="k">if</span> <span class="p">(</span><span class="n">iter</span> <span class="o">!=</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">           <span class="p">{</span>
-</span></span><span class="line"><span class="cl">              <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">iter</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">           <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">double</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="k">this</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">IsOnHeap</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="k">this</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">isOnHeap</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">bool</span> <span class="n">IsOnStack</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="o">!</span><span class="n">IsOnHeap</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">Location</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="nf">IsOnHeap</span><span class="p">()</span> <span class="o">?</span> <span class="s">&#34;Heap&#34;</span> <span class="o">:</span> <span class="s">&#34;Stack&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="kt">void</span> <span class="n">PrintLocationInfo</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">Value</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&#34; is on &#34;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">Location</span><span class="p">().</span><span class="n">c_str</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="k">static</span> <span class="kt">bool</span> <span class="n">IsOnHeap</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">*</span> <span class="n">scPtr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">         <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">SomeClassDBConstIter</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">scPtr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">iter</span> <span class="o">!=</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">         <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span> <span class="k">static</span> <span class="kt">bool</span> <span class="n">IsOnStack</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">*</span> <span class="n">scPtr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">         <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">!</span><span class="n">IsOnHeap</span><span class="p">(</span><span class="n">scPtr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">         <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">static</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n">size_t</span> <span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">SomeClass</span><span class="o">*</span> <span class="n">scPtr</span> <span class="o">=</span> <span class="p">(</span><span class="n">SomeClass</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">           <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">scPtr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">scPtr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">static</span> <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">free</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">static</span> <span class="n">size_t</span> <span class="n">HeapCount</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">static</span> <span class="n">size_t</span> <span class="n">StackCount</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">stackObjects</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">PrintObjectCount</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&#34;OnHeap: &#34;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">HeapCount</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&#34; .... OnStack: &#34;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">StackCount</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//
-</span></span></span><span class="line"><span class="cl"><span class="c1">// SomeClass.cpp
-</span></span></span><span class="line"><span class="cl"><span class="c1">//
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;SomeClass.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="n">SomeClassDB</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">heapObjects</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">SomeClassDB</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">stackObjects</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">SomeClass</span> <span class="n">sc</span><span class="p">(</span><span class="mf">0.123</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">   <span class="n">SomeClass</span><span class="o">*</span> <span class="n">scPtr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomeClass</span><span class="p">(</span><span class="mf">1.234</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="n">SomeClass</span><span class="o">::</span><span class="n">PrintObjectCount</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">SomeClass</span> <span class="n">sc1</span><span class="p">(</span><span class="mf">2.345</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="n">SomeClass</span><span class="o">::</span><span class="n">PrintObjectCount</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">delete</span> <span class="n">scPtr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="n">SomeClass</span><span class="o">::</span><span class="n">PrintObjectCount</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// SomeClass.h
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include &amp;lt;iostream&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include &amp;lt;stdlib.h&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include &amp;lt;deque&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include &amp;lt;algorithm&amp;gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> <span style="color:#ff79c6">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SomeClass</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">typedef</span> std<span style="color:#ff79c6">::</span>deque<span style="color:#ff79c6">&amp;</span>lt;SomeClass<span style="color:#ff79c6">*&amp;</span>gt;      SomeClassDB;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">typedef</span> SomeClassDB<span style="color:#ff79c6">::</span>iterator    SomeClassDBIter;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">typedef</span> SomeClassDB<span style="color:#ff79c6">::</span>const_iterator SomeClassDBConstIter;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SomeClass</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> SomeClassDB heapObjects;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> SomeClassDB stackObjects;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">double</span> value;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">bool</span> isOnHeap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> SomeClass(<span style="color:#8be9fd">double</span> d) <span style="color:#ff79c6">:</span> value(d), isOnHeap(SomeClass<span style="color:#ff79c6">::</span>IsOnHeap(<span style="color:#ff79c6">this</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>IsOnHeap())
+</span></span><span style="display:flex;"><span>           {
+</span></span><span style="display:flex;"><span>              SomeClass<span style="color:#ff79c6">::</span>stackObjects.push_back(<span style="color:#ff79c6">this</span>);
+</span></span><span style="display:flex;"><span>           }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>           PrintLocationInfo();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">~</span>SomeClass()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           SomeClassDBIter iter <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>find(SomeClass<span style="color:#ff79c6">::</span>heapObjects.begin(),
+</span></span><span style="display:flex;"><span>                    SomeClass<span style="color:#ff79c6">::</span>heapObjects.end(),
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">this</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">if</span> (iter <span style="color:#ff79c6">!=</span> SomeClass<span style="color:#ff79c6">::</span>heapObjects.end())
+</span></span><span style="display:flex;"><span>           {
+</span></span><span style="display:flex;"><span>              SomeClass<span style="color:#ff79c6">::</span>heapObjects.erase(iter);
+</span></span><span style="display:flex;"><span>           }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">double</span> Value() <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&amp;</span>gt;value;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">bool</span> IsOnHeap() <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&amp;</span>gt;isOnHeap;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">bool</span> IsOnStack() <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">!</span>IsOnHeap();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string Location() <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">IsOnHeap</span>() <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#34;Heap&#34;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Stack&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">void</span> PrintLocationInfo() <span style="color:#ff79c6">const</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; Value() <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; <span style="color:#f1fa8c">&#34; is on &#34;</span> <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; Location().c_str() <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">bool</span> IsOnHeap(SomeClass<span style="color:#ff79c6">*</span> scPtr)
+</span></span><span style="display:flex;"><span>         {
+</span></span><span style="display:flex;"><span>            SomeClassDBConstIter iter <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>find(SomeClass<span style="color:#ff79c6">::</span>heapObjects.begin(), SomeClass<span style="color:#ff79c6">::</span>heapObjects.end(), scPtr);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> iter <span style="color:#ff79c6">!=</span> SomeClass<span style="color:#ff79c6">::</span>heapObjects.end();
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">bool</span> IsOnStack(SomeClass<span style="color:#ff79c6">*</span> scPtr)
+</span></span><span style="display:flex;"><span>         {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">!</span>IsOnHeap(scPtr);
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">void</span><span style="color:#ff79c6">*</span> <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">new</span>(size_t size)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           SomeClass<span style="color:#ff79c6">*</span> scPtr <span style="color:#ff79c6">=</span> (SomeClass<span style="color:#ff79c6">*</span>)malloc(size);
+</span></span><span style="display:flex;"><span>           SomeClass<span style="color:#ff79c6">::</span>heapObjects.push_back(scPtr);
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> scPtr;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">void</span> <span style="color:#ff79c6">operator</span> <span style="color:#ff79c6">delete</span>(<span style="color:#8be9fd">void</span><span style="color:#ff79c6">*</span> ptr)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           free(ptr);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> size_t HeapCount()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> SomeClass<span style="color:#ff79c6">::</span>heapObjects.size();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> size_t StackCount()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> SomeClass<span style="color:#ff79c6">::</span>stackObjects.size();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">void</span> PrintObjectCount()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; <span style="color:#f1fa8c">&#34;OnHeap: &#34;</span> <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; HeapCount() <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; <span style="color:#f1fa8c">&#34; .... OnStack: &#34;</span> <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; StackCount() <span style="color:#ff79c6">&amp;</span>lt;<span style="color:#ff79c6">&amp;</span>lt; std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// SomeClass.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;SomeClass.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span>SomeClassDB SomeClass<span style="color:#ff79c6">::</span>heapObjects;
+</span></span><span style="display:flex;"><span>SomeClassDB SomeClass<span style="color:#ff79c6">::</span>stackObjects;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span> (<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   SomeClass sc(<span style="color:#bd93f9">0.123</span>);
+</span></span><span style="display:flex;"><span>   SomeClass<span style="color:#ff79c6">*</span> scPtr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> SomeClass(<span style="color:#bd93f9">1.234</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   SomeClass<span style="color:#ff79c6">::</span>PrintObjectCount();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      SomeClass sc1(<span style="color:#bd93f9">2.345</span>);
+</span></span><span style="display:flex;"><span>      SomeClass<span style="color:#ff79c6">::</span>PrintObjectCount();
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">delete</span> scPtr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   SomeClass<span style="color:#ff79c6">::</span>PrintObjectCount();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>You should be aware of implementing the custom <code>delete</code> if you have provided a custom <code>new</code> operator. It is logical because only a custom implementation that allocated memory for the object could possibly know how to deallocate. The above technique of overloading <code>new</code> \ <code>delete</code> is portable and safe since it is standard C++. As always, writing standard C++ is fun.</p>
 <p>But why would one care to know where an object is allocated or keep a count of objects. I don’t think it would something you would require for production purposes. It could be for development\debugging purposes; maybe you want to detect memory leaks or a general distribution of objects. You could take control of the allocation by overloading <code>new</code> for a particular class; Or you can declare a global <code>new</code> operator to make it applicable for all classes.</p>
 
@@ -338,18 +316,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

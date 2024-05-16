@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Overloading on A Developer&#39;s Experience</title>
-    <link>/tags/overloading/</link>
+    <link>//localhost:51234/tags/overloading/</link>
     <description>Recent content in Overloading on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python Overloaded</title>
-      <link>/posts/python-overloaded/</link>
+      <link>//localhost:51234/posts/python-overloaded/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/posts/python-overloaded/</guid>
+      <guid>//localhost:51234/posts/python-overloaded/</guid>
       <description>Function overloading is every day business in statically typed languages. Not all languages. Go has make it everything &lt;a href=&#34;https://go.dev/doc/faq#overloading&#34;&gt;hard&lt;/a&gt;. 🙄 But function overloading in dynamic languages are not really sought after.</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
-      <link>/2014/05/29/overloading-and-varargs/</link>
+      <link>//localhost:51234/2014/05/29/overloading-and-varargs/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
-      <guid>/2014/05/29/overloading-and-varargs/</guid>
+      <guid>//localhost:51234/2014/05/29/overloading-and-varargs/</guid>
       <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
     </item>
   </channel>

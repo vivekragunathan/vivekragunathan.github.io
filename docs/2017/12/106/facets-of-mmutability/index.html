@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,37 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Facets of Immutability">
-  <meta itemprop="description" content="Immutability, the cornerstone of functional programming, has many facets.
-Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.">
-  <meta itemprop="datePublished" content="2017-12-06T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2017-12-06T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2065">
-  <meta itemprop="keywords" content="Functional-Programming,Functional-Programming">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Facets of Immutability">
-<meta name="twitter:description" content="Immutability, the cornerstone of functional programming, has many facets.
-Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That&rsquo;s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.">
-
-
-<meta property="og:url" content="/2017/12/106/facets-of-mmutability/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Facets of Immutability">
-  <meta property="og:description" content="Immutability, the cornerstone of functional programming, has many facets.
-Not every (mainstream) language supports all the facets; at least not per what each facet stands for. That’s what I will talk about today. The various facets of immutability from a theoretical perspective, and briefly show how some of the mainstream languages have adopted and support these facets in their own way.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2017-12-06T00:00:00+00:00">
-    <meta property="article:modified_time" content="2017-12-06T00:00:00+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -82,10 +53,14 @@ Not every (mainstream) language supports all the facets; at least not per what e
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -155,7 +130,7 @@ Not every (mainstream) language supports all the facets; at least not per what e
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -194,13 +169,13 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Also called <em>compile-time</em> constants, it is the equivalent of using the value directly at the call site.</p>
 <p>On your behalf, the compiler hard-codes the value of the constant at the call-site (place of use). It is up to the compiler either to keep the identifiers in the final binary or throw them away during compilation (since the required values are hard-coded at the call site).</p>
 <p>(In an ideal world) A compiler should allow using a constant in any place where its value may be directly used; hard-coded. Although it is straightforward, there are cases like the use of constants in <a href="">annotations</a> or <a href="">attributes</a>; or its use restricted thereof in some languages/scenarios<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// The atrribute values below could be declared as constant</span>
-</span></span><span class="line"><span class="cl"><span class="na">[StringLength(
-</span></span></span><span class="line"><span class="cl"><span class="na">  120,
-</span></span></span><span class="line"><span class="cl"><span class="na">  MinimumLength=5,
-</span></span></span><span class="line"><span class="cl"><span class="na">  ErrorMessage=&#34;Value does not meet length requirements&#34;
-</span></span></span><span class="line"><span class="cl"><span class="na">)]</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">// The atrribute values below could be declared as constant</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[StringLength(
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">  120,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">  MinimumLength=5,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">  ErrorMessage=&#34;Value does not meet length requirements&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
 </span></span></code></pre></div><p>A taste of support for constants in a few popular languages:</p>
 <ul>
 <li>C++ - <strong><code>const</code></strong></li>
@@ -212,14 +187,14 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>Generally speaking, the use of constants is a good practice more than its need and purpose. Because you could hard-code the value as well, and your program will still work the same way. Like I said <em>generally speaking</em>. But not so in C++.</p>
 <p>As always, C++ has something interesting in store. While those languages that support constants support only constant identifiers (or <em>constant variables</em>, just to remind you), C++ supports <a href="https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp"><strong><code>constexpr</code></strong></a> or constant expressions. Unlike trivial assignments (<code>const int X = 10;</code>), <code>constexpr</code> are <em>expressions</em> that are evaluated at  compile time. A <code>constexpr</code> may be a simple identifier or even a full blown user-defined type (<code>class</code>). A <code>constexpr</code> is equivalent to using an identifier or the resultant value at the call site.</p>
 <p>Let us try this<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl"><span class="p">{</span>  
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">      <span class="o">?</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">      <span class="o">:</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="o">?</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">constexpr</span> <span style="color:#8be9fd">float</span> <span style="color:#50fa7b">exp</span>(<span style="color:#8be9fd">float</span> x, <span style="color:#8be9fd">int</span> n)  
+</span></span><span style="display:flex;"><span>{  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">?</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">:</span> n <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">?</span> exp(x <span style="color:#ff79c6">*</span> x, n <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">:</span> exp(x <span style="color:#ff79c6">*</span> x, (n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">*</span> x;  
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>The above function <code>exp</code> is evaluated at compile time. Using <code>exp(8, 2)</code> directly at the call site or assigning to an identifier and consuming it are exactly the same. In either case, the value is computed at compile time and cannot be mutated<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. Also, you can throw in templates in the mix.</p>
 <p>By the way, if you failed to notice, <code>exp</code> uses recursion &hellip; at compile time. In the past, you might have implemented compile-time recursive logic using templates (think canonical <code>factorial</code> function). Now, you have <code>constexpr</code> on your side.</p>
 <p>Recap: In order to qualify as a <strong>constant</strong>, it should satisfy the criteria that we saw at the beginning of this section.</p>
@@ -227,14 +202,14 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p><strong><code>read-only</code> (RO), otherwise the constant variable</strong></p>
 <p>The constant that we saw earlier is a compile-time constant. RO is a runtime constant, if you will, although it is not a constant per se. <em>It is immutable</em>.</p>
 <p>By declaring a variable read-only, we intend to assign a value once (in its respective scope and frame). Needless to say, the value of the variable doesn&rsquo;t change thereafter.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// In Java</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">someFunc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCount</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">someValue</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// In Java</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">someFunc</span>() {
+</span></span><span style="display:flex;"><span>   ...
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> count <span style="color:#ff79c6">=</span> getCount();
+</span></span><span style="display:flex;"><span>   ...
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">return</span> someValue;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The variable <code>count</code> is assigned the value returned from <code>getCount</code>, and cannot be changed anytime after it is assigned. The scope of <code>count</code> is the <code>someFunc</code> method and the corresponding thread. <code>someFunc</code> executing on another thread will have a different instance of <code>count</code> with possibly a different value from <code>getCount</code>. In any case, the identifier <code>count</code> is <em>immutable</em>, albeit its value is determined at runtime. Let me repeat again, the identifier <code>count</code> is not a <em>constant</em> but is immutable.</p>
 <p>If you think about it, the constant variable is not only a misnomer but an oxymoron. But if we were given a chance to associate the term <em>constant variable</em> with something, it would be a <em>read only variable</em>.</p>
 <p>A taste of support for <em>read-only variables</em> in a few popular languages:</p>
 <ul>
@@ -252,20 +227,20 @@ Not every (mainstream) language supports all the facets; at least not per what e
 <p>There are a few flavors of immutable objects.</p>
 <p><strong>Immutable Class</strong></p>
 <p>An instance whose members or state cannot be mutated after instantiation. Imagine writing the following in Java:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StoneClass</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">StoneClass</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getAge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">case</span> <span class="k">class</span> <span class="nc">StoneClass</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">StoneClass</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> String name;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> age;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">StoneClass</span>(String name, <span style="color:#8be9fd">int</span> age) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">name</span> <span style="color:#ff79c6">=</span> name;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">age</span> <span style="color:#ff79c6">=</span> age;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">getName</span>() { <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">name</span>; }
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getAge</span>() { <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">age</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>.. or if you prefer to be succinct like Scala, write a <code>case class</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">StoneClass</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> age<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
 </span></span></code></pre></div><p>Once an instance of the <code>StoneClass</code> is created, the <code>name</code> and <code>age</code> cannot change in a thousand years. Changes or mutations are realized by making a copy with new values. I would say <em>an immutable class is the holy grail of immutability</em>.</p>
 <p><strong>Immutable Interface or Copy</strong></p>
 <p>Think Java&rsquo;s <code>Collections.immutableList(list)</code> or one of the other variants, which hands out an immutable copy of the collection. This flavor is <em>primarily</em> associated with collections or container objects, wherein the immutability is applicable to the container objects and not the containee. The containee objects might as well be mutable.</p>
@@ -339,18 +314,19 @@ Can change where <code>cptr</code> points. <em>Cannot</em> modify the <code>char
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

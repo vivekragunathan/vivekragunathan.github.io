@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,34 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="CComPtr Misconception !!!">
-  <meta itemprop="description" content="This is about a killer bug identified by our chief software engineer in our application.">
-  <meta itemprop="datePublished" content="2009-04-08T00:15:00+00:00">
-  <meta itemprop="dateModified" content="2009-04-08T00:15:00+00:00">
-  <meta itemprop="wordCount" content="595">
-  <meta itemprop="keywords" content="C&#43;&#43;,CodeProject,COM,Uncategorized,Unmanaged,C&#43;&#43;,CodeProject,COM,Uncategorized,Unmanaged">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="CComPtr Misconception !!!">
-<meta name="twitter:description" content="This is about a killer bug identified by our chief software engineer in our application.">
-
-
-<meta property="og:url" content="/2009/04/08/ccomptr-misconception/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="CComPtr Misconception !!!">
-  <meta property="og:description" content="This is about a killer bug identified by our chief software engineer in our application.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2009-04-08T00:15:00+00:00">
-    <meta property="article:modified_time" content="2009-04-08T00:15:00+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -79,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -152,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -177,49 +155,49 @@
 
   <p>This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!</p>
 <p><code>CComPtr</code> is a template class in ATL designed to wrap the discrete functionality of COM object management – <code>AddRef</code> and <code>Release</code>. Technically it is a smart pointer for a COM object.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SomeMethod</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">CComPtr</span> <span class="n">siPtr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">siPtr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_SomeComponent</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">   <span class="n">siPtr</span><span class="o">-&gt;</span><span class="n">MethodOne</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">SomeMethod</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   CComPtr siPtr;
+</span></span><span style="display:flex;"><span>   HRESULT hr <span style="color:#ff79c6">=</span> siPtr.CoCreateInstance(CLSID_SomeComponent);
+</span></span><span style="display:flex;"><span>   siPtr<span style="color:#ff79c6">-&gt;</span>MethodOne(<span style="color:#bd93f9">20</span>, <span style="color:#f1fa8c">L</span><span style="color:#f1fa8c">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Without <code>CComPtr</code>, the code wouldn’t be as elegant as above. The code would be spilled with AddRef and Release. Besides, writing code to Release after use under any circumstance is either hard or ugly. CComPtr automatically takes care of releasing in its destructor just like std::auto_ptr. As a C++ programmer, we must be able to appreciate the inevitability of the destructor and its immense use in writing smart code. However there is a difference between pointers to normal C++ objects and pointers to COM objects; CComPtr and std::auto_ptr. When you assign one <code>auto_ptr</code> to another, the source is no more the owner of the object it was pointing to. The ownership is transferred to the destination. Whereas when a <code>CComPtr</code> is assigned to another, the reference count of the target COM object increases by one. And the two <code>CComPtr</code>s point to the same COM object. Changes made via one <code>CComPtr</code> object can be realized when the object is accessed via the other CComPtr. Release must be called on each <code>CComPtr</code> instance (to completely release the COM object). All fine, lets us see some code.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SomeOtherMethod</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">CComPtr</span> <span class="n">aPtr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="n">InitAndPopulateObject</span><span class="p">(</span><span class="n">aPtr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">itemCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetCount</span><span class="p">(</span><span class="o">&amp;</span><span class="n">itemCount</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">itemCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-</span></span><span class="line"><span class="cl">      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="n">CComBSTR</span> <span class="n">bstrKey</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">iValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">hr</span> <span class="o">=</span> <span class="n">aPtr</span><span class="o">-&gt;</span><span class="n">GetItem</span><span class="p">(</span><span class="n">bstrKey</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">iValue</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bstrKey</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; - &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">iValue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">InitAndPopulateObject</span><span class="p">(</span><span class="n">CComPtr</span> <span class="n">bPtr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="n">HRESULT</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">CLSID_Hashtable</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="n">_ASSERTE</span><span class="p">(</span><span class="n">SUCCEEDED</span><span class="p">(</span><span class="n">hr</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">TCHAR</span> <span class="n">szBuffer</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
-</span></span><span class="line"><span class="cl">      <span class="n">sprintf_s</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">),</span> <span class="s">&#34;Key%ld&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="n">bPtr</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">szBuffer</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">SomeOtherMethod</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   CComPtr aPtr;
+</span></span><span style="display:flex;"><span>   InitAndPopulateObject(aPtr);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">int</span> itemCount <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>   HRESULT hr <span style="color:#ff79c6">=</span> aPtr<span style="color:#ff79c6">-&gt;</span>GetCount(<span style="color:#ff79c6">&amp;</span>itemCount);
+</span></span><span style="display:flex;"><span>   _ASSERTE(SUCCEEDED(hr));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> itemCount; <span style="color:#ff79c6">++</span>i)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      TCHAR szBuffer[<span style="color:#bd93f9">128</span>] <span style="color:#ff79c6">=</span> { <span style="color:#bd93f9">0</span> };
+</span></span><span style="display:flex;"><span>      sprintf_s(szBuffer, <span style="color:#ff79c6">sizeof</span>(szBuffer), <span style="color:#f1fa8c">&#34;Key%ld&#34;</span>, i);
+</span></span><span style="display:flex;"><span>      CComBSTR bstrKey(szBuffer);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">int</span> iValue <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>      hr <span style="color:#ff79c6">=</span> aPtr<span style="color:#ff79c6">-&gt;</span>GetItem(bstrKey, <span style="color:#ff79c6">&amp;</span>iValue);
+</span></span><span style="display:flex;"><span>      _ASSERTE(SUCCEEDED(hr));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> bstrKey <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; - &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> iValue;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">InitAndPopulateObject</span>(CComPtr bPtr)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   HRESULT hr <span style="color:#ff79c6">=</span> ptr.CoCreateInstance(CLSID_Hashtable);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   _ASSERTE(SUCCEEDED(hr));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">100</span>; <span style="color:#ff79c6">++</span>i)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      TCHAR szBuffer[<span style="color:#bd93f9">128</span>] <span style="color:#ff79c6">=</span> { <span style="color:#bd93f9">0</span> };
+</span></span><span style="display:flex;"><span>      sprintf_s(szBuffer, <span style="color:#ff79c6">sizeof</span>(szBuffer), <span style="color:#f1fa8c">&#34;Key%ld&#34;</span>, i);
+</span></span><span style="display:flex;"><span>      bPtr<span style="color:#ff79c6">-&gt;</span>Add(szBuffer, i);
+</span></span><span style="display:flex;"><span>   }  
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>CComPtr</code> saved a whole of code as explained above. But my application was always crashing in the SomeOtherMethod on the line where GetCount method is called on the COM object initialized one line above. So I am passing a <code>CComPtr</code> to <code>InitAndPopulateObject</code>, which is supposed to create me my COM object and fill it with some information I expect. Since I am passing a CComPtr, a return value is not needed. Looks fine, but the application crashed.</p>
 <p>People are often misled with many things in programming mostly because they stick to the prime way of its use. <code>CComPtr</code>, in most cases, is used for creating a COM object, passed around across various sections in the code where <code>AddRef</code> and <code>Release</code> is done under the covers until the COM object dies a pleasant death. People tend to forget that the member in <code>CComPtr</code> (named poorly as p) is the one that is actually pointing to the COM object. So <code>aPtr.p</code>, whose value is <code>0x0000</code> (<code>NULL</code>), is passed by value and copied to bPtr.p. When the COM object is created using bPtr, it is <code>bPtr.p</code> ,which is assigned the COM object’s address, say <code>0x23456789</code>; whereas <code>aPtr.p</code> remains NULL even after <code>InitAndPopulateObject</code> returns. Hence the application was crashing because of null pointer access.</p>
 <p>The problem might be obvious in the above few lines of clear code. It sure was very tough to locate and reason it in our huge code base.</p>
@@ -241,18 +219,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

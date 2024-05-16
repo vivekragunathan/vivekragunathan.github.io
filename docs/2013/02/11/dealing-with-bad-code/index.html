@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,37 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Dealing with Bad Code">
-  <meta itemprop="description" content="Read this fine article by Joel Spolsky: Things You Should Never Do
-It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess.">
-  <meta itemprop="datePublished" content="2013-02-10T18:30:26+00:00">
-  <meta itemprop="dateModified" content="2013-02-10T18:30:26+00:00">
-  <meta itemprop="wordCount" content="1307">
-  <meta itemprop="keywords" content="Computers and Internet,Uncategorized,Computers and Internet,Uncategorized">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Dealing with Bad Code">
-<meta name="twitter:description" content="Read this fine article by Joel Spolsky: Things You Should Never Do
-It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess.">
-
-
-<meta property="og:url" content="/2013/02/11/dealing-with-bad-code/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Dealing with Bad Code">
-  <meta property="og:description" content="Read this fine article by Joel Spolsky: Things You Should Never Do
-It is a great article, one that invokes mixed feelings. The article talks against rewriting (large scale) software…..from scratch. Joel was kind enough to consider all those who write software as true programmers; people who give enough thought and not just code up something that works. However, it is far different in the real world. That said, I am neither completely in disagreement with Joel nor am I advocating to rewrite large scale software once the code is identified as a mess.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2013-02-10T18:30:26+00:00">
-    <meta property="article:modified_time" content="2013-02-10T18:30:26+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -82,10 +53,14 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -155,7 +130,7 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -183,8 +158,8 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 <p>Most people who are programmers are just people who write code for a living. Nothing wrong but forget the passion part of it. So the quality of the code that is generated is questionable. True programmers are different. They first build those intangible constructs in mind of how the code should be, and then they write code that reflects to the reader the intent of the task being achieved. Hence such code is readable, modular and maintainable. They are deliberate in building such code so that it is possible to implement new features (and do bug fixes, if any) in such code with ease for a fellow programmer too. That’s when Joel’s statement that <em>programmers, in their hearts, are architects applies</em>.</p>
 <p>I agree that rewriting the whole software from scratch is an ambitious attempt, and might end up foolish too. Nobody, in their sane mind, would attempt that without a backup plan. However those functions with over 200 lines of code, which ideally would be some ten lines of code, could be rewritten. I don’t agree that those functions, which clearly would have been written without forethought, with its tons of bug fixes carry loads of knowledge. They mislead the reader from understanding what is actually been achieved in the function. I would argue that most of those bugs should not have been there in the first place. They come into existence because of the programmer’s lack of due diligence when implementing the function. In simple words, programming is an art and not a contest of (fast) typewriting.</p>
 <p>I have seen my share of messy unmaintainable code; code that is just as dead with its smell or that just runs at the mercy of time! For instance, consider this piece of MFC code…..</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">controlId</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">GetDlgItem</span><span class="p">(</span><span class="n">controlId</span><span class="p">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> controlId <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">reinterpret_cast</span>(<span style="color:#ff79c6">this</span>);
+</span></span><span style="display:flex;"><span>GetDlgItem(controlId);
 </span></span></code></pre></div><p>The above code assumes that there is a user control with an id equal to the this pointer, where the current object was some MFC form/window. That ugly code was there in production, and was running purely on luck; may be that code path was not used or God knows!</p>
 <p>I have seen programmers use <code>std::string*</code> for creating an array of strings, and the associated memory never properly released – a deliberate memory leak for free. They couldn’t accept that it could be replaced with <code>std::vector&lt;string&gt;</code>. I have also seen mightier – <code>std::list***</code>; perhaps the programmer was programming for Einstein trying to think more than three dimensions. And never bother to think if the memory management was in place for that. When I take this for a discussion with the programmer who wrote that crap of code, I get a soft slap on the face, <em>why bother, it works, right?</em>. Worse to accept is the possessiveness that they have for the code; they won’t allow the code to change (to be improved).</p>
 <p>Although threads in .NET are managed, programmers don’t think even once before creating threads just for firing events or such, which they should have achieved using the ThreadPool. And they create it without holding a reference – bad practice. They don’t get a grasp of the line, <em>Thread is an expensive resource</em>. (See also <a href="/2011/03/30/threadreference/">To Hold or Not to Hold – A story on Thread references</a>)</p>
@@ -214,18 +189,19 @@ It is a great article, one that invokes mixed feelings. The article talks agains
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

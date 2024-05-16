@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Api on A Developer&#39;s Experience</title>
-    <link>/tags/api/</link>
+    <link>//localhost:51234/tags/api/</link>
     <description>Recent content in Api on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 07 Nov 2016 06:04:46 +0000</lastBuildDate>
-    <atom:link href="/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/tags/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Importance of Semantics</title>
-      <link>/2016/11/07/semantics/</link>
+      <link>//localhost:51234/2016/11/07/semantics/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
-      <guid>/2016/11/07/semantics/</guid>
+      <guid>//localhost:51234/2016/11/07/semantics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;&#xA;&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;&#xA;&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
     </item>
   </channel>

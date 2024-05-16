@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,36 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Quiz – (Journey through templates, SFINAE and specialization) !!!">
-  <meta itemprop="description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr.">
-  <meta itemprop="datePublished" content="2010-04-10T07:39:00+00:00">
-  <meta itemprop="dateModified" content="2010-04-10T07:39:00+00:00">
-  <meta itemprop="wordCount" content="1466">
-  <meta itemprop="keywords" content="SFINAE,Templates">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Quiz – (Journey through templates, SFINAE and specialization) !!!">
-<meta name="twitter:description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr.">
-
-
-<meta property="og:url" content="/2010/04/10/sfinae/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Quiz – (Journey through templates, SFINAE and specialization) !!!">
-  <meta property="og:description" content="template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2010-04-10T07:39:00+00:00">
-    <meta property="article:modified_time" content="2010-04-10T07:39:00+00:00">
-    <meta property="article:tag" content="SFINAE">
-    <meta property="article:tag" content="Templates">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -81,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -154,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -177,161 +153,161 @@
     <time datetime="2010-04-10T07:39:00Z">Apr 10, 2010</time> &middot; 7 min read
   </div>
 
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TClass</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">TClass</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// Overload #1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">A</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;-&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// Overload #2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;-&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TClass</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> TClass()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string SomeMethod(A a, B b)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string SomeMethod(B b, A a)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>So that is a template class with SomeMethod overloads. Why would somebody write such a class? Imagine it is an adder class, and the method overloads could used to add with parameters specified in either order. Following is the way one could use the above (based on the adder example):-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">12.3f</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">TClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">t1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">idText</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="c1">// This calls Overload #1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">diText</span> <span class="o">=</span> <span class="n">t2</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// This calls Overload #2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">45</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">double</span> d <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12.3f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TClass<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">float</span><span style="color:#ff79c6">&gt;</span> t1;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string idText <span style="color:#ff79c6">=</span> t1.SomeMethod(i, d); <span style="color:#6272a4">// This calls Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string diText <span style="color:#ff79c6">=</span> t2.SomeMethod(d, i); <span style="color:#6272a4">// This calls Overload #2
 </span></span></span></code></pre></div><p>Seems cool until you try this simple thing</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">t2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">idText</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>TClass<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span> t2;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string idText <span style="color:#ff79c6">=</span> t1.SomeMethod(i, i);
 </span></span></code></pre></div><p>The mighty C++ compiler will complain</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Error <span class="m">1</span> error C2535:
-</span></span><span class="line"><span class="cl">‘std::string TClass::SomeMethod<span class="o">(</span>A,B<span class="o">)</span>’ : member <span class="k">function</span> already defined or declared
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Error <span style="color:#bd93f9">1</span> error C2535:
+</span></span><span style="display:flex;"><span>‘std::string TClass::SomeMethod<span style="color:#ff79c6">(</span>A,B<span style="color:#ff79c6">)</span>’ : member <span style="color:#ff79c6">function</span> already defined or declared
 </span></span></code></pre></div><p>A well-tuned C++ programmer would have guessed already how to resolve the situation. But we are are going to discuss a few other things related to the problem, besides the solution.</p>
 <h4 id="part-1-non-member-functions">Part 1: Non-member Functions</h4>
 <p>Let us say <code>TClass</code> was written for hosting <code>SomeMethod</code> overloads. By that I mean to say <code>SomeMethod</code> overloads are self-sufficient and could be made non-member functions (as global methods or methods inside a namespace).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">SF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="c1">// Overload #1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">A</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// Overload #2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> SF
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span> std<span style="color:#ff79c6">::</span>string SomeMethod(A a, B b)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>      ostr <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// Overload #2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span> std<span style="color:#ff79c6">::</span>string SomeMethod(B b, A a)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>      ostr <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Hang on. The above code will still result in a compilation error for <code>SomeMethod</code>; same type. We are going to now resolve this situation using one of the tough and less-used powers of C++. We are going have the two overloads, make some changes to one overload using SFINAE principle, and allow instantiation \ use of <code>SomeMethod</code> using like or different types. That is not a typo; I spelt it right – <a href="http://sites.google.com/site/kenbase/cpp/sfinae">SFINAE</a>, a.k.a <strong>S</strong>ubstitution <strong>F</strong>ailure <strong>I</strong>s <strong>N</strong>ot <strong>A</strong>n <strong>E</strong>rror.</p>
 <p>SFINAE is a principle adopted by the C++ compiler to prevent resulting in a compilation error when preparing the set of candidate overloads for a particular template instantiation. It is widely used for deliberately excluding one or more template overloads based on some condition. The principle is applied only in the case of templates.</p>
 <p>In our case, when <code>SF::SomeMethod</code> is called, right now both the overloads are successful candidates. That is why the compiler complains about method redefinition. Suppose we wrote the code in a way so as to detect that the two template types passed are same (“<em>the condition</em>“), and we exclude one of the overloads (consider overload #2). This would help us bind to the one method (overload #1). Well, SFINAE is exactly for such purposes. Alright, let us (re)write code &hellip;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Alternatively, you can use EnableIf facility from Boost library
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">Condition</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">EnableIf</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="k">typename</span> <span class="n">T</span> <span class="n">Type</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">EnableIf</span><span class="o">&lt;</span><span class="nb">false</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Alternatively, you can use IsSameType facility from Boost or Loki library
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">IsSameType</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="k">enum</span> <span class="p">{</span> <span class="n">Result</span> <span class="o">=</span> <span class="nb">false</span> <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">IsSameType</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="k">enum</span> <span class="p">{</span> <span class="n">Result</span> <span class="o">=</span> <span class="nb">true</span> <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">AreDifferentTypes</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="k">enum</span> <span class="p">{</span> <span class="n">Result</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="k">typename</span> <span class="n">IsSameType</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;::</span><span class="n">Result</span><span class="p">)</span> <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">SF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="c1">// Overload #1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">A</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// Overload #2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">   <span class="k">typename</span> <span class="n">EnableIf</span><span class="o">&lt;</span><span class="n">AreDifferentTypes</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;::</span><span class="n">Result</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">Type</span> <span class="c1">// Evaluates to the return type
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">SomeMethod</span><span class="p">(</span><span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">   <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#6272a4">// Alternatively, you can use EnableIf facility from Boost library
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">bool</span> Condition, <span style="color:#ff79c6">typename</span> T <span style="color:#ff79c6">=</span> <span style="color:#8be9fd">void</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">EnableIf</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">typename</span> T Type;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">EnableIf</span><span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd;font-style:italic">false</span>, T<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Alternatively, you can use IsSameType facility from Boost or Loki library
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">IsSameType</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">enum</span> { Result <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span> };
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">IsSameType</span><span style="color:#ff79c6">&lt;</span>A, A<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">enum</span> { Result <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">true</span> };
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">AreDifferentTypes</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">enum</span> { Result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">!</span>(<span style="color:#ff79c6">typename</span> IsSameType<span style="color:#ff79c6">&lt;</span>A, B<span style="color:#ff79c6">&gt;::</span>Result) };
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> SF
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span> std<span style="color:#ff79c6">::</span>string SomeMethod(A a, B b)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>      ostr <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#6272a4">// Overload #2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>   <span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">typename</span> EnableIf<span style="color:#ff79c6">&lt;</span>AreDifferentTypes<span style="color:#ff79c6">&lt;</span>A, B<span style="color:#ff79c6">&gt;::</span>Result, std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&gt;::</span>Type <span style="color:#6272a4">// Evaluates to the return type
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>      SomeMethod(B b, A a)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>      ostr <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We have tweaked overload #2 such that while creating the candidate set for overload resolution, it produces an error when the template parameter types <em>substituted</em> are same. <code>AreDifferentTypes::Result</code> will evaluate to false if the template parameters are of the same type, as a result of which the specialized version of EnableIf (EnableIf) is chosen which does not define the Type member <code>typedef</code>. This is spotted as an error when selecting candidates for overload resolution but ignored (for a good cause). Now the compiler will be able to bind to the only candidate found (Overload #1). So now you can enjoy using <code>SomeMethod</code>:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">   <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">34.56</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">dtText</span> <span class="o">=</span> <span class="n">SF</span><span class="o">::</span><span class="n">SomeMethod</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">   <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">stText</span> <span class="o">=</span> <span class="n">SF</span><span class="o">::</span><span class="n">SomeMethod</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#8be9fd">float</span> f <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">34.56</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string dtText <span style="color:#ff79c6">=</span> SF<span style="color:#ff79c6">::</span>SomeMethod<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">float</span><span style="color:#ff79c6">&gt;</span>(i, f);
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string stText <span style="color:#ff79c6">=</span> SF<span style="color:#ff79c6">::</span>SomeMethod<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span>(i, i);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="part-2--member-functions">Part 2 – Member Functions</h4>
 <p>I could feel the SFINAE hangover. Unfortunately, the SFINAE will not work with template member functions. So before we see how to solve our problem in discussion for member functions, let us see why SFINAE will not come for rescue.</p>
 <p>For a template method instantiation \ call, the C++ compiler first searches for methods (matching the name), which could be a potential candidate for binding to the method call. During this step, the methods are inspected for the signature (and not code). They are rejected if they are detected to produce an error. In the earlier case, <code>AreDifferentTypes</code> returning false thereby making EnableIf devoid of the typedef Type was the error. So this principle is applied to methods (matching the name) with valid signature. In other words, there cannot be an ill-formed
 method signature from a template instantiation.</p>
 <p>In the case of non-member functions (above), the method decorated with <code>EnableIf</code> will always be considered to have a valid method signature. In other words, depending on the template parameters, the method will get an appropriate return type; although it may fail to be a successful candidate for overload resolution (using SFINAE) when the template parameters are of the same type. Irrespective of whether a template method or method inside a template class is used, the compiler will stop with errors if it has an invalid signature.</p>
 <p>Aimed with the above information, let us rewrite the <code>TClass</code> as follows and understand why the principle will not work for template member functions.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TClass</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span> <span class="n">TClass</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// Overload #1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">A</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// Overload #2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span> <span class="k">typename</span> <span class="n">EnableIf</span><span class="o">&lt;</span><span class="n">AreDifferentTypes</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;::</span><span class="n">Result</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">Type</span>
-</span></span><span class="line"><span class="cl">           <span class="n">SomeMethod</span><span class="p">(</span><span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">ostr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="n">ostr</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;--&gt;&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">ostr</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TClass</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> TClass()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string SomeMethod(A a, B b)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">typename</span> EnableIf<span style="color:#ff79c6">&lt;</span>AreDifferentTypes<span style="color:#ff79c6">&lt;</span>A, B<span style="color:#ff79c6">&gt;::</span>Result, std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&gt;::</span>Type
+</span></span><span style="display:flex;"><span>           SomeMethod(B b, A a)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;--&gt;&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>You will see a whole of bunch of errors, of which we should be interested in the following:-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Error <span class="m">1</span> error C2039: <span class="s1">&#39;Type&#39;</span> : is not a member of <span class="s1">&#39;EnableIf&lt;Condition,T&gt;&#39;</span> &lt;FileName&gt; &lt;Line&gt;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Error <span class="m">5</span> error C2556: <span class="s1">&#39;int TClass&lt;A,B&gt;::SomeMethod(B,A)&#39;</span> : overloaded <span class="k">function</span> differs
-</span></span><span class="line"><span class="cl">only by <span class="k">return</span> <span class="nb">type</span> from <span class="s1">&#39;std::string TClass&lt;A,B&gt;::SomeMethod(A,B)&#39;</span> &lt;FileName&gt; &lt;Line&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Error <span style="color:#bd93f9">1</span> error C2039: <span style="color:#f1fa8c">&#39;Type&#39;</span> : is not a member of <span style="color:#f1fa8c">&#39;EnableIf&lt;Condition,T&gt;&#39;</span> &lt;FileName&gt; &lt;Line&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Error <span style="color:#bd93f9">5</span> error C2556: <span style="color:#f1fa8c">&#39;int TClass&lt;A,B&gt;::SomeMethod(B,A)&#39;</span> : overloaded <span style="color:#ff79c6">function</span> differs
+</span></span><span style="display:flex;"><span>only by <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">type</span> from <span style="color:#f1fa8c">&#39;std::string TClass&lt;A,B&gt;::SomeMethod(A,B)&#39;</span> &lt;FileName&gt; &lt;Line&gt;
 </span></span></code></pre></div><p>A template is almost a dead piece of code, until instantiated. Try writing a template method (with valid signature) that has few favorite quotes from Romeo Juliet (instead of C++ code) as its body. Unless you don’t instantiate \ call that method, the compiler will be tolerant. When a template is instantiated, that’s when the real code to bind to is cooked specifically for the parameter types. And when that is done, any invalid code will be flagged as an error. So when the SomeMethod (overload #2) is cooked for <code>TClass</code> instantiation, it results in an invalid code. That is our Error 1 above – Trying to access a member that does not exist. This means that the <code>SomeMethod</code> is being cooked without a return type being specified. In C++ (like in C) if you don’t specify a return type, it is assumed to be int. Since there already is an other <code>SomeMethod</code> with the same method signature but just differing in the return type, Error 5 above is raised.</p>
 <p>Another category of member functions are static template methods inside a non-template class, which are equivalent to non-members. Let us leave applying the above explanation to this category as an exercise.</p>
 <p>Does that mean we don’t have a solution? No, not using SFINAE. But by another friend – Template Specialization.</p>
@@ -392,18 +368,19 @@ public: std::string SomeMethod(A a, A b)
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

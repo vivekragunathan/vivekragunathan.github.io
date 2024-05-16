@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51234&amp;path=livereload" data-no-instant defer></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Hugo 0.125.5">
@@ -12,34 +12,8 @@
 
 	
 
-
-  <meta itemprop="name" content="Now I&#39;ll have padding both ways">
-  <meta itemprop="description" content="In my CSS tinkering endeavors, I can&rsquo;t believe I was ignorant of the existence of the very properties that I have been longing for. I am delighted I finally found it.">
-  <meta itemprop="datePublished" content="2023-02-08T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-02-08T00:00:00+00:00">
-  <meta itemprop="wordCount" content="541">
-  <meta itemprop="keywords" content="CSS,CSS">
-
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Now I&#39;ll have padding both ways">
-<meta name="twitter:description" content="In my CSS tinkering endeavors, I can&rsquo;t believe I was ignorant of the existence of the very properties that I have been longing for. I am delighted I finally found it.">
-
-
-<meta property="og:url" content="/posts/css-padding-props/">
-  <meta property="og:site_name" content="A Developer&#39;s Experience">
-  <meta property="og:title" content="Now I&#39;ll have padding both ways">
-  <meta property="og:description" content="In my CSS tinkering endeavors, I can’t believe I was ignorant of the existence of the very properties that I have been longing for. I am delighted I finally found it.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2023-02-08T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-02-08T00:00:00+00:00">
-
-
-
 	<link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-
 	<link type="text/css" rel="stylesheet" href="/css/poole.css">
-
 	<link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
 	
@@ -79,10 +53,14 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+				integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+				crossorigin="anonymous" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+				sizes="144x144"
+				href="/images/apple-touch-icon-144-precomposed.png">
 
 	<link rel="shortcut icon" href="/images/favicon.png">
 
@@ -152,7 +130,7 @@
 	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
 	<input type="text" class="blog-search-input" placeholder="Type to Search...">
 
-	<form style='display: none;' action='/search/' method="get">
+	<form style='display: none;' action='//localhost:51234/search/' method="get">
 		<input name="q" type="text">
 	</form>
 </div>
@@ -180,13 +158,13 @@
 <p>I have been <em><strong>dabbling</strong></em> with CSS for a long time to revamp the look and feel of web pages, which otherwise are illegible to my eyes. My eyes don&rsquo;t like just any font family, size, or style. And don&rsquo;t get me started on the clutter on these web pages. You would have to excavate the content that matters.</p>
 <p>One of the properties that I use for tinkering is <code>padding</code>. More often than not, I find myself wanting to change just the horizontal or the vertical padding.</p>
 <p>As you can see from the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">syntax</a> for padding below, there isn&rsquo;t exactly one to exclusively control either the horizontal or the vertical padding.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">padding</span><span class="o">:</span> <span class="nt">1em</span><span class="o">;</span>						<span class="c">/* Apply to all four sides */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nt">padding</span><span class="o">:</span> <span class="nt">5</span><span class="o">%</span> <span class="nt">10</span><span class="o">%;</span>				<span class="c">/* top and bottom | left and right */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nt">padding</span><span class="o">:</span> <span class="nt">1em</span> <span class="nt">2em</span> <span class="nt">2em</span><span class="o">;</span>		<span class="c">/* top | left and right | bottom */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nt">padding</span><span class="o">:</span> <span class="nt">5px</span> <span class="nt">1em</span> <span class="nt">0</span> <span class="nt">2em</span><span class="o">;</span>	<span class="c">/* top | right | bottom | left */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#ff79c6">padding</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">1em</span><span style="color:#ff79c6">;</span>						<span style="color:#6272a4">/* Apply to all four sides */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">padding</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">5</span><span style="color:#ff79c6">%</span> <span style="color:#ff79c6">10</span><span style="color:#ff79c6">%;</span>				<span style="color:#6272a4">/* top and bottom | left and right */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">padding</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">1em</span> <span style="color:#ff79c6">2em</span> <span style="color:#ff79c6">2em</span><span style="color:#ff79c6">;</span>		<span style="color:#6272a4">/* top | left and right | bottom */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">padding</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">5px</span> <span style="color:#ff79c6">1em</span> <span style="color:#ff79c6">0</span> <span style="color:#ff79c6">2em</span><span style="color:#ff79c6">;</span>	<span style="color:#6272a4">/* top | right | bottom | left */</span>
 </span></span></code></pre></div><p>What&rsquo;s the problem with the syntax?</p>
 <ul>
 <li>
@@ -262,18 +240,19 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-		integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+					integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+					crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ocean.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/scala.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/shell.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/cpp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/fsharp.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/css.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
 	<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/search.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

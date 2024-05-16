@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on A Developer&#39;s Experience</title>
-    <link>/categories/javascript/</link>
+    <link>//localhost:51234/categories/javascript/</link>
     <description>Recent content in JavaScript on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:51234/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go away node/npm</title>
-      <link>/2019/02/19/purge-node-npm/</link>
+      <link>//localhost:51234/2019/02/19/purge-node-npm/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>/2019/02/19/purge-node-npm/</guid>
+      <guid>//localhost:51234/2019/02/19/purge-node-npm/</guid>
       <description>&lt;p&gt;If you haven&amp;rsquo;t found a use for this script that uninstalls the second largest junk in the world next to Mac/iOS updates, you are either lazy or scared of breaking things.  I am neither, so I polished this &lt;a href=&#34;https://gist.github.com/VivekRagunathan/15c8b3b408c8015683a8d5fcf97cbf2f&#34;&gt;script&lt;/a&gt; from the different versions you will find on the internet. Oh, I am talking about node/npm.&lt;/p&gt;&#xA;&lt;p&gt;Happy cleaning!&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Paradox of Braces</title>
-      <link>/2017/12/106/paradox-of-braces/</link>
+      <link>//localhost:51234/2017/12/106/paradox-of-braces/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/2017/12/106/paradox-of-braces/</guid>
+      <guid>//localhost:51234/2017/12/106/paradox-of-braces/</guid>
       <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
-      <link>/2014/05/29/overloading-and-varargs/</link>
+      <link>//localhost:51234/2014/05/29/overloading-and-varargs/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
-      <guid>/2014/05/29/overloading-and-varargs/</guid>
+      <guid>//localhost:51234/2014/05/29/overloading-and-varargs/</guid>
       <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
-      <link>/2014/05/23/jqgrid-handling-array-data/</link>
+      <link>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
-      <guid>/2014/05/23/jqgrid-handling-array-data/</guid>
+      <guid>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</guid>
       <description>&lt;p&gt;This post is primarily a personal reference. I also consider this a tribute to &lt;a href=&#34;http://stackoverflow.com/users/315935/oleg&#34;&gt;Oleg&lt;/a&gt;, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.&lt;/p&gt;</description>
     </item>
   </channel>

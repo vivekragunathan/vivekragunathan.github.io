@@ -100,6 +100,8 @@ li {
 
 div.highlight pre {
 	font-size: var(--code-block-font-size);
+  border-radius: 7px;
+  box-shadow: 0 0 20px #433f59;
 }
 
 div.highlight pre code {
