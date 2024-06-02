@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/categories/programming/</link>
+    <link>/categories/programming/</link>
     <description>Recent content in Programming on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 20 Feb 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyrilex – Online Regex Tester</title>
-      <link>//localhost:51234/2016/02/20/cyrilex/</link>
+      <link>/2016/02/20/cyrilex/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/2016/02/20/cyrilex/</guid>
-      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;//localhost:51234/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;&#xA;&lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;&#xA;&lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
+      <guid>/2016/02/20/cyrilex/</guid>
+      <description>&lt;p&gt;A while ago, I &lt;a href=&#34;/cool-regex-testers/&#34;&gt;wrote&lt;/a&gt; the online regex tools. &lt;a href=&#34;https://extendsclass.com/contact&#34;&gt;Cyril&lt;/a&gt; (@CyrilBois) came across that post and &lt;a href=&#34;https://twitter.com/CyrilBois/status/1098214724465033217&#34;&gt;mentioned&lt;/a&gt; about &lt;a href=&#34;https://extendsclass.com/regex-tester.html&#34;&gt;&lt;strong&gt;his&lt;/strong&gt;&lt;/a&gt; regex tester tool.&lt;/p&gt;&#xA;&lt;p&gt;I think every tool should have a name; not one that just goes by its function but a nickname, if you will. So, I am going to name Cyril&amp;rsquo;s regex tool - &lt;strong&gt;&lt;code&gt;Cyrilex&lt;/code&gt;&lt;/strong&gt;. Don&amp;rsquo;t like it, don&amp;rsquo;t worry about it.&lt;/p&gt;&#xA;&lt;p&gt;Instead of adding &lt;code&gt;Cyrilex&lt;/code&gt; to the list, which I have already, I took the liberty to sort of review the tool. Because it has got a few cool things that I love.&lt;/p&gt;</description>
     </item>
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
-      <link>//localhost:51234/2016/12/11/cpp-cli-apress/</link>
+      <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
-      <guid>//localhost:51234/2016/12/11/cpp-cli-apress/</guid>
+      <guid>/2016/12/11/cpp-cli-apress/</guid>
       <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
     </item>
     <item>
       <title>Importance of Semantics</title>
-      <link>//localhost:51234/2016/11/07/semantics/</link>
+      <link>/2016/11/07/semantics/</link>
       <pubDate>Mon, 07 Nov 2016 06:04:46 +0000</pubDate>
-      <guid>//localhost:51234/2016/11/07/semantics/</guid>
+      <guid>/2016/11/07/semantics/</guid>
       <description>&lt;p&gt;&lt;strong&gt;semantics&lt;/strong&gt;&lt;sup id=&#34;fnref-2002-1&#34;&gt;&lt;a href=&#34;#fn-2002-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; | /sɪˈmæntɪks/ | noun (functioning as sing)&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;the branch of linguistics that deals with the study of meaning, changes in meaning, and the principles that govern the relationship between sentences or words and their meanings&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationships between signs and symbols and what they represent&lt;/li&gt;&#xA;&lt;li&gt;(&lt;strong&gt;logic&lt;/strong&gt;)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the study of interpretations of a formal theory&lt;/li&gt;&#xA;&lt;li&gt;the study of the relationship between the structure of a theory and its subject matter&lt;/li&gt;&#xA;&lt;li&gt;(of a formal theory) the principles that determine the truth or falsehood of sentences within the theory, and the references of its terms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Semantics is ever more important in programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Iterators vs. Generators</title>
-      <link>//localhost:51234/2016/08/03/iterators-vs-generators/</link>
+      <link>/2016/08/03/iterators-vs-generators/</link>
       <pubDate>Tue, 02 Aug 2016 19:16:00 +0000</pubDate>
-      <guid>//localhost:51234/2016/08/03/iterators-vs-generators/</guid>
+      <guid>/2016/08/03/iterators-vs-generators/</guid>
       <description>&lt;p&gt;Yes, there is a difference. Although both produce the same end effect, an iterator is not the same as a generator. The difference is in the way it is implemented and also consumed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mundane vs JINQ Way</title>
-      <link>//localhost:51234/posts/mundane-vs-jinq-way/</link>
+      <link>/posts/mundane-vs-jinq-way/</link>
       <pubDate>Fri, 15 Jul 2016 06:27:45 +0000</pubDate>
-      <guid>//localhost:51234/posts/mundane-vs-jinq-way/</guid>
-      <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. &lt;a href=&#34;//localhost:51234/posts/jinq/&#34;&gt;JINQ&lt;/a&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
+      <guid>/posts/mundane-vs-jinq-way/</guid>
+      <description>&lt;p&gt;New things are not always instantly accepted. Beyond skepticism, new things challenge the comfort people are accustomed to. &lt;a href=&#34;/posts/jinq/&#34;&gt;JINQ&lt;/a&gt; wasn&amp;rsquo;t particularly welcomed. It was either discarded as unknown angel or worse &amp;hellip; ridiculed. However, JINQ still promises expressive succinct code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JINQ</title>
-      <link>//localhost:51234/posts/jinq/</link>
+      <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
-      <guid>//localhost:51234/posts/jinq/</guid>
+      <guid>/posts/jinq/</guid>
       <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
     </item>
     <item>
       <title>Partial Classes – Java ???</title>
-      <link>//localhost:51234/2016/02/16/partial-classes-java/</link>
+      <link>/2016/02/16/partial-classes-java/</link>
       <pubDate>Tue, 16 Feb 2016 04:27:37 +0000</pubDate>
-      <guid>//localhost:51234/2016/02/16/partial-classes-java/</guid>
+      <guid>/2016/02/16/partial-classes-java/</guid>
       <description>&lt;p&gt;I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.&lt;/p&gt;</description>
     </item>
     <item>
       <title>.NET for the next generation</title>
-      <link>//localhost:51234/2015/12/03/net-oss/</link>
+      <link>/2015/12/03/net-oss/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
-      <guid>//localhost:51234/2015/12/03/net-oss/</guid>
+      <guid>/2015/12/03/net-oss/</guid>
       <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
     <item>
       <title>final, const and beyond</title>
-      <link>//localhost:51234/posts/final-const-beyond/</link>
+      <link>/posts/final-const-beyond/</link>
       <pubDate>Tue, 13 Oct 2015 08:13:30 +0000</pubDate>
-      <guid>//localhost:51234/posts/final-const-beyond/</guid>
+      <guid>/posts/final-const-beyond/</guid>
       <description>&lt;p&gt;What are your thoughts on the following piece of code?&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#50fa7b&#34;&gt;someGibberishMethod&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; length &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; someMethodReturningLength();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; sum &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; 0;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; index &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; 0; index &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; length; &lt;span style=&#34;color:#ff79c6&#34;&gt;++&lt;/span&gt;index) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;   &lt;span style=&#34;color:#6272a4&#34;&gt;// some code that updates the sum variable&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;SomeClass someClass &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; SomeClass(sum);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; sumValueInsideSomeClass &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; someClass.&lt;span style=&#34;color:#50fa7b&#34;&gt;getSumValue&lt;/span&gt;();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#6272a4&#34;&gt;// use someText, maybe log or something&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;String someText &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; someClass.&lt;span style=&#34;color:#50fa7b&#34;&gt;doSomeOperation&lt;/span&gt;(&lt;span style=&#34;color:#6272a4&#34;&gt;/*some parameters*/&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#6272a4&#34;&gt;// use someText, maybe log or something&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; someText;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>JAR Tips: Loading dependencies</title>
-      <link>//localhost:51234/2015/09/14/jar-tips-loading-dependencies/</link>
+      <link>/2015/09/14/jar-tips-loading-dependencies/</link>
       <pubDate>Sun, 13 Sep 2015 19:42:16 +0000</pubDate>
-      <guid>//localhost:51234/2015/09/14/jar-tips-loading-dependencies/</guid>
+      <guid>/2015/09/14/jar-tips-loading-dependencies/</guid>
       <description>&lt;p&gt;If you are writing a typical console based application in Windows, you would end up with an executable (exe). You might also have one or more dependent libraries (DLL). The question is where do we place these DLLs so that they are picked up at runtime by the application; loaded and consumed. Actually it is no brainer, just put them along side the console application executable. Or you could place the DLLs in the &lt;em&gt;System32&lt;/em&gt; directory. Or you could add the directory to the &lt;em&gt;PATH&lt;/em&gt;. Well, my point was actually to say that the DLLs can be simply placed alongside the executable and it would be picked up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mutating Strings</title>
-      <link>//localhost:51234/2015/07/07/mutating-strings/</link>
+      <link>/2015/07/07/mutating-strings/</link>
       <pubDate>Tue, 07 Jul 2015 06:52:45 +0000</pubDate>
-      <guid>//localhost:51234/2015/07/07/mutating-strings/</guid>
+      <guid>/2015/07/07/mutating-strings/</guid>
       <description>&lt;p&gt;Today, we question our beliefs! Is string really immutable?&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; message = &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Console.WriteLine(message); &lt;span style=&#34;color:#6272a4&#34;&gt;// Prints &amp;#34;Hello World!&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;unsafe&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; length = message.Length;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;fixed&lt;/span&gt; (&lt;span style=&#34;color:#8be9fd&#34;&gt;char&lt;/span&gt; *p = message) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; index = &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;; index &amp;lt; length; ++index) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      *(p + index) = &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;?&amp;#39;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Console.WriteLine(message); &lt;span style=&#34;color:#6272a4&#34;&gt;// Prints what? See for yourself!&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Quiz: Choosing an array of integers !!!</title>
-      <link>//localhost:51234/2015/03/13/jaoints/</link>
+      <link>/2015/03/13/jaoints/</link>
       <pubDate>Fri, 13 Mar 2015 06:40:37 +0000</pubDate>
-      <guid>//localhost:51234/2015/03/13/jaoints/</guid>
+      <guid>/2015/03/13/jaoints/</guid>
       <description>&lt;p&gt;In the recent interviews, I asked the candidates the following question:&lt;/p&gt;&#xA;&lt;p&gt;Is there a difference that I need to consider in the following declarations? Both allocate fixed size array to store integers:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt; na1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;10&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Integer&lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt; na2 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Integer&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;10&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>A-Team Library</title>
-      <link>//localhost:51234/posts/a-team-lib/</link>
+      <link>/posts/a-team-lib/</link>
       <pubDate>Mon, 26 Jan 2015 01:11:52 +0000</pubDate>
-      <guid>//localhost:51234/posts/a-team-lib/</guid>
+      <guid>/posts/a-team-lib/</guid>
       <description>&lt;p&gt;A short while ago, I had to write a compelling document for a client about a library that I had developed during my tenure, call it &lt;em&gt;A-Team Library&lt;/em&gt; or &lt;strong&gt;ATL&lt;/strong&gt;. Having to learn the “&lt;em&gt;eyes-wide-shut&lt;/em&gt;” culture to maintain the couples-of-decades old code and simultaneously develop on the top of it was very disheartening. It was time a lot of things were given fresh thoughts. Not the least of all duplication of code and &lt;em&gt;functionality&lt;/em&gt;. But not just that. Like in a programming language, when there is more than one way of doing something, when those ways are opposing, it causes nothing but confusion. So was the case. The business seemed to be far from realizing it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>//localhost:51234/posts/secret-of-cpp-unified-syntax/</link>
+      <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
-      <guid>//localhost:51234/posts/secret-of-cpp-unified-syntax/</guid>
+      <guid>/posts/secret-of-cpp-unified-syntax/</guid>
       <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
     </item>
     <item>
       <title>A Simple Tree List View !!!</title>
-      <link>//localhost:51234/2014/10/05/simple-tlv/</link>
+      <link>/2014/10/05/simple-tlv/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
-      <guid>//localhost:51234/2014/10/05/simple-tlv/</guid>
+      <guid>/2014/10/05/simple-tlv/</guid>
       <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
     </item>
     <item>
       <title>PHP Savers – PropertyBag</title>
-      <link>//localhost:51234/2014/09/30/php-property-bag/</link>
+      <link>/2014/09/30/php-property-bag/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
-      <guid>//localhost:51234/2014/09/30/php-property-bag/</guid>
+      <guid>/2014/09/30/php-property-bag/</guid>
       <description>&lt;p&gt;The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code&lt;sup id=&#34;fnref-452-1&#34;&gt;&lt;a href=&#34;#fn-452-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; specifically when there is a need to interact with code that is not open for change; legacy or not.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cool Regex Testers !!!</title>
-      <link>//localhost:51234/2014/07/23/cool-regex-testers/</link>
+      <link>/2014/07/23/cool-regex-testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
-      <guid>//localhost:51234/2014/07/23/cool-regex-testers/</guid>
+      <guid>/2014/07/23/cool-regex-testers/</guid>
       <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
-      <link>//localhost:51234/2014/05/29/overloading-and-varargs/</link>
+      <link>/2014/05/29/overloading-and-varargs/</link>
       <pubDate>Wed, 28 May 2014 21:26:39 +0000</pubDate>
-      <guid>//localhost:51234/2014/05/29/overloading-and-varargs/</guid>
+      <guid>/2014/05/29/overloading-and-varargs/</guid>
       <description>&lt;p&gt;In a statically typed (object oriented?) language, function overloading offers the facility of organizing your code into two or more functions with different types and/or number of arguments. This is highly useful when the functionality offered by the function can be invoked in different scenarios. For instance, let us consider the function(s) below:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting reminded of the reminder !!!</title>
-      <link>//localhost:51234/2014/05/23/android-reminder/</link>
+      <link>/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
-      <guid>//localhost:51234/2014/05/23/android-reminder/</guid>
+      <guid>/2014/05/23/android-reminder/</guid>
       <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
-      <link>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</link>
+      <link>/2014/05/23/jqgrid-handling-array-data/</link>
       <pubDate>Fri, 23 May 2014 01:43:15 +0000</pubDate>
-      <guid>//localhost:51234/2014/05/23/jqgrid-handling-array-data/</guid>
+      <guid>/2014/05/23/jqgrid-handling-array-data/</guid>
       <description>&lt;p&gt;This post is primarily a personal reference. I also consider this a tribute to &lt;a href=&#34;http://stackoverflow.com/users/315935/oleg&#34;&gt;Oleg&lt;/a&gt;, who played a big role in improving my understanding of the jqGrid internals – the way it handles source data types, which, if I may say, led him in discovering a bug in jqGrid.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clean Code</title>
-      <link>//localhost:51234/2014/05/23/clean-code/</link>
+      <link>/2014/05/23/clean-code/</link>
       <pubDate>Fri, 23 May 2014 01:31:21 +0000</pubDate>
-      <guid>//localhost:51234/2014/05/23/clean-code/</guid>
-      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;//localhost:51234/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>/2014/05/23/clean-code/</guid>
+      <description>&lt;p&gt;I received quite a lot of criticism for &lt;a href=&#34;/2013/02/11/dealing-with-bad-code/&#34;&gt;Dealing with Bad Code&lt;/a&gt;. The criticism was mostly along these lines – &lt;em&gt;There is no good or bad programmer. The good programmer thing is more of an illusion. When you place a programmer in a domain in which he has little or no experience (like a PHP web programmer writing C++ code), he will soon be seen as a bad programmer. What is branded good or bad is subjective&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature</title>
-      <link>//localhost:51234/2008/04/09/extension-methods-a-polished-c-feature/</link>
+      <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
-      <guid>//localhost:51234/2008/04/09/extension-methods-a-polished-c-feature/</guid>
+      <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
       <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
     </item>
   </channel>

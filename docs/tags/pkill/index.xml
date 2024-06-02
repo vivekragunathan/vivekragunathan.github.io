@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pkill on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/pkill/</link>
+    <link>/tags/pkill/</link>
     <description>Recent content in Pkill on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/pkill/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/pkill/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keep Killing It</title>
-      <link>//localhost:51234/posts/keep-killing/</link>
+      <link>/posts/keep-killing/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/posts/keep-killing/</guid>
+      <guid>/posts/keep-killing/</guid>
       <description>There are times when even decent chaps have to pick up the sword and fight. I am talking about times when some process on your machine is always peeking over your shoulder. Worst part, consumes a lot of resources, especially CPU time, and obstructs your productivity. Or peace of mind. For such cases, I give you &lt;code&gt;slay&lt;/code&gt;</description>
     </item>
   </channel>

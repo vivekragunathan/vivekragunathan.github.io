@@ -10,7 +10,7 @@ categories:
   - CodeProject
 ---
 
-> This article was co-authored with [Sanjeev](https://www.linkedin.com/in/sanjeev-venkataramanan-3496b018), and [published](https://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C) on [CodeProject](https://localhost:1313/pages/typesafe-logger/www.codeproject.com)
+> This article was co-authored with [Sanjeev](https://www.linkedin.com/in/sanjeev-venkataramanan-3496b018), and [published](https://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C) on [CodeProject](www.codeproject.com)
 
 -----
 

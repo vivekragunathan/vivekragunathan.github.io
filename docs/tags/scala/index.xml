@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scala on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/scala/</link>
+    <link>/tags/scala/</link>
     <description>Recent content in Scala on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Scala Story</title>
-      <link>//localhost:51234/posts/my-scala-story/</link>
+      <link>/posts/my-scala-story/</link>
       <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/posts/my-scala-story/</guid>
+      <guid>/posts/my-scala-story/</guid>
       <description>I have been reading the &lt;em&gt;My Scala Story&lt;/em&gt; &lt;a href=&#34;https://softwaremill.com/blog/?tag=myscalastory&#34;&gt;series&lt;/a&gt; by Software Mill - a short interview of renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill&amp;rsquo;s radar. But their series inspired me to share mine. So, here it goes &amp;hellip;</description>
     </item>
     <item>
       <title>Optional Parameters</title>
-      <link>//localhost:51234/posts/optional-parameters/</link>
+      <link>/posts/optional-parameters/</link>
       <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/posts/optional-parameters/</guid>
+      <guid>/posts/optional-parameters/</guid>
       <description>The billion dollar mistake has been committed already. No going back. But it is not necessary to keep repeating it. Oh, I am talking about the infamous &lt;code&gt;null&lt;/code&gt;. Would Java&amp;rsquo;s &lt;code&gt;Optional&lt;/code&gt; come to the rescue? Or are there any ironic &amp;ldquo;Don&amp;rsquo;ts&amp;rdquo; when using &lt;code&gt;Optional&lt;/code&gt;?</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>.Net-Core on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/.net-core/</link>
+    <link>/tags/.net-core/</link>
     <description>Recent content in .Net-Core on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 03 Dec 2015 09:36:26 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/.net-core/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/.net-core/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>.NET for the next generation</title>
-      <link>//localhost:51234/2015/12/03/net-oss/</link>
+      <link>/2015/12/03/net-oss/</link>
       <pubDate>Thu, 03 Dec 2015 09:36:26 +0000</pubDate>
-      <guid>//localhost:51234/2015/12/03/net-oss/</guid>
+      <guid>/2015/12/03/net-oss/</guid>
       <description>&lt;p&gt;It was about a decade ago when &lt;a href=&#34;https://us.amazon.com/Microsoft-Visual-Studio-NET-Professional/dp/B00005RV4Z&#34;&gt;Visual Studio .NET 2002&lt;/a&gt; was launched. Having worked with &lt;a href=&#34;https://www.amazon.com/Microsoft-Visual-Studio-Professional-6-0/dp/B00003W8H8&#34;&gt;Visual Studio 6&lt;/a&gt; until then, the new interface was refreshing and powerful along with .NET and the suite of languages, tools and technologies. If you were there, you would have felt &lt;em&gt;times were changing&lt;/em&gt;. Beyond the cool and modern interface, Visual Studio &lt;strong&gt;.NET&lt;/strong&gt; 2002 had a lot more to offer  compared to Visual Studio 6 — .NET. It was an exciting time for me back then.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,6 +2,9 @@
 title: Rebooting on Ghost Land
 author: higherkindedtype
 layout: post
+url: /posts/rebooting-on-ghost-land/
+aliases:
+  - /rebooting-on-ghost-land/
 date: 2021-07-22
 categories:
   - Uncategorized
@@ -9,13 +12,13 @@ summary: |
   Many languages support union types, and it is high time Scala did. Union types are coming in upcoming version of Scala - Dotty. Union types (|) are already being compared with Either and Option (disjoint unions).
 ---
 
-The last time this blog got a facelift was about [five](/posts/new-look-2016/) years ago. Phew! I had moved from the infamous Blogger to the famous WordPress. It was a relief moving away from Blogger. 
+The last time this blog got a facelift was about [five](/posts/new-look-2016/) years ago. Phew! I had moved from the infamous Blogger to the famous WordPress. It was a relief moving away from Blogger.
 
 Despite the move to WordPress, I was also interested in Ghost. I have been in love with Ghost since its inception. One of the reasons for this affinity is its first-class support for markdown and satisfying default themes (remember the first version of Casper).
 
 For a long time now, as a hobby, I have been experimenting with Ghost in all sorts of ways - local machine, docker, Raspberry Pi, Ghost Pro trial (when it was not exorbitant $29 and even after). As much as it was a hobby, I have also been lazy moving to Ghost. The primary reason is self-hosting because I have to sell one of my kidneys for their Pro version. I consider their $9 plan a namesake.
 
-Why am I moving my blog to Ghost after all this time? 
+Why am I moving my blog to Ghost after all this time?
 
 - WordPress does not appeal to me for hosting blogs, especially programming.
 

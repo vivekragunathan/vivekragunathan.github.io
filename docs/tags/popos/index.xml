@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Popos on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/popos/</link>
+    <link>/tags/popos/</link>
     <description>Recent content in Popos on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/popos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/popos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pop OS and Zorin on ARM64</title>
-      <link>//localhost:51234/posts/popos-arm64/</link>
+      <link>/posts/popos-arm64/</link>
       <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/posts/popos-arm64/</guid>
+      <guid>/posts/popos-arm64/</guid>
       <description>When Mac M1 was released, I did not have the same displeasure like many others. In fact, I was hopeful that the vast majority of the apps and tools will be ready for M1 in no time. So, I got myself an M1 with no hesitation. Took a little while but everything from brew to big fat applications were ready. All seemed fine until I came around to play with Parallels and those Linux distros.</description>
     </item>
   </channel>

@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unmanaged on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/categories/unmanaged/</link>
+    <link>/categories/unmanaged/</link>
     <description>Recent content in Unmanaged on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 19 Jan 2016 03:07:03 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/categories/unmanaged/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/unmanaged/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Publishing C&#43;&#43;/CLI on LeanPub</title>
-      <link>//localhost:51234/2016/01/19/publishing-ccli-on-leanpub/</link>
+      <link>/2016/01/19/publishing-ccli-on-leanpub/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
-      <guid>//localhost:51234/2016/01/19/publishing-ccli-on-leanpub/</guid>
+      <guid>/2016/01/19/publishing-ccli-on-leanpub/</guid>
       <description>I came across LeanPub a few months back. I believe it was through hanselman – blog, video or something.</description>
     </item>
     <item>
       <title>An Unfair World of Tuples, Anons., var and auto</title>
-      <link>//localhost:51234/posts/tuples-anons-var-auto/</link>
+      <link>/posts/tuples-anons-var-auto/</link>
       <pubDate>Mon, 24 Aug 2015 01:10:27 +0000</pubDate>
-      <guid>//localhost:51234/posts/tuples-anons-var-auto/</guid>
+      <guid>/posts/tuples-anons-var-auto/</guid>
       <description>&lt;p&gt;It all began when I wanted to return more than one value from one of the methods. Although my attempts ended futile, it was fun exploring and musing how things could have been.&lt;/p&gt;&#xA;&lt;p&gt;There are at least a couple of options to return multiple values from a method:-&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;return an instance of a class that holds the values&lt;/li&gt;&#xA;&lt;li&gt;return a tuple&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
     <item>
       <title>Crazy Brackets – [](){}();</title>
-      <link>//localhost:51234/posts/crazy-brackets/</link>
+      <link>/posts/crazy-brackets/</link>
       <pubDate>Sat, 26 Mar 2011 18:38:23 +0000</pubDate>
-      <guid>//localhost:51234/posts/crazy-brackets/</guid>
+      <guid>/posts/crazy-brackets/</guid>
       <description>What does this cryptic bracket sequence mean? What programming language is it?</description>
     </item>
     <item>
       <title>Quiz – Where am I ?</title>
-      <link>//localhost:51234/2011/02/19/where-am-i/</link>
+      <link>/2011/02/19/where-am-i/</link>
       <pubDate>Sat, 19 Feb 2011 12:05:38 +0000</pubDate>
-      <guid>//localhost:51234/2011/02/19/where-am-i/</guid>
+      <guid>/2011/02/19/where-am-i/</guid>
       <description>The question is, in C++, how do detect if an object is allocated on the stack or heap.</description>
     </item>
     <item>
       <title>CComPtr Misconception !!!</title>
-      <link>//localhost:51234/2009/04/08/ccomptr-misconception/</link>
+      <link>/2009/04/08/ccomptr-misconception/</link>
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
-      <guid>//localhost:51234/2009/04/08/ccomptr-misconception/</guid>
+      <guid>/2009/04/08/ccomptr-misconception/</guid>
       <description>This is about a killer bug identified by our chief software engineer in our application.</description>
     </item>
   </channel>

@@ -2,703 +2,703 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Journey</title>
-      <link>//localhost:51234/tags/journey/</link>
+      <link>/tags/journey/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/journey/</guid>
+      <guid>/tags/journey/</guid>
       <description></description>
     </item>
     <item>
       <title>Scala</title>
-      <link>//localhost:51234/tags/scala/</link>
+      <link>/tags/scala/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/scala/</guid>
+      <guid>/tags/scala/</guid>
       <description></description>
     </item>
     <item>
       <title>Blogs</title>
-      <link>//localhost:51234/tags/blogs/</link>
+      <link>/tags/blogs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/blogs/</guid>
+      <guid>/tags/blogs/</guid>
       <description></description>
     </item>
     <item>
       <title>Matter</title>
-      <link>//localhost:51234/tags/matter/</link>
+      <link>/tags/matter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/matter/</guid>
+      <guid>/tags/matter/</guid>
       <description></description>
     </item>
     <item>
       <title>Rss</title>
-      <link>//localhost:51234/tags/rss/</link>
+      <link>/tags/rss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/rss/</guid>
+      <guid>/tags/rss/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>//localhost:51234/tags/bash/</link>
+      <link>/tags/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/bash/</guid>
+      <guid>/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Overloading</title>
-      <link>//localhost:51234/tags/overloading/</link>
+      <link>/tags/overloading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/overloading/</guid>
+      <guid>/tags/overloading/</guid>
       <description></description>
     </item>
     <item>
       <title>Pkill</title>
-      <link>//localhost:51234/tags/pkill/</link>
+      <link>/tags/pkill/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/pkill/</guid>
+      <guid>/tags/pkill/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>//localhost:51234/tags/python/</link>
+      <link>/tags/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/python/</guid>
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>//localhost:51234/tags/java/</link>
+      <link>/tags/java/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/java/</guid>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Optional</title>
-      <link>//localhost:51234/tags/optional/</link>
+      <link>/tags/optional/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/optional/</guid>
+      <guid>/tags/optional/</guid>
       <description></description>
     </item>
     <item>
       <title>Feature-Request</title>
-      <link>//localhost:51234/tags/feature-request/</link>
+      <link>/tags/feature-request/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/feature-request/</guid>
+      <guid>/tags/feature-request/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>//localhost:51234/tags/privacy/</link>
+      <link>/tags/privacy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/privacy/</guid>
+      <guid>/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Signal</title>
-      <link>//localhost:51234/tags/signal/</link>
+      <link>/tags/signal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/signal/</guid>
+      <guid>/tags/signal/</guid>
       <description></description>
     </item>
     <item>
       <title>Arm64</title>
-      <link>//localhost:51234/tags/arm64/</link>
+      <link>/tags/arm64/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/arm64/</guid>
+      <guid>/tags/arm64/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>//localhost:51234/tags/linux/</link>
+      <link>/tags/linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/linux/</guid>
+      <guid>/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Parallels</title>
-      <link>//localhost:51234/tags/parallels/</link>
+      <link>/tags/parallels/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/parallels/</guid>
+      <guid>/tags/parallels/</guid>
       <description></description>
     </item>
     <item>
       <title>Popos</title>
-      <link>//localhost:51234/tags/popos/</link>
+      <link>/tags/popos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/popos/</guid>
+      <guid>/tags/popos/</guid>
       <description></description>
     </item>
     <item>
       <title>Online</title>
-      <link>//localhost:51234/tags/online/</link>
+      <link>/tags/online/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/online/</guid>
+      <guid>/tags/online/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>//localhost:51234/tags/security/</link>
+      <link>/tags/security/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/security/</guid>
+      <guid>/tags/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithms</title>
-      <link>//localhost:51234/tags/algorithms/</link>
+      <link>/tags/algorithms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/algorithms/</guid>
+      <guid>/tags/algorithms/</guid>
       <description></description>
     </item>
     <item>
       <title>C#</title>
-      <link>//localhost:51234/tags/c%23/</link>
+      <link>/tags/c%23/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/c%23/</guid>
+      <guid>/tags/c%23/</guid>
       <description></description>
     </item>
     <item>
       <title>Min-Diff</title>
-      <link>//localhost:51234/tags/min-diff/</link>
+      <link>/tags/min-diff/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/min-diff/</guid>
+      <guid>/tags/min-diff/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>//localhost:51234/tags/programming/</link>
+      <link>/tags/programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/programming/</guid>
+      <guid>/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Word-Distance</title>
-      <link>//localhost:51234/tags/word-distance/</link>
+      <link>/tags/word-distance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/word-distance/</guid>
+      <guid>/tags/word-distance/</guid>
       <description></description>
     </item>
     <item>
       <title>Api</title>
-      <link>//localhost:51234/tags/api/</link>
+      <link>/tags/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/api/</guid>
+      <guid>/tags/api/</guid>
       <description></description>
     </item>
     <item>
       <title>Clean Code</title>
-      <link>//localhost:51234/tags/clean-code/</link>
+      <link>/tags/clean-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/clean-code/</guid>
+      <guid>/tags/clean-code/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>//localhost:51234/tags/design/</link>
+      <link>/tags/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/design/</guid>
+      <guid>/tags/design/</guid>
       <description></description>
     </item>
     <item>
       <title>Semantics</title>
-      <link>//localhost:51234/tags/semantics/</link>
+      <link>/tags/semantics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/semantics/</guid>
+      <guid>/tags/semantics/</guid>
       <description></description>
     </item>
     <item>
       <title>Architecture</title>
-      <link>//localhost:51234/tags/architecture/</link>
+      <link>/tags/architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/architecture/</guid>
+      <guid>/tags/architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Enterprise</title>
-      <link>//localhost:51234/tags/enterprise/</link>
+      <link>/tags/enterprise/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/enterprise/</guid>
+      <guid>/tags/enterprise/</guid>
       <description></description>
     </item>
     <item>
       <title>Patterns</title>
-      <link>//localhost:51234/tags/patterns/</link>
+      <link>/tags/patterns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/patterns/</guid>
+      <guid>/tags/patterns/</guid>
       <description></description>
     </item>
     <item>
       <title>Jinq</title>
-      <link>//localhost:51234/tags/jinq/</link>
+      <link>/tags/jinq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/jinq/</guid>
+      <guid>/tags/jinq/</guid>
       <description></description>
     </item>
     <item>
       <title>LINQ</title>
-      <link>//localhost:51234/tags/linq/</link>
+      <link>/tags/linq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/linq/</guid>
+      <guid>/tags/linq/</guid>
       <description></description>
     </item>
     <item>
       <title>.NET</title>
-      <link>//localhost:51234/tags/.net/</link>
+      <link>/tags/.net/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/.net/</guid>
+      <guid>/tags/.net/</guid>
       <description></description>
     </item>
     <item>
       <title>Partial</title>
-      <link>//localhost:51234/tags/partial/</link>
+      <link>/tags/partial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/partial/</guid>
+      <guid>/tags/partial/</guid>
       <description></description>
     </item>
     <item>
       <title>Partial-Class</title>
-      <link>//localhost:51234/tags/partial-class/</link>
+      <link>/tags/partial-class/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/partial-class/</guid>
+      <guid>/tags/partial-class/</guid>
       <description></description>
     </item>
     <item>
       <title>.Net-Core</title>
-      <link>//localhost:51234/tags/.net-core/</link>
+      <link>/tags/.net-core/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/.net-core/</guid>
+      <guid>/tags/.net-core/</guid>
       <description></description>
     </item>
     <item>
       <title>Corefx</title>
-      <link>//localhost:51234/tags/corefx/</link>
+      <link>/tags/corefx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/corefx/</guid>
+      <guid>/tags/corefx/</guid>
       <description></description>
     </item>
     <item>
       <title>Cross-Platform</title>
-      <link>//localhost:51234/tags/cross-platform/</link>
+      <link>/tags/cross-platform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/cross-platform/</guid>
+      <guid>/tags/cross-platform/</guid>
       <description></description>
     </item>
     <item>
       <title>Oss</title>
-      <link>//localhost:51234/tags/oss/</link>
+      <link>/tags/oss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/oss/</guid>
+      <guid>/tags/oss/</guid>
       <description></description>
     </item>
     <item>
       <title>Rosyln</title>
-      <link>//localhost:51234/tags/rosyln/</link>
+      <link>/tags/rosyln/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/rosyln/</guid>
+      <guid>/tags/rosyln/</guid>
       <description></description>
     </item>
     <item>
       <title>Const</title>
-      <link>//localhost:51234/tags/const/</link>
+      <link>/tags/const/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/const/</guid>
+      <guid>/tags/const/</guid>
       <description></description>
     </item>
     <item>
       <title>Final</title>
-      <link>//localhost:51234/tags/final/</link>
+      <link>/tags/final/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/final/</guid>
+      <guid>/tags/final/</guid>
       <description></description>
     </item>
     <item>
       <title>Immutability</title>
-      <link>//localhost:51234/tags/immutability/</link>
+      <link>/tags/immutability/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/immutability/</guid>
+      <guid>/tags/immutability/</guid>
       <description></description>
     </item>
     <item>
       <title>Anonymous-Class</title>
-      <link>//localhost:51234/tags/anonymous-class/</link>
+      <link>/tags/anonymous-class/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/anonymous-class/</guid>
+      <guid>/tags/anonymous-class/</guid>
       <description></description>
     </item>
     <item>
       <title>Anonymous-Types</title>
-      <link>//localhost:51234/tags/anonymous-types/</link>
+      <link>/tags/anonymous-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/anonymous-types/</guid>
+      <guid>/tags/anonymous-types/</guid>
       <description></description>
     </item>
     <item>
       <title>Auto</title>
-      <link>//localhost:51234/tags/auto/</link>
+      <link>/tags/auto/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/auto/</guid>
+      <guid>/tags/auto/</guid>
       <description></description>
     </item>
     <item>
       <title>Tuples</title>
-      <link>//localhost:51234/tags/tuples/</link>
+      <link>/tags/tuples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/tuples/</guid>
+      <guid>/tags/tuples/</guid>
       <description></description>
     </item>
     <item>
       <title>Var</title>
-      <link>//localhost:51234/tags/var/</link>
+      <link>/tags/var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/var/</guid>
+      <guid>/tags/var/</guid>
       <description></description>
     </item>
     <item>
       <title>Carpool</title>
-      <link>//localhost:51234/tags/carpool/</link>
+      <link>/tags/carpool/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/carpool/</guid>
+      <guid>/tags/carpool/</guid>
       <description></description>
     </item>
     <item>
       <title>Inversion-of-Control</title>
-      <link>//localhost:51234/tags/inversion-of-control/</link>
+      <link>/tags/inversion-of-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/inversion-of-control/</guid>
+      <guid>/tags/inversion-of-control/</guid>
       <description></description>
     </item>
     <item>
       <title>Ioc</title>
-      <link>//localhost:51234/tags/ioc/</link>
+      <link>/tags/ioc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/ioc/</guid>
+      <guid>/tags/ioc/</guid>
       <description></description>
     </item>
     <item>
       <title>Fixed</title>
-      <link>//localhost:51234/tags/fixed/</link>
+      <link>/tags/fixed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/fixed/</guid>
+      <guid>/tags/fixed/</guid>
       <description></description>
     </item>
     <item>
       <title>Immutable</title>
-      <link>//localhost:51234/tags/immutable/</link>
+      <link>/tags/immutable/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/immutable/</guid>
+      <guid>/tags/immutable/</guid>
       <description></description>
     </item>
     <item>
       <title>Strings</title>
-      <link>//localhost:51234/tags/strings/</link>
+      <link>/tags/strings/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/strings/</guid>
+      <guid>/tags/strings/</guid>
       <description></description>
     </item>
     <item>
       <title>Unsafe</title>
-      <link>//localhost:51234/tags/unsafe/</link>
+      <link>/tags/unsafe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/unsafe/</guid>
+      <guid>/tags/unsafe/</guid>
       <description></description>
     </item>
     <item>
       <title>Array</title>
-      <link>//localhost:51234/tags/array/</link>
+      <link>/tags/array/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/array/</guid>
+      <guid>/tags/array/</guid>
       <description></description>
     </item>
     <item>
       <title>Integers</title>
-      <link>//localhost:51234/tags/integers/</link>
+      <link>/tags/integers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/integers/</guid>
+      <guid>/tags/integers/</guid>
       <description></description>
     </item>
     <item>
       <title>Reference-Types</title>
-      <link>//localhost:51234/tags/reference-types/</link>
+      <link>/tags/reference-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/reference-types/</guid>
+      <guid>/tags/reference-types/</guid>
       <description></description>
     </item>
     <item>
       <title>Value-Types</title>
-      <link>//localhost:51234/tags/value-types/</link>
+      <link>/tags/value-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/value-types/</guid>
+      <guid>/tags/value-types/</guid>
       <description></description>
     </item>
     <item>
       <title>Codeproject</title>
-      <link>//localhost:51234/tags/codeproject/</link>
+      <link>/tags/codeproject/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/codeproject/</guid>
+      <guid>/tags/codeproject/</guid>
       <description></description>
     </item>
     <item>
       <title>Extension Methods</title>
-      <link>//localhost:51234/tags/extension-methods/</link>
+      <link>/tags/extension-methods/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/extension-methods/</guid>
+      <guid>/tags/extension-methods/</guid>
       <description></description>
     </item>
     <item>
       <title>Unified Syntax</title>
-      <link>//localhost:51234/tags/unified-syntax/</link>
+      <link>/tags/unified-syntax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/unified-syntax/</guid>
+      <guid>/tags/unified-syntax/</guid>
       <description></description>
     </item>
     <item>
       <title>Listview</title>
-      <link>//localhost:51234/tags/listview/</link>
+      <link>/tags/listview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/listview/</guid>
+      <guid>/tags/listview/</guid>
       <description></description>
     </item>
     <item>
       <title>Treelistview</title>
-      <link>//localhost:51234/tags/treelistview/</link>
+      <link>/tags/treelistview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/treelistview/</guid>
+      <guid>/tags/treelistview/</guid>
       <description></description>
     </item>
     <item>
       <title>WinForms</title>
-      <link>//localhost:51234/tags/winforms/</link>
+      <link>/tags/winforms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/winforms/</guid>
+      <guid>/tags/winforms/</guid>
       <description></description>
     </item>
     <item>
       <title>Object</title>
-      <link>//localhost:51234/tags/object/</link>
+      <link>/tags/object/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/object/</guid>
+      <guid>/tags/object/</guid>
       <description></description>
     </item>
     <item>
       <title>Php</title>
-      <link>//localhost:51234/tags/php/</link>
+      <link>/tags/php/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/php/</guid>
+      <guid>/tags/php/</guid>
       <description></description>
     </item>
     <item>
       <title>Php-Saver</title>
-      <link>//localhost:51234/tags/php-saver/</link>
+      <link>/tags/php-saver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/php-saver/</guid>
+      <guid>/tags/php-saver/</guid>
       <description></description>
     </item>
     <item>
       <title>Propertybag</title>
-      <link>//localhost:51234/tags/propertybag/</link>
+      <link>/tags/propertybag/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/propertybag/</guid>
+      <guid>/tags/propertybag/</guid>
       <description></description>
     </item>
     <item>
       <title>Online Regex</title>
-      <link>//localhost:51234/tags/online-regex/</link>
+      <link>/tags/online-regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/online-regex/</guid>
+      <guid>/tags/online-regex/</guid>
       <description></description>
     </item>
     <item>
       <title>Regex</title>
-      <link>//localhost:51234/tags/regex/</link>
+      <link>/tags/regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/regex/</guid>
+      <guid>/tags/regex/</guid>
       <description></description>
     </item>
     <item>
       <title>Testers</title>
-      <link>//localhost:51234/tags/testers/</link>
+      <link>/tags/testers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/testers/</guid>
+      <guid>/tags/testers/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>//localhost:51234/tags/tools/</link>
+      <link>/tags/tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/tools/</guid>
+      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Dynamic-Languages</title>
-      <link>//localhost:51234/tags/dynamic-languages/</link>
+      <link>/tags/dynamic-languages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/dynamic-languages/</guid>
+      <guid>/tags/dynamic-languages/</guid>
       <description></description>
     </item>
     <item>
       <title>Functions</title>
-      <link>//localhost:51234/tags/functions/</link>
+      <link>/tags/functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/functions/</guid>
+      <guid>/tags/functions/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>//localhost:51234/tags/javascript/</link>
+      <link>/tags/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/javascript/</guid>
+      <guid>/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Static Typing</title>
-      <link>//localhost:51234/tags/static-typing/</link>
+      <link>/tags/static-typing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/static-typing/</guid>
+      <guid>/tags/static-typing/</guid>
       <description></description>
     </item>
     <item>
       <title>Variable Arguments</title>
-      <link>//localhost:51234/tags/variable-arguments/</link>
+      <link>/tags/variable-arguments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/variable-arguments/</guid>
+      <guid>/tags/variable-arguments/</guid>
       <description></description>
     </item>
     <item>
       <title>Android</title>
-      <link>//localhost:51234/tags/android/</link>
+      <link>/tags/android/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/android/</guid>
+      <guid>/tags/android/</guid>
       <description></description>
     </item>
     <item>
       <title>Reminders</title>
-      <link>//localhost:51234/tags/reminders/</link>
+      <link>/tags/reminders/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/reminders/</guid>
+      <guid>/tags/reminders/</guid>
       <description></description>
     </item>
     <item>
       <title>Array Data</title>
-      <link>//localhost:51234/tags/array-data/</link>
+      <link>/tags/array-data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/array-data/</guid>
+      <guid>/tags/array-data/</guid>
       <description></description>
     </item>
     <item>
       <title>Jqgrid</title>
-      <link>//localhost:51234/tags/jqgrid/</link>
+      <link>/tags/jqgrid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/jqgrid/</guid>
+      <guid>/tags/jqgrid/</guid>
       <description></description>
     </item>
     <item>
       <title>Stackoverflow</title>
-      <link>//localhost:51234/tags/stackoverflow/</link>
+      <link>/tags/stackoverflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/stackoverflow/</guid>
+      <guid>/tags/stackoverflow/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows Phone</title>
-      <link>//localhost:51234/tags/windows-phone/</link>
+      <link>/tags/windows-phone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/windows-phone/</guid>
+      <guid>/tags/windows-phone/</guid>
       <description></description>
     </item>
     <item>
       <title>Wp8</title>
-      <link>//localhost:51234/tags/wp8/</link>
+      <link>/tags/wp8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/wp8/</guid>
+      <guid>/tags/wp8/</guid>
       <description></description>
     </item>
     <item>
       <title>Software</title>
-      <link>//localhost:51234/tags/software/</link>
+      <link>/tags/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/software/</guid>
+      <guid>/tags/software/</guid>
       <description></description>
     </item>
     <item>
       <title>Mobile</title>
-      <link>//localhost:51234/tags/mobile/</link>
+      <link>/tags/mobile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/mobile/</guid>
+      <guid>/tags/mobile/</guid>
       <description></description>
     </item>
     <item>
       <title>Binding</title>
-      <link>//localhost:51234/tags/binding/</link>
+      <link>/tags/binding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/binding/</guid>
+      <guid>/tags/binding/</guid>
       <description></description>
     </item>
     <item>
       <title>Currying</title>
-      <link>//localhost:51234/tags/currying/</link>
+      <link>/tags/currying/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/currying/</guid>
+      <guid>/tags/currying/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Programming</title>
-      <link>//localhost:51234/tags/functional-programming/</link>
+      <link>/tags/functional-programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/functional-programming/</guid>
+      <guid>/tags/functional-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>SFINAE</title>
-      <link>//localhost:51234/tags/sfinae/</link>
+      <link>/tags/sfinae/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/sfinae/</guid>
+      <guid>/tags/sfinae/</guid>
       <description></description>
     </item>
     <item>
       <title>Templates</title>
-      <link>//localhost:51234/tags/templates/</link>
+      <link>/tags/templates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/templates/</guid>
+      <guid>/tags/templates/</guid>
       <description></description>
     </item>
     <item>
       <title>MI</title>
-      <link>//localhost:51234/tags/mi/</link>
+      <link>/tags/mi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/mi/</guid>
+      <guid>/tags/mi/</guid>
       <description></description>
     </item>
     <item>
       <title>Finally</title>
-      <link>//localhost:51234/tags/finally/</link>
+      <link>/tags/finally/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/finally/</guid>
+      <guid>/tags/finally/</guid>
       <description></description>
     </item>
     <item>
       <title>Threadpool</title>
-      <link>//localhost:51234/tags/threadpool/</link>
+      <link>/tags/threadpool/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/threadpool/</guid>
+      <guid>/tags/threadpool/</guid>
       <description></description>
     </item>
     <item>
       <title>Interface Principle</title>
-      <link>//localhost:51234/tags/interface-principle/</link>
+      <link>/tags/interface-principle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/interface-principle/</guid>
+      <guid>/tags/interface-principle/</guid>
       <description></description>
     </item>
     <item>
       <title>Koenig Lookup</title>
-      <link>//localhost:51234/tags/koenig-lookup/</link>
+      <link>/tags/koenig-lookup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/tags/koenig-lookup/</guid>
+      <guid>/tags/koenig-lookup/</guid>
       <description></description>
     </item>
   </channel>

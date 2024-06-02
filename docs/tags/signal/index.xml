@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Signal on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/signal/</link>
+    <link>/tags/signal/</link>
     <description>Recent content in Signal on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/signal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/signal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>For a better Signal (Part 1)</title>
-      <link>//localhost:51234/posts/signal-part1/</link>
+      <link>/posts/signal-part1/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>//localhost:51234/posts/signal-part1/</guid>
+      <guid>/posts/signal-part1/</guid>
       <description>Signal is undisputedly the gold standard of chat messengers, especially for the staunch privacy-conscious. Signal gets its gold star for its security/privacy aspects. Nothing to argue in that regard. &lt;strong&gt;However, I would rate Signal very low when it comes to user friendliness&lt;/strong&gt;. Read the post find out why.</description>
     </item>
   </channel>

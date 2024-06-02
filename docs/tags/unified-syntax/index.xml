@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unified Syntax on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/unified-syntax/</link>
+    <link>/tags/unified-syntax/</link>
     <description>Recent content in Unified Syntax on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 09 Nov 2014 10:36:44 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/unified-syntax/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/unified-syntax/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
-      <link>//localhost:51234/posts/secret-of-cpp-unified-syntax/</link>
+      <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
-      <guid>//localhost:51234/posts/secret-of-cpp-unified-syntax/</guid>
+      <guid>/posts/secret-of-cpp-unified-syntax/</guid>
       <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
     </item>
   </channel>

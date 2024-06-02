@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php-Saver on A Developer&#39;s Experience</title>
-    <link>//localhost:51234/tags/php-saver/</link>
+    <link>/tags/php-saver/</link>
     <description>Recent content in Php-Saver on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 29 Sep 2014 22:36:35 +0000</lastBuildDate>
-    <atom:link href="//localhost:51234/tags/php-saver/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/php-saver/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PHP Savers – PropertyBag</title>
-      <link>//localhost:51234/2014/09/30/php-property-bag/</link>
+      <link>/2014/09/30/php-property-bag/</link>
       <pubDate>Mon, 29 Sep 2014 22:36:35 +0000</pubDate>
-      <guid>//localhost:51234/2014/09/30/php-property-bag/</guid>
+      <guid>/2014/09/30/php-property-bag/</guid>
       <description>&lt;p&gt;The ubiquitous and the universal data structure in PHP is the [array][1]. It is an amalgamation of commonly used data structures – list, map etc. In the recent times, PHP has also adopted object orientation and introduced classes. The syntactic difference in the way a property of an array and object poses an inconvenience in the user code&lt;sup id=&#34;fnref-452-1&#34;&gt;&lt;a href=&#34;#fn-452-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; specifically when there is a need to interact with code that is not open for change; legacy or not.&lt;/p&gt;</description>
     </item>
   </channel>
