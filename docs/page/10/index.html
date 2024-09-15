@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.126.1">
+	<meta name="generator" content="Hugo 0.134.2">
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -155,7 +155,7 @@
         </div>
 
         <div>
-          This is about a killer bug identified by our chief software engineer in our application.
+          <p>This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!</p>
         </div>
 
         <div class="read-more-link">
@@ -175,7 +175,7 @@
         </div>
 
         <div>
-          I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.
+          <p>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.</p>
         </div>
 
         <div class="read-more-link">
@@ -195,7 +195,9 @@
         </div>
 
         <div>
-          Remember the Casting Restrictions we discussed a while back, let us settle that now.
+          <p style="font-family:Tahoma;">
+  Remember the Casting Restrictions we discussed a while back, let us settle that now. So we have some code like this:
+</p>
         </div>
 
         <div class="read-more-link">
@@ -215,7 +217,8 @@
         </div>
 
         <div>
-          Thanks to the internet. If nobody else bothers or understands what loss of data means, you can shout it aloud here.
+          <div style="font-family:Tahoma;">
+  Thanks to the internet. If nobody else bothers or understands what loss of data means, you can shout it aloud here. I lost 500GB of data &#8211; every moment of my personal and professional life captured in bits and bytes.</p>
         </div>
 
         <div class="read-more-link">
@@ -235,7 +238,7 @@
         </div>
 
         <div>
-          We all know that the runtime can detect the actual type of a System.
+          <p>We all know that the runtime can detect the actual type of a <code>System.Object</code> instance. The primitive data types provided by the runtime are compatible with one another for casting (assuming that we do not truncate the values). So if I have an <code>int</code>, it can be cast to <code>long</code> or <code>ulong</code>. All that is fine. Watch this:-</p>
         </div>
 
         <div class="read-more-link">
@@ -255,7 +258,7 @@
         </div>
 
         <div>
-          Let us take a look at the following piece of code:-
+          <p>Let us take a look at the following piece of code:-</p>
         </div>
 
         <div class="read-more-link">
@@ -275,7 +278,7 @@
         </div>
 
         <div>
-          Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.
+          <p>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type. Why do we need extension methods anyway ? Ok, that is the big story of lamba and LINQ. But from a conceptual standpoint, the extension methods establish a mechanism to extend the public interface of a type. The compiler is smart enough to make the method a part of the public interface of the type. Yeah, that is what it does, and the intellisense is very cool in making us believe that. It is cleaner and easier (for the library developers and for us programmers even) to add extra functionality (methods) not provided in the type. That is the intent. And we know that was exercised extravagantly in LINQ. The IEnumerable was extended with a whole lot set of methods to aid the LINQ design. Remember the <code>Where</code>, <code>Select</code> etc methods on <code>IEnumerable</code>. An example code snippet is worth a thousand words:-</p>
         </div>
 
         <div class="read-more-link">
@@ -295,8 +298,36 @@
         </div>
 
         <div>
-          Guess the output of the following program:-
-class SomeClass : IDisposable { public SomeClass() { Trace.
+          <p>Guess the output of the following program:-</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SomeClass</span> : IDisposable
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> SomeClass()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>		Trace.WriteLine(<span style="color:#f1fa8c">&#34;SomeClass - Attempting instance creation&#34;</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> Exception(<span style="color:#f1fa8c">&#34;Ohh !!! Not Now&#34;</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">void</span> Dispose()
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		Trace.WriteLine(<span style="color:#f1fa8c">&#34;SomeClass::Dispose&#34;</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	~SomeClass()
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		Trace.WriteLine(<span style="color:#f1fa8c">&#34;SomeClass::Finalizer&#34;</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> Main(<span style="color:#8be9fd">string</span> args[]){
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">try</span>{
+</span></span><span style="display:flex;"><span>		SomeClass sc = <span style="color:#ff79c6">new</span> SomeClass();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">catch</span>(Exception ex){
+</span></span><span style="display:flex;"><span>		Trace.WriteLine(<span style="color:#f1fa8c">&#34;Main - {0}&#34;</span>, ex.Message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- more -->
+<p>This will be the output of the program:-</p>
         </div>
 
         <div class="read-more-link">
@@ -316,7 +347,10 @@ class SomeClass : IDisposable { public SomeClass() { Trace.
         </div>
 
         <div>
-          When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:-
+          <div id="msgcns!753E720D857C98F6!244">
+  <p>
+    <span style="font-size:100%;">When I started developing my module, I had an interface <span style="color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;">IParamCountBasedAlgo</span> declared as a nested type in a class <span style="color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;">AlgorithmOneExecutor</span>, declared as follows:-</span><span style="font-size:85%;"><br /></span>
+  </p>
         </div>
 
         <div class="read-more-link">
@@ -336,7 +370,8 @@ class SomeClass : IDisposable { public SomeClass() { Trace.
         </div>
 
         <div>
-          I did some cool stuff here with google. I wrote my first &#8220;Hello World&#8221; sort of google gadget.
+          <div id="msgcns!753E720D857C98F6!213">
+  <span style="font-size:85%;">I did some cool stuff here with google. I wrote my first &#8220;Hello World&#8221; sort of google gadget. It claims no rewards but just was fun. Since I am a novice in html and javascript sort of things, this gadget is pretty simple.</p>
         </div>
 
         <div class="read-more-link">

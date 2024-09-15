@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/pages/yaml-via-yaml/</loc>
+    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/pages/</loc>
+    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/journey/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
@@ -133,9 +139,6 @@
   </url><url>
     <loc>/posts/anorm-primer/</loc>
     <lastmod>2021-11-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/pages/</loc>
-    <lastmod>2021-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/scala-cli-breeze/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>

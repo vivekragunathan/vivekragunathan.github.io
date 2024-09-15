@@ -6,8 +6,15 @@
     <description>Recent content on A Developer&#39;s Experience</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn Yaml via Yaml</title>
+      <link>/pages/yaml-via-yaml/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>/pages/yaml-via-yaml/</guid>
+      <description>&lt;p&gt;I recovered this incredibly helpful YAML document from my over-a-decade old stash. This document is a YAML that teaches you YAML.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>My Scala Story</title>
       <link>/posts/my-scala-story/</link>
@@ -132,7 +139,7 @@
       <link>/pages/scala-cli-cheatsheet/</link>
       <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
       <guid>/pages/scala-cli-cheatsheet/</guid>
-      <description>Compile file(s) / folder scala-cli compile Hello.scala # Compile with dependent classes scala-cli compile Hello.</description>
+      <description>&lt;h3 id=&#34;compile-files--folder&#34;&gt;Compile file(s) / folder&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli compile Hello.scala&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Compile with dependent classes&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli compile Hello.scala Includes.scala&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Compiles all Scala files in the folder&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli compile .&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;compile-and-run-scala-files--folder&#34;&gt;Compile and run Scala files / folder&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Compile and run `main` in Hello.scala&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli run Hello.scala&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# `run` command is the default and may be omitted for running the class&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli Hello.scala&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Compile and run `main` with all associated files listed&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli Hello.scala Utils.scala&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Compile the whole directory and run `main`&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scala-cli .&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;running-scripts&#34;&gt;Running Scripts&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;HelloScript.sc&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Everyday IntelliJ Plugins</title>
@@ -188,7 +195,7 @@
       <link>/2019/02/19/fp-conversion-caveat/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       <guid>/2019/02/19/fp-conversion-caveat/</guid>
-      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
+      <description>&lt;p&gt;Sometimes you learn the best from others; by watching. This post is based on such an instance. A fellow engineer on my team was investigating a nagging issue - &lt;strong&gt;partially-successful operations or rather operations that left data in an inconsistent state&lt;/strong&gt;. It goes without saying that I take no credit for the time and effort spent on the investigation nor for the fix. I am just the messenger. And as a responsible programmer 🤓, I am sharing it with the rest of the world.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Rambling on Error Handling</title>
@@ -202,14 +209,14 @@
       <link>/2018/02/18/js-in-cs-immutability/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/2018/02/18/js-in-cs-immutability/</guid>
-      <description>Enough! JavaScript had us in its grip for long with its foot guns.</description>
+      <description>&lt;p&gt;Enough! JavaScript had us in its grip for long with its foot guns. The first time I heard the term &lt;em&gt;Hoisting&lt;/em&gt;, I had no idea about it and misheard as &lt;em&gt;hosting&lt;/em&gt;. You declare variables using &lt;em&gt;var&lt;/em&gt; happily, and you have to come to peace with yourself that it is okay to &lt;em&gt;hoist&lt;/em&gt; the &lt;code&gt;var&lt;/code&gt;s (lift&amp;rsquo;em all to the top-most scope). I can&amp;rsquo;t believe JS convinced the rest of us that it was okay. Then came ES6 and saved us. &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let&#34;&gt;&lt;code&gt;let&lt;/code&gt;&lt;/a&gt; fixed the scoping. &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const&#34;&gt;&lt;code&gt;const&lt;/code&gt;&lt;/a&gt; provided immutability. At least now, you can say JavaScript supports functional programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SMS Firewall Privacy Policy</title>
       <link>/pages/sms-firewall-privacy/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       <guid>/pages/sms-firewall-privacy/</guid>
-      <description>The app does not collect and/or transmit any personal information – name, address, contact information etc.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;sms_firewall.jpg&#34; alt=&#34;SMS Firewall&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;The app does not collect and/or transmit any personal information – name, address, contact information etc. No information is shared with third party apps and services.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Facets of Immutability</title>
@@ -223,21 +230,21 @@
       <link>/2017/12/106/paradox-of-braces/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
       <guid>/2017/12/106/paradox-of-braces/</guid>
-      <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
+      <description>&lt;p&gt;A great deal of thought goes into language design. Eric Lippert’s &lt;a href=&#34;https://ericlippert.com&#34;&gt;posts&lt;/a&gt; is a living testament, at least for C#. Syntax and idioms are also part of the language design. When designing a language, the designers have to also consider its future. For instance, when designing C#, &lt;a href=&#34;https://twitter.com/ahejlsberg&#34;&gt;Anders&lt;/a&gt; and others should have thought of and planned for what’s coming in then upcoming version(s) of C#. Such level of forethought might be seem daunting for an outsider. But the language designers are good at what they do, and most importantly, they know what they are doing. Well, in most cases!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lo and Behold</title>
       <link>/pages/lo-behold/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       <guid>/pages/lo-behold/</guid>
-      <description>This article was published also on LinkedIn.&#xA;Netflix’s movie recommendations has never impressed me.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was published also on &lt;a href=&#34;https://www.linkedin.com/pulse/lo-behold-vivek-ragunathan&#34;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Netflix’s movie recommendations has never impressed me. I have found the recommendations are either unrelated or predictable. When I have finished watching a low-rated movie, it would be nice if Netflix recommends a better-rated ones in the same genre rather than dump more low-rated ones on me. I wonder if my outdated LED TV is the reason.&lt;/p&gt;</description>
     </item>
     <item>
       <title>C&#43;&#43;/CLI Primer – An Apress Book</title>
       <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       <guid>/2016/12/11/cpp-cli-apress/</guid>
-      <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
+      <description>&lt;p&gt;Earlier this year, I &lt;a href=&#34;https://vivekragunathan.wordpress.com/2016/01/19/publishing-ccli-on-leanpub/&#34;&gt;wrote&lt;/a&gt; about &lt;a href=&#34;https://www.leanpub.com/cppcliprimer&#34;&gt;publishing&lt;/a&gt; C++/CLI Primer on &lt;a href=&#34;https://www.leanpub.com&#34;&gt;LeanPub.com&lt;/a&gt;. I wondered if there is anybody else besides myself and Microsoft using C++/CLI but readers surprised and humbled me with their support. Seems C++/CLI is here to stay. Know why?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Problem Reduction</title>
@@ -286,7 +293,7 @@
       <link>/posts/text-editors-rundown/</link>
       <pubDate>Sun, 29 May 2016 07:49:39 +0000</pubDate>
       <guid>/posts/text-editors-rundown/</guid>
-      <description>I am not a *nix commands expert … but a professional?</description>
+      <description>&lt;p&gt;I am not a *nix commands expert … but a &lt;a href=&#34;http://www.johndcook.com/blog/2014/10/18/experts-vs-professionals/&#34;&gt;professional&lt;/a&gt;? So why not relish educating my brother a couple of nifty commands, especially – &lt;code&gt;find&lt;/code&gt; and &lt;code&gt;grep&lt;/code&gt;, which he was looking into at the time. You can find a few more &lt;a href=&#34;/pages/cmd-line-quickies&#34;&gt;here&lt;/a&gt; if you are interested.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Selective Combinations</title>
@@ -300,7 +307,7 @@
       <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Partial Classes – Java ???</title>
@@ -321,7 +328,7 @@
       <link>/2016/01/19/publishing-ccli-on-leanpub/</link>
       <pubDate>Tue, 19 Jan 2016 03:07:03 +0000</pubDate>
       <guid>/2016/01/19/publishing-ccli-on-leanpub/</guid>
-      <description>I came across LeanPub a few months back. I believe it was through hanselman – blog, video or something.</description>
+      <description>&lt;p&gt;I came across &lt;a href=&#34;https://www.leanpub.com/&#34;&gt;LeanPub&lt;/a&gt; a few months back. I believe it was through &lt;a href=&#34;http://www.hanselman.com/&#34;&gt;hanselman&lt;/a&gt; – blog, video or something. I liked &lt;a href=&#34;https://www.leanpub.com/&#34;&gt;LeanPub&lt;/a&gt; &lt;em&gt;instantly&lt;/em&gt; because of a couple of reasons.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Written in Stone</title>
@@ -335,7 +342,7 @@
       <link>/2015/12/28/lights-preserved/</link>
       <pubDate>Sun, 27 Dec 2015 21:45:40 +0000</pubDate>
       <guid>/2015/12/28/lights-preserved/</guid>
-      <description>I have a separate blog – Lights Preserved where I get to claim myself a photographer, and where I publish some of my artistic snapshots.</description>
+      <description>&lt;p&gt;I have a separate blog – &lt;a href=&#34;https://lightspreserved.wordpress.com&#34;&gt;Lights Preserved&lt;/a&gt; where I get to claim myself a photographer, and where I publish some of my artistic snapshots. 😀&lt;/p&gt;</description>
     </item>
     <item>
       <title>.NET for the next generation</title>
@@ -349,7 +356,7 @@
       <link>/profile/</link>
       <pubDate>Sat, 17 Oct 2015 04:18:06 +0000</pubDate>
       <guid>/profile/</guid>
-      <description>FORTE&#xA;Extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications Eloquent and skillful in functional and object-oriented programming, design and methodologies.</description>
+      <description>&lt;p&gt;&lt;strong&gt;FORTE&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Extensive experience in architecting, re-architecting, designing and implementing large-scale backend/web applications&lt;/li&gt;&#xA;&lt;li&gt;Eloquent and skillful in functional and object-oriented programming, design and methodologies.&lt;/li&gt;&#xA;&lt;li&gt;Resolute in producing highly reusable semantically meaningful space-efficient debuggable and maintainable quality code. To crash is a shame!&lt;/li&gt;&#xA;&lt;li&gt;Language agnostic, polyglot, linguist, linguaphile - Scala, Java, C#, Go, Python, Rust, C++, TypeScript. Prudent enough to employ the power of the language/technology to solve business problems effectively.&lt;/li&gt;&#xA;&lt;li&gt;Extensive experience in refactoring beyond-repair production code and transforming it into robust secure testable high quality code with no new defects and agreed breaking changes&lt;/li&gt;&#xA;&lt;li&gt;Conceive, Propose, Document, Maintain and Adapt engineering standards and policies for efficient functioning of team and the product. The what and how matters, the why gives meaning.&lt;/li&gt;&#xA;&lt;li&gt;Self-driven in sharing knowledge and mentoring engineers to build and sustain the best-in-class team. Be the brain to pick, an ear to listen, and a push in the right direction.&lt;/li&gt;&#xA;&lt;li&gt;Open-minded and receptive to alternative viewpoints to find the most constructive path forward. Team work makes dream work possible.&lt;/li&gt;&#xA;&lt;li&gt;Have extensive experience working collaboratively in small and large teams practicing Agile software development.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;PERSONA&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>final, const and beyond</title>
@@ -363,7 +370,7 @@
       <link>/2015/10/04/unconquerable/</link>
       <pubDate>Sat, 03 Oct 2015 19:28:22 +0000</pubDate>
       <guid>/2015/10/04/unconquerable/</guid>
-      <description>Hercules was a strong man; a tall muscular perfect masculine figure.</description>
+      <description>&lt;p&gt;Hercules was a strong man; a tall muscular perfect masculine figure. He moved boulders with his bare hands. He stopped elephants and swung them by their tusks. No doubt, he prevented battles by his mere presence. His body drew its strength from within. He was no less than unconquerable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JAR Tips: Loading dependencies</title>
@@ -412,7 +419,7 @@
       <link>/pages/cmd-line-quickies/</link>
       <pubDate>Sat, 07 Feb 2015 08:02:58 +0000</pubDate>
       <guid>/pages/cmd-line-quickies/</guid>
-      <description>Change Permission on Folder/Files Recursively1 GOOD&#xA;find /path/to/base/dir -type d -exec chmod 755 {} + find /path/to/base/dir -type f -exec chmod 644 {} +``` BETTER</description>
+      <description>&lt;h3 id=&#34;change-permission-on-folderfiles-recursively1&#34;&gt;Change Permission on Folder/Files Recursively&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;GOOD&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;find /path/to/base/dir -type d -exec chmod &lt;span style=&#34;color:#bd93f9&#34;&gt;755&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{}&lt;/span&gt; +&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;find /path/to/base/dir -type f -exec chmod &lt;span style=&#34;color:#bd93f9&#34;&gt;644&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{}&lt;/span&gt; +&lt;span style=&#34;color:#f1fa8c&#34;&gt;```&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;BETTER&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>A-Team Library</title>
@@ -426,42 +433,42 @@
       <link>/pages/court-room-climax/</link>
       <pubDate>Sun, 25 Jan 2015 00:19:31 +0000</pubDate>
       <guid>/pages/court-room-climax/</guid>
-      <description>Before reading this page, please read the relevant blog post: A-Team Library.</description>
+      <description>&lt;p&gt;&lt;small&gt;Before reading this page, please read the relevant blog post: &lt;a href=&#34;/posts/a-team-lib&#34;&gt;A-Team Library&lt;/a&gt;. This page is an excerpt of a climactic &lt;em&gt;court room like&lt;/em&gt; epilogue of a document that was authored for one of the clients I use to work with. The actual context and details have been omitted. The excerpt has been borrowed and tailored a little bit for public reading. The tone and message remain the same.&lt;/small&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Secret behind Bjarne and Herb’s Papers on Unified Syntax !!!</title>
       <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       <guid>/posts/secret-of-cpp-unified-syntax/</guid>
-      <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
+      <description>&lt;p&gt;A long time back, in one of my posts here&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I had discussed about Extension Methods&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; … in C++; sorta! It seems that the grand daddy, Bjarne Stroustoup&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;, had read my post, and was impressed. So he has published a paper – Call syntax&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;: &lt;code&gt;x.f(y)&lt;/code&gt; vs. &lt;code&gt;f(x,y)&lt;/code&gt;. Good thing except I don’t like the idea of assuming &lt;code&gt;x.f(y)&lt;/code&gt; for &lt;code&gt;f(x, y)&lt;/code&gt; while the reverse is the actual idea of extension methods. You will know when you read his paper. It seems the commander, Herb Sutter&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;, also was impressed with my post. Not only that he too doesn’t seem to like the &lt;code&gt;x.f(y)&lt;/code&gt; for f(x, y) idea. Great men think alike. LOL! So he published his paper – &lt;strong&gt;Unified Syntax&lt;/strong&gt;&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;. How is that?&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Simple Tree List View !!!</title>
       <link>/2014/10/05/simple-tlv/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       <guid>/2014/10/05/simple-tlv/</guid>
-      <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
+      <description>&lt;p&gt;Digging up stash is one of the best pass times. You know you never know what you will find. I had an article written quite some time back but had not posted it anywhere. Not sure why. I posted it at CodeProject – &lt;a href=&#34;http://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View&#34; target=&#34;_blank&#34;&gt;A Simple Tree List View&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Just-In-Time (JIT) Compilation</title>
       <link>/pages/jit/</link>
       <pubDate>Wed, 01 Oct 2014 04:27:30 +0000</pubDate>
       <guid>/pages/jit/</guid>
-      <description>An excerpt from the book Professional .NET v2.0&#xA;The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;small&gt;An excerpt from the book &lt;a href=&#34;&#34;&gt;Professional .NET v2.0&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;The Just in Time (JIT) Compiler gets its name because it compiles your managed code into executable native code on the fly. That is, it compiles the IL just as it’s needed. Understanding how the JIT works, again, isn’t strictly necessary in order to be productive with managed code. In fact, those not familiar with assembly-level programming might feel a little uncomfortable with the content in this section; if you’ve never programmed in a language like C or C++, for example, then you are sure to feel a little lost. Don’t fret; you can safely skim over this section and come back after you’ve worked with the CLR a little more. But for those who read through, it will give you some internals-style insight into how things work in the runtime.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tree List View</title>
       <link>/pages/tlv/</link>
       <pubDate>Wed, 01 Oct 2014 03:45:22 +0000</pubDate>
       <guid>/pages/tlv/</guid>
-      <description>This article was published also on CodeProject.com.&#xA;Introduction How about a control like that?</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was published also on &lt;a href=&#34;https://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View&#34;&gt;CodeProject.com&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;tlv.png&#34; alt=&#34;featured_image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;How about a control like that? Isn’t it cool? Unfortunately, you don’t get that with the Windows Forms controls collection. But you can get yourself one; read on.&lt;/p&gt;</description>
     </item>
     <item>
       <title>C&#43;&#43;0x Like Algorithms</title>
       <link>/pages/cpp0x-algos/</link>
       <pubDate>Wed, 01 Oct 2014 03:32:28 +0000</pubDate>
       <guid>/pages/cpp0x-algos/</guid>
-      <description>A few C++0x algorithms and other helper methods implemented for C++98</description>
+      <description>&lt;p&gt;A few C++0x algorithms and other helper methods implemented for C++98&lt;/p&gt;</description>
     </item>
     <item>
       <title>PHP Savers – PropertyBag</title>
@@ -475,7 +482,7 @@
       <link>/2014/07/23/cool-regex-testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       <guid>/2014/07/23/cool-regex-testers/</guid>
-      <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
+      <description>&lt;p&gt;Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need. Last couple of times I had to come up with a regex for most common everyday stuff like dates and such. Oh yeah, last time it was date actually. I had a server response that had a date in the format &lt;code&gt;yyyy-mm-dd&lt;/code&gt;, &lt;a href=&#34;http://www.w3.org/QA/Tips/iso-date&#34;&gt;ISO format&lt;/a&gt;. I was working with JavaScript, and initially I was naive to use the &lt;a href=&#34;http://www.w3schools.com/jsref/jsref_obj_date.asp&#34;&gt;&lt;code&gt;Date&lt;/code&gt;&lt;/a&gt; class to parse the date in the response. Turned that there is difference in the way the date is interpreted by Firefox and other browsers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
@@ -489,7 +496,7 @@
       <link>/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       <guid>/2014/05/23/android-reminder/</guid>
-      <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
+      <description>&lt;p style=&#39;font-family:Open Sans;&#39;&gt;&#xA;  I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification &lt;i&gt;reminding you of a reminder&lt;/i&gt;. It says &amp;#8220;Upcoming alarm &amp;#8211; Buy Milk&amp;#8221;, where Buy Milk is the reminder I had set.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
@@ -524,154 +531,154 @@
       <link>/2012/11/01/linked-list-quiz-part-ii/</link>
       <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
       <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
-      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
+      <description>&lt;p&gt;In the previous &lt;a href=&#34;/2012/06/18/linked-list-quiz-part-i&#34;&gt;post&lt;/a&gt;, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Offering __FILE__ and __LINE__ for C# !!!</title>
       <link>/2012/09/09/caller_info_in_cs/</link>
       <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
       <guid>/2012/09/09/caller_info_in_cs/</guid>
-      <description>Not the same way but we could say better.&#xA;Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
+      <description>&lt;p&gt;Not the same way but we could say better.&lt;/p&gt;&#xA;&lt;p&gt;Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linked List Quiz – Part I !!!</title>
       <link>/2012/06/18/linked-list-quiz-part-i/</link>
       <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
       <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
-      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
+      <description>&lt;p&gt;A short while back, Sammy quizzed me on linked list based problems; singly linked list.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sms FireWall Update !!!</title>
       <link>/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       <guid>/2012/04/24/smsfwupdate/</guid>
-      <description>I gave SMS FireWall a refresh with a couple of features requested by users:- An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
+      <description>&lt;div style=&#34;text-align:left;&#34; dir=&#34;ltr&#34;&gt;&#xA;  &lt;div style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    I gave &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.vivekr.smsfirewall&#34; target=&#34;_blank&#34;&gt;SMS FireWall&lt;/a&gt; a refresh with a couple of features requested by users:-&#xA;  &lt;/div&gt;&#xA;  &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    &lt;li&gt;&#xA;      An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list. Although it might be clear to you, let me explain it in a few words how it works. When you long press a sender in the quarantine vault, a menu with two options appear &amp;#8211; Allow, Delete. When &amp;#8216;Allow&amp;#8217; is clicked, the sender is added to the allowed list. And when the &amp;#8216;Allow and Move&amp;#8217; setting is checked, the messages from this sender are moved to the inbox.&#xA;    &lt;/li&gt;&#xA;  &lt;/ul&gt;&#xA;  &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    &lt;li&gt;&#xA;      A confirmation dialog prompt when attempted to empty the quarantine vault&#xA;    &lt;/li&gt;&#xA;  &lt;/ul&gt;&#xA;  &lt;div&gt;&#xA;    &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;      &lt;li&gt;&#xA;        A few minor (internal) improvements&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;div style=&amp;quot;font-family:Tahoma;font-size:11pt;&amp;quot;&amp;gt;&#xA;  Hope they are useful to others too. And let me know if you need any other features to be in the application.&#xA;&amp;lt;/div&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>OrderedThreadPool – Bug Fix !!!</title>
       <link>/2012/04/14/otp-bug-fix/</link>
       <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
       <guid>/2012/04/14/otp-bug-fix/</guid>
-      <description>Hugh pointed out a bug in the OrderedThreadPool.&#xA;I think there is a small window for error in the OrderedThreadPool class.</description>
+      <description>&lt;p&gt;Hugh pointed out a &lt;a href=&#34;http://www.blogger.com/comment.g?blogID=11793007&amp;amp;postID=8394495887151499024&#34;&gt;bug&lt;/a&gt; in the &lt;a href=&#34;/2009/03/18/ordered-thread-pool&#34;&gt;OrderedThreadPool&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I think there is a small window for error in the OrderedThreadPool class. Basically, if an item of work is queued, then a worker thread runs, takes the item off the queue and is about to call &lt;code&gt;wcb(state)&lt;/code&gt; – but at that instant is (say) context switched. Then another item gets queued and another worker thread runs and dequeues the item and then again is about to call &lt;code&gt;wcb(state)&lt;/code&gt;. There is scope here for the two operations to run concurrently or even out of order…&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unique Id Generation !!!</title>
       <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       <guid>/2012/03/09/uid-gen/</guid>
-      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
+      <description>&lt;p&gt;A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction. I am little dumb and am used to GUIDs for a long time when it comes to unique ids. But GUIDs are more than 30 in length. I was trying out some stupid ways like stripping out the trail part of the GUID to make 30 length unique but my intuition wasn’t convinced about the tricks I was working out.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sms FireWall</title>
       <link>/posts/sms-firewall/</link>
       <pubDate>Thu, 08 Mar 2012 18:36:49 +0000</pubDate>
       <guid>/posts/sms-firewall/</guid>
-      <description>Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean?</description>
+      <description>&lt;p&gt;Tired of prank SMSes. Need a simple way to block them, and keep your inbox clean? Don’t worry. You got it!&lt;/p&gt;</description>
     </item>
     <item>
       <title>To Ritchie !!!</title>
       <link>/post/2011-10-17-toritchie/</link>
       <pubDate>Mon, 17 Oct 2011 15:34:09 +0000</pubDate>
       <guid>/post/2011-10-17-toritchie/</guid>
-      <description>Dennis Ritchie, whom we all know as the creator of the C programming language passed away on Oct 12, 2011.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://cm.bell-labs.com/who/dmr/&#34;&gt;Dennis Ritchie&lt;/a&gt;, whom we all know as the creator of the C programming language passed away on Oct 12, 2011. We have lost one of the brilliant minds of mankind. I owe him this post for he has been one of the greatest inspirations in my life and the very reason that I am into programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Seinfeld Calendar Update !!!</title>
       <link>/posts/seinfeld/</link>
       <pubDate>Fri, 09 Sep 2011 19:50:43 +0000</pubDate>
       <guid>/posts/seinfeld/</guid>
-      <description>We have released an update for Seinfeld Calendar with a bunch of some exciting features and defect fixes.</description>
+      <description>&lt;p&gt;We have released an update for &lt;a href=&#34;https://market.android.com/details?id=com.pongal.seinfeld&#34;&gt;Seinfeld Calendar&lt;/a&gt; with a bunch of some exciting features and defect fixes. I hope they are exciting for you too.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Android meets .NET</title>
       <link>/posts/android-meets-net/</link>
       <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
       <guid>/posts/android-meets-net/</guid>
-      <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
+      <description>&lt;p&gt;It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android? You may be wondering what in the world I am talking about. Android development environment is all Java and open source stuff. How could this Microsoft thing fit onto it? Well, it seems that some clever guys&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; had huddled up and ported Mono for Android, developed .NET libraries for the Android SDK, and also supplemented it with a &lt;em&gt;Mono for Android&lt;/em&gt; project template in Visual Studio. Thus we relish writing C# code for Android.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz: Beauty of Numbers - Solution !!!</title>
       <link>/2011/07/03/beauty-of-numbers-solution/</link>
       <pubDate>Fri, 01 Jul 2011 20:45:08 +0000</pubDate>
       <guid>/2011/07/03/beauty-of-numbers-solution/</guid>
-      <description>One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains).</description>
+      <description>&lt;p&gt;One hint that should be  helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains). That means it got to be really some special number or special kind of number. We could do what functional programmers would do. Write down the steps of removal for every queue size N, and it is not worth trying for very large N; in our case, even 20 or 30 could be large. But the point is we could iterate the steps manually and find a position K for every queue size N, where K is the position that remains after all the waves of removal. Once we are done with that, we should stare intensely 😂 on every K to derive a pattern, which would tell us something about those Ks, and with that we should be able to solve the problem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz: Beauty of Numbers !!!</title>
       <link>/2011/07/02/quiz-beauty-of-numbers/</link>
       <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
       <guid>/2011/07/02/quiz-beauty-of-numbers/</guid>
-      <description>Sriram quizzed:&#xA;Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
+      <description>&lt;p&gt;Sriram quizzed:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Imagine there is a queue of people for getting a ticket for a movie or somehing. Where should be standing in the queue to last until the manager or some guy keeps removing people at odd indices. For instance, if the queue has 5 people given a token A to E, first we remove the first set of odd numbered positions in the queue, so A, C and E are gone. Now B and D remain. Again we remove the odd numbered positions. This time B alone is gone, and D is the winner. So in a queue like that, what is the lucky position you should hold so that you survive the wave of removals?&lt;/p&gt;</description>
     </item>
     <item>
       <title>To Hold or Not to Hold – A story on Thread references !!!</title>
       <link>/2011/03/30/thread-reference/</link>
       <pubDate>Wed, 30 Mar 2011 17:05:36 +0000</pubDate>
       <guid>/2011/03/30/thread-reference/</guid>
-      <description>void SomeMethod(int x, double y) { // some code ... new Thread(ThreadFunc).</description>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;void&lt;/span&gt; SomeMethod(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; x, &lt;span style=&#34;color:#8be9fd&#34;&gt;double&lt;/span&gt; y) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;// some code&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Thread(ThreadFunc).Start();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What do you think about the code above?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crazy Brackets – [](){}();</title>
       <link>/posts/crazy-brackets/</link>
       <pubDate>Sat, 26 Mar 2011 18:38:23 +0000</pubDate>
       <guid>/posts/crazy-brackets/</guid>
-      <description>What does this cryptic bracket sequence mean? What programming language is it?</description>
+      <description>&lt;p&gt;What does this cryptic bracket sequence mean? What programming language is it? Is it valid syntax? If there is even a weak chance of this syntax being valid? If so, what does it mean?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wetting my feet in Android – Seinfeld Calendar</title>
       <link>/2011/03/15/seinfeld/</link>
       <pubDate>Tue, 15 Mar 2011 18:20:04 +0000</pubDate>
       <guid>/2011/03/15/seinfeld/</guid>
-      <description>A couple of my colleagues and I huddled up to learn a bit of Android.</description>
+      <description>&lt;p&gt;A couple of my colleagues and I huddled up to learn a bit of Android. I think I told you about &lt;a href=&#34;/2011/03/08/anonymous-classes-vs-delegates/&#34;&gt;that&lt;/a&gt; a short while back. We developed a very simple application – &lt;a href=&#34;https://market.android.com/details?id=com.pongal.seinfeld&amp;amp;feature=search_result&#34;&gt;The Seinfeld Calendar&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Anonymous Classes vs Delegates !!!</title>
       <link>/2011/03/08/anonymous-classes-vs-delegates/</link>
       <pubDate>Tue, 08 Mar 2011 17:10:16 +0000</pubDate>
       <guid>/2011/03/08/anonymous-classes-vs-delegates/</guid>
-      <description>I am not a java programmer. By that, I do not mean I am against Java.</description>
+      <description>&lt;p&gt;I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz – Where am I ?</title>
       <link>/2011/02/19/where-am-i/</link>
       <pubDate>Sat, 19 Feb 2011 12:05:38 +0000</pubDate>
       <guid>/2011/02/19/where-am-i/</guid>
-      <description>The question is, in C++, how do detect if an object is allocated on the stack or heap.</description>
+      <description>&lt;p&gt;The question is, in C++, how do detect if an object is allocated on the stack or heap.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Meeting Martin</title>
       <link>/post/2010-12-21-meeting-martin/</link>
       <pubDate>Tue, 21 Dec 2010 13:32:57 +0000</pubDate>
       <guid>/post/2010-12-21-meeting-martin/</guid>
-      <description>You may not know the guy in black. You should definitely be knowing the guy in green.</description>
+      <description>&lt;p&gt;You may not know the guy in black. You should definitely be knowing the guy in green. &lt;a href=&#34;http://martinfowler.com/aboutMe.html&#34;&gt;Don&amp;rsquo;t you&lt;/a&gt;?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Invoking methods with out and ref – Finale !!!</title>
       <link>/2010/12/21/out-ref-finale/</link>
       <pubDate>Tue, 21 Dec 2010 13:24:39 +0000</pubDate>
       <guid>/2010/12/21/out-ref-finale/</guid>
-      <description>Alright, it is a long wait. And I am going to keep it short.</description>
+      <description>&lt;p&gt;Alright, it is a long wait. And I am going to keep it short.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Invoking methods with Out and Ref (Part 2) !!!</title>
       <link>/2010/10/28/outref2/</link>
       <pubDate>Thu, 28 Oct 2010 17:22:39 +0000</pubDate>
       <guid>/2010/10/28/outref2/</guid>
-      <description>Straight to code&amp;#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!</description>
+      <description>&lt;p style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  Straight to code&amp;#8230;..&#xA;&lt;/p&gt;&#xA;&lt;pre style=&#34;color:blue;font-family:Consolas;font-size:11pt;&#34;&gt;int SomeMethod(string arg1,&#xA;    string arg2,&#xA;    ref DayOfWeek arg3)&#xA;{&#xA;    // Wildest implementation!&#xA;}&lt;/pre&gt;&#xA;&lt;p style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  The above method had to be executed on its dispatcher thread. So let unravel a bit of the wildest implementation above.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Scrollable Image Viewer</title>
       <link>/pages/img-viewer/</link>
       <pubDate>Sat, 09 Oct 2010 00:00:00 +0000</pubDate>
       <guid>/pages/img-viewer/</guid>
-      <description>This article was published also on CodeProject.&#xA;The .NET Base Class Library comes with a PictureBox control that is used for displaying images.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was published also on &lt;a href=&#34;https://www.codeproject.com/Articles/25748/Scrollable-Image-Viewer&#34;&gt;CodeProject&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The .NET Base Class Library comes with a PictureBox control that is used for displaying images. Although it offers a few scaling modes, unfortunately, it does not provide a scrolling facility. This article presents a picture box like control [Scrollable Image Viewer Control or SIV Control] that is used to display images in one of two modes:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Typesafe Logger</title>
       <link>/pages/ts-logger/</link>
       <pubDate>Fri, 08 Oct 2010 18:34:09 +0000</pubDate>
       <guid>/pages/ts-logger/</guid>
-      <description>This article was co-authored with Sanjeev, and published on CodeProject</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was co-authored with &lt;a href=&#34;https://www.linkedin.com/in/sanjeev-venkataramanan-3496b018&#34;&gt;Sanjeev&lt;/a&gt;, and &lt;a href=&#34;https://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C&#34;&gt;published&lt;/a&gt; on &lt;a href=&#34;www.codeproject.com&#34;&gt;CodeProject&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;PROBLEM&lt;/h3&gt;&#xA;&lt;p&gt;Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files. There are so many other destinations where the logs can be written to. Irrespective of the destination that each application must be able to configure, the diagnostic log message and the way to generate the message is of our interest now. So we are in need of a logger class that can behave transparent to the logging destination. That should not be a problem, it would be fun to design that.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pattern Conflict</title>
@@ -685,189 +692,189 @@
       <link>/about/</link>
       <pubDate>Tue, 05 Oct 2010 15:45:33 +0000</pubDate>
       <guid>/about/</guid>
-      <description>I am &amp;hellip;</description>
+      <description>&lt;p&gt;I am &amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Thinking Currying</title>
       <link>/posts/thinking-currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       <guid>/posts/thinking-currying/</guid>
-      <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
+      <description>&lt;p&gt;&lt;em&gt;Currying&lt;/em&gt; is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers &lt;code&gt;1&lt;/code&gt; through &lt;code&gt;10&lt;/code&gt;, what would you do? Class II mathematics -&lt;code&gt;0&lt;/code&gt; in hand, &lt;code&gt;1&lt;/code&gt; in the mind, add &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;1&lt;/code&gt;, so &lt;code&gt;1&lt;/code&gt; in the mind, then &lt;code&gt;2&lt;/code&gt; in the hand, &amp;hellip; up to &lt;code&gt;10&lt;/code&gt;. So we compute the addition with one argument at a time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz – (Journey through templates, SFINAE and specialization) !!!</title>
       <link>/2010/04/10/sfinae/</link>
       <pubDate>Sat, 10 Apr 2010 07:39:00 +0000</pubDate>
       <guid>/2010/04/10/sfinae/</guid>
-      <description>template&amp;lt;typename A, typename B&amp;gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;#34;-&amp;#34; &amp;lt;&amp;lt; b; return ostr.</description>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;template&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;typename&lt;/span&gt; A, &lt;span style=&#34;color:#ff79c6&#34;&gt;typename&lt;/span&gt; B&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TClass&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; TClass()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;// Overload #1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;string SomeMethod(A a, B b)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;ostringstream ostr;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           ostr &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; a &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; b;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; ostr.str();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;// Overload #2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;string SomeMethod(B b, A a)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           std&lt;span style=&#34;color:#ff79c6&#34;&gt;::&lt;/span&gt;ostringstream ostr;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           ostr &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; b &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; a;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; ostr.str();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So that is a template class with SomeMethod overloads. Why would somebody write such a class? Imagine it is an adder class, and the method overloads could used to add with parameters specified in either order. Following is the way one could use the above (based on the adder example):-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Missing MI !!!</title>
       <link>/2010/03/05/missing-mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       <guid>/2010/03/05/missing-mi/</guid>
-      <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
+      <description>&lt;p&gt;We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.&lt;/p&gt;</description>
     </item>
     <item>
       <title>sizeof vs Marshal.SizeOf !!!</title>
       <link>/2009/12/30/sizeof-vs-marshal-sizeof/</link>
       <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
       <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
-      <description>There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.</description>
+      <description>&lt;p&gt;There are two facilities in C# to determine the size of a type – &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/eahchzkf.aspx&#34;&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;/a&gt; operator and&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/5s4920fa.aspx&#34;&gt;&lt;code&gt;Marshal.SizeOf&lt;/code&gt;&lt;/a&gt; method. Let us discuss what they offer and how they differ.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Curious Case Of Anonymous Delegates !!!</title>
       <link>/2009/09/02/anondelegates/</link>
       <pubDate>Wed, 02 Sep 2009 18:29:00 +0000</pubDate>
       <guid>/2009/09/02/anondelegates/</guid>
-      <description>Senthil has left us thrilled in his new post, and also inspired me to write about the topic.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://msmvps.com/blogs/senthil/default.aspx&#34; target=&#34;_blank&#34;&gt;Senthil&lt;/a&gt; has left us thrilled in his &lt;a href=&#34;http://msmvps.com/blogs/senthil/archive/2009/09/01/anonymous-methods-as-event-handlers-part-1.aspx&#34; target=&#34;_blank&#34;&gt;new post&lt;/a&gt;, and also inspired me to write about the &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/0yw3tz5k(VS.80).aspx&#34; target=&#34;_blank&#34;&gt;topic&lt;/a&gt;. Although, anonymous delegates have become a mundane stuff amongst programmers, there is still these subtle stuff left unexplored. Alright, let us try to answer Senthil’s question before he unravels the mystery in his next post.&lt;/p&gt;</description>
     </item>
     <item>
       <title>finally and Return Values !!!</title>
       <link>/2009/07/02/finally-and-return-values/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       <guid>/2009/07/02/finally-and-return-values/</guid>
-      <description>Let us read some code:-&#xA;int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
+      <description>&lt;DIV style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  Let us read some code:-&lt;/p&gt;&#xA;  &lt;pre class=&#34;brush: c-sharp;&#34; style=&#34;font-family:Consolas;font-size:11pt;&#34;&gt;int SomeMethod()&#xA;{&#xA;    int num = 1;&#xA;&#xA;    try&#xA;    {&#xA;        num = 5;&#xA;        return num;&#xA;    }&#xA;    finally&#xA;    {&#xA;        num += 5;&#xA;    }&#xA;}&lt;/pre&gt;&#xA;  &lt;p&gt;&#xA;    What is the return value of SomeMethod? Some anonymous guy asked that question in the code project forum, and it has been answered. I am writing about it here because it is interesting and subtle. One should not be surprised when people misinterpret finally. So let us take a guess, 10 (i = 5, then incremented by 5 in the finally block).It is not the right answer; rather SomeMethod returns 5. Agreed that finally is called in all cases of returning from SomeMethod but the return value is calculated when it is time to return from SomeMethod, normally or abnormally. The subtlety lies not in the way finally is executed but in the return value is calculated. So the return value (5) is decided when a return is encountered in the try block. The finally is just called for cleanup; and the num modified there is local to SomeMethod. So make the return value 10, it is no use being hasty making&lt;br /&gt; SomeMethod return from the finally block. Because returning from finally is not allowed. (We will talk about it later why returning from catch block is a bad practice&lt;br /&gt; and why can&#39;t we return from finally block). Had such modifications been done on a reference type, they would have been visible outside of SomeMethod, although the return value may be different. For instance,&#xA;  &lt;/p&gt;</description>
     </item>
     <item>
       <title>Type Safe Logger</title>
       <link>/2009/04/25/type-safe-logger/</link>
       <pubDate>Sat, 25 Apr 2009 15:02:00 +0000</pubDate>
       <guid>/2009/04/25/type-safe-logger/</guid>
-      <description>Article co-authored with Sanjeev, and published on CodeProject&#xA;PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.</description>
+      <description>&lt;p&gt;Article co-authored with &lt;a href=&#34;www.linkedin.com/in/sanjeev-venkataramanan-3496b018&#34;&gt;Sanjeev&lt;/a&gt;, and &lt;a href=&#34;http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C&#34;&gt;published&lt;/a&gt; on &lt;a href=&#34;www.codeproject.com&#34;&gt;CodeProject&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;PROBLEM&lt;/h3&gt;&#xA;&lt;p&gt;Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files. There are so many other destinations where the logs can be written to. Irrespective of the destination that each application must be able to configure, the diagnostic log message and the way to generate the message is of our interest now. So we are in need of a logger class that can behave transparent to the logging destination. That should not be a problem, it would be fun to design that.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Simple Array Class For C&#43;&#43;</title>
       <link>/2009/04/10/simple-array-class-for-c/</link>
       <pubDate>Fri, 10 Apr 2009 16:48:00 +0000</pubDate>
       <guid>/2009/04/10/simple-array-class-for-c/</guid>
-      <description>This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.</description>
+      <description>&lt;p style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>CComPtr Misconception !!!</title>
       <link>/2009/04/08/ccomptr-misconception/</link>
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
       <guid>/2009/04/08/ccomptr-misconception/</guid>
-      <description>This is about a killer bug identified by our chief software engineer in our application.</description>
+      <description>&lt;p&gt;This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!&lt;/p&gt;</description>
     </item>
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
       <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       <guid>/2009/03/18/ordered-thread-pool/</guid>
-      <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
+      <description>&lt;p&gt;I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Settling Casting Restrictions !!!</title>
       <link>/2009/02/06/settling-casting-restrictions/</link>
       <pubDate>Thu, 05 Feb 2009 20:31:00 +0000</pubDate>
       <guid>/2009/02/06/settling-casting-restrictions/</guid>
-      <description>Remember the Casting Restrictions we discussed a while back, let us settle that now.</description>
+      <description>&lt;p style=&#34;font-family:Tahoma;&#34;&gt;&#xA;  Remember the Casting Restrictions we discussed a while back, let us settle that now. So we have some code like this:&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>The WD Anti-Propaganda Campaign !!!</title>
       <link>/2009/01/25/the-wd-anti-propaganda-campaign/</link>
       <pubDate>Sun, 25 Jan 2009 22:35:00 +0000</pubDate>
       <guid>/2009/01/25/the-wd-anti-propaganda-campaign/</guid>
-      <description>Thanks to the internet. If nobody else bothers or understands what loss of data means, you can shout it aloud here.</description>
+      <description>&lt;div style=&#34;font-family:Tahoma;&#34;&gt;&#xA;  Thanks to the internet. If nobody else bothers or understands what loss of data means, you can shout it aloud here. I lost 500GB of data &amp;#8211; every moment of my personal and professional life captured in bits and bytes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Casting Restrictions ???</title>
       <link>/2008/11/22/casting-restrictions/</link>
       <pubDate>Sat, 22 Nov 2008 11:43:00 +0000</pubDate>
       <guid>/2008/11/22/casting-restrictions/</guid>
-      <description>We all know that the runtime can detect the actual type of a System.</description>
+      <description>&lt;p&gt;We all know that the runtime can detect the actual type of a &lt;code&gt;System.Object&lt;/code&gt; instance. The primitive data types provided by the runtime are compatible with one another for casting (assuming that we do not truncate the values). So if I have an &lt;code&gt;int&lt;/code&gt;, it can be cast to &lt;code&gt;long&lt;/code&gt; or &lt;code&gt;ulong&lt;/code&gt;. All that is fine. Watch this:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Understanding (ref)erences !!!</title>
       <link>/2008/09/26/understanding-references/</link>
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:-</description>
+      <description>&lt;p&gt;Let us take a look at the following piece of code:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature</title>
       <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
+      <description>&lt;p&gt;Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type. Why do we need extension methods anyway ? Ok, that is the big story of lamba and LINQ. But from a conceptual standpoint, the extension methods establish a mechanism to extend the public interface of a type. The compiler is smart enough to make the method a part of the public interface of the type. Yeah, that is what it does, and the intellisense is very cool in making us believe that. It is cleaner and easier (for the library developers and for us programmers even) to add extra functionality (methods) not provided in the type. That is the intent. And we know that was exercised extravagantly in LINQ. The IEnumerable was extended with a whole lot set of methods to aid the LINQ design. Remember the &lt;code&gt;Where&lt;/code&gt;, &lt;code&gt;Select&lt;/code&gt; etc methods on &lt;code&gt;IEnumerable&lt;/code&gt;. An example code snippet is worth a thousand words:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Surprising Finalize Call !!!</title>
       <link>/2007/02/22/the-surprising-finalize-call/</link>
       <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
       <guid>/2007/02/22/the-surprising-finalize-call/</guid>
-      <description>Guess the output of the following program:-&#xA;class SomeClass : IDisposable { public SomeClass() { Trace.</description>
+      <description>&lt;p&gt;Guess the output of the following program:-&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;SomeClass&lt;/span&gt; : IDisposable&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; SomeClass()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass - Attempting instance creation&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Exception(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Ohh !!! Not Now&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;void&lt;/span&gt; Dispose()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass::Dispose&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;~SomeClass()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass::Finalizer&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Main(&lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; args[]){&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;try&lt;/span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;SomeClass sc = &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; SomeClass();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;catch&lt;/span&gt;(Exception ex){&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Main - {0}&amp;#34;&lt;/span&gt;, ex.Message);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- more --&gt;&#xA;&lt;p&gt;This will be the output of the program:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learning Type Access Modifiers Basics !!!</title>
       <link>/2006/12/20/learning-type-access-modifiers-basics/</link>
       <pubDate>Wed, 20 Dec 2006 18:01:00 +0000</pubDate>
       <guid>/2006/12/20/learning-type-access-modifiers-basics/</guid>
-      <description>When I started developing my module, I had an interface IParamCountBasedAlgo declared as a nested type in a class AlgorithmOneExecutor, declared as follows:-</description>
+      <description>&lt;div id=&#34;msgcns!753E720D857C98F6!244&#34;&gt;&#xA;  &lt;p&gt;&#xA;    &lt;span style=&#34;font-size:100%;&#34;&gt;When I started developing my module, I had an interface &lt;span style=&#34;color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;&#34;&gt;IParamCountBasedAlgo&lt;/span&gt; declared as a nested type in a class &lt;span style=&#34;color:rgb(51,153,102);font-family:Courier New,Courier,Monospace;&#34;&gt;AlgorithmOneExecutor&lt;/span&gt;, declared as follows:-&lt;/span&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;&lt;br /&gt;&lt;/span&gt;&#xA;  &lt;/p&gt;</description>
     </item>
     <item>
       <title>First Google Gadget(s) !!!</title>
       <link>/2006/12/20/first-google-gadgets/</link>
       <pubDate>Wed, 20 Dec 2006 17:53:00 +0000</pubDate>
       <guid>/2006/12/20/first-google-gadgets/</guid>
-      <description>I did some cool stuff here with google. I wrote my first &amp;#8220;Hello World&amp;#8221; sort of google gadget.</description>
+      <description>&lt;div id=&#34;msgcns!753E720D857C98F6!213&#34;&gt;&#xA;  &lt;span style=&#34;font-size:85%;&#34;&gt;I did some cool stuff here with google. I wrote my first &amp;#8220;Hello World&amp;#8221; sort of google gadget. It claims no rewards but just was fun. Since I am a novice in html and javascript sort of things, this gadget is pretty simple.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Follow the trail…….Join the Concurrency Revolution !!!</title>
       <link>/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</link>
       <pubDate>Wed, 20 Dec 2006 17:50:00 +0000</pubDate>
       <guid>/2006/12/20/follow-the-trail-join-the-concurrency-revolution/</guid>
-      <description>I could not stop writing this post after I read this article by Herb Sutter.</description>
+      <description>&lt;p&gt;I could not stop writing this post after I read &lt;a href=&#34;http://www.gotw.ca/publications/guest-ed-200609.htm&#34;&gt;&lt;strong&gt;this&lt;/strong&gt;&lt;/a&gt; article by Herb Sutter. The article is just a casual technical discussion but very encouraging that a person requires at the right time – the time when he is a student. Even after several years after my college, I have been trying to keep myself a student and I got a right encouragement to join the Concurrency revolution. Thanks to Herb Sutter.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The New Looking Post !!!</title>
       <link>/2006/12/20/the-new-looking-post/</link>
       <pubDate>Wed, 20 Dec 2006 17:44:00 +0000</pubDate>
       <guid>/2006/12/20/the-new-looking-post/</guid>
-      <description>I am very much fond of tools, updates and stuff.</description>
+      <description>&lt;div style=&#34;font-family:trebuchet ms;&#34; id=&#34;msgcns!753E720D857C98F6!205&#34;&gt;&#xA;  &lt;span style=&#34;font-size:100%;&#34;&gt;I am very much fond of tools, updates and stuff. So I keep updating my softwares and hear/learn about new tools etc. I am excited about the new spaces &amp;#8211; Live Spaces. Looks much better than before. I thought I would write something about the new spaces. Please &amp;#8216;spaces guys&amp;#8217;, make the arranging the boxes on the home page a bit easier and intelligent. That is a feature request. Otherwise the default skin/theme is cool and professional. Old themes are still old and not much appealing. Anyway, i write the post just to say i love it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>where enum does not work !!!</title>
       <link>/2006/12/20/where-enum-does-not-work/</link>
       <pubDate>Wed, 20 Dec 2006 12:25:00 +0000</pubDate>
       <guid>/2006/12/20/where-enum-does-not-work/</guid>
-      <description>I was writing a generic method with enum as the Constraint, and the compiler spat a few errors that did not directly convey me that enums cannot used as generic constraints.</description>
+      <description>&lt;p&gt;I was writing a &lt;a href=&#34;http://msdn2.microsoft.com/en-us/library/0x6a29h6.aspx&#34;&gt;generic&lt;/a&gt; method with &lt;code&gt;enum&lt;/code&gt; as the &lt;a href=&#34;http://msdn2.microsoft.com/en-us/library/d5x73970.aspx&#34;&gt;Constraint&lt;/a&gt;, and the compiler spat a few errors that did not directly convey me that &lt;code&gt;enum&lt;/code&gt;s cannot used as generic constraints. I learnt the following from my investigation:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Overloading - A Matter Of Taste !!!</title>
       <link>/2006/12/20/overloading-a-matter-of-taste/</link>
       <pubDate>Wed, 20 Dec 2006 12:21:00 +0000</pubDate>
       <guid>/2006/12/20/overloading-a-matter-of-taste/</guid>
-      <description>This was a pretty interesting discussion about method overloading in the managed world.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244&#34;&gt;This&lt;/a&gt; was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fooled by the Activator !!!</title>
       <link>/2006/07/07/fooled-by-the-activator/</link>
       <pubDate>Fri, 07 Jul 2006 01:56:00 +0000</pubDate>
       <guid>/2006/07/07/fooled-by-the-activator/</guid>
-      <description>It was interesting to know that a custom exception, say an exception class derived from System.</description>
+      <description>&lt;p&gt;It was interesting to know that a custom exception, say an exception class derived from &lt;a href=&#34;http://msdn2.microsoft.com/en-us/library/system.applicationexception.aspx&#34;&gt;System.ApplicationException&lt;/a&gt;, thrown while creating an instance of a type using Activator.CreateInstance does not get caught in its appropriate exception handler, instead gets caught in the global exception handler &lt;code&gt;catch(Exception ex)&lt;/code&gt;, if provided. Any exception raised while creating an instance of the loaded type is wrapped inside a new exception object as &lt;code&gt;InnerException&lt;/code&gt; by &lt;code&gt;Activator&lt;/code&gt;.&lt;code&gt;CreateInstance&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Properties C# 2.0 – Not Elegant Enough !!!</title>
       <link>/2006/06/03/properties-c-2-0-not-elegant-enough/</link>
       <pubDate>Sat, 03 Jun 2006 06:59:00 +0000</pubDate>
       <guid>/2006/06/03/properties-c-2-0-not-elegant-enough/</guid>
-      <description>Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers.</description>
+      <description>&lt;p&gt;&lt;span style=&#34;font-family:Georgia;font-size:100%;&#34;&gt;Prior to .NET 2.0, there wasn’t the facility in C# to opt the visibility level for the get and set property or indexers. And i take my comment in &lt;/span&gt;&lt;span style=&#34;font-family:Georgia;font-size:100%;&#34;&gt;&lt;a href=&#34;http://developerexperience.blogspot.com/2006/04/properties-in-cclithe-c-look-alike.html&#34;&gt;my previous post&lt;/a&gt;&lt;/span&gt;&lt;span style=&#34;font-size:100%;&#34;&gt;&lt;span style=&#34;font-family:Georgia;&#34;&gt; that C# does not provide the facility of having different visibility levels for the get and set accessors. While that is partly correct, it is no more in C# 2.0.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Singularity – Safety &amp; Speed !!!</title>
       <link>/2006/06/02/singularity-safety-speed/</link>
       <pubDate>Fri, 02 Jun 2006 19:54:00 +0000</pubDate>
       <guid>/2006/06/02/singularity-safety-speed/</guid>
-      <description>I read about this interesting thing somewhere in MSDN.&#xA;There are two types of programming or programming languages.</description>
+      <description>&lt;p&gt;I read about this interesting thing somewhere in MSDN.&lt;/p&gt;&#xA;&lt;p&gt;There are two types of programming or programming languages. The good old C/C++ kind called the unsafe programming languages, and the other is the safe programming type which we realised very much after advent of Java/C#. And there has always been debate about safety and speed. And neither of the two has won.&lt;/p&gt;</description>
     </item>
     <item>
       <title>out, ref and InvokeMember !!!</title>
       <link>/2006/05/12/out-ref-and-invokemember/</link>
       <pubDate>Fri, 12 May 2006 02:26:00 +0000</pubDate>
       <guid>/2006/05/12/out-ref-and-invokemember/</guid>
-      <description>When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.</description>
+      <description>&lt;p&gt;When I was working on the .NET reflection extravaganza thing that I explained in my previous column, i learnt one another interesting thing, that is about the Type.InvokeMember. How will pass out or ref parameters for the method invoked using Type.InvokeMember ? If you are going to invoke a method with the prototype&lt;/p&gt;</description>
     </item>
     <item>
       <title>.NET Reflection Extravanganza !!!</title>
@@ -881,154 +888,154 @@
       <link>/2006/05/04/where-is-my-c/</link>
       <pubDate>Thu, 04 May 2006 06:11:00 +0000</pubDate>
       <guid>/2006/05/04/where-is-my-c/</guid>
-      <description>I have been using C# for quite some time now, and that too VS 2005.</description>
+      <description>&lt;p&gt;I have been using C# for quite some time now, and that too VS 2005. I see that Programming Pain at a macro level has boiled down to thinking than coding. Though it might be an advantage on one side, I feel I have become lazy. Since I am a programmer from the C++ world, it was very easy to become lazy. The small and handy applications that I write for myself in C++, I am writing them in C#. Even now I am a great disciple of C++. And even though C++/CLI is out there, and I work a small amount of it in my project, I am getting inclined to C#.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Infinite .NET Languages !!!</title>
       <link>/2006/04/29/infinite-net-languages/</link>
       <pubDate>Sat, 29 Apr 2006 02:39:00 +0000</pubDate>
       <guid>/2006/04/29/infinite-net-languages/</guid>
-      <description>Though I knew that there are quite a few languages for the .</description>
+      <description>&lt;p&gt;Though I knew that there are quite a few languages for the .NET platform, I came to know when surfing today that there are many well beyond my knowledge, most surprisingly like the COBOL.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Implementing COM OutOfProc Servers in C# .NET !!!</title>
       <link>/2006/04/29/implementing-com-outofproc-servers-in-c-net/</link>
       <pubDate>Sat, 29 Apr 2006 02:34:00 +0000</pubDate>
       <guid>/2006/04/29/implementing-com-outofproc-servers-in-c-net/</guid>
-      <description>Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .</description>
+      <description>&lt;p&gt;Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .NET assembly. This is worth knowing.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Non-conventional Window Shapes [I love C#] !!!</title>
       <link>/2006/04/15/non-conventional-window-shapes-i-love-c/</link>
       <pubDate>Sat, 15 Apr 2006 05:48:00 +0000</pubDate>
       <guid>/2006/04/15/non-conventional-window-shapes-i-love-c/</guid>
-      <description>I am not a UI guy. More specifically, I love to work with UIs.</description>
+      <description>&lt;p&gt;I am not a UI guy. More specifically, I love to work with UIs. I think (only) a UI can give a better picture of the system in a multitasking environment unlike Unix. I do not say I hate Unix. And I do not like to work on UIs ie program on UIs cuz I do not know much. But have always wanted to create a non-conventional window, say an elliptical one. .NET made things like that very easy for guys like me. Look at the code below for creating a ellipitcal window.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Serialization and Exceptions !!!</title>
       <link>/2006/04/15/serialization-and-exceptions/</link>
       <pubDate>Sat, 15 Apr 2006 00:23:00 +0000</pubDate>
       <guid>/2006/04/15/serialization-and-exceptions/</guid>
-      <description>I am just like Alice in Wonderland, and not yet got out of the wonders of the .</description>
+      <description>&lt;p&gt;I am just like Alice in Wonderland, and not yet got out of the wonders of the .NET framework, C# and the VS 2003(5) IDE. I thought that the serialization is all not my thing until I do something big in C#. I had written this custom exception class in my project that has 3 processes connected by .NET Remoting Infrastructure. I throw my custom exception for a scenario but all I got was some other exception:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Know where you initialize and Do not forget to uninitialize !!!</title>
       <link>/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</link>
       <pubDate>Tue, 11 Apr 2006 04:33:00 +0000</pubDate>
       <guid>/2006/04/11/know-where-you-initialize-and-do-not-forget-to-uninitialize/</guid>
-      <description>If you have long been programming in C++/COM and then you move to C#.</description>
+      <description>&lt;p&gt;If you have long been programming in C++/COM and then you move to C#.NET, the first difference you can feel is that you got a ctor for the object you create unlike the CoCreateInstance. In the C++/COM world, you generally would have a &lt;code&gt;Initialize&lt;/code&gt; method to do the construction sort of, paired with &lt;code&gt;Terminate&lt;/code&gt;/&lt;code&gt;Uninitialize&lt;/code&gt; method. Similar is the case with singleton classes. For singleton classes in C++, you will have &lt;code&gt;public static Instance&lt;/code&gt; or &lt;code&gt;GetInstance&lt;/code&gt; method to get the only and one instance of the class and then use the initialize method to do the construction. This is certainly advantageous than the ctor facility in .NET, since you will not know when the instance will be initialized without the initialize method. Any call like &lt;code&gt;SingletonClass&lt;/code&gt;.&lt;code&gt;GetInstance()&lt;/code&gt;.SomeMethod may initialize the singleton anywhere and you will not exactly do the initialization during the application startup, which in many cases will lead to application errors after startup.&lt;/p&gt;</description>
     </item>
     <item>
       <title>An encounter with Hashtables !!!</title>
       <link>/2006/04/11/an-encounter-with-hashtables/</link>
       <pubDate>Tue, 11 Apr 2006 04:26:00 +0000</pubDate>
       <guid>/2006/04/11/an-encounter-with-hashtables/</guid>
-      <description>I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value.</description>
+      <description>&lt;p&gt;I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value. I used the some of the facilities – enumerator, the Keys property etc provided by the hash table itself but it did not work out, and I spent too much time on this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Note On Finalize !!!</title>
       <link>/2006/04/11/a-note-on-finalize/</link>
       <pubDate>Tue, 11 Apr 2006 04:12:00 +0000</pubDate>
       <guid>/2006/04/11/a-note-on-finalize/</guid>
-      <description>This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .</description>
+      <description>&lt;p&gt;This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .NET runtime. A few important things that are to be noted about finalizers are:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Explicit Interface Implementation !!!</title>
       <link>/2006/04/11/explicit-interface-implementation/</link>
       <pubDate>Tue, 11 Apr 2006 04:06:00 +0000</pubDate>
       <guid>/2006/04/11/explicit-interface-implementation/</guid>
-      <description>I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.</description>
+      <description>&lt;p&gt;I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Interface Based Programming Argument !!!</title>
       <link>/2006/04/11/the-interface-based-programming-argument/</link>
       <pubDate>Tue, 11 Apr 2006 04:03:00 +0000</pubDate>
       <guid>/2006/04/11/the-interface-based-programming-argument/</guid>
-      <description>I am always a great fan of interface programming. I mean not exactly the interface keyowrd but some way to expose the functionality of the class or your module relieving the user about the worries of the implementation.</description>
+      <description>&lt;p&gt;I am always a great fan of interface programming. I mean not exactly the interface keyowrd but some way to expose the functionality of the class or your module relieving the user about the worries of the implementation. But definitely make him curious of the stuff inside.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Properties in C&#43;&#43;/CLI….The C# look alike !!!</title>
       <link>/2006/04/11/properties-in-ccli-the-c-look-alike/</link>
       <pubDate>Tue, 11 Apr 2006 03:56:00 +0000</pubDate>
       <guid>/2006/04/11/properties-in-ccli-the-c-look-alike/</guid>
-      <description>Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.</description>
+      <description>&lt;p&gt;Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#. And could not resist myself writing property like syntax in C++ [ofcourse C++/CLI, threw away the ugly Managed C++ before it was too late for my code to grow into a tree]. Then I learnt that properties are supported in C++.NET too but as always in the ugly way. But in C++/CLI, I was happy enough that the syntax is more elegantly redefined. For instance, there was this boolean member &lt;code&gt;logToStdError&lt;/code&gt; in my class, and in my legacy code, the property definition for &lt;code&gt;logToStdError&lt;/code&gt; looked like:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Managed Debugging Assistant !!!</title>
       <link>/2006/04/11/managed-debugging-assistant/</link>
       <pubDate>Tue, 11 Apr 2006 03:52:00 +0000</pubDate>
       <guid>/2006/04/11/managed-debugging-assistant/</guid>
-      <description>The Loader Lock is a synchronization object that hepls to provide mutual exclusion during DLL loading and unloading.</description>
+      <description>&lt;p&gt;The Loader Lock is a synchronization object that hepls to provide mutual exclusion during DLL loading and unloading. It helps to prevent DLLs being re-entered before they are completely initialized [in the DLLMain].&lt;/p&gt;</description>
     </item>
     <item>
       <title>Do not delete [] a scalar pointer !!!</title>
       <link>/2006/03/27/do-not-delete-a-scalar-pointer/</link>
       <pubDate>Mon, 27 Mar 2006 20:28:00 +0000</pubDate>
       <guid>/2006/03/27/do-not-delete-a-scalar-pointer/</guid>
-      <description>Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer.</description>
+      <description>&lt;p&gt;Recently I got tangled into this problem in my code – Calling a vector dtor for a scalar pointer. We all know that it is perfectly illegal to do that. For example, if we allocate something like this:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Where do you QueryInterface ???</title>
       <link>/2006/03/27/where-do-you-queryinterface/</link>
       <pubDate>Mon, 27 Mar 2006 00:23:00 +0000</pubDate>
       <guid>/2006/03/27/where-do-you-queryinterface/</guid>
-      <description>For an ATL class, the QueryInterface is implemented in CComObject. The figure below is the inheritance hierarchy for a class generated by the wizard representing an ATL-COM object.</description>
+      <description>&lt;p&gt;For an ATL class, the QueryInterface is implemented in CComObject. The figure below is the inheritance hierarchy for a class generated by the wizard representing an ATL-COM object.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Of Class Factories !!!</title>
       <link>/2006/03/27/use-of-class-factories/</link>
       <pubDate>Mon, 27 Mar 2006 00:22:00 +0000</pubDate>
       <guid>/2006/03/27/use-of-class-factories/</guid>
-      <description>To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object.</description>
+      <description>&lt;p&gt;To understand quickly and to explain in the simplest way, Class Factories are the factory classes that create a COM object. A class factory may be responsible for creating one or more COM objects. In the case of COM OutOfProc servers, the server registers the class factories for objects that it can create in a system-global table using CoRegisterClassObject. Whenever a client does &lt;code&gt;CoGetClassObject&lt;/code&gt; for a &lt;code&gt;CLSID&lt;/code&gt;, the COM run-time can look it up in the system global table, and return the factory instance. The case with InProc servers is also similar but through the &lt;code&gt;DLLGetClassObject&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unsafe Operations with STL !!!</title>
       <link>/2006/03/27/unsafe-operations-with-stl/</link>
       <pubDate>Mon, 27 Mar 2006 00:19:00 +0000</pubDate>
       <guid>/2006/03/27/unsafe-operations-with-stl/</guid>
-      <description>It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its existing element.</description>
+      <description>&lt;p&gt;It is UNSAFE to do any operation on an STL container that will modify its size while holding a reference to one of its existing element. What could happen is, when you do an operation, say push_back on a vector, it determines if there is enough space available to add a new element. If there is not sufficient space available, it allocates new space for whole of the data structure and deletes the old buffer. At this point, any reference to one of its elements created prior to push_back would have gotten corrupted.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Consoles for Mr.GUI !!!</title>
       <link>/2006/03/27/consoles-for-mr-gui/</link>
       <pubDate>Mon, 27 Mar 2006 00:13:00 +0000</pubDate>
       <guid>/2006/03/27/consoles-for-mr-gui/</guid>
-      <description>Learnt something new, a small one but very useful.&#xA;Many times I have seen GUI applications accompanied by console windows that show logs or trace information of the application.</description>
+      <description>&lt;p&gt;Learnt something new, a small one but very useful.&lt;br&gt;&#xA;Many times I have seen GUI applications accompanied by console windows that show logs or trace information of the application. How do we do that for our application ?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting Environment Variables !!!</title>
       <link>/2006/03/27/setting-environment-variables/</link>
       <pubDate>Mon, 27 Mar 2006 00:11:00 +0000</pubDate>
       <guid>/2006/03/27/setting-environment-variables/</guid>
-      <description>Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine.</description>
+      <description>&lt;p&gt;Need to change or set the value of an environment variable programmatically and without the need to restart/log off the machine. I need the change to reflect for all processes, ie, I need to change the global environment value and not the one in the PEB [Process Environment Block] of a process. Frustated with setting the value of an environment variable !!!&lt;/p&gt;</description>
     </item>
     <item>
       <title>CoMarshal ... Working in NT, Not in XP !!!</title>
       <link>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</link>
       <pubDate>Sun, 26 Mar 2006 00:48:00 +0000</pubDate>
       <guid>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</guid>
-      <description>Problem:&#xA;I have created a multi-threaded application which works without any problems on a NT-4.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;I have created a multi-threaded application which works without any problems on a NT-4.0 Workstation/Server. When I try to run the same application in Windows XP, I get an error in a call to &lt;code&gt;CoMarshalInterThreadInterfaceInStream&lt;/code&gt; which returns &lt;code&gt;-2147418113&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Consts in .NET !!!</title>
       <link>/2006/03/26/consts-in-net/</link>
       <pubDate>Sun, 26 Mar 2006 00:37:00 +0000</pubDate>
       <guid>/2006/03/26/consts-in-net/</guid>
-      <description>I was doing some programming with C# and I had to use some ‘const’s as everybody does generally in programming.</description>
+      <description>&lt;p&gt;I was doing some programming with C# and I had to use some ‘const’s as everybody does generally in programming. I had a class that simply had const string variables for my DB table names and stuff like that. My program was not working well and I started debugging and in the debugger, I was shocked to see that the const variables did not show the string values I had assigned. I did rebuilt and other non-sensical stuff like that until I learnt this about the consts in .NET:- ‘const’ variables in .NET do not exist as variables out of the assembly they exist in. Instead, during compilation, they get embedded [hard-coded] where ever you use them, and so when you debug, you do not see the proper value that you had assigned. For debugging purposes you have to output diagnostic trace messages and verify.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Joining the Game</title>
       <link>/2005/04/19/joining-the-game/</link>
       <pubDate>Tue, 19 Apr 2005 17:25:00 +0000</pubDate>
       <guid>/2005/04/19/joining-the-game/</guid>
-      <description>Everything has a beginning.</description>
+      <description>&lt;p&gt;Everything has a beginning.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quotations</title>
       <link>/quotations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/quotations/</guid>
-      <description> </description>
+      <description>&lt;style&gt;&#xA;&#xA;.quote {&#xA;  border: 1px solid rgb(128 0 0 / 0.18);&#xA;  border-radius: 8px;&#xA;  padding: 20px 35px;&#xA;  margin: 10px auto;&#xA;  min-height: 100px;&#xA;  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;&#xA;}&#xA;&#xA;.quote .title {&#xA;  font-family: Libre Baskerville, serif !important;&#xA;  font-size: 28px;&#xA;  line-height: 1.6;&#xA;}&#xA;&#xA;.quote .author-row {&#xA;  display: flex;&#xA;  justify-content: space-between;&#xA;  align-items: stretch;&#xA;  flex-direction: row;&#xA;  flex-wrap: nowrap;&#xA;}&#xA;&#xA;.quote .author-row .author-name {&#xA;  font-family: fantasy;&#xA;  font-size: 14px;&#xA;  font-weight: bold;&#xA;}&#xA;&#xA;.quote .author-row .quote-index {&#xA;  font-weight: bold;&#xA;  font-size: 120%;&#xA;  opacity: 0;&#xA;}&#xA;&#xA;.quote:hover .quote-index {&#xA;  opacity: 50%;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#xA;&lt;script&gt;&#xA;function renderAuthor(quote) {&#xA;    const authorName = quote.length &gt; 1 ? quote[1] : null;&#xA;&#xA;    if (authorName == null) return &#39;&#39;&#xA;    else {&#xA;      const authorNameElement = authorName ? `&lt;span class=&#34;author-name&#34;&gt;${authorName}&lt;/span&gt;` : null;&#xA;      const authorLink = quote.length &gt; 2 ? quote[2] : null;&#xA;&#xA;      return authorLink ?&#xA;        `&lt;a href=&#34;${authorLink}&#34;&gt;${authorNameElement}&lt;/a&gt;` :&#xA;        authorNameElement;&#xA;    }&#xA;  }&#xA;&#xA;  function renderQuote(quote, index) {&#xA;    const title = quote[0];&#xA;    const titleElement = `&lt;div class=&#34;title&#34;&gt;{title}&lt;/div&gt;`;&#xA;    const authorElement = renderAuthor(quote);&#xA;&#xA;    /*return `&lt;div class=&#34;quote quote-${index}&#34;&gt;&#xA;      &lt;p id=&#34;quote-${index}&#34; class=&#34;title&#34;&gt;${title}&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

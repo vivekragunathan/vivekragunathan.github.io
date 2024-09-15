@@ -34,14 +34,14 @@
       <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting reminded of the reminder !!!</title>
       <link>/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       <guid>/2014/05/23/android-reminder/</guid>
-      <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
+      <description>&lt;p style=&#39;font-family:Open Sans;&#39;&gt;&#xA;  I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification &lt;i&gt;reminding you of a reminder&lt;/i&gt;. It says &amp;#8220;Upcoming alarm &amp;#8211; Buy Milk&amp;#8221;, where Buy Milk is the reminder I had set.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
@@ -62,14 +62,14 @@
       <link>/2012/04/24/smsfwupdate/</link>
       <pubDate>Mon, 23 Apr 2012 18:35:56 +0000</pubDate>
       <guid>/2012/04/24/smsfwupdate/</guid>
-      <description>I gave SMS FireWall a refresh with a couple of features requested by users:- An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list.</description>
+      <description>&lt;div style=&#34;text-align:left;&#34; dir=&#34;ltr&#34;&gt;&#xA;  &lt;div style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    I gave &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.vivekr.smsfirewall&#34; target=&#34;_blank&#34;&gt;SMS FireWall&lt;/a&gt; a refresh with a couple of features requested by users:-&#xA;  &lt;/div&gt;&#xA;  &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    &lt;li&gt;&#xA;      An option &amp;#8216;Allow and Move&amp;#8217; in the settings screen, which when checked moves the messages from the quarantine vault when opted to be added to the allowed list. Although it might be clear to you, let me explain it in a few words how it works. When you long press a sender in the quarantine vault, a menu with two options appear &amp;#8211; Allow, Delete. When &amp;#8216;Allow&amp;#8217; is clicked, the sender is added to the allowed list. And when the &amp;#8216;Allow and Move&amp;#8217; setting is checked, the messages from this sender are moved to the inbox.&#xA;    &lt;/li&gt;&#xA;  &lt;/ul&gt;&#xA;  &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;    &lt;li&gt;&#xA;      A confirmation dialog prompt when attempted to empty the quarantine vault&#xA;    &lt;/li&gt;&#xA;  &lt;/ul&gt;&#xA;  &lt;div&gt;&#xA;    &lt;ul style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;      &lt;li&gt;&#xA;        A few minor (internal) improvements&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;div style=&amp;quot;font-family:Tahoma;font-size:11pt;&amp;quot;&amp;gt;&#xA;  Hope they are useful to others too. And let me know if you need any other features to be in the application.&#xA;&amp;lt;/div&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Unique Id Generation !!!</title>
       <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       <guid>/2012/03/09/uid-gen/</guid>
-      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
+      <description>&lt;p&gt;A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction. I am little dumb and am used to GUIDs for a long time when it comes to unique ids. But GUIDs are more than 30 in length. I was trying out some stupid ways like stripping out the trail part of the GUID to make 30 length unique but my intuition wasn’t convinced about the tricks I was working out.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

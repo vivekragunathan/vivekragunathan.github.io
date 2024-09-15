@@ -20,7 +20,7 @@
       <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Partial Classes – Java ???</title>
@@ -55,154 +55,154 @@
       <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       <guid>/posts/secret-of-cpp-unified-syntax/</guid>
-      <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
+      <description>&lt;p&gt;A long time back, in one of my posts here&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I had discussed about Extension Methods&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; … in C++; sorta! It seems that the grand daddy, Bjarne Stroustoup&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;, had read my post, and was impressed. So he has published a paper – Call syntax&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;: &lt;code&gt;x.f(y)&lt;/code&gt; vs. &lt;code&gt;f(x,y)&lt;/code&gt;. Good thing except I don’t like the idea of assuming &lt;code&gt;x.f(y)&lt;/code&gt; for &lt;code&gt;f(x, y)&lt;/code&gt; while the reverse is the actual idea of extension methods. You will know when you read his paper. It seems the commander, Herb Sutter&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;, also was impressed with my post. Not only that he too doesn’t seem to like the &lt;code&gt;x.f(y)&lt;/code&gt; for f(x, y) idea. Great men think alike. LOL! So he published his paper – &lt;strong&gt;Unified Syntax&lt;/strong&gt;&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;. How is that?&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Simple Tree List View !!!</title>
       <link>/2014/10/05/simple-tlv/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       <guid>/2014/10/05/simple-tlv/</guid>
-      <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
+      <description>&lt;p&gt;Digging up stash is one of the best pass times. You know you never know what you will find. I had an article written quite some time back but had not posted it anywhere. Not sure why. I posted it at CodeProject – &lt;a href=&#34;http://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View&#34; target=&#34;_blank&#34;&gt;A Simple Tree List View&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Offering __FILE__ and __LINE__ for C# !!!</title>
       <link>/2012/09/09/caller_info_in_cs/</link>
       <pubDate>Sat, 08 Sep 2012 18:30:40 +0000</pubDate>
       <guid>/2012/09/09/caller_info_in_cs/</guid>
-      <description>Not the same way but we could say better.&#xA;Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.</description>
+      <description>&lt;p&gt;Not the same way but we could say better.&lt;/p&gt;&#xA;&lt;p&gt;Visual Studio 2012, another power packed release of Visual Studio, among a lot of other powerful fancy language features, offers the ability to deduce the method caller details at compile time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OrderedThreadPool – Bug Fix !!!</title>
       <link>/2012/04/14/otp-bug-fix/</link>
       <pubDate>Fri, 13 Apr 2012 19:50:01 +0000</pubDate>
       <guid>/2012/04/14/otp-bug-fix/</guid>
-      <description>Hugh pointed out a bug in the OrderedThreadPool.&#xA;I think there is a small window for error in the OrderedThreadPool class.</description>
+      <description>&lt;p&gt;Hugh pointed out a &lt;a href=&#34;http://www.blogger.com/comment.g?blogID=11793007&amp;amp;postID=8394495887151499024&#34;&gt;bug&lt;/a&gt; in the &lt;a href=&#34;/2009/03/18/ordered-thread-pool&#34;&gt;OrderedThreadPool&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I think there is a small window for error in the OrderedThreadPool class. Basically, if an item of work is queued, then a worker thread runs, takes the item off the queue and is about to call &lt;code&gt;wcb(state)&lt;/code&gt; – but at that instant is (say) context switched. Then another item gets queued and another worker thread runs and dequeues the item and then again is about to call &lt;code&gt;wcb(state)&lt;/code&gt;. There is scope here for the two operations to run concurrently or even out of order…&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unique Id Generation !!!</title>
       <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       <guid>/2012/03/09/uid-gen/</guid>
-      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
+      <description>&lt;p&gt;A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction. I am little dumb and am used to GUIDs for a long time when it comes to unique ids. But GUIDs are more than 30 in length. I was trying out some stupid ways like stripping out the trail part of the GUID to make 30 length unique but my intuition wasn’t convinced about the tricks I was working out.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Android meets .NET</title>
       <link>/posts/android-meets-net/</link>
       <pubDate>Sun, 21 Aug 2011 13:07:44 +0000</pubDate>
       <guid>/posts/android-meets-net/</guid>
-      <description>It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android?</description>
+      <description>&lt;p&gt;It is always fun to program in C# (besides C++). If so, how would I feel if I was able to program in C# on Android? You may be wondering what in the world I am talking about. Android development environment is all Java and open source stuff. How could this Microsoft thing fit onto it? Well, it seems that some clever guys&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; had huddled up and ported Mono for Android, developed .NET libraries for the Android SDK, and also supplemented it with a &lt;em&gt;Mono for Android&lt;/em&gt; project template in Visual Studio. Thus we relish writing C# code for Android.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Anonymous Classes vs Delegates !!!</title>
       <link>/2011/03/08/anonymous-classes-vs-delegates/</link>
       <pubDate>Tue, 08 Mar 2011 17:10:16 +0000</pubDate>
       <guid>/2011/03/08/anonymous-classes-vs-delegates/</guid>
-      <description>I am not a java programmer. By that, I do not mean I am against Java.</description>
+      <description>&lt;p&gt;I am not a java programmer. By that, I do not mean I am against Java. As a programmer by profession and passion, I try to learn things along the way. That includes a little of bit of Java. I should say that my proper encounter, so to say, with Java is a simple application that I am trying out with Android. There might be some hard core differences and/or limitations in the Android version of Java. But I am almost certain that I am using only primary level features of Java.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Invoking methods with out and ref – Finale !!!</title>
       <link>/2010/12/21/out-ref-finale/</link>
       <pubDate>Tue, 21 Dec 2010 13:24:39 +0000</pubDate>
       <guid>/2010/12/21/out-ref-finale/</guid>
-      <description>Alright, it is a long wait. And I am going to keep it short.</description>
+      <description>&lt;p&gt;Alright, it is a long wait. And I am going to keep it short.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Invoking methods with Out and Ref (Part 2) !!!</title>
       <link>/2010/10/28/outref2/</link>
       <pubDate>Thu, 28 Oct 2010 17:22:39 +0000</pubDate>
       <guid>/2010/10/28/outref2/</guid>
-      <description>Straight to code&amp;#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!</description>
+      <description>&lt;p style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  Straight to code&amp;#8230;..&#xA;&lt;/p&gt;&#xA;&lt;pre style=&#34;color:blue;font-family:Consolas;font-size:11pt;&#34;&gt;int SomeMethod(string arg1,&#xA;    string arg2,&#xA;    ref DayOfWeek arg3)&#xA;{&#xA;    // Wildest implementation!&#xA;}&lt;/pre&gt;&#xA;&lt;p style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  The above method had to be executed on its dispatcher thread. So let unravel a bit of the wildest implementation above.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Thinking Currying</title>
       <link>/posts/thinking-currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       <guid>/posts/thinking-currying/</guid>
-      <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
+      <description>&lt;p&gt;&lt;em&gt;Currying&lt;/em&gt; is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers &lt;code&gt;1&lt;/code&gt; through &lt;code&gt;10&lt;/code&gt;, what would you do? Class II mathematics -&lt;code&gt;0&lt;/code&gt; in hand, &lt;code&gt;1&lt;/code&gt; in the mind, add &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;1&lt;/code&gt;, so &lt;code&gt;1&lt;/code&gt; in the mind, then &lt;code&gt;2&lt;/code&gt; in the hand, &amp;hellip; up to &lt;code&gt;10&lt;/code&gt;. So we compute the addition with one argument at a time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Missing MI !!!</title>
       <link>/2010/03/05/missing-mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       <guid>/2010/03/05/missing-mi/</guid>
-      <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
+      <description>&lt;p&gt;We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.&lt;/p&gt;</description>
     </item>
     <item>
       <title>sizeof vs Marshal.SizeOf !!!</title>
       <link>/2009/12/30/sizeof-vs-marshal-sizeof/</link>
       <pubDate>Tue, 29 Dec 2009 22:25:00 +0000</pubDate>
       <guid>/2009/12/30/sizeof-vs-marshal-sizeof/</guid>
-      <description>There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.</description>
+      <description>&lt;p&gt;There are two facilities in C# to determine the size of a type – &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/eahchzkf.aspx&#34;&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;/a&gt; operator and&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/5s4920fa.aspx&#34;&gt;&lt;code&gt;Marshal.SizeOf&lt;/code&gt;&lt;/a&gt; method. Let us discuss what they offer and how they differ.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Curious Case Of Anonymous Delegates !!!</title>
       <link>/2009/09/02/anondelegates/</link>
       <pubDate>Wed, 02 Sep 2009 18:29:00 +0000</pubDate>
       <guid>/2009/09/02/anondelegates/</guid>
-      <description>Senthil has left us thrilled in his new post, and also inspired me to write about the topic.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://msmvps.com/blogs/senthil/default.aspx&#34; target=&#34;_blank&#34;&gt;Senthil&lt;/a&gt; has left us thrilled in his &lt;a href=&#34;http://msmvps.com/blogs/senthil/archive/2009/09/01/anonymous-methods-as-event-handlers-part-1.aspx&#34; target=&#34;_blank&#34;&gt;new post&lt;/a&gt;, and also inspired me to write about the &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/0yw3tz5k(VS.80).aspx&#34; target=&#34;_blank&#34;&gt;topic&lt;/a&gt;. Although, anonymous delegates have become a mundane stuff amongst programmers, there is still these subtle stuff left unexplored. Alright, let us try to answer Senthil’s question before he unravels the mystery in his next post.&lt;/p&gt;</description>
     </item>
     <item>
       <title>finally and Return Values !!!</title>
       <link>/2009/07/02/finally-and-return-values/</link>
       <pubDate>Wed, 01 Jul 2009 21:07:00 +0000</pubDate>
       <guid>/2009/07/02/finally-and-return-values/</guid>
-      <description>Let us read some code:-&#xA;int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?</description>
+      <description>&lt;DIV style=&#34;font-family:Tahoma;font-size:11pt;&#34;&gt;&#xA;  Let us read some code:-&lt;/p&gt;&#xA;  &lt;pre class=&#34;brush: c-sharp;&#34; style=&#34;font-family:Consolas;font-size:11pt;&#34;&gt;int SomeMethod()&#xA;{&#xA;    int num = 1;&#xA;&#xA;    try&#xA;    {&#xA;        num = 5;&#xA;        return num;&#xA;    }&#xA;    finally&#xA;    {&#xA;        num += 5;&#xA;    }&#xA;}&lt;/pre&gt;&#xA;  &lt;p&gt;&#xA;    What is the return value of SomeMethod? Some anonymous guy asked that question in the code project forum, and it has been answered. I am writing about it here because it is interesting and subtle. One should not be surprised when people misinterpret finally. So let us take a guess, 10 (i = 5, then incremented by 5 in the finally block).It is not the right answer; rather SomeMethod returns 5. Agreed that finally is called in all cases of returning from SomeMethod but the return value is calculated when it is time to return from SomeMethod, normally or abnormally. The subtlety lies not in the way finally is executed but in the return value is calculated. So the return value (5) is decided when a return is encountered in the try block. The finally is just called for cleanup; and the num modified there is local to SomeMethod. So make the return value 10, it is no use being hasty making&lt;br /&gt; SomeMethod return from the finally block. Because returning from finally is not allowed. (We will talk about it later why returning from catch block is a bad practice&lt;br /&gt; and why can&#39;t we return from finally block). Had such modifications been done on a reference type, they would have been visible outside of SomeMethod, although the return value may be different. For instance,&#xA;  &lt;/p&gt;</description>
     </item>
     <item>
       <title>OrderedThreadPool – Task Execution In Queued Order !!!</title>
       <link>/2009/03/18/ordered-thread-pool/</link>
       <pubDate>Wed, 18 Mar 2009 03:35:00 +0000</pubDate>
       <guid>/2009/03/18/ordered-thread-pool/</guid>
-      <description>I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc.</description>
+      <description>&lt;p&gt;I would not want to write chunks of code to spawns threads and perform many of my background tasks such as firing events, UI update etc. Instead I would use the System.Threading.ThreadPool class which serves this purpose. And a programmer who knows to use this class for such cases would also be aware that the tasks queued to the thread pool are NOT dispatched in the order they are queued. They get dispatched for execution in a haphazard fashion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Settling Casting Restrictions !!!</title>
       <link>/2009/02/06/settling-casting-restrictions/</link>
       <pubDate>Thu, 05 Feb 2009 20:31:00 +0000</pubDate>
       <guid>/2009/02/06/settling-casting-restrictions/</guid>
-      <description>Remember the Casting Restrictions we discussed a while back, let us settle that now.</description>
+      <description>&lt;p style=&#34;font-family:Tahoma;&#34;&gt;&#xA;  Remember the Casting Restrictions we discussed a while back, let us settle that now. So we have some code like this:&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Casting Restrictions ???</title>
       <link>/2008/11/22/casting-restrictions/</link>
       <pubDate>Sat, 22 Nov 2008 11:43:00 +0000</pubDate>
       <guid>/2008/11/22/casting-restrictions/</guid>
-      <description>We all know that the runtime can detect the actual type of a System.</description>
+      <description>&lt;p&gt;We all know that the runtime can detect the actual type of a &lt;code&gt;System.Object&lt;/code&gt; instance. The primitive data types provided by the runtime are compatible with one another for casting (assuming that we do not truncate the values). So if I have an &lt;code&gt;int&lt;/code&gt;, it can be cast to &lt;code&gt;long&lt;/code&gt; or &lt;code&gt;ulong&lt;/code&gt;. All that is fine. Watch this:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Understanding (ref)erences !!!</title>
       <link>/2008/09/26/understanding-references/</link>
       <pubDate>Fri, 26 Sep 2008 17:03:00 +0000</pubDate>
       <guid>/2008/09/26/understanding-references/</guid>
-      <description>Let us take a look at the following piece of code:-</description>
+      <description>&lt;p&gt;Let us take a look at the following piece of code:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>Extension Methods – A Polished C&#43;&#43; Feature</title>
       <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
+      <description>&lt;p&gt;Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type. Why do we need extension methods anyway ? Ok, that is the big story of lamba and LINQ. But from a conceptual standpoint, the extension methods establish a mechanism to extend the public interface of a type. The compiler is smart enough to make the method a part of the public interface of the type. Yeah, that is what it does, and the intellisense is very cool in making us believe that. It is cleaner and easier (for the library developers and for us programmers even) to add extra functionality (methods) not provided in the type. That is the intent. And we know that was exercised extravagantly in LINQ. The IEnumerable was extended with a whole lot set of methods to aid the LINQ design. Remember the &lt;code&gt;Where&lt;/code&gt;, &lt;code&gt;Select&lt;/code&gt; etc methods on &lt;code&gt;IEnumerable&lt;/code&gt;. An example code snippet is worth a thousand words:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Surprising Finalize Call !!!</title>
       <link>/2007/02/22/the-surprising-finalize-call/</link>
       <pubDate>Wed, 21 Feb 2007 20:27:00 +0000</pubDate>
       <guid>/2007/02/22/the-surprising-finalize-call/</guid>
-      <description>Guess the output of the following program:-&#xA;class SomeClass : IDisposable { public SomeClass() { Trace.</description>
+      <description>&lt;p&gt;Guess the output of the following program:-&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;SomeClass&lt;/span&gt; : IDisposable&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; SomeClass()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass - Attempting instance creation&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Exception(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Ohh !!! Not Now&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;void&lt;/span&gt; Dispose()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass::Dispose&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;~SomeClass()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SomeClass::Finalizer&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Main(&lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; args[]){&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;try&lt;/span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;SomeClass sc = &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; SomeClass();&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#ff79c6&#34;&gt;catch&lt;/span&gt;(Exception ex){&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;Trace.WriteLine(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Main - {0}&amp;#34;&lt;/span&gt;, ex.Message);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- more --&gt;&#xA;&lt;p&gt;This will be the output of the program:-&lt;/p&gt;</description>
     </item>
     <item>
       <title>where enum does not work !!!</title>
       <link>/2006/12/20/where-enum-does-not-work/</link>
       <pubDate>Wed, 20 Dec 2006 12:25:00 +0000</pubDate>
       <guid>/2006/12/20/where-enum-does-not-work/</guid>
-      <description>I was writing a generic method with enum as the Constraint, and the compiler spat a few errors that did not directly convey me that enums cannot used as generic constraints.</description>
+      <description>&lt;p&gt;I was writing a &lt;a href=&#34;http://msdn2.microsoft.com/en-us/library/0x6a29h6.aspx&#34;&gt;generic&lt;/a&gt; method with &lt;code&gt;enum&lt;/code&gt; as the &lt;a href=&#34;http://msdn2.microsoft.com/en-us/library/d5x73970.aspx&#34;&gt;Constraint&lt;/a&gt;, and the compiler spat a few errors that did not directly convey me that &lt;code&gt;enum&lt;/code&gt;s cannot used as generic constraints. I learnt the following from my investigation:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Overloading - A Matter Of Taste !!!</title>
       <link>/2006/12/20/overloading-a-matter-of-taste/</link>
       <pubDate>Wed, 20 Dec 2006 12:21:00 +0000</pubDate>
       <guid>/2006/12/20/overloading-a-matter-of-taste/</guid>
-      <description>This was a pretty interesting discussion about method overloading in the managed world.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://blogs.wdevs.com/mattdoig/archive/2006/08/20/14222.aspx#14244&#34;&gt;This&lt;/a&gt; was a pretty interesting discussion about method overloading in the managed world. As the discussion says that the overloading is a matter of taste. It seems that the method overloading in the managed world, indeed, is a matter of taste. Sad BUT True !!! But on the contrary, it must have been a [strict] rule. Overloading might be exhibited differently by each language in the unmanaged world. But as far as .NET goes, it must have been made a standard specification. Pardon me, if there is one.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

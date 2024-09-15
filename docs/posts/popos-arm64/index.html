@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.126.1">
+	<meta name="generator" content="Hugo 0.134.2">
 
 	<title>Pop OS and Zorin on ARM64 &middot; A Developer&#39;s Experience</title>
 
@@ -159,40 +159,40 @@
 <p>Elementary, Zorin and Pop OS are all Ubuntu based distros. Among other things, the selling point of these distros is the sleek interface. The interface (aka desktop interface) we are talking about is similar to a command line shell or the Mac Finder or the Windows Explorer. So, if I am installing Pop OS, I am installing the Linux kernel (and things related) plus Pop OS&rsquo;s desktop interface.</p>
 <p>Based on an array of rampant searches, I figured that there is Ubuntu server ARM64 image, which I could use to provide the kernel and the base for the desktop interface.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Version</th>
-<th style="text-align:center">Code Name</th>
-<th style="text-align:center">Compatible Distro</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Ubuntu 23.04</td>
-<td style="text-align:center">Lunar Lobster</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">Ubuntu 22.10</td>
-<td style="text-align:center">Kinetic Kudu</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>Ubuntu 22.04.2 LTS</strong></td>
-<td style="text-align:center"><strong>Jammy Jellyfish</strong></td>
-<td style="text-align:center"><strong>Pop OS</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">Ubuntu 21.10</td>
-<td style="text-align:center">Impish Indra</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">Ubuntu 20.04.5 LTS</td>
-<td style="text-align:center">Focal Fossa</td>
-<td style="text-align:center">Zorin</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Version</th>
+          <th style="text-align: center">Code Name</th>
+          <th style="text-align: center">Compatible Distro</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Ubuntu 23.04</td>
+          <td style="text-align: center">Lunar Lobster</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu 22.10</td>
+          <td style="text-align: center">Kinetic Kudu</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>Ubuntu 22.04.2 LTS</strong></td>
+          <td style="text-align: center"><strong>Jammy Jellyfish</strong></td>
+          <td style="text-align: center"><strong>Pop OS</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu 21.10</td>
+          <td style="text-align: center">Impish Indra</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu 20.04.5 LTS</td>
+          <td style="text-align: center">Focal Fossa</td>
+          <td style="text-align: center">Zorin</td>
+      </tr>
+  </tbody>
 </table>
 <p>Finally, I was able to get Pop OS running on Parallels.  My original intent with this post was to provide step by step instructions to install Pop OS. But it wasn&rsquo;t smooth. It wasn&rsquo;t entirely the same as described in some of the material I found online (See also <a href="#credit">Credits</a> below). I had to play around a lot night after night to get it working. So much so, I don&rsquo;t remember the exact set of steps I followed except the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># Download Ubuntu Server ARM64 Image - v22.04.2 / Jammy from https://ubuntu.com/download/server/arm</span>

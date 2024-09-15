@@ -13,7 +13,7 @@
       <link>/2010/03/05/missing-mi/</link>
       <pubDate>Fri, 05 Mar 2010 17:10:00 +0000</pubDate>
       <guid>/2010/03/05/missing-mi/</guid>
-      <description>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.</description>
+      <description>&lt;p&gt;We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

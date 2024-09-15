@@ -13,14 +13,14 @@
       <link>/2009/04/08/ccomptr-misconception/</link>
       <pubDate>Wed, 08 Apr 2009 00:15:00 +0000</pubDate>
       <guid>/2009/04/08/ccomptr-misconception/</guid>
-      <description>This is about a killer bug identified by our chief software engineer in our application.</description>
+      <description>&lt;p&gt;This is about a killer bug identified by our chief software engineer in our application. What was devised for ease of use and write smart code ended up in this killer defect due to improper perception. Ok, let us go!&lt;/p&gt;</description>
     </item>
     <item>
       <title>CoMarshal ... Working in NT, Not in XP !!!</title>
       <link>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</link>
       <pubDate>Sun, 26 Mar 2006 00:48:00 +0000</pubDate>
       <guid>/2006/03/26/comarshal-working-in-nt-not-working-in-xp/</guid>
-      <description>Problem:&#xA;I have created a multi-threaded application which works without any problems on a NT-4.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;I have created a multi-threaded application which works without any problems on a NT-4.0 Workstation/Server. When I try to run the same application in Windows XP, I get an error in a call to &lt;code&gt;CoMarshalInterThreadInterfaceInStream&lt;/code&gt; which returns &lt;code&gt;-2147418113&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

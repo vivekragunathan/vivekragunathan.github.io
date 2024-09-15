@@ -20,7 +20,7 @@
       <link>/2017/12/106/paradox-of-braces/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
       <guid>/2017/12/106/paradox-of-braces/</guid>
-      <description>A great deal of thought goes into language design. Eric Lippert’s posts is a living testament, at least for C#.</description>
+      <description>&lt;p&gt;A great deal of thought goes into language design. Eric Lippert’s &lt;a href=&#34;https://ericlippert.com&#34;&gt;posts&lt;/a&gt; is a living testament, at least for C#. Syntax and idioms are also part of the language design. When designing a language, the designers have to also consider its future. For instance, when designing C#, &lt;a href=&#34;https://twitter.com/ahejlsberg&#34;&gt;Anders&lt;/a&gt; and others should have thought of and planned for what’s coming in then upcoming version(s) of C#. Such level of forethought might be seem daunting for an outsider. But the language designers are good at what they do, and most importantly, they know what they are doing. Well, in most cases!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>

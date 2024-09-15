@@ -13,7 +13,7 @@
       <link>/posts/thinking-currying/</link>
       <pubDate>Sun, 03 Oct 2010 12:08:00 +0000</pubDate>
       <guid>/posts/thinking-currying/</guid>
-      <description>Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.</description>
+      <description>&lt;p&gt;&lt;em&gt;Currying&lt;/em&gt; is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers &lt;code&gt;1&lt;/code&gt; through &lt;code&gt;10&lt;/code&gt;, what would you do? Class II mathematics -&lt;code&gt;0&lt;/code&gt; in hand, &lt;code&gt;1&lt;/code&gt; in the mind, add &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;1&lt;/code&gt;, so &lt;code&gt;1&lt;/code&gt; in the mind, then &lt;code&gt;2&lt;/code&gt; in the hand, &amp;hellip; up to &lt;code&gt;10&lt;/code&gt;. So we compute the addition with one argument at a time.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

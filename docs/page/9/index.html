@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.126.1">
+	<meta name="generator" content="Hugo 0.134.2">
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -155,7 +155,7 @@
         </div>
 
         <div>
-          Alright, it is a long wait. And I am going to keep it short.
+          <p>Alright, it is a long wait. And I am going to keep it short.</p>
         </div>
 
         <div class="read-more-link">
@@ -175,7 +175,18 @@
         </div>
 
         <div>
-          Straight to code&#8230;.. int SomeMethod(string arg1, string arg2, ref DayOfWeek arg3) { // Wildest implementation!
+          <p style="font-family:Tahoma;font-size:11pt;">
+  Straight to code&#8230;..
+</p>
+<pre style="color:blue;font-family:Consolas;font-size:11pt;">int SomeMethod(string arg1,
+    string arg2,
+    ref DayOfWeek arg3)
+{
+    // Wildest implementation!
+}</pre>
+<p style="font-family:Tahoma;font-size:11pt;">
+  The above method had to be executed on its dispatcher thread. So let unravel a bit of the wildest implementation above.
+</p>
         </div>
 
         <div class="read-more-link">
@@ -195,7 +206,7 @@
         </div>
 
         <div>
-          Currying is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions.
+          <p><em>Currying</em> is a mathematical concept based on lambda calculus. It is a technique of operating on a function (taking multiple arguments) by splitting and capable of chaining into a series of single argument functions. It is very similar to what a human would attempt to do on paper. For example, if you have to add numbers <code>1</code> through <code>10</code>, what would you do? Class II mathematics -<code>0</code> in hand, <code>1</code> in the mind, add <code>0</code> and <code>1</code>, so <code>1</code> in the mind, then <code>2</code> in the hand, &hellip; up to <code>10</code>. So we compute the addition with one argument at a time.</p>
         </div>
 
         <div class="read-more-link">
@@ -215,7 +226,30 @@
         </div>
 
         <div>
-          template&lt;typename A, typename B&gt; class TClass { public: TClass() { } // Overload #1 public: std::string SomeMethod(A a, B b) { std::ostringstream ostr; ostr &lt;&lt; a &lt;&lt; &#34;-&#34; &lt;&lt; b; return ostr.
+          <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">template</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> A, <span style="color:#ff79c6">typename</span> B<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TClass</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> TClass()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string SomeMethod(A a, B b)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Overload #2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span> std<span style="color:#ff79c6">::</span>string SomeMethod(B b, A a)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           std<span style="color:#ff79c6">::</span>ostringstream ostr;
+</span></span><span style="display:flex;"><span>           ostr <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">return</span> ostr.str();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>So that is a template class with SomeMethod overloads. Why would somebody write such a class? Imagine it is an adder class, and the method overloads could used to add with parameters specified in either order. Following is the way one could use the above (based on the adder example):-</p>
         </div>
 
         <div class="read-more-link">
@@ -235,7 +269,7 @@
         </div>
 
         <div>
-          We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it.
+          <p>We all know C# does not offer multiple inheritance but offers arguments that programmers can live without it. It is true in almost all cases, especially all cat and animal or employee and manager projects. I have seen a few cases where if C# offered multiple inheritance, the solution would have been natural, elegant and succinct.</p>
         </div>
 
         <div class="read-more-link">
@@ -255,7 +289,7 @@
         </div>
 
         <div>
-          There are two facilities in C# to determine the size of a type – sizeof operator andMarshal.
+          <p>There are two facilities in C# to determine the size of a type – <a href="http://msdn.microsoft.com/en-us/library/eahchzkf.aspx"><code>sizeof</code></a> operator and<a href="http://msdn.microsoft.com/en-us/library/5s4920fa.aspx"><code>Marshal.SizeOf</code></a> method. Let us discuss what they offer and how they differ.</p>
         </div>
 
         <div class="read-more-link">
@@ -275,7 +309,7 @@
         </div>
 
         <div>
-          Senthil has left us thrilled in his new post, and also inspired me to write about the topic.
+          <p><a href="http://msmvps.com/blogs/senthil/default.aspx" target="_blank">Senthil</a> has left us thrilled in his <a href="http://msmvps.com/blogs/senthil/archive/2009/09/01/anonymous-methods-as-event-handlers-part-1.aspx" target="_blank">new post</a>, and also inspired me to write about the <a href="http://msdn.microsoft.com/en-us/library/0yw3tz5k(VS.80).aspx" target="_blank">topic</a>. Although, anonymous delegates have become a mundane stuff amongst programmers, there is still these subtle stuff left unexplored. Alright, let us try to answer Senthil’s question before he unravels the mystery in his next post.</p>
         </div>
 
         <div class="read-more-link">
@@ -295,8 +329,25 @@
         </div>
 
         <div>
-          Let us read some code:-
-int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5; } } What is the return value of SomeMethod?
+          <DIV style="font-family:Tahoma;font-size:11pt;">
+  Let us read some code:-</p>
+  <pre class="brush: c-sharp;" style="font-family:Consolas;font-size:11pt;">int SomeMethod()
+{
+    int num = 1;
+
+    try
+    {
+        num = 5;
+        return num;
+    }
+    finally
+    {
+        num += 5;
+    }
+}</pre>
+  <p>
+    What is the return value of SomeMethod? Some anonymous guy asked that question in the code project forum, and it has been answered. I am writing about it here because it is interesting and subtle. One should not be surprised when people misinterpret finally. So let us take a guess, 10 (i = 5, then incremented by 5 in the finally block).It is not the right answer; rather SomeMethod returns 5. Agreed that finally is called in all cases of returning from SomeMethod but the return value is calculated when it is time to return from SomeMethod, normally or abnormally. The subtlety lies not in the way finally is executed but in the return value is calculated. So the return value (5) is decided when a return is encountered in the try block. The finally is just called for cleanup; and the num modified there is local to SomeMethod. So make the return value 10, it is no use being hasty making<br /> SomeMethod return from the finally block. Because returning from finally is not allowed. (We will talk about it later why returning from catch block is a bad practice<br /> and why can't we return from finally block). Had such modifications been done on a reference type, they would have been visible outside of SomeMethod, although the return value may be different. For instance,
+  </p>
         </div>
 
         <div class="read-more-link">
@@ -316,8 +367,10 @@ int SomeMethod() { int num = 1; try { num = 5; return num; } finally { num += 5;
         </div>
 
         <div>
-          Article co-authored with Sanjeev, and published on CodeProject
-PROBLEM Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files.
+          <p>Article co-authored with <a href="www.linkedin.com/in/sanjeev-venkataramanan-3496b018">Sanjeev</a>, and <a href="http://www.codeproject.com/Articles/35648/Type-Safe-Logger-For-C">published</a> on <a href="www.codeproject.com">CodeProject</a></p>
+<hr>
+<h3 id="problem">PROBLEM</h3>
+<p>Every application logs a whole bunch of diagnostic messages, primarily for (production) debugging, to the console or the standard error device or to files. There are so many other destinations where the logs can be written to. Irrespective of the destination that each application must be able to configure, the diagnostic log message and the way to generate the message is of our interest now. So we are in need of a logger class that can behave transparent to the logging destination. That should not be a problem, it would be fun to design that.</p>
         </div>
 
         <div class="read-more-link">
@@ -337,7 +390,9 @@ PROBLEM Every application logs a whole bunch of diagnostic messages, primarily f
         </div>
 
         <div>
-          This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.
+          <p style="font-family:Tahoma;font-size:11pt;">
+  This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.
+</p>
         </div>
 
         <div class="read-more-link">

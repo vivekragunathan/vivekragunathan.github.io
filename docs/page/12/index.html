@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="Hugo 0.126.1">
+	<meta name="generator" content="Hugo 0.134.2">
 
 	<title>A Developer&#39;s Experience</title>
 
@@ -155,7 +155,7 @@
         </div>
 
         <div>
-          Though I knew that there are quite a few languages for the .
+          <p>Though I knew that there are quite a few languages for the .NET platform, I came to know when surfing today that there are many well beyond my knowledge, most surprisingly like the COBOL.</p>
         </div>
 
         <div class="read-more-link">
@@ -175,7 +175,7 @@
         </div>
 
         <div>
-          Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .
+          <p>Had to implement our COM OOP Server project in .NET, and I found this solution from the internet after a great deal of search, but unfortunately the whole idea was ruled out, and we wrapped it as a .NET assembly. This is worth knowing.</p>
         </div>
 
         <div class="read-more-link">
@@ -195,7 +195,7 @@
         </div>
 
         <div>
-          I am not a UI guy. More specifically, I love to work with UIs.
+          <p>I am not a UI guy. More specifically, I love to work with UIs. I think (only) a UI can give a better picture of the system in a multitasking environment unlike Unix. I do not say I hate Unix. And I do not like to work on UIs ie program on UIs cuz I do not know much. But have always wanted to create a non-conventional window, say an elliptical one. .NET made things like that very easy for guys like me. Look at the code below for creating a ellipitcal window.</p>
         </div>
 
         <div class="read-more-link">
@@ -215,7 +215,7 @@
         </div>
 
         <div>
-          I am just like Alice in Wonderland, and not yet got out of the wonders of the .
+          <p>I am just like Alice in Wonderland, and not yet got out of the wonders of the .NET framework, C# and the VS 2003(5) IDE. I thought that the serialization is all not my thing until I do something big in C#. I had written this custom exception class in my project that has 3 processes connected by .NET Remoting Infrastructure. I throw my custom exception for a scenario but all I got was some other exception:</p>
         </div>
 
         <div class="read-more-link">
@@ -235,7 +235,7 @@
         </div>
 
         <div>
-          If you have long been programming in C++/COM and then you move to C#.
+          <p>If you have long been programming in C++/COM and then you move to C#.NET, the first difference you can feel is that you got a ctor for the object you create unlike the CoCreateInstance. In the C++/COM world, you generally would have a <code>Initialize</code> method to do the construction sort of, paired with <code>Terminate</code>/<code>Uninitialize</code> method. Similar is the case with singleton classes. For singleton classes in C++, you will have <code>public static Instance</code> or <code>GetInstance</code> method to get the only and one instance of the class and then use the initialize method to do the construction. This is certainly advantageous than the ctor facility in .NET, since you will not know when the instance will be initialized without the initialize method. Any call like <code>SingletonClass</code>.<code>GetInstance()</code>.SomeMethod may initialize the singleton anywhere and you will not exactly do the initialization during the application startup, which in many cases will lead to application errors after startup.</p>
         </div>
 
         <div class="read-more-link">
@@ -255,7 +255,7 @@
         </div>
 
         <div>
-          I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value.
+          <p>I encountered a situation like this where I had a hashtable in which the key is a string and the value is some object, and I had to change the values of all the keys [from zero to count] to null or some other value. I used the some of the facilities – enumerator, the Keys property etc provided by the hash table itself but it did not work out, and I spent too much time on this.</p>
         </div>
 
         <div class="read-more-link">
@@ -275,7 +275,7 @@
         </div>
 
         <div>
-          This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .
+          <p>This is not about what Finalize is, but well Finalize is the last call on a managed object, where you can perform some clean up operations, before getting garbage collected by the .NET runtime. A few important things that are to be noted about finalizers are:-</p>
         </div>
 
         <div class="read-more-link">
@@ -295,7 +295,7 @@
         </div>
 
         <div>
-          I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.
+          <p>I have encountered this [wait i’ll explain] sort of situation many times and I mostly do this way in C++.</p>
         </div>
 
         <div class="read-more-link">
@@ -315,7 +315,7 @@
         </div>
 
         <div>
-          I am always a great fan of interface programming. I mean not exactly the interface keyowrd but some way to expose the functionality of the class or your module relieving the user about the worries of the implementation.
+          <p>I am always a great fan of interface programming. I mean not exactly the interface keyowrd but some way to expose the functionality of the class or your module relieving the user about the worries of the implementation. But definitely make him curious of the stuff inside.</p>
         </div>
 
         <div class="read-more-link">
@@ -335,7 +335,7 @@
         </div>
 
         <div>
-          Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#.
+          <p>Inherently after writing some code in C#, I wanted everything to be as easy to do like in C#. And could not resist myself writing property like syntax in C++ [ofcourse C++/CLI, threw away the ugly Managed C++ before it was too late for my code to grow into a tree]. Then I learnt that properties are supported in C++.NET too but as always in the ugly way. But in C++/CLI, I was happy enough that the syntax is more elegantly redefined. For instance, there was this boolean member <code>logToStdError</code> in my class, and in my legacy code, the property definition for <code>logToStdError</code> looked like:-</p>
         </div>
 
         <div class="read-more-link">

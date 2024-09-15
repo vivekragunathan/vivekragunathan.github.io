@@ -27,35 +27,35 @@
       <link>/2012/11/01/linked-list-quiz-part-ii/</link>
       <pubDate>Wed, 31 Oct 2012 18:30:21 +0000</pubDate>
       <guid>/2012/11/01/linked-list-quiz-part-ii/</guid>
-      <description>In the previous post, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.</description>
+      <description>&lt;p&gt;In the previous &lt;a href=&#34;/2012/06/18/linked-list-quiz-part-i&#34;&gt;post&lt;/a&gt;, we saw the academic (not general purpose) version of a linked list used to solve the puzzles, and solved the following puzzles on linked list.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linked List Quiz – Part I !!!</title>
       <link>/2012/06/18/linked-list-quiz-part-i/</link>
       <pubDate>Sun, 17 Jun 2012 18:30:44 +0000</pubDate>
       <guid>/2012/06/18/linked-list-quiz-part-i/</guid>
-      <description>A short while back, Sammy quizzed me on linked list based problems; singly linked list.</description>
+      <description>&lt;p&gt;A short while back, Sammy quizzed me on linked list based problems; singly linked list.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unique Id Generation !!!</title>
       <link>/2012/03/09/uid-gen/</link>
       <pubDate>Thu, 08 Mar 2012 18:41:36 +0000</pubDate>
       <guid>/2012/03/09/uid-gen/</guid>
-      <description>A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction.</description>
+      <description>&lt;p&gt;A short while I was engaged in a little project where I had to interact with a third party service provider who required a (30 length) unique id as part of the transaction. I am little dumb and am used to GUIDs for a long time when it comes to unique ids. But GUIDs are more than 30 in length. I was trying out some stupid ways like stripping out the trail part of the GUID to make 30 length unique but my intuition wasn’t convinced about the tricks I was working out.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz: Beauty of Numbers - Solution !!!</title>
       <link>/2011/07/03/beauty-of-numbers-solution/</link>
       <pubDate>Fri, 01 Jul 2011 20:45:08 +0000</pubDate>
       <guid>/2011/07/03/beauty-of-numbers-solution/</guid>
-      <description>One hint that should be helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains).</description>
+      <description>&lt;p&gt;One hint that should be  helpful in building our solution is that we got to get retained after every wave of removal (until nobody else remains). That means it got to be really some special number or special kind of number. We could do what functional programmers would do. Write down the steps of removal for every queue size N, and it is not worth trying for very large N; in our case, even 20 or 30 could be large. But the point is we could iterate the steps manually and find a position K for every queue size N, where K is the position that remains after all the waves of removal. Once we are done with that, we should stare intensely 😂 on every K to derive a pattern, which would tell us something about those Ks, and with that we should be able to solve the problem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quiz: Beauty of Numbers !!!</title>
       <link>/2011/07/02/quiz-beauty-of-numbers/</link>
       <pubDate>Fri, 01 Jul 2011 19:39:08 +0000</pubDate>
       <guid>/2011/07/02/quiz-beauty-of-numbers/</guid>
-      <description>Sriram quizzed:&#xA;Imagine there is a queue of people for getting a ticket for a movie or somehing.</description>
+      <description>&lt;p&gt;Sriram quizzed:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Imagine there is a queue of people for getting a ticket for a movie or somehing. Where should be standing in the queue to last until the manager or some guy keeps removing people at odd indices. For instance, if the queue has 5 people given a token A to E, first we remove the first set of odd numbered positions in the queue, so A, C and E are gone. Now B and D remain. Again we remove the odd numbered positions. This time B alone is gone, and D is the winner. So in a queue like that, what is the lucky position you should hold so that you survive the wave of removals?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -34,7 +34,7 @@
       <link>/2019/02/19/fp-conversion-caveat/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       <guid>/2019/02/19/fp-conversion-caveat/</guid>
-      <description>Sometimes you learn the best from others; by watching. This post is based on such an instance.</description>
+      <description>&lt;p&gt;Sometimes you learn the best from others; by watching. This post is based on such an instance. A fellow engineer on my team was investigating a nagging issue - &lt;strong&gt;partially-successful operations or rather operations that left data in an inconsistent state&lt;/strong&gt;. It goes without saying that I take no credit for the time and effort spent on the investigation nor for the fix. I am just the messenger. And as a responsible programmer 🤓, I am sharing it with the rest of the world.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Rambling on Error Handling</title>
@@ -48,7 +48,7 @@
       <link>/2018/02/18/js-in-cs-immutability/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/2018/02/18/js-in-cs-immutability/</guid>
-      <description>Enough! JavaScript had us in its grip for long with its foot guns.</description>
+      <description>&lt;p&gt;Enough! JavaScript had us in its grip for long with its foot guns. The first time I heard the term &lt;em&gt;Hoisting&lt;/em&gt;, I had no idea about it and misheard as &lt;em&gt;hosting&lt;/em&gt;. You declare variables using &lt;em&gt;var&lt;/em&gt; happily, and you have to come to peace with yourself that it is okay to &lt;em&gt;hoist&lt;/em&gt; the &lt;code&gt;var&lt;/code&gt;s (lift&amp;rsquo;em all to the top-most scope). I can&amp;rsquo;t believe JS convinced the rest of us that it was okay. Then came ES6 and saved us. &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let&#34;&gt;&lt;code&gt;let&lt;/code&gt;&lt;/a&gt; fixed the scoping. &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const&#34;&gt;&lt;code&gt;const&lt;/code&gt;&lt;/a&gt; provided immutability. At least now, you can say JavaScript supports functional programming.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Facets of Immutability</title>

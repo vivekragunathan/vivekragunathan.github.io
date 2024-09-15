@@ -34,7 +34,7 @@
       <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Partial Classes – Java ???</title>

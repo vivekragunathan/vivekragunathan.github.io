@@ -20,7 +20,7 @@
       <link>/2016/12/11/cpp-cli-apress/</link>
       <pubDate>Sun, 11 Dec 2016 09:18:37 +0000</pubDate>
       <guid>/2016/12/11/cpp-cli-apress/</guid>
-      <description>Earlier this year, I wrote about publishing C++/CLI Primer on LeanPub.</description>
+      <description>&lt;p&gt;Earlier this year, I &lt;a href=&#34;https://vivekragunathan.wordpress.com/2016/01/19/publishing-ccli-on-leanpub/&#34;&gt;wrote&lt;/a&gt; about &lt;a href=&#34;https://www.leanpub.com/cppcliprimer&#34;&gt;publishing&lt;/a&gt; C++/CLI Primer on &lt;a href=&#34;https://www.leanpub.com&#34;&gt;LeanPub.com&lt;/a&gt;. I wondered if there is anybody else besides myself and Microsoft using C++/CLI but readers surprised and humbled me with their support. Seems C++/CLI is here to stay. Know why?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Importance of Semantics</title>
@@ -48,7 +48,7 @@
       <link>/posts/jinq/</link>
       <pubDate>Fri, 01 Apr 2016 22:50:19 +0000</pubDate>
       <guid>/posts/jinq/</guid>
-      <description>In his talk at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code.</description>
+      <description>&lt;p&gt;In his &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=1359&#34;&gt;talk&lt;/a&gt; at the CppCon 2014, Bjarne Stroustrup explained, politely and brilliantly, how to write succint expressive yet intent-ful code. The task is especially hard when there are parties interested in &lt;a href=&#34;https://youtu.be/nesCaocNjtQ?t=4653&#34;&gt;trolling&lt;/a&gt; rather than contributing. Like Stroustrup explains back, it is difficult to find the real meaning out of a large block of (legacy) code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Partial Classes – Java ???</title>
@@ -104,14 +104,14 @@
       <link>/posts/secret-of-cpp-unified-syntax/</link>
       <pubDate>Sun, 09 Nov 2014 10:36:44 +0000</pubDate>
       <guid>/posts/secret-of-cpp-unified-syntax/</guid>
-      <description>A long time back, in one of my posts here1, I had discussed about Extension Methods2 … in C++; sorta!</description>
+      <description>&lt;p&gt;A long time back, in one of my posts here&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I had discussed about Extension Methods&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; … in C++; sorta! It seems that the grand daddy, Bjarne Stroustoup&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;, had read my post, and was impressed. So he has published a paper – Call syntax&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;: &lt;code&gt;x.f(y)&lt;/code&gt; vs. &lt;code&gt;f(x,y)&lt;/code&gt;. Good thing except I don’t like the idea of assuming &lt;code&gt;x.f(y)&lt;/code&gt; for &lt;code&gt;f(x, y)&lt;/code&gt; while the reverse is the actual idea of extension methods. You will know when you read his paper. It seems the commander, Herb Sutter&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;, also was impressed with my post. Not only that he too doesn’t seem to like the &lt;code&gt;x.f(y)&lt;/code&gt; for f(x, y) idea. Great men think alike. LOL! So he published his paper – &lt;strong&gt;Unified Syntax&lt;/strong&gt;&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;. How is that?&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Simple Tree List View !!!</title>
       <link>/2014/10/05/simple-tlv/</link>
       <pubDate>Sat, 04 Oct 2014 19:43:27 +0000</pubDate>
       <guid>/2014/10/05/simple-tlv/</guid>
-      <description>Digging up stash is one of the best pass times. You know you never know what you will find.</description>
+      <description>&lt;p&gt;Digging up stash is one of the best pass times. You know you never know what you will find. I had an article written quite some time back but had not posted it anywhere. Not sure why. I posted it at CodeProject – &lt;a href=&#34;http://www.codeproject.com/Articles/825741/A-Simple-Tree-List-View&#34; target=&#34;_blank&#34;&gt;A Simple Tree List View&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PHP Savers – PropertyBag</title>
@@ -125,7 +125,7 @@
       <link>/2014/07/23/cool-regex-testers/</link>
       <pubDate>Wed, 23 Jul 2014 11:30:28 +0000</pubDate>
       <guid>/2014/07/23/cool-regex-testers/</guid>
-      <description>Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need.</description>
+      <description>&lt;p&gt;Anytime I have to play with regular expressions, I use one of the online regex testing web sites to come up with the regex I need. Last couple of times I had to come up with a regex for most common everyday stuff like dates and such. Oh yeah, last time it was date actually. I had a server response that had a date in the format &lt;code&gt;yyyy-mm-dd&lt;/code&gt;, &lt;a href=&#34;http://www.w3.org/QA/Tips/iso-date&#34;&gt;ISO format&lt;/a&gt;. I was working with JavaScript, and initially I was naive to use the &lt;a href=&#34;http://www.w3schools.com/jsref/jsref_obj_date.asp&#34;&gt;&lt;code&gt;Date&lt;/code&gt;&lt;/a&gt; class to parse the date in the response. Turned that there is difference in the way the date is interpreted by Firefox and other browsers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Overloading vs Variable Arguments !!!</title>
@@ -139,7 +139,7 @@
       <link>/2014/05/23/android-reminder/</link>
       <pubDate>Fri, 23 May 2014 01:47:56 +0000</pubDate>
       <guid>/2014/05/23/android-reminder/</guid>
-      <description>I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification reminding you of a reminder.</description>
+      <description>&lt;p style=&#39;font-family:Open Sans;&#39;&gt;&#xA;  I have been using Android for quite some time now, and only recently I noticed that Android pops up a notification &lt;i&gt;reminding you of a reminder&lt;/i&gt;. It says &amp;#8220;Upcoming alarm &amp;#8211; Buy Milk&amp;#8221;, where Buy Milk is the reminder I had set.&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>jqGrid: Handling array data !!!</title>
@@ -160,7 +160,7 @@
       <link>/2008/04/09/extension-methods-a-polished-c-feature/</link>
       <pubDate>Wed, 09 Apr 2008 06:31:39 +0000</pubDate>
       <guid>/2008/04/09/extension-methods-a-polished-c-feature/</guid>
-      <description>Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type.</description>
+      <description>&lt;p&gt;Extension Methods is an excellent feature in C# 3.0. It is a mechanism by which new methods can be exposed from an existing type (interface or class) without directly adding the method to the type. Why do we need extension methods anyway ? Ok, that is the big story of lamba and LINQ. But from a conceptual standpoint, the extension methods establish a mechanism to extend the public interface of a type. The compiler is smart enough to make the method a part of the public interface of the type. Yeah, that is what it does, and the intellisense is very cool in making us believe that. It is cleaner and easier (for the library developers and for us programmers even) to add extra functionality (methods) not provided in the type. That is the intent. And we know that was exercised extravagantly in LINQ. The IEnumerable was extended with a whole lot set of methods to aid the LINQ design. Remember the &lt;code&gt;Where&lt;/code&gt;, &lt;code&gt;Select&lt;/code&gt; etc methods on &lt;code&gt;IEnumerable&lt;/code&gt;. An example code snippet is worth a thousand words:-&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
