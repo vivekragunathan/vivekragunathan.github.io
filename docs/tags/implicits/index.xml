@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Implicits on A Developer&#39;s Experience</title>
+    <link>/tags/implicits/</link>
+    <description>Recent content in Implicits on A Developer&#39;s Experience</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/implicits/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Declaring Implicits</title>
+      <link>/posts/declaring-implicits/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/declaring-implicits/</guid>
+      <description>While implicits are easy to use, declaring them properly requires careful consideration. Because there are a few different ways you can declare implicits viz. extension methods, parameter values, type converters and dynamic instances. Each one has a specific purpose. For instance, dynamic instances enable recursive implicit resolution. Understanding the different ways of declaring implicits is critical in choosing the right one for the given scenario. It is also invaluable in troubleshooting subtle bugs and unexpected behavior related to implicit resolution.</description>
+    </item>
+  </channel>
+</rss>
