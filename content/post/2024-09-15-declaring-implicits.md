@@ -136,7 +136,7 @@ You would declare a `def` ...
 
 Implicit type converters are infamous, and generally speaking, should be avoided. But they do have their place; especially if you are not in the *implicits are hard and bad* camp.
 
-Compiler is all about types - define, create, manage, derive, convert etc. Say, you have a function `def triple(n: Long)` . You o cannot call the function passing it an `Int`. You should expect an error because types are different. However, the compiler does not give up in the first go. It is going to look around for a way to convert `Int` to `Long`. Perhaps there is an overloaded function (which is not the case here), and so on. In the list of things it will look for is the *implicit type conversion* function. Something of the sort ...
+Compiler is all about types - define, create, manage, derive, convert etc. Say, you have a function `def triple(n: Long)` . You cannot call the function passing it an `Int`. You should expect an error because types are different. However, the compiler does not give up in the first go. It is going to look around for a way to convert `Int` to `Long`. Perhaps there is an overloaded function (which is not the case here), and so on. In the list of things it will look for is the *implicit type conversion* function. Something of the sort ...
 
 ```scala
 implicit def int2Long(n: Int): Long = n.toLong
@@ -144,7 +144,7 @@ implicit def int2Long(n: Int): Long = n.toLong
 
 The declaration should be self-explanatory - give me `Int`, take a `Long`. Just that it is declared `implicit`, which means the compiler will invoke this function, if in scope, to convert `n` to `Long` before calling `triple`.
 
-In fact, such implicit conversions are declared in the standard library to make life easier ... for the meek. For the strong-hearted, there are compiler flags to report such conversions as warnings. Top that with `-X:fatal-warnings` flag to report warnings as errors. That means there such implicit conversions would be prohibited and you have to use `.toLong` yourself making it explicit and putting the responsibility of the conversion on you, which is right.
+In fact, such implicit conversions are declared in the standard library to make life easier ... for the meek. For the strong-hearted, there are compiler flags to report such conversions as warnings. Top that with `-X:fatal-warnings` flag to report warnings as errors. That means such implicit conversions would be prohibited and you have to use `.toLong` yourself making it explicit and putting the responsibility of the conversion on you, which is right.
 
 Why is implicit type conversion highly discouraged? Because it can kick in unintentionally just because a conversion is in scope. This usually leads to unexpected behavior and bugs  that would require few mugs of coffee to troubleshoot/find/fix. Scala 3 has a `Conversion` typeclass which is the explicit version of the type conversion. It is adding discipline to the conversion and making the it available implicitly. But the actual call to conversion is explicit. In fact, it is not hard at all define such a typeclass if you are using Scala 2.
 
@@ -193,6 +193,9 @@ implicit def showEither[L, R](implicit L: Show[L], R: Show[R]): Show[Either[L, R
 The above modest piece of implicit code does something wonderful - *Recursive implicit resolution*.
 
 ```scala
+def showMe[A](a: A)(implicit ev: Show[A]): Unit =
+  println(ev.show(a))
+
 showMe(Option(Option(100)))
 
 val e: Either[String, Int] = Right(200)
