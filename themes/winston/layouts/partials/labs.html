@@ -1,0 +1,12 @@
+
+{{ $options := dict
+  "targetPath" "css/xyz.css"
+  "transpiler" "libsass"
+}}
+
+{{ with resources.Get "styles/test.scss"
+  | resources.ExecuteAsTemplate "" .
+  | toCSS $options
+}}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}

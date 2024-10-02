@@ -1,0 +1,18 @@
+@use "variables";
+
+:root {
+  /* --font-family-quote: $fontFamilyQuote; */
+  --font-family-quote: {{ .Site.Params.fontFamilyQuote | default "serif" }};
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text-center {
+  text-align: center;
+}

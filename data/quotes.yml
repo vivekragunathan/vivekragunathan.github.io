@@ -1,0 +1,93 @@
+quotes:
+  - content: The mark of an educated mind is to be able to entertain a certain thought without actually accepting it. 👌
+    cite: Archimedes
+
+  - content: Forgive him for he believes that the customs of his tribe are the laws of the nature. 👌
+    cite:  George Bernardshaw
+
+  - content: Another effective debugging technique is to explain your code to someone else. This will often cause you to explain the bug to yourself. Sometimes it takes no more than a few sentences, followed by an embarrassed Never mind. I see what's wrong. Sorry to bother you. This works remarkably well; you can even use non-programmers as listeners.
+    cite:  From the book The Practice of Programming by Brian W Kernighan and Rob Pike
+
+  - content: The romantic image of an über-programmer is someone who fires up Emacs, types like a machine gun, and delivers a flawless final product from scratch. A more accurate image would be someone who stares quietly into space for a few minutes and then says Hmm. I think I’ve seen something like this before. 👌
+    cite:  John D. Cook
+
+  - content: Most programmers have seen them, and most good programmers realize they’ve written at least one. They are huge, messy, ugly programs that should have been short, clean, beautiful programs. 👌
+    cite:  Jon Bentley (Programming Pearls).
+
+  - content: We shape our tools, and thereafter our tools shape us. 👌
+    cite:  Marshall McLuhan
+
+  - content: To me, the prohibition of inspecting the representation of other objects is one of the defining characteristics of object-oriented programming.
+    cite:  William R. Cook
+
+  - content: My Compiler Compiles Your Compiler. I Still Am A C++ Fanatic.
+    cite:  Anonymous & Higher-Kinded Type
+
+  - content: If you think C++ is not overly complicated, just what is a <code>protected abstract virtual base pure virtual private</code> destructor and when was the last time you needed one?
+    cite:  Tom Cargill
+
+  - content: C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows away your whole leg.
+    cite:  Bjarne Stroustrup
+
+  - content: No, no, you're not thinking, you're just being logical. 👌
+    cite:  Niels Bohr
+
+  - content: The proper use of comments is to compensate for our failure to express ourselves in code.
+    cite:  Robert C. Martin
+
+  - content: If you want a product with certain characteristics, you must ensure that the team has those characteristics before the product's development.
+    cite:  Jim McCarthy and Michele McCarthy
+
+  - content: Measuring programming progress by lines of code is like measuring aircraft building progress by weight.
+    cite:  Bill Gates
+
+  - content: Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.
+    cite:  Brian W. Kernighan and P. J. Plauger in The Elements of Programming Style.
+
+  - content: The most effective debugging tool is still careful thought, coupled with judiciously placed print statements.
+    cite:  Brian W. Kernighan, in the paper Unix for Beginners (1979)
+
+  - content: First, solve the problem. Then, write the code.
+    cite:  John Johnson
+
+  - content: You can't trust code that you did not totally create yourself.
+    cite:  Ken Thompson
+
+  - content: Unix has retarded OS research by 10 years and linux has retarded it by 20.
+    cite:  Dennis Ritchie
+
+  - content: This is one of the reasons Lisp doesn't get anywhere. The trend to promote features so clever that you stop thinking about your problem and start thinking about the clever features. CL's loop is so powerful that people invented functional programming so that they'd never have to use it.
+    cite:  G Morgan
+
+  - content: Code never lies, comments sometimes do. 👌
+    cite:  Ron Jeffries
+
+  - content: The most important single aspect of software development is to be clear about what you are trying to build.
+    cite:  Bjarne Stroustrup
+
+  - content: A language that doesn’t affect the way you think about programming is not worth knowing.
+    cite:  Alan Perlis, first recipient of the Turing Award &lsb;➶&rsb;(https://twitter.com/alvinalexander/status/1612931904277282819?s=46&t=BDm2YHl1ARTsgIhpaVhPBQ)
+
+  - content: If it doesn't work, it doesn't matter how fast it doesn't work.
+    cite:  Mich Ravera
+
+  - content: If the automobile had followed the same development cycle as the computer, a Rolls-Royce would today cost $100, get a million miles per gallon, and explode once a year, killing everyone inside. 👌
+    cite:  Robert X. Cringely
+
+  - content: In programming the hard part isn't solving problems, but deciding what problems to solve. 👌
+    cite:  Paul Graham
+
+  - content: The trick is to fix the problem you have, rather than the problem you want.
+    cite:  Bram Cohen
+
+  - content: There is nothing so useless as doing efficiently that which should not be done at all.
+    cite:  Peter Drucker
+
+  - content: My definition of an expert in any field is a person who knows enough about what's really going on to be scared.
+    cite:  P. J. Plauger
+
+  - content: There are only 10 kinds of programmers; those that understand binary and those that don't.
+    cite:  Twitter
+
+  - content: Why do programmers mix up Halloween and Christmas? Because `Oct 31 = Dec 25`
+    cite: "&lsb;➶&rsb;(https://twitter.com/mikiobraun/status/1454909340033458181?s=21)"

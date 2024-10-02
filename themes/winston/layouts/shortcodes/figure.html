@@ -1,0 +1,14 @@
+{{- $image := .Get "image" -}}
+{{- $caption := or (.Get "caption") "" -}}
+{{- $class := or (.Get "class") "" -}}
+{{- $width := or (.Get "width") "" -}}
+
+<figure
+  class="{{ $class }}"
+  style="{{ if $width }}width: {{ $width }};{{ end }}"
+>
+  <img src="{{ $image }}" alt="{{ $caption }}">
+  {{ if $caption }}
+  <figcaption>{{ $caption }}</figcaption>
+  {{ end }}
+</figure>

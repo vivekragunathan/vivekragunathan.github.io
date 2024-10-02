@@ -1,0 +1,68 @@
+//@use "hugo:vars";
+
+$default: #fff;
+$defaultTextColor: #222222;
+$defaultSecondaryTextColor: #eee;
+$black: #333;
+
+$fontFamilyHeading: {{ site.Params.style.font_family_heading }};
+$fontFamilyParagraph: {{ site.Params.style.font_family_paragraph }};
+$fontFamilyQuote: {{ site.Params.style.font_family_quote }};
+$fontFamilyMonospace: {{ site.Params.style.font_family_monospace }};
+
+.quote-card {
+  background: $default;
+  color: $defaultTextColor;
+  font-style: none;
+
+  padding: 20px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 14px rgba($black, 0.12);
+  box-shadow: 10px 10px 12px 14px rgba(34, 34, 34, 0.12);
+
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  margin-bottom: 50px !important;
+
+  p {
+    /* font-family: $font_family_quote !important; */
+    font-family: $fontFamilyQuote !important;
+    font-size: 22px;
+    font-style: normal !important;
+    line-height: 1.5;
+    /* margin: 0; */
+    margin-left: 25px;
+    max-width: 80%;
+  }
+
+  cite {
+    font-family: 'Special Elite', fantasy;
+    font-size: 16px;
+    font-style: normal;
+    margin-top: 10px;
+    display: block;
+    opacity: 0.8;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &:before {
+    font-family: Georgia, serif;
+    content: "“";
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-size: 5em;
+    color: rgba($defaultSecondaryTextColor, 0.8);
+    font-weight: normal;
+  }
+
+  @media(max-width: 640px) {
+    &:after {
+      font-size: 22em;
+      right: -25px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{{/* Alert Shortcode */}}
+{{- $type := .Get "type" | default "primary" -}}
+{{- $title := .Get "title" | default "" -}}
+{{- $content := .Get "content" | default "" -}}
+{{- $cite := .Get "cite" | default "" -}}
+
+<div class="alert alert-{{ $type }}">
+  {{- if $title }}
+  <h4 class="alert-title">{{ $title }}</h4>
+  {{- end }}
+  <p class="alert-content">{{ $content | markdownify }}</p>
+  {{- if $cite }}
+  <p class="alert-cite">{{ $cite | markdownify }}</p>
+  {{- end }}
+</div>

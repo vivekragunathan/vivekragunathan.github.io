@@ -1,0 +1,13 @@
+<div class='header'>
+  <!-- {{ if .IsHome }}
+    <p></p>
+    {{ else }}
+    <a class="header-logo" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+    {{ end }} -->
+  <div class="menu-main">
+    {{ partial "the-menu.html" . }}
+  </div>
+  <div id="toggle-menu-main-mobile" class="hamburger-trigger">
+    <button class="hamburger">Menu</button>
+  </div>
+</div>

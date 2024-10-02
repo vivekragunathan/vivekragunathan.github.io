@@ -1,0 +1,131 @@
+title: A Developer's Experience
+theme: winston
+themesDir: themes
+
+
+# baseURL: https://example.com/winston/
+baseURL: ''
+relativeurls: true
+languageCode: en-us
+pagination:
+  pagerSize: 10
+ignorefiles: [ "data/dump/.*" ]
+# ignoreLogs: [ "dbg", "tblshoot" ]
+
+
+security:
+  enableInlineShortcodes: true
+
+
+#pygmentsCodeFences: true
+#pygmentsCodefencesGuessSyntax: true
+#pygmentsUseClasses: true
+
+
+markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+  highlight:
+    style: dracula
+    codeFences: true
+    tabWidth: 2
+    anchorLineNos: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+  goldmark:
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+    parser:
+      attribute:
+        block: true
+
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.109.0
+
+
+params:
+  author:
+    email: hkt@noreply.github.com
+    name: HKT
+  socials:
+    - github: "@churchuill"
+    - twitter: "@churchuill"
+    - linkedin: "@churchuill"
+    - mastodon: https://mastodon.online/@churchill
+  twitter_handle: "@churchill"
+  showAuthorOnHomepage: false
+  showAuthorOnPosts: true
+  showIntroContentOnHomepage: true
+  showPostsOnHomepage: false
+  usePaginationOnHomepage: false
+  limitPostsOnHomepage: 3
+  sortPostsByDateOldestFirst: false
+  addDot: false
+  addFrame: false
+  highlightColor: "#b31450" # "#7b16ff"
+  baseColor: "#ffffff"
+  baseOffsetColor: "#eaeaea"
+  headingColor: "#1c1b1d"
+  textColor: "#4e5157"
+  dotColor: "#b31450" # "#7b16ff"
+  woff2: commit-mono,sono,literata # Loads <font>.woff2 from static/fonts folder
+  # woff2: literata # Provide csv. Loads <font>.woff2 from static/fonts folder
+  fontFamilyHeading: TiemposText-Bold, Literata, Poppins
+  fontFamilyParagraph: Literata, Helvetica
+  fontFamilyQuote: "'Libre Baskerville', serif"
+  fontFamilyMonospace: "CommitMono, 'Monaspace Argon Var', monospace"
+  enableGoogleFonts: false
+  googleFontsUrl: https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap
+  google_analytics_id: ""
+  style:
+    font_family_heading: TiemposText-Bold, Literata, serif
+    font_family_paragraph: Literata, sans-serif
+    font_family_quote: "'Libre Baskerville', serif"
+    font_family_monospace: "'Monaspace Xenon Var', monospace"
+
+#sectionPagesMenu: main
+
+menu:
+  main:
+    - identifier: home
+      name: 🏠 Home
+      url: /
+      weight: 1
+    - identifier: blog
+      name: 📃 Posts
+      weight: 2
+      url: /posts/
+    - identifier: pages
+      name: 📖 Pages
+      weight: 3
+      url: /pages/
+    - name: 🗣 Quotes
+      identifier: quotes
+      weight: 4
+      url: /quotes/
+    - name: 🔍 Search
+      identifier: search
+      weight: 5
+      url: /test/
+    - name: 🎫 Tags
+      identifier: tags
+      weight: 6
+      url: /tags/
+    - identifier: about
+      name: 🌀 About
+      weight: 100
+      url: /About/

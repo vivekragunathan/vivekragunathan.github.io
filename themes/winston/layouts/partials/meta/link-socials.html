@@ -1,0 +1,8 @@
+{{ if .Site.Params.socials }}
+{{ range $idx, $value := .Site.Params.social }}
+  {{ range $socialName, $handle := $value }}
+  <meta name="{{$socialName}}:site" content="{{ $handle }}"/>
+  <meta name="{{$socialName}}:creator" content="{{ $handle }}"/>
+  {{ end }}
+{{ end }}
+{{ end }}

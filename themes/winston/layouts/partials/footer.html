@@ -1,0 +1,28 @@
+<div class="footer">
+  {{ if .Site.Data.social.links }}
+  <div class="footer-social">
+    {{ range .Site.Data.social.links }}
+      <span class="social-icon social-icon-{{ .name | urlize }}">
+        <a href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener">
+          <img src="{{ .image | relURL }}" width="24" height="24" alt="{{ .name }}"/>
+        </a>
+      </span>
+    {{ end }}
+  </div>
+  {{ end }}
+
+
+  <div id="help-overlay" class="display: none;" onclick="helpOverlayOff()">
+    <div id="help-overlay-text">{{ partial "help-overlay.html" }}</div>
+  </div>
+
+  <script>
+  function helpOverlayOn() {
+    document.getElementById("help-overlay").style.display = "block";
+  }
+
+  function helpOverlayOff() {
+    document.getElementById("help-overlay").style.display = "none";
+  }
+  </script>
+</div>

@@ -1,0 +1,6 @@
+{{ if strings.ContainsNonSpace .Inner }}
+<div class="ad-chit center" >
+  {{ $content := .Inner | markdownify }}
+  {{ $content }}
+</div>
+{{ end }}

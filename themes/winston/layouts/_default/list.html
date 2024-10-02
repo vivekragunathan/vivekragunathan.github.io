@@ -1,0 +1,18 @@
+{{ define "body_classes" }}page-default-list{{ end }}
+
+{{ define "main" }}
+
+{{ if .Params.show_intro_block }}
+  <div class="intro">
+    <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+    {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}
+  </div>
+{{ end }}
+
+{{ .Content }}
+
+{{ range .Pages }}
+  {{ .Render "summary" }}
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,85 @@
+$primary-color: #4d4dff;
+$secondary-color: #666666;
+$danger-color: #ff3838;
+$warning-color: #ffba00;
+$success-color: #2ec946;
+
+.alert {
+  padding: 16px;
+  margin: 8px;
+  /* width: 512px; */
+  /* max-width: 90%; */
+
+  .alert-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 120%;
+  }
+
+  .alert-content {
+    color: #555555;
+    margin: 0;
+    font-size: 95%;
+    font-style: italic;
+  }
+
+  .alert-cite {
+    font-size: 14px;
+    text-align: right;
+
+    &::before {
+      content: '— ';
+    }
+  }
+}
+
+@mixin alert-1($color) {
+  background-color: rgba($color, 0.05);
+
+  .alert-title {
+    color: $color;
+  }
+}
+
+@mixin alert-2($color) {
+  border-left: 4px solid $color;
+  background-color: rgba($color, 0.05);
+
+  .alert-title {
+    color: $color;
+  }
+}
+
+@mixin alert-3($color) {
+  border: 1px solid lighten($color, 25%);
+  border-radius: 8px;
+  background-color: rgba($color, 0.05);
+
+  .alert-title {
+    color: $color;
+  }
+}
+
+.alert-1-primary {
+  @include alert-1($primary-color);
+}
+
+.alert-1-warning {
+  @include alert-1($warning-color);
+}
+
+.alert-2-success {
+  @include alert-2($success-color);
+}
+
+.alert-2-secondary {
+  @include alert-2($secondary-color);
+}
+
+.alert-3-primary {
+  @include alert-3($primary-color);
+}
+
+.alert-3-danger {
+  @include alert-3($danger-color);
+}

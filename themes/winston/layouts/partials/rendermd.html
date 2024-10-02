@@ -1,0 +1,14 @@
+<!--
+Purpose of this partial is to parse "certain" alternative
+markdown syntax and prepare for rendering, which otherwise
+may not be possible in some contexts. Example: When there
+is markdown syntax (say link []()) in yaml, it results in
+yaml synax/parse error.
+
+This partial is used in quotations.html
+-->
+{{ if .content }}
+{{ $content := replace .content "&lsb;" "[" }}
+{{ $content := replace $content "&rsb;" "]" }}
+{{ $content | markdownify }}
+{{ end }}

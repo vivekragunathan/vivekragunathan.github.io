@@ -1,0 +1,34 @@
+<div class="summary">
+  {{ $post_image := or .Params.featured_image .Params.image }}
+  {{ if $post_image }}
+    <img class="featured_image" alt="{{.Params.imageAltAttribute | default "Article hero image"}}" src="{{ $post_image | relURL }}" />
+  {{ end }}
+  <h2 class="summary-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <!--  {{ if .Site.Params.showAuthorOnPosts }}
+    {{ partial "author.html" . }}
+  {{ else }}
+    <div class="summary-date">{{ dateFormat "Jan 2, 2006" .Date }}</div>
+  {{ end }} -->
+  <p class="summary-description">
+    <!-- TODO: Wish there is a better way :( -->
+    {{ with .Params.description }}
+      {{ . | markdownify }}
+    {{ else }}
+      {{ with .Params.summary }}
+        {{ . | markdownify }}
+      {{ else }}
+        {{ with .Params.excerpt }}
+          {{ . | markdownify }}
+        {{ else }}
+          {{ .Summary | markdownify }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if .Truncated }}
+      <a href="{{ .RelPermalink }}">More ...</a>
+    {{ end }}
+  </p>
+  <!-- <p class="summary-description">{{ .Params.description | markdownify }}</p>
+  <p class="summary-description">{{ .Params.summary | markdownify }}</p>-->
+</div>

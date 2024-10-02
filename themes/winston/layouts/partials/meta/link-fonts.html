@@ -1,0 +1,11 @@
+{{ $fontsPath := path.Join "/" "static/fonts" }}
+
+{{ range (readDir $fontsPath) }}
+{{ if and (not .IsDir) (hasSuffix .Name ".woff2") }}
+  {{ $ff := printf "/fonts/%s" .Name }}
+  <link rel="preload"
+    href="{{ $ff | relURL }}"
+    type="font/woff2"
+    as="font" crossorigin>
+{{ end }}
+{{ end }}

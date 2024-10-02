@@ -1,0 +1,27 @@
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.titled-border {
+  border: 1px solid transparent;
+  padding: 10px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.titled-border::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid silver;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transform: rotate(-2deg);
+}

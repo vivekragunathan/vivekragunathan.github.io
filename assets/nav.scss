@@ -1,0 +1,44 @@
+.primary-navigation {
+  position: fixed;
+  /* top: 20px; */
+  right: 20px;
+  z-index: 999;
+
+  >ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    >li {
+      position: relative;
+
+      &:hover>ul {
+        display: block;
+      }
+
+      >ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        list-style-type: none;
+        margin: 0;
+        width: 120px;
+        padding: 10px;
+        box-shadow: 2px 2px 20px silver;
+        display: none;
+
+        >li {
+          padding-block: 10px;
+        }
+      }
+
+      >a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+      }
+    }
+  }
+}

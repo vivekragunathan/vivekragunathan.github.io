@@ -1,0 +1,15 @@
+{{ $quotes := $.Site.Data.quotes.quotes }}
+
+{{ range $index, $value := $quotes }}
+
+<blockquote id="quote-{{ $index }}" class="quote-card">
+    <p>{{ partial "rendermd.html" (dict "content" $value.content) }}</p>
+
+    {{- if $value.cite }}
+    <cite>
+      {{ partial "rendermd.html" (dict "content" $value.cite ) }}
+    </cite>
+    {{ end }}
+</blockquote>
+
+{{ end }}

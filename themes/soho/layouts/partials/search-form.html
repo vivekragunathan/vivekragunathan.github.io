@@ -1,9 +1,0 @@
-<div class="blog-search-box">
-	<!-- https://codepen.io/ahmadbassamemran/pen/rNjMXqg -->
-	<button class="blog-search-btn"><i class="fas fa-search"></i></button>
-	<input type="text" class="blog-search-input" placeholder="Type to Search...">
-
-	<form style='display: none;' action='{{ with .GetPage "/search" }}{{.Permalink}}{{end}}' method="get">
-		<input name="q" type="text">
-	</form>
-</div>

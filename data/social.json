@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "name": "github",
+      "url": "https://github.com/vivekragunathan",
+      "image": "images/social/github.svg"
+    },
+    {
+      "name": "stackoverflow",
+      "url": "https://stackoverflow.com/users/495612",
+      "image": "images/social/stackoverflow.svg"
+    },
+    {
+      "name": "mastodon",
+      "url": "https://mastodon.social/@hktpe",
+      "image": "images/social/mastodon.svg"
+    },
+    {
+      "name": "feed",
+      "url": "/index.xml",
+      "image": "images/social/rss.svg"
+    }
+  ]
+}

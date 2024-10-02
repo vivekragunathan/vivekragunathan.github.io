@@ -1,14 +1,14 @@
-.hugo_build.lock
-
 .idea
 .vscode
 .fleet
-*.iml
 
-_site
-.sass-cache
-.jekyll-metadata
-.lock
-bak/
+node_modules
+resources/**
+public/**
+
+data/dump/
+
+*.lock
+*.iml
 
 .DS_Store
