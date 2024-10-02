@@ -16,7 +16,8 @@ I was writing a [generic](http://msdn2.microsoft.com/en-us/library/0x6a29h6.aspx
 
 Following is an excerpt from the [C# language specification](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf) **for generic constraints**
 
-```
+---
+
 A _class-type_ constraint must satisfy the following rules:
 
 - The type must be a class type.
@@ -31,7 +32,8 @@ A type specified as an _interface-type_ constraint must satisfy the following ru
 
 - The type must be an interface type.
 - A type must not be specified more than once in a given `where` clause.
-```
+
+---
 
 There you have it. The specification deliberately restricts value types and `enum`s as generic type parameters. But if you wish to specify a non-reference type as the *primary* constraint, a `struct` can be used.
 

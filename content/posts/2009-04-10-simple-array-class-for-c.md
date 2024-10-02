@@ -1,13 +1,17 @@
 ---
 title: Simple Array Class For C++
-author: vivekragunathan
+author: higherkindedtype
 layout: post
 date: 2009-04-10T16:48:00+00:00
-url: /2009/04/10/simple-array-class-for-c/
+url: /posts/cpp-array
+aliases:
+  - /2009/04/10/simple-array-class-for-c/
 categories:
   - C++
   - CodeProject
   - Uncategorized
+summary: |
+  This is a simple array like class for C++, which can be used as a safe wrapper for accessing a block of memory pointed by a bare pointer.
 
 ---
 
@@ -128,7 +132,5 @@ private: T& GetItem(size_t index) const
          }
 };
 ```
-
-This class is also available at [KenBase](http://sites.google.com/site/kenbase/cpp/cpparray).
 
 Disclaimer: It is not aimed to replace the STL containers.

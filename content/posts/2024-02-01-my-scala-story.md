@@ -4,6 +4,7 @@ author: higherkindedtype
 layout: post
 url: /posts/my-scala-story
 date: 2024-02-01
+featured_image: /images/scala-story.jpg
 tags: [ 'scala', 'journey' ]
 summary: |
   I have been reading the _My Scala Story_ [series](https://softwaremill.com/blog/?tag=myscalastory) by Software Mill - a short interview of renowned experts about their Scala journey. I have not done anything substantial in the OSS space to be on Software Mill's radar. But their series inspired me to share mine. So, here it goes ...
