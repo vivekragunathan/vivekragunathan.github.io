@@ -1,8 +1,19 @@
 @use "variables";
 
-:root {
-  /* --font-family-quote: $fontFamilyQuote; */
-  --font-family-quote: {{ .Site.Params.fontFamilyQuote | default "serif" }};
+@font-face {
+  font-family: "Literata";
+  src:
+    local('Literata')
+    url("/fonts/literata.woff2") format("woff");
+}
+
+* {
+  box-sizing: border-box;
+
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
 }
 
 *,
@@ -15,4 +26,12 @@
 
 .text-center {
   text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

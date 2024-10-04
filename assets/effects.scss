@@ -1,9 +1,11 @@
-.shake-once:hover {
+.shake-once {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
 }
 
-.keep-shaking:hover {
+.shake-forever {
+  font-weight: bold;
+
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
 

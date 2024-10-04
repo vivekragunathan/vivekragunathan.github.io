@@ -1,1 +1,9 @@
-/* $fontFamilyQuote: 'Libre Baskerville', cursive2; */
+/*  For now using CSS variables.
+    Still thinking about using SCSS variables */
+:root {
+  --font-family-quote: {{ .Site.Params.fontFamilyQuote | default "serif" }};
+  --font-family-monospace: Monaspace Argon Var, monospace;
+  --font-size-body-text: 21px;
+  --font-size-quote: 24px;
+  --font-size-h1: 42px;
+}

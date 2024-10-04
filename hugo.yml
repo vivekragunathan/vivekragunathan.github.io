@@ -7,19 +7,14 @@ themesDir: themes
 baseURL: ''
 relativeurls: true
 languageCode: en-us
-pagination:
-  pagerSize: 10
 ignorefiles: [ "data/dump/.*" ]
 # ignoreLogs: [ "dbg", "tblshoot" ]
 
+pagination:
+  pagerSize: 10
 
 security:
   enableInlineShortcodes: true
-
-
-#pygmentsCodeFences: true
-#pygmentsCodefencesGuessSyntax: true
-#pygmentsUseClasses: true
 
 
 markup:
@@ -85,7 +80,7 @@ params:
   woff2: commit-mono,sono,literata # Loads <font>.woff2 from static/fonts folder
   # woff2: literata # Provide csv. Loads <font>.woff2 from static/fonts folder
   fontFamilyHeading: TiemposText-Bold, Literata, Poppins
-  fontFamilyParagraph: Literata, Helvetica
+  fontFamilyParagraph: "'Literata Light', serif"
   fontFamilyQuote: "'Libre Baskerville', serif"
   fontFamilyMonospace: "CommitMono, 'Monaspace Argon Var', monospace"
   enableGoogleFonts: false
@@ -93,7 +88,8 @@ params:
   google_analytics_id: ""
   style:
     font_family_heading: TiemposText-Bold, Literata, serif
-    font_family_paragraph: Literata, sans-serif
+    font_family_paragraph2: Literata, sans-serif
+    font_family_paragraph: "Roboto Serif"
     font_family_quote: "'Libre Baskerville', serif"
     font_family_monospace: "'Monaspace Xenon Var', monospace"
 
