@@ -4,6 +4,10 @@
   right: 20px;
   z-index: 999;
 
+  img.author-image {
+    box-shadow: 0px 0px 20px 5px;
+  }
+
   >ul {
     list-style-type: none;
     margin: 0;
