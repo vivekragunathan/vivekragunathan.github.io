@@ -10,12 +10,24 @@
 
       {{ $post_image := or .Params.featured_image .Params.image }}
       {{ if $post_image }}
-        <img class="featured_image" alt="{{.Params.imageAltAttribute | default "Article hero image"}}" src="{{ $post_image | relURL }}" />
+        <img  class="featured_image"
+              alt="{{.Params.imageAltAttribute | default "Article hero image"}}"
+              src="{{ $post_image | relURL }}" />
       {{ end }}
     </div>
 
     <div class="content">
       {{ .Content }}
     </div>
+
+    <div class="tags">
+    {{ $tags := .Params.tags }}
+    {{ if $tags }}
+      {{ range $tags }}
+        <span>{{ . }}</span>
+      {{ end }}
+    {{ end }}
+    </div>
+
   </div>
 {{ end }}
