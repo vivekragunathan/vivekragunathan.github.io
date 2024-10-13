@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/sbt-xcompile-jdk/</loc>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sbt/</loc>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/scala/</loc>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-10-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/declaring-implicits/</loc>
     <lastmod>2024-09-15T00:00:00+00:00</lastmod>
@@ -15,15 +30,6 @@
     <lastmod>2024-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/pages/</loc>
-    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/scala/</loc>
-    <lastmod>2024-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2024-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/journey/</loc>

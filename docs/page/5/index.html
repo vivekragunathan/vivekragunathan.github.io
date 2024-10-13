@@ -147,6 +147,26 @@
         
 
         <h1 class="post-title">
+          <a href="/2016/02/16/partial-classes-java/">Partial Classes – Java ???</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2016-02-16T04:27:37Z">Feb 16, 2016</time> &middot; 4 min read
+        </div>
+
+        <div>
+          <p>I am really sorry if I tricked you into believing that Java is offering partial class feature. Unfortunately, Java doesn’t. Maybe never will. But I am going to talk about a workaround also presenting the thought process. Hence the length of the post.</p>
+        </div>
+
+        <div class="read-more-link">
+          <a href="/2016/02/16/partial-classes-java/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+
+        
+
+        <h1 class="post-title">
           <a href="/posts/new-look-2016/">Sporting a new look</a>
         </h1>
 
@@ -342,43 +362,6 @@
 
         <div class="read-more-link">
           <a href="/2015/07/08/a-funny-moment-of-ioc/">Read More</a>
-        </div>
-      </article>
-      <article class="post">
-
-        
-
-        <h1 class="post-title">
-          <a href="/2015/07/07/mutating-strings/">Mutating Strings</a>
-        </h1>
-
-        <div class="post-date">
-          <time datetime="2015-07-07T06:52:45Z">Jul 7, 2015</time> &middot; 4 min read
-        </div>
-
-        <div>
-          <p>Today, we question our beliefs! Is string really immutable?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">string</span> message = <span style="color:#f1fa8c">&#34;Hello World!&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Console.WriteLine(message); <span style="color:#6272a4">// Prints &#34;Hello World!&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">unsafe</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> length = message.Length;
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">fixed</span> (<span style="color:#8be9fd">char</span> *p = message) {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> index = <span style="color:#bd93f9">0</span>; index &lt; length; ++index) {
-</span></span><span style="display:flex;"><span>      *(p + index) = <span style="color:#f1fa8c">&#39;?&#39;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Console.WriteLine(message); <span style="color:#6272a4">// Prints what? See for yourself!</span>
-</span></span></code></pre></div>
-        </div>
-
-        <div class="read-more-link">
-          <a href="/2015/07/07/mutating-strings/">Read More</a>
         </div>
       </article>
   </div>
