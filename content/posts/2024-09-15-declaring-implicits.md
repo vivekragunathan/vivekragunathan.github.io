@@ -75,7 +75,7 @@ Implicit parameters, which I would say is the more widely known and used, are ju
 def registerUser(input: RegisterUserInput)(implicit ec: ExecutionContext): Future[User] = ...
 ```
 
-The `registerUser` function is meant to perform a number of tasks to have a user registered. All of it *asynchronously* in a `Future`. Running a `Future` requires an `ExecutionContext`[[^1]](craftdocs://open?blockId=823C1076-0197-4288-90BD-F75A378484E5&spaceId=null)``, which if declared in scope (or in one of the places where the compiler will look for[[^2]](craftdocs://open?blockId=9860AA74-1B5F-4090-94FB-446EEC46E943&spaceId=null)) will be picked up by the compiler and passed *implicitly* to `registerUser`.
+The `registerUser` function is meant to perform a number of tasks to have a user registered. All of it *asynchronously* in a `Future`. Running a `Future` requires an `ExecutionContext`[^1], which if declared in scope (or in one of the places where the compiler will look for[^2] will be picked up by the compiler and passed *implicitly* to `registerUser`.
 
 Here is an example:
 
