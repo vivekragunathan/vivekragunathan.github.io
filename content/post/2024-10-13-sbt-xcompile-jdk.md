@@ -118,6 +118,4 @@ version := {
 
 There is no absolute winner. The choice depends on the factors such as team standards, operational and company policies etc. The simplest of them all - using JDK version in project version, may not be appealing because it does not follow semantic versioning; if you wish to stick to that.
 
----
-
 [^1]: If my understanding of those plugins is not right or if there is some plugin that offers cross compiling for different JDKs, I would love to know.
